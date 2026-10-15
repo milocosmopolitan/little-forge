@@ -63,9 +63,8 @@ jobs:
           for scene in ambient sale expanded; do
             timeout 90s xvfb-run -a -s '-screen 0 1280x800x24' target/debug/little-forge --safe-window --qa "$scene" --screenshot "qa-output/$scene.png" > "qa-output/$scene.log" 2>&1
             test -s "qa-output/$scene.png"
-            if test -f "docs/qa/golden/linux-llvmpipe/$scene.png"; then
-              python scripts/compare-images.py "docs/qa/golden/linux-llvmpipe/$scene.png" "qa-output/$scene.png" --diff "qa-output/$scene-diff.png"
-            fi
+            test -s "docs/qa/golden/linux-llvmpipe/$scene.png"
+            python scripts/compare-images.py "docs/qa/golden/linux-llvmpipe/$scene.png" "qa-output/$scene.png" --diff "qa-output/$scene-diff.png"
           done
       - uses: actions/upload-artifact@v4
         if: always()

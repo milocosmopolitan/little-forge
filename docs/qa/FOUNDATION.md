@@ -21,7 +21,7 @@ Three OS compile/test, portable archives, Linux software-rendered screenshot can
 - Native macOS Apple Silicon compositing, focus, Retina/mixed-DPI, sleep/wake.
 - Windows Shadow PC checklist in issue #10.
 - Native work-area adapters and saved monitor placement implemented; actual mixed-DPI/disconnected-display qualification pending.
-- Reviewed visual baselines and measured native idle/expanded/unfocused/minimized CPU/GPU/memory.
+- Measured native idle/expanded/unfocused/minimized CPU/GPU/memory.
 - Signing/notarization/Steam release outside this Foundation preview.
 
 Do not close the parent epic or native acceptance issues based on code presence alone.
@@ -35,3 +35,5 @@ Do not close the parent epic or native acceptance issues based on code presence 
 The first CI capture (run 38794675720, commit 172491e) revealed a clipped building base, uniform-atlas frame drift, detached hand item and missing middle-dot glyphs. These are corrected in the follow-up: fitted building, explicit source rectangles, bottom-centered character anchors, per-walk-frame hand points and ASCII separators. The initial images are not approved goldens.
 
 Golden candidates are reviewed before copying into `docs/qa/golden/linux-llvmpipe`. CI compares same-platform candidates with channel tolerance 8 and maximum changed-pixel ratio 0.005, preserving a diff image. Hardware/macOS/Windows images require their own approved baselines; do not silently replace these files after a failure.
+
+Final ambient/sale/expanded captures from [run 38799159689](https://github.com/milocosmopolitan/little-forge/actions/runs/38799159689) were reviewed and committed under `golden/linux-llvmpipe`. Missing baselines now fail CI. Windows parallel-test temporary-directory collisions were fixed using an atomic unique suffix, preserving all persistence assertions.
