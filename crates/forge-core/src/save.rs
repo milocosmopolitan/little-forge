@@ -146,9 +146,11 @@ impl Drop for SaveLock {
 mod tests {
     use super::*;
     use crate::Command;
+    static NEXT_DIR: std::sync::atomic::AtomicU64 = std::sync::atomic::AtomicU64::new(0);
     fn dir() -> std::path::PathBuf {
         std::env::temp_dir().join(format!(
-            "forge-save-{}-{}",
+            "forge-save-{}-{}-{}",
+            NEXT_DIR.fetch_add(1, std::sync::atomic::Ordering::Relaxed),
             std::process::id(),
             std::time::SystemTime::now()
                 .duration_since(std::time::UNIX_EPOCH)

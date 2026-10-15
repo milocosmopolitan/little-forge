@@ -246,10 +246,10 @@ fn setup(
     commands.spawn((
         Sprite {
             image: server.load("forge/forge.png"),
-            custom_size: Some(Vec2::splat(210.)),
+            custom_size: Some(Vec2::splat(270.)),
             ..default()
         },
-        Transform::from_xyz(-170., 14., 0.),
+        Transform::from_xyz(-170., -3., 0.),
     ));
     commands.spawn((
         Sprite {
@@ -336,10 +336,10 @@ fn setup(
                 layout: smoke,
                 index: 0,
             }),
-            custom_size: Some(Vec2::new(12., 24.)),
+            custom_size: Some(Vec2::new(10., 20.)),
             ..default()
         },
-        Transform::from_xyz(-142., 44., 1.),
+        Transform::from_xyz(-134., 47., 1.),
         Smoke,
     ));
     // One shared placeholder image is used for the display and the carried item.
@@ -570,13 +570,13 @@ fn animate(
                 sprite.custom_size = Some(art.smith_sizes[index]);
             }
         } else if smoke.is_some() {
-            t.translation.y = 44. + offset;
+            t.translation.y = 47. + offset;
             if let Some(a) = &mut sprite.texture_atlas {
                 a.index = ((animation_time * 5.) as usize) % 6;
             }
         } else {
             t.translation.y = if t.translation.x == -170. {
-                14. + offset
+                -3. + offset
             } else if t.translation.x == 90. {
                 -27. + offset
             } else {
