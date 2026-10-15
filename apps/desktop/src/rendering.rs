@@ -27,6 +27,14 @@ pub fn transparent_alpha() -> CompositeAlphaMode {
 }
 
 fn settings(safe: bool) -> WgpuSettings {
+    #[cfg(target_os = "windows")]
+    let settings = WgpuSettings {
+        // Embed DXC so release rendering uses the same compiler as native QA.
+        // Legacy FXC loses the WARP device in release builds even after the index fix.
+        dx12_shader_compiler: bevy::render::settings::Dx12Compiler::StaticDxc,
+        ..WgpuSettings::default()
+    };
+    #[cfg(not(target_os = "windows"))]
     let settings = WgpuSettings::default();
     #[cfg(target_os = "windows")]
     if !safe {
@@ -47,6 +55,23 @@ pub fn plugin(safe: bool) -> RenderPlugin {
     }
 }
 
+/// Replace the pinned Bevy 0.20 sprite-mesh shader before RenderStartup loads it.
+/// Only the instance-index binding differs from upstream; see docs/qa/DX12-SPRITES.md.
+pub fn install_sprite_shader(app: &mut bevy::prelude::App) {
+    use bevy::asset::io::embedded::EmbeddedAssetRegistry;
+    use std::path::{Path, PathBuf};
+    app.world()
+        .resource::<EmbeddedAssetRegistry>()
+        .insert_asset(
+            PathBuf::from(concat!(
+                env!("CARGO_MANIFEST_DIR"),
+                "/src/shaders/sprite_material.wesl"
+            )),
+            Path::new("bevy_sprite_render/sprite_mesh/sprite_material.wesl"),
+            include_bytes!("shaders/sprite_material.wesl").as_slice(),
+        );
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -57,6 +82,17 @@ mod tests {
             transparent_alpha(),
             CompositeAlphaMode::PreMultiplied | CompositeAlphaMode::PostMultiplied
         ));
+    }
+
+    #[cfg(target_os = "windows")]
+    #[test]
+    fn windows_shader_compiler_is_self_contained() {
+        for safe in [false, true] {
+            assert!(matches!(
+                settings(safe).dx12_shader_compiler,
+                bevy::render::settings::Dx12Compiler::StaticDxc
+            ));
+        }
     }
 
     #[cfg(target_os = "windows")]
