@@ -1,0 +1,44 @@
+{
+  "benchmark": {
+    "elapsed_ms": 9.099145,
+    "event_checksum": 1509897,
+    "kind": "simulation-only",
+    "runs": 10000,
+    "simulated_seconds_per_run": 3600
+  },
+  "events": [
+    {
+      "id": 1,
+      "kind": "Crafted",
+      "tick": 5
+    },
+    {
+      "id": 2,
+      "kind": {
+        "Sold": {
+          "gold": 12,
+          "item": "iron_dagger"
+        }
+      },
+      "tick": 12
+    }
+  ],
+  "platform": {
+    "arch": "x86_64",
+    "os": "linux"
+  },
+  "scenario": "craft-and-sale",
+  "state": {
+    "command_id": 1,
+    "crafted": 1,
+    "daggers": 0,
+    "event_id": 2,
+    "gold": 12,
+    "job_due": null,
+    "next_visitor": 35,
+    "ore": 8,
+    "rng": 45454805674,
+    "sold": 1,
+    "tick": 20
+  }
+}

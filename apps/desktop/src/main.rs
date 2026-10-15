@@ -1,0 +1,640 @@
+mod native;
+mod presentation;
+mod window;
+use bevy::{
+    diagnostic::{DiagnosticsStore, FrameTimeDiagnosticsPlugin},
+    prelude::*,
+    render::view::screenshot::{Screenshot, save_to_disk},
+    window::PresentMode,
+    winit::{UpdateMode, WinitSettings},
+};
+use forge_core::{
+    Command, State,
+    save::{self, Save, SaveLock},
+};
+use presentation::Presentation;
+use std::{
+    path::PathBuf,
+    time::{Duration, SystemTime, UNIX_EPOCH},
+};
+
+#[derive(Resource)]
+struct Session {
+    save: Save,
+    dir: PathBuf,
+    _lock: SaveLock,
+    last: std::time::Instant,
+    fraction: f64,
+    status: String,
+    disabled: bool,
+}
+#[derive(Resource, Default)]
+struct Options {
+    safe: bool,
+    qa: Option<String>,
+    frames: u32,
+    capture: Option<String>,
+}
+#[derive(Component)]
+struct Visitor;
+#[derive(Component)]
+struct Weapon;
+#[derive(Component)]
+struct Smith;
+#[derive(Component)]
+struct Smoke;
+#[derive(Component)]
+struct Hud;
+#[derive(Component)]
+struct Panel;
+#[derive(Resource)]
+struct Art {
+    images: Vec<Handle<Image>>,
+    smith_sizes: Vec<Vec2>,
+    visitor_sizes: Vec<Vec2>,
+    visitor_hands: Vec<Vec2>,
+}
+fn now() -> u64 {
+    SystemTime::now()
+        .duration_since(UNIX_EPOCH)
+        .unwrap_or_default()
+        .as_secs()
+}
+fn main() {
+    if let Err(e) = run() {
+        eprintln!(
+            "Little Forge: {e}\nRecovery: launch with --safe-window. Save files have not been reset."
+        );
+        std::process::exit(1);
+    }
+}
+fn run() -> Result<(), Box<dyn std::error::Error>> {
+    let mut opts = Options::default();
+    let mut dir = None;
+    let mut args = std::env::args().skip(1);
+    while let Some(a) = args.next() {
+        match a.as_str() {
+            "--safe-window" => opts.safe = true,
+            "--qa" => {
+                opts.qa = Some(
+                    args.next()
+                        .ok_or("--qa needs ambient, sale, expanded, or idle")?,
+                );
+            }
+            "--save-dir" => {
+                dir = Some(PathBuf::from(args.next().ok_or("--save-dir needs a path")?))
+            }
+            "--screenshot" => {
+                opts.capture = Some(args.next().ok_or("--screenshot needs a PNG path")?)
+            }
+            "--help" => {
+                println!(
+                    "Little Forge\n--safe-window --save-dir PATH --qa ambient|sale|expanded|idle --screenshot PATH\nC: craft, B: buy ore, Tab: expand, F8: 10s click-through, Ctrl+Alt+F8: global recovery, Esc: recover, T: topmost, D: decorations, F12: diagnostics\nQA uses an isolated save directory and a fixed simulation clock."
+                );
+                return Ok(());
+            }
+            _ => return Err(format!("unknown argument {a}").into()),
+        }
+    }
+    if opts
+        .qa
+        .as_ref()
+        .is_some_and(|s| !matches!(s.as_str(), "ambient" | "sale" | "expanded" | "idle"))
+    {
+        return Err("unknown QA scenario".into());
+    }
+    let qa = opts.qa.is_some();
+    let dir = dir.unwrap_or_else(|| {
+        if qa {
+            PathBuf::from("qa-output/session")
+        } else {
+            directories::ProjectDirs::from("com", "Omiologic", "LittleForge")
+                .expect("user data directory")
+                .data_local_dir()
+                .into()
+        }
+    });
+    let lock = SaveLock::acquire(&dir)?;
+    let mut saved = if qa {
+        Save::new(State::new(42), now())
+    } else {
+        save::load(&dir)?.unwrap_or_else(|| Save::new(State::new(42), now()))
+    };
+    let elapsed = if qa { 0 } else { saved.catch_up(now())? };
+    if saved.state.command_id == 0 {
+        saved
+            .state
+            .command(1, Command::Craft)
+            .map_err(|e| format!("{e:?}"))?;
+    }
+    if !qa {
+        save::store(&dir, &mut saved)?;
+    }
+    let status = format!(
+        "Welcome back | caught up {elapsed}s. C craft / B buy ore / Tab manage / F8 idle 10s / Ctrl+Alt+F8 recover"
+    );
+    let mut presentation = Presentation::default();
+    if opts.qa.as_deref() == Some("sale") {
+        for event in saved.state.advance(12).map_err(|e| format!("{e:?}"))? {
+            presentation.accept(event);
+        }
+    }
+    let mut app = App::new();
+    let native = native::NativeRuntime::new();
+    eprintln!("{}", native.status);
+    app.insert_non_send(native);
+    let asset_dir = std::env::current_exe()?.parent().unwrap().join("assets");
+    let asset_dir = if asset_dir.is_dir() {
+        asset_dir
+    } else {
+        PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../assets")
+    };
+    if !asset_dir.is_dir() {
+        return Err(
+            "assets folder missing: keep the assets directory next to the executable".into(),
+        );
+    }
+    for asset in forge_content::Manifest::bundled()
+        .map_err(|e| format!("content: {e}"))?
+        .assets
+    {
+        if !asset_dir.join(&asset.path).is_file() {
+            return Err(format!("missing bundled asset {}", asset.path).into());
+        }
+    }
+    #[cfg(target_os = "macos")]
+    let transparent_alpha = bevy::window::CompositeAlphaMode::PostMultiplied;
+    #[cfg(target_os = "linux")]
+    let transparent_alpha = bevy::window::CompositeAlphaMode::PreMultiplied;
+    #[cfg(not(any(target_os = "macos", target_os = "linux")))]
+    let transparent_alpha = bevy::window::CompositeAlphaMode::Auto;
+    let win = Window {
+        title: "Little Forge".into(),
+        resolution: (960, 180).into(),
+        transparent: !opts.safe,
+        decorations: opts.safe,
+        composite_alpha_mode: if opts.safe {
+            bevy::window::CompositeAlphaMode::Auto
+        } else {
+            transparent_alpha
+        },
+        resizable: false,
+        present_mode: PresentMode::AutoVsync,
+        ..default()
+    };
+    app.insert_resource(ClearColor(if opts.safe {
+        Color::srgb(0.065, 0.075, 0.085)
+    } else {
+        Color::NONE
+    }))
+    .insert_resource(Session {
+        save: saved,
+        dir,
+        _lock: lock,
+        last: std::time::Instant::now(),
+        fraction: 0.,
+        status,
+        disabled: false,
+    })
+    .insert_resource(window::Desktop::new(
+        opts.safe,
+        opts.qa.as_deref() == Some("expanded"),
+    ))
+    .insert_resource(WinitSettings {
+        focused_mode: UpdateMode::reactive_low_power(Duration::from_secs_f64(1. / 30.)),
+        unfocused_mode: UpdateMode::reactive_low_power(Duration::from_secs_f64(1. / 15.)),
+    })
+    .insert_resource(presentation)
+    .add_plugins(
+        DefaultPlugins
+            .set(AssetPlugin {
+                file_path: asset_dir.to_string_lossy().into_owned(),
+                ..default()
+            })
+            .set(ImagePlugin::default_nearest())
+            .set(WindowPlugin {
+                primary_window: Some(win),
+                ..default()
+            }),
+    )
+    .add_plugins(FrameTimeDiagnosticsPlugin::default())
+    .insert_resource(opts)
+    .add_systems(Startup, setup)
+    .add_systems(
+        Update,
+        (
+            qa_capture,
+            input,
+            simulate,
+            presentation::tick,
+            animate,
+            window::update,
+            hud,
+        )
+            .chain(),
+    );
+    app.run();
+    Ok(())
+}
+fn setup(
+    mut commands: Commands,
+    server: Res<AssetServer>,
+    mut layouts: ResMut<Assets<TextureAtlasLayout>>,
+    mut images: ResMut<Assets<Image>>,
+) {
+    commands.spawn(Camera2d);
+    commands.spawn((
+        Sprite {
+            image: server.load("forge/forge.png"),
+            custom_size: Some(Vec2::splat(270.)),
+            ..default()
+        },
+        Transform::from_xyz(-170., -3., 0.),
+    ));
+    commands.spawn((
+        Sprite {
+            image: server.load("forge/workbench.png"),
+            custom_size: Some(Vec2::splat(155.)),
+            ..default()
+        },
+        Transform::from_xyz(90., -27., 0.),
+    ));
+    let manifest = forge_content::Manifest::bundled().expect("validated bundled manifest");
+    let smith_meta = manifest.assets.iter().find(|a| a.id == "smith").unwrap();
+    let visitor_meta = manifest.assets.iter().find(|a| a.id == "visitor").unwrap();
+    let frame_layout = |asset: &forge_content::Asset| {
+        let mut layout = TextureAtlasLayout::new_empty(UVec2::new(asset.width, asset.height));
+        for r in &asset.frame_rects {
+            layout.add_texture(URect::new(r[0], r[1], r[2], r[3]));
+        }
+        layout
+    };
+    let sizes = |asset: &forge_content::Asset| {
+        asset
+            .frame_rects
+            .iter()
+            .map(|r| Vec2::new((r[2] - r[0]) as f32 / (r[3] - r[1]) as f32 * 75., 75.))
+            .collect::<Vec<_>>()
+    };
+    let smith_sizes = sizes(smith_meta);
+    let visitor_sizes = sizes(visitor_meta);
+    let visitor_hands = visitor_meta
+        .walking_hand_points
+        .iter()
+        .enumerate()
+        .map(|(i, p)| {
+            let r = visitor_meta.frame_rects[i + 4];
+            let scale = 75. / (r[3] - r[1]) as f32;
+            Vec2::new(
+                (p[0] as f32 - (r[0] + r[2]) as f32 / 2.) * scale,
+                (r[3] as f32 - p[1] as f32) * scale,
+            )
+        })
+        .collect();
+    let smith_layout = layouts.add(frame_layout(smith_meta));
+    let visitor_layout = layouts.add(frame_layout(visitor_meta));
+    commands.spawn((
+        Sprite {
+            image: server.load("forge/smith.png"),
+            texture_atlas: Some(TextureAtlas {
+                layout: smith_layout,
+                index: 0,
+            }),
+            custom_size: Some(Vec2::splat(85.)),
+            ..default()
+        },
+        Transform::from_xyz(60., -85., 2.),
+        bevy::sprite::Anchor::BOTTOM_CENTER,
+        Smith,
+    ));
+    commands.spawn((
+        Sprite {
+            image: server.load("forge/visitor.png"),
+            texture_atlas: Some(TextureAtlas {
+                layout: visitor_layout,
+                index: 0,
+            }),
+            custom_size: Some(Vec2::splat(85.)),
+            ..default()
+        },
+        Transform::from_xyz(-430., -85., 3.),
+        bevy::sprite::Anchor::BOTTOM_CENTER,
+        Visibility::Hidden,
+        Visitor,
+    ));
+    let smoke = layouts.add(TextureAtlasLayout::from_grid(
+        UVec2::new(362, 724),
+        6,
+        1,
+        None,
+        None,
+    ));
+    commands.spawn((
+        Sprite {
+            image: server.load("forge/smoke.png"),
+            texture_atlas: Some(TextureAtlas {
+                layout: smoke,
+                index: 0,
+            }),
+            custom_size: Some(Vec2::new(10., 20.)),
+            ..default()
+        },
+        Transform::from_xyz(-134., 47., 1.),
+        Smoke,
+    ));
+    // One shared placeholder image is used for the display and the carried item.
+    let mut bytes = vec![0u8; 8 * 24 * 4];
+    for y in 0..24 {
+        for x in 0..8 {
+            let on = if y < 16 {
+                (3..=4).contains(&x)
+            } else if y < 18 {
+                (1..=6).contains(&x)
+            } else {
+                (3..=4).contains(&x)
+            };
+            if on {
+                let i = (y * 8 + x) * 4;
+                bytes[i..i + 4].copy_from_slice(if y < 16 {
+                    &[202, 217, 219, 255]
+                } else {
+                    &[157, 104, 50, 255]
+                });
+            }
+        }
+    }
+    let dagger = images.add(Image::new(
+        bevy::render::render_resource::Extent3d {
+            width: 8,
+            height: 24,
+            depth_or_array_layers: 1,
+        },
+        bevy::render::render_resource::TextureDimension::D2,
+        bytes,
+        bevy::render::render_resource::TextureFormat::Rgba8UnormSrgb,
+        bevy::asset::RenderAssetUsages::default(),
+    ));
+    commands.spawn((
+        Sprite::from_image(dagger.clone()),
+        Transform::from_xyz(115., -8., 3.),
+    ));
+    commands.spawn((
+        Sprite::from_image(dagger.clone()),
+        Transform::from_xyz(0., 0., 4.),
+        Visibility::Hidden,
+        Weapon,
+    ));
+    commands.insert_resource(Art {
+        smith_sizes,
+        visitor_sizes,
+        visitor_hands,
+        images: [
+            "forge/forge.png",
+            "forge/workbench.png",
+            "forge/smith.png",
+            "forge/visitor.png",
+            "forge/smoke.png",
+        ]
+        .map(|path| server.load(path))
+        .to_vec(),
+    });
+    commands.spawn((
+        Text::new(""),
+        TextFont {
+            font_size: 14.0.into(),
+            ..default()
+        },
+        TextColor(Color::srgb(0.96, 0.88, 0.68)),
+        Node {
+            position_type: PositionType::Absolute,
+            top: px(6),
+            left: px(12),
+            ..default()
+        },
+        Hud,
+    ));
+    commands.spawn((Text::new("FORGE LEDGER\n\nC   Craft iron dagger | 2 ore | 5 seconds\nB   Buy 2 ore | 4 gold\n\nTab   Return to the small forge\nF8    Click through for 10 seconds (automatic recovery)\nCtrl+Alt+F8   Global recovery\nEsc   Restore interaction\nT      Toggle always-on-top (off by default)\nD     Toggle window decorations / drag window\nF12  Write diagnostic report\n\nFoundation preview: village orders, research and expeditions follow later."),TextFont{font_size:18.0.into(),..default()},Node{position_type:PositionType::Absolute,top:px(60),left:px(30),..default()},Visibility::Hidden,Panel));
+}
+#[allow(clippy::too_many_arguments)]
+fn input(
+    diagnostics: Res<DiagnosticsStore>,
+    adapter: Option<Res<bevy::render::renderer::RenderAdapterInfo>>,
+    keys: Res<ButtonInput<KeyCode>>,
+    mut session: ResMut<Session>,
+    mut desktop: ResMut<window::Desktop>,
+    opts: Res<Options>,
+) {
+    if keys.just_pressed(KeyCode::Escape) {
+        desktop.shell.recover();
+    }
+    if keys.just_pressed(KeyCode::F8) {
+        desktop.shell.idle();
+    }
+    if keys.just_pressed(KeyCode::Tab) {
+        desktop.shell.recover();
+        desktop.shell.expanded = !desktop.shell.expanded;
+    }
+    if keys.just_pressed(KeyCode::KeyT) {
+        desktop.shell.always_on_top = !desktop.shell.always_on_top;
+        desktop.dirty = true;
+    }
+    if keys.just_pressed(KeyCode::KeyD) {
+        desktop.decorations = !desktop.decorations;
+        desktop.dirty = true;
+    }
+    for (key, cmd) in [
+        (KeyCode::KeyC, Command::Craft),
+        (KeyCode::KeyB, Command::BuyOre),
+    ] {
+        if keys.just_pressed(key) && !session.disabled {
+            let id = session.save.state.command_id + 1;
+            session.status = match session.save.state.command(id, cmd) {
+                Ok(()) => format!("{cmd:?} accepted"),
+                Err(e) => format!("{e:?}"),
+            };
+            persist(&mut session, &opts);
+        }
+    }
+    if keys.just_pressed(KeyCode::F12) {
+        let path = session.dir.join("diagnostics.json");
+        let data = serde_json::json!({"os":std::env::consts::OS,"arch":std::env::consts::ARCH,"version":env!("CARGO_PKG_VERSION"),"safe":opts.safe,"qa":opts.qa,"tick":session.save.state.tick,"shell":format!("{:?}",desktop.shell),"native_display":desktop.diagnostics,"fps":diagnostics.get(&FrameTimeDiagnosticsPlugin::FPS).and_then(|d|d.average()),"adapter":adapter.map(|a|format!("{} | {:?} | {} {}",a.name,a.backend,a.driver,a.driver_info)),"note":"Native transparency requires manual verification"});
+        session.status = match std::fs::write(&path, serde_json::to_vec_pretty(&data).unwrap()) {
+            Ok(_) => format!("Diagnostics: {}", path.display()),
+            Err(e) => e.to_string(),
+        };
+    }
+}
+fn persist(s: &mut Session, opts: &Options) {
+    if opts.qa.is_some() {
+        return;
+    }
+    s.save.saved_at = s.save.saved_at.max(now());
+    if let Err(e) = save::store(&s.dir.clone(), &mut s.save) {
+        s.disabled = true;
+        s.status = format!("SAVE ERROR: {e}. Simulation paused; preserve save directory.");
+    }
+}
+fn simulate(mut s: ResMut<Session>, mut p: ResMut<Presentation>, opts: Res<Options>) {
+    if s.disabled || (opts.qa.is_some() && opts.frames == 0) {
+        return;
+    }
+    let seconds = if opts.qa.is_some() {
+        1. / 30.
+    } else {
+        let n = std::time::Instant::now();
+        let d = n
+            .duration_since(s.last)
+            .as_secs_f64()
+            .min(forge_core::OFFLINE_CAP_SECS as f64);
+        s.last = n;
+        d
+    };
+    s.fraction += seconds;
+    let whole = s.fraction.floor() as u64;
+    s.fraction -= whole as f64;
+    if whole > 0 {
+        match s.save.state.advance(whole) {
+            Ok(events) => {
+                for e in events {
+                    p.accept(e);
+                }
+                persist(&mut s, &opts);
+            }
+            Err(e) => {
+                s.disabled = true;
+                s.status = format!("Simulation paused: {e:?}");
+            }
+        }
+    }
+}
+#[allow(clippy::type_complexity)] // One sprite query keeps mutually exclusive presentation markers together.
+fn animate(
+    art: Res<Art>,
+    time: Res<Time>,
+    opts: Res<Options>,
+    p: Res<Presentation>,
+    desktop: Res<window::Desktop>,
+    mut q: Query<(
+        &mut Transform,
+        &mut Sprite,
+        Option<&Visitor>,
+        Option<&Weapon>,
+        Option<&Smith>,
+        Option<&Smoke>,
+        &mut Visibility,
+    )>,
+) {
+    let animation_time = if opts.qa.is_some() {
+        opts.frames as f32 / 30.
+    } else {
+        time.elapsed_secs()
+    };
+    let offset = if desktop.shell.expanded { -180. } else { 0. };
+    let walk_frame = ((p.elapsed * 6.) as usize) % 4;
+    let visitor_frame = if matches!(
+        p.phase,
+        presentation::Phase::Walk | presentation::Phase::ExitWithItem
+    ) {
+        4 + walk_frame
+    } else {
+        0
+    };
+    for (mut t, mut sprite, visitor, weapon, smith, smoke, mut visibility) in &mut q {
+        if visitor.is_some() {
+            t.translation = Vec3::new(p.x(), -85. + offset, 3.);
+            *visibility = if p.active {
+                Visibility::Visible
+            } else {
+                Visibility::Hidden
+            };
+            if let Some(a) = &mut sprite.texture_atlas {
+                a.index = visitor_frame;
+                sprite.custom_size = Some(art.visitor_sizes[visitor_frame]);
+            }
+        } else if weapon.is_some() {
+            t.translation = Vec3::new(
+                p.x() + art.visitor_hands[walk_frame].x,
+                -85. + art.visitor_hands[walk_frame].y + 8. + offset,
+                4.,
+            );
+            *visibility = if p.has_item {
+                Visibility::Visible
+            } else {
+                Visibility::Hidden
+            };
+        } else if smith.is_some() {
+            t.translation.y = -85. + offset;
+            if let Some(a) = &mut sprite.texture_atlas {
+                a.index = 8 + ((animation_time * 4.) as usize) % 4;
+                let index = a.index;
+                sprite.custom_size = Some(art.smith_sizes[index]);
+            }
+        } else if smoke.is_some() {
+            t.translation.y = 47. + offset;
+            if let Some(a) = &mut sprite.texture_atlas {
+                a.index = ((animation_time * 5.) as usize) % 6;
+            }
+        } else {
+            t.translation.y = if t.translation.x == -170. {
+                -3. + offset
+            } else if t.translation.x == 90. {
+                -27. + offset
+            } else {
+                -8. + offset
+            };
+        }
+    }
+}
+fn hud(
+    s: Res<Session>,
+    desktop: Res<window::Desktop>,
+    mut q: Query<&mut Text, With<Hud>>,
+    mut panel: Query<&mut Visibility, With<Panel>>,
+) {
+    for mut t in &mut q {
+        **t = format!(
+            "LITTLE FORGE   Gold {}   Ore {}   Daggers {}   {:?}\n{}",
+            s.save.state.gold, s.save.state.ore, s.save.state.daggers, desktop.shell.mode, s.status
+        );
+    }
+    for mut v in &mut panel {
+        *v = if desktop.shell.expanded {
+            Visibility::Visible
+        } else {
+            Visibility::Hidden
+        };
+    }
+}
+fn qa_capture(
+    mut commands: Commands,
+    mut opts: ResMut<Options>,
+    server: Res<AssetServer>,
+    art: Res<Art>,
+    mut desktop: ResMut<window::Desktop>,
+    mut exit: MessageWriter<AppExit>,
+) {
+    if opts.qa.is_none() {
+        return;
+    }
+    if art
+        .images
+        .iter()
+        .any(|h| !server.is_loaded_with_dependencies(h.id()))
+    {
+        return;
+    }
+    opts.frames += 1;
+    if opts.frames == 1 && opts.qa.as_deref() == Some("idle") {
+        desktop.shell.idle();
+    }
+    if opts.frames == 180
+        && let Some(path) = &opts.capture
+    {
+        commands
+            .spawn(Screenshot::primary_window())
+            .observe(save_to_disk(path.clone()));
+    }
+    if opts.frames == 210 {
+        exit.write(AppExit::Success);
+    }
+}
