@@ -100,7 +100,7 @@ python scripts/validate-assets.py
 cargo run --locked --release -p forge-qa
 ```
 
-Linux 빌드 의존성: `libx11-dev libxkbcommon-dev libudev-dev libasound2-dev`; 렌더 검증에는 Vulkan 드라이버와 X 서버가 필요하다. Linux/X11 클릭 통과는 지원하지 않는다.
+Linux 빌드 의존성: `libx11-dev libxkbcommon-dev libxkbcommon-x11-0 libudev-dev libasound2-dev`; 렌더 검증에는 Vulkan 드라이버와 X 서버가 필요하다. Linux/X11 클릭 통과는 지원하지 않는다.
 
 | 키 | 동작 |
 |---|---|
@@ -110,7 +110,7 @@ Linux 빌드 의존성: `libx11-dev libxkbcommon-dev libudev-dev libasound2-dev`
 | T / D | 최상단 표시 / 창 장식과 드래그 |
 | F12 | 사용자 저장 폴더에 diagnostics.json 기록 |
 
-클릭 통과 중 로컬 단축키는 전달되지 않을 수 있다. 10초 자동 복귀가 독립적인 안전장치다. 영구 클릭 통과나 전역 단축키를 제공한다고 주장하지 않는다. `--safe-window`는 불투명·장식 창으로 시작하고 클릭 통과를 금지한다.
+클릭 통과 중 로컬 단축키는 전달되지 않을 수 있다. 10초 자동 복귀가 독립적인 안전장치다. `Ctrl+Alt+F8` 전역 복귀도 등록한다. OS에서 등록이 거부되면 진단에 기록하고 자동 복귀를 유지한다. 영구 클릭 통과는 아직 제공하지 않는다. `--safe-window`는 불투명·장식 창으로 시작하고 클릭 통과를 금지한다.
 
 기본 저장은 OS 사용자 데이터 폴더다. `--save-dir PATH`로 분리 가능하며, 동일 저장 경로의 동시 실행은 거부한다. `--qa ambient|sale|expanded|idle`은 별도 `qa-output/session`을 사용한다. `--screenshot qa-output/sale.png`로 고정 프레임을 저장한다.
 

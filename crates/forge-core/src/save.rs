@@ -54,6 +54,21 @@ pub fn load(dir: &Path) -> io::Result<Option<Save>> {
         match fs::read(path) {
             Ok(bytes) => {
                 present = true;
+                if let Ok(header) = serde_json::from_slice::<serde_json::Value>(&bytes)
+                    && (header
+                        .get("schema_version")
+                        .and_then(|v| v.as_u64())
+                        .is_some_and(|v| v > 1)
+                        || header
+                            .get("content_version")
+                            .and_then(|v| v.as_u64())
+                            .is_some_and(|v| v > CONTENT_VERSION as u64))
+                {
+                    return Err(io::Error::new(
+                        io::ErrorKind::InvalidData,
+                        "newer save version; preserve files",
+                    ));
+                }
                 if let Ok(s) = serde_json::from_slice::<Save>(&bytes) {
                     // Future formats must not be silently downgraded through an older slot.
                     if s.schema_version > 1 || s.content_version > CONTENT_VERSION {
@@ -175,6 +190,28 @@ mod tests {
         assert!(SaveLock::acquire(&d).is_err());
         drop(a);
         assert!(SaveLock::acquire(&d).is_ok());
+        fs::remove_dir_all(d).unwrap();
+    }
+    #[test]
+    fn future_schema_cannot_fall_back_to_older_generation() {
+        let d = dir();
+        let mut s = Save::new(State::new(1), 100);
+        store(&d, &mut s).unwrap();
+        fs::write(
+            d.join("save-0.json"),
+            br#"{"schema_version":2,"content_version":1,"different_state":{}}"#,
+        )
+        .unwrap();
+        assert!(load(&d).is_err());
+        fs::remove_dir_all(d).unwrap();
+    }
+    #[test]
+    fn abandoned_temp_does_not_replace_committed_state() {
+        let d = dir();
+        let mut s = Save::new(State::new(1), 100);
+        store(&d, &mut s).unwrap();
+        fs::write(d.join("save.tmp"), b"partial").unwrap();
+        assert_eq!(load(&d).unwrap(), Some(s));
         fs::remove_dir_all(d).unwrap();
     }
 }

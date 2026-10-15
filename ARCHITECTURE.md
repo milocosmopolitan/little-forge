@@ -40,9 +40,9 @@ Resume processes at most 8 hours; backwards clock movement contributes zero seco
 
 Ambient 960×180 and expanded 960×540 are configurable candidates in code. Expansion preserves bottom position, then clamps into the selected display. Always-on-top defaults off. Safe mode uses opaque clear color and decorations and refuses pass-through. macOS uses Bevy's PostMultiplied alpha mode; Linux uses PreMultiplied. Windows uses automatic alpha selection.
 
-F8 gives a **10-second pass-through lease**. Esc can recover while focused; the lease expires without keyboard input. A global hotkey/tray recovery mechanism is not implemented, so indefinite pass-through is intentionally unavailable. The app does not explicitly request foreground focus on events.
+F8 gives a **10-second pass-through lease**. Esc can recover while focused; the lease expires without keyboard input. Ctrl+Alt+F8 is registered on the event-loop thread for global recovery. Registration failure is logged; the timed lease remains the independent fallback. Indefinite pass-through is intentionally unavailable. The app does not explicitly request foreground focus on events.
 
-Current monitor bounds use a conservative top/bottom inset, **not native Dock/taskbar work-area discovery**. Native work-area adapters, monitor identity restoration, disconnected-display and mixed-DPI qualification remain acceptance work. No cross-platform capability is inferred from compilation.
+Windows uses GetMonitorInfoW work bounds; macOS uses NSScreen.visibleFrame on the main thread, matched against winit coordinates. A conservative inset is used only if native lookup is unavailable (including Linux). Placement saves monitor name/origin and physical rectangle. Disconnected-display and mixed-DPI behavior still require native qualification. No cross-platform capability is inferred from compilation.
 
 ## Rendering and QA
 

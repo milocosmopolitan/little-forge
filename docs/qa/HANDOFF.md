@@ -14,8 +14,8 @@ This is a Foundation development build, not a Steam release. Native checks below
    ```powershell
    .\little-forge.exe --save-dir .\qa-save 2>&1 | Tee-Object transparent.log
    ```
-5. F8 activates a 10-second click-through lease. Click a background app; verify input passes through and after 10 seconds the forge accepts input again. Esc works only when the forge receives keys. If anything traps input, close via Task Manager and restart `--safe-window`.
-6. Tab expands upward; test D for window decorations/drag, T for topmost off/on, 100/125/150/200% DPI, second monitor, disconnect, sleep/wake, and application focus. Native work-area detection is still pending; record Dock/taskbar overlaps.
+5. F8 activates a 10-second click-through lease. Click a background app; verify input passes through and after 10 seconds the forge accepts input again. Ctrl+Alt+F8 should recover globally; test it while another app is focused. Esc works only when the forge receives keys. If anything traps input, close via Task Manager and restart `--safe-window`.
+6. Tab expands upward; test D for window decorations/drag, T for topmost off/on, 100/125/150/200% DPI, second monitor, disconnect, sleep/wake, and application focus. Native work-area detection must be checked; record Dock/taskbar overlaps.
 7. Press F12; attach `qa-save/diagnostics.json`, startup logs, screenshot/video, Windows build, GPU/driver, Shadow stream scale and commit SHA to issue #10.
 8. Complete every item in `docs/system/PLATFORMS.md`. Shadow streaming cannot prove local GPU power, local input latency or every compositor behavior.
 
@@ -30,3 +30,5 @@ Record 60 seconds after warm-up for ambient animated, expanded, unfocused, obscu
 ## Steam preparation
 
 Portable package includes executable, assets, build SHA and this guide. Use a private Steam test depot, set executable/working directory, verify a clean machine install, launch/exit and save persistence. Steam SDK/overlay/cloud saves, signing and store publishing are not part of this Foundation implementation.
+
+For repeatable per-process samples: `python -m pip install psutil`, then `python scripts/profile-process.py PID --scenario ambient --seconds 60 --output qa-output/ambient-performance.json`. Press F12 separately for FPS/GPU adapter diagnostics. GPU utilization remains a native-tool measurement.

@@ -1,9 +1,11 @@
+mod native;
 mod presentation;
 mod window;
 use bevy::{
+    diagnostic::{DiagnosticsStore, FrameTimeDiagnosticsPlugin},
     prelude::*,
     render::view::screenshot::{Screenshot, save_to_disk},
-    window::{CompositeAlphaMode, PresentMode},
+    window::PresentMode,
     winit::{UpdateMode, WinitSettings},
 };
 use forge_core::{
@@ -135,31 +137,35 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         }
     }
     let mut app = App::new();
+    let native = native::NativeRuntime::new();
+    eprintln!("{}", native.status);
+    app.insert_non_send(native);
     let asset_dir = std::env::current_exe()?.parent().unwrap().join("assets");
     let asset_dir = if asset_dir.is_dir() {
         asset_dir
     } else {
         PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../assets")
     };
-    let mut win = Window {
+    #[cfg(target_os = "macos")]
+    let transparent_alpha = bevy::window::CompositeAlphaMode::PostMultiplied;
+    #[cfg(target_os = "linux")]
+    let transparent_alpha = bevy::window::CompositeAlphaMode::PreMultiplied;
+    #[cfg(not(any(target_os = "macos", target_os = "linux")))]
+    let transparent_alpha = bevy::window::CompositeAlphaMode::Auto;
+    let win = Window {
         title: "Little Forge".into(),
         resolution: (960, 180).into(),
         transparent: !opts.safe,
         decorations: opts.safe,
+        composite_alpha_mode: if opts.safe {
+            bevy::window::CompositeAlphaMode::Auto
+        } else {
+            transparent_alpha
+        },
         resizable: false,
         present_mode: PresentMode::AutoVsync,
         ..default()
     };
-    if !opts.safe {
-        #[cfg(target_os = "macos")]
-        {
-            win.composite_alpha_mode = CompositeAlphaMode::PostMultiplied;
-        }
-        #[cfg(target_os = "linux")]
-        {
-            win.composite_alpha_mode = CompositeAlphaMode::PreMultiplied;
-        }
-    }
     app.insert_resource(ClearColor(if opts.safe {
         Color::srgb(0.065, 0.075, 0.085)
     } else {
@@ -195,6 +201,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
                 ..default()
             }),
     )
+    .add_plugins(FrameTimeDiagnosticsPlugin::default())
     .insert_resource(opts)
     .add_systems(Startup, setup)
     .add_systems(
@@ -360,7 +367,10 @@ fn setup(
     ));
     commands.spawn((Text::new("FORGE LEDGER\n\nC   Craft iron dagger · 2 ore · 5 seconds\nB   Buy 2 ore · 4 gold\n\nTab   Return to the small forge\nF8    Click through for 10 seconds (automatic recovery)\nEsc   Restore interaction\nT      Toggle always-on-top (off by default)\nD     Toggle window decorations / drag window\nF12  Write diagnostic report\n\nFoundation preview: village orders, research and expeditions follow later."),TextFont{font_size:18.0.into(),..default()},Node{position_type:PositionType::Absolute,top:px(60),left:px(30),..default()},Visibility::Hidden,Panel));
 }
+#[allow(clippy::too_many_arguments)]
 fn input(
+    diagnostics: Res<DiagnosticsStore>,
+    adapter: Option<Res<bevy::render::renderer::RenderAdapterInfo>>,
     keys: Res<ButtonInput<KeyCode>>,
     mut session: ResMut<Session>,
     mut desktop: ResMut<window::Desktop>,
@@ -397,7 +407,7 @@ fn input(
     }
     if keys.just_pressed(KeyCode::F12) {
         let path = session.dir.join("diagnostics.json");
-        let data = serde_json::json!({"os":std::env::consts::OS,"arch":std::env::consts::ARCH,"version":env!("CARGO_PKG_VERSION"),"safe":opts.safe,"qa":opts.qa,"tick":session.save.state.tick,"shell":format!("{:?}",desktop.shell),"native_display":desktop.diagnostics,"note":"GPU/driver in Bevy startup log; native transparency requires manual verification"});
+        let data = serde_json::json!({"os":std::env::consts::OS,"arch":std::env::consts::ARCH,"version":env!("CARGO_PKG_VERSION"),"safe":opts.safe,"qa":opts.qa,"tick":session.save.state.tick,"shell":format!("{:?}",desktop.shell),"native_display":desktop.diagnostics,"fps":diagnostics.get(&FrameTimeDiagnosticsPlugin::FPS).and_then(|d|d.average()),"adapter":adapter.map(|a|format!("{} | {:?} | {} {}",a.name,a.backend,a.driver,a.driver_info)),"note":"Native transparency requires manual verification"});
         session.status = match std::fs::write(&path, serde_json::to_vec_pretty(&data).unwrap()) {
             Ok(_) => format!("Diagnostics: {}", path.display()),
             Err(e) => e.to_string(),
