@@ -26,3 +26,7 @@ Tier progression and research XP values, fail-pity thresholds, exact node prereq
 ## Cards and availability
 
 Perk cards are ongoing effects; Enhance cards are per-craft consumption candidates. Duplicate-card fusion planned later. Cards do not replace weapon/material knowledge and basic crafting does not require a card.
+
+## 미지 무기 수리 연구 경로 (2026-10-15)
+
+[DISCOVERY_REPAIR](DISCOVERY_REPAIR.md)에서 처음 보는 무기의 수리를 연구 중심으로 수행하면 신규 구조·재료·제련 기술 단서를 발견할 수 있다. 납기 실패나 수리 실패여도 **분석한 지식은 보존**된다. 연구 단서는 즉시 제작법 해금과 다르며 연구 자격/완료가 따로 필요하다. 첫 발견 보상과 반복 학습 보상은 구별해 중복 파밍을 방지한다. Perk는 제작 경험/연구에서, Enhance는 퀘스트/수리/Salvaging에서 획득한다.
