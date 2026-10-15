@@ -21,7 +21,7 @@ This is a Foundation development build, not a Steam release. Native checks below
 
 ## macOS Apple Silicon
 
-Use the macOS Actions archive (unsigned `.app`) or `cargo run --locked -p little-forge`. For command-line diagnostics run `Little Forge.app/Contents/MacOS/little-forge --safe-window`. Verify transparency, focus, Retina scaling, Dock/menu bar placement, monitor movement and sleep/wake. Gatekeeper signing/notarization is not included. Do not disable system-wide security settings to test it.
+Use the macOS Actions archive (unsigned `.app`) or `cargo run --locked -p little-forge`. For command-line diagnostics run `"Little Forge.app/Contents/MacOS/little-forge" --safe-window`. Verify transparency, focus, Retina scaling, Dock/menu bar placement, monitor movement and sleep/wake. Gatekeeper signing/notarization is not included. Do not disable system-wide security settings to test it.
 
 ## Performance capture
 
