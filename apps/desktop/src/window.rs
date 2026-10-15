@@ -8,6 +8,7 @@ use forge_core::shell::{Mode, Rect, Shell};
 pub struct Desktop {
     pub shell: Shell,
     pub decorations: bool,
+    pub dirty: bool,
     initialized: bool,
     previous_height: f32,
     last_write: f32,
@@ -22,6 +23,7 @@ impl Desktop {
                 ..default()
             },
             decorations: safe,
+            dirty: false,
             initialized: false,
             previous_height: 180.,
             last_write: -5.,
@@ -50,7 +52,8 @@ pub fn update(
     } else {
         WindowLevel::Normal
     };
-    w.decorations = d.decorations;
+    w.decorations = d.decorations || d.shell.safe;
+    let initializing = !d.initialized;
     let saved = if !d.initialized {
         std::fs::read(session.dir.join("window.json"))
             .ok()
@@ -112,6 +115,12 @@ pub fn update(
     };
     let mut rect = current.fit(work, height * scale);
     if !d.initialized {
+        if let Some(s) = &saved
+            && !d.shell.safe
+        {
+            d.shell.always_on_top = s.always_on_top;
+            d.decorations = s.decorations;
+        }
         rect = saved
             .map(|s| s.rect)
             .unwrap_or(Rect {
@@ -123,12 +132,15 @@ pub fn update(
             .fit(work, height * scale);
         d.initialized = true;
     }
-    if current != rect || d.previous_height != height {
+    rect.w = (960. * scale).min(work.w);
+    rect = rect.fit(work, height * scale);
+    if initializing || current != rect || d.previous_height != height {
         w.position = WindowPosition::At(IVec2::new(rect.x as i32, rect.y as i32));
         w.resolution.set(rect.w / scale, rect.h / scale);
         d.previous_height = height;
     }
-    if time.elapsed_secs() - d.last_write >= 5. {
+    if d.dirty || time.elapsed_secs() - d.last_write >= 5. {
+        d.dirty = false;
         d.last_write = time.elapsed_secs();
         let _ = std::fs::write(
             session.dir.join("window.json"),
@@ -137,6 +149,8 @@ pub fn update(
                 monitor: m.name.clone(),
                 monitor_x: m.physical_position.x,
                 monitor_y: m.physical_position.y,
+                always_on_top: d.shell.always_on_top,
+                decorations: d.decorations,
             })
             .unwrap(),
         );
@@ -159,4 +173,8 @@ struct Placement {
     monitor: Option<String>,
     monitor_x: i32,
     monitor_y: i32,
+    #[serde(default)]
+    always_on_top: bool,
+    #[serde(default)]
+    decorations: bool,
 }

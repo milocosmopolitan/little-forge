@@ -16,6 +16,10 @@ pub struct Asset {
     pub alpha: bool,
     pub anchor: [f32; 2],
     pub sha256: String,
+    #[serde(default)]
+    pub frame_rects: Vec<[u32; 4]>,
+    #[serde(default)]
+    pub walking_hand_points: Vec<[u32; 2]>,
 }
 impl Manifest {
     pub fn bundled() -> Result<Self, String> {
@@ -30,6 +34,25 @@ impl Manifest {
         }
         let mut ids = HashSet::new();
         for a in &self.assets {
+            if !a.walking_hand_points.is_empty() {
+                if a.walking_hand_points.len() != 4 || a.frame_rects.len() < 8 {
+                    return Err(format!("invalid hand anchors {}", a.id));
+                }
+                for (i, p) in a.walking_hand_points.iter().enumerate() {
+                    let r = a.frame_rects[i + 4];
+                    if p[0] < r[0] || p[0] >= r[2] || p[1] < r[1] || p[1] >= r[3] {
+                        return Err(format!("hand outside frame {}", a.id));
+                    }
+                }
+            }
+            if !a.frame_rects.is_empty()
+                && (a.frame_rects.len() != (a.columns * a.rows) as usize
+                    || a.frame_rects
+                        .iter()
+                        .any(|r| r[0] >= r[2] || r[1] >= r[3] || r[2] > a.width || r[3] > a.height))
+            {
+                return Err(format!("invalid frames {}", a.id));
+            }
             if !ids.insert(&a.id)
                 || a.width == 0
                 || a.height == 0

@@ -50,6 +50,9 @@ struct Panel;
 #[derive(Resource)]
 struct Art {
     images: Vec<Handle<Image>>,
+    smith_sizes: Vec<Vec2>,
+    visitor_sizes: Vec<Vec2>,
+    visitor_hands: Vec<Vec2>,
 }
 fn now() -> u64 {
     SystemTime::now()
@@ -86,7 +89,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             }
             "--help" => {
                 println!(
-                    "Little Forge\n--safe-window --save-dir PATH --qa ambient|sale|expanded|idle --screenshot PATH\nC: craft, B: buy ore, Tab: expand, F8: 10s click-through, Esc: recover, T: topmost, D: decorations, F12: diagnostics\nQA uses an isolated save directory and a fixed simulation clock."
+                    "Little Forge\n--safe-window --save-dir PATH --qa ambient|sale|expanded|idle --screenshot PATH\nC: craft, B: buy ore, Tab: expand, F8: 10s click-through, Ctrl+Alt+F8: global recovery, Esc: recover, T: topmost, D: decorations, F12: diagnostics\nQA uses an isolated save directory and a fixed simulation clock."
                 );
                 return Ok(());
             }
@@ -128,7 +131,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         save::store(&dir, &mut saved)?;
     }
     let status = format!(
-        "Welcome back · caught up {elapsed}s. C craft / B buy ore / Tab manage / F8 idle 10s"
+        "Welcome back | caught up {elapsed}s. C craft / B buy ore / Tab manage / F8 idle 10s / Ctrl+Alt+F8 recover"
     );
     let mut presentation = Presentation::default();
     if opts.qa.as_deref() == Some("sale") {
@@ -146,6 +149,19 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     } else {
         PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../assets")
     };
+    if !asset_dir.is_dir() {
+        return Err(
+            "assets folder missing: keep the assets directory next to the executable".into(),
+        );
+    }
+    for asset in forge_content::Manifest::bundled()
+        .map_err(|e| format!("content: {e}"))?
+        .assets
+    {
+        if !asset_dir.join(&asset.path).is_file() {
+            return Err(format!("missing bundled asset {}", asset.path).into());
+        }
+    }
     #[cfg(target_os = "macos")]
     let transparent_alpha = bevy::window::CompositeAlphaMode::PostMultiplied;
     #[cfg(target_os = "linux")]
@@ -230,10 +246,10 @@ fn setup(
     commands.spawn((
         Sprite {
             image: server.load("forge/forge.png"),
-            custom_size: Some(Vec2::splat(300.)),
+            custom_size: Some(Vec2::splat(210.)),
             ..default()
         },
-        Transform::from_xyz(-170., 0., 0.),
+        Transform::from_xyz(-170., 14., 0.),
     ));
     commands.spawn((
         Sprite {
@@ -241,39 +257,68 @@ fn setup(
             custom_size: Some(Vec2::splat(155.)),
             ..default()
         },
-        Transform::from_xyz(90., -5., 0.),
+        Transform::from_xyz(90., -27., 0.),
     ));
-    let chars = layouts.add(TextureAtlasLayout::from_grid(
-        UVec2::splat(362),
-        4,
-        3,
-        None,
-        None,
-    ));
+    let manifest = forge_content::Manifest::bundled().expect("validated bundled manifest");
+    let smith_meta = manifest.assets.iter().find(|a| a.id == "smith").unwrap();
+    let visitor_meta = manifest.assets.iter().find(|a| a.id == "visitor").unwrap();
+    let frame_layout = |asset: &forge_content::Asset| {
+        let mut layout = TextureAtlasLayout::new_empty(UVec2::new(asset.width, asset.height));
+        for r in &asset.frame_rects {
+            layout.add_texture(URect::new(r[0], r[1], r[2], r[3]));
+        }
+        layout
+    };
+    let sizes = |asset: &forge_content::Asset| {
+        asset
+            .frame_rects
+            .iter()
+            .map(|r| Vec2::new((r[2] - r[0]) as f32 / (r[3] - r[1]) as f32 * 75., 75.))
+            .collect::<Vec<_>>()
+    };
+    let smith_sizes = sizes(smith_meta);
+    let visitor_sizes = sizes(visitor_meta);
+    let visitor_hands = visitor_meta
+        .walking_hand_points
+        .iter()
+        .enumerate()
+        .map(|(i, p)| {
+            let r = visitor_meta.frame_rects[i + 4];
+            let scale = 75. / (r[3] - r[1]) as f32;
+            Vec2::new(
+                (p[0] as f32 - (r[0] + r[2]) as f32 / 2.) * scale,
+                (r[3] as f32 - p[1] as f32) * scale,
+            )
+        })
+        .collect();
+    let smith_layout = layouts.add(frame_layout(smith_meta));
+    let visitor_layout = layouts.add(frame_layout(visitor_meta));
     commands.spawn((
         Sprite {
             image: server.load("forge/smith.png"),
             texture_atlas: Some(TextureAtlas {
-                layout: chars.clone(),
+                layout: smith_layout,
                 index: 0,
             }),
             custom_size: Some(Vec2::splat(85.)),
             ..default()
         },
-        Transform::from_xyz(60., -18., 2.),
+        Transform::from_xyz(60., -85., 2.),
+        bevy::sprite::Anchor::BOTTOM_CENTER,
         Smith,
     ));
     commands.spawn((
         Sprite {
             image: server.load("forge/visitor.png"),
             texture_atlas: Some(TextureAtlas {
-                layout: chars,
+                layout: visitor_layout,
                 index: 0,
             }),
             custom_size: Some(Vec2::splat(85.)),
             ..default()
         },
-        Transform::from_xyz(-430., -18., 3.),
+        Transform::from_xyz(-430., -85., 3.),
+        bevy::sprite::Anchor::BOTTOM_CENTER,
         Visibility::Hidden,
         Visitor,
     ));
@@ -291,10 +336,10 @@ fn setup(
                 layout: smoke,
                 index: 0,
             }),
-            custom_size: Some(Vec2::new(25., 50.)),
+            custom_size: Some(Vec2::new(12., 24.)),
             ..default()
         },
-        Transform::from_xyz(-150., 68., 1.),
+        Transform::from_xyz(-142., 44., 1.),
         Smoke,
     ));
     // One shared placeholder image is used for the display and the carried item.
@@ -340,6 +385,9 @@ fn setup(
         Weapon,
     ));
     commands.insert_resource(Art {
+        smith_sizes,
+        visitor_sizes,
+        visitor_hands,
         images: [
             "forge/forge.png",
             "forge/workbench.png",
@@ -365,7 +413,7 @@ fn setup(
         },
         Hud,
     ));
-    commands.spawn((Text::new("FORGE LEDGER\n\nC   Craft iron dagger · 2 ore · 5 seconds\nB   Buy 2 ore · 4 gold\n\nTab   Return to the small forge\nF8    Click through for 10 seconds (automatic recovery)\nEsc   Restore interaction\nT      Toggle always-on-top (off by default)\nD     Toggle window decorations / drag window\nF12  Write diagnostic report\n\nFoundation preview: village orders, research and expeditions follow later."),TextFont{font_size:18.0.into(),..default()},Node{position_type:PositionType::Absolute,top:px(60),left:px(30),..default()},Visibility::Hidden,Panel));
+    commands.spawn((Text::new("FORGE LEDGER\n\nC   Craft iron dagger | 2 ore | 5 seconds\nB   Buy 2 ore | 4 gold\n\nTab   Return to the small forge\nF8    Click through for 10 seconds (automatic recovery)\nCtrl+Alt+F8   Global recovery\nEsc   Restore interaction\nT      Toggle always-on-top (off by default)\nD     Toggle window decorations / drag window\nF12  Write diagnostic report\n\nFoundation preview: village orders, research and expeditions follow later."),TextFont{font_size:18.0.into(),..default()},Node{position_type:PositionType::Absolute,top:px(60),left:px(30),..default()},Visibility::Hidden,Panel));
 }
 #[allow(clippy::too_many_arguments)]
 fn input(
@@ -388,9 +436,11 @@ fn input(
     }
     if keys.just_pressed(KeyCode::KeyT) {
         desktop.shell.always_on_top = !desktop.shell.always_on_top;
+        desktop.dirty = true;
     }
     if keys.just_pressed(KeyCode::KeyD) {
         desktop.decorations = !desktop.decorations;
+        desktop.dirty = true;
     }
     for (key, cmd) in [
         (KeyCode::KeyC, Command::Craft),
@@ -459,6 +509,7 @@ fn simulate(mut s: ResMut<Session>, mut p: ResMut<Presentation>, opts: Res<Optio
 }
 #[allow(clippy::type_complexity)] // One sprite query keeps mutually exclusive presentation markers together.
 fn animate(
+    art: Res<Art>,
     time: Res<Time>,
     opts: Res<Options>,
     p: Res<Presentation>,
@@ -479,39 +530,55 @@ fn animate(
         time.elapsed_secs()
     };
     let offset = if desktop.shell.expanded { -180. } else { 0. };
+    let walk_frame = ((p.elapsed * 6.) as usize) % 4;
+    let visitor_frame = if matches!(
+        p.phase,
+        presentation::Phase::Walk | presentation::Phase::ExitWithItem
+    ) {
+        4 + walk_frame
+    } else {
+        0
+    };
     for (mut t, mut sprite, visitor, weapon, smith, smoke, mut visibility) in &mut q {
         if visitor.is_some() {
-            t.translation = Vec3::new(p.x(), -18. + offset, 3.);
+            t.translation = Vec3::new(p.x(), -85. + offset, 3.);
             *visibility = if p.active {
                 Visibility::Visible
             } else {
                 Visibility::Hidden
             };
             if let Some(a) = &mut sprite.texture_atlas {
-                a.index = ((p.elapsed * 6.) as usize) % 4;
+                a.index = visitor_frame;
+                sprite.custom_size = Some(art.visitor_sizes[visitor_frame]);
             }
         } else if weapon.is_some() {
-            t.translation = Vec3::new(p.x() + 20., -15. + offset, 4.);
+            t.translation = Vec3::new(
+                p.x() + art.visitor_hands[walk_frame].x,
+                -85. + art.visitor_hands[walk_frame].y + 8. + offset,
+                4.,
+            );
             *visibility = if p.has_item {
                 Visibility::Visible
             } else {
                 Visibility::Hidden
             };
         } else if smith.is_some() {
-            t.translation.y = -18. + offset;
+            t.translation.y = -85. + offset;
             if let Some(a) = &mut sprite.texture_atlas {
                 a.index = 8 + ((animation_time * 4.) as usize) % 4;
+                let index = a.index;
+                sprite.custom_size = Some(art.smith_sizes[index]);
             }
         } else if smoke.is_some() {
-            t.translation.y = 68. + offset;
+            t.translation.y = 44. + offset;
             if let Some(a) = &mut sprite.texture_atlas {
                 a.index = ((animation_time * 5.) as usize) % 6;
             }
         } else {
             t.translation.y = if t.translation.x == -170. {
-                offset
+                14. + offset
             } else if t.translation.x == 90. {
-                -5. + offset
+                -27. + offset
             } else {
                 -8. + offset
             };

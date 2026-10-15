@@ -11,7 +11,7 @@
       "alpha": true,
       "anchor": [
         0.5,
-        0.0
+        0.5
       ],
       "sha256": "ce18d7fa8f82d0da5083211091662b9a4b998a6de05636882433a5f79a6379c4",
       "source": "blacksmithshop-outerior-active.png"
@@ -26,7 +26,7 @@
       "alpha": true,
       "anchor": [
         0.5,
-        0.0
+        0.5
       ],
       "sha256": "52e7c6ea11511c03f7bf0185ec4cea5ee06899b23b54dd28028dd6ea378a65e6",
       "source": "blacksmithshop-outerior-idle.png"
@@ -44,7 +44,81 @@
         0.0
       ],
       "sha256": "68855d79c1cc9aa6de284e8223b70876002c38c64eeeb6b5805a1b70636ba2f4",
-      "source": "male-character-sheet.png"
+      "source": "male-character-sheet.png",
+      "frame_rects": [
+        [
+          126,
+          13,
+          354,
+          372
+        ],
+        [
+          451,
+          13,
+          676,
+          372
+        ],
+        [
+          794,
+          13,
+          1022,
+          372
+        ],
+        [
+          1135,
+          13,
+          1357,
+          372
+        ],
+        [
+          127,
+          386,
+          365,
+          721
+        ],
+        [
+          455,
+          386,
+          696,
+          721
+        ],
+        [
+          796,
+          386,
+          1028,
+          721
+        ],
+        [
+          1140,
+          386,
+          1369,
+          721
+        ],
+        [
+          126,
+          739,
+          359,
+          1060
+        ],
+        [
+          451,
+          723,
+          658,
+          1060
+        ],
+        [
+          759,
+          765,
+          1046,
+          1061
+        ],
+        [
+          1141,
+          739,
+          1378,
+          1062
+        ]
+      ]
     },
     {
       "id": "visitor",
@@ -59,7 +133,99 @@
         0.0
       ],
       "sha256": "afba1a62139442815ee2c1918c92ee3108716387e28ab3f63d66959d77fad715",
-      "source": "female-character-sheet.png"
+      "source": "female-character-sheet.png",
+      "frame_rects": [
+        [
+          148,
+          16,
+          371,
+          368
+        ],
+        [
+          444,
+          17,
+          671,
+          368
+        ],
+        [
+          772,
+          17,
+          991,
+          368
+        ],
+        [
+          1109,
+          19,
+          1333,
+          368
+        ],
+        [
+          141,
+          382,
+          368,
+          714
+        ],
+        [
+          455,
+          386,
+          685,
+          717
+        ],
+        [
+          778,
+          383,
+          992,
+          717
+        ],
+        [
+          1118,
+          380,
+          1343,
+          717
+        ],
+        [
+          128,
+          725,
+          353,
+          1062
+        ],
+        [
+          432,
+          735,
+          693,
+          1061
+        ],
+        [
+          754,
+          748,
+          1039,
+          1062
+        ],
+        [
+          1124,
+          739,
+          1343,
+          1063
+        ]
+      ],
+      "walking_hand_points": [
+        [
+          172,
+          584
+        ],
+        [
+          482,
+          583
+        ],
+        [
+          805,
+          583
+        ],
+        [
+          1146,
+          582
+        ]
+      ]
     },
     {
       "id": "smoke",
@@ -71,7 +237,7 @@
       "alpha": true,
       "anchor": [
         0.5,
-        0.0
+        0.5
       ],
       "sha256": "bc644af20ca53d19a60fe7a5d958f334dc7aacd790bb96f7120f202ad05e0a4b",
       "source": "blacksmithshop-outerior-smoke-sheet.png"
@@ -86,7 +252,7 @@
       "alpha": true,
       "anchor": [
         0.5,
-        0.0
+        0.5
       ],
       "sha256": "982373350bfef67ad6106d6aa61ab40033ae5c821dbbdd2fae739dc88529a373",
       "source": "blacksmithshop-fire-crackle-sheet.png"
@@ -101,7 +267,7 @@
       "alpha": true,
       "anchor": [
         0.5,
-        0.0
+        0.5
       ],
       "sha256": "4568d5a4750e1beceb7b2e95e621e467e722f9ca626ec75f3cb1e07b111bf24b",
       "source": "workbench.png"

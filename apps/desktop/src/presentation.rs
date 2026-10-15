@@ -107,4 +107,74 @@ mod tests {
         assert!(p.queue.is_empty());
         app.update();
     }
+    #[test]
+    fn scheduled_sale_attaches_same_item_and_exits_without_new_rewards() {
+        use crate::{Options, Visitor, Weapon, window::Desktop};
+        let mut state = forge_core::State::new(42);
+        state.command(1, forge_core::Command::Craft).unwrap();
+        let mut p = Presentation::default();
+        for e in state.advance(12).unwrap() {
+            p.accept(e);
+        }
+        let mut app = App::new();
+        app.add_plugins(MinimalPlugins)
+            .insert_resource(p)
+            .insert_resource(Options {
+                qa: Some("sale".into()),
+                frames: 1,
+                ..default()
+            })
+            .insert_resource(Desktop::new(false, false))
+            .insert_resource(crate::Art {
+                images: vec![],
+                smith_sizes: vec![Vec2::new(45., 75.); 12],
+                visitor_sizes: vec![Vec2::new(45., 75.); 12],
+                visitor_hands: vec![Vec2::new(-18., 30.); 4],
+            })
+            .add_systems(Update, (tick, crate::animate).chain());
+        let item = Handle::<Image>::default();
+        let npc = app
+            .world_mut()
+            .spawn((
+                Sprite::default(),
+                Transform::default(),
+                Visibility::Hidden,
+                Visitor,
+            ))
+            .id();
+        let weapon = app
+            .world_mut()
+            .spawn((
+                Sprite::from_image(item.clone()),
+                Transform::default(),
+                Visibility::Hidden,
+                Weapon,
+            ))
+            .id();
+        for _ in 0..150 {
+            app.update();
+        }
+        assert_eq!(
+            *app.world().get::<Visibility>(weapon).unwrap(),
+            Visibility::Visible
+        );
+        let npc_x = app.world().get::<Transform>(npc).unwrap().translation.x;
+        assert_eq!(
+            app.world().get::<Transform>(weapon).unwrap().translation.x,
+            npc_x - 18.
+        );
+        assert_eq!(app.world().get::<Sprite>(weapon).unwrap().image, item);
+        for _ in 0..100 {
+            app.update();
+        }
+        assert_eq!(
+            *app.world().get::<Visibility>(weapon).unwrap(),
+            Visibility::Hidden
+        );
+        assert_eq!(
+            *app.world().get::<Visibility>(npc).unwrap(),
+            Visibility::Hidden
+        );
+        assert_eq!(state.gold, 12);
+    }
 }

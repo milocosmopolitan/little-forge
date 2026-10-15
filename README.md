@@ -96,6 +96,7 @@ cargo run --locked -p little-forge -- --safe-window
 cargo run --locked -p little-forge
 cargo test --locked --workspace
 cargo clippy --locked --workspace --all-targets -- -D warnings
+python -m pip install -r scripts/requirements-qa.txt
 python scripts/validate-assets.py
 cargo run --locked --release -p forge-qa
 ```
