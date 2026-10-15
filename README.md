@@ -4,7 +4,7 @@
 
 다른 일을 하는 동안에도 대장장이는 제작하고 손님은 방문한다. 플레이어는 가끔 돌아와 의뢰의 우선순위를 정하고, 재료를 주문하고, 탐험대를 보내며 다음 성장을 선택한다. TaskbarHero처럼 데스크톱 위에서 작게 지속되는 경험이 출발점이다.
 
-> 기획 기준일: 2026-10-15. 현재 저장소는 설계 문서 단계이며 실행 가능한 게임·빌드·테스트는 아직 없다. 아래 기술 구조는 구현 목표다.
+> 기획 기준일: 2026-10-15. Foundation 실행 코드와 자동 테스트가 추가되었다. 네이티브 macOS/Windows 실기 승인은 아직 별도 게이트다. 콘텐츠 MVP는 아래 기획 목표를 따른다.
 
 ## 핵심 경험
 
@@ -33,8 +33,8 @@
 |---|---|
 | 제품 | 가벼운 데스크톱 방치형 대장장이 게임, Steam 출시 목표 |
 | 화면 | 데스크톱 하단 플로팅 창, 필요할 때 관리 화면 확장 |
-| 엔진 | Godot 우선, Rust 코어 점진 도입 |
-| 플랫폼 | Windows·macOS·Linux 지원 목표, 플랫폼별 POC 검증 필요 |
+| 엔진 | Bevy 0.20.0 + Pure Rust 코어 |
+| 플랫폼 | macOS 우선, Windows x64 CI + Shadow PC 수동 검증; Linux 출시 지원 미정 |
 | 마을 경제 | 목공소·가죽세공소·농장과 양방향 거래 및 수리 의뢰 |
 | 이벤트 | 30~60분 간격의 시간 기반 의뢰 이벤트 |
 | 도구 | 위 세 상점 각각 고유 도구 3종, 해금 상품 1종 |
@@ -60,7 +60,7 @@
 | 문서 | 내용 |
 |---|---|
 | [ARCHITECTURE.md](ARCHITECTURE.md) | 화면·시뮬레이션 경계, 저장·시간·플랫폼 검증 |
-| [MVP](docs/mvp/README.md) | 파운데이션 POC, 콘텐츠 MVP, 제외 범위와 완료 기준 |
+| [MVP](docs/mvp/README.md) | 파운데이션 제품 코드 검증, 콘텐츠 MVP, 제외 범위와 완료 기준 |
 | [아이템](docs/items/README.md) | 아이템 분류·데이터 규칙·아트 |
 | [재료](docs/items/MATERIALS.md) | 재료의 획득·소비·연구 연결 |
 | [제작물](docs/items/CRAFTABLES.md) | 도구 9종, 무기 티어, 상점 해금 |
@@ -79,9 +79,39 @@
 
 ## 개발 순서
 
-1. 하단 창·입력 통과·픽셀 표시·저장 및 플랫폼 POC를 검증한다.
+1. 하단 창·입력 통과·픽셀 표시·저장 및 플랫폼 동작을 검증한다.
 2. 제작·판매·골드·재료·최소 탐험의 작은 반복을 완성한다.
 3. 최신 기획인 마을 수리·호감도·상품 해금·피드백을 연결한다.
 4. 플레이테스트 후 카드와 더 넓은 연구·무기 콘텐츠를 확장한다.
 
-실행 방법과 지원 버전은 코드가 들어온 뒤 실제 검증 결과로 추가한다. 무료 3D 에셋을 최대한 활용하되, 배포 전 개별 라이선스와 출처를 기록한다. 저장소 공개 여부가 코드나 외부 에셋의 사용 허가를 대신하지 않는다.
+실행·검증 방법은 아래를 따른다. 무료 3D 에셋을 최대한 활용하되, 배포 전 개별 라이선스와 출처를 기록한다. 저장소 공개 여부가 코드나 외부 에셋의 사용 허가를 대신하지 않는다.
+
+
+## 실행
+
+Rust **1.99.1**, Bevy **0.20.0**, `Cargo.lock` 고정. 저장소 루트에서:
+
+```sh
+cargo run --locked -p little-forge -- --safe-window
+cargo run --locked -p little-forge
+cargo test --locked --workspace
+cargo clippy --locked --workspace --all-targets -- -D warnings
+python scripts/validate-assets.py
+cargo run --locked --release -p forge-qa
+```
+
+Linux 빌드 의존성: `libx11-dev libxkbcommon-dev libudev-dev libasound2-dev`; 렌더 검증에는 Vulkan 드라이버와 X 서버가 필요하다. Linux/X11 클릭 통과는 지원하지 않는다.
+
+| 키 | 동작 |
+|---|---|
+| C / B | 단검 제작 / 광석 2개 구매 |
+| Tab | 180 ↔ 540 높이 관리 패널 |
+| F8 / Esc | 10초 클릭 통과 / 포커스가 있을 때 즉시 해제 |
+| T / D | 최상단 표시 / 창 장식과 드래그 |
+| F12 | 사용자 저장 폴더에 diagnostics.json 기록 |
+
+클릭 통과 중 로컬 단축키는 전달되지 않을 수 있다. 10초 자동 복귀가 독립적인 안전장치다. 영구 클릭 통과나 전역 단축키를 제공한다고 주장하지 않는다. `--safe-window`는 불투명·장식 창으로 시작하고 클릭 통과를 금지한다.
+
+기본 저장은 OS 사용자 데이터 폴더다. `--save-dir PATH`로 분리 가능하며, 동일 저장 경로의 동시 실행은 거부한다. `--qa ambient|sale|expanded|idle`은 별도 `qa-output/session`을 사용한다. `--screenshot qa-output/sale.png`로 고정 프레임을 저장한다.
+
+[실기 검증 인계](docs/qa/HANDOFF.md) · [검증 증거](docs/qa/FOUNDATION.md) · [플랫폼 정책](docs/system/PLATFORMS.md)

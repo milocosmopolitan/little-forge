@@ -1,0 +1,5 @@
+/target/
+/qa-output/
+/dist/
+*.tmp
+.DS_Store

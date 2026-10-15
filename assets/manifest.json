@@ -1,0 +1,110 @@
+{
+  "version": 1,
+  "assets": [
+    {
+      "id": "forge",
+      "path": "forge/forge.png",
+      "width": 1254,
+      "height": 1254,
+      "columns": 1,
+      "rows": 1,
+      "alpha": true,
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "sha256": "ce18d7fa8f82d0da5083211091662b9a4b998a6de05636882433a5f79a6379c4",
+      "source": "blacksmithshop-outerior-active.png"
+    },
+    {
+      "id": "forge_idle",
+      "path": "forge/forge_idle.png",
+      "width": 1254,
+      "height": 1254,
+      "columns": 1,
+      "rows": 1,
+      "alpha": true,
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "sha256": "52e7c6ea11511c03f7bf0185ec4cea5ee06899b23b54dd28028dd6ea378a65e6",
+      "source": "blacksmithshop-outerior-idle.png"
+    },
+    {
+      "id": "smith",
+      "path": "forge/smith.png",
+      "width": 1448,
+      "height": 1086,
+      "columns": 4,
+      "rows": 3,
+      "alpha": true,
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "sha256": "68855d79c1cc9aa6de284e8223b70876002c38c64eeeb6b5805a1b70636ba2f4",
+      "source": "male-character-sheet.png"
+    },
+    {
+      "id": "visitor",
+      "path": "forge/visitor.png",
+      "width": 1448,
+      "height": 1086,
+      "columns": 4,
+      "rows": 3,
+      "alpha": true,
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "sha256": "afba1a62139442815ee2c1918c92ee3108716387e28ab3f63d66959d77fad715",
+      "source": "female-character-sheet.png"
+    },
+    {
+      "id": "smoke",
+      "path": "forge/smoke.png",
+      "width": 2172,
+      "height": 724,
+      "columns": 6,
+      "rows": 1,
+      "alpha": true,
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "sha256": "bc644af20ca53d19a60fe7a5d958f334dc7aacd790bb96f7120f202ad05e0a4b",
+      "source": "blacksmithshop-outerior-smoke-sheet.png"
+    },
+    {
+      "id": "fire",
+      "path": "forge/fire.png",
+      "width": 2172,
+      "height": 724,
+      "columns": 6,
+      "rows": 1,
+      "alpha": true,
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "sha256": "982373350bfef67ad6106d6aa61ab40033ae5c821dbbdd2fae739dc88529a373",
+      "source": "blacksmithshop-fire-crackle-sheet.png"
+    },
+    {
+      "id": "workbench",
+      "path": "forge/workbench.png",
+      "width": 1254,
+      "height": 1254,
+      "columns": 1,
+      "rows": 1,
+      "alpha": true,
+      "anchor": [
+        0.5,
+        0.0
+      ],
+      "sha256": "4568d5a4750e1beceb7b2e95e621e467e722f9ca626ec75f3cb1e07b111bf24b",
+      "source": "workbench.png"
+    }
+  ]
+}
