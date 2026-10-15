@@ -17,11 +17,11 @@ This audit distinguishes **confirmed user choices**, **implementation candidates
 | Card direction | Duplicate-card merging; perk persistent vs enhancement consumed is design proposal; timer/card collection later | Do not force cards into Foundation |
 | Asset research | 60 physical weapon types and 3 core visual tiers proposed for long-term art; 96px per logical slot, variable grid, art packs/uniques | Do not confuse with initial content minimum |
 | Living economy | Farmer, carpenter, leatherworker shops send repairs, supply items and give usage feedback; no item durability simulation | Existing NPC/economy/crafting docs carry most of this |
-| New needs | Fatigue sleep, hunger food, thirst drinks; hunger/thirst accelerate fatigue; fatigue reduces crafting speed; well always free; farmer low-cost food, tavern premium | [NEEDS](NEEDS.md), consumables/economy/crafting cross refs |
+| New needs | Automatic sleep at fatigue threshold; automatic basic-food eating after wake from a generously slotted food pantry; thirst recovered by drinks/free well; hunger and thirst accelerate fatigue; farmer inexpensive food, tavern premium meals | [NEEDS](NEEDS.md), consumables/economy/crafting cross refs |
 
 ## Deliberately open questions (do not silently decide)
 
-1. Numeric need rates, food/drink recovery, rest duration and auto-use.
+1. Numeric need rates, recovery amounts, rest duration, pantry priority and optional premium auto-use (auto-sleep and post-wake pantry eating are confirmed).
 2. How needs advance while app closed or work not active.
 3. Specific ticket/order timing, offline clock and deadline semantics.
 4. Research XP/probability curves and exact tier distribution.
