@@ -40,3 +40,17 @@ This audit distinguishes **confirmed user choices**, **implementation candidates
 **Later expansion:** 60-weapon catalog, 3-tier asset generator, art packs, unique items, card systems, online friends/trading and chat.
 
 Introducing needs should not force full survival simulation into the Foundation spike. Implement incremental data/UI contracts, then fit recovery to the economy milestone. Update README/ARCHITECTURE/MVP only after reconciling concurrent Astra branch changes.
+
+
+## 2026-10-15 추가 문서로 복구 완료
+
+| 복구 범위 | 문서 |
+|---|---|
+| 게임 서사와 초기 장비 | [STORY](STORY.md) |
+| 튜토리얼 주문·첫 연구 | [TUTORIAL](../mvp/TUTORIAL.md) |
+| 무기 60종, 3티어, 가변 슬롯, MVP 분리 | [WEAPONS](WEAPONS.md) |
+| 연구 도메인과 발견형 해금 | [RESEARCH](RESEARCH.md) |
+| 스택형 인벤토리·음식 창고 | [STACKABLE](../items/STACKABLE.md) |
+| 장착형 무기와 NPC 퇴장 | [EQUIPABLE](../items/EQUIPABLE.md) |
+
+이 문서들은 이전 합의를 보존하는 설계 기록이다. 아트팩의 실제 공급량·60종의 제작법·첫 출시 숫자·메타데이터 공식 등은 단순 문서화로 구현 확정되지 않는다.
