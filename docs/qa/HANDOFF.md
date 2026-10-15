@@ -32,3 +32,9 @@ Record 60 seconds after warm-up for ambient animated, expanded, unfocused, obscu
 Portable package includes executable, assets, build SHA and this guide. Use a private Steam test depot, set executable/working directory, verify a clean machine install, launch/exit and save persistence. Steam SDK/overlay/cloud saves, signing and store publishing are not part of this Foundation implementation.
 
 For repeatable per-process samples: `python -m pip install psutil`, then `python scripts/profile-process.py PID --scenario ambient --seconds 60 --output qa-output/ambient-performance.json`. Press F12 separately for FPS/GPU adapter diagnostics. GPU utilization remains a native-tool measurement.
+
+## Windows black-background regression
+
+The initial Foundation build could select Vulkan and unspecified alpha, leaving a black rectangle even without `--safe-window`. Transparent Windows launches now select DX12, a DirectComposition visual swapchain (`DxgiFromVisual`) and premultiplied alpha. This is configured automatically before renderer initialization. Safe mode retains the automatic backend and opaque background.
+
+On the corrected build, launch without `--safe-window` over a light application window. Empty pixels must show that application; sprites and text must remain visible without black fringes. F12 adapter diagnostics should report `Dx12`. Repeat the global shortcut, 10-second click-through recovery, resizing, DPI and sleep checks. The code/CI change alone does not constitute a native transparency pass. macOS uses its existing Metal/postmultiplied-alpha path and needs separate native evidence if still opaque.

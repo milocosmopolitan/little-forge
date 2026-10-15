@@ -1,5 +1,6 @@
 mod native;
 mod presentation;
+mod rendering;
 mod window;
 use bevy::{
     diagnostic::{DiagnosticsStore, FrameTimeDiagnosticsPlugin},
@@ -61,6 +62,8 @@ fn now() -> u64 {
         .as_secs()
 }
 fn main() {
+    // Must precede Bevy, hotkeys, logging and every worker-thread initializer.
+    rendering::prepare_process();
     if let Err(e) = run() {
         eprintln!(
             "Little Forge: {e}\nRecovery: launch with --safe-window. Save files have not been reset."
@@ -162,12 +165,6 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             return Err(format!("missing bundled asset {}", asset.path).into());
         }
     }
-    #[cfg(target_os = "macos")]
-    let transparent_alpha = bevy::window::CompositeAlphaMode::PostMultiplied;
-    #[cfg(target_os = "linux")]
-    let transparent_alpha = bevy::window::CompositeAlphaMode::PreMultiplied;
-    #[cfg(not(any(target_os = "macos", target_os = "linux")))]
-    let transparent_alpha = bevy::window::CompositeAlphaMode::Auto;
     let win = Window {
         title: "Little Forge".into(),
         resolution: (960, 180).into(),
@@ -176,7 +173,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         composite_alpha_mode: if opts.safe {
             bevy::window::CompositeAlphaMode::Auto
         } else {
-            transparent_alpha
+            rendering::transparent_alpha()
         },
         resizable: false,
         present_mode: PresentMode::AutoVsync,
@@ -207,6 +204,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     .insert_resource(presentation)
     .add_plugins(
         DefaultPlugins
+            .set(rendering::plugin(opts.safe))
             .set(AssetPlugin {
                 file_path: asset_dir.to_string_lossy().into_owned(),
                 ..default()
