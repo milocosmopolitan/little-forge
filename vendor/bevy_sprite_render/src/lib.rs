@@ -59,6 +59,8 @@ impl Plugin for SpriteRenderPlugin {
         load_shader_library!(app, "render/sprite_view_bindings.wesl");
 
         embedded_asset!(app, "render/sprite.wesl");
+        embedded_asset!(app, "render/sprite_dot.wesl");
+        embedded_asset!(app, "render/sprite_explicit.wesl");
 
         if !app.is_plugin_added::<TextureAtlasPlugin>() {
             app.add_plugins(TextureAtlasPlugin);

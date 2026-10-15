@@ -23,6 +23,8 @@ jobs:
           toolchain: 1.99.1
           components: rustfmt, clippy
       - uses: Swatinem/rust-cache@v2
+        with:
+          cache-on-failure: true
       - if: runner.os == 'Linux'
         run: sudo apt-get update && sudo apt-get install -y libx11-dev libxkbcommon-dev libxkbcommon-x11-0 libudev-dev libasound2-dev libwayland-dev libvulkan1 mesa-vulkan-drivers xvfb
       - run: cargo fmt --all -- --check
@@ -34,24 +36,25 @@ jobs:
         run: |
           mkdir -p qa-output
           cargo run --locked --release -p forge-qa > qa-output/simulation.json
+      - name: Build Windows diagnostic executable
+        if: runner.os == 'Windows'
+        run: cargo build --locked -p little-forge
+      - name: Diagnose Windows debug transforms
+        if: runner.os == 'Windows'
+        continue-on-error: true
+        shell: pwsh
+        run: scripts/diagnose-dx12.ps1 -Executable target/debug/little-forge.exe -OutputDirectory qa-debug
+      - uses: actions/upload-artifact@v4
+        if: always() && runner.os == 'Windows'
+        with:
+          name: dx12-debug-probes
+          path: qa-debug/
+          retention-days: 14
       - run: cargo build --locked --release -p little-forge
-      - name: Capture Windows DX12 scenes
+      - name: Diagnose Windows release transforms
         if: runner.os == 'Windows'
         shell: pwsh
-        run: |
-          $dxc = Get-ChildItem 'C:/Program Files (x86)/Windows Kits/10/bin' -Recurse -Filter dxcompiler.dll | Where-Object { $_.Directory.Name -eq 'x64' } | Sort-Object FullName -Descending | Select-Object -First 1
-          if (!$dxc) { throw 'Windows software rendering requires SDK DXC' }
-          Copy-Item $dxc.FullName .
-          Copy-Item (Join-Path $dxc.Directory.FullName 'dxil.dll') .
-          $env:WGPU_BACKEND = 'dx12'
-          $env:WGPU_DX12_COMPILER = 'dxc'
-          foreach ($scene in @('ambient','sale','expanded')) {
-            $png = "qa-output/windows-$scene.png"
-            $p = Start-Process target/release/little-forge.exe -ArgumentList @('--safe-window','--qa',$scene,'--screenshot',$png) -PassThru -RedirectStandardOutput "qa-output/windows-$scene.stdout.log" -RedirectStandardError "qa-output/windows-$scene.stderr.log"
-            if (!$p.WaitForExit(90000)) { $p.Kill(); throw "Capture timeout: $scene" }
-            if (!(Test-Path $png)) { throw "Missing capture: $scene" }
-            if (Select-String -Path "qa-output/windows-$scene.stderr.log" -Pattern 'panicked|ERROR') { throw "Renderer error: $scene" }
-          }
+        run: scripts/diagnose-dx12.ps1 -Executable target/release/little-forge.exe -OutputDirectory qa-output
       - run: python scripts/package.py
       - uses: actions/upload-artifact@v4
         with:
@@ -72,6 +75,8 @@ jobs:
         with:
           toolchain: 1.99.1
       - uses: Swatinem/rust-cache@v2
+        with:
+          cache-on-failure: true
       - run: sudo apt-get update && sudo apt-get install -y libx11-dev libxkbcommon-dev libxkbcommon-x11-0 libudev-dev libasound2-dev libvulkan1 mesa-vulkan-drivers xvfb
       - run: cargo build --locked -p little-forge
       - run: python -m pip install -r scripts/requirements-qa.txt

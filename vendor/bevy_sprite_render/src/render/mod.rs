@@ -84,7 +84,11 @@ pub fn init_sprite_pipeline(mut commands: Commands, asset_server: Res<AssetServe
     commands.insert_resource(SpritePipeline {
         view_layout,
         material_layout,
-        shader: load_embedded_asset!(asset_server.as_ref(), "sprite.wesl"),
+        shader: match std::env::var("LITTLE_FORGE_SPRITE_SHADER").as_deref() {
+            Ok("dot") => load_embedded_asset!(asset_server.as_ref(), "sprite_dot.wesl"),
+            Ok("explicit") => load_embedded_asset!(asset_server.as_ref(), "sprite_explicit.wesl"),
+            _ => load_embedded_asset!(asset_server.as_ref(), "sprite.wesl"),
+        },
     });
 }
 
@@ -563,6 +567,7 @@ pub fn prepare_sprite_image_bind_groups(
     mut phases: ResMut<ViewSortedRenderPhases<Transparent2d>>,
     events: Res<SpriteAssetEvents>,
     mut batches: ResMut<SpriteBatches>,
+    mut logged: Local<bool>,
 ) {
     // If an image has changed, the GpuImage has (probably) changed
     for event in &events.images {
@@ -715,6 +720,17 @@ pub fn prepare_sprite_image_bind_groups(
                 .batch_range_mut()
                 .end += 1;
         }
+        if !*logged && std::env::var_os("LITTLE_FORGE_SPRITE_DIAGNOSTICS").is_some()
+            && sprite_meta.sprite_instance_buffer.len() >= 4
+        {
+            for (index, instance) in sprite_meta.sprite_instance_buffer.values().iter().enumerate() {
+                tracing::info!(index, model = ?instance.i_model_transpose, uv = ?instance.i_uv_offset_scale, "SPRITE_CPU_INSTANCE");
+            }
+            for sprite in &extracted_sprites.sprites {
+                tracing::info!(image = ?sprite.image_handle_id, transform = ?sprite.transform, "SPRITE_CPU_EXTRACTED");
+            }
+            *logged = true;
+        }
         sprite_meta
             .sprite_instance_buffer
             .write_buffer(&render_device, &render_queue);
@@ -821,16 +837,15 @@ impl<P: PhaseItem> RenderCommand<P> for DrawSpriteBatch {
             sprite_meta.sprite_index_buffer.buffer().unwrap().slice(..),
             IndexFormat::Uint32,
         );
-        // Bind the batch's instance bytes directly instead of relying on a nonzero
-        // first_instance. Keep shader inputs and world-space transforms unchanged.
-        let stride = size_of::<SpriteInstance>() as u64;
-        let start = u64::from(batch.range.start) * stride;
-        let end = u64::from(batch.range.end) * stride;
         pass.set_vertex_buffer(
             0,
-            sprite_meta.sprite_instance_buffer.buffer().unwrap().slice(start..end),
+            sprite_meta
+                .sprite_instance_buffer
+                .buffer()
+                .unwrap()
+                .slice(..),
         );
-        pass.draw_indexed(0..6, 0, 0..batch.range.len() as u32);
+        pass.draw_indexed(0..6, 0, batch.range.clone());
         RenderCommandResult::Success
     }
 }
