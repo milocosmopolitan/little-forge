@@ -27,6 +27,14 @@ pub fn transparent_alpha() -> CompositeAlphaMode {
 }
 
 fn settings(safe: bool) -> WgpuSettings {
+    #[cfg(target_os = "windows")]
+    let settings = WgpuSettings {
+        // Embed DXC so release rendering uses the same compiler as native QA.
+        // Legacy FXC loses the WARP device in release builds even after the index fix.
+        dx12_shader_compiler: bevy::render::settings::Dx12Compiler::StaticDxc,
+        ..WgpuSettings::default()
+    };
+    #[cfg(not(target_os = "windows"))]
     let settings = WgpuSettings::default();
     #[cfg(target_os = "windows")]
     if !safe {
@@ -74,6 +82,17 @@ mod tests {
             transparent_alpha(),
             CompositeAlphaMode::PreMultiplied | CompositeAlphaMode::PostMultiplied
         ));
+    }
+
+    #[cfg(target_os = "windows")]
+    #[test]
+    fn windows_shader_compiler_is_self_contained() {
+        for safe in [false, true] {
+            assert!(matches!(
+                settings(safe).dx12_shader_compiler,
+                bevy::render::settings::Dx12Compiler::StaticDxc
+            ));
+        }
     }
 
     #[cfg(target_os = "windows")]

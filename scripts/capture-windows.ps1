@@ -1,15 +1,10 @@
 param([string]$Executable, [string]$OutputDirectory)
 $ErrorActionPreference = 'Stop'
 New-Item -ItemType Directory -Force $OutputDirectory | Out-Null
-$dxc = Get-ChildItem 'C:/Program Files (x86)/Windows Kits/10/bin' -Recurse -Filter dxcompiler.dll | Where-Object { $_.Directory.Name -eq 'x64' } | Sort-Object FullName -Descending | Select-Object -First 1
-if (!$dxc) { throw 'Missing SDK DXC for Windows comparison' }
-Copy-Item $dxc.FullName . -Force
-Copy-Item (Join-Path $dxc.Directory.FullName 'dxil.dll') . -Force
 $env:WGPU_BACKEND = 'dx12'
 
-function Capture-Scene([string]$Compiler, [string]$Scene, [bool]$Control) {
-  $env:WGPU_DX12_COMPILER = $Compiler
-  $name = "$Compiler-$Scene"
+function Capture-Scene([string]$Scene, [bool]$Control) {
+  $name = "static-dxc-$Scene"
   if ($Control) {
     $env:LITTLE_FORGE_QA_UNPATCHED_SHADER = '1'
     $name = "unpatched-$name"
@@ -30,9 +25,7 @@ function Capture-Scene([string]$Compiler, [string]$Scene, [bool]$Control) {
 }
 
 # A/B control uses the same executable, device, camera, assets and scene coordinates.
-Capture-Scene -Compiler dxc -Scene ambient -Control $true
-foreach ($compiler in @('fxc','dxc')) {
-  foreach ($scene in @('ambient','sale','expanded')) {
-    Capture-Scene -Compiler $compiler -Scene $scene -Control $false
-  }
+Capture-Scene -Scene ambient -Control $true
+foreach ($scene in @('ambient','sale','expanded')) {
+  Capture-Scene -Scene $scene -Control $false
 }

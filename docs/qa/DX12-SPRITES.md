@@ -16,6 +16,10 @@ The app embeds the pinned Bevy 0.20 sprite-mesh shader with that local changed t
 
 ## Regression gate and limits
 
-`scripts/capture-windows.ps1` runs on Windows CI in both debug and release. It first captures the original DXC path, which must reproduce the mismatch, then requires ambient/sale/expanded captures from both FXC (the default shipped compiler) and DXC to match the reviewed Linux references. It rejects missing captures, renderer errors and panics, including render-thread failures that leave process exit status zero. The existing tolerance is 8 per channel and 0.5% changed pixels; baselines are not regenerated automatically.
+`scripts/capture-windows.ps1` runs on Windows CI in both debug and release. It first captures the original shader path, which must reproduce the mismatch, then requires ambient/sale/expanded captures using the embedded DXC compiler to match the reviewed Linux references. It rejects missing captures, renderer errors and panics, including render-thread failures that leave process exit status zero. The existing tolerance is 8 per channel and 0.5% changed pixels; baselines are not regenerated automatically.
 
 CI uses Microsoft WARP, not the owner's NVIDIA GPU. After the automated gate passes, native transparent-mode placement, Tab expansion and NPC hand attachment still require the owner's Windows/Shadow confirmation. This document does not mark the wider input/DPI/monitor/sleep checklist complete. Evidence and accepted build links are tracked in PR #16 and issue #10.
+
+## Self-contained Windows compiler
+
+The legacy FXC path passes debug captures but loses the WARP device (0x887A0005) in optimized builds, including after the shader-index correction. Windows therefore enables Bevy's `statically-linked-dxc` feature and selects `Dx12Compiler::StaticDxc` for both normal and safe launches. CI tests this shipped compiler directly; no Windows SDK or external compiler DLL is needed at runtime. Cargo.lock pins mach-dxcompiler-rs and its prebuilt library is checksum-verified by its build script. Third-party notices accompany the package. macOS and Linux do not enable this Windows-only feature.
