@@ -20,7 +20,7 @@ Hunger/thirst do **not** directly reduce crafting speed in the initial model; th
 - The **farmer sells affordable basic food**, making recurring trade useful.
 - The **tavern sells premium meals and drinks**, optionally with temporary bonuses; ordinary food/drink still restores needs.
 - Do not force cooking, farming, food spoilage, nutrition macros or NPC survival simulation into the MVP.
-- Optional auto-consumption and resting/sleep schedules are *proposals*, not agreed behaviors. Offer safe manual actions first; design future automation to be predictable and configurable.
+- **Confirmed idle automation:** when fatigue reaches the configurable sleep threshold, the blacksmith automatically sleeps/rests. On waking, the blacksmith automatically eats from a dedicated food pantry if hungry and food is available, and hydrates using an available drink or free well water as needed. Preserve explicit player controls for rest and consumables. Never automatically spend gold or consume a premium buff meal unless separately permitted.
 - An inventory item may have both `hunger_restore` or `thirst_restore` and an optional independent buff. Apply costs and recovery atomically.
 - Sleep is an activity state/timer rather than a full day/night simulation requirement; it should be visually represented.
 
@@ -65,8 +65,16 @@ Tests: bounded invariants; monotonic fatigue rates; sufficient rest/food/water r
 ### Still open — explicitly NOT decided
 
 - Base rates and threshold curves.
-- Sleep duration, interruption and whether rest automatically starts at fatigue cap.
+- Exact sleep duration, interruption policy and fatigue threshold (automatic sleep itself is confirmed).
 - Food/drink quantities, prices, buff tables.
 - Whether needs accumulate while idle (not crafting), during exploration screen or while app closed.
-- Auto-consumption preferences and notification frequency.
+- Pantry item priority, premium-food opt-in, automatic drinking thresholds and notification frequency (automatic food use after waking is confirmed).
 - Whether additional comfort/furniture effects exist.
+
+## Auto-rest and food pantry — accepted (2026-10-15)
+
+The blacksmith resumes normal automatic work after waking and attending to hunger/thirst. No player prompt or forced focus is required. If food is unavailable, do not deadlock or repeatedly open menus: the blacksmith can continue at reduced effectiveness, and the player sees a quiet low-stock notification. Free water is always obtainable independently of stocked drinks.
+
+Provide a **dedicated food pantry** separate from material inventory and weapon display. Its capacity should be generous enough for idle use, without inventory-Tetris or per-slot shape constraints. **Initial proposal:** 12 stackable food/drink slots, each stack holding a configurable amount; pantry capacity is not yet a final balance value. Distinguish cheap staple food (eligible for unattended eating by default) from premium buff meals (not automatically spent by default).
+
+Deterministic sequence: eligible work time accrues needs → if fatigue threshold reached, finish/pause work at a well-defined boundary and enter sleep → rest finishes → consume eligible pantry food if hunger warrants → hydrate if thirst warrants (free well fallback) → resume queued work. Do not trigger double consumption, double completion or unintended order deadline failure on restart. Keep the exact time/threshold formulas tunable.
