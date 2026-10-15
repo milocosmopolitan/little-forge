@@ -35,6 +35,23 @@ jobs:
           mkdir -p qa-output
           cargo run --locked --release -p forge-qa > qa-output/simulation.json
       - run: cargo build --locked --release -p little-forge
+      - name: Capture Windows DX12 scenes
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $dxc = Get-ChildItem 'C:/Program Files (x86)/Windows Kits/10/bin' -Recurse -Filter dxcompiler.dll | Where-Object { $_.Directory.Name -eq 'x64' } | Sort-Object FullName -Descending | Select-Object -First 1
+          if (!$dxc) { throw 'Windows software rendering requires SDK DXC' }
+          Copy-Item $dxc.FullName .
+          Copy-Item (Join-Path $dxc.Directory.FullName 'dxil.dll') .
+          $env:WGPU_BACKEND = 'dx12'
+          $env:WGPU_DX12_COMPILER = 'dxc'
+          foreach ($scene in @('ambient','sale','expanded')) {
+            $png = "qa-output/windows-$scene.png"
+            $p = Start-Process target/release/little-forge.exe -ArgumentList @('--safe-window','--qa',$scene,'--screenshot',$png) -PassThru -RedirectStandardOutput "qa-output/windows-$scene.stdout.log" -RedirectStandardError "qa-output/windows-$scene.stderr.log"
+            if (!$p.WaitForExit(90000)) { $p.Kill(); throw "Capture timeout: $scene" }
+            if (!(Test-Path $png)) { throw "Missing capture: $scene" }
+            if (Select-String -Path "qa-output/windows-$scene.stderr.log" -Pattern 'panicked|ERROR') { throw "Renderer error: $scene" }
+          }
       - run: python scripts/package.py
       - uses: actions/upload-artifact@v4
         with:
