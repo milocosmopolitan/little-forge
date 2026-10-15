@@ -231,6 +231,12 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         )
             .chain(),
     );
+    // QA-only A/B control; normal launches always receive the renderer correction.
+    let qa_unpatched = app.world().resource::<Options>().qa.is_some()
+        && std::env::var_os("LITTLE_FORGE_QA_UNPATCHED_SHADER").is_some();
+    if !qa_unpatched {
+        rendering::install_sprite_shader(&mut app);
+    }
     app.run();
     Ok(())
 }

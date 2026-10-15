@@ -39,22 +39,22 @@ jobs:
       - name: Build Windows diagnostic executable
         if: runner.os == 'Windows'
         run: cargo build --locked -p little-forge
-      - name: Diagnose Windows debug transforms
+      - name: Compare Windows debug scenes
         if: runner.os == 'Windows'
         continue-on-error: true
         shell: pwsh
-        run: scripts/diagnose-dx12.ps1 -Executable target/debug/little-forge.exe -OutputDirectory qa-debug
+        run: scripts/capture-windows.ps1 -Executable target/debug/little-forge.exe -OutputDirectory qa-debug
       - uses: actions/upload-artifact@v4
         if: always() && runner.os == 'Windows'
         with:
-          name: dx12-debug-probes
+          name: windows-debug-scenes
           path: qa-debug/
           retention-days: 14
       - run: cargo build --locked --release -p little-forge
-      - name: Diagnose Windows release transforms
+      - name: Compare Windows release scenes
         if: runner.os == 'Windows'
         shell: pwsh
-        run: scripts/diagnose-dx12.ps1 -Executable target/release/little-forge.exe -OutputDirectory qa-output
+        run: scripts/capture-windows.ps1 -Executable target/release/little-forge.exe -OutputDirectory qa-output
       - run: python scripts/package.py
       - uses: actions/upload-artifact@v4
         with:

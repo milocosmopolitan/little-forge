@@ -1197,6 +1197,8 @@ dependencies = [
 [[package]]
 name = "bevy_sprite_render"
 version = "0.20.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8918649806697740b61d3fd0559cb8c7de2ade5046aacf8abbef20e49ea1de0c"
 dependencies = [
  "bevy_app",
  "bevy_asset",

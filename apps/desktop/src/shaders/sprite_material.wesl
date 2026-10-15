@@ -1,3 +1,5 @@
+// Adapted from bevy_sprite_render 0.20.0 (MIT OR Apache-2.0).
+// Distributed under the MIT license in docs/licenses/BEVY-MIT.txt.
 import package::{
     mesh2d::functions as mesh_functions,
     mesh2d::vertex_output::VertexOutput,
@@ -19,7 +21,10 @@ import bevy_render::color_operations::linear_rgb_to_oklab;
 
 @vertex
 fn vertex(vertex: Vertex) -> VertexOutput {
-    let instance_index = vertex.instance_index;
+    // DX12/Naga can apply base_instance twice when this is a let binding.
+    // Keep a mutable local so all transform/material lookups use one corrected index.
+    // https://github.com/gfx-rs/wgpu/issues/4564
+    var instance_index = vertex.instance_index;
 
 @if(BINDLESS)
     let slot = mesh2d_bindings::mesh[instance_index].material_bind_group_slot;

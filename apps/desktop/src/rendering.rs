@@ -47,6 +47,23 @@ pub fn plugin(safe: bool) -> RenderPlugin {
     }
 }
 
+/// Replace the pinned Bevy 0.20 sprite-mesh shader before RenderStartup loads it.
+/// Only the instance-index binding differs from upstream; see docs/qa/DX12-SPRITES.md.
+pub fn install_sprite_shader(app: &mut bevy::prelude::App) {
+    use bevy::asset::io::embedded::EmbeddedAssetRegistry;
+    use std::path::{Path, PathBuf};
+    app.world()
+        .resource::<EmbeddedAssetRegistry>()
+        .insert_asset(
+            PathBuf::from(concat!(
+                env!("CARGO_MANIFEST_DIR"),
+                "/src/shaders/sprite_material.wesl"
+            )),
+            Path::new("bevy_sprite_render/sprite_mesh/sprite_material.wesl"),
+            include_bytes!("shaders/sprite_material.wesl").as_slice(),
+        );
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

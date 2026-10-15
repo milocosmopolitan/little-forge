@@ -14,6 +14,7 @@ if system=='Darwin':
 else:dest=stage;dest.mkdir(parents=True)
 shutil.copy2(Path('target/release')/exe,dest/exe)
 shutil.copytree('assets',dest/'assets')
+shutil.copytree('docs/licenses',stage/'licenses')
 shutil.copy2('docs/qa/HANDOFF.md',stage/'READ-ME-FIRST.md')
 (stage/'build.json').write_text(json.dumps({'commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'platform':system,'arch':platform.machine(),'signed':False},indent=2))
 shutil.make_archive(str(base/name),'zip',base_dir=name,root_dir=base)
