@@ -277,6 +277,7 @@ impl Plugin for NpcPlugin {
 pub fn animate(
     time: Res<Time>,
     clock: Res<PlaybackClock>,
+    server: Res<AssetServer>,
     c: Res<Catalog>,
     mut q: Query<(&mut Player, &mut Sprite, Option<&Catalog>)>,
 ) {
@@ -290,6 +291,13 @@ pub fn animate(
             a.index = if p.action == "talk" { 0 } else { p.frame };
         }
         s.flip_x = p.facing_left;
+        if matches!(
+            server.get_load_state(s.image.id()),
+            Some(bevy::asset::LoadState::Failed(_))
+        ) {
+            // Art is presentation-only. Leave gameplay and preview controls usable.
+            s.color = Color::NONE;
+        }
     }
 }
 #[cfg(test)]
@@ -418,6 +426,7 @@ fn add_face_layers(
 #[allow(clippy::type_complexity)]
 fn face_layers(
     mut commands: Commands,
+    server: Res<AssetServer>,
     actors: Query<(&Player, &Sprite, &Transform, &Visibility), With<Player>>,
     mut layers: Query<
         (
@@ -445,7 +454,13 @@ fn face_layers(
         } else {
             compatible && blinking
         };
-        *visibility = if active && p.layers && *v != Visibility::Hidden {
+        *visibility = if active
+            && p.layers
+            && *v != Visibility::Hidden
+            && !matches!(
+                server.get_load_state(sprite.image.id()),
+                Some(bevy::asset::LoadState::Failed(_))
+            ) {
             Visibility::Visible
         } else {
             Visibility::Hidden
@@ -520,6 +535,7 @@ pub struct ItemAttachment {
 fn attach_items(
     actors: Query<(&Player, &Sprite, &Transform, &Visibility, Option<&Catalog>), With<Player>>,
     default_catalog: Res<Catalog>,
+    server: Res<AssetServer>,
     mut items: Query<
         (
             &ItemAttachment,
@@ -543,6 +559,11 @@ fn attach_items(
             (t.translation.truncate() + p.hand_offset(c, height)).extend(t.translation.z + 0.5);
         transform.scale = t.scale;
         *visible = if attachment.enabled
+            && s.color != Color::NONE
+            && !matches!(
+                server.get_load_state(sprite.image.id()),
+                Some(bevy::asset::LoadState::Failed(_))
+            )
             && *v != Visibility::Hidden
             && (p.item || p.action == "give")
             && !p.transferred

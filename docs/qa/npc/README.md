@@ -22,6 +22,8 @@ Linux Xvfb, Vulkan llvmpipe (Mesa 25.2.8, LLVM 20.1.2), Rust 1.99.1, Bevy 0.20.0
 3. Backwards seek retained the previous visual handoff flag. Seeking now recomputes that flag from the sampled timeline. Domain inventory/gold were never driven by this visual flag.
 4. Generated source-sheet neighbors left tiny detached fragments in cells. Mechanical source packing isolates the primary character component and preserves sheet-wide scale and boot registration; offsets are retained in `registration.json`.
 
+5. Village missing-art regression exposed that farmer illustration files were incorrectly treated as startup-critical assets. NPC artwork is now optional: failed body textures are hidden, failed face/item layers are omitted, and the preview explicitly displays “art unavailable.” Actual staged packages with no NPC art successfully render map fallback, process a farm purchase and open the standalone preview. See [missing-art preview](missing-art.png). The existing fallback assertion remains intact and CI additionally exercises missing NPC art.
+
 ## Reproduction
 
 ```sh

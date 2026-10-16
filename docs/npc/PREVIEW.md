@@ -54,3 +54,5 @@ Keep source originals, generated source sheets, alpha PNG exports and provenance
 ## Evidence
 
 See `docs/qa/npc/README.md` for executed checks and limits. Generated art/contact sheets are insufficient evidence of game adapter behavior. Native macOS/Windows GUI acceptance must be distinguished from compilation and Linux software-renderer captures.
+
+Missing character textures leave preview controls available and show an art-unavailable status. Failed facial/item layers are omitted; a valid base pose can still render. NPC illustration loss never blocks game purchases or startup. The standalone capture helper also verifies an empty-assets package.

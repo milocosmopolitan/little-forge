@@ -33,3 +33,10 @@ with tempfile.TemporaryDirectory(prefix='forge-village-missing-') as temporary:
     with Image.open(png) as im: im.verify()
     assert 'Village map unavailable' in (out/'missing-assets.log').read_text()
     print('village missing-art fallback: actual app rendered destination navigation', flush=True)
+
+    # NPC illustration loss must not prevent a committed purchase from being presented safely.
+    png = out / 'missing-npc.png'
+    with (out/'missing-npc.log').open('w') as log:
+        subprocess.run([str(binary), '--safe-window', '--qa', 'npc', '--save-dir', str(stage/'session'), '--screenshot', str(png.resolve())], stdout=log, stderr=subprocess.STDOUT, check=True, timeout=180)
+    with Image.open(png) as im: im.verify()
+    print('missing NPC art: actual game remains usable', flush=True)

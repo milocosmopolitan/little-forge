@@ -227,6 +227,7 @@ fn controls(
     mut p: ResMut<Preview>,
     mut clear: ResMut<ClearColor>,
     items: Res<ItemImages>,
+    server: Res<AssetServer>,
     mut actor: Query<
         (&mut Player, &mut Sprite, &mut Transform),
         (With<Actor>, Without<Held>, Without<Guide>),
@@ -387,7 +388,16 @@ fn controls(
     for mut text in &mut labels {
         **text = format!(
             "NPC Preview / {} / {}   frame {}   {:.2}s   {:.2}x {}\n1-8 actions | Space pause | Left/Right step | R restart | F facing | I item\nB background | G bounds | K blink | L layers | Z size | N fixture NPC | +/- speed\nNo game simulation | No save IO | shared forge-npc player",
-            if p.fixture { "fixture B" } else { "farmer" },
+            if matches!(
+                server.get_load_state(sprite.image.id()),
+                Some(bevy::asset::LoadState::Failed(_))
+            ) {
+                "art unavailable"
+            } else if p.fixture {
+                "fixture B"
+            } else {
+                "farmer"
+            },
             a.action,
             a.frame,
             a.elapsed,

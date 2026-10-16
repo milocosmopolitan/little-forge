@@ -100,12 +100,8 @@ jobs:
             test -s "docs/qa/golden/linux-llvmpipe/$scene.png"
             python scripts/compare-images.py "docs/qa/golden/linux-llvmpipe/$scene.png" "qa-output/$scene.png" --diff "qa-output/$scene-diff.png"
           done
-      - name: Capture independent NPC stories
-        run: |
-          for story in idle talk blink surprised nod shake_head walk give; do
-            timeout 90s xvfb-run -a target/debug/npc-preview --story "$story" --capture "qa-output/npc-$story.png" > "qa-output/npc-$story.log" 2>&1
-            test -s "qa-output/npc-$story.png"
-          done
+      - name: Capture independent NPC stories and missing-art fallback
+        run: xvfb-run -a python scripts/capture-npc.py target/debug/npc-preview qa-output/npc
       - name: Capture farmer purchase in the actual game
         run: |
           timeout 90s xvfb-run -a target/debug/little-forge --safe-window --qa npc --screenshot qa-output/npc-purchase.png > qa-output/npc-purchase.log 2>&1

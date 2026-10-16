@@ -211,6 +211,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         if !asset_dir.join(&asset.path).is_file()
             && !asset.id.starts_with("village_")
             && !asset.id.starts_with("wash_")
+            && !asset.id.starts_with("farmer_")
         {
             return Err(format!("missing bundled asset {}", asset.path).into());
         }
