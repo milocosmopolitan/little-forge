@@ -32,6 +32,7 @@ pub fn strike_y(t: f32) -> f32 {
 }
 pub fn animate_strike(
     time: Res<Time>,
+    opts: Res<crate::Options>,
     title: Res<TitleScreen>,
     mut clock: Local<f32>,
     mut hammer: Query<&mut Node, With<TitleHammer>>,
@@ -40,7 +41,8 @@ pub fn animate_strike(
     if !title.active {
         return;
     }
-    *clock = (*clock + time.delta_secs()).rem_euclid(1.5);
+    let dt = if opts.qa.as_deref() == Some("title") { 1. / 30. } else { time.delta_secs() };
+    *clock = (*clock + dt).rem_euclid(1.5);
     for mut node in &mut hammer {
         node.top = px(strike_y(*clock));
     }
