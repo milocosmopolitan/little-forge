@@ -225,7 +225,9 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         unfocused_mode: UpdateMode::reactive_low_power(Duration::from_secs_f64(1. / 15.)),
     })
     .insert_resource(presentation)
-    .insert_resource(title::TitleScreen { active: title_active })
+    .insert_resource(title::TitleScreen {
+        active: title_active,
+    })
     .add_plugins(
         DefaultPlugins
             .set(rendering::plugin(opts.safe))
@@ -457,7 +459,9 @@ fn input(
     opts: Res<Options>,
     title: Res<title::TitleScreen>,
 ) {
-    if title.active { return; }
+    if title.active {
+        return;
+    }
     if keys.just_pressed(KeyCode::Escape) {
         desktop.shell.recover();
     }
@@ -513,7 +517,12 @@ fn persist(s: &mut Session, opts: &Options) {
         s.status = format!("SAVE ERROR: {e}. Simulation paused; preserve save directory.");
     }
 }
-fn simulate(mut s: ResMut<Session>, mut p: ResMut<Presentation>, opts: Res<Options>, title: Res<title::TitleScreen>) {
+fn simulate(
+    mut s: ResMut<Session>,
+    mut p: ResMut<Presentation>,
+    opts: Res<Options>,
+    title: Res<title::TitleScreen>,
+) {
     if title.active || s.disabled || (opts.qa.is_some() && opts.frames == 0) {
         return;
     }
