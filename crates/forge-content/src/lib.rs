@@ -98,3 +98,5 @@ mod tests {
         assert!(m.validate().is_err());
     }
 }
+
+pub mod village;

@@ -3,11 +3,12 @@ mod native;
 mod presentation;
 mod rendering;
 mod title;
+mod village;
 mod window;
 use bevy::{
     diagnostic::{DiagnosticsStore, FrameTimeDiagnosticsPlugin},
     prelude::*,
-    render::view::screenshot::{Screenshot, save_to_disk},
+    render::view::screenshot::{Screenshot, ScreenshotCaptured, save_to_disk},
     window::PresentMode,
     winit::{UpdateMode, WinitSettings},
 };
@@ -105,7 +106,22 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     if opts.qa.as_ref().is_some_and(|s| {
         !matches!(
             s.as_str(),
-            "ambient" | "sale" | "expanded" | "idle" | "life-loop" | "life-ambient" | "title"
+            "ambient"
+                | "sale"
+                | "expanded"
+                | "idle"
+                | "life-loop"
+                | "life-ambient"
+                | "title"
+                | "village-map"
+                | "village-carpenter"
+                | "village-leatherworker"
+                | "village-farm"
+                | "village-tavern"
+                | "village-chief"
+                | "village-guild"
+                | "village-outside"
+                | "village-input"
         )
     }) {
         return Err("unknown QA scenario".into());
@@ -143,6 +159,13 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             .state
             .command(2, Command::QueueCraft)
             .map_err(|e| format!("{e:?}"))?;
+    }
+    if opts
+        .qa
+        .as_deref()
+        .is_some_and(|q| q.starts_with("village-"))
+    {
+        saved.state.gold = 24;
     }
     let elapsed = if qa { 0 } else { saved.catch_up(now())? };
     if saved.state.command_id == 0 {
@@ -183,7 +206,10 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         .map_err(|e| format!("content: {e}"))?
         .assets
     {
-        if !asset_dir.join(&asset.path).is_file() {
+        if !asset_dir.join(&asset.path).is_file()
+            && !asset.id.starts_with("village_")
+            && !asset.id.starts_with("wash_")
+        {
             return Err(format!("missing bundled asset {}", asset.path).into());
         }
     }
@@ -218,12 +244,29 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     })
     .insert_resource(window::Desktop::new(
         opts.safe,
-        title_active || matches!(opts.qa.as_deref(), Some("expanded" | "life-loop")),
+        title_active
+            || matches!(
+                opts.qa.as_deref(),
+                Some(
+                    "expanded"
+                        | "life-loop"
+                        | "village-map"
+                        | "village-carpenter"
+                        | "village-leatherworker"
+                        | "village-farm"
+                        | "village-tavern"
+                        | "village-chief"
+                        | "village-guild"
+                        | "village-outside"
+                        | "village-input"
+                )
+            ),
     ))
     .insert_resource(WinitSettings {
         focused_mode: UpdateMode::reactive_low_power(Duration::from_secs_f64(1. / 30.)),
         unfocused_mode: UpdateMode::reactive_low_power(Duration::from_secs_f64(1. / 15.)),
     })
+    .insert_resource(village::AssetRoot(asset_dir.clone()))
     .insert_resource(presentation)
     .insert_resource(title::TitleScreen {
         active: title_active,
@@ -241,11 +284,16 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
                 ..default()
             }),
     )
+    .init_resource::<village::Village>()
+    .add_observer(village::activate)
     .add_observer(lifestyle::buttons)
     .add_observer(title::activate)
     .add_plugins(FrameTimeDiagnosticsPlugin::default())
     .insert_resource(opts)
-    .add_systems(Startup, (setup, lifestyle::setup, title::build))
+    .add_systems(
+        Startup,
+        (setup, lifestyle::setup, village::setup, title::build),
+    )
     .add_systems(
         Update,
         (
@@ -256,8 +304,12 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             presentation::tick,
             animate,
             window::update,
+            village::fit_ui,
             hud,
             lifestyle::update,
+            village::input,
+            village::draw,
+            village::update,
         )
             .chain(),
     );
@@ -458,6 +510,8 @@ fn input(
     mut desktop: ResMut<window::Desktop>,
     opts: Res<Options>,
     title: Res<title::TitleScreen>,
+    village: Res<village::Village>,
+    mut commands: Commands,
 ) {
     if title.active {
         return;
@@ -468,7 +522,7 @@ fn input(
     if keys.just_pressed(KeyCode::F8) {
         desktop.shell.idle();
     }
-    if keys.just_pressed(KeyCode::Tab) {
+    if keys.just_pressed(KeyCode::Tab) && village.nav.screen == forge_core::village::Screen::Home {
         desktop.shell.recover();
         desktop.shell.expanded = !desktop.shell.expanded;
     }
@@ -498,9 +552,16 @@ fn input(
             persist(&mut session, &opts);
         }
     }
+    if keys.just_pressed(KeyCode::F10)
+        && let Some(path) = &opts.capture
+    {
+        commands
+            .spawn(Screenshot::primary_window())
+            .observe(save_capture(path.clone()));
+    }
     if keys.just_pressed(KeyCode::F12) {
         let path = session.dir.join("diagnostics.json");
-        let data = serde_json::json!({"os":std::env::consts::OS,"arch":std::env::consts::ARCH,"version":env!("CARGO_PKG_VERSION"),"safe":opts.safe,"qa":opts.qa,"tick":session.save.state.tick,"life":session.save.state.life,"shell":format!("{:?}",desktop.shell),"native_display":desktop.diagnostics,"fps":diagnostics.get(&FrameTimeDiagnosticsPlugin::FPS).and_then(|d|d.average()),"adapter":adapter.map(|a|format!("{} | {:?} | {} {}",a.name,a.backend,a.driver,a.driver_info)),"note":"Native transparency requires manual verification"});
+        let data = serde_json::json!({"os":std::env::consts::OS,"arch":std::env::consts::ARCH,"version":env!("CARGO_PKG_VERSION"),"safe":opts.safe,"qa":opts.qa,"tick":session.save.state.tick,"life":session.save.state.life,"state":session.save.state,"village_screen":format!("{:?}",village.nav.screen),"shell":format!("{:?}",desktop.shell),"native_display":desktop.diagnostics,"fps":diagnostics.get(&FrameTimeDiagnosticsPlugin::FPS).and_then(|d|d.average()),"adapter":adapter.map(|a|format!("{} | {:?} | {} {}",a.name,a.backend,a.driver,a.driver_info)),"note":"Native transparency requires manual verification"});
         session.status = match std::fs::write(&path, serde_json::to_vec_pretty(&data).unwrap()) {
             Ok(_) => format!("Diagnostics: {}", path.display()),
             Err(e) => e.to_string(),
@@ -574,7 +635,7 @@ fn simulate(
         }
     }
 }
-#[allow(clippy::type_complexity)] // One sprite query keeps mutually exclusive presentation markers together.
+#[allow(clippy::type_complexity, clippy::too_many_arguments)] // One sprite query keeps mutually exclusive presentation markers together.
 fn animate(
     art: Res<Art>,
     session: Option<Res<Session>>,
@@ -582,6 +643,7 @@ fn animate(
     opts: Res<Options>,
     p: Res<Presentation>,
     desktop: Res<window::Desktop>,
+    windows: Query<&Window, With<bevy::window::PrimaryWindow>>,
     mut q: Query<(
         &mut Transform,
         &mut Sprite,
@@ -597,7 +659,11 @@ fn animate(
     } else {
         time.elapsed_secs()
     };
-    let offset = if desktop.shell.expanded { -180. } else { 0. };
+    let offset = if desktop.shell.expanded {
+        -(windows.single().map_or(540., |w| w.height()) - 180.) / 2.
+    } else {
+        0.
+    };
     let walk_frame = ((p.elapsed * 6.) as usize) % 4;
     let visitor_frame = if matches!(
         p.phase,
@@ -633,7 +699,10 @@ fn animate(
         } else if smith.is_some() {
             t.translation.y = -85. + offset;
             if let Some(a) = &mut sprite.texture_atlas {
-                let legacy_qa = opts.qa.as_deref().is_some_and(|q| !q.starts_with("life-"));
+                let legacy_qa = opts
+                    .qa
+                    .as_deref()
+                    .is_some_and(|q| !q.starts_with("life-") && !q.starts_with("village-"));
                 a.index = if legacy_qa
                     || session.as_ref().is_some_and(|s| {
                         s.save.state.life.action == forge_core::life::SmithAction::Working
@@ -684,12 +753,35 @@ fn hud(
     }
     for mut v in &mut panel {
         *v = if desktop.shell.expanded
-            && opts.qa.as_deref().is_some_and(|q| !q.starts_with("life-"))
+            && opts
+                .qa
+                .as_deref()
+                .is_some_and(|q| !q.starts_with("life-") && !q.starts_with("village-"))
         {
             Visibility::Visible
         } else {
             Visibility::Hidden
         };
+    }
+}
+// Publish screenshot files only after the encoder has closed and synced them.
+// This also prevents capture consumers from observing a half-written PNG.
+fn save_capture(path: impl AsRef<std::path::Path>) -> impl FnMut(On<ScreenshotCaptured>) {
+    let path = path.as_ref().to_owned();
+    let temporary = path.with_extension("capture.png");
+    let mut save = save_to_disk(temporary.clone());
+    move |event| {
+        save(event);
+        std::fs::OpenOptions::new()
+            .read(true)
+            .write(true)
+            .open(&temporary)
+            .and_then(|f| f.sync_all())
+            .expect("sync screenshot");
+        if path.exists() {
+            std::fs::remove_file(&path).expect("replace screenshot");
+        }
+        std::fs::rename(&temporary, &path).expect("publish screenshot");
     }
 }
 fn qa_capture(
@@ -719,7 +811,7 @@ fn qa_capture(
         let extra = format!("{}-{:03}.png", path.trim_end_matches(".png"), opts.frames);
         commands
             .spawn(Screenshot::primary_window())
-            .observe(save_to_disk(extra));
+            .observe(save_capture(extra));
     }
     if opts.frames == 1 && opts.qa.as_deref() == Some("idle") {
         desktop.shell.idle();
@@ -732,16 +824,27 @@ fn qa_capture(
         let extra = format!("{}-{}.png", path.trim_end_matches(".png"), opts.frames);
         commands
             .spawn(Screenshot::primary_window())
-            .observe(save_to_disk(extra));
+            .observe(save_capture(extra));
     }
-    if opts.frames == if life { 1800 } else { 180 }
+    if opts.frames
+        == if life || opts.qa.as_deref() == Some("village-input") {
+            1800
+        } else {
+            180
+        }
         && let Some(path) = &opts.capture
     {
         commands
             .spawn(Screenshot::primary_window())
-            .observe(save_to_disk(path.clone()));
+            .observe(save_capture(path.clone()));
     }
-    if opts.frames == if life { 1830 } else { 210 } {
+    if opts.frames
+        == if life || opts.qa.as_deref() == Some("village-input") {
+            1830
+        } else {
+            210
+        }
+    {
         if life && let Some(path) = &opts.capture {
             let report = serde_json::json!({"scenario":opts.qa,"clock":"QA scripted 1 eligible second per 30 rendered frames; production uses monotonic elapsed time", "state":session.save.state,"events":session.trace});
             std::fs::write(

@@ -1,6 +1,6 @@
 # Ashbrook Village Map — Design & Implementation
 
-> Status: design contract (2026-10-15). Engine: **Bevy / Pure Rust**, not Godot. This is a planned implementation, not a claim that the map or assets are integrated.
+> Status: implemented in Epic #27 (2026-10-16), **Bevy / Pure Rust**. Canonical art, eight aligned masks, navigation and shops are integrated. [Implementation and reproducible QA](../qa/VILLAGE.md) is authoritative for current behavior; later sections retain the design rationale.
 >
 > Related: [Architecture](../../ARCHITECTURE.md), [Platforms & QA](PLATFORMS.md), [MVP](../mvp/README.md), [Economy](ECONOMY.md), [Expedition](EXPEDITION.md).
 
@@ -49,7 +49,7 @@ assets/map/ashbrook/
     outside.png
   preview/
     all-highlighted.png      # review only, not runtime input
-  locations.ron              # IDs, clickable polygons, labels, actions
+  locations.json              # IDs, clickable polygons, labels, actions
   attribution.md             # source/provenance/license if needed
 ```
 

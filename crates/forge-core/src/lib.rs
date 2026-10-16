@@ -2,6 +2,7 @@
 pub mod life;
 pub mod save;
 pub mod shell;
+pub mod village;
 use serde::{Deserialize, Serialize};
 
 pub const CONTENT_VERSION: u32 = 1;
@@ -24,6 +25,8 @@ pub struct State {
     pub command_id: u64,
     #[serde(default)]
     pub life: life::Life,
+    #[serde(default)]
+    pub commerce: village::Commerce,
 }
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Command {
@@ -32,8 +35,14 @@ pub enum Command {
     QueueCraft,
     BuyFood,
     Eat,
+    EatMeal,
     Drink,
     Rest,
+    Purchase {
+        vendor: village::Location,
+        item: village::Item,
+        quantity: u32,
+    },
 }
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub enum EventKind {
@@ -59,6 +68,8 @@ pub enum Error {
     Overflow,
     InvalidState,
     PantryFull,
+    InvalidPurchase,
+    OutOfStock,
 }
 impl State {
     pub fn new(seed: u64) -> Self {
@@ -75,6 +86,7 @@ impl State {
             event_id: 0,
             command_id: 0,
             life: life::Life::default(),
+            commerce: village::Commerce::default(),
         }
     }
     pub fn validate(&self) -> Result<(), Error> {
@@ -97,6 +109,11 @@ impl State {
         }
         let mut next = self.clone();
         match command {
+            Command::Purchase {
+                vendor,
+                item,
+                quantity,
+            } => next.purchase(vendor, item, quantity)?,
             Command::Craft => {
                 if next.job_due.is_some() {
                     return Err(Error::Busy);
@@ -122,22 +139,19 @@ impl State {
                 next.life.queue += 1;
             }
             Command::BuyFood => {
-                let price = next.life.config.food_price;
-                if next.gold < price {
-                    return Err(Error::InsufficientResources);
-                }
-                next.life
-                    .pantry
-                    .add(life::Food::Staple, 1, next.life.config.stack_limit)?;
-                next.gold -= price;
+                next.purchase(village::Location::Farm, village::Item::Staple, 1)?;
             }
-            Command::Eat => {
+            Command::Eat | Command::EatMeal => {
                 if next.life.action != life::SmithAction::Working
                     && next.life.action != life::SmithAction::Idle
                 {
                     return Err(Error::Busy);
                 }
-                if !next.life.pantry.take_staple() {
+                if !next.life.pantry.take(if command == Command::EatMeal {
+                    life::Food::Premium
+                } else {
+                    life::Food::Staple
+                }) {
                     return Err(Error::InsufficientResources);
                 }
                 next.life.hunger = next

@@ -16,7 +16,7 @@ One-second boundaries make arbitrary `advance()` partitions equivalent. Offline 
 
 ## Save migration
 
-Schema 2 persists the action timer, remaining work, queue, pantry, need values and configuration. Loading schema 1 initializes healthy needs and three staple meals, preserving gold, ore, stock, counters, IDs, RNG and pending craft progress. It upgrades in memory and writes a normal journal generation; no reset. Corrupt-slot recovery, future-schema refusal, process locks and the offline high-water timestamp remain. Schema 2 cannot be read by old builds: keep the previous save copy when downgrading.
+Schema 3 retains the schema-2 life contract and adds persisted village commerce; schema 1/2 migrate without resetting gameplay. The life contract persists the action timer, remaining work, queue, pantry, need values and configuration. Loading schema 1 initializes healthy needs and three staple meals, preserving gold, ore, stock, counters, IDs, RNG and pending craft progress. It upgrades in memory and writes a normal journal generation; no reset. Corrupt-slot recovery, future-schema refusal, process locks and the offline high-water timestamp remain. Schema 2 cannot be read by old builds: keep the previous save copy when downgrading.
 
 ## Reproduction
 
