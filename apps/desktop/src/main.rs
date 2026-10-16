@@ -95,7 +95,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             }
             "--help" => {
                 println!(
-                    "Little Forge\n--safe-window --save-dir PATH --qa ambient|sale|expanded|idle|life-loop|life-ambient --screenshot PATH\nC: craft, Q: queue, B: buy ore, F: farmer food, E: eat, W: free water, R: rest, Tab: expand, F8: 10s click-through, Ctrl+Alt+F8: global recovery, Esc: recover, T: topmost, D: decorations, F12: diagnostics\nQA uses an isolated save directory and a fixed simulation clock."
+                    "Little Forge\n--safe-window --save-dir PATH --qa ambient|sale|expanded|idle|life-loop|life-ambient|title --screenshot PATH\nC: craft, Q: queue, B: buy ore, F: farmer food, E: eat, W: free water, R: rest, Tab: expand, F8: 10s click-through, Ctrl+Alt+F8: global recovery, Esc: recover, T: topmost, D: decorations, F12: diagnostics\nQA uses an isolated save directory and a fixed simulation clock."
                 );
                 return Ok(());
             }
@@ -105,7 +105,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     if opts.qa.as_ref().is_some_and(|s| {
         !matches!(
             s.as_str(),
-            "ambient" | "sale" | "expanded" | "idle" | "life-loop" | "life-ambient"
+            "ambient" | "sale" | "expanded" | "idle" | "life-loop" | "life-ambient" | "title"
         )
     }) {
         return Err("unknown QA scenario".into());
@@ -164,7 +164,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         }
     }
     let mut app = App::new();
-    let title_active = !qa;
+    let title_active = !qa || opts.qa.as_deref() == Some("title");
     let native = native::NativeRuntime::new();
     eprintln!("{}", native.status);
     app.insert_non_send(native);
