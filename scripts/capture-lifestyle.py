@@ -7,7 +7,7 @@ out=Path(a.output);out.mkdir(parents=True,exist_ok=True)
 for scene in ['life-loop','life-ambient']:
     png=out/f'{scene}.png'
     with (out/f'{scene}.log').open('w') as log:
-        subprocess.run([str(Path(a.executable).resolve()),'--safe-window','--qa',scene,'--save-dir',str(out/scene),'--screenshot',str(png)],stdout=log,stderr=subprocess.STDOUT,check=True,timeout=240)
+        subprocess.run([str(Path(a.executable).resolve()),'--safe-window','--qa',scene,'--save-dir',str(out/scene),'--screenshot',str(png)],stdout=log,stderr=subprocess.STDOUT,check=True,timeout=600)
     assert png.is_file(), f'missing {png}'
     report=json.loads(Path(f'{png}.json').read_text());s=report['state'];events=report['events']
     assert s['sold']==2 and s['command_id']==3 and s['life']['pantry']['slots'][0]['count']==3

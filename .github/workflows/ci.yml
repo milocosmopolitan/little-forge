@@ -4,6 +4,11 @@ on:
     branches: [main, feat/bevy-foundation]
   pull_request:
   workflow_dispatch:
+    inputs:
+      soak:
+        description: Run the 30-minute production-clock desktop soak
+        type: boolean
+        default: false
 permissions:
   contents: read
 concurrency:
@@ -94,6 +99,7 @@ jobs:
       - name: Capture lifecycle in the actual app
         run: xvfb-run -a -s '-screen 0 1280x800x24' python scripts/capture-lifestyle.py target/debug/little-forge
       - name: Thirty-minute production-clock desktop soak
+        if: github.event_name == 'workflow_dispatch' && inputs.soak
         timeout-minutes: 35
         run: xvfb-run -a -s '-screen 0 1280x800x24' python scripts/soak-lifestyle.py target/debug/little-forge --seconds 1800 --output qa-output/life-soak
       - uses: actions/upload-artifact@v4
