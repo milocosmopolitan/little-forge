@@ -138,11 +138,9 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         }
     });
     let lock = SaveLock::acquire(&dir)?;
-    let mut saved = if qa {
-        Save::new(State::new(42), now())
-    } else {
-        save::load(&dir)?.unwrap_or_else(|| Save::new(State::new(42), now()))
-    };
+    let loaded = if qa { None } else { save::load(&dir)? };
+    let has_save = loaded.is_some();
+    let mut saved = loaded.unwrap_or_else(|| Save::new(State::new(42), now()));
     if saved.state.tick == 0 {
         saved.state.life.config = forge_content::needs_config()?;
     }
@@ -174,7 +172,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             .command(1, Command::Craft)
             .map_err(|e| format!("{e:?}"))?;
     }
-    if !qa {
+    if !qa && has_save {
         save::store(&dir, &mut saved)?;
     }
     let status = format!(
@@ -270,6 +268,8 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     .insert_resource(presentation)
     .insert_resource(title::TitleScreen {
         active: title_active,
+        has_save,
+        ..default()
     })
     .add_plugins(
         DefaultPlugins
@@ -287,7 +287,10 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     .init_resource::<village::Village>()
     .add_observer(village::activate)
     .add_observer(lifestyle::buttons)
+    .add_plugins(UiMaterialPlugin::<title::HeatMaterial>::default())
     .add_observer(title::activate)
+    .add_observer(title::hover)
+    .add_observer(title::unhover)
     .add_plugins(FrameTimeDiagnosticsPlugin::default())
     .insert_resource(opts)
     .add_systems(
@@ -298,7 +301,10 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         Update,
         (
             qa_capture,
-            title::animate_strike,
+            title::animate_heat,
+            title::fit_stage,
+            title::keyboard,
+            title::refresh,
             input,
             simulate,
             presentation::tick,
@@ -805,7 +811,7 @@ fn qa_capture(
     }
     opts.frames += 1;
     if opts.qa.as_deref() == Some("title")
-        && [1, 12, 17, 19, 21, 25, 35].contains(&opts.frames)
+        && [30, 34, 38, 42, 46, 50].contains(&opts.frames)
         && let Some(path) = &opts.capture
     {
         let extra = format!("{}-{:03}.png", path.trim_end_matches(".png"), opts.frames);
