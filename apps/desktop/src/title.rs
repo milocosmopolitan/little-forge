@@ -2,6 +2,7 @@
 //! The live Bevy forge scene remains loaded behind a dark overlay; all production
 //! simulation is gated until the player explicitly enters the game.
 use bevy::prelude::*;
+use bevy::ui_widgets::{Activate, Button};
 
 #[derive(Resource, Default)]
 pub struct TitleScreen {
@@ -75,7 +76,7 @@ pub fn build(
             },
         )).with_children(|left| {
             // All child layers share one 512x320 canvas and fixed target at (265,208).
-            left.spawn((Node { width: px(512), height: px(320), overflow: Overflow::clip(), ..default() }))
+            left.spawn(Node { width: px(512), height: px(320), overflow: Overflow::clip(), ..default() })
                 .with_children(|canvas| {
                     for name in ["background", "anvil", "hot_metal"] {
                         canvas.spawn((
@@ -157,41 +158,25 @@ pub fn build(
     });
 }
 
-pub fn interact(
+pub fn activate(
+    event: On<Activate>,
+    actions: Query<&TitleAction>,
     mut title: ResMut<TitleScreen>,
     mut desktop: ResMut<crate::window::Desktop>,
-    mut actions: Query<(&Interaction, &TitleAction, &mut BackgroundColor), (With<Button>, Changed<Interaction>)>,
     mut roots: Query<&mut Visibility, With<TitleRoot>>,
     mut exit: MessageWriter<bevy::app::AppExit>,
 ) {
-    for (interaction, action, mut bg) in &mut actions {
-        match *interaction {
-            Interaction::Pressed => match action {
-                TitleAction::Enter => {
-                    title.active = false;
-                    desktop.shell.expanded = false;
-                    desktop.shell.recover();
-                    for mut visible in &mut roots {
-                        *visible = Visibility::Hidden;
-                    }
-                }
-                TitleAction::Quit => {
-                    exit.write(bevy::app::AppExit::Success);
-                }
-                TitleAction::Load | TitleAction::Settings => {},
-            },
-            Interaction::Hovered => {
-                if matches!(action, TitleAction::Enter | TitleAction::Quit) {
-                    *bg = BackgroundColor(Color::srgb(0.33, 0.20, 0.12));
-                }
+    if !title.active { return; }
+    if let Ok(action) = actions.get(event.entity) {
+        match action {
+            TitleAction::Enter => {
+                title.active = false;
+                desktop.shell.expanded = false;
+                desktop.shell.recover();
+                for mut visible in &mut roots { *visible = Visibility::Hidden; }
             }
-            Interaction::None => {
-                *bg = BackgroundColor(if matches!(action, TitleAction::Load | TitleAction::Settings) {
-                    Color::srgb(0.12, 0.10, 0.09)
-                } else {
-                    Color::srgb(0.21, 0.13, 0.095)
-                });
-            }
+            TitleAction::Quit => { exit.write(bevy::app::AppExit::Success); }
+            TitleAction::Load | TitleAction::Settings => {}
         }
     }
 }
