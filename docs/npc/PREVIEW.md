@@ -37,7 +37,7 @@ The fixture is a second data configuration, not a newly produced character. No n
 
 - `crates/forge-npc`: versioned catalog validation; timing, action priorities/neutral return, sockets and shared Bevy renderer; no dependency on `forge-core`.
 - `apps/npc-preview`: minimal window/camera, local mock commands, controls and capture. No import from game startup or save code.
-- `apps/desktop/src/npc.rs`: thin adapter for accepted live farmer-food purchases. Repeated IDs are suppressed. Offline simulation/load does not fabricate a burst of presentations.
+- `apps/desktop/src/npc.rs`: thin adapter for accepted live farmer-food purchases, including the village farm button/keyboard Purchase contract. Repeated IDs are suppressed. Offline simulation/load does not fabricate a burst of presentations.
 - Domain transactions commit through existing pure Rust commands. Handoff frames only change item visibility. Completing, skipping or interrupting a clip never grants or debits resources.
 - The app and preview reuse `apps/desktop/src/rendering.rs` as a source module for the pinned renderer correction, without bootstrapping the desktop game.
 

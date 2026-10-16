@@ -62,9 +62,12 @@ impl Pantry {
         Ok(())
     }
     pub fn take_staple(&mut self) -> bool {
+        self.take(Food::Staple)
+    }
+    pub fn take(&mut self, food: Food) -> bool {
         for slot in &mut self.slots {
             if let Some(stack) = slot
-                && stack.food == Food::Staple
+                && stack.food == food
                 && stack.count > 0
             {
                 stack.count -= 1;

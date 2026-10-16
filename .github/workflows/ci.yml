@@ -37,6 +37,7 @@ jobs:
       - run: cargo test --locked --workspace
       - run: python -m pip install -r scripts/requirements-qa.txt
       - run: python scripts/validate-assets.py
+      - run: python scripts/validate-village.py
       - shell: bash
         run: |
           mkdir -p qa-output
@@ -63,6 +64,9 @@ jobs:
       - name: Capture native lifecycle on macOS and Windows
         if: runner.os != 'Linux'
         run: python scripts/capture-lifestyle.py target/release/little-forge${{ runner.os == 'Windows' && '.exe' || '' }}
+      - name: Capture village UI on native macOS and Windows
+        if: runner.os != 'Linux'
+        run: python scripts/capture-village.py target/release/little-forge${{ runner.os == 'Windows' && '.exe' || '' }}
       - run: python scripts/package.py
       - uses: actions/upload-artifact@v4
         with:
@@ -102,10 +106,22 @@ jobs:
             timeout 90s xvfb-run -a target/debug/npc-preview --story "$story" --capture "qa-output/npc-$story.png" > "qa-output/npc-$story.log" 2>&1
             test -s "qa-output/npc-$story.png"
           done
+      - name: Capture farmer purchase in the actual game
+        run: |
+          timeout 90s xvfb-run -a target/debug/little-forge --safe-window --qa npc --screenshot qa-output/npc-purchase.png > qa-output/npc-purchase.log 2>&1
+          test -s qa-output/npc-purchase.png
       - name: Capture title screen in actual Bevy app
         run: |
           timeout 90s xvfb-run -a -s '-screen 0 1280x800x24' target/debug/little-forge --safe-window --qa title --screenshot qa-output/title.png > qa-output/title.log 2>&1
           test -s qa-output/title.png
+      - name: Capture village navigation and vendors in the actual app
+        run: xvfb-run -a -s '-screen 0 1280x800x24' python scripts/capture-village.py target/debug/little-forge
+      - name: Capture small work area and 200 percent DPI
+        run: |
+          xvfb-run -a -s '-screen 0 640x480x24' target/debug/little-forge --safe-window --qa village-map --screenshot qa-output/village/small.png
+          WINIT_X11_SCALE_FACTOR=2 xvfb-run -a -s '-screen 0 1920x1200x24' target/debug/little-forge --safe-window --qa village-map --screenshot qa-output/village/dpi-200.png
+      - name: Verify village with real X11 pointer and keyboard input
+        run: xvfb-run -a -s '-screen 0 1280x800x24' python scripts/test-village-input.py target/debug/little-forge
       - name: Capture lifecycle in the actual app
         run: xvfb-run -a -s '-screen 0 1280x800x24' python scripts/capture-lifestyle.py target/debug/little-forge
       - name: Thirty-minute production-clock desktop soak

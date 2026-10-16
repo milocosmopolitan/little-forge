@@ -6,7 +6,7 @@ Linux Xvfb, Vulkan llvmpipe (Mesa 25.2.8, LLVM 20.1.2), Rust 1.99.1, Bevy 0.20.0
 
 - Workspace build: desktop game and independent `npc-preview` executable.
 - `cargo fmt --all -- --check` and strict workspace/all-target Clippy: pass.
-- `cargo test --locked --workspace`: **32 tests pass**. Includes clip validation, partitioned timing, pause/seek, backwards handoff scrub, neutral return, mirrored sockets, alternate catalog timing, rejected/duplicate commands and legacy scene isolation.
+- `cargo test --locked --workspace`: **39 tests pass**. Includes clip validation, partitioned timing, pause/seek, backwards handoff scrub, neutral return, mirrored sockets, alternate catalog timing, rejected/duplicate commands and legacy scene isolation.
 - Existing asset validator: all PNG dimensions, hashes, atlas divisibility and meaningful alpha pass.
 - Actual standalone captures: all 8 actions, talk + automatic blink at 3.33 s, mirrored give, before/after visual handoff, carrot/dagger swap. Checked at rendered scale for frame registration, seams, hat/feet and item grip.
 - Six timed walk frames exported by the **actual Bevy preview renderer**, assembled into [walk.gif](walk.gif). This is not an animation assembled directly from source artwork.
@@ -41,5 +41,9 @@ This hosted sandbox rejects Unix X11 sockets. Executed captures used `xvfb-run -
 Runtime holds one body atlas, three face/grip textures and the chosen prop; authoring-only PNGs are not loaded by the player. The clips contain 22 registered full-body frames; playback checks at most a few clip entries per update and has no simulation ticking dependency. PNG bytes/decoded RGBA dimensions can be inspected from `assets/manifest.json`. This software-renderer run establishes correctness; desktop GPU frame-time/idle energy performance remains unmeasured. Preview updates are bounded to a requested 30 Hz, including unfocused mode.
 
 Left-facing farmer mirrors asymmetric hat/belt art as an explicit MVP choice. Fixture B reuses farmer art with independent timing and tint to exercise shared playback; it is not a second completed NPC art set. PNG layer sources are supplied; no native Aseprite source project is claimed. Transparent PNG inspection uses contrasting backgrounds; OS-transparent/click-through window QA remains a game-shell concern.
+
+## Latest village UI integration
+
+PR #54 was merged while this epic was being verified. The final implementation preserves its navigation, map assets, atomic screenshot publication and viewport-dependent scene offsets. Both farm purchase entry points (button and keyboard) notify the shared presentation adapter only after a successful authoritative `Purchase { Farm, Staple }`. The actual village observer test verifies a farm purchase queues one handoff and a duplicate queues none. The preview remains completely independent of these game services.
 
 Three-OS CI builds/tests and package production are recorded on the implementation PR. Native human-driven macOS/Windows preview GUI tests are not performed in this hosted Linux environment. Do not label cross-compilation as native GUI acceptance.

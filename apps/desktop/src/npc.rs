@@ -13,7 +13,15 @@ impl FarmerPresentation {
     pub fn accepted(&mut self, id: u64, command: forge_core::Command) {
         if id > self.last {
             self.last = id;
-            if matches!(command, forge_core::Command::BuyFood) {
+            if matches!(
+                command,
+                forge_core::Command::BuyFood
+                    | forge_core::Command::Purchase {
+                        vendor: forge_core::village::Location::Farm,
+                        item: forge_core::village::Item::Staple,
+                        ..
+                    }
+            ) {
                 self.pending = true;
             }
         }
@@ -71,13 +79,14 @@ fn setup(
         },
     ));
 }
-#[allow(clippy::type_complexity)]
+#[allow(clippy::type_complexity, clippy::too_many_arguments)]
 fn update(
     time: Res<Time>,
     c: Res<Catalog>,
     opts: Res<Options>,
     mut clock: ResMut<forge_npc::PlaybackClock>,
     desktop: Res<Desktop>,
+    windows: Query<&Window, With<bevy::window::PrimaryWindow>>,
     mut state: ResMut<FarmerPresentation>,
     mut farmer: Query<
         (&mut Player, &mut Transform, &mut Visibility),
@@ -105,7 +114,12 @@ fn update(
             state.active = false;
         }
     }
-    t.translation.y = -85. + if desktop.shell.expanded { -180. } else { 0. };
+    t.translation.y = -85.
+        - if desktop.shell.expanded {
+            (windows.single().map_or(540., |w| w.height()) - 180.) / 2.
+        } else {
+            0.
+        };
     *v = if state.active {
         Visibility::Visible
     } else {

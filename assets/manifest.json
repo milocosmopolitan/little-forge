@@ -273,6 +273,188 @@
       "source": "workbench.png"
     },
     {
+      "id": "village_base",
+      "path": "map/ashbrook/base.png",
+      "width": 1122,
+      "height": 1402,
+      "columns": 1,
+      "rows": 1,
+      "alpha": false,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "408bf06c90715523952968069570425a7691168f4a6989363524a842dde15cbf"
+    },
+    {
+      "id": "wash_village_chief",
+      "path": "map/ashbrook/overlays/village_chief.png",
+      "width": 1122,
+      "height": 1402,
+      "columns": 1,
+      "rows": 1,
+      "alpha": true,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "e2d7df53c3205c750d5a45b35b784c6da1e4a0d79afdea82891dde40db3eb938"
+    },
+    {
+      "id": "wash_merchant_guild",
+      "path": "map/ashbrook/overlays/merchant_guild.png",
+      "width": 1122,
+      "height": 1402,
+      "columns": 1,
+      "rows": 1,
+      "alpha": true,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "01356c9eb6eaa504c27a53e6beabe240d2bd21257a6e01c0c601e0e776ff8947"
+    },
+    {
+      "id": "wash_blacksmith",
+      "path": "map/ashbrook/overlays/blacksmith.png",
+      "width": 1122,
+      "height": 1402,
+      "columns": 1,
+      "rows": 1,
+      "alpha": true,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "cb6215ef5b33d9734296996e7d7eaec44acb56d8bbd848e09696471b1ddb272f"
+    },
+    {
+      "id": "wash_farm",
+      "path": "map/ashbrook/overlays/farm.png",
+      "width": 1122,
+      "height": 1402,
+      "columns": 1,
+      "rows": 1,
+      "alpha": true,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "1433fd9ec35c8d410edb72e8a6082a2f4b8e4a8a4158a3e82cdce4205f36e3b4"
+    },
+    {
+      "id": "wash_carpenter",
+      "path": "map/ashbrook/overlays/carpenter.png",
+      "width": 1122,
+      "height": 1402,
+      "columns": 1,
+      "rows": 1,
+      "alpha": true,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "35831eec751a82569f31dd874fc6bfaf19e0c287b77d1324a22cd8768c62d119"
+    },
+    {
+      "id": "wash_outside",
+      "path": "map/ashbrook/overlays/outside.png",
+      "width": 1122,
+      "height": 1402,
+      "columns": 1,
+      "rows": 1,
+      "alpha": true,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "3504f85d0125ac98d302f3ae623952ccd73f9a8c36ec64da61afaa0b283916da"
+    },
+    {
+      "id": "wash_leatherworker",
+      "path": "map/ashbrook/overlays/leatherworker.png",
+      "width": 1122,
+      "height": 1402,
+      "columns": 1,
+      "rows": 1,
+      "alpha": true,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "22c7633f2ded9708405264d80ea580a3b5022e7d56f3cfc9369a9962cbdc1556"
+    },
+    {
+      "id": "wash_tavern",
+      "path": "map/ashbrook/overlays/tavern.png",
+      "width": 1122,
+      "height": 1402,
+      "columns": 1,
+      "rows": 1,
+      "alpha": true,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "162c0cbf34937a2ac83c7faae9e76fee290f731216dba66f26c02adbf5d1d192"
+    },
+    {
+      "id": "village_farm",
+      "path": "village/farm.png",
+      "width": 200,
+      "height": 248,
+      "columns": 1,
+      "rows": 1,
+      "alpha": true,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "b0b924993481fac596d7facfe7886f3ee2640e05bc36d1eb3dfbaba7f2a8cff8"
+    },
+    {
+      "id": "village_carpenter",
+      "path": "village/carpenter.png",
+      "width": 195,
+      "height": 260,
+      "columns": 1,
+      "rows": 1,
+      "alpha": true,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "e4f71b9a2327063ddb5efce8384ca27b8ea92b61a64562328c197d3af1ff687c"
+    },
+    {
+      "id": "village_leatherworker",
+      "path": "village/leatherworker.png",
+      "width": 195,
+      "height": 260,
+      "columns": 1,
+      "rows": 1,
+      "alpha": true,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "402c3407b491c5cb04f4ca44c764649b119ee76dcfcaa0a1cad1746c2784f229"
+    },
+    {
+      "id": "village_tavern",
+      "path": "village/tavern.png",
+      "width": 172,
+      "height": 260,
+      "columns": 1,
+      "rows": 1,
+      "alpha": true,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "sha256": "98b77307f13d2a8ef18b4c80094812f18b8c3ede3bffcbc12d8a1df51d908162"
+    },
+    {
       "id": "farmer_atlas",
       "path": "npc/farmer/atlas.png",
       "width": 1536,
