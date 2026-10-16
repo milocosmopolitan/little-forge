@@ -717,7 +717,9 @@ fn qa_capture(
         && let Some(path) = &opts.capture
     {
         let extra = format!("{}-{:03}.png", path.trim_end_matches(".png"), opts.frames);
-        commands.spawn(Screenshot::primary_window()).observe(save_to_disk(extra));
+        commands
+            .spawn(Screenshot::primary_window())
+            .observe(save_to_disk(extra));
     }
     if opts.frames == 1 && opts.qa.as_deref() == Some("idle") {
         desktop.shell.idle();
