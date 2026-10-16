@@ -29,11 +29,11 @@ pub fn setup(mut commands: Commands) {
         },
         Needs,
     ));
-    commands.spawn((Node{position_type:PositionType::Absolute,top:px(78),left:px(24),width:px(900),padding:UiRect::all(px(16)),flex_direction:FlexDirection::Column,row_gap:px(10),..default()},BackgroundColor(Color::srgba(0.055,0.075,0.08,0.96)),Visibility::Hidden,Management)).with_children(|parent| {
+    commands.spawn((Node{position_type:PositionType::Absolute,top:px(132),left:px(24),width:px(900),padding:UiRect::all(px(16)),flex_direction:FlexDirection::Column,row_gap:px(10),..default()},BackgroundColor(Color::srgba(0.055,0.075,0.08,0.96)),Visibility::Hidden,Management)).with_children(|parent| {
         parent.spawn((Text::new("THE DAILY FORGE  /  Work, rest & provisions"),TextFont{font_size:21.0.into(),..default()},TextColor(Color::srgb(0.96,0.88,0.68))));
         parent.spawn((Text::new(""),TextFont{font_size:16.0.into(),..default()},Ledger));
         parent.spawn(Node{flex_direction:FlexDirection::Row,column_gap:px(8),flex_wrap:FlexWrap::Wrap,row_gap:px(6),..default()}).with_children(|row| {
-            for (label,command) in [("Queue dagger [Q]",Command::QueueCraft),("Buy ore [B]",Command::BuyOre),("Farmer food [F]",Command::BuyFood),("Eat staple [E]",Command::Eat),("Free well [W]",Command::Drink),("Rest [R]",Command::Rest)] {
+            for (label,command) in [("Queue dagger [Q]",Command::QueueCraft),("Buy ore [B]",Command::BuyOre),("Farmer food [F]",Command::BuyFood),("Eat staple [E]",Command::Eat),("Eat meal",Command::EatMeal),("Free well [W]",Command::Drink),("Rest [R]",Command::Rest)] {
                 row.spawn((Button,Node{padding:UiRect::axes(px(12),px(9)),..default()},BackgroundColor(Color::srgb(0.18,0.26,0.25)),Action(command))).with_children(|b|{b.spawn((Text::new(label),TextFont{font_size:14.0.into(),..default()}));});
             }
         });
@@ -46,8 +46,14 @@ pub fn buttons(
     mut s: ResMut<Session>,
     opts: Res<Options>,
     desktop: Res<Desktop>,
+    village: Option<Res<crate::village::Village>>,
 ) {
-    if !desktop.shell.expanded || s.disabled {
+    if !desktop.shell.expanded
+        || s.disabled
+        || village
+            .as_ref()
+            .is_some_and(|v| v.nav.screen != forge_core::village::Screen::Home)
+    {
         return;
     }
     if let Ok(action) = actions.get(event.entity) {
@@ -64,14 +70,23 @@ pub fn update(
     s: Res<Session>,
     opts: Res<Options>,
     desktop: Res<Desktop>,
+    village: Option<Res<crate::village::Village>>,
     mut panel: Query<&mut Visibility, (With<Management>, Without<Needs>)>,
     mut needs: Query<(&mut Text, &mut Visibility), With<Needs>>,
     mut ledger: Query<&mut Text, (With<Ledger>, Without<Needs>)>,
 ) {
-    let visible = opts.qa.as_deref().is_none_or(|q| q.starts_with("life-"));
+    let visible = opts
+        .qa
+        .as_deref()
+        .is_none_or(|q| q.starts_with("life-") || q.starts_with("village-"));
     let l = &s.save.state.life;
     for mut v in &mut panel {
-        *v = if visible && desktop.shell.expanded {
+        *v = if visible
+            && desktop.shell.expanded
+            && village
+                .as_ref()
+                .is_none_or(|v| v.nav.screen == forge_core::village::Screen::Home)
+        {
             Visibility::Visible
         } else {
             Visibility::Hidden
