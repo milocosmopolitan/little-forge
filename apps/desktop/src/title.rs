@@ -22,6 +22,7 @@ enum TitleAction {
 pub fn build(
     mut commands: Commands,
     title: Res<TitleScreen>,
+    server: Res<AssetServer>,
 ) {
     if !title.active {
         return;
@@ -51,6 +52,12 @@ pub fn build(
                 ..default()
             },
         )).with_children(|left| {
+            // Bundled forge art is a guaranteed offline fallback until the approved
+            // close-up title layers have been exported as aligned alpha PNGs.
+            left.spawn((
+                ImageNode::new(server.load("forge/forge.png")),
+                Node { width: px(200), height: px(200), margin: UiRect::bottom(px(14)), ..default() },
+            ));
             left.spawn((
                 Text::new("LITTLE FORGE"),
                 TextFont { font_size: 46.0.into(), ..default() },
