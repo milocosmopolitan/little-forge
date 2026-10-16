@@ -71,22 +71,21 @@ pub fn build(mut commands: Commands, title: Res<TitleScreen>, server: Res<AssetS
             position_type: PositionType::Absolute,
             width: percent(100),
             height: percent(100),
-            justify_content: JustifyContent::FlexEnd,
+            justify_content: JustifyContent::SpaceBetween,
             align_items: AlignItems::Center,
-            padding: UiRect::all(px(30)),
+            padding: UiRect::all(px(20)),
             ..default()
         },
-        BackgroundColor(Color::srgba(0.035, 0.026, 0.022, 0.95)),
+        BackgroundColor(Color::srgb(0.035, 0.026, 0.022)),
         GlobalZIndex(100),
     )).with_children(|root| {
         root.spawn((
             Node {
-                width: percent(54),
-                height: percent(100),
+                width: px(512),
+                height: px(320),
                 flex_direction: FlexDirection::Column,
                 justify_content: JustifyContent::Center,
                 align_items: AlignItems::FlexStart,
-                padding: UiRect::all(px(20)),
                 ..default()
             },
         )).with_children(|left| {
@@ -111,21 +110,10 @@ pub fn build(mut commands: Commands, title: Res<TitleScreen>, server: Res<AssetS
                         TitleImpact,
                     ));
                 });
-            left.spawn((
-                Text::new("LITTLE FORGE"),
-                TextFont { font_size: 46.0.into(), ..default() },
-                TextColor(Color::srgb(0.96, 0.80, 0.58)),
-            ));
-            left.spawn((
-                Text::new("A Small Forge, A Bigger Tomorrow.\n\nThe forge burns quietly.\nOne strike begins a story."),
-                TextFont { font_size: 18.0.into(), ..default() },
-                TextColor(Color::srgb(0.77, 0.66, 0.57)),
-                Node { margin: UiRect::top(px(16)), ..default() },
-            ));
         });
         root.spawn((
             Node {
-                width: percent(40),
+                width: px(330),
                 flex_direction: FlexDirection::Column,
                 align_items: AlignItems::Stretch,
                 justify_content: JustifyContent::Center,
@@ -133,6 +121,12 @@ pub fn build(mut commands: Commands, title: Res<TitleScreen>, server: Res<AssetS
                 ..default()
             },
         )).with_children(|menu| {
+            menu.spawn((
+                Text::new("Little Forge"),
+                TextFont { font_size: 40.0.into(), ..default() },
+                TextColor(Color::srgb(0.96, 0.80, 0.58)),
+                Node { margin: UiRect::bottom(px(22)), ..default() },
+            ));
             for (text, action) in [
                 ("Enter the Forge", TitleAction::Enter),
                 ("Load Game (coming soon)", TitleAction::Load),
@@ -169,6 +163,12 @@ pub fn build(mut commands: Commands, title: Res<TitleScreen>, server: Res<AssetS
                     ));
                 });
             }
+            menu.spawn((
+                Text::new("A Small Forge, A Bigger Tomorrow."),
+                TextFont { font_size: 13.0.into(), ..default() },
+                TextColor(Color::srgb(0.77, 0.66, 0.57)),
+                Node { margin: UiRect::top(px(14)), ..default() },
+            ));
         });
     });
 }
