@@ -2,6 +2,7 @@ mod lifestyle;
 mod native;
 mod presentation;
 mod rendering;
+mod title;
 mod window;
 use bevy::{
     diagnostic::{DiagnosticsStore, FrameTimeDiagnosticsPlugin},
@@ -163,6 +164,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         }
     }
     let mut app = App::new();
+    let title_active = !qa;
     let native = native::NativeRuntime::new();
     eprintln!("{}", native.status);
     app.insert_non_send(native);
@@ -216,13 +218,14 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     })
     .insert_resource(window::Desktop::new(
         opts.safe,
-        matches!(opts.qa.as_deref(), Some("expanded" | "life-loop")),
+        title_active || matches!(opts.qa.as_deref(), Some("expanded" | "life-loop")),
     ))
     .insert_resource(WinitSettings {
         focused_mode: UpdateMode::reactive_low_power(Duration::from_secs_f64(1. / 30.)),
         unfocused_mode: UpdateMode::reactive_low_power(Duration::from_secs_f64(1. / 15.)),
     })
     .insert_resource(presentation)
+    .insert_resource(title::TitleScreen { active: title_active })
     .add_plugins(
         DefaultPlugins
             .set(rendering::plugin(opts.safe))
@@ -239,11 +242,12 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     .add_observer(lifestyle::buttons)
     .add_plugins(FrameTimeDiagnosticsPlugin::default())
     .insert_resource(opts)
-    .add_systems(Startup, (setup, lifestyle::setup))
+    .add_systems(Startup, (setup, lifestyle::setup, title::build))
     .add_systems(
         Update,
         (
             qa_capture,
+            title::interact,
             input,
             simulate,
             presentation::tick,
@@ -450,7 +454,9 @@ fn input(
     mut session: ResMut<Session>,
     mut desktop: ResMut<window::Desktop>,
     opts: Res<Options>,
+    title: Res<title::TitleScreen>,
 ) {
+    if title.active { return; }
     if keys.just_pressed(KeyCode::Escape) {
         desktop.shell.recover();
     }
@@ -506,8 +512,8 @@ fn persist(s: &mut Session, opts: &Options) {
         s.status = format!("SAVE ERROR: {e}. Simulation paused; preserve save directory.");
     }
 }
-fn simulate(mut s: ResMut<Session>, mut p: ResMut<Presentation>, opts: Res<Options>) {
-    if s.disabled || (opts.qa.is_some() && opts.frames == 0) {
+fn simulate(mut s: ResMut<Session>, mut p: ResMut<Presentation>, opts: Res<Options>, title: Res<title::TitleScreen>) {
+    if title.active || s.disabled || (opts.qa.is_some() && opts.frames == 0) {
         return;
     }
     let seconds = if opts.qa.as_deref().is_some_and(|q| q.starts_with("life-")) {
