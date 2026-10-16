@@ -1,7 +1,15 @@
 //! Headless reproducible scenario and CPU simulation benchmark (not renderer performance).
+mod lifestyle;
 use forge_core::{Command, State, save::Save};
 use std::time::Instant;
 fn main() {
+    if std::env::args().any(|a| a == "life-loop") {
+        println!(
+            "{}",
+            serde_json::to_string_pretty(&lifestyle::report()).unwrap()
+        );
+        return;
+    }
     forge_content::Manifest::bundled().expect("valid content");
     let start = Instant::now();
     let mut checksum = 0;
