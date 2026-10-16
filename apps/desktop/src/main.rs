@@ -240,6 +240,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             }),
     )
     .add_observer(lifestyle::buttons)
+    .add_observer(title::activate)
     .add_plugins(FrameTimeDiagnosticsPlugin::default())
     .insert_resource(opts)
     .add_systems(Startup, (setup, lifestyle::setup, title::build))
@@ -247,7 +248,6 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         Update,
         (
             qa_capture,
-            title::interact,
             title::animate_strike,
             input,
             simulate,
