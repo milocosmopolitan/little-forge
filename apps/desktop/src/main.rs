@@ -1,3 +1,4 @@
+mod lifestyle;
 mod native;
 mod presentation;
 mod rendering;
@@ -28,6 +29,7 @@ struct Session {
     fraction: f64,
     status: String,
     disabled: bool,
+    trace: Vec<forge_core::Event>,
 }
 #[derive(Resource, Default)]
 struct Options {
@@ -92,18 +94,19 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             }
             "--help" => {
                 println!(
-                    "Little Forge\n--safe-window --save-dir PATH --qa ambient|sale|expanded|idle --screenshot PATH\nC: craft, B: buy ore, Tab: expand, F8: 10s click-through, Ctrl+Alt+F8: global recovery, Esc: recover, T: topmost, D: decorations, F12: diagnostics\nQA uses an isolated save directory and a fixed simulation clock."
+                    "Little Forge\n--safe-window --save-dir PATH --qa ambient|sale|expanded|idle|life-loop|life-ambient --screenshot PATH\nC: craft, Q: queue, B: buy ore, F: farmer food, E: eat, W: free water, R: rest, Tab: expand, F8: 10s click-through, Ctrl+Alt+F8: global recovery, Esc: recover, T: topmost, D: decorations, F12: diagnostics\nQA uses an isolated save directory and a fixed simulation clock."
                 );
                 return Ok(());
             }
             _ => return Err(format!("unknown argument {a}").into()),
         }
     }
-    if opts
-        .qa
-        .as_ref()
-        .is_some_and(|s| !matches!(s.as_str(), "ambient" | "sale" | "expanded" | "idle"))
-    {
+    if opts.qa.as_ref().is_some_and(|s| {
+        !matches!(
+            s.as_str(),
+            "ambient" | "sale" | "expanded" | "idle" | "life-loop" | "life-ambient"
+        )
+    }) {
         return Err("unknown QA scenario".into());
     }
     let qa = opts.qa.is_some();
@@ -123,6 +126,23 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     } else {
         save::load(&dir)?.unwrap_or_else(|| Save::new(State::new(42), now()))
     };
+    if saved.state.tick == 0 {
+        saved.state.life.config = forge_content::needs_config()?;
+    }
+    if opts.qa.as_deref().is_some_and(|q| q.starts_with("life-")) {
+        saved.state.life.fatigue = 8990;
+        saved.state.life.hunger = 8000;
+        saved.state.life.thirst = 8000;
+        saved.state.life.config.sleep_seconds = 8;
+        saved
+            .state
+            .command(1, Command::Craft)
+            .map_err(|e| format!("{e:?}"))?;
+        saved
+            .state
+            .command(2, Command::QueueCraft)
+            .map_err(|e| format!("{e:?}"))?;
+    }
     let elapsed = if qa { 0 } else { saved.catch_up(now())? };
     if saved.state.command_id == 0 {
         saved
@@ -192,10 +212,11 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         fraction: 0.,
         status,
         disabled: false,
+        trace: vec![],
     })
     .insert_resource(window::Desktop::new(
         opts.safe,
-        opts.qa.as_deref() == Some("expanded"),
+        matches!(opts.qa.as_deref(), Some("expanded" | "life-loop")),
     ))
     .insert_resource(WinitSettings {
         focused_mode: UpdateMode::reactive_low_power(Duration::from_secs_f64(1. / 30.)),
@@ -215,9 +236,10 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
                 ..default()
             }),
     )
+    .add_observer(lifestyle::buttons)
     .add_plugins(FrameTimeDiagnosticsPlugin::default())
     .insert_resource(opts)
-    .add_systems(Startup, setup)
+    .add_systems(Startup, (setup, lifestyle::setup))
     .add_systems(
         Update,
         (
@@ -228,6 +250,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             animate,
             window::update,
             hud,
+            lifestyle::update,
         )
             .chain(),
     );
@@ -449,6 +472,11 @@ fn input(
     for (key, cmd) in [
         (KeyCode::KeyC, Command::Craft),
         (KeyCode::KeyB, Command::BuyOre),
+        (KeyCode::KeyQ, Command::QueueCraft),
+        (KeyCode::KeyF, Command::BuyFood),
+        (KeyCode::KeyE, Command::Eat),
+        (KeyCode::KeyW, Command::Drink),
+        (KeyCode::KeyR, Command::Rest),
     ] {
         if keys.just_pressed(key) && !session.disabled {
             let id = session.save.state.command_id + 1;
@@ -461,7 +489,7 @@ fn input(
     }
     if keys.just_pressed(KeyCode::F12) {
         let path = session.dir.join("diagnostics.json");
-        let data = serde_json::json!({"os":std::env::consts::OS,"arch":std::env::consts::ARCH,"version":env!("CARGO_PKG_VERSION"),"safe":opts.safe,"qa":opts.qa,"tick":session.save.state.tick,"shell":format!("{:?}",desktop.shell),"native_display":desktop.diagnostics,"fps":diagnostics.get(&FrameTimeDiagnosticsPlugin::FPS).and_then(|d|d.average()),"adapter":adapter.map(|a|format!("{} | {:?} | {} {}",a.name,a.backend,a.driver,a.driver_info)),"note":"Native transparency requires manual verification"});
+        let data = serde_json::json!({"os":std::env::consts::OS,"arch":std::env::consts::ARCH,"version":env!("CARGO_PKG_VERSION"),"safe":opts.safe,"qa":opts.qa,"tick":session.save.state.tick,"life":session.save.state.life,"shell":format!("{:?}",desktop.shell),"native_display":desktop.diagnostics,"fps":diagnostics.get(&FrameTimeDiagnosticsPlugin::FPS).and_then(|d|d.average()),"adapter":adapter.map(|a|format!("{} | {:?} | {} {}",a.name,a.backend,a.driver,a.driver_info)),"note":"Native transparency requires manual verification"});
         session.status = match std::fs::write(&path, serde_json::to_vec_pretty(&data).unwrap()) {
             Ok(_) => format!("Diagnostics: {}", path.display()),
             Err(e) => e.to_string(),
@@ -482,7 +510,13 @@ fn simulate(mut s: ResMut<Session>, mut p: ResMut<Presentation>, opts: Res<Optio
     if s.disabled || (opts.qa.is_some() && opts.frames == 0) {
         return;
     }
-    let seconds = if opts.qa.is_some() {
+    let seconds = if opts.qa.as_deref().is_some_and(|q| q.starts_with("life-")) {
+        if opts.frames.is_multiple_of(30) {
+            1.
+        } else {
+            0.
+        }
+    } else if opts.qa.is_some() {
         1. / 30.
     } else {
         let n = std::time::Instant::now();
@@ -500,7 +534,20 @@ fn simulate(mut s: ResMut<Session>, mut p: ResMut<Presentation>, opts: Res<Optio
         match s.save.state.advance(whole) {
             Ok(events) => {
                 for e in events {
+                    if opts.qa.as_deref().is_some_and(|q| q.starts_with("life-")) {
+                        s.trace.push(e.clone());
+                    }
                     p.accept(e);
+                }
+                if opts.qa.as_deref().is_some_and(|q| q.starts_with("life-"))
+                    && s.save.state.sold > 0
+                    && s.save.state.command_id == 2
+                {
+                    s.save
+                        .state
+                        .command(3, Command::BuyFood)
+                        .expect("sale funds staple");
+                    s.status = "Farmer: bought staple food after sale (scripted QA action)".into();
                 }
                 persist(&mut s, &opts);
             }
@@ -514,6 +561,7 @@ fn simulate(mut s: ResMut<Session>, mut p: ResMut<Presentation>, opts: Res<Optio
 #[allow(clippy::type_complexity)] // One sprite query keeps mutually exclusive presentation markers together.
 fn animate(
     art: Res<Art>,
+    session: Option<Res<Session>>,
     time: Res<Time>,
     opts: Res<Options>,
     p: Res<Presentation>,
@@ -569,8 +617,24 @@ fn animate(
         } else if smith.is_some() {
             t.translation.y = -85. + offset;
             if let Some(a) = &mut sprite.texture_atlas {
-                a.index = 8 + ((animation_time * 4.) as usize) % 4;
+                let legacy_qa = opts.qa.as_deref().is_some_and(|q| !q.starts_with("life-"));
+                a.index = if legacy_qa
+                    || session.as_ref().is_some_and(|s| {
+                        s.save.state.life.action == forge_core::life::SmithAction::Working
+                    }) {
+                    8 + ((animation_time * 4.) as usize) % 4
+                } else {
+                    0
+                };
                 let index = a.index;
+                sprite.color = if !legacy_qa
+                    && session.as_ref().is_some_and(|s| {
+                        s.save.state.life.action == forge_core::life::SmithAction::Sleeping
+                    }) {
+                    Color::srgb(0.55, 0.65, 0.85)
+                } else {
+                    Color::WHITE
+                };
                 sprite.custom_size = Some(art.smith_sizes[index]);
             }
         } else if smoke.is_some() {
@@ -591,6 +655,7 @@ fn animate(
 }
 fn hud(
     s: Res<Session>,
+    opts: Res<Options>,
     desktop: Res<window::Desktop>,
     mut q: Query<&mut Text, With<Hud>>,
     mut panel: Query<&mut Visibility, With<Panel>>,
@@ -602,7 +667,9 @@ fn hud(
         );
     }
     for mut v in &mut panel {
-        *v = if desktop.shell.expanded {
+        *v = if desktop.shell.expanded
+            && opts.qa.as_deref().is_some_and(|q| !q.starts_with("life-"))
+        {
             Visibility::Visible
         } else {
             Visibility::Hidden
@@ -616,6 +683,7 @@ fn qa_capture(
     art: Res<Art>,
     mut desktop: ResMut<window::Desktop>,
     mut exit: MessageWriter<AppExit>,
+    session: Res<Session>,
 ) {
     if opts.qa.is_none() {
         return;
@@ -631,14 +699,36 @@ fn qa_capture(
     if opts.frames == 1 && opts.qa.as_deref() == Some("idle") {
         desktop.shell.idle();
     }
-    if opts.frames == 180
+    let life = opts.qa.as_deref().is_some_and(|q| q.starts_with("life-"));
+    if life
+        && [150, 330, 390, 1200].contains(&opts.frames)
+        && let Some(path) = &opts.capture
+    {
+        let extra = format!("{}-{}.png", path.trim_end_matches(".png"), opts.frames);
+        commands
+            .spawn(Screenshot::primary_window())
+            .observe(save_to_disk(extra));
+    }
+    if opts.frames == if life { 1800 } else { 180 }
         && let Some(path) = &opts.capture
     {
         commands
             .spawn(Screenshot::primary_window())
             .observe(save_to_disk(path.clone()));
     }
-    if opts.frames == 210 {
+    if opts.frames == if life { 1830 } else { 210 } {
+        if life && let Some(path) = &opts.capture {
+            let report = serde_json::json!({"scenario":opts.qa,"clock":"QA scripted 1 eligible second per 30 rendered frames; production uses monotonic elapsed time", "state":session.save.state,"events":session.trace});
+            std::fs::write(
+                format!("{path}.json"),
+                serde_json::to_vec_pretty(&report).unwrap(),
+            )
+            .expect("write QA trace");
+            assert!(
+                session.save.state.sold >= 2 && session.save.state.command_id == 3,
+                "life loop did not complete"
+            );
+        }
         exit.write(AppExit::Success);
     }
 }

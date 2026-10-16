@@ -72,6 +72,18 @@ impl Manifest {
         Ok(())
     }
 }
+/// Provisional production balance, separate from QA scenario time and fixtures.
+pub fn needs_config() -> Result<forge_core::life::NeedsConfig, String> {
+    let config = serde_json::from_str(include_str!("../../../assets/needs.json"))
+        .map_err(|e| format!("{e}"))?;
+    let life = forge_core::life::Life {
+        config,
+        ..Default::default()
+    };
+    life.validate().map_err(|e| format!("{e:?}"))?;
+    Ok(life.config)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

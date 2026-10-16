@@ -4,6 +4,11 @@ on:
     branches: [main, feat/bevy-foundation]
   pull_request:
   workflow_dispatch:
+    inputs:
+      soak:
+        description: Run the 30-minute production-clock desktop soak
+        type: boolean
+        default: false
 permissions:
   contents: read
 concurrency:
@@ -36,6 +41,7 @@ jobs:
         run: |
           mkdir -p qa-output
           cargo run --locked --release -p forge-qa > qa-output/simulation.json
+          cargo run --locked --release -p forge-qa -- life-loop > qa-output/life-multiday.json
       - name: Build Windows diagnostic executable
         if: runner.os == 'Windows'
         run: cargo build --locked -p little-forge
@@ -54,6 +60,9 @@ jobs:
         if: runner.os == 'Windows'
         shell: pwsh
         run: scripts/capture-windows.ps1 -Executable target/release/little-forge.exe -OutputDirectory qa-output
+      - name: Capture native lifecycle on macOS and Windows
+        if: runner.os != 'Linux'
+        run: python scripts/capture-lifestyle.py target/release/little-forge${{ runner.os == 'Windows' && '.exe' || '' }}
       - run: python scripts/package.py
       - uses: actions/upload-artifact@v4
         with:
@@ -87,6 +96,12 @@ jobs:
             test -s "docs/qa/golden/linux-llvmpipe/$scene.png"
             python scripts/compare-images.py "docs/qa/golden/linux-llvmpipe/$scene.png" "qa-output/$scene.png" --diff "qa-output/$scene-diff.png"
           done
+      - name: Capture lifecycle in the actual app
+        run: xvfb-run -a -s '-screen 0 1280x800x24' python scripts/capture-lifestyle.py target/debug/little-forge
+      - name: Thirty-minute production-clock desktop soak
+        if: github.event_name == 'workflow_dispatch' && inputs.soak
+        timeout-minutes: 35
+        run: xvfb-run -a -s '-screen 0 1280x800x24' python scripts/soak-lifestyle.py target/debug/little-forge --seconds 1800 --output qa-output/life-soak
       - uses: actions/upload-artifact@v4
         if: always()
         with:

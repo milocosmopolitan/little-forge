@@ -18,7 +18,7 @@ pub struct Save {
 impl Save {
     pub fn new(state: State, now: u64) -> Self {
         Self {
-            schema_version: 1,
+            schema_version: 2,
             content_version: CONTENT_VERSION,
             generation: 0,
             saved_at: now,
@@ -26,7 +26,7 @@ impl Save {
         }
     }
     pub fn validate(&self) -> io::Result<()> {
-        if self.schema_version != 1 || self.content_version != CONTENT_VERSION {
+        if self.schema_version != 2 || self.content_version != CONTENT_VERSION {
             return Err(io::Error::new(
                 io::ErrorKind::InvalidData,
                 "unsupported save/content version; preserve files",
@@ -58,7 +58,7 @@ pub fn load(dir: &Path) -> io::Result<Option<Save>> {
                     && (header
                         .get("schema_version")
                         .and_then(|v| v.as_u64())
-                        .is_some_and(|v| v > 1)
+                        .is_some_and(|v| v > 2)
                         || header
                             .get("content_version")
                             .and_then(|v| v.as_u64())
@@ -69,13 +69,28 @@ pub fn load(dir: &Path) -> io::Result<Option<Save>> {
                         "newer save version; preserve files",
                     ));
                 }
-                if let Ok(s) = serde_json::from_slice::<Save>(&bytes) {
+                if let Ok(header) = serde_json::from_slice::<serde_json::Value>(&bytes)
+                    && header["schema_version"] == 2
+                    && header["state"].get("life").is_none()
+                {
+                    continue;
+                }
+                if let Ok(mut s) = serde_json::from_slice::<Save>(&bytes) {
                     // Future formats must not be silently downgraded through an older slot.
-                    if s.schema_version > 1 || s.content_version > CONTENT_VERSION {
+                    if s.schema_version > 2 || s.content_version > CONTENT_VERSION {
                         return Err(io::Error::new(
                             io::ErrorKind::InvalidData,
                             "newer save version",
                         ));
+                    }
+                    if s.schema_version == 1 {
+                        s.schema_version = 2;
+                        s.state.life = crate::life::Life::default();
+                        if let Some(due) = s.state.job_due {
+                            s.state.life.work =
+                                due.saturating_sub(s.state.tick).min(crate::CRAFT_SECS) * 1000;
+                            s.state.life.action = crate::life::SmithAction::Working;
+                        }
                     }
                     if s.validate().is_ok() {
                         good.push(s);
@@ -201,10 +216,32 @@ mod tests {
         store(&d, &mut s).unwrap();
         fs::write(
             d.join("save-0.json"),
-            br#"{"schema_version":2,"content_version":1,"different_state":{}}"#,
+            br#"{"schema_version":3,"content_version":1,"different_state":{}}"#,
         )
         .unwrap();
         assert!(load(&d).is_err());
+        fs::remove_dir_all(d).unwrap();
+    }
+    #[test]
+    fn v1_migrates_inflight_job_without_losing_stock() {
+        let d = dir();
+        fs::create_dir_all(&d).unwrap();
+        let mut state = State::new(42);
+        state.command(1, Command::Craft).unwrap();
+        state.advance(2).unwrap();
+        let mut value = serde_json::to_value(Save::new(state, 100)).unwrap();
+        value["schema_version"] = serde_json::json!(1);
+        value["state"].as_object_mut().unwrap().remove("life");
+        fs::write(d.join("save-1.json"), serde_json::to_vec(&value).unwrap()).unwrap();
+        let mut migrated = load(&d).unwrap().unwrap();
+        assert_eq!(migrated.schema_version, 2);
+        assert_eq!(migrated.state.life.fatigue, 0);
+        assert_eq!(migrated.state.life.work, 3000);
+        migrated.catch_up(120).unwrap();
+        assert_eq!(migrated.state.gold, 12);
+        assert_eq!(migrated.state.ore, 8);
+        store(&d, &mut migrated).unwrap();
+        assert_eq!(load(&d).unwrap().unwrap(), migrated);
         fs::remove_dir_all(d).unwrap();
     }
     #[test]

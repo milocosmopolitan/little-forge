@@ -1,4 +1,5 @@
 //! Deterministic domain: no renderer, OS clock, or Bevy dependency.
+pub mod life;
 pub mod save;
 pub mod shell;
 use serde::{Deserialize, Serialize};
@@ -21,15 +22,26 @@ pub struct State {
     pub rng: u64,
     pub event_id: u64,
     pub command_id: u64,
+    #[serde(default)]
+    pub life: life::Life,
 }
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Command {
     Craft,
     BuyOre,
+    QueueCraft,
+    BuyFood,
+    Eat,
+    Drink,
+    Rest,
 }
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub enum EventKind {
     Crafted,
+    ActionChanged(life::SmithAction),
+    Ate,
+    Drank,
+    PantryEmpty,
     Sold { item: String, gold: u64 },
     VisitorWithoutStock,
 }
@@ -46,6 +58,7 @@ pub enum Error {
     InsufficientResources,
     Overflow,
     InvalidState,
+    PantryFull,
 }
 impl State {
     pub fn new(seed: u64) -> Self {
@@ -61,12 +74,15 @@ impl State {
             rng: seed.max(1),
             event_id: 0,
             command_id: 0,
+            life: life::Life::default(),
         }
     }
     pub fn validate(&self) -> Result<(), Error> {
+        self.life.validate()?;
         if self.rng == 0
             || self.next_visitor <= self.tick
             || self.job_due.is_some_and(|t| t <= self.tick)
+            || self.job_due.is_some() != (self.life.work > 0)
             || self.sold > self.crafted
             || self.daggers != self.crafted - self.sold
         {
@@ -90,6 +106,65 @@ impl State {
                 }
                 next.job_due = Some(next.tick.checked_add(CRAFT_SECS).ok_or(Error::Overflow)?);
                 next.ore -= 2;
+                next.life.work = CRAFT_SECS * 1000;
+                if next.life.action == life::SmithAction::Idle {
+                    next.life.action = life::SmithAction::Working;
+                }
+            }
+            Command::QueueCraft => {
+                if next.ore < 2 {
+                    return Err(Error::InsufficientResources);
+                }
+                if next.life.queue >= 32 {
+                    return Err(Error::Busy);
+                }
+                next.ore -= 2;
+                next.life.queue += 1;
+            }
+            Command::BuyFood => {
+                let price = next.life.config.food_price;
+                if next.gold < price {
+                    return Err(Error::InsufficientResources);
+                }
+                next.life
+                    .pantry
+                    .add(life::Food::Staple, 1, next.life.config.stack_limit)?;
+                next.gold -= price;
+            }
+            Command::Eat => {
+                if next.life.action != life::SmithAction::Working
+                    && next.life.action != life::SmithAction::Idle
+                {
+                    return Err(Error::Busy);
+                }
+                if !next.life.pantry.take_staple() {
+                    return Err(Error::InsufficientResources);
+                }
+                next.life.hunger = next
+                    .life
+                    .hunger
+                    .saturating_sub(next.life.config.food_restore);
+                next.life.action = life::SmithAction::Eating;
+                next.life.remaining = next.life.config.consume_seconds;
+            }
+            Command::Drink => {
+                if next.life.action != life::SmithAction::Working
+                    && next.life.action != life::SmithAction::Idle
+                {
+                    return Err(Error::Busy);
+                }
+                next.life.thirst = 0;
+                next.life.action = life::SmithAction::Drinking;
+                next.life.remaining = next.life.config.consume_seconds;
+            }
+            Command::Rest => {
+                if next.life.action != life::SmithAction::Working
+                    && next.life.action != life::SmithAction::Idle
+                {
+                    return Err(Error::Busy);
+                }
+                next.life.action = life::SmithAction::Sleeping;
+                next.life.remaining = next.life.config.sleep_seconds;
             }
             Command::BuyOre => {
                 if next.gold < 4 {
@@ -100,27 +175,20 @@ impl State {
             }
         }
         next.command_id = id;
+        next.validate()?;
         *self = next;
         Ok(())
     }
     /// Events are processed at absolute integer timestamps; partitioning does not change RNG.
     pub fn advance(&mut self, seconds: u64) -> Result<Vec<Event>, Error> {
+        self.validate()?;
         let mut next = self.clone();
         let target = next.tick.checked_add(seconds).ok_or(Error::Overflow)?;
         let mut events = vec![];
-        loop {
-            let due = next.job_due.unwrap_or(u64::MAX).min(next.next_visitor);
-            if due > target {
-                break;
-            }
-            next.tick = due;
-            // Stable tie rule: crafting completes before a visitor buys.
-            if next.job_due == Some(due) {
-                next.job_due = None;
-                next.crafted = next.crafted.checked_add(1).ok_or(Error::Overflow)?;
-                next.daggers = next.daggers.checked_add(1).ok_or(Error::Overflow)?;
-                next.emit(EventKind::Crafted, &mut events)?;
-            }
+        while next.tick < target {
+            next.tick += 1;
+            let due = next.tick;
+            next.life_step(&mut events)?;
             if next.next_visitor == due {
                 if next.daggers > 0 {
                     next.gold = next.gold.checked_add(SALE_PRICE).ok_or(Error::Overflow)?;

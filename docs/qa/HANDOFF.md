@@ -38,3 +38,9 @@ For repeatable per-process samples: `python -m pip install psutil`, then `python
 The initial Foundation build could select Vulkan and unspecified alpha, leaving a black rectangle even without `--safe-window`. Transparent Windows launches now select DX12, a DirectComposition visual swapchain (`DxgiFromVisual`) and premultiplied alpha. This is configured automatically before renderer initialization. Safe mode retains the automatic backend and opaque background.
 
 On the corrected build, launch without `--safe-window` over a light application window. Empty pixels must show that application; sprites and text must remain visible without black fringes. F12 adapter diagnostics should report `Dx12`. Repeat the global shortcut, 10-second click-through recovery, resizing, DPI and sleep checks. The code/CI change alone does not constitute a native transparency pass. macOS uses its existing Metal/postmultiplied-alpha path and needs separate native evidence if still opaque.
+
+## Lifestyle loop (#18)
+
+Tab opens clickable management controls. Q queues a dagger, B buys ore, F buys a staple from the farmer, E eats, W drinks free water, and R rests. Fatigue, hunger and thirst appear in the ambient strip. Queued work pauses for automatic sleep, then resumes after eligible staple food and water; empty pantry never blocks work. No automatic purchases or premium meal consumption. See packaged `LIFESTYLE.md` for clock, provisional balance and schema-1 migration details. F12 includes the life state in diagnostics.
+
+Foundation hardware-limited acceptance was recorded in closing comments on #1/#3/#4/#10/#11 on 2026-10-16. Multi-monitor, mixed-DPI, Spaces, sleep/wake and private Steam testing remain unverified; they are not required of the owner to continue this milestone.
