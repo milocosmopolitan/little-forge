@@ -53,3 +53,8 @@ Automatic tests cover deterministic replay, time partitioning, failed/duplicate 
 ## Deferred scope
 
 Village economy, 9 tool definitions, relations, feedback/research, map navigation, expeditions and cards remain governed by `docs/`. No durability physics, combat, multiplayer, 60-weapon catalog or asset generator is introduced. Steam SDK, signing, notarization and store release are later release tasks.
+
+
+## Shared NPC presentation
+
+`crates/forge-npc` owns validated NPC clip catalogs, per-instance playback, face composition and socket-based prop attachment. Its Bevy plugin is shared by `apps/npc-preview` and the desktop game; it has no dependency on `forge-core`. The preview is a standalone developer executable with no simulation or save initialization. The game adapter in `apps/desktop/src/npc.rs` observes accepted live food purchase commands and reenacts the handoff without modifying economic state. Routine animation QA and focused game adapter QA remain separate. See [NPC Preview](docs/npc/PREVIEW.md).

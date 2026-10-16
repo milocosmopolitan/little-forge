@@ -1,5 +1,6 @@
 mod lifestyle;
 mod native;
+mod npc;
 mod presentation;
 mod rendering;
 mod title;
@@ -105,7 +106,14 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     if opts.qa.as_ref().is_some_and(|s| {
         !matches!(
             s.as_str(),
-            "ambient" | "sale" | "expanded" | "idle" | "life-loop" | "life-ambient" | "title"
+            "ambient"
+                | "sale"
+                | "expanded"
+                | "idle"
+                | "life-loop"
+                | "life-ambient"
+                | "title"
+                | "npc"
         )
     }) {
         return Err("unknown QA scenario".into());
@@ -241,6 +249,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
                 ..default()
             }),
     )
+    .add_plugins(npc::FarmerPlugin)
     .add_observer(lifestyle::buttons)
     .add_observer(title::activate)
     .add_plugins(FrameTimeDiagnosticsPlugin::default())
@@ -377,37 +386,7 @@ fn setup(
         Smoke,
     ));
     // One shared placeholder image is used for the display and the carried item.
-    let mut bytes = vec![0u8; 8 * 24 * 4];
-    for y in 0..24 {
-        for x in 0..8 {
-            let on = if y < 16 {
-                (3..=4).contains(&x)
-            } else if y < 18 {
-                (1..=6).contains(&x)
-            } else {
-                (3..=4).contains(&x)
-            };
-            if on {
-                let i = (y * 8 + x) * 4;
-                bytes[i..i + 4].copy_from_slice(if y < 16 {
-                    &[202, 217, 219, 255]
-                } else {
-                    &[157, 104, 50, 255]
-                });
-            }
-        }
-    }
-    let dagger = images.add(Image::new(
-        bevy::render::render_resource::Extent3d {
-            width: 8,
-            height: 24,
-            depth_or_array_layers: 1,
-        },
-        bevy::render::render_resource::TextureDimension::D2,
-        bytes,
-        bevy::render::render_resource::TextureFormat::Rgba8UnormSrgb,
-        bevy::asset::RenderAssetUsages::default(),
-    ));
+    let dagger = images.add(forge_npc::dagger_image());
     commands.spawn((
         Sprite::from_image(dagger.clone()),
         Transform::from_xyz(115., -8., 3.),
@@ -458,6 +437,7 @@ fn input(
     mut desktop: ResMut<window::Desktop>,
     opts: Res<Options>,
     title: Res<title::TitleScreen>,
+    mut farmer: ResMut<npc::FarmerPresentation>,
 ) {
     if title.active {
         return;
@@ -492,7 +472,10 @@ fn input(
         if keys.just_pressed(key) && !session.disabled {
             let id = session.save.state.command_id + 1;
             session.status = match session.save.state.command(id, cmd) {
-                Ok(()) => format!("{cmd:?} accepted"),
+                Ok(()) => {
+                    farmer.accepted(id, cmd);
+                    format!("{cmd:?} accepted")
+                }
                 Err(e) => format!("{e:?}"),
             };
             persist(&mut session, &opts);
@@ -582,15 +565,22 @@ fn animate(
     opts: Res<Options>,
     p: Res<Presentation>,
     desktop: Res<window::Desktop>,
-    mut q: Query<(
-        &mut Transform,
-        &mut Sprite,
-        Option<&Visitor>,
-        Option<&Weapon>,
-        Option<&Smith>,
-        Option<&Smoke>,
-        &mut Visibility,
-    )>,
+    mut q: Query<
+        (
+            &mut Transform,
+            &mut Sprite,
+            Option<&Visitor>,
+            Option<&Weapon>,
+            Option<&Smith>,
+            Option<&Smoke>,
+            &mut Visibility,
+        ),
+        (
+            Without<forge_npc::Player>,
+            Without<forge_npc::ItemAttachment>,
+            Without<forge_npc::NpcVisual>,
+        ),
+    >,
 ) {
     let animation_time = if opts.qa.is_some() {
         opts.frames as f32 / 30.
@@ -692,6 +682,7 @@ fn hud(
         };
     }
 }
+#[allow(clippy::too_many_arguments)]
 fn qa_capture(
     mut commands: Commands,
     mut opts: ResMut<Options>,
@@ -699,7 +690,8 @@ fn qa_capture(
     art: Res<Art>,
     mut desktop: ResMut<window::Desktop>,
     mut exit: MessageWriter<AppExit>,
-    session: Res<Session>,
+    mut session: ResMut<Session>,
+    mut farmer: ResMut<npc::FarmerPresentation>,
 ) {
     if opts.qa.is_none() {
         return;
@@ -712,6 +704,16 @@ fn qa_capture(
         return;
     }
     opts.frames += 1;
+    if opts.qa.as_deref() == Some("npc") && opts.frames == 170 {
+        session.save.state.gold = 100; // isolated QA fixture, never a user save
+        let id = session.save.state.command_id + 1;
+        session
+            .save
+            .state
+            .command(id, Command::BuyFood)
+            .expect("QA farmer purchase");
+        farmer.accepted(id, Command::BuyFood);
+    }
     if opts.qa.as_deref() == Some("title")
         && [1, 12, 17, 19, 21, 25, 35].contains(&opts.frames)
         && let Some(path) = &opts.capture

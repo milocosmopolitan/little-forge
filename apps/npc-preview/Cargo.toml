@@ -1,0 +1,11 @@
+[package]
+name = "npc-preview"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+[dependencies]
+bevy.workspace = true
+forge-npc = { path = "../../crates/forge-npc" }
+
+[target.'cfg(target_os = "windows")'.dependencies]
+bevy = { workspace = true, features = ["statically-linked-dxc"] }
