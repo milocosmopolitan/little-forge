@@ -2,6 +2,7 @@ mod lifestyle;
 mod native;
 mod presentation;
 mod rendering;
+mod title;
 mod window;
 use bevy::{
     diagnostic::{DiagnosticsStore, FrameTimeDiagnosticsPlugin},
@@ -94,7 +95,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             }
             "--help" => {
                 println!(
-                    "Little Forge\n--safe-window --save-dir PATH --qa ambient|sale|expanded|idle|life-loop|life-ambient --screenshot PATH\nC: craft, Q: queue, B: buy ore, F: farmer food, E: eat, W: free water, R: rest, Tab: expand, F8: 10s click-through, Ctrl+Alt+F8: global recovery, Esc: recover, T: topmost, D: decorations, F12: diagnostics\nQA uses an isolated save directory and a fixed simulation clock."
+                    "Little Forge\n--safe-window --save-dir PATH --qa ambient|sale|expanded|idle|life-loop|life-ambient|title --screenshot PATH\nC: craft, Q: queue, B: buy ore, F: farmer food, E: eat, W: free water, R: rest, Tab: expand, F8: 10s click-through, Ctrl+Alt+F8: global recovery, Esc: recover, T: topmost, D: decorations, F12: diagnostics\nQA uses an isolated save directory and a fixed simulation clock."
                 );
                 return Ok(());
             }
@@ -104,7 +105,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     if opts.qa.as_ref().is_some_and(|s| {
         !matches!(
             s.as_str(),
-            "ambient" | "sale" | "expanded" | "idle" | "life-loop" | "life-ambient"
+            "ambient" | "sale" | "expanded" | "idle" | "life-loop" | "life-ambient" | "title"
         )
     }) {
         return Err("unknown QA scenario".into());
@@ -163,6 +164,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         }
     }
     let mut app = App::new();
+    let title_active = !qa || opts.qa.as_deref() == Some("title");
     let native = native::NativeRuntime::new();
     eprintln!("{}", native.status);
     app.insert_non_send(native);
@@ -216,13 +218,16 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     })
     .insert_resource(window::Desktop::new(
         opts.safe,
-        matches!(opts.qa.as_deref(), Some("expanded" | "life-loop")),
+        title_active || matches!(opts.qa.as_deref(), Some("expanded" | "life-loop")),
     ))
     .insert_resource(WinitSettings {
         focused_mode: UpdateMode::reactive_low_power(Duration::from_secs_f64(1. / 30.)),
         unfocused_mode: UpdateMode::reactive_low_power(Duration::from_secs_f64(1. / 15.)),
     })
     .insert_resource(presentation)
+    .insert_resource(title::TitleScreen {
+        active: title_active,
+    })
     .add_plugins(
         DefaultPlugins
             .set(rendering::plugin(opts.safe))
@@ -237,13 +242,15 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             }),
     )
     .add_observer(lifestyle::buttons)
+    .add_observer(title::activate)
     .add_plugins(FrameTimeDiagnosticsPlugin::default())
     .insert_resource(opts)
-    .add_systems(Startup, (setup, lifestyle::setup))
+    .add_systems(Startup, (setup, lifestyle::setup, title::build))
     .add_systems(
         Update,
         (
             qa_capture,
+            title::animate_strike,
             input,
             simulate,
             presentation::tick,
@@ -450,7 +457,11 @@ fn input(
     mut session: ResMut<Session>,
     mut desktop: ResMut<window::Desktop>,
     opts: Res<Options>,
+    title: Res<title::TitleScreen>,
 ) {
+    if title.active {
+        return;
+    }
     if keys.just_pressed(KeyCode::Escape) {
         desktop.shell.recover();
     }
@@ -506,8 +517,13 @@ fn persist(s: &mut Session, opts: &Options) {
         s.status = format!("SAVE ERROR: {e}. Simulation paused; preserve save directory.");
     }
 }
-fn simulate(mut s: ResMut<Session>, mut p: ResMut<Presentation>, opts: Res<Options>) {
-    if s.disabled || (opts.qa.is_some() && opts.frames == 0) {
+fn simulate(
+    mut s: ResMut<Session>,
+    mut p: ResMut<Presentation>,
+    opts: Res<Options>,
+    title: Res<title::TitleScreen>,
+) {
+    if title.active || s.disabled || (opts.qa.is_some() && opts.frames == 0) {
         return;
     }
     let seconds = if opts.qa.as_deref().is_some_and(|q| q.starts_with("life-")) {
@@ -696,6 +712,15 @@ fn qa_capture(
         return;
     }
     opts.frames += 1;
+    if opts.qa.as_deref() == Some("title")
+        && [1, 12, 17, 19, 21, 25, 35].contains(&opts.frames)
+        && let Some(path) = &opts.capture
+    {
+        let extra = format!("{}-{:03}.png", path.trim_end_matches(".png"), opts.frames);
+        commands
+            .spawn(Screenshot::primary_window())
+            .observe(save_to_disk(extra));
+    }
     if opts.frames == 1 && opts.qa.as_deref() == Some("idle") {
         desktop.shell.idle();
     }
