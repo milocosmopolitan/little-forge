@@ -10,43 +10,58 @@ pub struct TitleScreen {
 }
 
 #[derive(Component)]
-struct TitleRoot;
+pub(crate) struct TitleRoot;
 
 #[derive(Component)]
-struct TitleHammer;
+pub(crate) struct TitleHammer;
 #[derive(Component)]
-struct TitleImpact;
+pub(crate) struct TitleImpact;
 pub fn strike_y(t: f32) -> f32 {
     let t = t.rem_euclid(1.5);
-    if t < 0.53 { -190. }
-    else if t < 0.62 { -190. + ((t - 0.53) / 0.09).powi(2) * 190. }
-    else if t < 0.74 { 0. }
-    else if t < 1.09 { -190. * ((t - 0.74) / 0.35).min(1.) }
-    else { -190. }
+    if t < 0.53 {
+        -190.
+    } else if t < 0.62 {
+        -190. + ((t - 0.53) / 0.09).powi(2) * 190.
+    } else if t < 0.74 {
+        0.
+    } else if t < 1.09 {
+        -190. * ((t - 0.74) / 0.35).min(1.)
+    } else {
+        -190.
+    }
 }
-pub fn animate_strike(time: Res<Time>, title: Res<TitleScreen>, mut clock: Local<f32>, mut hammer: Query<&mut Node, With<TitleHammer>>, mut impact: Query<&mut Visibility, With<TitleImpact>>) {
-    if !title.active { return; }
+pub fn animate_strike(
+    time: Res<Time>,
+    title: Res<TitleScreen>,
+    mut clock: Local<f32>,
+    mut hammer: Query<&mut Node, With<TitleHammer>>,
+    mut impact: Query<&mut Visibility, With<TitleImpact>>,
+) {
+    if !title.active {
+        return;
+    }
     *clock = (*clock + time.delta_secs()).rem_euclid(1.5);
-    for mut node in &mut hammer { node.top = px(strike_y(*clock)); }
+    for mut node in &mut hammer {
+        node.top = px(strike_y(*clock));
+    }
     for mut visible in &mut impact {
-        *visible = if (0.61..0.73).contains(&*clock) { Visibility::Visible } else { Visibility::Hidden };
+        *visible = if (0.61..0.73).contains(&*clock) {
+            Visibility::Visible
+        } else {
+            Visibility::Hidden
+        };
     }
 }
 
-
 #[derive(Component, Clone, Copy, PartialEq, Eq)]
-enum TitleAction {
+pub(crate) enum TitleAction {
     Enter,
     Settings,
     Load,
     Quit,
 }
 
-pub fn build(
-    mut commands: Commands,
-    title: Res<TitleScreen>,
-    server: Res<AssetServer>,
-) {
+pub fn build(mut commands: Commands, title: Res<TitleScreen>, server: Res<AssetServer>) {
     if !title.active {
         return;
     }
@@ -166,16 +181,22 @@ pub fn activate(
     mut roots: Query<&mut Visibility, With<TitleRoot>>,
     mut exit: MessageWriter<bevy::app::AppExit>,
 ) {
-    if !title.active { return; }
+    if !title.active {
+        return;
+    }
     if let Ok(action) = actions.get(event.entity) {
         match action {
             TitleAction::Enter => {
                 title.active = false;
                 desktop.shell.expanded = false;
                 desktop.shell.recover();
-                for mut visible in &mut roots { *visible = Visibility::Hidden; }
+                for mut visible in &mut roots {
+                    *visible = Visibility::Hidden;
+                }
             }
-            TitleAction::Quit => { exit.write(bevy::app::AppExit::Success); }
+            TitleAction::Quit => {
+                exit.write(bevy::app::AppExit::Success);
+            }
             TitleAction::Load | TitleAction::Settings => {}
         }
     }
@@ -185,7 +206,10 @@ pub fn activate(
 mod tests {
     use super::*;
     #[test]
-    fn impact_uses_registered_anchor() { assert_eq!(strike_y(0.), -190.); assert_eq!(strike_y(0.62), 0.); }
+    fn impact_uses_registered_anchor() {
+        assert_eq!(strike_y(0.), -190.);
+        assert_eq!(strike_y(0.62), 0.);
+    }
     #[test]
     fn title_state_defaults_inactive_for_qa_and_is_explicitly_activated() {
         let mut title = TitleScreen::default();
