@@ -304,6 +304,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             presentation::tick,
             animate,
             window::update,
+            village::fit_ui,
             hud,
             lifestyle::update,
             village::input,
@@ -634,7 +635,7 @@ fn simulate(
         }
     }
 }
-#[allow(clippy::type_complexity)] // One sprite query keeps mutually exclusive presentation markers together.
+#[allow(clippy::type_complexity, clippy::too_many_arguments)] // One sprite query keeps mutually exclusive presentation markers together.
 fn animate(
     art: Res<Art>,
     session: Option<Res<Session>>,
@@ -642,6 +643,7 @@ fn animate(
     opts: Res<Options>,
     p: Res<Presentation>,
     desktop: Res<window::Desktop>,
+    windows: Query<&Window, With<bevy::window::PrimaryWindow>>,
     mut q: Query<(
         &mut Transform,
         &mut Sprite,
@@ -657,7 +659,11 @@ fn animate(
     } else {
         time.elapsed_secs()
     };
-    let offset = if desktop.shell.expanded { -180. } else { 0. };
+    let offset = if desktop.shell.expanded {
+        -(windows.single().map_or(540., |w| w.height()) - 180.) / 2.
+    } else {
+        0.
+    };
     let walk_frame = ((p.elapsed * 6.) as usize) % 4;
     let visitor_frame = if matches!(
         p.phase,

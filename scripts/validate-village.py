@@ -19,6 +19,6 @@ for region in r['locations']:
         mask = Image.new('L', size)
         ImageDraw.Draw(mask).polygon([(x * size[0], y * size[1]) for x, y in region['polygon']], fill=255)
         # Gaussian feathering is intentionally allowed around the polygon.
-        mask = mask.filter(ImageFilter.MaxFilter(31))
+        mask = mask.filter(ImageFilter.GaussianBlur(8)).point(lambda value: 255 if value else 0)
         assert ImageChops.multiply(alpha, ImageChops.invert(mask)).getbbox() is None
         print(region['id'], 'aligned transparent wash OK')

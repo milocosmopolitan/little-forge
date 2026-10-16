@@ -106,6 +106,10 @@ jobs:
           test -s qa-output/title.png
       - name: Capture village navigation and vendors in the actual app
         run: xvfb-run -a -s '-screen 0 1280x800x24' python scripts/capture-village.py target/debug/little-forge
+      - name: Capture small work area and 200 percent DPI
+        run: |
+          xvfb-run -a -s '-screen 0 640x480x24' target/debug/little-forge --safe-window --qa village-map --screenshot qa-output/village/small.png
+          WINIT_X11_SCALE_FACTOR=2 xvfb-run -a -s '-screen 0 1920x1200x24' target/debug/little-forge --safe-window --qa village-map --screenshot qa-output/village/dpi-200.png
       - name: Verify village with real X11 pointer and keyboard input
         run: xvfb-run -a -s '-screen 0 1280x800x24' python scripts/test-village-input.py target/debug/little-forge
       - name: Capture lifecycle in the actual app

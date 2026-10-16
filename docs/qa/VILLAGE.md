@@ -88,7 +88,10 @@ CI OS screenshots are actual native app observations, not physical monitor testi
 Retina/Windows display composition, monitor changes, taskbar interaction, transparent
 surfaces and application focus on a user's hardware are not newly certified by this
 milestone. Preserve the Foundation hardware limitations/waivers and safe opaque
-interactive fallback. No user multi-monitor setup is required to run the automated
+interactive fallback. The management UI additionally fits its 960×540 logical layout to smaller work areas
+using Bevy UiScale, while leaving native DPI ownership with Bevy. Linux CI captures
+a 640×480 work area and a 200% X11 scale scene in addition to normalized picking tests.
+No user multi-monitor setup is required to run the automated
 suite. Coordinate/letterbox scale tests do not substitute for OS hardware DPI QA.
 
 Missing map/mask files produce an explicit destination-list fallback. Missing vendor

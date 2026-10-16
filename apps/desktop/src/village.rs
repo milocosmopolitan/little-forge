@@ -86,6 +86,20 @@ fn button(parent: &mut ChildSpawnerCommands, label: impl Into<String>, action: A
             b.spawn(text(label, 13.));
         });
 }
+/// Keep management controls inside smaller logical work areas and high-DPI windows.
+/// Native DPI remains owned by Bevy; this is only an additional fit for the 960x540 UI.
+pub fn fit_ui(
+    windows: Query<&Window, With<bevy::window::PrimaryWindow>>,
+    desktop: Res<Desktop>,
+    mut scale: ResMut<UiScale>,
+) {
+    if let Ok(window) = windows.single() {
+        let reference_height = if desktop.shell.expanded { 540. } else { 180. };
+        scale.0 = (window.width() / 960.)
+            .min(window.height() / reference_height)
+            .clamp(0.1, 1.);
+    }
+}
 pub fn setup(
     mut commands: Commands,
     root: Res<AssetRoot>,
