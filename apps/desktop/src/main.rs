@@ -511,7 +511,11 @@ fn simulate(mut s: ResMut<Session>, mut p: ResMut<Presentation>, opts: Res<Optio
         return;
     }
     let seconds = if opts.qa.as_deref().is_some_and(|q| q.starts_with("life-")) {
-        if opts.frames % 30 == 0 { 1. } else { 0. }
+        if opts.frames.is_multiple_of(30) {
+            1.
+        } else {
+            0.
+        }
     } else if opts.qa.is_some() {
         1. / 30.
     } else {

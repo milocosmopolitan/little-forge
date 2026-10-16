@@ -69,6 +69,12 @@ pub fn load(dir: &Path) -> io::Result<Option<Save>> {
                         "newer save version; preserve files",
                     ));
                 }
+                if let Ok(header) = serde_json::from_slice::<serde_json::Value>(&bytes)
+                    && header["schema_version"] == 2
+                    && header["state"].get("life").is_none()
+                {
+                    continue;
+                }
                 if let Ok(mut s) = serde_json::from_slice::<Save>(&bytes) {
                     // Future formats must not be silently downgraded through an older slot.
                     if s.schema_version > 2 || s.content_version > CONTENT_VERSION {

@@ -82,6 +82,7 @@ impl State {
         if self.rng == 0
             || self.next_visitor <= self.tick
             || self.job_due.is_some_and(|t| t <= self.tick)
+            || self.job_due.is_some() != (self.life.work > 0)
             || self.sold > self.crafted
             || self.daggers != self.crafted - self.sold
         {
