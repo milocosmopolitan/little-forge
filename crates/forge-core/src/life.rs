@@ -269,6 +269,9 @@ impl State {
                             self.resume(events)?;
                         }
                     }
+                } else if l.fatigue >= l.config.sleep_threshold {
+                    let duration = l.config.sleep_seconds;
+                    self.action(SmithAction::Sleeping, duration, events)?;
                 } else {
                     l.action = SmithAction::Idle;
                 }
@@ -380,6 +383,22 @@ mod tests {
         s.validate().unwrap();
         assert_eq!(s.life.hunger, MAX_NEED);
         assert_eq!(s.life.thirst, MAX_NEED);
+    }
+    #[test]
+    fn final_job_crossing_threshold_sleeps_without_another_queue() {
+        let mut s = State::new(42);
+        s.command(1, Command::Craft).unwrap();
+        s.life.work = 1;
+        s.life.fatigue = 8999;
+        s.advance(1).unwrap();
+        assert_eq!(s.crafted, 1);
+        assert_eq!(s.life.queue, 0);
+        s.advance(1).unwrap();
+        assert_eq!(s.life.action, SmithAction::Sleeping);
+        s.advance(s.life.config.sleep_seconds as u64 + 10).unwrap();
+        assert_eq!(s.life.fatigue, 0);
+        assert_eq!(s.life.action, SmithAction::Idle);
+        assert_eq!(s.crafted, 1);
     }
     #[test]
     fn needs_slow_remaining_work_without_revoking_progress() {
