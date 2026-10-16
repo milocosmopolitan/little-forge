@@ -120,3 +120,68 @@ pub fn update(
         );
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn actual_management_observer_uses_domain_and_hidden_panel_ignores_activation() {
+        let dir = std::env::temp_dir().join(format!(
+            "forge-ui-{}-{}",
+            std::process::id(),
+            std::time::SystemTime::now()
+                .duration_since(std::time::UNIX_EPOCH)
+                .unwrap()
+                .as_nanos()
+        ));
+        let mut app = App::new();
+        app.add_plugins(MinimalPlugins);
+        let mut state = forge_core::State::new(42);
+        state.life.thirst = 9000;
+        app.insert_resource(Session {
+            save: forge_core::save::Save::new(state, 100),
+            _lock: forge_core::save::SaveLock::acquire(&dir).unwrap(),
+            dir: dir.clone(),
+            last: std::time::Instant::now(),
+            fraction: 0.,
+            status: String::new(),
+            disabled: false,
+            trace: vec![],
+        });
+        app.insert_resource(Options {
+            qa: Some("life-loop".into()),
+            ..default()
+        });
+        app.insert_resource(Desktop::new(false, true));
+        app.add_observer(buttons);
+        app.add_systems(Update, update);
+        let action = app.world_mut().spawn(Action(Command::Drink)).id();
+        let needs = app
+            .world_mut()
+            .spawn((Needs, Text::new(""), Visibility::Inherited))
+            .id();
+        app.world_mut().spawn((Management, Visibility::Hidden));
+        app.world_mut().spawn((Ledger, Text::new("")));
+        app.world_mut().trigger(Activate { entity: action });
+        app.update();
+        let s = app.world().resource::<Session>();
+        assert_eq!(s.save.state.life.thirst, 0);
+        assert_eq!(s.save.state.gold, 0);
+        assert_eq!(s.save.state.command_id, 1);
+        assert!(app.world().get::<Text>(needs).unwrap().contains("Drinking"));
+        app.world_mut().resource_mut::<Desktop>().shell.expanded = false;
+        app.world_mut()
+            .resource_mut::<Session>()
+            .save
+            .state
+            .life
+            .thirst = 5000;
+        app.world_mut().trigger(Activate { entity: action });
+        assert_eq!(
+            app.world().resource::<Session>().save.state.life.thirst,
+            5000
+        );
+        drop(app);
+        std::fs::remove_dir_all(dir).unwrap();
+    }
+}
