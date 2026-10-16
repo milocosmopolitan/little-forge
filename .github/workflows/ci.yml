@@ -104,6 +104,8 @@ jobs:
         run: |
           timeout 90s xvfb-run -a -s '-screen 0 1280x800x24' target/debug/little-forge --safe-window --qa title --screenshot qa-output/title.png > qa-output/title.log 2>&1
           test -s qa-output/title.png
+      - name: Verify actual title keyboard and save flow
+        run: timeout 120s xvfb-run -a -s '-screen 0 1280x800x24' python scripts/test-title-input.py
       - name: Capture village navigation and vendors in the actual app
         run: xvfb-run -a -s '-screen 0 1280x800x24' python scripts/capture-village.py target/debug/little-forge
       - name: Capture small work area and 200 percent DPI

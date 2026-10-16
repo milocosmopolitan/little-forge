@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "checks": [
+    "fresh title does not write save",
+    "new game persists",
+    "F9 recovery",
+    "settings/still mode",
+    "escape cancels quit",
+    "save and quit"
+  ],
+  "display": "127.0.0.1:180"
+}
