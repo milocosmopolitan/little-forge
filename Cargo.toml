@@ -1,5 +1,5 @@
 [workspace]
-members = ["apps/desktop", "crates/*"]
+members = ["apps/desktop", "apps/npc-preview", "crates/*"]
 resolver = "3"
 
 [workspace.package]

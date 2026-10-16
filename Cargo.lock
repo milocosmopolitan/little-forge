@@ -2201,6 +2201,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "forge-npc"
+version = "0.1.0"
+dependencies = [
+ "bevy",
+ "serde",
+ "serde_json",
+]
+
+[[package]]
 name = "forge-qa"
 version = "0.1.0"
 dependencies = [
@@ -2879,6 +2888,7 @@ dependencies = [
  "directories",
  "forge-content",
  "forge-core",
+ "forge-npc",
  "global-hotkey",
  "objc2 0.6.5",
  "objc2-app-kit 0.3.2",
@@ -3089,6 +3099,14 @@ name = "nonmax"
 version = "0.5.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "610a5acd306ec67f907abe5567859a3c693fb9886eb1f012ab8f2a47bef3db51"
+
+[[package]]
+name = "npc-preview"
+version = "0.1.0"
+dependencies = [
+ "bevy",
+ "forge-npc",
+]
 
 [[package]]
 name = "nu-ansi-term"

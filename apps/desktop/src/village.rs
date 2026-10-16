@@ -145,6 +145,7 @@ pub fn setup(
         GlobalZIndex(10),
     ));
 }
+#[allow(clippy::too_many_arguments)]
 pub fn activate(
     event: On<Activate>,
     actions: Query<&Action>,
@@ -153,6 +154,7 @@ pub fn activate(
     mut s: ResMut<Session>,
     opts: Res<Options>,
     title: Res<TitleScreen>,
+    mut farmer: Option<ResMut<crate::npc::FarmerPresentation>>,
 ) {
     if title.active || !d.shell.expanded {
         return;
@@ -160,7 +162,14 @@ pub fn activate(
     let Ok(action) = actions.get(event.entity) else {
         return;
     };
-    apply(*action, &mut v, &mut d, &mut s, &opts);
+    apply(
+        *action,
+        &mut v,
+        &mut d,
+        &mut s,
+        &opts,
+        farmer.as_deref_mut(),
+    );
 }
 fn purchase_error(error: &forge_core::Error) -> &'static str {
     match error {
@@ -177,7 +186,14 @@ fn purchase_error(error: &forge_core::Error) -> &'static str {
         _ => "This purchase is unavailable. Return to the map and try again.",
     }
 }
-fn apply(a: Action, v: &mut Village, d: &mut Desktop, s: &mut Session, opts: &Options) {
+fn apply(
+    a: Action,
+    v: &mut Village,
+    d: &mut Desktop,
+    s: &mut Session,
+    opts: &Options,
+    farmer: Option<&mut crate::npc::FarmerPresentation>,
+) {
     match a {
         Action::Map => v.nav.map(),
         Action::Home => v.nav = Navigation::default(),
@@ -199,15 +215,18 @@ fn apply(a: Action, v: &mut Village, d: &mut Desktop, s: &mut Session, opts: &Op
                 return;
             }
             if id > s.save.state.command_id && v.category == 0 {
-                s.status = match s.save.state.command(
-                    id,
-                    Command::Purchase {
-                        vendor: item.vendor(),
-                        item,
-                        quantity: v.quantity,
-                    },
-                ) {
-                    Ok(()) => format!("Purchased {} x{}", item.label(), v.quantity),
+                let command = Command::Purchase {
+                    vendor: item.vendor(),
+                    item,
+                    quantity: v.quantity,
+                };
+                s.status = match s.save.state.command(id, command) {
+                    Ok(()) => {
+                        if let Some(farmer) = farmer {
+                            farmer.accepted(id, command);
+                        }
+                        format!("Purchased {} x{}", item.label(), v.quantity)
+                    }
                     Err(e) => purchase_error(&e).to_owned(),
                 };
                 crate::persist(s, opts);
@@ -227,6 +246,7 @@ pub fn input(
     mut s: ResMut<Session>,
     opts: Res<Options>,
     title: Res<TitleScreen>,
+    mut farmer: Option<ResMut<crate::npc::FarmerPresentation>>,
     surface: Query<(&RelativeCursorPosition, &ComputedNode), With<MapSurface>>,
 ) {
     if title.active {
@@ -251,7 +271,7 @@ pub fn input(
         } else {
             Action::Back
         };
-        apply(a, &mut v, &mut d, &mut s, &opts);
+        apply(a, &mut v, &mut d, &mut s, &opts, farmer.as_deref_mut());
         return;
     }
     if v.nav.screen == Screen::Map {
@@ -317,7 +337,14 @@ pub fn input(
         });
         if let Some(i) = visit {
             let l = v.registry.locations[i].id;
-            apply(Action::Visit(l), &mut v, &mut d, &mut s, &opts);
+            apply(
+                Action::Visit(l),
+                &mut v,
+                &mut d,
+                &mut s,
+                &opts,
+                farmer.as_deref_mut(),
+            );
         }
     } else if let Screen::Destination(l) = v.nav.screen {
         if keys.just_pressed(KeyCode::ArrowLeft) || keys.just_pressed(KeyCode::ArrowRight) {
@@ -325,10 +352,24 @@ pub fn input(
             v.redraw = true;
         }
         if keys.just_pressed(KeyCode::Minus) {
-            apply(Action::Quantity(-1), &mut v, &mut d, &mut s, &opts);
+            apply(
+                Action::Quantity(-1),
+                &mut v,
+                &mut d,
+                &mut s,
+                &opts,
+                farmer.as_deref_mut(),
+            );
         }
         if keys.just_pressed(KeyCode::Equal) {
-            apply(Action::Quantity(1), &mut v, &mut d, &mut s, &opts);
+            apply(
+                Action::Quantity(1),
+                &mut v,
+                &mut d,
+                &mut s,
+                &opts,
+                farmer.as_deref_mut(),
+            );
         }
         if keys.just_pressed(KeyCode::Enter)
             && v.category == 0
@@ -340,6 +381,7 @@ pub fn input(
                 &mut d,
                 &mut s,
                 &opts,
+                farmer.as_deref_mut(),
             );
         }
     }
@@ -777,6 +819,7 @@ mod tests {
         });
         app.insert_resource(Desktop::new(false, true));
         app.init_resource::<Village>();
+        app.init_resource::<crate::npc::FarmerPresentation>();
         app.init_resource::<TitleScreen>();
         app.add_observer(activate);
         let map = app.world_mut().spawn(Action::Map).id();
@@ -801,6 +844,42 @@ mod tests {
         assert_eq!(app.world().resource::<Session>().save.state.crafted, 1);
         app.world_mut().trigger(Activate { entity: back });
         assert_eq!(app.world().resource::<Village>().nav.screen, Screen::Map);
+        let farm = app.world_mut().spawn(Action::Visit(Location::Farm)).id();
+        let food = app.world_mut().spawn(Action::Buy(Item::Staple, 3)).id();
+        let before = app
+            .world()
+            .resource::<Session>()
+            .save
+            .state
+            .life
+            .pantry
+            .staples();
+        app.world_mut().trigger(Activate { entity: farm });
+        app.world_mut().trigger(Activate { entity: food });
+        assert!(
+            app.world()
+                .resource::<crate::npc::FarmerPresentation>()
+                .pending
+        );
+        assert_eq!(
+            app.world()
+                .resource::<Session>()
+                .save
+                .state
+                .life
+                .pantry
+                .staples(),
+            before + 1
+        );
+        app.world_mut()
+            .resource_mut::<crate::npc::FarmerPresentation>()
+            .pending = false;
+        app.world_mut().trigger(Activate { entity: food });
+        assert!(
+            !app.world()
+                .resource::<crate::npc::FarmerPresentation>()
+                .pending
+        );
         app.world_mut().trigger(Activate { entity: close });
         assert!(!app.world().resource::<Desktop>().shell.expanded);
         let old = app.world().resource::<Session>().save.state.clone();

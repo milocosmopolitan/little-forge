@@ -61,3 +61,8 @@ NPC 애니메이션·방문 연출과 의뢰의 논리 상태를 분리한다. N
 ## 상세 MVP 계약
 
 [Village Commerce & Commission Contract](../system/VILLAGE_COMMERCE.md)에 상점별 패널 역할, 의뢰 주기, 도구 3종·상품 1종, 피드백 보상, 구현 제외 항목 및 수용 테스트를 정리한다. 이는 Bevy/Rust Foundation 구현 책임과 별도인 콘텐츠 명세다.
+
+
+## NPC animation implementation
+
+See [standalone NPC Preview and shared animation contract](PREVIEW.md). Character animation QA runs independently of the game simulation.

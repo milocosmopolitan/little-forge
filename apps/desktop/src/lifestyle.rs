@@ -46,6 +46,7 @@ pub fn buttons(
     mut s: ResMut<Session>,
     opts: Res<Options>,
     desktop: Res<Desktop>,
+    mut farmer: Option<ResMut<crate::npc::FarmerPresentation>>,
     village: Option<Res<crate::village::Village>>,
 ) {
     if !desktop.shell.expanded
@@ -59,7 +60,12 @@ pub fn buttons(
     if let Ok(action) = actions.get(event.entity) {
         let id = s.save.state.command_id + 1;
         s.status = match s.save.state.command(id, action.0) {
-            Ok(()) => format!("{:?} accepted", action.0),
+            Ok(()) => {
+                if let Some(farmer) = farmer.as_mut() {
+                    farmer.accepted(id, action.0);
+                }
+                format!("{:?} accepted", action.0)
+            }
             Err(e) => format!("{e:?}"),
         };
         crate::persist(&mut s, &opts);
