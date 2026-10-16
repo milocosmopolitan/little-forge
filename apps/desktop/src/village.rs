@@ -145,6 +145,21 @@ pub fn activate(
     };
     apply(*action, &mut v, &mut d, &mut s, &opts);
 }
+fn purchase_error(error: &forge_core::Error) -> &'static str {
+    match error {
+        forge_core::Error::OutOfStock => "This item is out of stock.",
+        forge_core::Error::InsufficientResources => {
+            "You do not have enough gold for this purchase."
+        }
+        forge_core::Error::PantryFull => "Your pantry is full. Use provisions before buying more.",
+        forge_core::Error::Overflow => "Your storage capacity has been reached.",
+        forge_core::Error::InvalidPurchase => {
+            "Choose an available item and a quantity from 1 to 99."
+        }
+        forge_core::Error::DuplicateCommand => "This purchase has already been processed.",
+        _ => "This purchase is unavailable. Return to the map and try again.",
+    }
+}
 fn apply(a: Action, v: &mut Village, d: &mut Desktop, s: &mut Session, opts: &Options) {
     match a {
         Action::Map => v.nav.map(),
@@ -176,7 +191,7 @@ fn apply(a: Action, v: &mut Village, d: &mut Desktop, s: &mut Session, opts: &Op
                     },
                 ) {
                     Ok(()) => format!("Purchased {} x{}", item.label(), v.quantity),
-                    Err(e) => format!("Purchase unavailable: {e:?}"),
+                    Err(e) => purchase_error(&e).to_owned(),
                 };
                 crate::persist(s, opts);
             }
@@ -237,7 +252,13 @@ pub fn input(
                         )
                     })
             })
-            .and_then(|p| v.registry.pick(p));
+            .and_then(|p| {
+                if v.art_available {
+                    v.registry.pick(p)
+                } else {
+                    None
+                }
+            });
         if hover != v.hover {
             v.hover = hover;
             if hover.is_some() {
@@ -558,7 +579,7 @@ fn draw_destination(
                     body.spawn(text(format!("{}\n{} gold each  /  Stock {}  /  Owned {}",
                         item.label(), item.price(state), state.commerce.stock[item.index()], owned), 16.));
                     let reason = match state.quote(location, item, village.quantity) {
-                        Err(error) => format!("Unavailable: {error:?}"),
+                        Err(error) => purchase_error(&error).to_owned(),
                         Ok(price) if price > state.gold => format!("Need {price} gold; wallet has {}", state.gold),
                         Ok(price) => format!("Total: {price} gold"),
                     };

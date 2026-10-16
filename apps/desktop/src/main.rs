@@ -766,7 +766,10 @@ fn save_capture(path: impl AsRef<std::path::Path>) -> impl FnMut(On<ScreenshotCa
     let mut save = save_to_disk(temporary.clone());
     move |event| {
         save(event);
-        std::fs::File::open(&temporary)
+        std::fs::OpenOptions::new()
+            .read(true)
+            .write(true)
+            .open(&temporary)
             .and_then(|f| f.sync_all())
             .expect("sync screenshot");
         if path.exists() {
