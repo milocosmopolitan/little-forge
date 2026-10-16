@@ -96,6 +96,10 @@ jobs:
             test -s "docs/qa/golden/linux-llvmpipe/$scene.png"
             python scripts/compare-images.py "docs/qa/golden/linux-llvmpipe/$scene.png" "qa-output/$scene.png" --diff "qa-output/$scene-diff.png"
           done
+      - name: Capture title screen in actual Bevy app
+        run: |
+          timeout 90s xvfb-run -a -s '-screen 0 1280x800x24' target/debug/little-forge --safe-window --qa title --screenshot qa-output/title.png > qa-output/title.log 2>&1
+          test -s qa-output/title.png
       - name: Capture lifecycle in the actual app
         run: xvfb-run -a -s '-screen 0 1280x800x24' python scripts/capture-lifestyle.py target/debug/little-forge
       - name: Thirty-minute production-clock desktop soak
