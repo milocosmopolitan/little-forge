@@ -145,7 +145,7 @@ impl State {
                     .hunger
                     .saturating_sub(next.life.config.food_restore);
                 next.life.action = life::SmithAction::Eating;
-                next.life.remaining = 2;
+                next.life.remaining = next.life.config.consume_seconds;
             }
             Command::Drink => {
                 if next.life.action != life::SmithAction::Working
@@ -155,7 +155,7 @@ impl State {
                 }
                 next.life.thirst = 0;
                 next.life.action = life::SmithAction::Drinking;
-                next.life.remaining = 2;
+                next.life.remaining = next.life.config.consume_seconds;
             }
             Command::Rest => {
                 if next.life.action != life::SmithAction::Working

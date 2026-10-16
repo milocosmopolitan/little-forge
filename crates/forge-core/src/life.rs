@@ -97,6 +97,9 @@ pub struct NeedsConfig {
     pub food_restore: u32,
     pub food_price: u64,
     pub stack_limit: u32,
+    pub slowdown_threshold: u32,
+    pub minimum_speed: u32,
+    pub consume_seconds: u32,
 }
 impl Default for NeedsConfig {
     fn default() -> Self {
@@ -111,6 +114,9 @@ impl Default for NeedsConfig {
             food_restore: 6000,
             food_price: 2,
             stack_limit: 20,
+            slowdown_threshold: 2500,
+            minimum_speed: 250,
+            consume_seconds: 2,
         }
     }
 }
@@ -129,7 +135,9 @@ pub struct Life {
 }
 impl Life {
     pub fn speed(&self) -> u64 {
-        1000 - self.fatigue.saturating_sub(2500) as u64 / 10
+        1000 - self.fatigue.saturating_sub(self.config.slowdown_threshold) as u64
+            * (1000 - self.config.minimum_speed) as u64
+            / (MAX_NEED - self.config.slowdown_threshold) as u64
     }
     pub fn validate(&self) -> Result<(), Error> {
         let c = &self.config;
@@ -139,6 +147,9 @@ impl Life {
             || c.sleep_threshold == 0
             || c.sleep_threshold > MAX_NEED
             || c.sleep_seconds == 0
+            || c.slowdown_threshold >= MAX_NEED
+            || !(1..=1000).contains(&c.minimum_speed)
+            || !(1..=3600).contains(&c.consume_seconds)
             || c.stack_limit == 0
             || c.stack_limit > 1000
             || c.food_price == 0
@@ -194,7 +205,11 @@ impl State {
         if self.life.thirst >= self.life.config.drink_threshold {
             self.life.thirst = 0;
             self.emit(EventKind::Drank, events)?;
-            self.action(SmithAction::Drinking, 2, events)
+            self.action(
+                SmithAction::Drinking,
+                self.life.config.consume_seconds,
+                events,
+            )
         } else {
             self.resume(events)
         }
@@ -214,7 +229,11 @@ impl State {
                                 if l.pantry.take_staple() {
                                     l.hunger = l.hunger.saturating_sub(l.config.food_restore);
                                     self.emit(EventKind::Ate, events)?;
-                                    self.action(SmithAction::Eating, 2, events)?;
+                                    self.action(
+                                        SmithAction::Eating,
+                                        self.life.config.consume_seconds,
+                                        events,
+                                    )?;
                                 } else {
                                     self.emit(EventKind::PantryEmpty, events)?;
                                     self.hydrate(events)?;

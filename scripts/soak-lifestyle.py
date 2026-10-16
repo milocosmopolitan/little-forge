@@ -38,6 +38,8 @@ try:
             if 300<=elapsed<301: keys.append('r')
             keyboard.keys(window,keys)
             actions.append({'elapsed':elapsed,'keys':keys})
+        if elapsed>90 and state and state['sold']<2: raise RuntimeError('live input did not queue a second sale within 90 seconds')
+        if int(elapsed)%60==0: print(json.dumps({'elapsed':round(elapsed),'tick':state['tick'] if state else None,'sold':state['sold'] if state else None}),flush=True)
         samples.append({'elapsed':elapsed,'cpu':process.cpu_percent(),'rss':process.memory_info().rss,'tick':state['tick'] if state else None})
         time.sleep(1)
     snapshots=[json.loads(f.read_text()) for f in save.glob('save-*.json')]; last=max(snapshots,key=lambda s:s['generation'])

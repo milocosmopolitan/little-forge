@@ -94,7 +94,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             }
             "--help" => {
                 println!(
-                    "Little Forge\n--safe-window --save-dir PATH --qa ambient|sale|expanded|idle|life-loop|life-ambient --screenshot PATH\nC: craft, B: buy ore, Tab: expand, F8: 10s click-through, Ctrl+Alt+F8: global recovery, Esc: recover, T: topmost, D: decorations, F12: diagnostics\nQA uses an isolated save directory and a fixed simulation clock."
+                    "Little Forge\n--safe-window --save-dir PATH --qa ambient|sale|expanded|idle|life-loop|life-ambient --screenshot PATH\nC: craft, Q: queue, B: buy ore, F: farmer food, E: eat, W: free water, R: rest, Tab: expand, F8: 10s click-through, Ctrl+Alt+F8: global recovery, Esc: recover, T: topmost, D: decorations, F12: diagnostics\nQA uses an isolated save directory and a fixed simulation clock."
                 );
                 return Ok(());
             }
@@ -489,7 +489,7 @@ fn input(
     }
     if keys.just_pressed(KeyCode::F12) {
         let path = session.dir.join("diagnostics.json");
-        let data = serde_json::json!({"os":std::env::consts::OS,"arch":std::env::consts::ARCH,"version":env!("CARGO_PKG_VERSION"),"safe":opts.safe,"qa":opts.qa,"tick":session.save.state.tick,"shell":format!("{:?}",desktop.shell),"native_display":desktop.diagnostics,"fps":diagnostics.get(&FrameTimeDiagnosticsPlugin::FPS).and_then(|d|d.average()),"adapter":adapter.map(|a|format!("{} | {:?} | {} {}",a.name,a.backend,a.driver,a.driver_info)),"note":"Native transparency requires manual verification"});
+        let data = serde_json::json!({"os":std::env::consts::OS,"arch":std::env::consts::ARCH,"version":env!("CARGO_PKG_VERSION"),"safe":opts.safe,"qa":opts.qa,"tick":session.save.state.tick,"life":session.save.state.life,"shell":format!("{:?}",desktop.shell),"native_display":desktop.diagnostics,"fps":diagnostics.get(&FrameTimeDiagnosticsPlugin::FPS).and_then(|d|d.average()),"adapter":adapter.map(|a|format!("{} | {:?} | {} {}",a.name,a.backend,a.driver,a.driver_info)),"note":"Native transparency requires manual verification"});
         session.status = match std::fs::write(&path, serde_json::to_vec_pretty(&data).unwrap()) {
             Ok(_) => format!("Diagnostics: {}", path.display()),
             Err(e) => e.to_string(),
