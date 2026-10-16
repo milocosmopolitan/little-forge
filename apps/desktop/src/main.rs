@@ -248,6 +248,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         (
             qa_capture,
             title::interact,
+            title::animate_strike,
             input,
             simulate,
             presentation::tick,
