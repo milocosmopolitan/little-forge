@@ -95,9 +95,12 @@ pub fn fit_ui(
 ) {
     if let Ok(window) = windows.single() {
         let reference_height = if desktop.shell.expanded { 540. } else { 180. };
-        scale.0 = (window.width() / 960.)
+        let next = (window.width() / 960.)
             .min(window.height() / reference_height)
             .clamp(0.1, 1.);
+        if scale.0 != next {
+            scale.0 = next;
+        }
     }
 }
 pub fn setup(
@@ -652,24 +655,36 @@ pub fn update(
         let scale = (size.x / v.registry.width as f32).min(size.y / v.registry.height as f32);
         let draw = Vec2::new(v.registry.width as f32, v.registry.height as f32) * scale;
         for (layer, mut node, mut visible) in &mut layers {
-            node.width = px(draw.x);
-            node.height = px(draw.y);
-            node.left = px((size.x - draw.x) / 2.);
-            node.top = px((size.y - draw.y) / 2.);
-            *visible = if layer.0.is_none() || layer.0 == active {
+            if node.width != px(draw.x)
+                || node.height != px(draw.y)
+                || node.left != px((size.x - draw.x) / 2.)
+                || node.top != px((size.y - draw.y) / 2.)
+            {
+                node.width = px(draw.x);
+                node.height = px(draw.y);
+                node.left = px((size.x - draw.x) / 2.);
+                node.top = px((size.y - draw.y) / 2.);
+            }
+            let next = if layer.0.is_none() || layer.0 == active {
                 Visibility::Inherited
             } else {
                 Visibility::Hidden
             };
+            if *visible != next {
+                *visible = next;
+            }
         }
     }
     for mut t in &mut labels.p0() {
-        **t = active
+        let value = active
             .map(|i| format!("> {}  /  Enter to visit", v.registry.locations[i].label))
             .unwrap_or("Arrows / Tab: focus * 1-8: visit\nThe central well is a landmark.".into());
+        if **t != value {
+            **t = value;
+        }
     }
     for mut t in &mut labels.p1() {
-        **t = format!(
+        let value = format!(
             "Gold {}  |  Timber {}  |  Leather {}  |  F {}%  H {}%  T {}%",
             s.save.state.gold,
             s.save.state.commerce.timber,
@@ -678,15 +693,66 @@ pub fn update(
             s.save.state.life.hunger / 100,
             s.save.state.life.thirst / 100
         );
+        if **t != value {
+            **t = value;
+        }
     }
     for mut t in &mut labels.p2() {
-        **t = s.status.clone();
+        if **t != s.status {
+            **t = s.status.clone();
+        }
     }
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn stable_scale_does_not_invalidate_ui_every_frame() {
+        #[derive(Resource, Default)]
+        struct Changes(Vec<bool>);
+        let mut app = App::new();
+        app.add_plugins(MinimalPlugins);
+        app.init_resource::<UiScale>();
+        app.init_resource::<Changes>();
+        app.insert_resource(Desktop::new(false, true));
+        let window = app
+            .world_mut()
+            .spawn((
+                Window {
+                    resolution: (960, 540).into(),
+                    ..default()
+                },
+                bevy::window::PrimaryWindow,
+            ))
+            .id();
+        app.add_systems(
+            Update,
+            (
+                fit_ui,
+                |scale: Res<UiScale>, mut changes: ResMut<Changes>| {
+                    changes.0.push(scale.is_changed());
+                },
+            )
+                .chain(),
+        );
+        app.update();
+        app.update();
+        app.update();
+        assert_eq!(app.world().resource::<Changes>().0, [true, false, false]);
+        app.world_mut()
+            .get_mut::<Window>(window)
+            .unwrap()
+            .resolution
+            .set(640., 368.);
+        app.update();
+        app.update();
+        assert_eq!(
+            app.world().resource::<Changes>().0,
+            [true, false, false, true, false]
+        );
+        assert!((app.world().resource::<UiScale>().0 - 2. / 3.).abs() < 0.0001);
+    }
     #[test]
     fn actual_observer_map_shop_buy_duplicate_back_and_hidden_guard() {
         let dir = std::env::temp_dir().join(format!("village-ui-{}", std::process::id()));

@@ -77,7 +77,7 @@ fixed-clock, isolated, and never loaded from or written over a player save. Rust
 integration tests independently store/reload a real journal and reject replay.
 
 Local Linux llvmpipe acceptance passed, including real pointer picking and purchases;
-32 Rust tests passed. The software-rendered input run reported approximately 12.5 FPS;
+33 Rust tests passed. A change-detection regression test ensures a stable UI scale does not invalidate layout every frame. The software-rendered input run reported approximately 12.5 FPS;
 this is not a hardware performance estimate. Native macOS/Windows build/test and
 screen captures run in the existing OS CI matrix; inspect the linked PR checks and
 `evidence-*` / `visual-candidates` artifacts for the exact commit's results.
