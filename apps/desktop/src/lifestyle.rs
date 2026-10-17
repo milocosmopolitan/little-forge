@@ -1,7 +1,7 @@
 //! Presentation reads authoritative life state; buttons issue atomic domain commands.
 use crate::{Options, Session, window::Desktop};
 use bevy::prelude::*;
-use bevy::ui_widgets::{Activate, Button};
+use bevy::ui_widgets::Activate;
 use forge_core::Command;
 #[derive(Component)]
 pub struct Management;
@@ -11,45 +11,181 @@ pub struct Needs;
 pub struct Ledger;
 #[derive(Component)]
 pub struct Action(Command);
-pub fn setup(mut commands: Commands) {
+#[derive(Resource, Default)]
+pub struct HomeUi {
+    pub tab: usize,
+    selected: usize,
+}
+#[derive(Component)]
+pub struct HomeTab(pub usize);
+#[derive(Component)]
+pub struct HomeItem(pub usize);
+#[allow(clippy::too_many_arguments)]
+pub fn tab(
+    event: On<Activate>,
+    tabs: Query<&HomeTab>,
+    items: Query<&HomeItem>,
+    mut home: ResMut<HomeUi>,
+    desktop: Res<Desktop>,
+    village: Res<crate::village::Village>,
+    title: Res<crate::title::TitleScreen>,
+    dialog: Res<forge_ui::DialogState>,
+) {
+    if title.active
+        || dialog.is_open()
+        || !desktop.shell.expanded
+        || village.nav.screen != forge_core::village::Screen::Home
+    {
+        return;
+    }
+    if let Ok(tab) = tabs.get(event.entity) {
+        home.tab = tab.0;
+        home.selected = 0;
+    }
+    if let Ok(item) = items.get(event.entity) {
+        home.selected = item.0;
+    }
+}
+pub fn setup(mut commands: Commands, opts: Res<Options>, mut home: ResMut<HomeUi>) {
+    home.tab = match opts.qa.as_deref() {
+        Some("village-materials") => 1,
+        Some("village-provisions") => 2,
+        _ => 0,
+    };
     commands.spawn((
         Text::new(""),
         TextFont {
             font_size: 13.0.into(),
             ..default()
         },
-        TextColor(Color::srgb(0.9, 0.93, 0.85)),
-        BackgroundColor(Color::srgba(0.04, 0.06, 0.07, 0.88)),
+        TextColor(forge_ui::INK),
         Node {
             position_type: PositionType::Absolute,
             top: px(43),
             left: px(12),
-            padding: UiRect::all(px(4)),
             ..default()
         },
         Needs,
     ));
-    commands.spawn((Node{position_type:PositionType::Absolute,top:px(132),left:px(24),width:px(900),padding:UiRect::all(px(16)),flex_direction:FlexDirection::Column,row_gap:px(10),..default()},BackgroundColor(Color::srgba(0.055,0.075,0.08,0.96)),Visibility::Hidden,Management)).with_children(|parent| {
-        parent.spawn((Text::new("THE DAILY FORGE  /  Work, rest & provisions"),TextFont{font_size:21.0.into(),..default()},TextColor(Color::srgb(0.96,0.88,0.68))));
-        parent.spawn((Text::new(""),TextFont{font_size:16.0.into(),..default()},Ledger));
-        parent.spawn(Node{flex_direction:FlexDirection::Row,column_gap:px(8),flex_wrap:FlexWrap::Wrap,row_gap:px(6),..default()}).with_children(|row| {
-            for (label,command) in [("Queue dagger [Q]",Command::QueueCraft),("Buy ore [B]",Command::BuyOre),("Farmer food [F]",Command::BuyFood),("Eat staple [E]",Command::Eat),("Eat meal",Command::EatMeal),("Free well [W]",Command::Drink),("Rest [R]",Command::Rest)] {
-                row.spawn((Button,Node{padding:UiRect::axes(px(12),px(9)),..default()},BackgroundColor(Color::srgb(0.18,0.26,0.25)),Action(command))).with_children(|b|{b.spawn((Text::new(label),TextFont{font_size:14.0.into(),..default()}));});
-            }
+    // Retained status marker for existing diagnostic/test consumers; never player-facing.
+    commands.spawn((Text::new(""), Visibility::Hidden, Ledger));
+}
+pub fn draw(
+    mut commands: Commands,
+    root: Query<Entity, With<Management>>,
+    s: Res<Session>,
+    home: Res<HomeUi>,
+    server: Res<AssetServer>,
+    mut last: Local<String>,
+) {
+    let Ok(root) = root.single() else {
+        return;
+    };
+    let l = &s.save.state.life;
+    let key = format!(
+        "{}:{}:{}:{}:{}:{}:{}:{}",
+        home.tab,
+        s.save.state.command_id,
+        l.action as u8,
+        l.remaining,
+        l.work / 1000,
+        l.queue,
+        l.fatigue / 100,
+        l.pantry.staples()
+    );
+    let key = format!(
+        "{key}:{root:?}:{}:{}:{}:{}",
+        home.selected,
+        l.hunger / 100,
+        l.thirst / 100,
+        s.status
+    );
+    if *last == key {
+        return;
+    }
+    *last = key;
+    commands.entity(root).despawn_children();
+    commands.entity(root).insert((
+        Node {
+            width: percent(100),
+            flex_grow: 1.,
+            min_height: px(0),
+            padding: UiRect::all(px(14)),
+            border: UiRect::all(px(2)),
+            flex_direction: FlexDirection::Column,
+            row_gap: px(12),
+            overflow: Overflow::clip(),
+            ..default()
+        },
+        BackgroundColor(forge_ui::SURFACE),
+        BorderColor::all(forge_ui::EDGE),
+    ));
+    commands.entity(root).with_children(|p|{
+        p.spawn(forge_ui::text("LITTLE FORGE  /  A good day's work",23.));
+        p.spawn(Node{flex_grow:1.,min_height:px(0),column_gap:px(12),..default()}).with_children(|row|{
+            row.spawn(forge_ui::panel(percent(18))).with_children(|side|{
+                for (i,label) in ["Crafting","Materials","Provisions"].iter().enumerate(){let entity = forge_ui::button(side,*label,HomeTab(i)); if home.tab == i { side.commands().entity(entity).insert(forge_ui::Selected); }}
+                side.spawn(forge_ui::text("Work continues while you browse.",12.));
+                forge_ui::button(side,"Rest [R]",Action(Command::Rest));
+            });
+            row.spawn(forge_ui::panel(percent(48))).with_children(|body|{
+                match home.tab {
+                    0=>{
+                        body.spawn(forge_ui::text("Iron dagger",22.));
+                        forge_ui::icon(body,&server,"dagger",80.);
+                        body.spawn(forge_ui::text("A simple blade, carefully made.",14.));
+                        body.spawn(forge_ui::text(format!("Requires 2 ore · Available {}",s.save.state.ore),14.));
+                        forge_ui::button(body,"Add to queue [Q]",Action(Command::QueueCraft));
+                        forge_ui::button(body,"Buy 2 ore · 4 gold [B]",Action(Command::BuyOre));
+                    },
+                    1=>{
+                        body.spawn(forge_ui::text("Materials & finished goods",19.));
+                        body.spawn(Node{flex_wrap:FlexWrap::Wrap,column_gap:px(8),row_gap:px(8),..default()}).with_children(|grid|{
+                            for (i,(icon,count)) in [("ore",s.save.state.ore),("timber",s.save.state.commerce.timber),("leather",s.save.state.commerce.leather),("dagger",s.save.state.daggers)].into_iter().enumerate() {forge_ui::slot(grid,&server,icon,count,home.selected==i,(HomeItem(i),forge_ui::FocusKey(format!("home-slot:{i}"))));}
+                        });
+                        body.spawn(forge_ui::text(["Iron ore · 2 required for an iron dagger.","Timber · Stored for future recipes.","Leather · Stored for future recipes.","Iron daggers · Finished goods are sold automatically."][home.selected.min(3)],16.));
+                    },
+                    _=>{
+                        body.spawn(forge_ui::text("Provisions",20.));
+                        body.spawn(Node{flex_wrap:FlexWrap::Wrap,column_gap:px(5),row_gap:px(5),..default()}).with_children(|grid|{
+                            for (i,slot) in l.pantry.slots.iter().enumerate() {let (icon,count)=slot.as_ref().map(|v|(if v.food==forge_core::life::Food::Staple {"staples"} else {"meal"},v.count)).unwrap_or(("provisions",0));
+                                forge_ui::slot(grid,&server,icon,count,home.selected==i,(HomeItem(i),forge_ui::FocusKey(format!("home-slot:{i}"))));
+                            }
+                        });
+                        let detail = l.pantry.slots.get(home.selected).and_then(Option::as_ref).map(|v| if v.food == forge_core::life::Food::Staple { "Staples · Eaten automatically when hungry." } else { "Premium meal · Use Eat meal when needed." }).unwrap_or("Empty slot · Purchase food at the farm or tavern.");
+                        body.spawn(forge_ui::text(detail,13.));
+                        body.spawn(Node{flex_wrap:FlexWrap::Wrap,column_gap:px(5),row_gap:px(5),..default()}).with_children(|p|{for (label,c) in [("Eat staple",Command::Eat),("Eat meal",Command::EatMeal),("Free water",Command::Drink),("Buy staples",Command::BuyFood)]{forge_ui::button(p,label,Action(c));}});
+                    }
+                }
+            });
+            row.spawn(forge_ui::panel(percent(34))).with_children(|queue|{
+                queue.spawn(forge_ui::text("At the workbench",20.));
+                queue.spawn(forge_ui::text(format!("{:?}",l.action),17.));
+                let remaining = l.work.div_ceil(l.speed()) + l.remaining as u64;
+                queue.spawn(forge_ui::text(format!("{} waiting · {}s remaining",l.queue,remaining),14.));
+                forge_ui::progress(queue, if l.work == 0 { 0. } else { 1. - l.work as f32 / (forge_core::CRAFT_SECS * 1000) as f32 }, "Current blade");
+                forge_ui::progress(queue,l.fatigue as f32/10000.,format!("Fatigue {}%",l.fatigue/100));
+                forge_ui::progress(queue,l.hunger as f32/10000.,format!("Hunger {}%",l.hunger/100));
+                forge_ui::progress(queue,l.thirst as f32/10000.,format!("Thirst {}%",l.thirst/100));
+                queue.spawn(forge_ui::text("Your smith rests, eats and resumes work automatically. Meals are used only when you choose.",13.));
+                queue.spawn(forge_ui::text(s.status.split(". C craft").next().unwrap_or(&s.status),13.));
+            });
         });
-        parent.spawn((Text::new("Queued ore is reserved. Sleep pauses work, then staples & free water restore needs.\nEmpty pantry? Work still resumes. Premium meals are never eaten automatically.\nTab: small forge  |  F8: click through 10s  |  Ctrl+Alt+F8: recover  |  D: window border"),TextFont{font_size:13.0.into(),..default()},TextColor(Color::srgb(0.68,0.76,0.74))));
     });
 }
+#[allow(clippy::too_many_arguments)]
 pub fn buttons(
     event: On<Activate>,
     actions: Query<&Action>,
     mut s: ResMut<Session>,
     opts: Res<Options>,
+    dialog: Option<Res<forge_ui::DialogState>>,
     desktop: Res<Desktop>,
     mut farmer: Option<ResMut<crate::npc::FarmerPresentation>>,
     village: Option<Res<crate::village::Village>>,
 ) {
-    if !desktop.shell.expanded
+    if dialog.as_ref().is_some_and(|d| d.is_open())
+        || !desktop.shell.expanded
         || s.disabled
         || village
             .as_ref()
@@ -71,20 +207,22 @@ pub fn buttons(
         crate::persist(&mut s, &opts);
     }
 }
-#[allow(clippy::type_complexity)]
+#[allow(clippy::type_complexity, clippy::too_many_arguments)]
 pub fn update(
     s: Res<Session>,
     opts: Res<Options>,
     desktop: Res<Desktop>,
     village: Option<Res<crate::village::Village>>,
+    title: Option<Res<crate::title::TitleScreen>>,
     mut panel: Query<&mut Visibility, (With<Management>, Without<Needs>)>,
     mut needs: Query<(&mut Text, &mut Visibility), With<Needs>>,
     mut ledger: Query<&mut Text, (With<Ledger>, Without<Needs>)>,
 ) {
-    let visible = opts
-        .qa
-        .as_deref()
-        .is_none_or(|q| q.starts_with("life-") || q.starts_with("village-"));
+    let visible = !title.as_ref().is_some_and(|t| t.active)
+        && opts
+            .qa
+            .as_deref()
+            .is_none_or(|q| q.starts_with("life-") || q.starts_with("village-") || q == "expanded");
     let l = &s.save.state.life;
     for mut v in &mut panel {
         *v = if visible
@@ -99,7 +237,7 @@ pub fn update(
         };
     }
     for (mut text, mut v) in &mut needs {
-        *v = if visible {
+        *v = if visible && !desktop.shell.expanded {
             Visibility::Visible
         } else {
             Visibility::Hidden

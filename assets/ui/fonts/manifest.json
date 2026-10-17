@@ -1,0 +1,12 @@
+{
+  "family": "Noto Sans KR",
+  "license": "SIL OFL 1.1",
+  "source": "https://github.com/google/fonts/tree/main/ofl/notosanskr",
+  "retrieved": "2026-10-17",
+  "font_sha256": "194018e6b2b293a7964f037b25c0249ce1418bc9ab3c971060a03aa57861e252",
+  "license_sha256": "1c05c68c34f9708415aada51f17e1b0092d2cea709bf4a94cd38114f9e73d7d9",
+  "coverage": [
+    "ASCII U+0020–U+007E",
+    "Hangul U+AC00–U+D7A3"
+  ]
+}

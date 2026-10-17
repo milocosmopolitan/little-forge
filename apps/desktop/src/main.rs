@@ -116,6 +116,9 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
                 | "title"
                 | "npc"
                 | "village-map"
+                | "village-home"
+                | "village-materials"
+                | "village-provisions"
                 | "village-carpenter"
                 | "village-leatherworker"
                 | "village-farm"
@@ -252,6 +255,9 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
                     "expanded"
                         | "life-loop"
                         | "village-map"
+                        | "village-home"
+                        | "village-materials"
+                        | "village-provisions"
                         | "village-carpenter"
                         | "village-leatherworker"
                         | "village-farm"
@@ -288,9 +294,12 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             }),
     )
     .add_plugins(npc::FarmerPlugin)
+    .add_plugins(forge_ui::ForgeUiPlugin)
     .init_resource::<village::Village>()
     .add_observer(village::activate)
     .add_observer(lifestyle::buttons)
+    .init_resource::<lifestyle::HomeUi>()
+    .add_observer(lifestyle::tab)
     .add_plugins(UiMaterialPlugin::<title::HeatMaterial>::default())
     .add_observer(title::activate)
     .add_observer(title::hover)
@@ -319,6 +328,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             lifestyle::update,
             village::input,
             village::draw,
+            lifestyle::draw,
             village::update,
         )
             .chain(),
@@ -492,9 +502,10 @@ fn input(
     title: Res<title::TitleScreen>,
     mut farmer: ResMut<npc::FarmerPresentation>,
     village: Res<village::Village>,
+    dialog: Res<forge_ui::DialogState>,
     mut commands: Commands,
 ) {
-    if title.active {
+    if title.active || dialog.is_open() {
         return;
     }
     if keys.just_pressed(KeyCode::Escape) {
@@ -503,7 +514,10 @@ fn input(
     if keys.just_pressed(KeyCode::F8) {
         desktop.shell.idle();
     }
-    if keys.just_pressed(KeyCode::Tab) && village.nav.screen == forge_core::village::Screen::Home {
+    if keys.just_pressed(KeyCode::Tab)
+        && !desktop.shell.expanded
+        && village.nav.screen == forge_core::village::Screen::Home
+    {
         desktop.shell.recover();
         desktop.shell.expanded = !desktop.shell.expanded;
     }
@@ -524,7 +538,10 @@ fn input(
         (KeyCode::KeyW, Command::Drink),
         (KeyCode::KeyR, Command::Rest),
     ] {
-        if keys.just_pressed(key) && !session.disabled {
+        if keys.just_pressed(key)
+            && !session.disabled
+            && village.nav.screen == forge_core::village::Screen::Home
+        {
             let id = session.save.state.command_id + 1;
             session.status = match session.save.state.command(id, cmd) {
                 Ok(()) => {
@@ -729,30 +746,26 @@ fn animate(
         }
     }
 }
+#[allow(clippy::type_complexity)]
 fn hud(
     s: Res<Session>,
-    opts: Res<Options>,
     desktop: Res<window::Desktop>,
-    mut q: Query<&mut Text, With<Hud>>,
+    mut q: Query<(&mut Text, &mut Visibility), (With<Hud>, Without<Panel>)>,
     mut panel: Query<&mut Visibility, With<Panel>>,
 ) {
-    for mut t in &mut q {
+    for (mut t, mut visibility) in &mut q {
+        *visibility = if desktop.shell.expanded {
+            Visibility::Hidden
+        } else {
+            Visibility::Visible
+        };
         **t = format!(
             "LITTLE FORGE   Gold {}   Ore {}   Daggers {}   {:?}\n{}",
             s.save.state.gold, s.save.state.ore, s.save.state.daggers, desktop.shell.mode, s.status
         );
     }
     for mut v in &mut panel {
-        *v = if desktop.shell.expanded
-            && opts
-                .qa
-                .as_deref()
-                .is_some_and(|q| !q.starts_with("life-") && !q.starts_with("village-"))
-        {
-            Visibility::Visible
-        } else {
-            Visibility::Hidden
-        };
+        *v = Visibility::Hidden;
     }
 }
 // Publish screenshot files only after the encoder has closed and synced them.
