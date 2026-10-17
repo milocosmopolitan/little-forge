@@ -1,6 +1,6 @@
 ---
 name: human-character-gen
-description: 이 저장소의 레퍼런스 기반 사람형 픽셀 캐릭터와 NPC를 제작·수정한다. 비율·두상·수염을 보존하는 부위별 기본층, 눈·입 표정, 포즈, 레이어 합성과 아틀라스 제작을 다룬다. pixel-art-gen과 함께 사용한다.
+description: 이 저장소의 레퍼런스 기반 사람형 픽셀 NPC와 플레이어 대장장이를 제작·수정한다. 비율·두상·수염을 보존하는 부위별 기본층, 눈·입 표정, 역할별 포즈, 기물과 맞물리는 작업 동작, 레이어 합성과 아틀라스 제작을 다룬다. pixel-art-gen과 함께 사용한다.
 ---
 
 # Human Character Generation
@@ -11,11 +11,13 @@ description: 이 저장소의 레퍼런스 기반 사람형 픽셀 캐릭터와 
 
 - 새 레퍼런스: 이 문서와 [character-spec.yaml](references/character-spec.yaml)로 기준 포즈와 레이어 계약부터 잡는다.
 - 표정·대사: [expression.md](references/expression.md). 눈·입 부품과 조합을 정의한다.
-- 고개·팔·전신 동작: [pose.md](references/pose.md). 보행은 제작 전에 손발 위상 계약을 읽고, 신체 좌우·키별 반대 팔 스윙·통과 키를 명세한다.
+- 고개·팔·전신 동작: [pose.md](references/pose.md). NPC/플레이어 모두 공통 기본 포즈·8표정·제스처·보행을 갖고, 플레이어는 대장장이 작업 5종을 추가한다. 보행은 손발 위상 계약을, 대장장이 작업은 기물·방향·가림 계약을 읽고 키별 접점과 합성 순서를 명세한다.
 - 게임용 패킹: [create-atlas.md](references/create-atlas.md). 레이어에서 합성한 뒤 패킹한다.
 - 성능 검수: [sprite-optimization](../sprite-optimization/SKILL.md). 제작 레이어 수를 런타임 스프라이트 수로 강제하지 않는다.
 
 필요한 문서만 읽는다. 명세 작성 요청을 전체 애니메이션 제작이나 런타임 교체 요청으로 확대하지 않는다.
+
+플레이어는 먼저 `assets/characters/README.md`, `{female,male}/character-spec.yaml`, `character.json`과 현재 `neutral.png`/기본층을 확인한다. 현재 main의 채택 레이어를 이어 사용하고 방향·동작 프리뷰로 교체하지 않는다. 고해상도 원본 `source/reference.png`는 정체성·비율의 기준이다. 신규 정면/후면은 이 기준에서 제작하며, 화풍이 달라진 대화 시트를 새 기본 자세로 삼지 않는다. 기물·배경 후보는 `assets/forge/workshop/catalog.json`과 출처 문서에서 구분한다.
 
 ## 새 캐릭터 시작
 
