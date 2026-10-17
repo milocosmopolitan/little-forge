@@ -9,6 +9,13 @@ native_canvas_px: [96, 128]
 preview_scale: 4
 origin_px: [0, 0]
 foot_anchor_px: [48, 124]
+# Above: retained base-authoring coordinates. All animation outputs use this canvas.
+pose_canvas:
+  grid: B
+  canvas_cells: [8, 10]
+  native_canvas_px: [128, 160]
+  base_offset_px: [16, 16]
+  foot_anchor_px: [64, 140]
 # Half-open design guides, not clipping rectangles.
 design_bands_y: {head_with_hat: [4, 48], upper: [48, 80], lower: [80, 124]}
 reference_roles: {identity: null, style: null, expressions: null}
@@ -69,6 +76,7 @@ expression_channels:
   priority: Explicit expression locks override automatic blink
 composition_order: [lower_base, upper_base, head_base, eyes, mouth]
 # Each pose supplies its own complete underlayer, layers, sockets and occlusion order.
+# Pose outputs/sockets use pose_canvas coordinates; sockets_px above uses authoring coordinates.
 pose_overrides: {}
 production_plan:
   status: planned_not_generated

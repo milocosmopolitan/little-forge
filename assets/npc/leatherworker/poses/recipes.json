@@ -1,7 +1,7 @@
 {
   "canvas": [
-    96,
-    128
+    128,
+    160
   ],
   "poses": {
     "turn-toward": {
@@ -20,28 +20,28 @@
       ],
       "sockets_px": {
         "neck": [
-          45,
-          45
+          61,
+          61
         ],
         "waist": [
-          47,
-          71
+          63,
+          87
         ],
         "eyes": [
-          49,
-          32
+          65,
+          48
         ],
         "mouth": [
-          49,
-          40
+          65,
+          56
         ],
         "right_hand": [
-          36,
-          71
+          52,
+          87
         ],
         "left_hand": [
-          75,
-          58
+          91,
+          74
         ]
       },
       "head_source": "source/poses/turn-toward.png",
@@ -70,28 +70,28 @@
       ],
       "sockets_px": {
         "neck": [
-          45,
-          45
+          61,
+          61
         ],
         "waist": [
-          47,
-          71
+          63,
+          87
         ],
         "eyes": [
-          51,
-          30
+          67,
+          46
         ],
         "mouth": [
-          53,
-          38
+          69,
+          54
         ],
         "right_hand": [
-          36,
-          71
+          52,
+          87
         ],
         "left_hand": [
-          75,
-          58
+          91,
+          74
         ]
       },
       "head_source": "source/face-consistency/turn-away-full.png",
@@ -120,28 +120,28 @@
       ],
       "sockets_px": {
         "neck": [
-          45,
-          45
+          61,
+          61
         ],
         "waist": [
-          47,
-          71
+          63,
+          87
         ],
         "eyes": [
-          48,
-          32
+          64,
+          48
         ],
         "mouth": [
-          49,
-          39
+          65,
+          55
         ],
         "right_hand": [
-          36,
-          71
+          52,
+          87
         ],
         "left_hand": [
-          75,
-          58
+          91,
+          74
         ]
       },
       "head_source": "source/nod-consistency/nod-full.png",
@@ -170,28 +170,28 @@
       ],
       "sockets_px": {
         "neck": [
-          45,
-          45
+          61,
+          61
         ],
         "waist": [
-          47,
-          71
+          63,
+          87
         ],
         "eyes": [
-          48,
-          31
+          64,
+          47
         ],
         "mouth": [
-          48,
-          39
+          64,
+          55
         ],
         "right_hand": [
-          36,
-          71
+          52,
+          87
         ],
         "left_hand": [
-          75,
-          58
+          91,
+          74
         ]
       },
       "head_source": "head-base.png",
@@ -220,28 +220,28 @@
       ],
       "sockets_px": {
         "neck": [
-          45,
-          46
+          61,
+          62
         ],
         "waist": [
-          47,
-          72
+          63,
+          88
         ],
         "eyes": [
-          48,
-          32
+          64,
+          48
         ],
         "mouth": [
-          48,
-          39
+          64,
+          55
         ],
         "left_hand": [
-          23,
-          73
+          39,
+          89
         ],
         "right_hand": [
-          66,
-          66
+          82,
+          82
         ]
       },
       "source": "source/poses/walk-0.png",
@@ -306,28 +306,28 @@
       ],
       "sockets_px": {
         "neck": [
-          45,
-          47
+          61,
+          63
         ],
         "waist": [
-          47,
-          73
+          63,
+          89
         ],
         "eyes": [
-          48,
-          33
+          64,
+          49
         ],
         "mouth": [
-          48,
-          40
+          64,
+          56
         ],
         "left_hand": [
-          25,
-          77
+          41,
+          93
         ],
         "right_hand": [
-          61,
-          70
+          77,
+          86
         ]
       },
       "source": "source/poses/walk-1.png",
@@ -392,28 +392,28 @@
       ],
       "sockets_px": {
         "neck": [
-          45,
-          45
+          61,
+          61
         ],
         "waist": [
-          47,
-          71
+          63,
+          87
         ],
         "eyes": [
-          48,
-          31
+          64,
+          47
         ],
         "mouth": [
-          48,
-          38
+          64,
+          54
         ],
         "left_hand": [
-          69,
-          71
+          85,
+          87
         ],
         "right_hand": [
-          26,
-          78
+          42,
+          94
         ]
       },
       "source": "source/poses/walk-2.png",
@@ -478,28 +478,28 @@
       ],
       "sockets_px": {
         "neck": [
-          45,
-          46
+          61,
+          62
         ],
         "waist": [
-          47,
-          72
+          63,
+          88
         ],
         "eyes": [
-          48,
-          32
+          64,
+          48
         ],
         "mouth": [
-          48,
-          39
+          64,
+          55
         ],
         "left_hand": [
-          76,
-          69
+          92,
+          85
         ],
         "right_hand": [
-          22,
-          80
+          38,
+          96
         ]
       },
       "source": "source/poses/walk-3.png",
@@ -564,28 +564,28 @@
       ],
       "sockets_px": {
         "neck": [
-          45,
-          47
+          61,
+          63
         ],
         "waist": [
-          47,
-          73
+          63,
+          89
         ],
         "eyes": [
-          48,
-          33
+          64,
+          49
         ],
         "mouth": [
-          48,
-          40
+          64,
+          56
         ],
         "left_hand": [
-          72,
-          71
+          88,
+          87
         ],
         "right_hand": [
-          22,
-          81
+          38,
+          97
         ]
       },
       "source": "source/poses/walk-4.png",
@@ -650,28 +650,28 @@
       ],
       "sockets_px": {
         "neck": [
-          45,
-          45
+          61,
+          61
         ],
         "waist": [
-          47,
-          71
+          63,
+          87
         ],
         "eyes": [
-          48,
-          31
+          64,
+          47
         ],
         "mouth": [
-          48,
-          38
+          64,
+          54
         ],
         "left_hand": [
-          68,
-          75
+          84,
+          91
         ],
         "right_hand": [
-          25,
-          80
+          41,
+          96
         ]
       },
       "source": "source/poses/walk-5.png",
@@ -737,28 +737,28 @@
       ],
       "sockets_px": {
         "neck": [
-          45,
-          45
+          61,
+          61
         ],
         "waist": [
-          47,
-          71
+          63,
+          87
         ],
         "eyes": [
-          48,
-          31
+          64,
+          47
         ],
         "mouth": [
-          48,
-          38
+          64,
+          54
         ],
         "left_hand": [
-          80,
-          60
+          96,
+          76
         ],
         "right_hand": [
-          55,
-          73
+          71,
+          89
         ]
       },
       "source": "source/poses/give-mid.png",
@@ -823,28 +823,28 @@
       ],
       "sockets_px": {
         "neck": [
-          45,
-          45
+          61,
+          61
         ],
         "waist": [
-          47,
-          71
+          63,
+          87
         ],
         "eyes": [
-          48,
-          31
+          64,
+          47
         ],
         "mouth": [
-          48,
-          38
+          64,
+          54
         ],
         "left_hand": [
-          83,
-          59
+          99,
+          75
         ],
         "right_hand": [
-          68,
-          73
+          84,
+          89
         ]
       },
       "source": "source/poses/give-extended.png",
@@ -892,5 +892,9 @@
       },
       "held_hide": true
     }
-  }
+  },
+  "offset_from_base": [
+    16,
+    16
+  ]
 }

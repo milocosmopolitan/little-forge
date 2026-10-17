@@ -1,0 +1,51 @@
+{
+  "status": "pass",
+  "characters": [
+    {
+      "id": "female",
+      "status": "pass",
+      "native_layers": 11,
+      "shared_opaque_colors": 77,
+      "equipment_combinations_checked": 32,
+      "crown_silhouette_preserved": true,
+      "body_and_gear_unchanged_outside_local_male_neck": true,
+      "eye_sites_filled": true,
+      "complete_body_partition": true,
+      "foundation_pixels_lost": 0,
+      "canvas": [
+        128,
+        160
+      ],
+      "foot_y": 140,
+      "preview_nearest_exact": true,
+      "closed_smile_corner_verified": true,
+      "coherent_generated_face": true,
+      "uncovered_hand_skin_pixels": 0
+    },
+    {
+      "id": "male",
+      "status": "pass",
+      "native_layers": 12,
+      "shared_opaque_colors": 78,
+      "equipment_combinations_checked": 64,
+      "crown_silhouette_preserved": true,
+      "body_and_gear_unchanged_outside_local_male_neck": true,
+      "eye_sites_filled": true,
+      "complete_body_partition": true,
+      "foundation_pixels_lost": 0,
+      "canvas": [
+        128,
+        160
+      ],
+      "foot_y": 140,
+      "preview_nearest_exact": true,
+      "closed_smile_corner_verified": true,
+      "coherent_generated_face": true,
+      "uncovered_hand_skin_pixels": 0
+    }
+  ],
+  "rebuild_byte_identical": true,
+  "visual_review": "Base/equipped/hammer and isolated layers reviewed on light/dark backgrounds separately from structural tests",
+  "runtime_integration": "not_integrated",
+  "animation_scope": "neutral_only"
+}

@@ -24,8 +24,8 @@
     {
       "key": 0,
       "near_hand": [
-        66,
-        66
+        82,
+        82
       ],
       "near_boot_gold_center": [
         24.75,
@@ -35,8 +35,8 @@
     {
       "key": 1,
       "near_hand": [
-        61,
-        70
+        77,
+        86
       ],
       "near_boot_gold_center": [
         32.0,
@@ -46,8 +46,8 @@
     {
       "key": 2,
       "near_hand": [
-        26,
-        78
+        42,
+        94
       ],
       "near_boot_gold_center": [
         60.2,
@@ -57,8 +57,8 @@
     {
       "key": 3,
       "near_hand": [
-        22,
-        80
+        38,
+        96
       ],
       "near_boot_gold_center": [
         61.0,
@@ -68,8 +68,8 @@
     {
       "key": 4,
       "near_hand": [
-        22,
-        81
+        38,
+        97
       ],
       "near_boot_gold_center": [
         51.0,
@@ -79,8 +79,8 @@
     {
       "key": 5,
       "near_hand": [
-        25,
-        80
+        41,
+        96
       ],
       "near_boot_gold_center": [
         31.0,
@@ -91,11 +91,12 @@
   "transfer_events": 1,
   "atlas_roundtrip_exact": true,
   "extrude_gutter_exact": true,
-  "browser_playback_modes": 8,
+  "archived_native_browser_playback_modes": 8,
+  "current_canvas_browser_playback": "not_repeated",
   "png_json_gif_rebuild_identical": true,
-  "browser_nearest_pixel_exact_captures": 48,
+  "archived_native_browser_nearest_pixel_exact_captures": 48,
   "gif_pixel_exact_frames": 88,
-  "gesture_browser_pixel_exact_captures": 16,
+  "archived_native_gesture_browser_pixel_exact_captures": 16,
   "runtime_draw_calls": "not_measured",
   "runtime_integration": "not_integrated"
 }

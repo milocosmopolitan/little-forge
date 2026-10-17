@@ -7,8 +7,12 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
 REPO = ROOT.parents[2]
-def load(n):
-    return Image.open(ROOT/n).convert('RGBA')
+def load(n, native=True):
+    image=Image.open(ROOT/n).convert('RGBA')
+    if str(n).startswith(('frames/','poses/')):
+        assert image.size==(128,160),n
+        if native:return image.crop((16,16,112,144))
+    return image
 def pixels(a):
     return a.get_flattened_data() if hasattr(a,'get_flattened_data') else a.getdata()
 def compose(names):
@@ -24,13 +28,15 @@ def same(a,b):
 recipes=json.loads((ROOT/'expressions/recipes.json').read_text())
 poses=json.loads((ROOT/'poses/recipes.json').read_text())['poses']
 animation=json.loads((ROOT/'animation.json').read_text())
+assert animation['canvas']==[128,160] and animation['foot']==[64,140]
 manifest=json.loads((ROOT/'atlas-manifest.json').read_text())
 palette={tuple(bytes.fromhex(c[1:])) for c in json.loads((ROOT/'source/palette.json').read_text())}
 paths=sorted({p for folder in ['eyes','mouth','expressions','poses','frames'] for p in (ROOT/folder).rglob('*.png')})
 union=set()
 for p in paths:
     im=Image.open(p)
-    assert im.size==(96,128) and im.mode=='RGBA',p
+    expected_size=(128,160) if p.relative_to(ROOT).parts[0] in ['poses','frames'] else (96,128)
+    assert im.size==expected_size and im.mode=='RGBA',p
     assert set(pixels(im.getchannel('A'))) <= {0,255},p
     colors={v[:3] for v in pixels(im) if v[3]}
     assert colors<=palette,p
@@ -73,7 +79,7 @@ for n,recipe in poses.items():
                 sx=int((x+.5)*source.width/96);sy=int((y+.5)*source.height/128)
                 if source.getpixel((sx,sy))[3]>=128:
                     assert actual.getpixel((x+dx,y+dy))[3],('shoulder clipped',n,x,y)
-    assert all(v is not None and 0<=v[0]<96 and 0<=v[1]<128 for v in recipe['sockets_px'].values()),n
+    assert all(v is not None and 16<=v[0]<112 and 16<=v[1]<144 for v in recipe['sockets_px'].values()),n
 raw_profile=load('source/poses/turn-away-native.png')
 for n,near,far in [('nod-down',(39,29,49,37),(52,26,57,37)),
                    ('turn-toward',(38,24,49,37),(52,23,62,37)),
@@ -132,7 +138,7 @@ for k in range(6):
 for i,j in [(0,3),(1,4)]:
     assert (gait[i]['near_hand'][0]-gait[j]['near_hand'][0])*(gait[i]['near_boot_gold_center'][0]-gait[j]['near_boot_gold_center'][0])<0,'same-side arm/leg phase'
 for k in [2,5]:
-    assert abs(gait[k]['near_hand'][0]-30)<15,'passing arm did not come under shoulder'
+    assert abs(gait[k]['near_hand'][0]-46)<15,'passing arm did not come under shoulder'
 assert sum(f.get('event')=='transfer' for f in animation['clips']['give']['frames'])==1
 assert animation['clips']['give']['frames'][3]['sprite']=='give-extended-empty'
 assert any(pixels(load('poses/give-extended/props/leather-hide.png').getchannel('A')))
@@ -141,7 +147,7 @@ for n,c in animation['clips'].items():
 page=load('atlas.png')
 for sprite in manifest['sprites']:
     x,y,w,h=sprite['rect'];ox,oy=sprite['trim_offset']
-    expected=load(sprite['source'])
+    expected=load(sprite['source'], native=False)
     restored=Image.new('RGBA',tuple(sprite['source_size']))
     restored.paste(page.crop((x,y,x+w,y+h)),(ox,oy))
     assert same(expected,restored),sprite['id']
@@ -196,9 +202,9 @@ for name in ['talk','blink','nod','shake_head','give','walk','talk_blink']:
             assert gif.n_frames==len(frames),(name,suffix)
             for k,frame in enumerate(frames):
                 gif.seek(k)
-                expected=Image.new('RGBA',(96,128),'#eee5cd')
-                expected.alpha_composite(load(f'frames/{"base/" if basic else ""}{frame["sprite"]}.png'))
-                expected=expected.convert('RGB').resize((384,512),Image.Resampling.NEAREST)
+                expected=Image.new('RGBA',(128,160),'#eee5cd')
+                expected.alpha_composite(load(f'frames/{"base/" if basic else ""}{frame["sprite"]}.png', native=False))
+                expected=expected.convert('RGB').resize((512,640),Image.Resampling.NEAREST)
                 assert gif.convert('RGB').tobytes()==expected.tobytes(),('GIF pixel fidelity',name,suffix,k)
                 assert gif.info['duration']==round(frame['duration_ms']/10/speed)*10,('GIF duration',name,k)
                 gif_frames_checked+=1
@@ -218,9 +224,9 @@ report={'status':'structural_pass','native_files':len(paths),'shared_colors':len
         'approved_expressions_unchanged':True,'angle_eyes_retain_sclera_and_iris':True,
         'same_side_arm_leg_opposite':True,'gait_measurements':gait,
         'transfer_events':1,'atlas_roundtrip_exact':True,'extrude_gutter_exact':True,
-        'browser_playback_modes':8,'png_json_gif_rebuild_identical':True,
-        'browser_nearest_pixel_exact_captures':48,'gif_pixel_exact_frames':gif_frames_checked,
-        'gesture_browser_pixel_exact_captures':gesture_captures_checked,
+        'archived_native_browser_playback_modes':8,'current_canvas_browser_playback':'not_repeated','png_json_gif_rebuild_identical':True,
+        'archived_native_browser_nearest_pixel_exact_captures':48,'gif_pixel_exact_frames':gif_frames_checked,
+        'archived_native_gesture_browser_pixel_exact_captures':gesture_captures_checked,
         'runtime_draw_calls':'not_measured','runtime_integration':'not_integrated'}
 (ROOT/'qa/animation-validation.json').write_text(json.dumps(report,indent=2)+'\n')
 print(json.dumps({k:v for k,v in report.items() if k!='gait_measurements'},indent=2))

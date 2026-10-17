@@ -1,6 +1,6 @@
 // A complete underlayer is the foundation. Equipment only adds opaque pixels.
 import {execFileSync} from 'node:child_process';
-import {writeFileSync} from 'node:fs';
+import {writeFileSync,existsSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import path from 'node:path';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
@@ -111,7 +111,9 @@ save('source/native-underlayer.png',basic);
 save('source/foundation-native.png',foundation);
 save('previews/no-hat-native.png',compose(combined,apron,tools,gloves));
 save('previews/apron-only-native.png',compose(combined,apron));
-save('source/body-reference-native.png',sample('../farmer/source/reference.png'));
+// This reference is diagnostic only; the retained native comparison survives source cleanup.
+if(existsSync(path.join(root,'source/reference.png')))save('source/body-reference-native.png',sample('source/reference.png'));
+else if(!existsSync(path.join(root,'source/body-reference-native.png')))throw Error('Missing diagnostic reference and retained native comparison');
 const actualColors=new Set();for(const data of Object.values(files)) for(let i=0;i<data.length;i+=4) if(data[i+3]) actualColors.add('#'+data.subarray(i,i+4).toString('hex'));
 writeFileSync(path.join(root,'source/palette.json'),JSON.stringify([...actualColors].sort(),null,2)+'\n');
 writeFileSync(path.join(root,'source/body-rebuild-geometry.json'),JSON.stringify({native_canvas:[W,H],source_scale:.1,source_offset:[-11,-10],approved_face_translation:[-2,6],waist_y:76,foot:[48,124],palette_colors:actualColors.size,outline_processing:'none; preserve authored source contours and material shadows'},null,2)+'\n');

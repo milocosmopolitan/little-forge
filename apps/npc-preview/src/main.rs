@@ -123,6 +123,8 @@ fn setup(
     };
     player.play(&p.story, &c);
     player.facing_left = p.left;
+    // Preserve the native pixel scale across padded animation canvases.
+    let height = 420. * c.cell[1] as f32 / 128.;
     let owner = commands
         .spawn((
             Sprite {
@@ -131,7 +133,10 @@ fn setup(
                     layout: layouts.add(c.layout()),
                     index: 0,
                 }),
-                custom_size: Some(Vec2::new(c.cell[0] as f32 / c.cell[1] as f32 * 420., 420.)),
+                custom_size: Some(Vec2::new(
+                    c.cell[0] as f32 / c.cell[1] as f32 * height,
+                    height,
+                )),
                 ..default()
             },
             Transform::from_xyz(0., -240., 0.),
@@ -335,7 +340,7 @@ fn controls(
     } else {
         Color::WHITE
     };
-    let height = 420. * p.zoom;
+    let height = 420. * c.cell[1] as f32 / 128. * p.zoom;
     let origin = transform.translation.truncate();
     for (mut t, mut v, mut item, mut attachment) in &mut held {
         attachment.enabled = p.item_index > 0;

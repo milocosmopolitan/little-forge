@@ -1,5 +1,6 @@
-// Rebuild approved base layers before deriving expressions, poses and the atlas.
-await import('./build-character.mjs');
-await import('./build-animation.mjs');
-const {execFileSync} = await import('node:child_process');
+// Rebuild in separate processes so each ImageMagick pipeline closes before export.
+import {execFileSync} from 'node:child_process';
+for (const name of ['build-character.mjs', 'build-animation.mjs']) {
+  execFileSync(process.execPath, [new URL(name, import.meta.url).pathname], {stdio: 'inherit'});
+}
 execFileSync('python3', [new URL('../../../../scripts/export-farmer-runtime.py', import.meta.url).pathname], {stdio: 'inherit'});

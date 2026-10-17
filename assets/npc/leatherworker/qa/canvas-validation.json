@@ -1,0 +1,20 @@
+{
+  "status": "pass",
+  "canvas": [
+    128,
+    160
+  ],
+  "base_offset_px": [
+    16,
+    16
+  ],
+  "foot_anchor_px": [
+    64,
+    140
+  ],
+  "padded_frame_and_pose_files": 236,
+  "resampling": false,
+  "original_pixels": "exact crop roundtrip",
+  "trimmed_atlas_pixels": "unchanged",
+  "runtime_performance": "not_measured"
+}

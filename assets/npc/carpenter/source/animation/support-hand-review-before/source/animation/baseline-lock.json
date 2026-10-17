@@ -1,0 +1,16 @@
+{
+  "head-base.png": "369ad643f9b508185005af3386662a8ec72ec86521e60f19fb8d16354adda5be",
+  "body/upper-base.png": "b04ddd38a4a9015ca8020b4a74638a1072b3efa8f5306cbe694de5bde147dc2d",
+  "body/lower-base.png": "d84b0601e8e3b185aaab824106a763a8831645528a51b12127f46c0a6677b679",
+  "eyes/open.png": "c82661d005546848666647948dd41f830b3acec642d2d16049c927fc3a8a88c8",
+  "mouth/rest.png": "820e9e2879352b1f8fbf7d9545de46ab3bd016e021d4340689733cfbbf9d3dc6",
+  "equipment/apron-tools.png": "d3e6c50f0005b13d41bb5513e1db19647236526a3c5ad446f5f8de1a6a55caa3",
+  "equipment/straps.png": "b3e17ed8f37529487cefc1d549b327deedb55301474bb02e814524afa8cfbb77",
+  "equipment/belt-pouches.png": "67baee0165be15ec9baabd41c47ec8441a40cb801a9d61f8a0ce7c7e2cc7244c",
+  "equipment/towel.png": "4f7b300f857638251b61ce8a74be7936c82835638539bfe499b682d3beb85c2c",
+  "equipment/boards.png": "af024e3a33ed3668b1a289c7aa6bf5aebafae718d9c97bb5d8b61d1fe50b7f49",
+  "equipment/mallet.png": "9d885ac0a2d39a5ae8dac28f70368b0a2504ed18b044b85ecc90dfef18f1f7f9",
+  "equipment/gloves.png": "beabafafdc7f2a0f57a87a57469efb60217673e7dd04466fe901d20065a9e04f",
+  "neutral.png": "a410435f2bc93ec5e218c3594677d2102eece802184967c4592c725276dc54c6",
+  "base-neutral.png": "84ee29bcc28d1fc2d503bf44b2ac2ea18291449798b892f9d04460cbb56d63f3"
+}

@@ -1,0 +1,57 @@
+{
+  "coordinate_system": "96x128 authoring; add [16,16] for published coordinates",
+  "hand_regions": [
+    [
+      29,
+      70,
+      42,
+      81
+    ],
+    [
+      62,
+      81,
+      73,
+      94
+    ]
+  ],
+  "hands": [
+    {
+      "source": [
+        27,
+        66,
+        43,
+        82
+      ],
+      "target": [
+        29,
+        68,
+        40,
+        78
+      ],
+      "uncovered_skin_pixels": 0,
+      "outside_two_pixel_hand_margin": 0,
+      "extra_pixels": 14
+    },
+    {
+      "source": [
+        64,
+        77,
+        76,
+        95
+      ],
+      "target": [
+        63,
+        80,
+        71,
+        91
+      ],
+      "uncovered_skin_pixels": 0,
+      "outside_two_pixel_hand_margin": 0,
+      "extra_pixels": 24
+    }
+  ],
+  "hammer_offset": [
+    -3,
+    -1
+  ]
+}

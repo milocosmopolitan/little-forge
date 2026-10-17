@@ -1,0 +1,190 @@
+{
+  "version": 1,
+  "id": "player-female",
+  "grid": "B",
+  "grid_unit_px": [
+    16,
+    16
+  ],
+  "canvas_cells": [
+    6,
+    8
+  ],
+  "native_canvas_px": [
+    96,
+    128
+  ],
+  "preview_scale": 4,
+  "origin_px": [
+    0,
+    0
+  ],
+  "foot_anchor_px": [
+    48,
+    124
+  ],
+  "reference_roles": {
+    "identity": "source/reference.png",
+    "style": "source/reference.png",
+    "expressions": "source/reference.png"
+  },
+  "reconstructed_occluded_regions": [
+    "Full shirt chest and waist under apron/straps/belt",
+    "Trouser hips and thighs under apron",
+    "Bare hands beneath gloves",
+    "Brown hair beneath removable hair tie",
+    "Apron leather under belt/tools/hand"
+  ],
+  "baseline": {
+    "complete_underlayer": "source/foundation.png",
+    "foundation": "source/foundation.png",
+    "facial_change_mask": "source/face-change-mask.png",
+    "builder": "../source/build-characters.mjs",
+    "coverage_report": "qa/coverage-report.json"
+  },
+  "palette": {
+    "max_opaque_colors": 64,
+    "actual_opaque_colors": 60,
+    "palette_entries": 61,
+    "rgba_hex": "source/palette.json",
+    "alpha_values": [
+      0,
+      255
+    ],
+    "reason": "Preserve reference face/blush, copper hair, leather, steel and brass; reserve separate accessory pigments"
+  },
+  "identity": {
+    "head_size_without_hat_px": [
+      52,
+      41
+    ],
+    "head_measurement": "Head-base alpha bounds including short neck attachment; native layer measurement, not a source-scale equality claim",
+    "face_bbox_px": [
+      41,
+      25,
+      62,
+      48
+    ],
+    "face_bbox_measurement": "Reference interior face ROI for pigment preservation, excluding ear",
+    "eye_size_px": {
+      "near": [
+        8,
+        9
+      ],
+      "far": [
+        4,
+        11
+      ]
+    },
+    "eye_spacing_px": 6,
+    "eye_white_iris_design": "Original asymmetric brown eyes and white highlights at unchanged reference-native positions",
+    "shoulder_width_px": 37,
+    "chest_width_px": 33,
+    "waist_width_px": 35,
+    "upper_arm_width_px": 8,
+    "thigh_width_px": 32,
+    "leg_length_px": 51,
+    "body_measurement": "Row spans: shoulder y58 x15..69; torso y66 x32..66; waist y75 x30..65; near arm y68 x20..34; combined thighs y91 x25..66; legs from waist74 to sole124 inclusive",
+    "body_build": "Compact reference female with full hips and sturdy work trousers",
+    "hair_color": "Copper/chestnut brown, no grey hair pigment",
+    "beard_and_moustache_mask": "none",
+    "preserved_expression_character": "Original small smile and rightward three-quarter gaze; blush fixed on head base",
+    "outline_rule": "Native dark contour, separate material shadows; no blanket erosion or lightening"
+  },
+  "limb_identity": {
+    "side_convention": "character_anatomical",
+    "near_side": "right",
+    "far_side": "left",
+    "identifying_marks": "Near hand at hip; far hand at side"
+  },
+  "sockets_px": {
+    "neck": [
+      48,
+      49
+    ],
+    "waist": [
+      48,
+      74
+    ],
+    "eyes": [
+      52,
+      37
+    ],
+    "mouth": [
+      51,
+      43
+    ],
+    "right_hand": [
+      37,
+      77
+    ],
+    "left_hand": [
+      71,
+      89
+    ]
+  },
+  "layers": {
+    "head_base": "head-base.png",
+    "upper_base": "body/upper-base.png",
+    "lower_base": "body/lower-base.png",
+    "arms_front": "body/arms-front.png",
+    "eyes": {
+      "open": "eyes/open.png"
+    },
+    "mouth": {
+      "rest": "mouth/rest.png"
+    },
+    "equipment": [
+      "equipment/apron.png",
+      "equipment/belt-tools.png",
+      "equipment/gloves.png",
+      "equipment/hair-tie.png"
+    ],
+    "props": [
+      "props/hammer.png"
+    ]
+  },
+  "eyebrow_owner": "eyes",
+  "expression_recipes": {
+    "neutral": {
+      "eyes": "open",
+      "mouth": "rest"
+    }
+  },
+  "composition_order": [
+    "body/lower-base.png",
+    "body/upper-base.png",
+    "head-base.png",
+    "eyes/open.png",
+    "mouth/rest.png",
+    "equipment/apron.png",
+    "equipment/belt-tools.png",
+    "body/arms-front.png",
+    "equipment/gloves.png",
+    "equipment/hair-tie.png"
+  ],
+  "pose_overrides": {},
+  "production_plan": {
+    "status": "neutral_base_pose_generated",
+    "current_scope": "One right-facing neutral pose per sex; bare, equipped and optional hammer variants"
+  },
+  "animation": {
+    "frame_order": [
+      "neutral"
+    ],
+    "looping": false
+  },
+  "runtime_export": {
+    "status": "not_integrated",
+    "mode": "layered_authoring_assets",
+    "manifest": "character.json",
+    "sampler": "nearest",
+    "mipmaps": false
+  },
+  "generation": {
+    "tool": "built-in image_gen",
+    "final_prompts": "../source/prompts.json",
+    "registration": "qa/coverage-report.json",
+    "ownership": "source/ownership.json"
+  }
+}

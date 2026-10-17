@@ -46,6 +46,8 @@ fn setup(
     mut layouts: ResMut<Assets<TextureAtlasLayout>>,
     c: Res<Catalog>,
 ) {
+    // Keep the authored pixel scale when the animation canvas gains padding.
+    let height = 95. * c.cell[1] as f32 / 128.;
     let owner = commands
         .spawn((
             Sprite {
@@ -54,7 +56,10 @@ fn setup(
                     layout: layouts.add(c.layout()),
                     index: 0,
                 }),
-                custom_size: Some(Vec2::new(c.cell[0] as f32 / c.cell[1] as f32 * 95., 95.)),
+                custom_size: Some(Vec2::new(
+                    c.cell[0] as f32 / c.cell[1] as f32 * height,
+                    height,
+                )),
                 ..default()
             },
             Transform::from_xyz(270., -85., 5.),

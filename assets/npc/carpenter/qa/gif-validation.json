@@ -1,9 +1,6 @@
 {
   "status": "pass",
-  "gif_files": 16,
-  "timing": "all normal/slow durations exact",
-  "pixel_content": "all decoded equipment-free/equipped panels match current nearest 4x frames",
-  "paths": [
+  "gifs": [
     "previews/idle.gif",
     "previews/idle-slow.gif",
     "previews/blink.gif",
@@ -20,5 +17,7 @@
     "previews/shake_head-slow.gif",
     "previews/give.gif",
     "previews/give-slow.gif"
-  ]
+  ],
+  "frames": "both panels exact nearest 4x",
+  "timing": "all durations exact"
 }

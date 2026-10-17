@@ -1,51 +1,51 @@
 {
   "canvas": [
-    96,
-    128
+    128,
+    160
   ],
   "poses": {
     "nod-down": {
       "layers": [
-        "body/lower-base.png",
-        "body/upper-base.png",
+        "poses/shared/canvas/body/lower-base.png",
+        "poses/shared/canvas/body/upper-base.png",
         "poses/nod-down/head-base.png",
         "poses/nod-down/eyes/open.png",
         "poses/nod-down/mouth/rest.png",
-        "equipment/apron.png",
-        "equipment/belt-tools.png",
-        "equipment/gloves.png",
+        "poses/shared/canvas/equipment/apron.png",
+        "poses/shared/canvas/equipment/belt-tools.png",
+        "poses/shared/canvas/equipment/gloves.png",
         "poses/nod-down/equipment/hat.png"
       ],
       "sockets_px": {
         "neck": [
-          46,
-          55
+          62,
+          71
         ],
         "waist": [
-          48,
-          76
+          64,
+          92
         ],
         "eyes": [
           [
-            49,
-            38
+            65,
+            54
           ],
           [
-            59,
-            38
+            75,
+            54
           ]
         ],
         "mouth": [
-          55,
-          46
+          71,
+          62
         ],
         "left_hand": [
-          70,
-          85
+          86,
+          101
         ],
         "right_hand": [
-          30,
-          79
+          46,
+          95
         ]
       },
       "eye_states": [
@@ -62,46 +62,46 @@
     },
     "turn-toward": {
       "layers": [
-        "body/lower-base.png",
-        "body/upper-base.png",
+        "poses/shared/canvas/body/lower-base.png",
+        "poses/shared/canvas/body/upper-base.png",
         "poses/turn-toward/head-base.png",
         "poses/turn-toward/eyes/open.png",
         "poses/turn-toward/mouth/rest.png",
-        "equipment/apron.png",
-        "equipment/belt-tools.png",
-        "equipment/gloves.png",
+        "poses/shared/canvas/equipment/apron.png",
+        "poses/shared/canvas/equipment/belt-tools.png",
+        "poses/shared/canvas/equipment/gloves.png",
         "poses/turn-toward/equipment/hat.png"
       ],
       "sockets_px": {
         "neck": [
-          46,
-          55
+          62,
+          71
         ],
         "waist": [
-          48,
-          76
+          64,
+          92
         ],
         "eyes": [
           [
-            45,
-            37
+            61,
+            53
           ],
           [
-            58,
-            37
+            74,
+            53
           ]
         ],
         "mouth": [
-          52,
-          45
+          68,
+          61
         ],
         "left_hand": [
-          70,
-          85
+          86,
+          101
         ],
         "right_hand": [
-          30,
-          79
+          46,
+          95
         ]
       },
       "eye_states": [
@@ -118,46 +118,46 @@
     },
     "turn-away": {
       "layers": [
-        "body/lower-base.png",
-        "body/upper-base.png",
+        "poses/shared/canvas/body/lower-base.png",
+        "poses/shared/canvas/body/upper-base.png",
         "poses/turn-away/head-base.png",
         "poses/turn-away/eyes/open.png",
         "poses/turn-away/mouth/rest.png",
-        "equipment/apron.png",
-        "equipment/belt-tools.png",
-        "equipment/gloves.png",
+        "poses/shared/canvas/equipment/apron.png",
+        "poses/shared/canvas/equipment/belt-tools.png",
+        "poses/shared/canvas/equipment/gloves.png",
         "poses/turn-away/equipment/hat.png"
       ],
       "sockets_px": {
         "neck": [
-          46,
-          55
+          62,
+          71
         ],
         "waist": [
-          48,
-          76
+          64,
+          92
         ],
         "eyes": [
           [
-            51,
-            37
+            67,
+            53
           ],
           [
-            59,
-            37
+            75,
+            53
           ]
         ],
         "mouth": [
-          56,
-          45
+          72,
+          61
         ],
         "left_hand": [
-          70,
-          85
+          86,
+          101
         ],
         "right_hand": [
-          30,
-          79
+          46,
+          95
         ]
       },
       "eye_states": [
@@ -176,45 +176,45 @@
       "layers": [
         "poses/shared/lower-base.png",
         "poses/give-mid/body/upper-base.png",
-        "head-base.png",
-        "eyes/open.png",
-        "mouth/rest.png",
-        "equipment/apron.png",
-        "equipment/belt-tools.png",
+        "poses/shared/canvas/head-base.png",
+        "poses/shared/canvas/eyes/open.png",
+        "poses/shared/canvas/mouth/rest.png",
+        "poses/shared/canvas/equipment/apron.png",
+        "poses/shared/canvas/equipment/belt-tools.png",
         "poses/give-mid/body/arms-front.png",
         "poses/give-mid/equipment/gloves.png",
-        "equipment/hat.png"
+        "poses/shared/canvas/equipment/hat.png"
       ],
       "sockets_px": {
         "neck": [
-          46,
-          55
+          62,
+          71
         ],
         "waist": [
-          48,
-          76
+          64,
+          92
         ],
         "eyes": [
           [
-            48,
-            37
+            64,
+            53
           ],
           [
-            59,
-            37
+            75,
+            53
           ]
         ],
         "mouth": [
-          53,
-          45
+          69,
+          61
         ],
         "left_hand": [
-          75,
-          75
+          91,
+          91
         ],
         "right_hand": [
-          57,
-          77
+          73,
+          93
         ]
       },
       "source": "source/poses/give-mid.png"
@@ -223,45 +223,45 @@
       "layers": [
         "poses/shared/lower-base.png",
         "poses/give-extended/body/upper-base.png",
-        "head-base.png",
-        "eyes/open.png",
-        "mouth/rest.png",
-        "equipment/apron.png",
-        "equipment/belt-tools.png",
+        "poses/shared/canvas/head-base.png",
+        "poses/shared/canvas/eyes/open.png",
+        "poses/shared/canvas/mouth/rest.png",
+        "poses/shared/canvas/equipment/apron.png",
+        "poses/shared/canvas/equipment/belt-tools.png",
         "poses/give-extended/body/arms-front.png",
         "poses/give-extended/equipment/gloves.png",
-        "equipment/hat.png"
+        "poses/shared/canvas/equipment/hat.png"
       ],
       "sockets_px": {
         "neck": [
-          46,
-          55
+          62,
+          71
         ],
         "waist": [
-          48,
-          76
+          64,
+          92
         ],
         "eyes": [
           [
-            48,
-            37
+            64,
+            53
           ],
           [
-            59,
-            37
+            75,
+            53
           ]
         ],
         "mouth": [
-          53,
-          45
+          69,
+          61
         ],
         "left_hand": [
-          85,
-          67
+          101,
+          83
         ],
         "right_hand": [
-          59,
-          71
+          75,
+          87
         ]
       },
       "source": "source/poses/give-extended.png"
@@ -270,45 +270,45 @@
       "layers": [
         "poses/shared/lower-base.png",
         "poses/walk-upper-a/body/upper-base.png",
-        "head-base.png",
-        "eyes/open.png",
-        "mouth/rest.png",
-        "equipment/apron.png",
-        "equipment/belt-tools.png",
+        "poses/shared/canvas/head-base.png",
+        "poses/shared/canvas/eyes/open.png",
+        "poses/shared/canvas/mouth/rest.png",
+        "poses/shared/canvas/equipment/apron.png",
+        "poses/shared/canvas/equipment/belt-tools.png",
         "poses/walk-upper-a/body/arms-front.png",
         "poses/walk-upper-a/equipment/gloves.png",
-        "equipment/hat.png"
+        "poses/shared/canvas/equipment/hat.png"
       ],
       "sockets_px": {
         "neck": [
-          46,
-          55
+          62,
+          71
         ],
         "waist": [
-          48,
-          76
+          64,
+          92
         ],
         "eyes": [
           [
-            48,
-            37
+            64,
+            53
           ],
           [
-            59,
-            37
+            75,
+            53
           ]
         ],
         "mouth": [
-          53,
-          45
+          69,
+          61
         ],
         "left_hand": [
-          74,
-          79
+          90,
+          95
         ],
         "right_hand": [
-          21,
-          79
+          37,
+          95
         ]
       },
       "source": "source/poses/walk-upper-a.png"
@@ -317,45 +317,45 @@
       "layers": [
         "poses/shared/lower-base.png",
         "poses/walk-upper-b/body/upper-base.png",
-        "head-base.png",
-        "eyes/open.png",
-        "mouth/rest.png",
-        "equipment/apron.png",
-        "equipment/belt-tools.png",
+        "poses/shared/canvas/head-base.png",
+        "poses/shared/canvas/eyes/open.png",
+        "poses/shared/canvas/mouth/rest.png",
+        "poses/shared/canvas/equipment/apron.png",
+        "poses/shared/canvas/equipment/belt-tools.png",
         "poses/walk-upper-b/body/arms-front.png",
         "poses/walk-upper-b/equipment/gloves.png",
-        "equipment/hat.png"
+        "poses/shared/canvas/equipment/hat.png"
       ],
       "sockets_px": {
         "neck": [
-          46,
-          55
+          62,
+          71
         ],
         "waist": [
-          48,
-          76
+          64,
+          92
         ],
         "eyes": [
           [
-            48,
-            37
+            64,
+            53
           ],
           [
-            59,
-            37
+            75,
+            53
           ]
         ],
         "mouth": [
-          53,
-          45
+          69,
+          61
         ],
         "left_hand": [
-          67,
-          80
+          83,
+          96
         ],
         "right_hand": [
-          50,
-          80
+          66,
+          96
         ]
       },
       "source": "source/poses/walk-upper-b-fixed.png"
@@ -375,34 +375,34 @@
       ],
       "sockets_px": {
         "neck": [
-          46,
-          55
+          62,
+          71
         ],
         "waist": [
-          48,
-          76
+          64,
+          92
         ],
         "eyes": [
           [
-            48,
-            37
+            64,
+            53
           ],
           [
-            59,
-            37
+            75,
+            53
           ]
         ],
         "mouth": [
-          53,
-          45
+          69,
+          61
         ],
         "left_hand": [
-          74,
-          79
+          90,
+          95
         ],
         "right_hand": [
-          21,
-          79
+          37,
+          95
         ]
       },
       "body_offset": [
@@ -432,34 +432,34 @@
       ],
       "sockets_px": {
         "neck": [
-          46,
-          56
+          62,
+          72
         ],
         "waist": [
-          48,
-          77
+          64,
+          93
         ],
         "eyes": [
           [
-            48,
-            38
+            64,
+            54
           ],
           [
-            59,
-            38
+            75,
+            54
           ]
         ],
         "mouth": [
-          53,
-          46
+          69,
+          62
         ],
         "left_hand": [
-          74,
-          80
+          90,
+          96
         ],
         "right_hand": [
-          21,
-          80
+          37,
+          96
         ]
       },
       "body_offset": [
@@ -488,34 +488,34 @@
       ],
       "sockets_px": {
         "neck": [
-          46,
-          55
+          62,
+          71
         ],
         "waist": [
-          48,
-          76
+          64,
+          92
         ],
         "eyes": [
           [
-            48,
-            37
+            64,
+            53
           ],
           [
-            59,
-            37
+            75,
+            53
           ]
         ],
         "mouth": [
-          53,
-          45
+          69,
+          61
         ],
         "left_hand": [
-          70,
-          85
+          86,
+          101
         ],
         "right_hand": [
-          30,
-          79
+          46,
+          95
         ]
       },
       "body_offset": [
@@ -545,34 +545,34 @@
       ],
       "sockets_px": {
         "neck": [
-          46,
-          55
+          62,
+          71
         ],
         "waist": [
-          48,
-          76
+          64,
+          92
         ],
         "eyes": [
           [
-            48,
-            37
+            64,
+            53
           ],
           [
-            59,
-            37
+            75,
+            53
           ]
         ],
         "mouth": [
-          53,
-          45
+          69,
+          61
         ],
         "left_hand": [
-          67,
-          80
+          83,
+          96
         ],
         "right_hand": [
-          50,
-          80
+          66,
+          96
         ]
       },
       "body_offset": [
@@ -602,34 +602,34 @@
       ],
       "sockets_px": {
         "neck": [
-          46,
-          56
+          62,
+          72
         ],
         "waist": [
-          48,
-          77
+          64,
+          93
         ],
         "eyes": [
           [
-            48,
-            38
+            64,
+            54
           ],
           [
-            59,
-            38
+            75,
+            54
           ]
         ],
         "mouth": [
-          53,
-          46
+          69,
+          62
         ],
         "left_hand": [
-          67,
-          81
+          83,
+          97
         ],
         "right_hand": [
-          50,
-          81
+          66,
+          97
         ]
       },
       "body_offset": [
@@ -658,34 +658,34 @@
       ],
       "sockets_px": {
         "neck": [
-          46,
-          55
+          62,
+          71
         ],
         "waist": [
-          48,
-          76
+          64,
+          92
         ],
         "eyes": [
           [
-            48,
-            37
+            64,
+            53
           ],
           [
-            59,
-            37
+            75,
+            53
           ]
         ],
         "mouth": [
-          53,
-          45
+          69,
+          61
         ],
         "left_hand": [
-          70,
-          85
+          86,
+          101
         ],
         "right_hand": [
-          30,
-          79
+          46,
+          95
         ]
       },
       "body_offset": [
@@ -702,46 +702,46 @@
     },
     "nod-mid": {
       "layers": [
-        "body/lower-base.png",
-        "body/upper-base.png",
+        "poses/shared/canvas/body/lower-base.png",
+        "poses/shared/canvas/body/upper-base.png",
         "poses/nod-mid/head-base.png",
         "poses/nod-mid/eyes/open.png",
         "poses/nod-mid/mouth/rest.png",
-        "equipment/apron.png",
-        "equipment/belt-tools.png",
-        "equipment/gloves.png",
+        "poses/shared/canvas/equipment/apron.png",
+        "poses/shared/canvas/equipment/belt-tools.png",
+        "poses/shared/canvas/equipment/gloves.png",
         "poses/nod-mid/equipment/hat.png"
       ],
       "sockets_px": {
         "neck": [
-          46,
-          54
+          62,
+          70
         ],
         "waist": [
-          48,
-          76
+          64,
+          92
         ],
         "eyes": [
           [
-            49,
-            37
+            65,
+            53
           ],
           [
-            59,
-            37
+            75,
+            53
           ]
         ],
         "mouth": [
-          55,
-          45
+          71,
+          61
         ],
         "left_hand": [
-          70,
-          85
+          86,
+          101
         ],
         "right_hand": [
-          30,
-          79
+          46,
+          95
         ]
       },
       "head_offset": [
@@ -749,5 +749,9 @@
         -1
       ]
     }
-  }
+  },
+  "offset_from_base": [
+    16,
+    16
+  ]
 }

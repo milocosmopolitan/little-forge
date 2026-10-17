@@ -1,5 +1,7 @@
 # Carpenter assets
 
+Latest supporting-hand revision: 115 base pixels and 49 equipped pixels changed inside native `(24,66)..(37,82)`. A localized generated fist replaces the long hanging fingers; the elbow/board gap and glove edge are completed. The exact local deltas and preceding assets are retained in `source/animation/support-hand-migration.json` and `support-hand-review-before/`. Compare `previews/support-hand-review.png` and its dark variant. Structural checks cover all 17 frames and 16 GIFs; live playback was not repeated for this revision.
+
 Current export: eight expressions and nod/shake-head/mallet-give animations, 17 frames in a 128×160 common canvas. The latest local outline repair changes 40 bare-base hand/wrist pixels, five visible equipped. The preceding baseline and every delta are retained in `source/animation/outline-review-before/` and `outline-review-migration.json`. See `ANIMATION.md`, `animation.json` and `poses/recipes.json`. The neutral-production history below is retained as provenance; its original single-frame scope describes that earlier phase.
 
 The user-provided `Pixel Carpenter with Dirty Blonde Hair.png` is retained as `source/reference.png`. It defines the dirty-blond tousled hair, young face, short jaw stubble, slim-to-average proportions, cream rolled sleeves, olive trousers, brown boots with dark toe caps, leather work apron, boards and wooden mallet. Only one neutral standing pose is produced.

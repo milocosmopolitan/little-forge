@@ -4,75 +4,75 @@
   "faces": null,
   "image": "npc/farmer/runtime-atlas.png",
   "size": [
-    384,
-    768
+    512,
+    960
   ],
   "cell": [
-    96,
-    128
+    128,
+    160
   ],
   "foot": [
-    48,
-    124
+    64,
+    140
   ],
   "head": [
-    53,
-    37
+    69,
+    53
   ],
   "frames": [
     {
       "rect": [
         0,
         0,
-        96,
-        128
+        128,
+        160
       ],
       "duration": 1.6,
       "hand": [
-        70,
-        85
+        86,
+        101
       ],
       "transfer": false
     },
     {
       "rect": [
-        192,
+        256,
         0,
-        96,
-        128
+        128,
+        160
       ],
       "duration": 0.04,
       "hand": [
-        70,
-        85
+        86,
+        101
       ],
       "transfer": false
     },
     {
       "rect": [
-        96,
+        128,
         0,
-        96,
-        128
+        128,
+        160
       ],
       "duration": 0.08,
       "hand": [
-        70,
-        85
+        86,
+        101
       ],
       "transfer": false
     },
     {
       "rect": [
-        192,
+        256,
         0,
-        96,
-        128
+        128,
+        160
       ],
       "duration": 0.04,
       "hand": [
-        70,
-        85
+        86,
+        101
       ],
       "transfer": false
     },
@@ -80,13 +80,13 @@
       "rect": [
         0,
         0,
-        96,
-        128
+        128,
+        160
       ],
       "duration": 1.2,
       "hand": [
-        70,
-        85
+        86,
+        101
       ],
       "transfer": false
     },
@@ -94,69 +94,69 @@
       "rect": [
         0,
         0,
-        96,
-        128
+        128,
+        160
       ],
       "duration": 0.14,
       "hand": [
-        70,
-        85
+        86,
+        101
       ],
       "transfer": false
     },
     {
       "rect": [
         0,
+        480,
+        128,
+        160
+      ],
+      "duration": 0.1,
+      "hand": [
+        86,
+        101
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        128,
+        480,
+        128,
+        160
+      ],
+      "duration": 0.1,
+      "hand": [
+        86,
+        101
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        0,
+        480,
+        128,
+        160
+      ],
+      "duration": 0.1,
+      "hand": [
+        86,
+        101
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
         384,
-        96,
-        128
+        320,
+        128,
+        160
       ],
       "duration": 0.1,
       "hand": [
-        70,
-        85
-      ],
-      "transfer": false
-    },
-    {
-      "rect": [
-        96,
-        384,
-        96,
-        128
-      ],
-      "duration": 0.1,
-      "hand": [
-        70,
-        85
-      ],
-      "transfer": false
-    },
-    {
-      "rect": [
-        0,
-        384,
-        96,
-        128
-      ],
-      "duration": 0.1,
-      "hand": [
-        70,
-        85
-      ],
-      "transfer": false
-    },
-    {
-      "rect": [
-        288,
-        256,
-        96,
-        128
-      ],
-      "duration": 0.1,
-      "hand": [
-        70,
-        85
+        86,
+        101
       ],
       "transfer": false
     },
@@ -164,13 +164,13 @@
       "rect": [
         0,
         0,
-        96,
-        128
+        128,
+        160
       ],
       "duration": 0.14,
       "hand": [
-        70,
-        85
+        86,
+        101
       ],
       "transfer": false
     },
@@ -178,55 +178,55 @@
       "rect": [
         0,
         0,
-        96,
-        128
+        128,
+        160
       ],
       "duration": 0.3,
       "hand": [
-        70,
-        85
+        86,
+        101
       ],
       "transfer": false
     },
     {
       "rect": [
-        192,
+        256,
         0,
-        96,
-        128
+        128,
+        160
       ],
       "duration": 0.04,
       "hand": [
-        70,
-        85
+        86,
+        101
       ],
       "transfer": false
     },
     {
       "rect": [
-        96,
+        128,
         0,
-        96,
-        128
+        128,
+        160
       ],
       "duration": 0.08,
       "hand": [
-        70,
-        85
+        86,
+        101
       ],
       "transfer": false
     },
     {
       "rect": [
-        192,
+        256,
         0,
-        96,
-        128
+        128,
+        160
       ],
       "duration": 0.04,
       "hand": [
-        70,
-        85
+        86,
+        101
       ],
       "transfer": false
     },
@@ -234,27 +234,27 @@
       "rect": [
         0,
         0,
-        96,
-        128
+        128,
+        160
       ],
       "duration": 0.3,
       "hand": [
-        70,
-        85
+        86,
+        101
       ],
       "transfer": false
     },
     {
       "rect": [
-        96,
-        256,
-        96,
-        128
+        128,
+        320,
+        128,
+        160
       ],
       "duration": 0.6,
       "hand": [
-        70,
-        85
+        86,
+        101
       ],
       "transfer": false
     },
@@ -262,27 +262,27 @@
       "rect": [
         0,
         0,
-        96,
-        128
+        128,
+        160
       ],
       "duration": 0.14,
       "hand": [
-        70,
-        85
+        86,
+        101
       ],
       "transfer": false
     },
     {
       "rect": [
-        96,
         128,
-        96,
-        128
+        160,
+        128,
+        160
       ],
       "duration": 0.7,
       "hand": [
-        70,
-        85
+        86,
+        101
       ],
       "transfer": false
     },
@@ -290,251 +290,251 @@
       "rect": [
         0,
         0,
-        96,
-        128
+        128,
+        160
       ],
       "duration": 0.14,
       "hand": [
-        70,
-        85
+        86,
+        101
       ],
       "transfer": false
     },
     {
       "rect": [
         0,
+        320,
+        128,
+        160
+      ],
+      "duration": 0.7,
+      "hand": [
+        86,
+        101
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        0,
+        0,
+        128,
+        160
+      ],
+      "duration": 0.14,
+      "hand": [
+        86,
+        101
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        0,
+        0,
+        128,
+        160
+      ],
+      "duration": 0.12,
+      "hand": [
+        86,
+        101
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        384,
+        160,
+        128,
+        160
+      ],
+      "duration": 0.1,
+      "hand": [
+        86,
+        101
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
         256,
-        96,
-        128
-      ],
-      "duration": 0.7,
-      "hand": [
-        70,
-        85
-      ],
-      "transfer": false
-    },
-    {
-      "rect": [
-        0,
-        0,
-        96,
-        128
+        160,
+        128,
+        160
       ],
       "duration": 0.14,
       "hand": [
-        70,
-        85
+        86,
+        101
       ],
       "transfer": false
     },
     {
       "rect": [
-        0,
-        0,
-        96,
-        128
-      ],
-      "duration": 0.12,
-      "hand": [
-        70,
-        85
-      ],
-      "transfer": false
-    },
-    {
-      "rect": [
-        288,
-        128,
-        96,
-        128
-      ],
-      "duration": 0.1,
-      "hand": [
-        70,
-        85
-      ],
-      "transfer": false
-    },
-    {
-      "rect": [
-        192,
-        128,
-        96,
-        128
-      ],
-      "duration": 0.14,
-      "hand": [
-        70,
-        85
-      ],
-      "transfer": false
-    },
-    {
-      "rect": [
-        288,
-        128,
-        96,
-        128
-      ],
-      "duration": 0.1,
-      "hand": [
-        70,
-        85
-      ],
-      "transfer": false
-    },
-    {
-      "rect": [
-        0,
-        0,
-        96,
-        128
-      ],
-      "duration": 0.12,
-      "hand": [
-        70,
-        85
-      ],
-      "transfer": false
-    },
-    {
-      "rect": [
-        0,
-        0,
-        96,
-        128
-      ],
-      "duration": 0.1,
-      "hand": [
-        70,
-        85
-      ],
-      "transfer": false
-    },
-    {
-      "rect": [
-        288,
         384,
-        96,
-        128
-      ],
-      "duration": 0.14,
-      "hand": [
-        70,
-        85
-      ],
-      "transfer": false
-    },
-    {
-      "rect": [
-        0,
-        0,
-        96,
-        128
+        160,
+        128,
+        160
       ],
       "duration": 0.1,
       "hand": [
-        70,
-        85
-      ],
-      "transfer": false
-    },
-    {
-      "rect": [
-        192,
-        384,
-        96,
-        128
-      ],
-      "duration": 0.14,
-      "hand": [
-        70,
-        85
+        86,
+        101
       ],
       "transfer": false
     },
     {
       "rect": [
         0,
-        0,
-        96,
-        128
-      ],
-      "duration": 0.1,
-      "hand": [
-        70,
-        85
-      ],
-      "transfer": false
-    },
-    {
-      "rect": [
-        0,
-        0,
-        96,
-        128
-      ],
-      "duration": 0.12,
-      "hand": [
-        70,
-        85
-      ],
-      "transfer": false
-    },
-    {
-      "rect": [
         0,
         128,
-        96,
-        128
+        160
       ],
       "duration": 0.12,
       "hand": [
-        75,
-        75
+        86,
+        101
       ],
       "transfer": false
     },
     {
       "rect": [
-        288,
         0,
-        96,
-        128
+        0,
+        128,
+        160
+      ],
+      "duration": 0.1,
+      "hand": [
+        86,
+        101
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        384,
+        480,
+        128,
+        160
+      ],
+      "duration": 0.14,
+      "hand": [
+        86,
+        101
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        0,
+        0,
+        128,
+        160
+      ],
+      "duration": 0.1,
+      "hand": [
+        86,
+        101
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        256,
+        480,
+        128,
+        160
+      ],
+      "duration": 0.14,
+      "hand": [
+        86,
+        101
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        0,
+        0,
+        128,
+        160
+      ],
+      "duration": 0.1,
+      "hand": [
+        86,
+        101
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        0,
+        0,
+        128,
+        160
+      ],
+      "duration": 0.12,
+      "hand": [
+        86,
+        101
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        0,
+        160,
+        128,
+        160
+      ],
+      "duration": 0.12,
+      "hand": [
+        91,
+        91
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        384,
+        0,
+        128,
+        160
       ],
       "duration": 0.18,
       "hand": [
-        85,
-        67
+        101,
+        83
       ],
       "transfer": false
     },
     {
       "rect": [
-        288,
+        384,
         0,
-        96,
-        128
+        128,
+        160
       ],
       "duration": 0.12,
       "hand": [
-        85,
-        67
+        101,
+        83
       ],
       "transfer": true
     },
     {
       "rect": [
         0,
+        160,
         128,
-        96,
-        128
+        160
       ],
       "duration": 0.12,
       "hand": [
-        75,
-        75
+        91,
+        91
       ],
       "transfer": false
     },
@@ -542,69 +542,13 @@
       "rect": [
         0,
         0,
-        96,
-        128
+        128,
+        160
       ],
       "duration": 0.12,
       "hand": [
-        70,
-        85
-      ],
-      "transfer": false
-    },
-    {
-      "rect": [
-        0,
-        512,
-        96,
-        128
-      ],
-      "duration": 0.12,
-      "hand": [
-        74,
-        79
-      ],
-      "transfer": false
-    },
-    {
-      "rect": [
-        96,
-        512,
-        96,
-        128
-      ],
-      "duration": 0.12,
-      "hand": [
-        74,
-        80
-      ],
-      "transfer": false
-    },
-    {
-      "rect": [
-        192,
-        512,
-        96,
-        128
-      ],
-      "duration": 0.12,
-      "hand": [
-        70,
-        85
-      ],
-      "transfer": false
-    },
-    {
-      "rect": [
-        288,
-        512,
-        96,
-        128
-      ],
-      "duration": 0.12,
-      "hand": [
-        67,
-        80
+        86,
+        101
       ],
       "transfer": false
     },
@@ -612,97 +556,153 @@
       "rect": [
         0,
         640,
-        96,
-        128
+        128,
+        160
       ],
       "duration": 0.12,
       "hand": [
-        67,
-        81
+        90,
+        95
       ],
       "transfer": false
     },
     {
       "rect": [
-        96,
+        128,
         640,
-        96,
-        128
+        128,
+        160
       ],
       "duration": 0.12,
       "hand": [
-        70,
-        85
+        90,
+        96
       ],
       "transfer": false
     },
     {
       "rect": [
-        0,
+        256,
+        640,
+        128,
+        160
+      ],
+      "duration": 0.12,
+      "hand": [
+        86,
+        101
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
         384,
-        96,
-        128
+        640,
+        128,
+        160
+      ],
+      "duration": 0.12,
+      "hand": [
+        83,
+        96
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        0,
+        800,
+        128,
+        160
+      ],
+      "duration": 0.12,
+      "hand": [
+        83,
+        97
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        128,
+        800,
+        128,
+        160
+      ],
+      "duration": 0.12,
+      "hand": [
+        86,
+        101
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        0,
+        480,
+        128,
+        160
       ],
       "duration": 0.24,
       "hand": [
-        70,
-        85
+        86,
+        101
       ],
       "transfer": false
     },
     {
       "rect": [
-        192,
         256,
-        96,
-        128
+        320,
+        128,
+        160
       ],
       "duration": 0.1,
       "hand": [
-        70,
-        85
+        86,
+        101
       ],
       "transfer": false
     },
     {
       "rect": [
         0,
-        384,
-        96,
-        128
+        480,
+        128,
+        160
       ],
       "duration": 0.14,
       "hand": [
-        70,
-        85
+        86,
+        101
       ],
       "transfer": false
     },
     {
       "rect": [
-        96,
-        384,
-        96,
-        128
+        128,
+        480,
+        128,
+        160
       ],
       "duration": 0.14,
       "hand": [
-        70,
-        85
+        86,
+        101
       ],
       "transfer": false
     },
     {
       "rect": [
-        288,
-        256,
-        96,
-        128
+        384,
+        320,
+        128,
+        160
       ],
       "duration": 0.14,
       "hand": [
-        70,
-        85
+        86,
+        101
       ],
       "transfer": false
     }

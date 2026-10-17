@@ -1,0 +1,204 @@
+{
+  "version": 1,
+  "id": "player-male",
+  "grid": "B",
+  "grid_unit_px": [
+    16,
+    16
+  ],
+  "canvas_cells": [
+    8,
+    10
+  ],
+  "native_canvas_px": [
+    128,
+    160
+  ],
+  "preview_scale": 4,
+  "origin_px": [
+    0,
+    0
+  ],
+  "foot_anchor_px": [
+    64,
+    140
+  ],
+  "reference_roles": {
+    "identity": "source/reference.png",
+    "style": "source/reference.png",
+    "expressions": "source/reference.png"
+  },
+  "reconstructed_occluded_regions": [
+    "Full shirt chest and waist under apron/straps/belt",
+    "Trouser hips and thighs under apron",
+    "Bare hands beneath gloves",
+    "Full brown hair beneath removable headband",
+    "Apron leather under belt/tools/hand"
+  ],
+  "baseline": {
+    "complete_underlayer": "source/foundation.png",
+    "foundation": "source/foundation.png",
+    "facial_change_mask": "source/face-change-mask.png",
+    "builder": "../source/build-characters.mjs",
+    "coverage_report": "qa/coverage-report.json"
+  },
+  "palette": {
+    "max_opaque_colors": 80,
+    "actual_opaque_colors": 78,
+    "palette_entries": 79,
+    "rgba_hex": "source/palette.json",
+    "alpha_values": [
+      0,
+      255
+    ],
+    "reason": "Keep the approved face palette locked; add material colors for NPC-quality cloth folds, leather/steel boot detail and brass"
+  },
+  "identity": {
+    "head_size_without_hat_px": [
+      44,
+      41
+    ],
+    "head_measurement": "Head-base alpha bounds including short neck attachment; native layer measurement, not a source-scale equality claim",
+    "face_bbox_px": [
+      54,
+      43,
+      75,
+      62
+    ],
+    "face_bbox_measurement": "Reference interior face ROI for pigment preservation, excluding ear",
+    "eye_size_px": {
+      "near": [
+        8,
+        11
+      ],
+      "far": [
+        3,
+        11
+      ]
+    },
+    "eye_spacing_px": 6,
+    "eye_white_iris_design": "Coherent generated asymmetric brown eyes at shared head registration, following the original reference gaze",
+    "shoulder_width_px": 41,
+    "chest_width_px": 33,
+    "waist_width_px": 36,
+    "upper_arm_width_px": 15,
+    "thigh_width_px": 32,
+    "leg_length_px": 51,
+    "body_measurement": "Row spans: shoulder y58 x15..69; torso y66 x32..66; waist y75 x30..65; near arm y68 x20..34; combined thighs y91 x25..66; legs from waist74 to sole124 inclusive; these row/ROI measurements use the 96x128 source coordinates, add [16,16] on published assets",
+    "body_build": "Compact reference male with broad shirt and sturdy hips/legs",
+    "hair_color": "Copper/chestnut brown, no grey hair pigment",
+    "beard_and_moustache_mask": "none",
+    "preserved_expression_character": "Original small smile and rightward three-quarter gaze; blush fixed on head base",
+    "outline_rule": "Native dark contour, separate material shadows; no blanket erosion or lightening"
+  },
+  "limb_identity": {
+    "side_convention": "character_anatomical",
+    "near_side": "right",
+    "far_side": "left",
+    "identifying_marks": "Near hand at hip; far hand at side"
+  },
+  "sockets_px": {
+    "neck": [
+      62,
+      64
+    ],
+    "waist": [
+      63,
+      90
+    ],
+    "eyes": [
+      66,
+      51
+    ],
+    "mouth": [
+      67,
+      59
+    ],
+    "right_hand": [
+      45,
+      94
+    ],
+    "left_hand": [
+      86,
+      109
+    ]
+  },
+  "layers": {
+    "head_base": "head-base.png",
+    "upper_base": "body/upper-base.png",
+    "lower_base": "body/lower-base.png",
+    "arms_front": "body/arms-front.png",
+    "eyes": {
+      "open": "eyes/open.png"
+    },
+    "mouth": {
+      "rest": "mouth/rest.png"
+    },
+    "equipment": [
+      "equipment/apron.png",
+      "equipment/belt-tools.png",
+      "equipment/gloves.png",
+      "equipment/headband.png",
+      "equipment/towel.png"
+    ],
+    "props": [
+      "props/hammer.png"
+    ]
+  },
+  "eyebrow_owner": "eyes",
+  "expression_recipes": {
+    "neutral": {
+      "eyes": "open",
+      "mouth": "rest"
+    }
+  },
+  "composition_order": [
+    "body/lower-base.png",
+    "body/upper-base.png",
+    "head-base.png",
+    "eyes/open.png",
+    "mouth/rest.png",
+    "equipment/apron.png",
+    "equipment/belt-tools.png",
+    "equipment/towel.png",
+    "body/arms-front.png",
+    "equipment/gloves.png",
+    "equipment/headband.png"
+  ],
+  "pose_overrides": {},
+  "production_plan": {
+    "status": "neutral_base_pose_generated",
+    "current_scope": "One right-facing neutral pose per sex; bare, equipped and optional hammer variants"
+  },
+  "animation": {
+    "frame_order": [
+      "neutral"
+    ],
+    "looping": false
+  },
+  "runtime_export": {
+    "status": "not_integrated",
+    "mode": "layered_authoring_assets",
+    "manifest": "character.json",
+    "sampler": "nearest",
+    "mipmaps": false
+  },
+  "generation": {
+    "tool": "built-in image_gen",
+    "final_prompts": "../source/prompts.json",
+    "registration": "qa/coverage-report.json",
+    "ownership": "source/ownership.json",
+    "quality_revision": "NPC body line/material references; independently registered gloves; coherent revision-3 facial details and original closed smile; local male jaw/neck repair; clothes, hands and equipment preserved",
+    "head_revision_prompts": "../source/revision-3/prompts.json",
+    "glove_registration": "source/glove-registration.json",
+    "revision_prompts": "../source/revision-1/prompts.json"
+  },
+  "authoring_canvas_px": [
+    96,
+    128
+  ],
+  "base_offset_px": [
+    16,
+    16
+  ]
+}

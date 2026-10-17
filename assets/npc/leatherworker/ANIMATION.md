@@ -22,7 +22,7 @@ The built-in image_gen sources and exact prompts are preserved in `source/animat
 
 Glove source plates are separate. Their leather pixels are restricted to the corresponding bare hand/wrist silhouette and hand region, preventing background or shirt fragments from entering the glove layer. The generated give-glove plate contains a background despite the transparent request; only its hand colors are consumed through the bare-hand mask. Arm foreground layers provide correct ordering over apron/belt. Every pose has a full body underneath removable equipment.
 
-Soles align at native y=124. Shirt, shoulders, arms, head and equipment move by rigid integer translations. Only trouser hip rows 71..82 absorb the difference between upper-body and foot registration; calves and boots retain their source rows. Resampling the whole torso previously duplicated contour pixels, and a neck-width clipping mask erased shoulder edges. Both operations have been removed. The hide follows its hand socket and remains in front of the lower grip.
+Soles align at authoring y=124, animation y=140. Shirt, shoulders, arms, head and equipment move by rigid integer translations. Only trouser hip rows 71..82 absorb the difference between upper-body and foot registration; calves and boots retain their source rows. Resampling the whole torso previously duplicated contour pixels, and a neck-width clipping mask erased shoulder edges. Both operations have been removed. The hide follows its hand socket and remains in front of the lower grip.
 
 At the source-head replacement boundary, disconnected source-hair fragments in rows 45..48 are excluded using 8-connected occupancy from the shirt. The connected shoulder contour is retained; this is not a width or brightness cutoff.
 
@@ -44,7 +44,7 @@ Exact built-in image_gen prompts, full and blank candidates, registration and th
 
 ## Atlas and checks
 
-`atlas.png` is a 512×496 authoring export, 25 sprite IDs with 24 unique payloads. Baked frames are packed deterministically with trim offsets, original 96×128 size, pivot `(48,124)`, no rotation, 1px extrusion and 1px transparent gutter. The atlas is generated from composed parts rather than image_gen. The duplicate half-blink/relaxed image shares a rect while keeping separate state IDs.
+`atlas.png` is a 512×496 authoring export, 25 sprite IDs with 24 unique payloads. Baked frames are packed deterministically with trim offsets, original 128×160 animation size, pivot `(64,140)`, no rotation, 1px extrusion and 1px transparent gutter. The atlas is generated from composed parts rather than image_gen. The duplicate half-blink/relaxed image shares a rect while keeping separate state IDs.
 
 This is not integrated into the existing game catalog. Its trim/state/face-channel contract needs an adapter before runtime use. GPU draw calls, overdraw and device compression support are not measured. RGBA8 base texture allocation is 1,015,808 bytes; PNG file size is a separate metric. Static sprite audit and explicit extrusion/gutter checks pass without implying a runtime performance improvement.
 
@@ -59,3 +59,7 @@ Verification checks shared dimensions/palette/binary alpha, distinct eye/mouth s
 `qa/playback-report.json` records actual requestAnimationFrame playback in an isolated headless Chrome preview. All six walking keys were captured in eight combinations of 1×/4× scale, bare/equipped, and normal/0.25× speed; other gesture/face clips were replayed as well. All 48 browser captures are checked pixel-for-pixel against the corresponding native frame with its background and exact nearest scale. GIF pixels and frame times are also checked. The captures provide visual evidence separately from static source sheets and timing/order checks. This previews the authoring images, not the Bevy game renderer.
 
 The outline revision also captures all 16 nod/shake-head/give keys during bare-body 4× playback at 0.25× speed and compares their rendered pixels. Regression checks preserve raw-source shoulder occupancy, rigid upper-body pixels and approved expression renders. Toward head pixels outside the local neck patch stay unchanged; rebuilt nod/away heads reconstruct their registered complete sources outside the nose cleanup and retain their silhouettes. Both eyes retain sclera and iris. The nod preparation exactly translates approved neutral face parts, and all non-nod frames match the preceding revision.
+
+## Common animation canvas
+
+Frames and pose layers publish on 128×160 with a `(16,16)` offset from the retained 96×128 authoring originals. Sockets, trim offsets and pivots use the expanded coordinates. `scripts/expand-npc-canvas.py` runs after the animation builder; no image is resampled. GIFs and animation HTML use 512×640 at 4×. Diagnostic source crops retain their authoring coordinates. Archived browser captures cover the prior native view; current GIF pixels and crop roundtrips are verified separately.

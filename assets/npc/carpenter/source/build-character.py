@@ -169,27 +169,23 @@ def build():
         [(20,65),(25,65),(28,68),(28,72),(24,73),(21,70)])
     proximal.putalpha(proximal.getchannel('A').point(lambda a:255 if a>=128 else 0))
     base.alpha_composite(proximal)
-    # Use the localized generated hand candidate instead of a simplified mitten.
-    hand_candidate=load('source/generated-hand-repair.png').resize((32,32),Image.Resampling.NEAREST)
-    hand_candidate.putalpha(hand_candidate.getchannel('A').point(lambda a:255 if a>=128 else 0))
-    registered=blank();registered.alpha_composite(native(hand_candidate),(15,58))
-    hand_points=[(10,11),(13,12),(14,13),(17,14),(19,14),(20,15),(21,15),(22,16),
-                 (21,17),(21,18),(22,19),(22,20),(21,21),(20,22),(20,23),(18,24),
-                 (16,24),(15,22),(14,22),(13,20),(12,19),(12,17),(11,16),(10,15),(9,13)]
-    hand=cut(registered,[(x+15,y+58) for x,y in hand_points])
-    save(hand,'source/hand-repair-native.png')
-    base.alpha_composite(hand)
+    # Register the generated closed fist at the supporting glove socket.
+    candidate=native(load('source/support-hand-candidate-native.png'))
+    fist=candidate.crop((13,17,22,27))
+    fist_mask=Image.new('L',fist.size)
+    ImageDraw.Draw(fist_mask).polygon([(0,0),(3,0),(5,1),(6,2),(7,2),(8,3),
+        (8,5),(7,6),(7,7),(5,9),(2,9),(1,7),(0,5)],fill=255)
+    fist.putalpha(fist_mask)
     bd=ImageDraw.Draw(base)
-    # Close the exposed inner forearm without changing the approved hand silhouette.
-    for point in [(28,66),(28,68),(28,69),(28,70),(29,71),(30,72),(31,72),(32,72),(33,72)]:
-        assert base.getpixel(point)[3]
-        bd.point(point,fill=c('#281d18'))
-    # Continue the inside wrist curve into the thumb instead of a four-pixel notch.
-    bd.point((29,67),fill=(0,0,0,0))
-    bd.point((28,67),fill=c('#281d18'))
-    bd.line([(28,70),(29,71),(30,71)],fill=c('#ffb574'))
-    bd.line([(30,72),(32,72)],fill=c('#ffb574'))
-    bd.line([(28,69),(29,70),(31,71),(33,72)],fill=c('#281d18'))
+    bd.polygon([(24,66),(28,66),(29,67),(30,68),(32,69),(33,71),
+                (32,74),(29,75),(26,73),(24,70)],fill=c('#fcb573'))
+    bd.line([(28,66),(29,67),(30,68),(32,69),(33,71)],fill=c('#281d18'))
+    bd.line([(24,69),(25,72),(27,74),(29,75)],fill=c('#c67f4c'))
+    base.alpha_composite(fist,(27,69))
+    bd=ImageDraw.Draw(base)
+    bd.line([(26,70),(27,71),(28,72)],fill=c('#fcb573'))
+    save(cut(base,[(24,66),(28,66),(32,69),(35,71),(35,76),(32,79),
+                   (29,79),(26,75),(24,71)]),'source/hand-repair-native.png')
     # Compact curled bare fingers at the actual wooden shaft socket.
     bd.rectangle((74,76,84,86),fill=(0,0,0,0))
     bd.rectangle((73,77,84,86),fill=(0,0,0,0))
@@ -283,6 +279,19 @@ def build():
     # Remove the former glove's isolated finger-colored flecks.
     glove=gear['gloves'];gd=ImageDraw.Draw(glove)
     gd.rectangle((78,78,82,85),fill=(0,0,0,0))
+
+    # Complete only the board underside pixels exposed at the elbow.
+    wood=ImageDraw.Draw(gear['boards'])
+    wood.line([(29,66),(29,67),(30,68),(31,68)],fill=c('#c67f4c'))
+    wood.line([(30,66),(30,67),(31,67)],fill=c('#b36739'))
+    # Remove copied cloth at the glove edge and retain a compact exposed thumb.
+    for y in range(69,81):
+        for x in range(34,38):glove.putpixel((x,y),(0,0,0,0))
+    gd=ImageDraw.Draw(glove)
+    gd.polygon([(32,70),(34,71),(35,73),(35,76),(33,78),(32,78)],fill=c('#754027'))
+    gd.line([(33,70),(34,71),(35,73),(35,76),(33,78)],fill=c('#281d18'))
+    gd.line([(34,72),(36,72),(36,73),(35,74)],fill=c('#281d18'))
+    gd.line([(34,73),(35,73)],fill=c('#fcb573'))
 
     # Separate features without cutting alpha holes in the face.
     eyes=blank();mouth=blank();head=blank();upper=blank();lower=blank()

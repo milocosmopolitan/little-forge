@@ -1,12 +1,12 @@
 {
   "version": 1,
   "canvas": [
-    96,
-    128
+    128,
+    160
   ],
   "foot": [
-    48,
-    124
+    64,
+    140
   ],
   "duration_unit": "ms",
   "root_motion": false,
@@ -370,5 +370,13 @@
         }
       ]
     }
-  }
+  },
+  "foot_anchor_px": [
+    64,
+    140
+  ],
+  "base_offset_px": [
+    16,
+    16
+  ]
 }

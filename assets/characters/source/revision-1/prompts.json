@@ -1,0 +1,16 @@
+[
+  {
+    "id": "female-body-line-quality",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Image1 is the exact FEMALE PLAYER to refine, Image2 is ONLY the NPC pixel-line/material quality target. Preserve Image1's exact96x128-native tile, character position and same pose, complete copper ponytail hairstyle, facial proportions, eyes, mouth, blush, overall body build, limb silhouette, wrist/finger positions and foot soles at native y124. Do not redesign or resize any face/head or move hands. Refine ONLY the shirt, bare arms/hands, trousers and boots: crisp deliberate native1px near-black outside contours, continuous shoulder/cuff boundaries, clean readable finger clusters and knuckles, shaped shirt folds and collar seams, material-colored shadows distinct from contour, olive trousers with coherent knee/crotch folds, brown work boots with clearly separated cuffs/straps, neat small brass buckle on near boot, steel toe cap lighting like the original blacksmith. Match the clean NPC density/edge confidence of Image2 while retaining this player's existing clothing. Remove isolated noise, cloudy/muddy shading, thick doubled black bands and broken outline pixels. NO global thinning. No apron, gloves, belt/tools, hat or new accessories. Keep all bare hands complete and empty. Same full-body96x128-native layout shown at4x, transparent background. Exact current location, no zoom, recenter, auto-fit, crop or ground shadow. Pixel clusters only, no blur or antialiasing. The head and face are locked and must be unchanged.",
+    "saved": "female-body-lines.png",
+    "style_reference": "../../../npc/leatherworker/previews/neutral-4x.png"
+  },
+  {
+    "id": "male-body-line-quality",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Image1 is the exact MALE PLAYER to refine; Image2 is ONLY the established NPC pixel-line/material quality target. Preserve Image1's exact96x128-native tile layout, character location and pose, chestnut spiky hairstyle, facial proportions/eyes/mouth/blush and sturdy body. All wrist, finger, shoulder, waist and sole positions (native foot y124) stay unchanged. The head/face are LOCKED. Refine ONLY cream rolled-sleeve shirt, bare arms/hands, olive trousers, brown boots: clean continuous native1px near-black exterior contours and cuff/neck seams; readable fingers/thumb/knuckles; deliberate small shirt folds and collar detail; separate warm material shadows without doubled black bands; coherent crotch and knee folds; boots with defined leather cuffs/straps, small brass buckle on near boot, steel toe-cap reflections. Match Image2 NPC's crisp confident line density and material detail, while retaining this player's exact simple clothes, not Image2's apron. No muddy/cloudy shading, isolated noisy pixels, excessive jagged contours, holes or cut wrists. No global erosion/thinning. No apron, gloves, belt/tools, headband, extra accessories, prop, ground or shadow. Complete bare hands empty. Actual transparent background. Same96x128 tile displayed4x, no zoom/recenter/crop/fit or body/head resizing. Pixel clusters only, no blur or antialiasing.",
+    "saved": "male-body-lines.png",
+    "style_reference": "../../../npc/carpenter/neutral.png"
+  }
+]

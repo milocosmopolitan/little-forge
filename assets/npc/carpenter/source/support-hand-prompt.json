@@ -1,0 +1,23 @@
+{
+  "mode": "built-in image_gen",
+  "use_case": "precise-object-edit",
+  "input_target": "32x32 supporting-arm crop (16,55,48,87), nearest 16x",
+  "reference": "original equipped supporting arm",
+  "request": "Compact anatomically readable closed supporting fist, bent thumb across top, rounded knuckles, restrained finger fold; preserve sleeve, shirt, warm skin and dark native outline; continuous wrist, transparent background. No gloves or boards.",
+  "candidate": "source/support-hand-candidate.png",
+  "adoption": {
+    "native_candidate": "source/support-hand-candidate-native.png",
+    "crop": [
+      13,
+      17,
+      22,
+      27
+    ],
+    "paste": [
+      27,
+      69
+    ],
+    "scope": "fist only; native elbow/wrist seam, board underside and glove-edge cleanup in build-character.py"
+  },
+  "prompt": "Use case: precise-object-edit. Edit image 1 ONLY: native 32x32 pixel-art crop displayed at 512x512 (16x nearest). Image 2 shows same pose with boards and fingerless leather glove, reference only. Repair the bare supporting forearm and hand in image 1 to match the small compact clenched supporting fist location in image 2. Elbow is at left middle; forearm runs down-right; fist turns inward right at lower middle, supporting boards when equipped. Current dangling long malformed fingers must become a compact anatomically readable fist with one bent thumb across top, rounded knuckles and a single restrained finger fold, no spread fingers. Keep sleeve and cream shirt exactly, arm skin warm orange, dark brown single native pixel outline. Bring fist upwards slightly and shorten it, wrist substantial continuous thickness without notches. Fill missing skin just below inner elbow so forearm is continuous. No gloves, no boards, no equipment in output. Preserve exact crop, exact pixel grid and shirt, no resizing or new layout. Transparent background where no body. Return edited crop only."
+}

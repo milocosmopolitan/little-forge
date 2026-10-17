@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "byte_identical_files": 384,
+  "byte_identical_files": 386,
   "entrypoints": [
     "source/build-animation.py",
     "source/build-character.py"

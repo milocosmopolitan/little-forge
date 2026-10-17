@@ -130,3 +130,11 @@ generation:
   nod_consistency_prompts: source/nod-consistency/prompts.json
   nod_consistency_registration: source/nod-consistency/registration.json
   build_all: source/build-all.mjs
+
+# Shared animation canvas
+pose_canvas:
+  grid: B
+  canvas_cells: [8, 10]
+  native_canvas_px: [128, 160]
+  base_offset_px: [16, 16]
+  foot_anchor_px: [64, 140]

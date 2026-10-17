@@ -94,11 +94,17 @@ def verify():
             tool=load(poses[name]['equipment']['mallet'])
             assert pixels(tool)==pixels(expected),f'Tool angle or gripping gap changed: {name}'
             assert sum(p[3]>0 for p in tool.getdata())==sum(p[3]>0 for p in original_tool.getdata()),f'Tool clipped: {name}'
+    # Supporting anatomy stays fixed while the opposite arm or head moves.
     for n in animation['frames']:
-        im=load(f'frames/base/{n}.png')
-        for x,y in [(28,66),(28,67),(28,68),(28,69),(29,70),(30,71),(31,71),(32,72),(33,72)]:
-            p=im.getpixel((x+16,y+16))
-            assert p[3] and max(p[:3])<115,f'Interrupted inner forearm contour: {n}'
+        for prefix,reference in [('frames/base',load('base-neutral.png')),('frames',load('neutral.png'))]:
+            im=load(f'{prefix}/{n}.png')
+            for y in range(66,83):
+                for x in range(24,38):
+                    actual=im.getpixel((x+16,y+16));expected=reference.getpixel((x,y))
+                    assert actual[3]==expected[3] and (not expected[3] or actual==expected),f'Supporting hand changed: {n}'
+        im=load(f'frames/{n}.png')
+        for x,y in [(29,66),(29,67),(29,68),(30,68),(31,68)]:
+            assert im.getpixel((x+16,y+16))[3]==255,f'Gap between board and forearm: {n}'
     page=load('atlas.png');assert max(page.size)<=2048 and page.width%16==page.height%16==0
     rects=[]
     for sprite in manifest['sprites']:

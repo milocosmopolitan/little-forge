@@ -27,16 +27,16 @@
         119
       ],
       "source_size": [
-        96,
-        128
+        128,
+        160
       ],
       "trim_offset": [
-        14,
-        6
+        30,
+        22
       ],
       "pivot": [
-        48,
-        124
+        64,
+        140
       ],
       "source": "frames/blink.png",
       "rotated": false
@@ -51,16 +51,16 @@
         119
       ],
       "source_size": [
-        96,
-        128
+        128,
+        160
       ],
       "trim_offset": [
-        14,
-        6
+        30,
+        22
       ],
       "pivot": [
-        48,
-        124
+        64,
+        140
       ],
       "source": "frames/blink-half.png",
       "rotated": false
@@ -75,16 +75,16 @@
         119
       ],
       "source_size": [
-        96,
-        128
+        128,
+        160
       ],
       "trim_offset": [
-        14,
-        6
+        30,
+        22
       ],
       "pivot": [
-        48,
-        124
+        64,
+        140
       ],
       "source": "frames/give-extended.png",
       "rotated": false
@@ -99,16 +99,16 @@
         119
       ],
       "source_size": [
-        96,
-        128
+        128,
+        160
       ],
       "trim_offset": [
-        14,
-        6
+        30,
+        22
       ],
       "pivot": [
-        48,
-        124
+        64,
+        140
       ],
       "source": "frames/give-mid.png",
       "rotated": false
@@ -123,16 +123,16 @@
         119
       ],
       "source_size": [
-        96,
-        128
+        128,
+        160
       ],
       "trim_offset": [
-        14,
-        6
+        30,
+        22
       ],
       "pivot": [
-        48,
-        124
+        64,
+        140
       ],
       "source": "frames/happy.png",
       "rotated": false
@@ -147,16 +147,16 @@
         119
       ],
       "source_size": [
-        96,
-        128
+        128,
+        160
       ],
       "trim_offset": [
-        14,
-        6
+        30,
+        22
       ],
       "pivot": [
-        48,
-        124
+        64,
+        140
       ],
       "source": "frames/neutral.png",
       "rotated": false
@@ -171,16 +171,16 @@
         117
       ],
       "source_size": [
-        96,
-        128
+        128,
+        160
       ],
       "trim_offset": [
-        14,
-        8
+        30,
+        24
       ],
       "pivot": [
-        48,
-        124
+        64,
+        140
       ],
       "source": "frames/nod-down.png",
       "rotated": false
@@ -195,16 +195,16 @@
         118
       ],
       "source_size": [
-        96,
-        128
+        128,
+        160
       ],
       "trim_offset": [
-        14,
-        7
+        30,
+        23
       ],
       "pivot": [
-        48,
-        124
+        64,
+        140
       ],
       "source": "frames/nod-mid.png",
       "rotated": false
@@ -219,16 +219,16 @@
         119
       ],
       "source_size": [
-        96,
-        128
+        128,
+        160
       ],
       "trim_offset": [
-        14,
-        6
+        30,
+        22
       ],
       "pivot": [
-        48,
-        124
+        64,
+        140
       ],
       "source": "frames/relaxed.png",
       "rotated": false
@@ -243,16 +243,16 @@
         119
       ],
       "source_size": [
-        96,
-        128
+        128,
+        160
       ],
       "trim_offset": [
-        14,
-        6
+        30,
+        22
       ],
       "pivot": [
-        48,
-        124
+        64,
+        140
       ],
       "source": "frames/surprised.png",
       "rotated": false
@@ -267,16 +267,16 @@
         119
       ],
       "source_size": [
-        96,
-        128
+        128,
+        160
       ],
       "trim_offset": [
-        14,
-        6
+        30,
+        22
       ],
       "pivot": [
-        48,
-        124
+        64,
+        140
       ],
       "source": "frames/talk-blink.png",
       "rotated": false
@@ -291,16 +291,16 @@
         119
       ],
       "source_size": [
-        96,
-        128
+        128,
+        160
       ],
       "trim_offset": [
-        14,
-        6
+        30,
+        22
       ],
       "pivot": [
-        48,
-        124
+        64,
+        140
       ],
       "source": "frames/talk-round.png",
       "rotated": false
@@ -315,16 +315,16 @@
         119
       ],
       "source_size": [
-        96,
-        128
+        128,
+        160
       ],
       "trim_offset": [
-        14,
-        6
+        30,
+        22
       ],
       "pivot": [
-        48,
-        124
+        64,
+        140
       ],
       "source": "frames/talk-small.png",
       "rotated": false
@@ -339,16 +339,16 @@
         119
       ],
       "source_size": [
-        96,
-        128
+        128,
+        160
       ],
       "trim_offset": [
-        14,
-        6
+        30,
+        22
       ],
       "pivot": [
-        48,
-        124
+        64,
+        140
       ],
       "source": "frames/talk-wide.png",
       "rotated": false
@@ -363,16 +363,16 @@
         119
       ],
       "source_size": [
-        96,
-        128
+        128,
+        160
       ],
       "trim_offset": [
-        15,
-        6
+        31,
+        22
       ],
       "pivot": [
-        48,
-        124
+        64,
+        140
       ],
       "source": "frames/turn-away.png",
       "rotated": false
@@ -387,16 +387,16 @@
         119
       ],
       "source_size": [
-        96,
-        128
+        128,
+        160
       ],
       "trim_offset": [
-        13,
-        6
+        29,
+        22
       ],
       "pivot": [
-        48,
-        124
+        64,
+        140
       ],
       "source": "frames/turn-toward.png",
       "rotated": false
@@ -411,16 +411,16 @@
         119
       ],
       "source_size": [
-        96,
-        128
+        128,
+        160
       ],
       "trim_offset": [
-        14,
-        6
+        30,
+        22
       ],
       "pivot": [
-        48,
-        124
+        64,
+        140
       ],
       "source": "frames/walk-0.png",
       "rotated": false
@@ -435,16 +435,16 @@
         118
       ],
       "source_size": [
-        96,
-        128
+        128,
+        160
       ],
       "trim_offset": [
-        14,
-        7
+        30,
+        23
       ],
       "pivot": [
-        48,
-        124
+        64,
+        140
       ],
       "source": "frames/walk-1.png",
       "rotated": false
@@ -459,16 +459,16 @@
         119
       ],
       "source_size": [
-        96,
-        128
+        128,
+        160
       ],
       "trim_offset": [
-        14,
-        6
+        30,
+        22
       ],
       "pivot": [
-        48,
-        124
+        64,
+        140
       ],
       "source": "frames/walk-2.png",
       "rotated": false
@@ -483,16 +483,16 @@
         119
       ],
       "source_size": [
-        96,
-        128
+        128,
+        160
       ],
       "trim_offset": [
-        14,
-        6
+        30,
+        22
       ],
       "pivot": [
-        48,
-        124
+        64,
+        140
       ],
       "source": "frames/walk-3.png",
       "rotated": false
@@ -507,16 +507,16 @@
         118
       ],
       "source_size": [
-        96,
-        128
+        128,
+        160
       ],
       "trim_offset": [
-        14,
-        7
+        30,
+        23
       ],
       "pivot": [
-        48,
-        124
+        64,
+        140
       ],
       "source": "frames/walk-4.png",
       "rotated": false
@@ -531,16 +531,16 @@
         119
       ],
       "source_size": [
-        96,
-        128
+        128,
+        160
       ],
       "trim_offset": [
-        14,
-        6
+        30,
+        22
       ],
       "pivot": [
-        48,
-        124
+        64,
+        140
       ],
       "source": "frames/walk-5.png",
       "rotated": false

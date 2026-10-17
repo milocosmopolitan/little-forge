@@ -1,0 +1,40 @@
+{
+  "canvas": [
+    96,
+    128
+  ],
+  "pivot": [
+    48,
+    124
+  ],
+  "sampler": "nearest",
+  "mipmaps": false,
+  "base": [
+    "body/lower-base.png",
+    "body/upper-base.png",
+    "head-base.png",
+    "eyes/open.png",
+    "mouth/rest.png"
+  ],
+  "equipped": [
+    "equipment/apron.png",
+    "equipment/belt-tools.png",
+    "equipment/towel.png",
+    "body/arms-front.png",
+    "equipment/gloves.png",
+    "equipment/headband.png"
+  ],
+  "optional_prop": "props/hammer.png",
+  "states": {
+    "base": "base-neutral.png",
+    "neutral": "neutral.png",
+    "with_hammer": "neutral-with-hammer.png"
+  },
+  "animation": {
+    "frames": [
+      "neutral"
+    ],
+    "loop": false
+  },
+  "runtime_integration": false
+}

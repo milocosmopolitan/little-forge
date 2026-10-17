@@ -457,16 +457,16 @@
     {
       "id": "farmer_runtime_atlas",
       "path": "npc/farmer/runtime-atlas.png",
-      "width": 384,
-      "height": 768,
+      "width": 512,
+      "height": 960,
       "columns": 4,
       "rows": 6,
       "alpha": true,
       "anchor": [
         0.5,
-        0.96875
+        0.875
       ],
-      "sha256": "19f69e4deac60c0045fc996ca0db16fb9a508a69b442047378b1caecb7c3b6bc"
+      "sha256": "aad303118c1d984d925dbcd4c271f3168d895e7c6ab96b4a6a8af1c69b000ac0"
     },
     {
       "id": "farmer_carrot",

@@ -1,0 +1,5 @@
+{
+  "status": "pass",
+  "production_files_identical": 267,
+  "entrypoint": "source/build-all.mjs"
+}

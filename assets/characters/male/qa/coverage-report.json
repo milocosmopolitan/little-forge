@@ -1,0 +1,225 @@
+{
+  "canvas": [
+    128,
+    160
+  ],
+  "foot_anchor": [
+    64,
+    140
+  ],
+  "palette_colors": 79,
+  "foundation_lost_pixels": {
+    "base": 0,
+    "neutral": 0,
+    "full": 0
+  },
+  "layer_bounds": {
+    "head-base.png": {
+      "bbox": [
+        38,
+        24,
+        82,
+        65
+      ],
+      "pixels": 1345
+    },
+    "body/upper-base.png": {
+      "bbox": [
+        30,
+        64,
+        86,
+        111
+      ],
+      "pixels": 1354
+    },
+    "body/lower-base.png": {
+      "bbox": [
+        42,
+        90,
+        86,
+        141
+      ],
+      "pixels": 1391
+    },
+    "body/arms-front.png": {
+      "bbox": [
+        32,
+        81,
+        86,
+        111
+      ],
+      "pixels": 213
+    },
+    "eyes/open.png": {
+      "bbox": [
+        57,
+        45,
+        74,
+        56
+      ],
+      "pixels": 76
+    },
+    "mouth/rest.png": {
+      "bbox": [
+        65,
+        58,
+        69,
+        60
+      ],
+      "pixels": 4
+    },
+    "equipment/apron.png": {
+      "bbox": [
+        48,
+        64,
+        81,
+        119
+      ],
+      "pixels": 1176
+    },
+    "equipment/belt-tools.png": {
+      "bbox": [
+        46,
+        87,
+        78,
+        118
+      ],
+      "pixels": 423
+    },
+    "equipment/gloves.png": {
+      "bbox": [
+        37,
+        86,
+        87,
+        111
+      ],
+      "pixels": 253
+    },
+    "equipment/headband.png": {
+      "bbox": [
+        36,
+        37,
+        66,
+        59
+      ],
+      "pixels": 145
+    },
+    "props/hammer.png": {
+      "bbox": [
+        83,
+        105,
+        99,
+        120
+      ],
+      "pixels": 162
+    },
+    "equipment/towel.png": {
+      "bbox": [
+        71,
+        94,
+        78,
+        113
+      ],
+      "pixels": 81
+    }
+  },
+  "source_registration": {
+    "body": {
+      "source": "../source/revision-1/male-body-lines.png",
+      "sample_step": 11.282051282051283,
+      "sample_origin": [
+        7.461538461538453,
+        0.7435897435897374
+      ]
+    },
+    "face_crop": {
+      "source_cells": [
+        80,
+        68
+      ],
+      "offset": [
+        8,
+        0
+      ],
+      "phase_x": 0,
+      "full_source": "source/revision-3/generated-full.png",
+      "blank_source": "source/revision-3/generated-blank.png",
+      "policy": "One shared transform for head, eyes, mouth and neck; blank adopted only below features"
+    },
+    "glove_source": "../source/generated-gloves.png",
+    "reference_hammer_translation": [
+      -3,
+      3
+    ],
+    "apron_body_target": [
+      32,
+      59,
+      65,
+      103
+    ],
+    "neck_repair": {
+      "head_roi": [
+        37,
+        43,
+        61,
+        49
+      ],
+      "exposed_skin_roi": [
+        39,
+        49,
+        57,
+        56
+      ],
+      "coordinate_system": "authoring"
+    },
+    "authoring_canvas": [
+      96,
+      128
+    ],
+    "published_offset": [
+      16,
+      16
+    ],
+    "gloves": [
+      {
+        "source": [
+          27,
+          66,
+          43,
+          82
+        ],
+        "target": [
+          21,
+          70,
+          37,
+          84
+        ],
+        "uncovered_hand_pixels": 0,
+        "outside_two_pixel_hand_margin": 4
+      },
+      {
+        "source": [
+          64,
+          77,
+          76,
+          95
+        ],
+        "target": [
+          59,
+          80,
+          71,
+          95
+        ],
+        "uncovered_hand_pixels": 0,
+        "outside_two_pixel_hand_margin": 0
+      }
+    ]
+  },
+  "source_eye_feature_pixels": 76,
+  "source_mouth_feature_pixels": 4,
+  "runtime_integration": "not_integrated",
+  "base_offset_px": [
+    16,
+    16
+  ]
+}

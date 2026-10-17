@@ -26,603 +26,603 @@
     },
     {
       "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/blink.png",
-      "disk_bytes": 12539,
+      "disk_bytes": 11349,
       "size": [
-        96,
-        128
+        128,
+        160
       ],
       "alpha_bbox_xyxy": [
-        16,
-        7,
-        88,
-        125
+        32,
+        23,
+        104,
+        141
       ],
       "visible_pixels": 5335,
-      "transparent_fraction": 0.5658365885416667,
+      "transparent_fraction": 0.739501953125,
       "partial_alpha_pixels": 0,
       "visible_rgb_colors": 79,
-      "trim_rect_area_fraction": 0.69140625,
-      "visible_rgba_sha256": "09d55985bbdf684c4c393daa89608c392bd2136589cfae6aaa2224e8fe09c68e",
-      "rgba8_base_bytes": 49152,
+      "trim_rect_area_fraction": 0.41484375,
+      "visible_rgba_sha256": "c7e8169d6547080a272b91f09d8d577c853e1930f546a532a9e2cb89d4fc21aa",
+      "rgba8_base_bytes": 81920,
       "selected_format": "rgba8",
-      "selected_format_base_bytes": 49152,
-      "selected_format_full_mip_chain_bytes": 65532
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
     },
     {
       "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/blink-half.png",
-      "disk_bytes": 12599,
+      "disk_bytes": 11397,
       "size": [
-        96,
-        128
+        128,
+        160
       ],
       "alpha_bbox_xyxy": [
-        16,
-        7,
-        88,
-        125
+        32,
+        23,
+        104,
+        141
       ],
       "visible_pixels": 5335,
-      "transparent_fraction": 0.5658365885416667,
+      "transparent_fraction": 0.739501953125,
       "partial_alpha_pixels": 0,
       "visible_rgb_colors": 79,
-      "trim_rect_area_fraction": 0.69140625,
-      "visible_rgba_sha256": "16f29eaac671e408cb37a6b438552be8337c05ad0bc79d37a2d5f38a547eb1da",
-      "rgba8_base_bytes": 49152,
+      "trim_rect_area_fraction": 0.41484375,
+      "visible_rgba_sha256": "f5ddcd0351463bb2a7dfc927ff02cbff3058fc97cd363b47bf44cad27ffa7d52",
+      "rgba8_base_bytes": 81920,
       "selected_format": "rgba8",
-      "selected_format_base_bytes": 49152,
-      "selected_format_full_mip_chain_bytes": 65532
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
     },
     {
       "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/give-extended.png",
-      "disk_bytes": 12188,
+      "disk_bytes": 11074,
       "size": [
-        96,
-        128
+        128,
+        160
       ],
       "alpha_bbox_xyxy": [
-        16,
-        7,
-        95,
-        125
+        32,
+        23,
+        111,
+        141
       ],
       "visible_pixels": 5144,
-      "transparent_fraction": 0.5813802083333333,
+      "transparent_fraction": 0.748828125,
       "partial_alpha_pixels": 0,
       "visible_rgb_colors": 79,
-      "trim_rect_area_fraction": 0.7586263020833334,
-      "visible_rgba_sha256": "ac44e4c5d116a704b0f45412088128ccec8a2cc8697cd71b2299a1cd386d46de",
-      "rgba8_base_bytes": 49152,
+      "trim_rect_area_fraction": 0.45517578125,
+      "visible_rgba_sha256": "f4c82d16b6ef8b005188dbc46652e7ba08244c94c693cfd1f2005ba0be9c0327",
+      "rgba8_base_bytes": 81920,
       "selected_format": "rgba8",
-      "selected_format_base_bytes": 49152,
-      "selected_format_full_mip_chain_bytes": 65532
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
     },
     {
       "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/give-extended-empty.png",
-      "disk_bytes": 10763,
+      "disk_bytes": 9806,
       "size": [
-        96,
-        128
+        128,
+        160
       ],
       "alpha_bbox_xyxy": [
-        16,
-        7,
-        87,
-        125
+        32,
+        23,
+        103,
+        141
       ],
       "visible_pixels": 4475,
-      "transparent_fraction": 0.6358235677083333,
+      "transparent_fraction": 0.781494140625,
       "partial_alpha_pixels": 0,
       "visible_rgb_colors": 79,
-      "trim_rect_area_fraction": 0.6818033854166666,
-      "visible_rgba_sha256": "859eb388164223159b000c926b09a5d04b38ee3633724836f2e7028728f052e8",
-      "rgba8_base_bytes": 49152,
+      "trim_rect_area_fraction": 0.40908203125,
+      "visible_rgba_sha256": "4bd11b4931e987d375d24f66918475e3e098039fa27789f3368ea80c7b07e11d",
+      "rgba8_base_bytes": 81920,
       "selected_format": "rgba8",
-      "selected_format_base_bytes": 49152,
-      "selected_format_full_mip_chain_bytes": 65532
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
     },
     {
       "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/give-mid.png",
-      "disk_bytes": 12101,
+      "disk_bytes": 10935,
       "size": [
-        96,
-        128
+        128,
+        160
       ],
       "alpha_bbox_xyxy": [
-        16,
-        7,
-        92,
-        125
+        32,
+        23,
+        108,
+        141
       ],
       "visible_pixels": 5129,
-      "transparent_fraction": 0.5826009114583333,
+      "transparent_fraction": 0.749560546875,
       "partial_alpha_pixels": 0,
       "visible_rgb_colors": 78,
-      "trim_rect_area_fraction": 0.7298177083333334,
-      "visible_rgba_sha256": "ccb046b49d84415d2b5da35a8d8ba0c1c76c725bfc1dd095beb87b943aa4bf64",
-      "rgba8_base_bytes": 49152,
+      "trim_rect_area_fraction": 0.437890625,
+      "visible_rgba_sha256": "7370835b420ff3394b348d3e9851fdde9525e13e1ba562a7129e02c58e1e2536",
+      "rgba8_base_bytes": 81920,
       "selected_format": "rgba8",
-      "selected_format_base_bytes": 49152,
-      "selected_format_full_mip_chain_bytes": 65532
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
     },
     {
       "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/give-mid-empty.png",
-      "disk_bytes": 10657,
+      "disk_bytes": 9697,
       "size": [
-        96,
-        128
+        128,
+        160
       ],
       "alpha_bbox_xyxy": [
-        16,
-        7,
-        84,
-        125
+        32,
+        23,
+        100,
+        141
       ],
       "visible_pixels": 4461,
-      "transparent_fraction": 0.636962890625,
+      "transparent_fraction": 0.782177734375,
       "partial_alpha_pixels": 0,
       "visible_rgb_colors": 78,
-      "trim_rect_area_fraction": 0.6529947916666666,
-      "visible_rgba_sha256": "2693870149d4d7b6861c3ca63ad67f39161a12d75576359aecfd588dcc1936bb",
-      "rgba8_base_bytes": 49152,
+      "trim_rect_area_fraction": 0.391796875,
+      "visible_rgba_sha256": "67aaa4a8de7d62c0c846ffad44d1a33d2ec2687acd986dd690914145f468857d",
+      "rgba8_base_bytes": 81920,
       "selected_format": "rgba8",
-      "selected_format_base_bytes": 49152,
-      "selected_format_full_mip_chain_bytes": 65532
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
     },
     {
       "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/happy.png",
-      "disk_bytes": 12537,
+      "disk_bytes": 11350,
       "size": [
-        96,
-        128
+        128,
+        160
       ],
       "alpha_bbox_xyxy": [
-        16,
-        7,
-        88,
-        125
+        32,
+        23,
+        104,
+        141
       ],
       "visible_pixels": 5335,
-      "transparent_fraction": 0.5658365885416667,
+      "transparent_fraction": 0.739501953125,
       "partial_alpha_pixels": 0,
       "visible_rgb_colors": 79,
-      "trim_rect_area_fraction": 0.69140625,
-      "visible_rgba_sha256": "04ac5adba5b56e5dba7ac575d46919e7ea8584e122adf0ab2afe824626f48f99",
-      "rgba8_base_bytes": 49152,
+      "trim_rect_area_fraction": 0.41484375,
+      "visible_rgba_sha256": "40a769fb46478def9dfcbf02d0e03f7cb6147ea76f2a14cf3d63b2980616559e",
+      "rgba8_base_bytes": 81920,
       "selected_format": "rgba8",
-      "selected_format_base_bytes": 49152,
-      "selected_format_full_mip_chain_bytes": 65532
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
     },
     {
       "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/neutral.png",
-      "disk_bytes": 12651,
+      "disk_bytes": 11452,
       "size": [
-        96,
-        128
+        128,
+        160
       ],
       "alpha_bbox_xyxy": [
-        16,
-        7,
-        88,
-        125
+        32,
+        23,
+        104,
+        141
       ],
       "visible_pixels": 5335,
-      "transparent_fraction": 0.5658365885416667,
+      "transparent_fraction": 0.739501953125,
       "partial_alpha_pixels": 0,
       "visible_rgb_colors": 79,
-      "trim_rect_area_fraction": 0.69140625,
-      "visible_rgba_sha256": "3081575f7da66b52f1464686f04fdcbbd584fabcf861a09741a4a5e1c323d56a",
-      "rgba8_base_bytes": 49152,
+      "trim_rect_area_fraction": 0.41484375,
+      "visible_rgba_sha256": "18fc3b11ee1747fa4b6b6cdc6fb4d967724f2a9e639b9a5743c2902cc3b28fa8",
+      "rgba8_base_bytes": 81920,
       "selected_format": "rgba8",
-      "selected_format_base_bytes": 49152,
-      "selected_format_full_mip_chain_bytes": 65532
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
     },
     {
       "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/neutral-no-prop.png",
-      "disk_bytes": 11265,
+      "disk_bytes": 10279,
       "size": [
-        96,
-        128
+        128,
+        160
       ],
       "alpha_bbox_xyxy": [
-        16,
-        7,
-        80,
-        125
+        32,
+        23,
+        96,
+        141
       ],
       "visible_pixels": 4708,
-      "transparent_fraction": 0.6168619791666667,
+      "transparent_fraction": 0.7701171875,
       "partial_alpha_pixels": 0,
       "visible_rgb_colors": 79,
-      "trim_rect_area_fraction": 0.6145833333333334,
-      "visible_rgba_sha256": "c1efe5d1033f1272c0eb80cb0937d420292d3707c29c586e17cd7b3d62dfc8d8",
-      "rgba8_base_bytes": 49152,
+      "trim_rect_area_fraction": 0.36875,
+      "visible_rgba_sha256": "058f3045fd4daf7e26a4ee736e67664459b1b2764e2664afebcb0e2ba9530c35",
+      "rgba8_base_bytes": 81920,
       "selected_format": "rgba8",
-      "selected_format_base_bytes": 49152,
-      "selected_format_full_mip_chain_bytes": 65532
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
     },
     {
       "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/nod-down.png",
-      "disk_bytes": 12497,
+      "disk_bytes": 11193,
       "size": [
-        96,
-        128
+        128,
+        160
       ],
       "alpha_bbox_xyxy": [
-        16,
-        8,
-        88,
-        125
+        32,
+        24,
+        104,
+        141
       ],
       "visible_pixels": 5259,
-      "transparent_fraction": 0.572021484375,
+      "transparent_fraction": 0.743212890625,
       "partial_alpha_pixels": 0,
       "visible_rgb_colors": 77,
-      "trim_rect_area_fraction": 0.685546875,
-      "visible_rgba_sha256": "fd1fdbbc662d57fb0a2785feb25f4f2fe6181f823852b16a437638f55961497b",
-      "rgba8_base_bytes": 49152,
+      "trim_rect_area_fraction": 0.411328125,
+      "visible_rgba_sha256": "0f3b230db14fa6b8a0ce83b4155b94e6bccace641944ba7dcb445167957a7780",
+      "rgba8_base_bytes": 81920,
       "selected_format": "rgba8",
-      "selected_format_base_bytes": 49152,
-      "selected_format_full_mip_chain_bytes": 65532
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
     },
     {
       "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/nod-mid.png",
-      "disk_bytes": 12626,
+      "disk_bytes": 11425,
       "size": [
-        96,
-        128
+        128,
+        160
       ],
       "alpha_bbox_xyxy": [
-        16,
-        8,
-        88,
-        125
+        32,
+        24,
+        104,
+        141
       ],
       "visible_pixels": 5318,
-      "transparent_fraction": 0.5672200520833333,
+      "transparent_fraction": 0.74033203125,
       "partial_alpha_pixels": 0,
       "visible_rgb_colors": 79,
-      "trim_rect_area_fraction": 0.685546875,
-      "visible_rgba_sha256": "17587811d83c5bcd46463652f5de9b67b510f12c7ec888e05297cae3fc930c02",
-      "rgba8_base_bytes": 49152,
+      "trim_rect_area_fraction": 0.411328125,
+      "visible_rgba_sha256": "900e128aab857f05e9d7438544070c69b651ce234466f890c11a5c5b7ce8544c",
+      "rgba8_base_bytes": 81920,
       "selected_format": "rgba8",
-      "selected_format_base_bytes": 49152,
-      "selected_format_full_mip_chain_bytes": 65532
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
     },
     {
       "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/relaxed.png",
-      "disk_bytes": 12599,
+      "disk_bytes": 11397,
       "size": [
-        96,
-        128
+        128,
+        160
       ],
       "alpha_bbox_xyxy": [
-        16,
-        7,
-        88,
-        125
+        32,
+        23,
+        104,
+        141
       ],
       "visible_pixels": 5335,
-      "transparent_fraction": 0.5658365885416667,
+      "transparent_fraction": 0.739501953125,
       "partial_alpha_pixels": 0,
       "visible_rgb_colors": 79,
-      "trim_rect_area_fraction": 0.69140625,
-      "visible_rgba_sha256": "16f29eaac671e408cb37a6b438552be8337c05ad0bc79d37a2d5f38a547eb1da",
-      "rgba8_base_bytes": 49152,
+      "trim_rect_area_fraction": 0.41484375,
+      "visible_rgba_sha256": "f5ddcd0351463bb2a7dfc927ff02cbff3058fc97cd363b47bf44cad27ffa7d52",
+      "rgba8_base_bytes": 81920,
       "selected_format": "rgba8",
-      "selected_format_base_bytes": 49152,
-      "selected_format_full_mip_chain_bytes": 65532
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
     },
     {
       "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/surprised.png",
-      "disk_bytes": 12607,
+      "disk_bytes": 11397,
       "size": [
-        96,
-        128
+        128,
+        160
       ],
       "alpha_bbox_xyxy": [
-        16,
-        7,
-        88,
-        125
+        32,
+        23,
+        104,
+        141
       ],
       "visible_pixels": 5335,
-      "transparent_fraction": 0.5658365885416667,
+      "transparent_fraction": 0.739501953125,
       "partial_alpha_pixels": 0,
       "visible_rgb_colors": 79,
-      "trim_rect_area_fraction": 0.69140625,
-      "visible_rgba_sha256": "5a93b6d530f92115e67000c1e99b4db482aadc874454c30a6de72ee96034f71f",
-      "rgba8_base_bytes": 49152,
+      "trim_rect_area_fraction": 0.41484375,
+      "visible_rgba_sha256": "7704baded73a45598fb722b4c2ded8279c8f93e03759ff61cc402baa2ade5160",
+      "rgba8_base_bytes": 81920,
       "selected_format": "rgba8",
-      "selected_format_base_bytes": 49152,
-      "selected_format_full_mip_chain_bytes": 65532
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
     },
     {
       "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/talk-blink.png",
-      "disk_bytes": 12527,
+      "disk_bytes": 11347,
       "size": [
-        96,
-        128
+        128,
+        160
       ],
       "alpha_bbox_xyxy": [
-        16,
-        7,
-        88,
-        125
+        32,
+        23,
+        104,
+        141
       ],
       "visible_pixels": 5335,
-      "transparent_fraction": 0.5658365885416667,
+      "transparent_fraction": 0.739501953125,
       "partial_alpha_pixels": 0,
       "visible_rgb_colors": 79,
-      "trim_rect_area_fraction": 0.69140625,
-      "visible_rgba_sha256": "4b4db11772ee02469956cfd6fc3dd29e4ff8a01e35c6988b7acfef360a179f3a",
-      "rgba8_base_bytes": 49152,
+      "trim_rect_area_fraction": 0.41484375,
+      "visible_rgba_sha256": "1887a2ca0b95101f0025067825fd6968216a1a073c5bdf9303c254f976db7ae2",
+      "rgba8_base_bytes": 81920,
       "selected_format": "rgba8",
-      "selected_format_base_bytes": 49152,
-      "selected_format_full_mip_chain_bytes": 65532
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
     },
     {
       "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/talk-round.png",
-      "disk_bytes": 12637,
+      "disk_bytes": 11447,
       "size": [
-        96,
-        128
+        128,
+        160
       ],
       "alpha_bbox_xyxy": [
-        16,
-        7,
-        88,
-        125
+        32,
+        23,
+        104,
+        141
       ],
       "visible_pixels": 5335,
-      "transparent_fraction": 0.5658365885416667,
+      "transparent_fraction": 0.739501953125,
       "partial_alpha_pixels": 0,
       "visible_rgb_colors": 79,
-      "trim_rect_area_fraction": 0.69140625,
-      "visible_rgba_sha256": "414c133fca16e6a040419b2d0fe8b6106a5f8c3d67c23d21cb9feb7b83e908d7",
-      "rgba8_base_bytes": 49152,
+      "trim_rect_area_fraction": 0.41484375,
+      "visible_rgba_sha256": "eded4fa76de4ac561c4b1f13f11c66a434b48158319912e15e4f5b17e4daae48",
+      "rgba8_base_bytes": 81920,
       "selected_format": "rgba8",
-      "selected_format_base_bytes": 49152,
-      "selected_format_full_mip_chain_bytes": 65532
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
     },
     {
       "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/talk-small.png",
-      "disk_bytes": 12636,
+      "disk_bytes": 11443,
       "size": [
-        96,
-        128
+        128,
+        160
       ],
       "alpha_bbox_xyxy": [
-        16,
-        7,
-        88,
-        125
+        32,
+        23,
+        104,
+        141
       ],
       "visible_pixels": 5335,
-      "transparent_fraction": 0.5658365885416667,
+      "transparent_fraction": 0.739501953125,
       "partial_alpha_pixels": 0,
       "visible_rgb_colors": 79,
-      "trim_rect_area_fraction": 0.69140625,
-      "visible_rgba_sha256": "1f69d4e6e2329166eb7185b93bbeedbf943669a5c1bd74d8e123085ddca6711d",
-      "rgba8_base_bytes": 49152,
+      "trim_rect_area_fraction": 0.41484375,
+      "visible_rgba_sha256": "f45925d7a9e8fe97f9f76194843f47fac505061dbecf6d9c6b79dfd40e698858",
+      "rgba8_base_bytes": 81920,
       "selected_format": "rgba8",
-      "selected_format_base_bytes": 49152,
-      "selected_format_full_mip_chain_bytes": 65532
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
     },
     {
       "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/talk-wide.png",
-      "disk_bytes": 12670,
+      "disk_bytes": 11491,
       "size": [
-        96,
-        128
+        128,
+        160
       ],
       "alpha_bbox_xyxy": [
-        16,
-        7,
-        88,
-        125
+        32,
+        23,
+        104,
+        141
       ],
       "visible_pixels": 5335,
-      "transparent_fraction": 0.5658365885416667,
+      "transparent_fraction": 0.739501953125,
       "partial_alpha_pixels": 0,
       "visible_rgb_colors": 79,
-      "trim_rect_area_fraction": 0.69140625,
-      "visible_rgba_sha256": "f1c575d7028ef89dd1b4f2dc5a3e7f6d024cc46c079066c2c7d65d91a75c7621",
-      "rgba8_base_bytes": 49152,
+      "trim_rect_area_fraction": 0.41484375,
+      "visible_rgba_sha256": "85c0550b7af09d16db4e1484c40ff528d3c389f0b347778ef51b926bcf6502a4",
+      "rgba8_base_bytes": 81920,
       "selected_format": "rgba8",
-      "selected_format_base_bytes": 49152,
-      "selected_format_full_mip_chain_bytes": 65532
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
     },
     {
       "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/turn-away.png",
-      "disk_bytes": 12548,
+      "disk_bytes": 11352,
       "size": [
-        96,
-        128
+        128,
+        160
       ],
       "alpha_bbox_xyxy": [
-        16,
-        8,
-        88,
-        125
+        32,
+        24,
+        104,
+        141
       ],
       "visible_pixels": 5296,
-      "transparent_fraction": 0.5690104166666667,
+      "transparent_fraction": 0.74140625,
       "partial_alpha_pixels": 0,
       "visible_rgb_colors": 78,
-      "trim_rect_area_fraction": 0.685546875,
-      "visible_rgba_sha256": "1d7048c76d2e2226c0701c0cbbbbd92dda1ec4abb08ab35736f1b641481022db",
-      "rgba8_base_bytes": 49152,
+      "trim_rect_area_fraction": 0.411328125,
+      "visible_rgba_sha256": "a992ae167bed0d01effd0adff6dcf757ea850a4c4e6994d638b6ce7c6659e84d",
+      "rgba8_base_bytes": 81920,
       "selected_format": "rgba8",
-      "selected_format_base_bytes": 49152,
-      "selected_format_full_mip_chain_bytes": 65532
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
     },
     {
       "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/turn-toward.png",
-      "disk_bytes": 12649,
+      "disk_bytes": 11399,
       "size": [
-        96,
-        128
+        128,
+        160
       ],
       "alpha_bbox_xyxy": [
-        16,
-        8,
-        88,
-        125
+        32,
+        24,
+        104,
+        141
       ],
       "visible_pixels": 5316,
-      "transparent_fraction": 0.5673828125,
+      "transparent_fraction": 0.7404296875,
       "partial_alpha_pixels": 0,
       "visible_rgb_colors": 77,
-      "trim_rect_area_fraction": 0.685546875,
-      "visible_rgba_sha256": "25e42bcd2874a8929eb0fa3f2d3778951795fd4467d9c2b48c74c54a97430a36",
-      "rgba8_base_bytes": 49152,
+      "trim_rect_area_fraction": 0.411328125,
+      "visible_rgba_sha256": "1ade2bdbebb19c6b9b74b5b7e04bdfbd4a7b17793c41fe6ca1ae004be6f63d8a",
+      "rgba8_base_bytes": 81920,
       "selected_format": "rgba8",
-      "selected_format_base_bytes": 49152,
-      "selected_format_full_mip_chain_bytes": 65532
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
     },
     {
       "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/walk-0.png",
-      "disk_bytes": 10830,
+      "disk_bytes": 9940,
       "size": [
-        96,
-        128
+        128,
+        160
       ],
       "alpha_bbox_xyxy": [
-        16,
-        8,
-        80,
-        125
+        32,
+        24,
+        96,
+        141
       ],
       "visible_pixels": 4394,
-      "transparent_fraction": 0.6424153645833333,
+      "transparent_fraction": 0.78544921875,
       "partial_alpha_pixels": 0,
       "visible_rgb_colors": 79,
-      "trim_rect_area_fraction": 0.609375,
-      "visible_rgba_sha256": "9196662bcac28b0554ce72c9136f9a02bd2eacd04c67b8fd60c53212af8f7e08",
-      "rgba8_base_bytes": 49152,
+      "trim_rect_area_fraction": 0.365625,
+      "visible_rgba_sha256": "4bed740a31f5ac6a03e756bf67e953ee5fc0c13982d2e53dbb1dd1d3d1072b44",
+      "rgba8_base_bytes": 81920,
       "selected_format": "rgba8",
-      "selected_format_base_bytes": 49152,
-      "selected_format_full_mip_chain_bytes": 65532
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
     },
     {
       "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/walk-1.png",
-      "disk_bytes": 10518,
+      "disk_bytes": 9612,
       "size": [
-        96,
-        128
+        128,
+        160
       ],
       "alpha_bbox_xyxy": [
-        16,
-        9,
-        74,
-        125
+        32,
+        25,
+        90,
+        141
       ],
       "visible_pixels": 4187,
-      "transparent_fraction": 0.6592610677083333,
+      "transparent_fraction": 0.795556640625,
       "partial_alpha_pixels": 0,
       "visible_rgb_colors": 79,
-      "trim_rect_area_fraction": 0.5475260416666666,
-      "visible_rgba_sha256": "6b2f6f8d9d07b79c3791d56053979547def406e52c7d333dc0d16d263bba5b20",
-      "rgba8_base_bytes": 49152,
+      "trim_rect_area_fraction": 0.328515625,
+      "visible_rgba_sha256": "e16c8efb2930457d79e297d6dbea8dfc34bfaadc7ccc07aa0c5db8ae6aab8626",
+      "rgba8_base_bytes": 81920,
       "selected_format": "rgba8",
-      "selected_format_base_bytes": 49152,
-      "selected_format_full_mip_chain_bytes": 65532
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
     },
     {
       "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/walk-2.png",
-      "disk_bytes": 10779,
+      "disk_bytes": 9876,
       "size": [
-        96,
-        128
+        128,
+        160
       ],
       "alpha_bbox_xyxy": [
-        16,
-        7,
-        76,
-        125
+        32,
+        23,
+        92,
+        141
       ],
       "visible_pixels": 4385,
-      "transparent_fraction": 0.6431477864583333,
+      "transparent_fraction": 0.785888671875,
       "partial_alpha_pixels": 0,
       "visible_rgb_colors": 79,
-      "trim_rect_area_fraction": 0.576171875,
-      "visible_rgba_sha256": "b37e2d484ca5b73303756147b6d03144912658d9771c94d43f1ef3e5b389e7fd",
-      "rgba8_base_bytes": 49152,
+      "trim_rect_area_fraction": 0.345703125,
+      "visible_rgba_sha256": "6ee6dd8bf616e9e942e7fe9027d6aa2bf3c8ec71fd0b902e51754a59ed6ae770",
+      "rgba8_base_bytes": 81920,
       "selected_format": "rgba8",
-      "selected_format_base_bytes": 49152,
-      "selected_format_full_mip_chain_bytes": 65532
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
     },
     {
       "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/walk-3.png",
-      "disk_bytes": 11239,
+      "disk_bytes": 10280,
       "size": [
-        96,
-        128
+        128,
+        160
       ],
       "alpha_bbox_xyxy": [
-        16,
-        8,
-        81,
-        125
+        32,
+        24,
+        97,
+        141
       ],
       "visible_pixels": 4537,
-      "transparent_fraction": 0.6307779947916667,
+      "transparent_fraction": 0.778466796875,
       "partial_alpha_pixels": 0,
       "visible_rgb_colors": 79,
-      "trim_rect_area_fraction": 0.618896484375,
-      "visible_rgba_sha256": "f7ba30ba98929ed423e14e540230eabc5ef8339df137c765d3de1a18c59d86ae",
-      "rgba8_base_bytes": 49152,
+      "trim_rect_area_fraction": 0.371337890625,
+      "visible_rgba_sha256": "2c2504036cffac92bd02cf430837ba12fe8a75d721b0caeee9b181d89df0a854",
+      "rgba8_base_bytes": 81920,
       "selected_format": "rgba8",
-      "selected_format_base_bytes": 49152,
-      "selected_format_full_mip_chain_bytes": 65532
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
     },
     {
       "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/walk-4.png",
-      "disk_bytes": 10879,
+      "disk_bytes": 9936,
       "size": [
-        96,
-        128
+        128,
+        160
       ],
       "alpha_bbox_xyxy": [
-        16,
-        9,
-        78,
-        125
+        32,
+        25,
+        94,
+        141
       ],
       "visible_pixels": 4399,
-      "transparent_fraction": 0.6420084635416667,
+      "transparent_fraction": 0.785205078125,
       "partial_alpha_pixels": 0,
       "visible_rgb_colors": 79,
-      "trim_rect_area_fraction": 0.5852864583333334,
-      "visible_rgba_sha256": "5414fd054d54b3ee70466250abc8c02c4a33d687ef65f9b2ec1b94799c149998",
-      "rgba8_base_bytes": 49152,
+      "trim_rect_area_fraction": 0.351171875,
+      "visible_rgba_sha256": "aa08078d78af04156aa8bdcd1d6a2ff9e6d354c67b75e73dde847069ca1f2b21",
+      "rgba8_base_bytes": 81920,
       "selected_format": "rgba8",
-      "selected_format_base_bytes": 49152,
-      "selected_format_full_mip_chain_bytes": 65532
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
     },
     {
       "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/walk-5.png",
-      "disk_bytes": 10722,
+      "disk_bytes": 9797,
       "size": [
-        96,
-        128
+        128,
+        160
       ],
       "alpha_bbox_xyxy": [
-        16,
-        7,
-        75,
-        125
+        32,
+        23,
+        91,
+        141
       ],
       "visible_pixels": 4310,
-      "transparent_fraction": 0.6492513020833333,
+      "transparent_fraction": 0.78955078125,
       "partial_alpha_pixels": 0,
       "visible_rgb_colors": 79,
-      "trim_rect_area_fraction": 0.5665690104166666,
-      "visible_rgba_sha256": "a3eef5161303e135dbbd708ccd0ce447ebc28d106c63807e4352f6586e90c343",
-      "rgba8_base_bytes": 49152,
+      "trim_rect_area_fraction": 0.33994140625,
+      "visible_rgba_sha256": "acd26f91a4777818ff2c87865a20561d7ca36116d6c96aedc0414cd1cec47337",
+      "rgba8_base_bytes": 81920,
       "selected_format": "rgba8",
-      "selected_format_base_bytes": 49152,
-      "selected_format_full_mip_chain_bytes": 65532
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
     }
   ],
   "sprites": [

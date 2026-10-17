@@ -8,10 +8,15 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parent.parent
 
 
-def load(name):
+def load(name, native=True):
     with Image.open(ROOT / name) as src:
         assert src.mode == 'RGBA', (name, src.mode)
-        return src.copy()
+        image = src.copy()
+        if str(name).startswith(('frames/', 'poses/')):
+            assert image.size == (128, 160), name
+            if native:
+                return image.crop((16, 16, 112, 144))
+        return image
 
 
 def pixels(im):
@@ -34,6 +39,7 @@ def verify():
     recipes = json.loads((ROOT / 'expressions/recipes.json').read_text())
     poses = json.loads((ROOT / 'poses/recipes.json').read_text())['poses']
     manifest = json.loads((ROOT / 'atlas-manifest.json').read_text())
+    assert animation['canvas'] == [128, 160] and animation['foot'] == [64, 140]
     colors = set()
     files = sorted(set(ROOT.glob('eyes/*.png')) | set(ROOT.glob('mouth/*.png'))
                    | set(ROOT.glob('expressions/**/*.png')) | set(ROOT.glob('poses/**/*.png'))
@@ -100,7 +106,7 @@ def verify():
     for sprite in manifest['sprites']:
         x, y, w, h = sprite['rect']
         ox, oy = sprite['trim_offset']
-        source = load(sprite['source'])
+        source = load(sprite['source'], native=False)
         crop = page.crop((x, y, x + w, y + h))
         restored = Image.new('RGBA', tuple(sprite['source_size']))
         restored.paste(crop, (ox, oy))

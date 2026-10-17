@@ -30,9 +30,13 @@ def export(check=False):
         atlas.paste(frame, (x, y))
         rects[name] = [x, y, width, height]
 
+    offset = animation.get('base_offset_px', [0, 0])
+    def socket(point):
+        return [a + b for a, b in zip(point, offset)]
+
     catalog = dict(id='farmer', version=1, faces=None,
                    image='npc/farmer/runtime-atlas.png', size=list(atlas.size),
-                   cell=[width, height], foot=animation['foot'], head=[53, 37],
+                   cell=[width, height], foot=animation['foot'], head=socket([53, 37]),
                    frames=[], clips={})
     for name, clip in animation['clips'].items():
         indices = []
@@ -42,7 +46,7 @@ def export(check=False):
             indices.append(len(catalog['frames']))
             catalog['frames'].append(dict(
                 rect=rects[sprite], duration=step['duration_ms'] / 1000,
-                hand=sockets.get('left_hand', [70, 85]),
+                hand=sockets.get('left_hand', socket([70, 85])),
                 transfer=step.get('event') == 'transfer'))
         catalog['clips'][name] = dict(frames=indices, looping=clip['loop'])
 

@@ -1,0 +1,20 @@
+{
+  "tool": "built-in image_gen",
+  "mode": "edit",
+  "prompts": {
+    "female": "Edit image 1, the female game player head-and-shoulders crop. Image 2 is her ORIGINAL IDENTITY and EXPRESSION reference. Image 3 is the polished NPC pixel-art QUALITY reference, not her identity. Correct her mouth to the ORIGINAL small friendly CLOSED asymmetric smile with lifted left corner and short horizontal lower segment, NOT a round open hole or rectangle. Restore readable nose bridge/tip with restrained warm shadow, ear inner fold, subtle connected cheek blush and gentle chin shade. Preserve her youthful cute face proportions, LARGE brown eyes, near/far eye asymmetry and same gaze, copper ponytail silhouette. Improve intentional pixel clusters and 1-native-pixel dark contour without scattered freckles/noise, without thick black eye bags. Image 1 is an 80x68 native-pixel crop enlarged 8x. Keep EXACT framing, scale, head location, eyes location, jaw silhouette and neck-to-shirt attachment. Neck must meet shirt smoothly with a small anatomical under-chin shadow, no black horizontal severed-neck strip. Preserve entire shirt, shoulders, hands and body pixels. No accessories added. Transparent background. Solid native-pixel clusters, no antialiasing, no gradients. Render ONE coherent finished head including its original smile and detailed eyes, at the SAME original canvas arrangement; do not enlarge or recenter.",
+    "male": "Edit image 1, the male game player head-and-shoulders crop. Image 2 is his ORIGINAL IDENTITY and EXPRESSION reference. Image 3 is the polished NPC pixel-art QUALITY reference, not his identity. Correct his mouth to the ORIGINAL small friendly CLOSED asymmetric smile with lifted left corner and short horizontal lower segment, NOT a round open hole or rectangle. Restore readable nose bridge/tip with restrained warm shadow, ear inner fold, subtle connected cheek blush and gentle chin shade. Preserve his youthful cute face proportions, LARGE brown eyes, near/far eye asymmetry and same gaze, chestnut spiky hairstyle silhouette. Improve intentional pixel clusters and 1-native-pixel dark contour without scattered freckles/noise, without thick black eye bags. Image 1 is an 80x68 native-pixel crop enlarged 8x. Keep EXACT framing, scale, head location, eyes location, jaw silhouette and neck-to-shirt attachment. IMPORTANT: remove the jagged dark triangular wedge and detached dark patch on the right side of his neck, beneath the chin. Maintain an anatomically continuous neck. Neck must meet shirt smoothly with a small anatomical under-chin shadow, no black horizontal severed-neck strip. Preserve entire shirt, shoulders, hands and body pixels. No accessories added. Transparent background. Solid native-pixel clusters, no antialiasing, no gradients. Render ONE cohisent finished head including its original smile and detailed eyes, at the SAME original canvas arrangement; do not enlarge or recenter.",
+    "blank": "Make a faceless UNDERLAYER of this exact pixel-art image. Remove ONLY both eyes, eye highlights, eyebrows and the short closed smile mouth, replacing their exact occupied pixels with the immediately surrounding warm peach skin plane. Keep nose, blush, ears, ALL hair, neck anatomy and under-chin shading, shirt and EVERYTHING ELSE pixel-for-pixel identical. Do not add eyes or mouth. Do not change framing, crop, character scale, silhouette or positioning even one native pixel. Transparent background. This will be subtracted from the original to make separate eye and mouth overlays; alignment is critical."
+  },
+  "files": {
+    "female": {
+      "full": "exec-8e23e3c3-db5f-428c-abb5-41d3b1387d6e.png",
+      "blank": "exec-e5f5e6d0-99a6-425a-8178-7620b4633d9d.png"
+    },
+    "male": {
+      "full": "exec-fe2a50a7-79c6-4589-9241-5d44365773f1.png",
+      "blank": "exec-03b63cfa-107d-4300-8796-fa6ca3a3d558.png"
+    }
+  },
+  "base": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4"
+}

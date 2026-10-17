@@ -1,6 +1,8 @@
 # Carpenter expressions and pose animations
 
-The latest 96×128 neutral hand/wrist outline revision changes 40 base pixels, five visible with equipment, within two local regions. The face, equipment and lower body stay pixel-identical to the preceding review. Prior layers and exact deltas are retained in `source/animation/outline-review-before/` and `outline-review-migration.json`. This export adds eight expressions, three pose animations and the supporting idle/blink/talk/hold clips. Seventeen distinct frames use one 128×160 canvas, base offset `(16,16)`, foot anchor `(64,140)`. Walking and game integration are outside this phase.
+Latest supporting-hand revision: 115 base pixels and 49 equipped pixels changed inside native `(24,66)..(37,82)`. A localized generated fist replaces the long hanging fingers; the elbow/board gap and glove edge are completed. The exact local deltas and preceding assets are retained in `source/animation/support-hand-migration.json` and `support-hand-review-before/`. Compare `previews/support-hand-review.png` and its dark variant. Structural checks cover all 17 frames and 16 GIFs; live playback was not repeated for this revision.
+
+This export adds eight expressions, three pose animations and the supporting idle/blink/talk/hold clips. Seventeen distinct frames use one 128×160 canvas, base offset `(16,16)`, foot anchor `(64,140)`. Walking and game integration are outside this phase.
 
 ## Review
 

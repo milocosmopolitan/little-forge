@@ -1,0 +1,38 @@
+{
+  "status": "pass",
+  "changed_base_pixels": 115,
+  "changed_equipped_pixels": 49,
+  "scope_native": [
+    24,
+    66,
+    38,
+    83
+  ],
+  "shared_palette_colors": 32,
+  "frames_checked": 17,
+  "gifs_checked": 16,
+  "visual_review": "native and nearest crops on light/dark; live playback not repeated",
+  "gap_regression_points": [
+    [
+      29,
+      66
+    ],
+    [
+      29,
+      67
+    ],
+    [
+      29,
+      68
+    ],
+    [
+      30,
+      68
+    ],
+    [
+      31,
+      68
+    ]
+  ],
+  "migration": "source/animation/support-hand-migration.json"
+}

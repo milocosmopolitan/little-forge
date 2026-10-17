@@ -1,0 +1,19 @@
+{
+  "status": "pass",
+  "files_compared_to_before": 159,
+  "crop_original_pixels_changed": 0,
+  "opaque_pixels_lost_or_added": 0,
+  "offset_px": [
+    16,
+    16
+  ],
+  "trimmed_atlas_png_unchanged": true,
+  "canvas": [
+    128,
+    160
+  ],
+  "foot_anchor_px": [
+    64,
+    140
+  ]
+}

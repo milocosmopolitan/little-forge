@@ -1,0 +1,36 @@
+{
+  "native_files_checked": 223,
+  "shared_rgb_colors": 64,
+  "expressions": 8,
+  "pose_recipes": 14,
+  "clips": 11,
+  "atlas_sprites": 22,
+  "baseline_unchanged": true,
+  "expression_changes_outside_feature_masks": 0,
+  "lost_pose_base_pixels": 0,
+  "far_eye_silhouette_lost_pixels": 0,
+  "atlas_round_trip_and_borders": "pass",
+  "gait_contact_and_support_centroids": [
+    {
+      "key": 0,
+      "near_hand_x": 20.561643835616437,
+      "near_boot_buckle_x": 60.666666666666664
+    },
+    {
+      "key": 1,
+      "near_hand_x": 20.561643835616437,
+      "near_boot_buckle_x": 61.25
+    },
+    {
+      "key": 3,
+      "near_hand_x": 48.810344827586206,
+      "near_boot_buckle_x": 23.666666666666668
+    },
+    {
+      "key": 4,
+      "near_hand_x": 48.810344827586206,
+      "near_boot_buckle_x": 25.333333333333332
+    }
+  ],
+  "runtime_gpu_performance": "not_measured"
+}

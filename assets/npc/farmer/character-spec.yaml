@@ -328,3 +328,11 @@ runtime_export:
   logical_sprite_count: 22
   trim_supported_by_current_game_consumer: false
 pose_manifest: poses/recipes.json
+
+# Shared animation canvas
+pose_canvas:
+  grid: B
+  canvas_cells: [8, 10]
+  native_canvas_px: [128, 160]
+  base_offset_px: [16, 16]
+  foot_anchor_px: [64, 140]
