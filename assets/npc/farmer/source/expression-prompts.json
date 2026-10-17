@@ -1,0 +1,58 @@
+[
+  {
+    "kind": "eye",
+    "id": "half",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Edit target is the attached 1024x1024 nearest-neighbor enlargement of a 64x64 native-pixel crop. Each native pixel is exactly a 16x16 square. Keep the EXACT crop framing, scale, alignment, charcoal hair, face silhouette, ear, nose, beard, moustache, shirt, palette and transparency. Do not smooth, add detail, change anatomy, or reinterpret the style. This is a localized expression edit for modular pixel art. Change ONLY the two eyes and eyelids to half-closed relaxed eyes. Preserve eyebrows positions, gaze and horizontal eye sizes. Near eye sits approximately x=31..38,y=33..40 in the 64x64 native crop; far eye x=44..48,y=33..39. The upper eyelid lowers to halfway, leaving bottom white and brown pupil visible. Keep all other pixels unchanged.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-3f514a6b-6f46-4014-bc93-5dd02f3f5a81.png",
+    "saved": "source/expressions/eye-half.png"
+  },
+  {
+    "kind": "eye",
+    "id": "closed",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Edit target is the attached 1024x1024 nearest-neighbor enlargement of a 64x64 native-pixel crop. Each native pixel is exactly a 16x16 square. Keep the EXACT crop framing, scale, alignment, charcoal hair, face silhouette, ear, nose, beard, moustache, shirt, palette and transparency. Do not smooth, add detail, change anatomy, or reinterpret the style. This is a localized expression edit for modular pixel art. Change ONLY the two eyes to fully CLOSED blinking eyes: simple dark 1-native-pixel eyelid strokes at the existing eye positions. No whites or pupils remain. Keep existing eyebrow positions and neutral mouth. Near eye about native x31..38 y37, far eye x44..48 y37. Replace removed eye area with the same flat underlying skin, not transparency. Everything else unchanged.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-dfdaba08-4d6b-4b5c-bba4-bac6c9a0785c.png",
+    "saved": "source/expressions/eye-closed.png"
+  },
+  {
+    "kind": "eye",
+    "id": "happy-closed",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Edit target is the attached 1024x1024 nearest-neighbor enlargement of a 64x64 native-pixel crop. Each native pixel is exactly a 16x16 square. Keep the EXACT crop framing, scale, alignment, charcoal hair, face silhouette, ear, nose, beard, moustache, shirt, palette and transparency. Do not smooth, add detail, change anatomy, or reinterpret the style. This is a localized expression edit for modular pixel art. Change ONLY eyes and eyebrows to warmly smiling closed eyes. Two dark upward smiling curved eyelid arcs, distinct from a straight blink. Keep eye widths/centers, warm smile, moustache and beard exactly. No extra cheeks or mouth changes. Native near eye x31..38 y36..38, far x44..48 y35..37. Fill old eyes with same skin. Everything else unchanged.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-417b6909-4b7f-42e9-be3f-568bd851a5ce.png",
+    "saved": "source/expressions/eye-happy-closed.png"
+  },
+  {
+    "kind": "eye",
+    "id": "wide",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Edit target is the attached 1024x1024 nearest-neighbor enlargement of a 64x64 native-pixel crop. Each native pixel is exactly a 16x16 square. Keep the EXACT crop framing, scale, alignment, charcoal hair, face silhouette, ear, nose, beard, moustache, shirt, palette and transparency. Do not smooth, add detail, change anatomy, or reinterpret the style. This is a localized expression edit for modular pixel art. Change ONLY eyes and eyebrows to a clear surprised wide-eyed expression. Enlarge eye openings modestly inside the same face, retain brown irises, looking right, asymmetric three-quarter view, white to pupil ratio faithful to input. Raise eyebrows two native pixels; retain brows thickness. Do not enlarge the head or nose, or change mouth/beard/hair. Main eye width no more than 9 native pixels. Everything else unchanged.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-c155668d-3e50-4212-ae36-e449ebd3131f.png",
+    "saved": "source/expressions/eye-wide.png"
+  },
+  {
+    "kind": "mouth",
+    "id": "small-open",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Edit only the mouth of the supplied 1024x1024 native pixel-art crop. Same EXACT framing and scale. The crop represents 64x64 native pixels enlarged 16 times, with a strict square pixel grid. Preserve charcoal hair, eyes and gaze, eyebrows, nose, face proportions, grey moustache and beard, shirt and transparency unchanged. Make the mouth in the skin space BELOW the moustache, not by removing beard. Match the existing coarse pixel clusters and warm dark outline. No smoothing, extra detail or text. Open the existing warm smile into a small speaking mouth: approximately native crop x=38..44, y=44..46. A narrow warm dark interior, subtly smiling corners, no giant teeth. Mouth width 6 native pixels, height 2. Keep the moustache above it intact.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-07a24375-6583-40de-a78d-6ed3ece6fd2f.png",
+    "saved": "source/expressions/mouth-small-open.png"
+  },
+  {
+    "kind": "mouth",
+    "id": "wide-open",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Edit only the mouth of the supplied 1024x1024 native pixel-art crop. Same EXACT framing and scale. The crop represents 64x64 native pixels enlarged 16 times, with a strict square pixel grid. Preserve charcoal hair, eyes and gaze, eyebrows, nose, face proportions, grey moustache and beard, shirt and transparency unchanged. Make the mouth in the skin space BELOW the moustache, not by removing beard. Match the existing coarse pixel clusters and warm dark outline. No smoothing, extra detail or text. Open the smile into a wider expressive speaking mouth: native crop x=38..45, y=44..48, approximately 7 native pixels wide and 4 high. Warm dark mouth interior, tiny cream upper teeth and one subdued warm lower tongue pixel band. Keep both sides and lower grey beard intact. Keep the original chin, eyes and entire face unchanged.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-7c7a78ec-a8b4-4a0e-8e65-eb2450c0b9d9.png",
+    "saved": "source/expressions/mouth-wide-open.png"
+  },
+  {
+    "kind": "mouth",
+    "id": "round",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Edit only the mouth of the supplied 1024x1024 native pixel-art crop. Same EXACT framing and scale. The crop represents 64x64 native pixels enlarged 16 times, with a strict square pixel grid. Preserve charcoal hair, eyes and gaze, eyebrows, nose, face proportions, grey moustache and beard, shirt and transparency unchanged. Make the mouth in the skin space BELOW the moustache, not by removing beard. Match the existing coarse pixel clusters and warm dark outline. No smoothing, extra detail or text. Change only the existing smile to a rounded surprised O mouth: native crop center (42,46), 4 native pixels wide and 4 high. Dark warm-brown open interior with skin-colored rim, no teeth. Keep moustache above and grey beard around it fully intact. Keep eyes unchanged; those are separate assets.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-9ff1c79b-c3f0-4c04-85ec-a68afa70e1ae.png",
+    "saved": "source/expressions/mouth-round.png"
+  }
+]

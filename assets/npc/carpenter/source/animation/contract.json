@@ -1,0 +1,64 @@
+{
+  "scope": "8 expressions and nod, shake_head, give pose animations",
+  "walk": "not generated in this phase",
+  "base_offset": [
+    16,
+    16
+  ],
+  "native_animation_canvas": [
+    128,
+    160
+  ],
+  "foot_anchor": [
+    64,
+    140
+  ],
+  "base_pixel_locks": "assets/npc/carpenter/source/animation/baseline-lock.json",
+  "shared_palette": "source/palette-locked.png",
+  "expression_names": [
+    "neutral",
+    "talk-small",
+    "talk-wide",
+    "talk-round",
+    "blink",
+    "happy",
+    "surprised",
+    "relaxed"
+  ],
+  "pose_constraints": [
+    "head gestures reuse neutral clothing and equipment",
+    "old moving head/arm must be replaced",
+    "hand remains complete after mallet transfer"
+  ],
+  "clips": {
+    "nod": {
+      "duration_ms": [
+        120,
+        100,
+        140,
+        100,
+        120
+      ]
+    },
+    "shake_head": {
+      "duration_ms": [
+        100,
+        140,
+        100,
+        140,
+        100
+      ]
+    },
+    "give": {
+      "duration_ms": [
+        120,
+        120,
+        180,
+        120,
+        120,
+        120
+      ],
+      "transfer_key": 3
+    }
+  }
+}

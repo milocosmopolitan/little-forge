@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pixel Art Gen"
+  short_description: "Create true pixel assets with native grids and palettes"
+  default_prompt: "Use $pixel-art-gen to create a native-grid pixel asset for this repository."

@@ -1,0 +1,641 @@
+{
+  "version": 1,
+  "sampler": "nearest",
+  "mipmaps": false,
+  "extrude_px": 1,
+  "gutter_px": 1,
+  "trimmed": false,
+  "runtime_status": "authoring_export_not_integrated",
+  "pages": [
+    {
+      "id": "chef-0",
+      "path": "atlas.png",
+      "size": [
+        1056,
+        496
+      ]
+    }
+  ],
+  "sprites": [
+    {
+      "id": "blink",
+      "page": "chef-0",
+      "rect": [
+        2,
+        2,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/blink.png",
+      "rotated": false,
+      "sha256_pixels": "526e4aa2fc1e49b8fe998dafabce7ff31aaaeb96bfbe6a0f1eb874801332bdff"
+    },
+    {
+      "id": "give-empty",
+      "page": "chef-0",
+      "rect": [
+        134,
+        2,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/give-empty.png",
+      "rotated": false,
+      "sha256_pixels": "3580ec83b7124f79abbfa9fdeb19ebb3fad8c1b2dbf544a4b84cd7702fda4139"
+    },
+    {
+      "id": "give-full",
+      "page": "chef-0",
+      "rect": [
+        266,
+        2,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/give-full.png",
+      "rotated": false,
+      "sha256_pixels": "cfe661e59be28034613c7da9d42fc99d7201568d7cfd61754b44f39bdc4ee30e"
+    },
+    {
+      "id": "give-mid",
+      "page": "chef-0",
+      "rect": [
+        398,
+        2,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/give-mid.png",
+      "rotated": false,
+      "sha256_pixels": "80b4bcc9a0085c03003874814897516d2309b149feda11120c2e428911181dda"
+    },
+    {
+      "id": "give-retract",
+      "page": "chef-0",
+      "rect": [
+        530,
+        2,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/give-retract.png",
+      "rotated": false,
+      "sha256_pixels": "4e98a8336b6c9892d4ad524d83d5bbcdbe9a5bb599f5941289621015ba91bcc4"
+    },
+    {
+      "id": "happy",
+      "page": "chef-0",
+      "rect": [
+        662,
+        2,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/happy.png",
+      "rotated": false,
+      "sha256_pixels": "e4ba3b86586f299cae3aa1d76ef8ab09e4128d676ab752f0eb82bc7e33774ee5"
+    },
+    {
+      "id": "neutral",
+      "page": "chef-0",
+      "rect": [
+        794,
+        2,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/neutral.png",
+      "rotated": false,
+      "sha256_pixels": "a59edeef1f1e9f7c74f71140360113eb73bd051b0bfa1027edf425d26d6eef01"
+    },
+    {
+      "id": "neutral-empty",
+      "page": "chef-0",
+      "rect": [
+        926,
+        2,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/neutral-empty.png",
+      "rotated": false,
+      "sha256_pixels": "0c45626c71ddafd02274330be561aaec4790beeb78cc796092e22012d64a3a2a"
+    },
+    {
+      "id": "nod-down",
+      "page": "chef-0",
+      "rect": [
+        2,
+        166,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/nod-down.png",
+      "rotated": false,
+      "sha256_pixels": "e660f0380e4f20f9ddd44f7288819f08296a8c6f4f1ae0c57dd62ddcd2713148"
+    },
+    {
+      "id": "nod-mid",
+      "page": "chef-0",
+      "rect": [
+        134,
+        166,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/nod-mid.png",
+      "rotated": false,
+      "sha256_pixels": "78162419de1b84f07630b8e4ba3afd16b1148a01a155fdf2ca88cce362274225"
+    },
+    {
+      "id": "relaxed",
+      "page": "chef-0",
+      "rect": [
+        266,
+        166,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/relaxed.png",
+      "rotated": false,
+      "sha256_pixels": "b8248ac03cfda8627e99fb6912548a072ca0492d53d7acc43f0f0bd80c4b2439"
+    },
+    {
+      "id": "surprised",
+      "page": "chef-0",
+      "rect": [
+        398,
+        166,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/surprised.png",
+      "rotated": false,
+      "sha256_pixels": "e33ef96bcf49237bce15f413a727abbfc088b8cd6f0d355866d78677c0b1ad01"
+    },
+    {
+      "id": "talk-round",
+      "page": "chef-0",
+      "rect": [
+        530,
+        166,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/talk-round.png",
+      "rotated": false,
+      "sha256_pixels": "f113209efb8a212ede9fe97b2cb56409912dbebd38be683a3714c71fc61b3c6f"
+    },
+    {
+      "id": "talk-small",
+      "page": "chef-0",
+      "rect": [
+        662,
+        166,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/talk-small.png",
+      "rotated": false,
+      "sha256_pixels": "d78460ec22c6f33f4846dcbf2001b94e07c68fd3d99d0a9c5522da2af32534df"
+    },
+    {
+      "id": "talk-wide",
+      "page": "chef-0",
+      "rect": [
+        794,
+        166,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/talk-wide.png",
+      "rotated": false,
+      "sha256_pixels": "5f5a9255d89b1b3d283a29b3636720284e62837647ccecd04914746df155b6c7"
+    },
+    {
+      "id": "turn-left",
+      "page": "chef-0",
+      "rect": [
+        926,
+        166,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/turn-left.png",
+      "rotated": false,
+      "sha256_pixels": "7289d28d14cbc862a6308a5d7207726f7127a0c415c2172b136cdd7e00bc985d"
+    },
+    {
+      "id": "turn-right",
+      "page": "chef-0",
+      "rect": [
+        2,
+        330,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/turn-right.png",
+      "rotated": false,
+      "sha256_pixels": "02d897e045ac6c2667ae7ea3f956f218234698d1890601e94691965d77c1ec23"
+    }
+  ],
+  "clips": {
+    "idle": {
+      "loop": true,
+      "frames": [
+        {
+          "sprite": "neutral",
+          "duration_ms": 1200
+        },
+        {
+          "sprite": "relaxed",
+          "duration_ms": 40
+        },
+        {
+          "sprite": "blink",
+          "duration_ms": 80
+        },
+        {
+          "sprite": "relaxed",
+          "duration_ms": 40
+        },
+        {
+          "sprite": "neutral",
+          "duration_ms": 1400
+        }
+      ]
+    },
+    "blink": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "neutral",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "relaxed",
+          "duration_ms": 40
+        },
+        {
+          "sprite": "blink",
+          "duration_ms": 80
+        },
+        {
+          "sprite": "relaxed",
+          "duration_ms": 40
+        },
+        {
+          "sprite": "neutral",
+          "duration_ms": 120
+        }
+      ]
+    },
+    "talk": {
+      "loop": true,
+      "frames": [
+        {
+          "sprite": "neutral",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "talk-small",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "talk-wide",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "talk-small",
+          "duration_ms": 90
+        },
+        {
+          "sprite": "talk-round",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "neutral",
+          "duration_ms": 120
+        }
+      ]
+    },
+    "happy": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "neutral",
+          "duration_ms": 160
+        },
+        {
+          "sprite": "happy",
+          "duration_ms": 700
+        },
+        {
+          "sprite": "neutral",
+          "duration_ms": 160
+        }
+      ]
+    },
+    "surprised": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "neutral",
+          "duration_ms": 160
+        },
+        {
+          "sprite": "surprised",
+          "duration_ms": 600
+        },
+        {
+          "sprite": "neutral",
+          "duration_ms": 180
+        }
+      ]
+    },
+    "nod": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "neutral",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "nod-mid",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "nod-down",
+          "duration_ms": 140
+        },
+        {
+          "sprite": "nod-mid",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "neutral",
+          "duration_ms": 120
+        }
+      ]
+    },
+    "shake_head": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "neutral",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "turn-left",
+          "duration_ms": 140
+        },
+        {
+          "sprite": "neutral",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "turn-right",
+          "duration_ms": 140
+        },
+        {
+          "sprite": "neutral",
+          "duration_ms": 100
+        }
+      ]
+    },
+    "give": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "neutral",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "give-mid",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "give-full",
+          "duration_ms": 180
+        },
+        {
+          "sprite": "give-empty",
+          "duration_ms": 120,
+          "event": "transfer"
+        },
+        {
+          "sprite": "give-retract",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "neutral-empty",
+          "duration_ms": 120
+        }
+      ]
+    }
+  }
+}

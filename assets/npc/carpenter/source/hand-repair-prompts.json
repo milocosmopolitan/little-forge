@@ -1,0 +1,19 @@
+{
+  "tool": "built-in image_gen",
+  "prompt": "Precise localized pixel art repair. IMAGE 1 is the EDIT TARGET, a 32x32 native pixel crop enlarged 16x to 512x512. IMAGE 2 is anatomy/style reference only. Repair ONLY the bent bare forearm and hand in image 1. The current hand has collapsed into an orange wedge with horizontal stubs: replace it with a recognizable natural young adult male hand, coherent wrist, rounded palm volume, one distinct bent thumb on top and three grouped curled finger knuckles below. Pose: empty relaxed cupped supporting hand beside the waist, palm facing slightly upward/inward, fingers curled as if supporting boards when equipped. Keep the sleeve at top-left and fitted shirt at right exactly in position. Keep the wrist around native crop (11,13), palm around (16,16), fingers near (20,17); hand native bounds approximately x10..22,y11..22. Do not hide the fingers inside the shirt. Do not turn it into a fist ball or a mitten or a fork. Connect wrist naturally to original forearm without black seam. Subtle warm skin shading, clean dark single native pixel outer contour, tiny internal knuckle creases that do not divide into parallel black bars. Match image 2's hand anatomy and original warm skin. Stay true pixel art with large clean 1-pixel clusters, 32-color palette intent, no antialiasing or extra tiny texture. Output ONLY the same square crop with transparency outside the arm and shirt, same cropping and registration as image 1; no extra limb, no face, no equipment, no text, no ground or glow.",
+  "inputs": [
+    "source/hand-edit-target.png",
+    "source/generated-underlayer.png"
+  ],
+  "candidate": "source/generated-hand-repair.png",
+  "native_crop_origin": [
+    15,
+    58
+  ],
+  "native_crop_size": [
+    32,
+    32
+  ],
+  "adopted_mask": "source/hand-repair-native.png",
+  "palette": "source/palette-locked.png"
+}

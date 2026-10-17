@@ -1,0 +1,4 @@
+interface:
+  display_name: "Human Character Gen"
+  short_description: "Create faithful pixel characters with layered expressions"
+  default_prompt: "Use $human-character-gen to preserve this character reference in complete modular base layers, plan separate eye/mouth expressions and poses, then derive atlas frames from those layers."

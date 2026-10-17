@@ -1,0 +1,186 @@
+[
+  {
+    "id": "nod-down",
+    "prompt": "Use case: identity-preserve. Edit target is this exact 64x64-native pixel crop enlarged to 1024x1024. Keep the same coarse square-pixel art, charcoal gray full rounded hair without a hat, orange-tan skin, grey beard and moustache, original eye proportions and short face. Keep crop size and scale, same shoulders and white collar. Draw ONE head, not a sheet, on transparent background. Repose only the head around its neck, which stays anchored near native crop (36,54). Do not make face thinner, younger, larger or more realistic. Preserve full skull including crown/back hair. Turn the head slightly DOWN in a natural small nod: chin lowers by about 3 native pixels, gaze down, more top hair visible, eyes and nose move down coherently. Keep a friendly neutral smile and intact beard. Do not merely move the unchanged head down; redraw the downward pitch with slight facial foreshortening. Keep face width, head mass and neck attachment stable.",
+    "tool": "built-in image_gen",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-fe705675-513f-40a8-b1d6-a43a2a85db73.png",
+    "saved": "source/poses/nod-down.png",
+    "status": "used"
+  },
+  {
+    "id": "turn-toward",
+    "prompt": "Use case: identity-preserve. Edit target is this exact 64x64-native pixel crop enlarged to 1024x1024. Keep the same coarse square-pixel art, charcoal gray full rounded hair without a hat, orange-tan skin, grey beard and moustache, original eye proportions and short face. Keep crop size and scale, same shoulders and white collar. Draw ONE head, not a sheet, on transparent background. Repose only the head around its neck, which stays anchored near native crop (36,54). Do not make face thinner, younger, larger or more realistic. Preserve full skull including crown/back hair. Gently turn the head TOWARD THE VIEWER, about 15 degrees from the current right-facing three-quarter view. Face becomes almost frontal but still a little to the right: far eye is more visible, nose more centered, both cheeks readable. Same head size, beard, smile, eye shapes and skull. Keep neck attachment stable. Do not mirror the input.",
+    "tool": "built-in image_gen",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-6d5c7fad-3e5f-4a6b-8f98-62e38c00c9a3.png",
+    "saved": "source/poses/turn-toward.png",
+    "status": "used"
+  },
+  {
+    "id": "turn-away",
+    "prompt": "Use case: identity-preserve. Edit target is this exact 64x64-native pixel crop enlarged to 1024x1024. Keep the same coarse square-pixel art, charcoal gray full rounded hair without a hat, orange-tan skin, grey beard and moustache, original eye proportions and short face. Keep crop size and scale, same shoulders and white collar. Draw ONE head, not a sheet, on transparent background. Repose only the head around its neck, which stays anchored near native crop (36,54). Do not make face thinner, younger, larger or more realistic. Preserve full skull including crown/back hair. Gently turn the head further TO THE RIGHT, about 15 degrees away from the viewer toward a near-profile. The far eye becomes narrower/partly occluded, nose points more to screen right, near eye retains its original character. Keep same head size, beard, friendly smile and complete hair. Do not move whole crop or mirror the input.",
+    "tool": "built-in image_gen",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-8fa7b53c-0c44-4385-bdf5-b94e7fee0d65.png",
+    "saved": "source/poses/turn-away.png",
+    "status": "used"
+  },
+  {
+    "id": "give-extended",
+    "prompt": "Use case: identity-preserve. This exact full-body farmer underlayer is the edit target. Keep canvas, scale, full charcoal hair, face, grey beard, white shirt torso, brown trousers, belt and boots EXACTLY the same. Change ONLY both arms and bare hands into an offering pose: both elbows bent, forearms extending toward screen right at mid-chest/belt height, near forearm in front of torso, far hand farther right, palms cupped/up ready to hand over a small item. No item, no gloves, no apron or hat. Friendly sturdy farmer build. Pixel art with native 1px dark contour, clean solid pixel clusters, no smoothing. Same registration and feet, no additional character and no sheet. Transparent background.",
+    "tool": "built-in image_gen",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-b3134e00-d7be-4fed-b148-c9b5394ae98b.png",
+    "saved": "source/poses/give-extended.png",
+    "status": "used"
+  },
+  {
+    "id": "walk-0",
+    "prompt": "Use case: identity-preserve. Edit target is the supplied lower-body-only pixel art, an exact 96x64 native crop enlarged 16x, 1536x1024. Make ONE lower-body animation key, not a sheet. Preserve canvas and character SCALE, sturdy short thick legs, all brown trouser folds, brown boots, grey toe caps and gold buckle identity. No head, torso, hands, skin, apron or new items. Keep the top waist at native x34..64,y12 and the pelvis centered near (48,20) unchanged, with complete brown waistband. Walking toward screen RIGHT in place, no global translation. Feet fit y<=60, native 1px dark contour, coarse solid native pixel clusters, no smooth rendering, transparent background. LEFT leg (screen-left leg with gold buckle) strides forward toward screen right, heel contacts ground at y60 around x61; RIGHT leg extends behind toward x33 with toe contacting ground. Moderate stride, keep thighs thick and distinct.",
+    "tool": "built-in image_gen",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-6ded2a87-38fd-4d96-85ac-edabde4f4ede.png",
+    "saved": "source/poses/walk-0.png",
+    "status": "used"
+  },
+  {
+    "id": "walk-1",
+    "prompt": "Use case: identity-preserve. Edit target is the supplied lower-body-only pixel art, an exact 96x64 native crop enlarged 16x, 1536x1024. Make ONE lower-body animation key, not a sheet. Preserve canvas and character SCALE, sturdy short thick legs, all brown trouser folds, brown boots, grey toe caps and gold buckle identity. No head, torso, hands, skin, apron or new items. Keep the top waist at native x34..64,y12 and the pelvis centered near (48,20) unchanged, with complete brown waistband. Walking toward screen RIGHT in place, no global translation. Feet fit y<=60, native 1px dark contour, coarse solid native pixel clusters, no smooth rendering, transparent background. LEFT leg is the forward supporting leg near x57, knee gently bends under weight; RIGHT leg trails near x35 with heel raised and toe still just touching ground. This is a lowered support phase after the left heel strike. Waist unchanged.",
+    "tool": "built-in image_gen",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-1b13b81c-8de5-4d55-a2a1-5347704ccfd2.png",
+    "saved": "source/poses/walk-1.png",
+    "status": "superseded-buckle-on-wrong-leg"
+  },
+  {
+    "id": "walk-2",
+    "prompt": "Use case: identity-preserve. Edit target is the supplied lower-body-only pixel art, an exact 96x64 native crop enlarged 16x, 1536x1024. Make ONE lower-body animation key, not a sheet. Preserve canvas and character SCALE, sturdy short thick legs, all brown trouser folds, brown boots, grey toe caps and gold buckle identity. No head, torso, hands, skin, apron or new items. Keep the top waist at native x34..64,y12 and the pelvis centered near (48,20) unchanged, with complete brown waistband. Walking toward screen RIGHT in place, no global translation. Feet fit y<=60, native 1px dark contour, coarse solid native pixel clusters, no smooth rendering, transparent background. RIGHT leg swings forward past the planted LEFT leg. LEFT boot plants near x45,y60; RIGHT knee is bent and right boot is lifted off ground to y54 near x51. Feet pass close without merging into a single boot. Waist unchanged.",
+    "tool": "built-in image_gen",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-c39c8c69-bdc2-4142-af50-d97dbaa95fa3.png",
+    "saved": "source/poses/walk-2.png",
+    "status": "used"
+  },
+  {
+    "id": "walk-3",
+    "prompt": "Use case: identity-preserve. Edit target is the supplied lower-body-only pixel art, an exact 96x64 native crop enlarged 16x, 1536x1024. Make ONE lower-body animation key, not a sheet. Preserve canvas and character SCALE, sturdy short thick legs, all brown trouser folds, brown boots, grey toe caps and gold buckle identity. No head, torso, hands, skin, apron or new items. Keep the top waist at native x34..64,y12 and the pelvis centered near (48,20) unchanged, with complete brown waistband. Walking toward screen RIGHT in place, no global translation. Feet fit y<=60, native 1px dark contour, coarse solid native pixel clusters, no smooth rendering, transparent background. RIGHT leg (screen-right leg without gold buckle) strides forward toward screen right, heel contacts ground at y60 near x62; LEFT leg extends behind toward x32 with toe contacting ground. Opposite contact to frame0; preserve which leg has the gold buckle.",
+    "tool": "built-in image_gen",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-96aa40ae-e63f-48d4-8020-4edc5b1c3b2e.png",
+    "saved": "source/poses/walk-3.png",
+    "status": "used"
+  },
+  {
+    "id": "walk-4",
+    "prompt": "Use case: identity-preserve. Edit target is the supplied lower-body-only pixel art, an exact 96x64 native crop enlarged 16x, 1536x1024. Make ONE lower-body animation key, not a sheet. Preserve canvas and character SCALE, sturdy short thick legs, all brown trouser folds, brown boots, grey toe caps and gold buckle identity. No head, torso, hands, skin, apron or new items. Keep the top waist at native x34..64,y12 and the pelvis centered near (48,20) unchanged, with complete brown waistband. Walking toward screen RIGHT in place, no global translation. Feet fit y<=60, native 1px dark contour, coarse solid native pixel clusters, no smooth rendering, transparent background. RIGHT leg is the forward supporting leg near x57, knee gently bends under weight; LEFT leg trails near x35 with heel raised and toe still just touching ground. Lowered support phase after right heel strike. Waist unchanged.",
+    "tool": "built-in image_gen",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-8cb7b2b4-9cbe-40e0-bd8e-2faa7aad150a.png",
+    "saved": "source/poses/walk-4.png",
+    "status": "used"
+  },
+  {
+    "id": "walk-5",
+    "prompt": "Use case: identity-preserve. Edit target is the supplied lower-body-only pixel art, an exact 96x64 native crop enlarged 16x, 1536x1024. Make ONE lower-body animation key, not a sheet. Preserve canvas and character SCALE, sturdy short thick legs, all brown trouser folds, brown boots, grey toe caps and gold buckle identity. No head, torso, hands, skin, apron or new items. Keep the top waist at native x34..64,y12 and the pelvis centered near (48,20) unchanged, with complete brown waistband. Walking toward screen RIGHT in place, no global translation. Feet fit y<=60, native 1px dark contour, coarse solid native pixel clusters, no smooth rendering, transparent background. LEFT leg swings forward past the planted RIGHT leg. RIGHT boot plants near x46,y60; LEFT knee bent and left boot with gold buckle lifted to y54 near x51. Opposite passing phase to frame2, distinct boots, waist unchanged.",
+    "tool": "built-in image_gen",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-3aa3caf3-c087-4c30-bab6-9bc4f5a938a6.png",
+    "saved": "source/poses/walk-5.png",
+    "status": "used"
+  },
+  {
+    "id": "nod-down-blank",
+    "prompt": "Use case: precise-object-edit. Edit only facial features on the supplied pixel-art head crop. Remove BOTH eyes including whites pupils eyelids AND eyebrows, filling exactly those small locations with matching flat skin. Remove the mouth opening/smile line, filling its small interior with matching skin. Preserve ALL charcoal hair silhouette including the full crown, nose, ears, face shape, chin, grey moustache and beard, neck, shirt, pose, exact framing, scale and square-pixel grid. This is a modular blank face base for the SAME posed head. No eye shadows/dashes, no new hairstyle, no facial hair removed. Transparent background.",
+    "tool": "built-in image_gen",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-ffe53e7d-07c3-4265-85bc-93511d19c98f.png",
+    "saved": "source/poses/nod-down-blank.png",
+    "status": "used"
+  },
+  {
+    "id": "turn-toward-blank",
+    "prompt": "Use case: precise-object-edit. Edit only facial features on the supplied pixel-art head crop. Remove BOTH eyes including whites pupils eyelids AND eyebrows, filling exactly those small locations with matching flat skin. Remove the mouth opening/smile line, filling its small interior with matching skin. Preserve ALL charcoal hair silhouette including the full crown, nose, ears, face shape, chin, grey moustache and beard, neck, shirt, pose, exact framing, scale and square-pixel grid. This is a modular blank face base for the SAME posed head. No eye shadows/dashes, no new hairstyle, no facial hair removed. Transparent background.",
+    "tool": "built-in image_gen",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-f93dd640-653e-4715-bf70-e8a8e5470c72.png",
+    "saved": "source/poses/turn-toward-blank.png",
+    "status": "used"
+  },
+  {
+    "id": "turn-away-blank",
+    "prompt": "Use case: precise-object-edit. Edit only facial features on the supplied pixel-art head crop. Remove BOTH eyes including whites pupils eyelids AND eyebrows, filling exactly those small locations with matching flat skin. Remove the mouth opening/smile line, filling its small interior with matching skin. Preserve ALL charcoal hair silhouette including the full crown, nose, ears, face shape, chin, grey moustache and beard, neck, shirt, pose, exact framing, scale and square-pixel grid. This is a modular blank face base for the SAME posed head. No eye shadows/dashes, no new hairstyle, no facial hair removed. Transparent background.",
+    "tool": "built-in image_gen",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-9ad5e637-8523-4891-b8a8-10b002912089.png",
+    "saved": "source/poses/turn-away-blank.png",
+    "status": "rejected-face-contour-loss"
+  },
+  {
+    "id": "give-mid",
+    "prompt": "Use case: identity-preserve. Same full-body farmer underlayer, exact canvas/registration/scale and same head, beard, face without eyes/mouth, white shirt torso, brown trousers and boots. Modify ONLY arms/hands into the intermediate offering pose: elbows bent, hands brought together in front of belt/lower chest, palms up, arms not yet fully extended. Near hand center source(640,865), far hand source(790,835). Arms sturdy, no thin forearms. No gloves, hat, apron or item. Coarse pixel art with dark 1 native pixel contours, transparent background. Keep feet and pelvis unchanged.",
+    "tool": "built-in image_gen",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-2e9fab31-0afa-42f7-9b4e-147e60cbf5a2.png",
+    "saved": "source/poses/give-mid.png",
+    "status": "used"
+  },
+  {
+    "id": "walk-upper-a",
+    "prompt": "Use case: identity-preserve. Edit the SAME farmer underlayer, exact canvas, registration, torso width, waist and all other art. Change ONLY the arms into a modest natural walking arm-swing: near arm swinging BACK to screen left and far arm swinging FORWARD to screen right. Elbows slightly bent, hands closed in relaxed fists, arms comfortably beside the torso at about waist height, not raised above chest. Keep strong thick upper arms and rolled white shirt sleeves. No eyes, mouth, gloves, hat, apron or props. Keep full head, beard, torso, waist, legs and boots unchanged. Same coarse native pixel grid, dark 1 pixel contour, no smooth detail, transparent background.",
+    "tool": "built-in image_gen",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-030f81cd-094c-4b18-85e4-381bc5a79f21.png",
+    "saved": "source/poses/walk-upper-a.png",
+    "status": "used"
+  },
+  {
+    "id": "walk-upper-b",
+    "prompt": "Use case: identity-preserve. Edit the SAME farmer underlayer, exact canvas, registration, torso width, waist and all other art. Change ONLY the arms into a modest natural walking arm-swing: near arm swinging FORWARD to screen right and far arm swinging BACK to screen left. Elbows slightly bent, hands closed in relaxed fists, arms comfortably beside the torso at about waist height, not raised above chest. Keep strong thick upper arms and rolled white shirt sleeves. No eyes, mouth, gloves, hat, apron or props. Keep full head, beard, torso, waist, legs and boots unchanged. Same coarse native pixel grid, dark 1 pixel contour, no smooth detail, transparent background.",
+    "tool": "built-in image_gen",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-6e00e03e-6b46-4c43-8a3d-633df539fee0.png",
+    "saved": "source/poses/walk-upper-b.png",
+    "status": "superseded-insufficient-opposite-arm-swing"
+  },
+  {
+    "id": "give-mid-gloves",
+    "prompt": "Use case: precise-object-edit. Change ONLY the two bare hands into sturdy brown leather farmer gloves, fitted to exactly the current hand pose and wrist positions. Preserve palms-up fingers if offering, closed fists if walking. Brown leather with dark 1-native-pixel contour and 2-3 broad material shades, matching original rustic farmer gloves. Leave forearms exposed, keep shirt sleeves/cuffs, torso, complete charcoal hair, blank face, gray beard, brown trousers, boots, pose, registration, canvas and transparency EXACTLY unchanged. No hat/apron/item, no text or sheet. Same coarse pixel grid and no antialiasing.",
+    "tool": "built-in image_gen",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-1c27c08a-27b4-42e9-8a0f-8a7239f6e08c.png",
+    "saved": "source/poses/give-mid-gloves.png",
+    "status": "used"
+  },
+  {
+    "id": "give-extended-gloves",
+    "prompt": "Use case: precise-object-edit. Change ONLY the two bare hands into sturdy brown leather farmer gloves, fitted to exactly the current hand pose and wrist positions. Preserve palms-up fingers if offering, closed fists if walking. Brown leather with dark 1-native-pixel contour and 2-3 broad material shades, matching original rustic farmer gloves. Leave forearms exposed, keep shirt sleeves/cuffs, torso, complete charcoal hair, blank face, gray beard, brown trousers, boots, pose, registration, canvas and transparency EXACTLY unchanged. No hat/apron/item, no text or sheet. Same coarse pixel grid and no antialiasing.",
+    "tool": "built-in image_gen",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-6a81f4f0-4fd3-4fac-9caa-c75bd5100036.png",
+    "saved": "source/poses/give-extended-gloves.png",
+    "status": "used"
+  },
+  {
+    "id": "walk-upper-a-gloves",
+    "prompt": "Use case: precise-object-edit. Change ONLY the two bare hands into sturdy brown leather farmer gloves, fitted to exactly the current hand pose and wrist positions. Preserve palms-up fingers if offering, closed fists if walking. Brown leather with dark 1-native-pixel contour and 2-3 broad material shades, matching original rustic farmer gloves. Leave forearms exposed, keep shirt sleeves/cuffs, torso, complete charcoal hair, blank face, gray beard, brown trousers, boots, pose, registration, canvas and transparency EXACTLY unchanged. No hat/apron/item, no text or sheet. Same coarse pixel grid and no antialiasing.",
+    "tool": "built-in image_gen",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-ec4ea128-ba6b-4cd3-b7c9-7e6900613fdb.png",
+    "saved": "source/poses/walk-upper-a-gloves.png",
+    "status": "used"
+  },
+  {
+    "id": "walk-upper-b-fixed",
+    "prompt": "Use case: precise-object-edit. SAME exact farmer underlayer, transparent background and same canvas/registration. Keep head/hair/beard/blank face/torso/waist/legs/boots unchanged. Redraw ONLY arms for the OPPOSITE walking swing to the input: the NEAR arm, attached to the screen-left shoulder at source(410,650), must now swing FORWARD toward screen RIGHT across the front of the lower torso, with near elbow at (440,800) and near fist at (590,900). The FAR arm attached to screen-right shoulder must swing BACK and be largely hidden behind torso, with far elbow(740,790) and far fist(705,900). Crucial: near fist is in FRONT of the belt/torso near image center, NOT hanging off the screen-left silhouette. Both bare hands closed into relaxed fists, no gloves. Rolled cream sleeves and thick sturdy arms, same coarse native pixels and dark contour, no new equipment.",
+    "tool": "built-in image_gen",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-f587550c-08bf-4747-bb00-582eca207095.png",
+    "saved": "source/poses/walk-upper-b-fixed.png",
+    "status": "used"
+  },
+  {
+    "id": "walk-upper-b-gloves",
+    "prompt": "Use case: precise-object-edit. Change ONLY the two bare fists into brown leather farmer gloves fitting exactly the current fist/wrist shapes. Preserve forward-swinging near arm crossing in FRONT of the waist, far arm behind, rolled cream shirt sleeves, exposed forearms, torso and all other art. Same charcoal-haired blank-faced bearded farmer, exact canvas/registration/scale/pose. Coarse square native pixels, dark 1 pixel contour, rustic brown leather broad shades, transparent background. No hat/apron/item, no additional hands.",
+    "tool": "built-in image_gen",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-319edb5f-31fa-4ea7-a1dc-6e7c1d47cc98.png",
+    "saved": "source/poses/walk-upper-b-gloves.png",
+    "status": "used"
+  },
+  {
+    "id": "walk-1-fixed",
+    "prompt": "Use case: precise-object-edit. Keep this exact single lower-body walking key entirely unchanged EXCEPT the GOLD BOOT BUCKLE. The forward planted boot on SCREEN RIGHT belongs to the left leg in this walking phase and MUST have the small gold buckle on its outer ankle. The trailing lifted-heel boot on screen LEFT must have NO gold buckle, plain brown ankle leather there. Move that tiny gold detail from the trailing boot to the forward boot; no other edits to legs, boots, contours, pose, scale, exact framing or pixel grid. Same transparent background.",
+    "tool": "built-in image_gen",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-b98923df-8093-475f-8671-19fdec2a78a2.png",
+    "saved": "source/poses/walk-1-fixed.png",
+    "status": "used"
+  },
+  {
+    "id": "turn-away-blank-fixed",
+    "prompt": "Use case: precise-object-edit. This original near-profile pixel-art head is the edit target. Remove the two eyes AND eyebrows AND mouth line to make a blank modular face base, but FILL their exact former locations with warm skin. CRITICAL: the far eye touches the right face edge. Do NOT erase that eye area to transparency. Do NOT carve a hollow eye socket/notch into the right face silhouette. Keep the ORIGINAL occupied face silhouette/alpha entirely, and retain a continuous narrow dark outer contour along the forehead -> temple/eye side -> nose. At the far eye area around native 64x64-crop x47..49,y34..39, the skin should extend to the original right edge, not retreat to x45..46. Keep a smooth natural outer facial boundary; no empty black cavity. Preserve all hair, full crown, beard, moustache, nose tip, ear, chin, collar, exact pose, scale, canvas framing, coarse pixel grid and transparency everywhere else unchanged. This is the SAME character, NOT a redesign. No eyes/eyebrows should remain, no dark eye-socket interior.",
+    "tool": "built-in image_gen",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-72e3d9e0-7598-441e-a37c-79dfbda67ec6.png",
+    "saved": "source/poses/turn-away-blank-fixed.png",
+    "status": "used"
+  }
+]

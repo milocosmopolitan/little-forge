@@ -1,0 +1,15 @@
+{
+  "status": "pass",
+  "mouth_translation_from_previous_px": [
+    -1,
+    -1
+  ],
+  "mouth_translation_pixel_identical": true,
+  "happy_preview_exact_nearest_4x": true,
+  "neutral_locks": 14,
+  "expression_silhouette_unchanged": true,
+  "eye_reference": "user closed-eye laugh reference, 2026-10-16 17:30:05",
+  "eyes": "low shallow upper arcs with lower creases",
+  "comparison": "previews/happy-correction-8x.png",
+  "visual_review": "static nearest comparison on light/dark face sheets; no new live playback claim"
+}

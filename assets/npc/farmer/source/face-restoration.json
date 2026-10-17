@@ -1,0 +1,17 @@
+{
+  "method": "Registered source-pixel composition from assets/npc/farmer/source/reference.png",
+  "script": "restore-reference-face.mjs",
+  "reference_scale": 0.1,
+  "reference_offset": [
+    -9,
+    -16
+  ],
+  "palette_limit": 64,
+  "face_palette_limit": 40,
+  "body": "Existing body and equipment native layers are read only by the face restorer.",
+  "hair": "Existing complete rounded crown retained; short reference fringe mapped to charcoal-gray shades.",
+  "candidate_prompt": "Precise FACE IDENTITY correction. Image 1 is the edit target existing farmer. Image 2 is the ORIGINAL CHARACTER and the authority for exact facial geometry, not merely a style inspiration.\nChange ONLY the face region of image 1: copy image 2's original ROUND CHEEKS, SHORT rounded chin/jaw, cheek-to-eye spacing, large eye shapes, eyebrow shape/spacing, short nose, broad gentle smile and full gray beard/moustache proportions. The result must look like the SAME PERSON as image 2. Do not use a long narrow face or elongated beard/chin. The large near eye should retain image 2's white/iris proportions and warm lively gaze; far eye correctly foreshortened. Preserve the original's warm complexion, small cheek highlights, nose/ear highlights, gray beard shadow clusters and smile character. Slightly broaden the face/cheeks relative to image 1, avoid stretching the full head. Reference facial proportions matter more than adding texture.\nKeep target's current tidy charcoal-gray hair, hat position, complete head silhouette, stocky body, outfit, apron/tool separation, gloves and boots. Do not change body or clothing. Keep same full canvas, pose, grounding and head/neck attachment.\nPixel art: chunky square clusters, 1 native pixel dark outline, distinct material shadow colors, preserve facial details and tonal separation rather than flattening into a few large blocks. Allow up to 64 shared colors for the 96x128 native export so skin/beard/eyes don't lose detail. No antialiasing, glow or background. Genuine transparent PNG. Same source size and registration as image 1. One neutral farmer, no sheet.",
+  "candidate_selected": false,
+  "candidate_reason": "Generated candidate changed the nose and eye design; actual reference pixels were selected instead.",
+  "actual_shared_colors": 60
+}

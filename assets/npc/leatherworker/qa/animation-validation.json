@@ -1,0 +1,101 @@
+{
+  "status": "structural_pass",
+  "native_files": 261,
+  "shared_colors": 79,
+  "eye_states": 5,
+  "mouth_states": 4,
+  "expression_recipes": 8,
+  "pose_recipes": 12,
+  "clips": 11,
+  "atlas_frames": 25,
+  "atlas_rgba8_bytes": 1015808,
+  "atlas_size": [
+    512,
+    496
+  ],
+  "foundation_lost_pixels": 0,
+  "expression_outside_feature_changes": 0,
+  "source_shoulders_preserved": true,
+  "upper_contours_rigid": true,
+  "approved_expressions_unchanged": true,
+  "angle_eyes_retain_sclera_and_iris": true,
+  "same_side_arm_leg_opposite": true,
+  "gait_measurements": [
+    {
+      "key": 0,
+      "near_hand": [
+        66,
+        66
+      ],
+      "near_boot_gold_center": [
+        24.75,
+        112.75
+      ]
+    },
+    {
+      "key": 1,
+      "near_hand": [
+        61,
+        70
+      ],
+      "near_boot_gold_center": [
+        32.0,
+        108.0
+      ]
+    },
+    {
+      "key": 2,
+      "near_hand": [
+        26,
+        78
+      ],
+      "near_boot_gold_center": [
+        60.2,
+        109.6
+      ]
+    },
+    {
+      "key": 3,
+      "near_hand": [
+        22,
+        80
+      ],
+      "near_boot_gold_center": [
+        61.0,
+        114.2
+      ]
+    },
+    {
+      "key": 4,
+      "near_hand": [
+        22,
+        81
+      ],
+      "near_boot_gold_center": [
+        51.0,
+        115.4
+      ]
+    },
+    {
+      "key": 5,
+      "near_hand": [
+        25,
+        80
+      ],
+      "near_boot_gold_center": [
+        31.0,
+        115.5
+      ]
+    }
+  ],
+  "transfer_events": 1,
+  "atlas_roundtrip_exact": true,
+  "extrude_gutter_exact": true,
+  "browser_playback_modes": 8,
+  "png_json_gif_rebuild_identical": true,
+  "browser_nearest_pixel_exact_captures": 48,
+  "gif_pixel_exact_frames": 88,
+  "gesture_browser_pixel_exact_captures": 16,
+  "runtime_draw_calls": "not_measured",
+  "runtime_integration": "not_integrated"
+}

@@ -1,0 +1,302 @@
+{
+  "version": 1,
+  "id": "chef",
+  "canvas": [
+    128,
+    160
+  ],
+  "foot_anchor_px": [
+    64,
+    140
+  ],
+  "duration_unit": "ms",
+  "sampler": "nearest",
+  "root_motion": false,
+  "frames": {
+    "blink": {
+      "source": "frames/blink.png",
+      "base": "frames/base/blink.png",
+      "pose_recipe": "poses/recipes.json#blink"
+    },
+    "give-empty": {
+      "source": "frames/give-empty.png",
+      "base": "frames/base/give-empty.png",
+      "pose_recipe": "poses/recipes.json#give-empty"
+    },
+    "give-full": {
+      "source": "frames/give-full.png",
+      "base": "frames/base/give-full.png",
+      "pose_recipe": "poses/recipes.json#give-full"
+    },
+    "give-mid": {
+      "source": "frames/give-mid.png",
+      "base": "frames/base/give-mid.png",
+      "pose_recipe": "poses/recipes.json#give-mid"
+    },
+    "give-retract": {
+      "source": "frames/give-retract.png",
+      "base": "frames/base/give-retract.png",
+      "pose_recipe": "poses/recipes.json#give-retract"
+    },
+    "happy": {
+      "source": "frames/happy.png",
+      "base": "frames/base/happy.png",
+      "pose_recipe": "poses/recipes.json#happy"
+    },
+    "neutral": {
+      "source": "frames/neutral.png",
+      "base": "frames/base/neutral.png",
+      "pose_recipe": "poses/recipes.json#neutral"
+    },
+    "neutral-empty": {
+      "source": "frames/neutral-empty.png",
+      "base": "frames/base/neutral-empty.png",
+      "pose_recipe": "poses/recipes.json#neutral-empty"
+    },
+    "nod-down": {
+      "source": "frames/nod-down.png",
+      "base": "frames/base/nod-down.png",
+      "pose_recipe": "poses/recipes.json#nod-down"
+    },
+    "nod-mid": {
+      "source": "frames/nod-mid.png",
+      "base": "frames/base/nod-mid.png",
+      "pose_recipe": "poses/recipes.json#nod-mid"
+    },
+    "relaxed": {
+      "source": "frames/relaxed.png",
+      "base": "frames/base/relaxed.png",
+      "pose_recipe": "poses/recipes.json#relaxed"
+    },
+    "surprised": {
+      "source": "frames/surprised.png",
+      "base": "frames/base/surprised.png",
+      "pose_recipe": "poses/recipes.json#surprised"
+    },
+    "talk-round": {
+      "source": "frames/talk-round.png",
+      "base": "frames/base/talk-round.png",
+      "pose_recipe": "poses/recipes.json#talk-round"
+    },
+    "talk-small": {
+      "source": "frames/talk-small.png",
+      "base": "frames/base/talk-small.png",
+      "pose_recipe": "poses/recipes.json#talk-small"
+    },
+    "talk-wide": {
+      "source": "frames/talk-wide.png",
+      "base": "frames/base/talk-wide.png",
+      "pose_recipe": "poses/recipes.json#talk-wide"
+    },
+    "turn-left": {
+      "source": "frames/turn-left.png",
+      "base": "frames/base/turn-left.png",
+      "pose_recipe": "poses/recipes.json#turn-left"
+    },
+    "turn-right": {
+      "source": "frames/turn-right.png",
+      "base": "frames/base/turn-right.png",
+      "pose_recipe": "poses/recipes.json#turn-right"
+    }
+  },
+  "clips": {
+    "idle": {
+      "loop": true,
+      "frames": [
+        {
+          "sprite": "neutral",
+          "duration_ms": 1200
+        },
+        {
+          "sprite": "relaxed",
+          "duration_ms": 40
+        },
+        {
+          "sprite": "blink",
+          "duration_ms": 80
+        },
+        {
+          "sprite": "relaxed",
+          "duration_ms": 40
+        },
+        {
+          "sprite": "neutral",
+          "duration_ms": 1400
+        }
+      ]
+    },
+    "blink": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "neutral",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "relaxed",
+          "duration_ms": 40
+        },
+        {
+          "sprite": "blink",
+          "duration_ms": 80
+        },
+        {
+          "sprite": "relaxed",
+          "duration_ms": 40
+        },
+        {
+          "sprite": "neutral",
+          "duration_ms": 120
+        }
+      ]
+    },
+    "talk": {
+      "loop": true,
+      "frames": [
+        {
+          "sprite": "neutral",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "talk-small",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "talk-wide",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "talk-small",
+          "duration_ms": 90
+        },
+        {
+          "sprite": "talk-round",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "neutral",
+          "duration_ms": 120
+        }
+      ]
+    },
+    "happy": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "neutral",
+          "duration_ms": 160
+        },
+        {
+          "sprite": "happy",
+          "duration_ms": 700
+        },
+        {
+          "sprite": "neutral",
+          "duration_ms": 160
+        }
+      ]
+    },
+    "surprised": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "neutral",
+          "duration_ms": 160
+        },
+        {
+          "sprite": "surprised",
+          "duration_ms": 600
+        },
+        {
+          "sprite": "neutral",
+          "duration_ms": 180
+        }
+      ]
+    },
+    "nod": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "neutral",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "nod-mid",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "nod-down",
+          "duration_ms": 140
+        },
+        {
+          "sprite": "nod-mid",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "neutral",
+          "duration_ms": 120
+        }
+      ]
+    },
+    "shake_head": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "neutral",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "turn-left",
+          "duration_ms": 140
+        },
+        {
+          "sprite": "neutral",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "turn-right",
+          "duration_ms": 140
+        },
+        {
+          "sprite": "neutral",
+          "duration_ms": 100
+        }
+      ]
+    },
+    "give": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "neutral",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "give-mid",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "give-full",
+          "duration_ms": 180
+        },
+        {
+          "sprite": "give-empty",
+          "duration_ms": 120,
+          "event": "transfer"
+        },
+        {
+          "sprite": "give-retract",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "neutral-empty",
+          "duration_ms": 120
+        }
+      ]
+    }
+  },
+  "channels": {
+    "eyes": "independent blink, fixed QA idle timeline",
+    "mouth": "independent talk",
+    "priority": "surprised locks automatic blink"
+  }
+}

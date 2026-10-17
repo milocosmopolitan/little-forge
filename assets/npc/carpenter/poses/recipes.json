@@ -1,0 +1,1428 @@
+{
+  "canvas": [
+    128,
+    160
+  ],
+  "offset_from_base": [
+    16,
+    16
+  ],
+  "poses": {
+    "neutral": {
+      "layers": {
+        "lower": "poses/neutral/layers/lower.png",
+        "upper": "poses/neutral/layers/upper.png",
+        "head": "poses/neutral/layers/head.png",
+        "eyes": "poses/neutral/layers/eyes.png",
+        "mouth": "poses/neutral/layers/mouth.png"
+      },
+      "equipment": {
+        "apron-tools": "poses/neutral/equipment/apron-tools.png",
+        "straps": "poses/neutral/equipment/straps.png",
+        "belt-pouches": "poses/neutral/equipment/belt-pouches.png",
+        "towel": "poses/neutral/equipment/towel.png",
+        "boards": "poses/neutral/equipment/boards.png",
+        "mallet": "poses/neutral/equipment/mallet.png",
+        "gloves": "poses/neutral/equipment/gloves.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "apron-tools",
+        "straps",
+        "belt-pouches",
+        "towel",
+        "boards",
+        "mallet",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          66,
+          62
+        ],
+        "waist": [
+          66,
+          98
+        ],
+        "eyes": [
+          [
+            67,
+            46
+          ],
+          [
+            78,
+            47
+          ]
+        ],
+        "mouth": [
+          72,
+          54
+        ],
+        "screen_left_hand": [
+          48,
+          94
+        ],
+        "screen_right_hand": [
+          93,
+          96
+        ]
+      },
+      "source_size": [
+        128,
+        160
+      ],
+      "foot_anchor_px": [
+        64,
+        140
+      ],
+      "notes": []
+    },
+    "talk-small": {
+      "layers": {
+        "lower": "poses/talk-small/layers/lower.png",
+        "upper": "poses/talk-small/layers/upper.png",
+        "head": "poses/talk-small/layers/head.png",
+        "eyes": "poses/talk-small/layers/eyes.png",
+        "mouth": "poses/talk-small/layers/mouth.png"
+      },
+      "equipment": {
+        "apron-tools": "poses/talk-small/equipment/apron-tools.png",
+        "straps": "poses/talk-small/equipment/straps.png",
+        "belt-pouches": "poses/talk-small/equipment/belt-pouches.png",
+        "towel": "poses/talk-small/equipment/towel.png",
+        "boards": "poses/talk-small/equipment/boards.png",
+        "mallet": "poses/talk-small/equipment/mallet.png",
+        "gloves": "poses/talk-small/equipment/gloves.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "apron-tools",
+        "straps",
+        "belt-pouches",
+        "towel",
+        "boards",
+        "mallet",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          66,
+          62
+        ],
+        "waist": [
+          66,
+          98
+        ],
+        "eyes": [
+          [
+            67,
+            46
+          ],
+          [
+            78,
+            47
+          ]
+        ],
+        "mouth": [
+          72,
+          54
+        ],
+        "screen_left_hand": [
+          48,
+          94
+        ],
+        "screen_right_hand": [
+          93,
+          96
+        ]
+      },
+      "source_size": [
+        128,
+        160
+      ],
+      "foot_anchor_px": [
+        64,
+        140
+      ],
+      "notes": []
+    },
+    "talk-wide": {
+      "layers": {
+        "lower": "poses/talk-wide/layers/lower.png",
+        "upper": "poses/talk-wide/layers/upper.png",
+        "head": "poses/talk-wide/layers/head.png",
+        "eyes": "poses/talk-wide/layers/eyes.png",
+        "mouth": "poses/talk-wide/layers/mouth.png"
+      },
+      "equipment": {
+        "apron-tools": "poses/talk-wide/equipment/apron-tools.png",
+        "straps": "poses/talk-wide/equipment/straps.png",
+        "belt-pouches": "poses/talk-wide/equipment/belt-pouches.png",
+        "towel": "poses/talk-wide/equipment/towel.png",
+        "boards": "poses/talk-wide/equipment/boards.png",
+        "mallet": "poses/talk-wide/equipment/mallet.png",
+        "gloves": "poses/talk-wide/equipment/gloves.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "apron-tools",
+        "straps",
+        "belt-pouches",
+        "towel",
+        "boards",
+        "mallet",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          66,
+          62
+        ],
+        "waist": [
+          66,
+          98
+        ],
+        "eyes": [
+          [
+            67,
+            46
+          ],
+          [
+            78,
+            47
+          ]
+        ],
+        "mouth": [
+          72,
+          54
+        ],
+        "screen_left_hand": [
+          48,
+          94
+        ],
+        "screen_right_hand": [
+          93,
+          96
+        ]
+      },
+      "source_size": [
+        128,
+        160
+      ],
+      "foot_anchor_px": [
+        64,
+        140
+      ],
+      "notes": []
+    },
+    "talk-round": {
+      "layers": {
+        "lower": "poses/talk-round/layers/lower.png",
+        "upper": "poses/talk-round/layers/upper.png",
+        "head": "poses/talk-round/layers/head.png",
+        "eyes": "poses/talk-round/layers/eyes.png",
+        "mouth": "poses/talk-round/layers/mouth.png"
+      },
+      "equipment": {
+        "apron-tools": "poses/talk-round/equipment/apron-tools.png",
+        "straps": "poses/talk-round/equipment/straps.png",
+        "belt-pouches": "poses/talk-round/equipment/belt-pouches.png",
+        "towel": "poses/talk-round/equipment/towel.png",
+        "boards": "poses/talk-round/equipment/boards.png",
+        "mallet": "poses/talk-round/equipment/mallet.png",
+        "gloves": "poses/talk-round/equipment/gloves.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "apron-tools",
+        "straps",
+        "belt-pouches",
+        "towel",
+        "boards",
+        "mallet",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          66,
+          62
+        ],
+        "waist": [
+          66,
+          98
+        ],
+        "eyes": [
+          [
+            67,
+            46
+          ],
+          [
+            78,
+            47
+          ]
+        ],
+        "mouth": [
+          72,
+          54
+        ],
+        "screen_left_hand": [
+          48,
+          94
+        ],
+        "screen_right_hand": [
+          93,
+          96
+        ]
+      },
+      "source_size": [
+        128,
+        160
+      ],
+      "foot_anchor_px": [
+        64,
+        140
+      ],
+      "notes": []
+    },
+    "blink": {
+      "layers": {
+        "lower": "poses/blink/layers/lower.png",
+        "upper": "poses/blink/layers/upper.png",
+        "head": "poses/blink/layers/head.png",
+        "eyes": "poses/blink/layers/eyes.png",
+        "mouth": "poses/blink/layers/mouth.png"
+      },
+      "equipment": {
+        "apron-tools": "poses/blink/equipment/apron-tools.png",
+        "straps": "poses/blink/equipment/straps.png",
+        "belt-pouches": "poses/blink/equipment/belt-pouches.png",
+        "towel": "poses/blink/equipment/towel.png",
+        "boards": "poses/blink/equipment/boards.png",
+        "mallet": "poses/blink/equipment/mallet.png",
+        "gloves": "poses/blink/equipment/gloves.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "apron-tools",
+        "straps",
+        "belt-pouches",
+        "towel",
+        "boards",
+        "mallet",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          66,
+          62
+        ],
+        "waist": [
+          66,
+          98
+        ],
+        "eyes": [
+          [
+            67,
+            46
+          ],
+          [
+            78,
+            47
+          ]
+        ],
+        "mouth": [
+          72,
+          54
+        ],
+        "screen_left_hand": [
+          48,
+          94
+        ],
+        "screen_right_hand": [
+          93,
+          96
+        ]
+      },
+      "source_size": [
+        128,
+        160
+      ],
+      "foot_anchor_px": [
+        64,
+        140
+      ],
+      "notes": []
+    },
+    "happy": {
+      "layers": {
+        "lower": "poses/happy/layers/lower.png",
+        "upper": "poses/happy/layers/upper.png",
+        "head": "poses/happy/layers/head.png",
+        "eyes": "poses/happy/layers/eyes.png",
+        "mouth": "poses/happy/layers/mouth.png"
+      },
+      "equipment": {
+        "apron-tools": "poses/happy/equipment/apron-tools.png",
+        "straps": "poses/happy/equipment/straps.png",
+        "belt-pouches": "poses/happy/equipment/belt-pouches.png",
+        "towel": "poses/happy/equipment/towel.png",
+        "boards": "poses/happy/equipment/boards.png",
+        "mallet": "poses/happy/equipment/mallet.png",
+        "gloves": "poses/happy/equipment/gloves.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "apron-tools",
+        "straps",
+        "belt-pouches",
+        "towel",
+        "boards",
+        "mallet",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          66,
+          62
+        ],
+        "waist": [
+          66,
+          98
+        ],
+        "eyes": [
+          [
+            67,
+            46
+          ],
+          [
+            78,
+            47
+          ]
+        ],
+        "mouth": [
+          72,
+          54
+        ],
+        "screen_left_hand": [
+          48,
+          94
+        ],
+        "screen_right_hand": [
+          93,
+          96
+        ]
+      },
+      "source_size": [
+        128,
+        160
+      ],
+      "foot_anchor_px": [
+        64,
+        140
+      ],
+      "notes": []
+    },
+    "surprised": {
+      "layers": {
+        "lower": "poses/surprised/layers/lower.png",
+        "upper": "poses/surprised/layers/upper.png",
+        "head": "poses/surprised/layers/head.png",
+        "eyes": "poses/surprised/layers/eyes.png",
+        "mouth": "poses/surprised/layers/mouth.png"
+      },
+      "equipment": {
+        "apron-tools": "poses/surprised/equipment/apron-tools.png",
+        "straps": "poses/surprised/equipment/straps.png",
+        "belt-pouches": "poses/surprised/equipment/belt-pouches.png",
+        "towel": "poses/surprised/equipment/towel.png",
+        "boards": "poses/surprised/equipment/boards.png",
+        "mallet": "poses/surprised/equipment/mallet.png",
+        "gloves": "poses/surprised/equipment/gloves.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "apron-tools",
+        "straps",
+        "belt-pouches",
+        "towel",
+        "boards",
+        "mallet",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          66,
+          62
+        ],
+        "waist": [
+          66,
+          98
+        ],
+        "eyes": [
+          [
+            67,
+            46
+          ],
+          [
+            78,
+            47
+          ]
+        ],
+        "mouth": [
+          72,
+          54
+        ],
+        "screen_left_hand": [
+          48,
+          94
+        ],
+        "screen_right_hand": [
+          93,
+          96
+        ]
+      },
+      "source_size": [
+        128,
+        160
+      ],
+      "foot_anchor_px": [
+        64,
+        140
+      ],
+      "notes": []
+    },
+    "relaxed": {
+      "layers": {
+        "lower": "poses/relaxed/layers/lower.png",
+        "upper": "poses/relaxed/layers/upper.png",
+        "head": "poses/relaxed/layers/head.png",
+        "eyes": "poses/relaxed/layers/eyes.png",
+        "mouth": "poses/relaxed/layers/mouth.png"
+      },
+      "equipment": {
+        "apron-tools": "poses/relaxed/equipment/apron-tools.png",
+        "straps": "poses/relaxed/equipment/straps.png",
+        "belt-pouches": "poses/relaxed/equipment/belt-pouches.png",
+        "towel": "poses/relaxed/equipment/towel.png",
+        "boards": "poses/relaxed/equipment/boards.png",
+        "mallet": "poses/relaxed/equipment/mallet.png",
+        "gloves": "poses/relaxed/equipment/gloves.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "apron-tools",
+        "straps",
+        "belt-pouches",
+        "towel",
+        "boards",
+        "mallet",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          66,
+          62
+        ],
+        "waist": [
+          66,
+          98
+        ],
+        "eyes": [
+          [
+            67,
+            46
+          ],
+          [
+            78,
+            47
+          ]
+        ],
+        "mouth": [
+          72,
+          54
+        ],
+        "screen_left_hand": [
+          48,
+          94
+        ],
+        "screen_right_hand": [
+          93,
+          96
+        ]
+      },
+      "source_size": [
+        128,
+        160
+      ],
+      "foot_anchor_px": [
+        64,
+        140
+      ],
+      "notes": []
+    },
+    "nod-mid": {
+      "layers": {
+        "lower": "poses/nod-mid/layers/lower.png",
+        "upper": "poses/nod-mid/layers/upper.png",
+        "head": "poses/nod-mid/layers/head.png",
+        "eyes": "poses/nod-mid/layers/eyes.png",
+        "mouth": "poses/nod-mid/layers/mouth.png",
+        "neck": "poses/nod-mid/layers/neck.png"
+      },
+      "equipment": {
+        "apron-tools": "poses/nod-mid/equipment/apron-tools.png",
+        "straps": "poses/nod-mid/equipment/straps.png",
+        "belt-pouches": "poses/nod-mid/equipment/belt-pouches.png",
+        "towel": "poses/nod-mid/equipment/towel.png",
+        "boards": "poses/nod-mid/equipment/boards.png",
+        "mallet": "poses/nod-mid/equipment/mallet.png",
+        "gloves": "poses/nod-mid/equipment/gloves.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "neck",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "lower",
+        "upper",
+        "neck",
+        "head",
+        "eyes",
+        "mouth",
+        "apron-tools",
+        "straps",
+        "belt-pouches",
+        "towel",
+        "boards",
+        "mallet",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          66,
+          62
+        ],
+        "waist": [
+          66,
+          98
+        ],
+        "eyes": [
+          [
+            67,
+            47
+          ],
+          [
+            78,
+            48
+          ]
+        ],
+        "mouth": [
+          72,
+          55
+        ],
+        "screen_left_hand": [
+          48,
+          94
+        ],
+        "screen_right_hand": [
+          93,
+          96
+        ]
+      },
+      "source_size": [
+        128,
+        160
+      ],
+      "foot_anchor_px": [
+        64,
+        140
+      ],
+      "notes": [
+        "Complete original head/eyes/mouth move together by one integer pixel; clothing fixed"
+      ]
+    },
+    "nod-down": {
+      "layers": {
+        "lower": "poses/nod-down/layers/lower.png",
+        "upper": "poses/nod-down/layers/upper.png",
+        "head": "poses/nod-down/layers/head.png",
+        "eyes": "poses/nod-down/layers/eyes.png",
+        "mouth": "poses/nod-down/layers/mouth.png",
+        "neck": "poses/nod-down/layers/neck.png"
+      },
+      "equipment": {
+        "apron-tools": "poses/nod-down/equipment/apron-tools.png",
+        "straps": "poses/nod-down/equipment/straps.png",
+        "belt-pouches": "poses/nod-down/equipment/belt-pouches.png",
+        "towel": "poses/nod-down/equipment/towel.png",
+        "boards": "poses/nod-down/equipment/boards.png",
+        "mallet": "poses/nod-down/equipment/mallet.png",
+        "gloves": "poses/nod-down/equipment/gloves.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "neck",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "lower",
+        "upper",
+        "neck",
+        "head",
+        "eyes",
+        "mouth",
+        "apron-tools",
+        "straps",
+        "belt-pouches",
+        "towel",
+        "boards",
+        "mallet",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          66,
+          62
+        ],
+        "waist": [
+          66,
+          98
+        ],
+        "eyes": [
+          [
+            67,
+            49
+          ],
+          [
+            76,
+            50
+          ]
+        ],
+        "mouth": [
+          70,
+          55
+        ],
+        "screen_left_hand": [
+          48,
+          94
+        ],
+        "screen_right_hand": [
+          93,
+          96
+        ]
+      },
+      "source_size": [
+        128,
+        160
+      ],
+      "foot_anchor_px": [
+        64,
+        140
+      ],
+      "notes": [
+        "Genuine alternate head perspective; fixed native head scale and neck registration",
+        "Original upper/lower clothing and all gear reused pixel-identically"
+      ]
+    },
+    "turn-left": {
+      "layers": {
+        "lower": "poses/turn-left/layers/lower.png",
+        "upper": "poses/turn-left/layers/upper.png",
+        "head": "poses/turn-left/layers/head.png",
+        "eyes": "poses/turn-left/layers/eyes.png",
+        "mouth": "poses/turn-left/layers/mouth.png",
+        "neck": "poses/turn-left/layers/neck.png"
+      },
+      "equipment": {
+        "apron-tools": "poses/turn-left/equipment/apron-tools.png",
+        "straps": "poses/turn-left/equipment/straps.png",
+        "belt-pouches": "poses/turn-left/equipment/belt-pouches.png",
+        "towel": "poses/turn-left/equipment/towel.png",
+        "boards": "poses/turn-left/equipment/boards.png",
+        "mallet": "poses/turn-left/equipment/mallet.png",
+        "gloves": "poses/turn-left/equipment/gloves.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "neck",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "lower",
+        "upper",
+        "neck",
+        "head",
+        "eyes",
+        "mouth",
+        "apron-tools",
+        "straps",
+        "belt-pouches",
+        "towel",
+        "boards",
+        "mallet",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          66,
+          62
+        ],
+        "waist": [
+          66,
+          98
+        ],
+        "eyes": [
+          [
+            61,
+            48
+          ],
+          [
+            52,
+            48
+          ]
+        ],
+        "mouth": [
+          57,
+          54
+        ],
+        "screen_left_hand": [
+          48,
+          94
+        ],
+        "screen_right_hand": [
+          93,
+          96
+        ]
+      },
+      "source_size": [
+        128,
+        160
+      ],
+      "foot_anchor_px": [
+        64,
+        140
+      ],
+      "notes": [
+        "Genuine alternate head perspective; fixed native head scale and neck registration",
+        "Original upper/lower clothing and all gear reused pixel-identically"
+      ]
+    },
+    "turn-right": {
+      "layers": {
+        "lower": "poses/turn-right/layers/lower.png",
+        "upper": "poses/turn-right/layers/upper.png",
+        "head": "poses/turn-right/layers/head.png",
+        "eyes": "poses/turn-right/layers/eyes.png",
+        "mouth": "poses/turn-right/layers/mouth.png",
+        "neck": "poses/turn-right/layers/neck.png"
+      },
+      "equipment": {
+        "apron-tools": "poses/turn-right/equipment/apron-tools.png",
+        "straps": "poses/turn-right/equipment/straps.png",
+        "belt-pouches": "poses/turn-right/equipment/belt-pouches.png",
+        "towel": "poses/turn-right/equipment/towel.png",
+        "boards": "poses/turn-right/equipment/boards.png",
+        "mallet": "poses/turn-right/equipment/mallet.png",
+        "gloves": "poses/turn-right/equipment/gloves.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "neck",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "lower",
+        "upper",
+        "neck",
+        "head",
+        "eyes",
+        "mouth",
+        "apron-tools",
+        "straps",
+        "belt-pouches",
+        "towel",
+        "boards",
+        "mallet",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          66,
+          62
+        ],
+        "waist": [
+          66,
+          98
+        ],
+        "eyes": [
+          [
+            68,
+            47
+          ],
+          [
+            77,
+            47
+          ]
+        ],
+        "mouth": [
+          72,
+          55
+        ],
+        "screen_left_hand": [
+          48,
+          94
+        ],
+        "screen_right_hand": [
+          93,
+          96
+        ]
+      },
+      "source_size": [
+        128,
+        160
+      ],
+      "foot_anchor_px": [
+        64,
+        140
+      ],
+      "notes": [
+        "Genuine alternate head perspective; fixed native head scale and neck registration",
+        "Original upper/lower clothing and all gear reused pixel-identically"
+      ]
+    },
+    "give-mid": {
+      "layers": {
+        "lower": "poses/give-mid/layers/lower.png",
+        "upper": "poses/give-mid/layers/upper.png",
+        "head": "poses/give-mid/layers/head.png",
+        "eyes": "poses/give-mid/layers/eyes.png",
+        "mouth": "poses/give-mid/layers/mouth.png",
+        "arm": "poses/give-mid/layers/arm.png"
+      },
+      "equipment": {
+        "apron-tools": "poses/give-mid/equipment/apron-tools.png",
+        "straps": "poses/give-mid/equipment/straps.png",
+        "belt-pouches": "poses/give-mid/equipment/belt-pouches.png",
+        "towel": "poses/give-mid/equipment/towel.png",
+        "boards": "poses/give-mid/equipment/boards.png",
+        "mallet": "poses/give-mid/equipment/mallet.png",
+        "gloves": "poses/give-mid/equipment/gloves.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "arm",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "lower",
+        "upper",
+        "arm",
+        "head",
+        "eyes",
+        "mouth",
+        "apron-tools",
+        "straps",
+        "belt-pouches",
+        "towel",
+        "boards",
+        "mallet",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          66,
+          62
+        ],
+        "waist": [
+          66,
+          98
+        ],
+        "eyes": [
+          [
+            67,
+            46
+          ],
+          [
+            78,
+            47
+          ]
+        ],
+        "mouth": [
+          72,
+          54
+        ],
+        "screen_left_hand": [
+          48,
+          94
+        ],
+        "screen_right_hand": [
+          100,
+          91
+        ]
+      },
+      "source_size": [
+        128,
+        160
+      ],
+      "foot_anchor_px": [
+        64,
+        140
+      ],
+      "notes": [
+        "Compact curled grip on the original upright mallet; complete distal forearm",
+        "Original glove translated to the grip; supporting hand and boards fixed",
+        "Mallet absent after transfer; the same complete relaxed curled hand remains"
+      ]
+    },
+    "give-full": {
+      "layers": {
+        "lower": "poses/give-full/layers/lower.png",
+        "upper": "poses/give-full/layers/upper.png",
+        "head": "poses/give-full/layers/head.png",
+        "eyes": "poses/give-full/layers/eyes.png",
+        "mouth": "poses/give-full/layers/mouth.png",
+        "arm": "poses/give-full/layers/arm.png"
+      },
+      "equipment": {
+        "apron-tools": "poses/give-full/equipment/apron-tools.png",
+        "straps": "poses/give-full/equipment/straps.png",
+        "belt-pouches": "poses/give-full/equipment/belt-pouches.png",
+        "towel": "poses/give-full/equipment/towel.png",
+        "boards": "poses/give-full/equipment/boards.png",
+        "mallet": "poses/give-full/equipment/mallet.png",
+        "gloves": "poses/give-full/equipment/gloves.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "arm",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "lower",
+        "upper",
+        "arm",
+        "head",
+        "eyes",
+        "mouth",
+        "apron-tools",
+        "straps",
+        "belt-pouches",
+        "towel",
+        "boards",
+        "mallet",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          66,
+          62
+        ],
+        "waist": [
+          66,
+          98
+        ],
+        "eyes": [
+          [
+            67,
+            46
+          ],
+          [
+            78,
+            47
+          ]
+        ],
+        "mouth": [
+          72,
+          54
+        ],
+        "screen_left_hand": [
+          48,
+          94
+        ],
+        "screen_right_hand": [
+          110,
+          86
+        ]
+      },
+      "source_size": [
+        128,
+        160
+      ],
+      "foot_anchor_px": [
+        64,
+        140
+      ],
+      "notes": [
+        "Compact curled grip on the original upright mallet; complete distal forearm",
+        "Original glove translated to the grip; supporting hand and boards fixed",
+        "Mallet absent after transfer; the same complete relaxed curled hand remains"
+      ]
+    },
+    "give-empty": {
+      "layers": {
+        "lower": "poses/give-empty/layers/lower.png",
+        "upper": "poses/give-empty/layers/upper.png",
+        "head": "poses/give-empty/layers/head.png",
+        "eyes": "poses/give-empty/layers/eyes.png",
+        "mouth": "poses/give-empty/layers/mouth.png",
+        "arm": "poses/give-empty/layers/arm.png"
+      },
+      "equipment": {
+        "apron-tools": "poses/give-empty/equipment/apron-tools.png",
+        "straps": "poses/give-empty/equipment/straps.png",
+        "belt-pouches": "poses/give-empty/equipment/belt-pouches.png",
+        "towel": "poses/give-empty/equipment/towel.png",
+        "boards": "poses/give-empty/equipment/boards.png",
+        "gloves": "poses/give-empty/equipment/gloves.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "arm",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "lower",
+        "upper",
+        "arm",
+        "head",
+        "eyes",
+        "mouth",
+        "apron-tools",
+        "straps",
+        "belt-pouches",
+        "towel",
+        "boards",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          66,
+          62
+        ],
+        "waist": [
+          66,
+          98
+        ],
+        "eyes": [
+          [
+            67,
+            46
+          ],
+          [
+            78,
+            47
+          ]
+        ],
+        "mouth": [
+          72,
+          54
+        ],
+        "screen_left_hand": [
+          48,
+          94
+        ],
+        "screen_right_hand": [
+          110,
+          86
+        ]
+      },
+      "source_size": [
+        128,
+        160
+      ],
+      "foot_anchor_px": [
+        64,
+        140
+      ],
+      "notes": [
+        "Compact curled grip on the original upright mallet; complete distal forearm",
+        "Original glove translated to the grip; supporting hand and boards fixed",
+        "Mallet absent after transfer; the same complete relaxed curled hand remains"
+      ]
+    },
+    "give-retract": {
+      "layers": {
+        "lower": "poses/give-retract/layers/lower.png",
+        "upper": "poses/give-retract/layers/upper.png",
+        "head": "poses/give-retract/layers/head.png",
+        "eyes": "poses/give-retract/layers/eyes.png",
+        "mouth": "poses/give-retract/layers/mouth.png",
+        "arm": "poses/give-retract/layers/arm.png"
+      },
+      "equipment": {
+        "apron-tools": "poses/give-retract/equipment/apron-tools.png",
+        "straps": "poses/give-retract/equipment/straps.png",
+        "belt-pouches": "poses/give-retract/equipment/belt-pouches.png",
+        "towel": "poses/give-retract/equipment/towel.png",
+        "boards": "poses/give-retract/equipment/boards.png",
+        "gloves": "poses/give-retract/equipment/gloves.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "arm",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "lower",
+        "upper",
+        "arm",
+        "head",
+        "eyes",
+        "mouth",
+        "apron-tools",
+        "straps",
+        "belt-pouches",
+        "towel",
+        "boards",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          66,
+          62
+        ],
+        "waist": [
+          66,
+          98
+        ],
+        "eyes": [
+          [
+            67,
+            46
+          ],
+          [
+            78,
+            47
+          ]
+        ],
+        "mouth": [
+          72,
+          54
+        ],
+        "screen_left_hand": [
+          48,
+          94
+        ],
+        "screen_right_hand": [
+          100,
+          91
+        ]
+      },
+      "source_size": [
+        128,
+        160
+      ],
+      "foot_anchor_px": [
+        64,
+        140
+      ],
+      "notes": [
+        "Compact curled grip on the original upright mallet; complete distal forearm",
+        "Original glove translated to the grip; supporting hand and boards fixed",
+        "Mallet absent after transfer; the same complete relaxed curled hand remains"
+      ]
+    },
+    "neutral-empty": {
+      "layers": {
+        "lower": "poses/neutral-empty/layers/lower.png",
+        "upper": "poses/neutral-empty/layers/upper.png",
+        "head": "poses/neutral-empty/layers/head.png",
+        "eyes": "poses/neutral-empty/layers/eyes.png",
+        "mouth": "poses/neutral-empty/layers/mouth.png"
+      },
+      "equipment": {
+        "apron-tools": "poses/neutral-empty/equipment/apron-tools.png",
+        "straps": "poses/neutral-empty/equipment/straps.png",
+        "belt-pouches": "poses/neutral-empty/equipment/belt-pouches.png",
+        "towel": "poses/neutral-empty/equipment/towel.png",
+        "boards": "poses/neutral-empty/equipment/boards.png",
+        "gloves": "poses/neutral-empty/equipment/gloves.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "apron-tools",
+        "straps",
+        "belt-pouches",
+        "towel",
+        "boards",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          66,
+          62
+        ],
+        "waist": [
+          66,
+          98
+        ],
+        "eyes": [
+          [
+            67,
+            46
+          ],
+          [
+            78,
+            47
+          ]
+        ],
+        "mouth": [
+          72,
+          54
+        ],
+        "screen_left_hand": [
+          48,
+          94
+        ],
+        "screen_right_hand": [
+          93,
+          96
+        ]
+      },
+      "source_size": [
+        128,
+        160
+      ],
+      "foot_anchor_px": [
+        64,
+        140
+      ],
+      "notes": [
+        "Approved neutral without transferred mallet; complete bare hand is retained"
+      ]
+    }
+  },
+  "scope": [
+    "neutral",
+    "nod",
+    "shake_head",
+    "give"
+  ],
+  "walk": "not_generated",
+  "head_only_clothing": "fixed original upper/lower and equipment",
+  "sides": "screen-right arm is anatomical left; screen-left supporting hand and boards remain fixed"
+}

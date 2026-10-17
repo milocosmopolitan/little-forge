@@ -1,0 +1,14 @@
+{
+  "status": "pass",
+  "hand_base_changed_pixels": 106,
+  "base_changes_outside_supporting_hand": 0,
+  "new_towel_opaque_pixels": 42,
+  "face_parts": "pixel-identical to original approved base",
+  "palette": "locked 32 shared colors",
+  "native_checks": 17,
+  "repeat_build_byte_identical_files": 72,
+  "visual_evidence": [
+    "previews/hand-towel-hand-8x.png",
+    "previews/hand-towel-towel-8x.png"
+  ]
+}

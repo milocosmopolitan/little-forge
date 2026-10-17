@@ -1,0 +1,14 @@
+{
+  "tool": "built-in image_gen",
+  "candidate": "source/generated-underlayer.png",
+  "input_reference": "source/reference.png",
+  "prompt": "Create ONE full body equipment-free UNDERLAYER sprite of this exact carpenter, not a character redesign. Reference image is the identity, proportions, pose, palette and pixel art style authority. Preserve exact young adult male face, large eyes looking screen-right, tiny relaxed smile, tousled dirty-blond light-brown hair with warm gold highlights, short sparse brown jaw stubble, slim-to-average body, large head, short legs, stance and boots. Same neutral standing 3/4 view facing screen-right. REMOVE ALL EQUIPMENT: brown leather apron and straps, belt and pouches/tools, gloves, wooden boards, hammer/mallet, towel. Restore an uninterrupted complete cream rolled-sleeve collared shirt to the hips, full olive trousers below it, and the same brown boots with dark toe caps. Both hands must be complete bare warm skin hands, fully outlined. Screen-left arm remains bent with forearm across lower abdomen, bare hand near left-center abdomen where it supports the former boards, fingers naturally curled upward. Screen-right arm remains down-and-out at same elbow/wrist as reference, bare hand curled around EMPTY air in the former mallet grip; show all thumb and finger silhouette, no hole, no tool-colored remnants. Match reference face, hair, sleeves, shoulder width and leg length exactly; no hat, no extra objects, no belt. Crisp true pixel art intended for native 96x128 grid, limited 32 shared flat colors, 1 native pixel dark contour, clean purposeful clusters, no antialiasing, no blur, no shadows outside silhouette, no ground shadow, actual transparent background. Entire character including hair and boots visible with modest empty border. Single character only, no sheet, no labels, no text.",
+  "native_registration": {
+    "source_pixels_per_native_pixel": 10,
+    "source_origin": [
+      60,
+      130
+    ]
+  },
+  "hidden_regions_are_reconstructed": true
+}

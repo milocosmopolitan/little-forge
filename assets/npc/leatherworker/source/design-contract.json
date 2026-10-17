@@ -1,0 +1,45 @@
+{
+  "id": "leatherworker",
+  "scope": "modular neutral baseline, 8 expressions, nod/shake/give gestures, six-key walk and authoring atlas",
+  "grid": "B",
+  "canvas_cells": [
+    6,
+    8
+  ],
+  "native_canvas": [
+    96,
+    128
+  ],
+  "origin": [
+    0,
+    0
+  ],
+  "foot_anchor": [
+    48,
+    124
+  ],
+  "palette_max_colors": 80,
+  "palette_reason": "Retain the accepted body colors and add 16 shared slots for restored blush, scarf reds and intact leather/metal details",
+  "identity": {
+    "hair": "chin-length warm copper-brown bob, rounded full skull, gold hair clip as separate equipment",
+    "face": "original large asymmetric brown eyes in right-facing three-quarter view, short jaw and small warm smile; no beard",
+    "body": "reference's sturdy short-limbed silhouette and original torso/leg ratio; do not copy farmer proportions",
+    "clothes": "cream rolled-sleeve shirt, olive trousers, brown capped boots",
+    "equipment": [
+      "hair clip",
+      "red neck scarf",
+      "stitched brown leather apron",
+      "belt, pouches and leatherworking tools",
+      "both fingerless gloves/bracers"
+    ],
+    "prop": "held leather hide, removable"
+  },
+  "reconstructed_occluded_regions": [
+    "shirt and waist under apron/scarf/belt",
+    "trouser hips under pouches/apron",
+    "bare near wrist/hand under fingerless glove",
+    "small hair region under hair clip",
+    "gripping fingers behind leather hide"
+  ],
+  "authoring_note": "Complete underlayers are the foundation. Expressions, pose layers and baked authoring atlas are generated via source/build-all.mjs; existing game catalog integration remains separate."
+}

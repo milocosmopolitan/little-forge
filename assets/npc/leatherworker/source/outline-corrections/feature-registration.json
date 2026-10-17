@@ -1,0 +1,12 @@
+{
+  "nod_registration": "source/nod-consistency/registration.json",
+  "toward_eyes": "source/outline-before/poses/turn-toward/eyes/open.png",
+  "away_registration": "source/face-consistency/registration.json",
+  "toward_neck_roi": [
+    41,
+    43,
+    54,
+    48
+  ],
+  "notes": "Nod and away each split their own coherent head without transforming individual eyes. Toward restores original eyes."
+}

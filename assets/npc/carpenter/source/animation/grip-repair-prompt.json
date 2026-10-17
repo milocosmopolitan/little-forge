@@ -1,0 +1,40 @@
+{
+  "prompt": "Create ONE isolated pixel-art arm for editing the supplied carpenter sprite. First image is exact character identity, cream rolled sleeves, warm orange skin, native 96x128 scale. Second image is ONLY anatomical layout reference, do not copy its flat shapes or circle. Transparent background. Arm is the character's far anatomical left arm on SCREEN RIGHT. It enters at upper-left with cream shirt at shoulder, upper arm slopes down-right to bent elbow, rolled cream cuff surrounds elbow, bare forearm extends horizontally screen right. At its end, a COMPACT SIDE-VIEW CURLED GRIPPING HAND, fingers naturally folded around an absent vertical 1px wooden handle. Show thumb overlapping curled index finger on near face, grouped lower fingers, continuous narrow wrist. It must read as a natural relaxed compact fist even with NO TOOL. NO palm-up offering hand, NO extended fingers, NO fork, NO circle hole, NO visible prop. No glove. Aim native arm about38 pixels wide25 pixels high, gripping hand6x8 pixels, forearm13 pixels long5 pixels thick, upper sleeve about8 pixels wide. The hand center is about31 native pixels right and14 pixels below the entering shoulder socket. Keep the pose/layout, NOT a whole body. Match the character's true chunky low-res square pixels, thin dark brown one-native-pixel closed outer contour, cream folded cuff shadows and sleeve folds, warm skin highlight/shadow clusters. Clear anatomical wrist and elbow connections. No text, background, antialiasing, stray pixels, extra hands or fingers.",
+  "references": [
+    "source/animation/arm-identity-8x.png",
+    "source/animation/give-grip-layout.png"
+  ],
+  "candidate": "source/animation/candidates/give-grip-arm.png",
+  "generated_path": "/Users/minhokang/.codex/generated_images/01a14621-7639-7551-beea-4e18468b4370/exec-f0e3651c-1346-4790-b2cb-c30a7cb5f62c.png",
+  "adoption": "Retain original registered sleeves. Adopt distal forearm crop only; restore approved original bare gripping hand, original glove and upright mallet at common translated socket.",
+  "crop": [
+    548,
+    562,
+    1132,
+    827
+  ],
+  "native": [
+    22,
+    10
+  ],
+  "full_xy": [
+    90,
+    80
+  ],
+  "full_adoption_x": [
+    98,
+    106
+  ],
+  "mid_translation": [
+    -10,
+    5
+  ],
+  "full_grip": [
+    110,
+    86
+  ],
+  "mid_grip": [
+    100,
+    91
+  ]
+}

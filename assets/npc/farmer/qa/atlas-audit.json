@@ -1,0 +1,1247 @@
+{
+  "images": [
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/farmer/atlas.png",
+      "disk_bytes": 62157,
+      "size": [
+        512,
+        384
+      ],
+      "alpha_bbox_xyxy": [
+        1,
+        1,
+        477,
+        368
+      ],
+      "visible_pixels": 99287,
+      "transparent_fraction": 0.49500020345052087,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 64,
+      "trim_rect_area_fraction": 0.8885294596354166,
+      "visible_rgba_sha256": "074e2050d18572c55a960660e873a14a846509fdf815ab20adbdbf8c1b8faa61",
+      "rgba8_base_bytes": 786432,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 786432,
+      "selected_format_full_mip_chain_bytes": 1048572
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/farmer/frames/blink.png",
+      "disk_bytes": 9507,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        14,
+        6,
+        76,
+        125
+      ],
+      "visible_pixels": 4769,
+      "transparent_fraction": 0.6118977864583333,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 62,
+      "trim_rect_area_fraction": 0.6004231770833334,
+      "visible_rgba_sha256": "84274a8f6b7686b90bb85ed4e1363900c42fc6e76d6f51884a382d5c4a8f2425",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/farmer/frames/blink-half.png",
+      "disk_bytes": 9582,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        14,
+        6,
+        76,
+        125
+      ],
+      "visible_pixels": 4769,
+      "transparent_fraction": 0.6118977864583333,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 63,
+      "trim_rect_area_fraction": 0.6004231770833334,
+      "visible_rgba_sha256": "36efea35a2a3a001fb5ee3e3bafbaf8394af20793922d83c73188dcda107b6af",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/farmer/frames/give-extended.png",
+      "disk_bytes": 9675,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        14,
+        6,
+        91,
+        125
+      ],
+      "visible_pixels": 4618,
+      "transparent_fraction": 0.6241861979166667,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 63,
+      "trim_rect_area_fraction": 0.7456868489583334,
+      "visible_rgba_sha256": "6cbc038cca1d666130e00ae7f2d3821ce3fc692df4c6ff62b1ff39d174d6d702",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/farmer/frames/give-mid.png",
+      "disk_bytes": 9316,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        14,
+        6,
+        77,
+        125
+      ],
+      "visible_pixels": 4551,
+      "transparent_fraction": 0.629638671875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 62,
+      "trim_rect_area_fraction": 0.610107421875,
+      "visible_rgba_sha256": "fa4771e475760c0cb722e670184c5eba813ac52cc2d6f016b5a47cad0e1b176e",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/farmer/frames/happy.png",
+      "disk_bytes": 9553,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        14,
+        6,
+        76,
+        125
+      ],
+      "visible_pixels": 4769,
+      "transparent_fraction": 0.6118977864583333,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 62,
+      "trim_rect_area_fraction": 0.6004231770833334,
+      "visible_rgba_sha256": "93a479e92ef1d7a7c0e408bf81c7ccba22625092a2cc55891e25ed77a1b33a08",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/farmer/frames/neutral.png",
+      "disk_bytes": 9614,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        14,
+        6,
+        76,
+        125
+      ],
+      "visible_pixels": 4769,
+      "transparent_fraction": 0.6118977864583333,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 63,
+      "trim_rect_area_fraction": 0.6004231770833334,
+      "visible_rgba_sha256": "e006e8d2c7935d860425087d5aa72677c522a2df6f7771f51f69eba2ddecc289",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/farmer/frames/nod-down.png",
+      "disk_bytes": 9390,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        14,
+        8,
+        76,
+        125
+      ],
+      "visible_pixels": 4721,
+      "transparent_fraction": 0.6158040364583333,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 62,
+      "trim_rect_area_fraction": 0.59033203125,
+      "visible_rgba_sha256": "1de6c445fc90fb26a9a8d0d7fe45ff3a9db6be9697f9de2682453aeeba4d15de",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/farmer/frames/nod-mid.png",
+      "disk_bytes": 9436,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        14,
+        7,
+        76,
+        125
+      ],
+      "visible_pixels": 4744,
+      "transparent_fraction": 0.6139322916666667,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 62,
+      "trim_rect_area_fraction": 0.5953776041666666,
+      "visible_rgba_sha256": "c68690192d9939e7204b9d0c0bf36652f41dc0fa5996d4888a51197987fc20ee",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/farmer/frames/relaxed.png",
+      "disk_bytes": 9582,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        14,
+        6,
+        76,
+        125
+      ],
+      "visible_pixels": 4769,
+      "transparent_fraction": 0.6118977864583333,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 63,
+      "trim_rect_area_fraction": 0.6004231770833334,
+      "visible_rgba_sha256": "36efea35a2a3a001fb5ee3e3bafbaf8394af20793922d83c73188dcda107b6af",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/farmer/frames/surprised.png",
+      "disk_bytes": 9654,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        14,
+        6,
+        76,
+        125
+      ],
+      "visible_pixels": 4769,
+      "transparent_fraction": 0.6118977864583333,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 63,
+      "trim_rect_area_fraction": 0.6004231770833334,
+      "visible_rgba_sha256": "63bc0439c036762e9c5283cbbfaa924c6f648daf324cf17f8ccd2a0b44c63f4d",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/farmer/frames/talk-blink.png",
+      "disk_bytes": 9506,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        14,
+        6,
+        76,
+        125
+      ],
+      "visible_pixels": 4769,
+      "transparent_fraction": 0.6118977864583333,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 62,
+      "trim_rect_area_fraction": 0.6004231770833334,
+      "visible_rgba_sha256": "d40ecbf1d8a9c1ed7337e70d6de13bd682d08afb39cf67b030e2e94074ef00fb",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/farmer/frames/talk-round.png",
+      "disk_bytes": 9641,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        14,
+        6,
+        76,
+        125
+      ],
+      "visible_pixels": 4769,
+      "transparent_fraction": 0.6118977864583333,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 63,
+      "trim_rect_area_fraction": 0.6004231770833334,
+      "visible_rgba_sha256": "77f0c8b6671fac61cf0b2833209d98fd8d62daacf83e79661c62a9e24981d7b5",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/farmer/frames/talk-small.png",
+      "disk_bytes": 9617,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        14,
+        6,
+        76,
+        125
+      ],
+      "visible_pixels": 4769,
+      "transparent_fraction": 0.6118977864583333,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 63,
+      "trim_rect_area_fraction": 0.6004231770833334,
+      "visible_rgba_sha256": "e2af3e2c19369a0d53ec2d02fc526f9f03a48960cfc9def50d15d6e516a06b91",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/farmer/frames/talk-wide.png",
+      "disk_bytes": 9646,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        14,
+        6,
+        76,
+        125
+      ],
+      "visible_pixels": 4769,
+      "transparent_fraction": 0.6118977864583333,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 63,
+      "trim_rect_area_fraction": 0.6004231770833334,
+      "visible_rgba_sha256": "b89526480788a7d62582c6f3fbdc08a91ec27aa3d565f5fa1b0c5af18908788a",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/farmer/frames/turn-away.png",
+      "disk_bytes": 9306,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        15,
+        6,
+        77,
+        125
+      ],
+      "visible_pixels": 4762,
+      "transparent_fraction": 0.6124674479166667,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 61,
+      "trim_rect_area_fraction": 0.6004231770833334,
+      "visible_rgba_sha256": "6e2107ae810145e1cf95fe6abcd4719d122905f1ef2e5907adc0de338d4de25c",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/farmer/frames/turn-toward.png",
+      "disk_bytes": 9498,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        13,
+        6,
+        76,
+        125
+      ],
+      "visible_pixels": 4793,
+      "transparent_fraction": 0.6099446614583333,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 59,
+      "trim_rect_area_fraction": 0.610107421875,
+      "visible_rgba_sha256": "bdbc300b6c83f169b9491523e81cc3ea8cc2f33c09e6908f2fe07d6b6f9f7f3e",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/farmer/frames/walk-0.png",
+      "disk_bytes": 9867,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        14,
+        6,
+        80,
+        125
+      ],
+      "visible_pixels": 4743,
+      "transparent_fraction": 0.614013671875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 61,
+      "trim_rect_area_fraction": 0.63916015625,
+      "visible_rgba_sha256": "f8a36cd2459aee429d496c5540a88c76db22111ff58d165eacd8a3877cf8bf61",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/farmer/frames/walk-1.png",
+      "disk_bytes": 9789,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        14,
+        7,
+        80,
+        125
+      ],
+      "visible_pixels": 4694,
+      "transparent_fraction": 0.6180013020833333,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 61,
+      "trim_rect_area_fraction": 0.6337890625,
+      "visible_rgba_sha256": "63512c38d8e084f17e8876f584e652502972042f922e64a09940eb871d47e3a2",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/farmer/frames/walk-2.png",
+      "disk_bytes": 9375,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        14,
+        6,
+        76,
+        125
+      ],
+      "visible_pixels": 4639,
+      "transparent_fraction": 0.6224772135416667,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 63,
+      "trim_rect_area_fraction": 0.6004231770833334,
+      "visible_rgba_sha256": "3dd9b2a7a5afb8bde164acbfb6033713d83264a8667dc1022ee95298cebd81ca",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/farmer/frames/walk-3.png",
+      "disk_bytes": 9416,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        14,
+        6,
+        82,
+        125
+      ],
+      "visible_pixels": 4444,
+      "transparent_fraction": 0.6383463541666667,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 63,
+      "trim_rect_area_fraction": 0.6585286458333334,
+      "visible_rgba_sha256": "50ecad53a83e9d21a9055ce026b91c58cf429c75d386d4d5b04f8613757ea561",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/farmer/frames/walk-4.png",
+      "disk_bytes": 9328,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        14,
+        7,
+        76,
+        125
+      ],
+      "visible_pixels": 4344,
+      "transparent_fraction": 0.646484375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 64,
+      "trim_rect_area_fraction": 0.5953776041666666,
+      "visible_rgba_sha256": "6888cdf5a544976e3443ebd7f07f0fb9a53a4526a67c29bc72457556c0269974",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/farmer/frames/walk-5.png",
+      "disk_bytes": 9473,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        14,
+        6,
+        76,
+        125
+      ],
+      "visible_pixels": 4672,
+      "transparent_fraction": 0.6197916666666667,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 63,
+      "trim_rect_area_fraction": 0.6004231770833334,
+      "visible_rgba_sha256": "650e0561a834a9f8dc7fa8e0f5b4749143816be4da06abfbc0841a69decaaa99",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    }
+  ],
+  "sprites": [
+    {
+      "id": "blink",
+      "page": "farmer2-0",
+      "rect": [
+        2,
+        2,
+        62,
+        119
+      ],
+      "size": [
+        62,
+        119
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        62,
+        119
+      ],
+      "visible_pixels": 4769,
+      "transparent_fraction": 0.3536188669015994,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 62,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "01509e8da959e5a11139ffaa869c451310bf53c87204d5d8573b057f42de2690",
+      "trimmed_pivot": [
+        34,
+        118
+      ]
+    },
+    {
+      "id": "blink-half",
+      "page": "farmer2-0",
+      "rect": [
+        68,
+        2,
+        62,
+        119
+      ],
+      "size": [
+        62,
+        119
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        62,
+        119
+      ],
+      "visible_pixels": 4769,
+      "transparent_fraction": 0.3536188669015994,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 63,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "9ad141d28d82831dde6670a81ca4a2377aabe78200bbee83764b290db901d289",
+      "trimmed_pivot": [
+        34,
+        118
+      ]
+    },
+    {
+      "id": "give-extended",
+      "page": "farmer2-0",
+      "rect": [
+        134,
+        2,
+        77,
+        119
+      ],
+      "size": [
+        77,
+        119
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        77,
+        119
+      ],
+      "visible_pixels": 4618,
+      "transparent_fraction": 0.4960165884535632,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 63,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "b87224847487bb9fa632d53a5d0dddf89c8306c0347ffb8d9a7e732269573e0d",
+      "trimmed_pivot": [
+        34,
+        118
+      ]
+    },
+    {
+      "id": "give-mid",
+      "page": "farmer2-0",
+      "rect": [
+        215,
+        2,
+        63,
+        119
+      ],
+      "size": [
+        63,
+        119
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        63,
+        119
+      ],
+      "visible_pixels": 4551,
+      "transparent_fraction": 0.3929571828731493,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 62,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "b9e5511367184af7881b307dcf0be7aeb52a0e05d3c0e7bad0c01585fe1644d1",
+      "trimmed_pivot": [
+        34,
+        118
+      ]
+    },
+    {
+      "id": "happy",
+      "page": "farmer2-0",
+      "rect": [
+        282,
+        2,
+        62,
+        119
+      ],
+      "size": [
+        62,
+        119
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        62,
+        119
+      ],
+      "visible_pixels": 4769,
+      "transparent_fraction": 0.3536188669015994,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 62,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "6c24b97f49c7a78e5aac3cb2aeba7d09d21869e10003013731ebf8bc00cfd361",
+      "trimmed_pivot": [
+        34,
+        118
+      ]
+    },
+    {
+      "id": "neutral",
+      "page": "farmer2-0",
+      "rect": [
+        348,
+        2,
+        62,
+        119
+      ],
+      "size": [
+        62,
+        119
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        62,
+        119
+      ],
+      "visible_pixels": 4769,
+      "transparent_fraction": 0.3536188669015994,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 63,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "98d8c5d3327daae5e5b7f021817247ecc7f131fc4a777654e1b942c73bfe0c69",
+      "trimmed_pivot": [
+        34,
+        118
+      ]
+    },
+    {
+      "id": "nod-down",
+      "page": "farmer2-0",
+      "rect": [
+        414,
+        2,
+        62,
+        117
+      ],
+      "size": [
+        62,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        62,
+        117
+      ],
+      "visible_pixels": 4721,
+      "transparent_fraction": 0.34918665563826856,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 62,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "973ad3fe97370d954def4e5b9daaa3204fca149d65e5522990ead874268c3510",
+      "trimmed_pivot": [
+        34,
+        116
+      ]
+    },
+    {
+      "id": "nod-mid",
+      "page": "farmer2-0",
+      "rect": [
+        2,
+        125,
+        62,
+        118
+      ],
+      "size": [
+        62,
+        118
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        62,
+        118
+      ],
+      "visible_pixels": 4744,
+      "transparent_fraction": 0.3515582285401859,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 62,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "01a1ad99fcd4d3d408168cc360666c7f838ec1383bbf2742a4bbc7e7812e6f50",
+      "trimmed_pivot": [
+        34,
+        117
+      ]
+    },
+    {
+      "id": "relaxed",
+      "page": "farmer2-0",
+      "rect": [
+        68,
+        2,
+        62,
+        119
+      ],
+      "size": [
+        62,
+        119
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        62,
+        119
+      ],
+      "visible_pixels": 4769,
+      "transparent_fraction": 0.3536188669015994,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 63,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "9ad141d28d82831dde6670a81ca4a2377aabe78200bbee83764b290db901d289",
+      "trimmed_pivot": [
+        34,
+        118
+      ]
+    },
+    {
+      "id": "surprised",
+      "page": "farmer2-0",
+      "rect": [
+        68,
+        125,
+        62,
+        119
+      ],
+      "size": [
+        62,
+        119
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        62,
+        119
+      ],
+      "visible_pixels": 4769,
+      "transparent_fraction": 0.3536188669015994,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 63,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "086207b970ea154c4cd06539134832fd5d77b0493d8eba4ba8720ba37748cf9b",
+      "trimmed_pivot": [
+        34,
+        118
+      ]
+    },
+    {
+      "id": "talk-blink",
+      "page": "farmer2-0",
+      "rect": [
+        134,
+        125,
+        62,
+        119
+      ],
+      "size": [
+        62,
+        119
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        62,
+        119
+      ],
+      "visible_pixels": 4769,
+      "transparent_fraction": 0.3536188669015994,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 62,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "801108040ee2c92078fef336e6d99c400e6909a0a8e8a946d638cd30cdf3d169",
+      "trimmed_pivot": [
+        34,
+        118
+      ]
+    },
+    {
+      "id": "talk-round",
+      "page": "farmer2-0",
+      "rect": [
+        200,
+        125,
+        62,
+        119
+      ],
+      "size": [
+        62,
+        119
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        62,
+        119
+      ],
+      "visible_pixels": 4769,
+      "transparent_fraction": 0.3536188669015994,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 63,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "2cd743d4ba291dae4a916b78b2955464c640e4b508c83548749e48b2b594364d",
+      "trimmed_pivot": [
+        34,
+        118
+      ]
+    },
+    {
+      "id": "talk-small",
+      "page": "farmer2-0",
+      "rect": [
+        266,
+        125,
+        62,
+        119
+      ],
+      "size": [
+        62,
+        119
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        62,
+        119
+      ],
+      "visible_pixels": 4769,
+      "transparent_fraction": 0.3536188669015994,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 63,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "fb9560457b8c75c612d045d27bf480eb6b1bbb7ca1fe310df6fa663568f0a685",
+      "trimmed_pivot": [
+        34,
+        118
+      ]
+    },
+    {
+      "id": "talk-wide",
+      "page": "farmer2-0",
+      "rect": [
+        332,
+        125,
+        62,
+        119
+      ],
+      "size": [
+        62,
+        119
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        62,
+        119
+      ],
+      "visible_pixels": 4769,
+      "transparent_fraction": 0.3536188669015994,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 63,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "e05b99cb4818fd60b97d9b4224185b5b6c77295f72e6baa200e8a0c0ef58970d",
+      "trimmed_pivot": [
+        34,
+        118
+      ]
+    },
+    {
+      "id": "turn-away",
+      "page": "farmer2-0",
+      "rect": [
+        398,
+        125,
+        62,
+        119
+      ],
+      "size": [
+        62,
+        119
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        62,
+        119
+      ],
+      "visible_pixels": 4762,
+      "transparent_fraction": 0.35456763350501486,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 61,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "4205271f5196f3c3b684a76244c1a612c806a7b991b93e0bbfea7a8e6544b052",
+      "trimmed_pivot": [
+        33,
+        118
+      ]
+    },
+    {
+      "id": "turn-toward",
+      "page": "farmer2-0",
+      "rect": [
+        2,
+        248,
+        63,
+        119
+      ],
+      "size": [
+        63,
+        119
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        63,
+        119
+      ],
+      "visible_pixels": 4793,
+      "transparent_fraction": 0.36067760437508334,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 59,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "59d77345247bf793cb3c4621579f5f66af5e2bc84b3f561f94e8452836668f23",
+      "trimmed_pivot": [
+        35,
+        118
+      ]
+    },
+    {
+      "id": "walk-0",
+      "page": "farmer2-0",
+      "rect": [
+        69,
+        248,
+        66,
+        119
+      ],
+      "size": [
+        66,
+        119
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        66,
+        119
+      ],
+      "visible_pixels": 4743,
+      "transparent_fraction": 0.39610389610389607,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 61,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "592ee9c2fbfbd5ed2853935955432899b207e09ede28e81bf4df346c39a712ba",
+      "trimmed_pivot": [
+        34,
+        118
+      ]
+    },
+    {
+      "id": "walk-1",
+      "page": "farmer2-0",
+      "rect": [
+        139,
+        248,
+        66,
+        118
+      ],
+      "size": [
+        66,
+        118
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        66,
+        118
+      ],
+      "visible_pixels": 4694,
+      "transparent_fraction": 0.3972778633795583,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 61,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "3115d58655779fd55d31096109aabeb3a4e7220e5fdf93719c1e575e383ff836",
+      "trimmed_pivot": [
+        34,
+        117
+      ]
+    },
+    {
+      "id": "walk-2",
+      "page": "farmer2-0",
+      "rect": [
+        209,
+        248,
+        62,
+        119
+      ],
+      "size": [
+        62,
+        119
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        62,
+        119
+      ],
+      "visible_pixels": 4639,
+      "transparent_fraction": 0.3712388181078883,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 63,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "99ab83bb46bb514ab494d8765f6420d1c1d4209fab1c19b4a76e7906a9949e9d",
+      "trimmed_pivot": [
+        34,
+        118
+      ]
+    },
+    {
+      "id": "walk-3",
+      "page": "farmer2-0",
+      "rect": [
+        275,
+        248,
+        68,
+        119
+      ],
+      "size": [
+        68,
+        119
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        68,
+        119
+      ],
+      "visible_pixels": 4444,
+      "transparent_fraction": 0.45081562036579337,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 63,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "a4385ac0201db465d1f800b2bc2acbfd270be3e7f8c0cc3a171924338f2bcbfa",
+      "trimmed_pivot": [
+        34,
+        118
+      ]
+    },
+    {
+      "id": "walk-4",
+      "page": "farmer2-0",
+      "rect": [
+        347,
+        248,
+        62,
+        118
+      ],
+      "size": [
+        62,
+        118
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        62,
+        118
+      ],
+      "visible_pixels": 4344,
+      "transparent_fraction": 0.4062329141607436,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 64,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "ee2bfd25b2b4d8fcc1768075932593ec936bf2c76f476aa873ccfc57482bdaab",
+      "trimmed_pivot": [
+        34,
+        117
+      ]
+    },
+    {
+      "id": "walk-5",
+      "page": "farmer2-0",
+      "rect": [
+        413,
+        248,
+        62,
+        119
+      ],
+      "size": [
+        62,
+        119
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        62,
+        119
+      ],
+      "visible_pixels": 4672,
+      "transparent_fraction": 0.366766061263215,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 63,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "dbdb8d0017a702649d12c969a26c26f768ec124a48880e0e335505a0373b5f12",
+      "trimmed_pivot": [
+        34,
+        118
+      ]
+    }
+  ],
+  "errors": [],
+  "warnings": [
+    "Extrude/gutter pixel contents, runtime sampling and performance were not measured"
+  ],
+  "runtime": {
+    "draw_calls": "not_measured",
+    "overdraw": "not_measured",
+    "gpu_format_support": "not_checked"
+  },
+  "memory_note": "Format arithmetic only; excludes CPU copies, staging, alignment and driver overhead.",
+  "pages": [
+    {
+      "id": "farmer2-0",
+      "size": [
+        512,
+        384
+      ],
+      "unique_rect_area_fraction": 0.8052215576171875,
+      "estimated_texture_bytes": 786432
+    }
+  ],
+  "declared_page_texture_bytes": 786432,
+  "duplicate_image_groups": [
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/npc/farmer/frames/blink-half.png",
+      "/Users/minhokang/Work/games/little-forge/assets/npc/farmer/frames/relaxed.png"
+    ]
+  ],
+  "status": "structural_pass_runtime_unmeasured"
+}

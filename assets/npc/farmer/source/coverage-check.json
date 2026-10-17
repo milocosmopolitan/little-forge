@@ -1,0 +1,11 @@
+{
+  "foundation_pixels": 4226,
+  "lost_foundation_pixels": 0,
+  "split_reconstructs_foundation": true,
+  "head_source": "body-rebuilt-base.png; complete hatless hair",
+  "face_source": "approved-face facial interior only",
+  "eyes_mouth_translation": [
+    -2,
+    6
+  ]
+}

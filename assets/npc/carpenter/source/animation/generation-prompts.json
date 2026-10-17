@@ -1,0 +1,37 @@
+[
+  {
+    "id": "nod-down",
+    "prompt": "Pixel NPC head pose asset. Input is the exact identity/style reference of this approved young carpenter. Keep his tousled dirty-blond/light-brown hair with gold strands, sparse short jaw stubble, large off-white eyes and dark-brown rightward pupils, warm skin, tiny friendly smile, slim young face. No hat, no full beard. ONE isolated complete head, no torso, no neck extension. Same head volume and 41x41-native-pixel density as reference; clean 1-native-pixel dark outline, no blurry edges, shared 32-color warm palette intent, true pixel clusters. Actual transparent background, no glow/shadow, no text. Hair must be complete. Keep neck attachment centered beneath the jaw; do not make the head float sideways. POSE: a small genuine chin-down nod, about 12 degrees downward tilt from original. Show slightly more upper hair plane and lower eyelids, eyes looking modestly down. Do not shrink hair or turn into a different face.",
+    "refs": [
+      "/Users/minhokang/Work/games/little-forge/assets/npc/carpenter/source/animation/identity-head.png"
+    ]
+  },
+  {
+    "id": "turn-left",
+    "prompt": "Pixel NPC head pose asset. Input is the exact identity/style reference of this approved young carpenter. Keep his tousled dirty-blond/light-brown hair with gold strands, sparse short jaw stubble, large off-white eyes and dark-brown rightward pupils, warm skin, tiny friendly smile, slim young face. No hat, no full beard. ONE isolated complete head, no torso, no neck extension. Same head volume and 41x41-native-pixel density as reference; clean 1-native-pixel dark outline, no blurry edges, shared 32-color warm palette intent, true pixel clusters. Actual transparent background, no glow/shadow, no text. Hair must be complete. Keep neck attachment centered beneath the jaw; do not make the head float sideways. POSE: head turned toward screen LEFT, mild left-facing three-quarter view, about 20 degrees left of frontal. This is a real new perspective, not a mirrored right-facing face. Show the appropriate ear, nose projection, eye spacing and same asymmetric hair swept on the same anatomical side. Jaw remains above the same fixed neck pivot.",
+    "refs": [
+      "/Users/minhokang/Work/games/little-forge/assets/npc/carpenter/source/animation/identity-head.png"
+    ]
+  },
+  {
+    "id": "turn-right",
+    "prompt": "Pixel NPC head pose asset. Input is the exact identity/style reference of this approved young carpenter. Keep his tousled dirty-blond/light-brown hair with gold strands, sparse short jaw stubble, large off-white eyes and dark-brown rightward pupils, warm skin, tiny friendly smile, slim young face. No hat, no full beard. ONE isolated complete head, no torso, no neck extension. Same head volume and 41x41-native-pixel density as reference; clean 1-native-pixel dark outline, no blurry edges, shared 32-color warm palette intent, true pixel clusters. Actual transparent background, no glow/shadow, no text. Hair must be complete. Keep neck attachment centered beneath the jaw; do not make the head float sideways. POSE: head turned further toward screen RIGHT than the reference, mild near-profile about 55 degrees right of frontal. Far eye becomes narrower, same gaze and facial identity. Do not deform head width or hair tuft size. Jaw remains above the same fixed neck pivot.",
+    "refs": [
+      "/Users/minhokang/Work/games/little-forge/assets/npc/carpenter/source/animation/identity-head.png"
+    ]
+  },
+  {
+    "id": "give-mid",
+    "prompt": "Localized character pose asset. Input is the approved carpenter's complete equipment-free standing base. Retain head, tousled dirty-blond hair, young face, shirt collar, cream rolled sleeves, olive trousers, boots, body width, leg length, standing foot positions and screen-left arm/hand. Change ONLY screen-right arm (anatomical left) into a friendly mallet-presenting gesture, with COMPLETE BARE HAND, natural thumb and grouped fingers, no gloves/tools/apron/towel/belt. Empty palm faces upwards, naturally cupped to cradle a wooden mallet shaft; no finger holes, fork fingers or mitten. Keep shoulder rooted at the same far shoulder, slim arm not muscular. The output is one full-body same-scale pose so the arm can be registered and isolated, actual transparent background. True pixel-art intended 96x128-native scale, one native pixel contour, same 32-color palette, no blur, no shadow, no labels. POSE: intermediary extension. Screen-right upper arm angled down about 40 degrees from horizontal, elbow bent, forearm reaching diagonally up-right toward a palm at approximately native (88,72) on the original 96x128 canvas; shoulder about (64,61). Open hand at chest/waist level; leave room to extend further next key.",
+    "refs": [
+      "/Users/minhokang/Work/games/little-forge/assets/npc/carpenter/source/animation/identity-base-8x.png"
+    ]
+  },
+  {
+    "id": "give-full",
+    "prompt": "Localized character pose asset. Input is the approved carpenter's complete equipment-free standing base. Retain head, tousled dirty-blond hair, young face, shirt collar, cream rolled sleeves, olive trousers, boots, body width, leg length, standing foot positions and screen-left arm/hand. Change ONLY screen-right arm (anatomical left) into a friendly mallet-presenting gesture, with COMPLETE BARE HAND, natural thumb and grouped fingers, no gloves/tools/apron/towel/belt. Empty palm faces upwards, naturally cupped to cradle a wooden mallet shaft; no finger holes, fork fingers or mitten. Keep shoulder rooted at the same far shoulder, slim arm not muscular. The output is one full-body same-scale pose so the arm can be registered and isolated, actual transparent background. True pixel-art intended 96x128-native scale, one native pixel contour, same 32-color palette, no blur, no shadow, no labels. POSE: full presenting reach. Screen-right arm extends nearly horizontally toward screen right, elbow slightly bent, forearm and cupped open palm raised about 10 degrees above horizontal; shoulder native (64,61), palm native (105,62), wider canvas allowed WITHOUT shrinking body. Hand is a real open upward-facing palm with fingers comfortably curled at the rim, not a fist. Keep original complete body scale and place empty margin to the right.",
+    "refs": [
+      "/Users/minhokang/Work/games/little-forge/assets/npc/carpenter/source/animation/identity-base-8x.png"
+    ]
+  }
+]

@@ -1,0 +1,132 @@
+version: 1
+id: leatherworker
+grid: B
+grid_unit_px: [16, 16]
+canvas_cells: [6, 8]
+native_canvas_px: [96, 128]
+preview_scale: 4
+origin_px: [0, 0]
+foot_anchor_px: [48, 124]
+design_bands_y: {head: [7, 46], upper: [45, 76], lower: [71, 125]}
+reference_roles:
+  identity: source/reference.png
+  style: source/reference.png
+  expressions: null
+reconstructed_occluded_regions:
+  - Cream shirt and waist under scarf, apron, belt and tools
+  - Olive trouser hips under apron and belt
+  - Bare hands and wrists under gloves, including raised gripping hand
+  - Hair under removable gold clip
+  - Apron cloth and empty sewn pocket under belt, pouches and tools
+baseline:
+  complete_underlayer: source/native-underlayer.png
+  foundation: source/foundation.png
+  facial_change_mask: null
+  builder: source/build-character.mjs
+  coverage_report: qa/coverage-report.json
+palette:
+  max_opaque_colors: 80
+  rgba_hex: source/palette.json
+  alpha_values: [0, 255]
+  reason: Retain the accepted body palette and reserve 16 extra slots for cheek blush, reference scarf reds, leather, gold and silver detail
+identity:
+  head_size_without_hat_px: [51, 39]
+  head_bbox_half_open_px: [16, 7, 67, 46]
+  face_bbox_px: [39, 18, 57, 45]
+  face_bbox_measurement: Visible light skin inside face ROI, excluding ear; a native measurement, not a source equality claim
+  eye_size_px: {near_feature_roi: [10, 9], far_feature_roi: [4, 11]}
+  eye_spacing_px: 4
+  eye_white_iris_design: Original asymmetric brown eyes and white highlights extracted from reference; brows belong to eyes
+  shoulder_width_px: 41
+  shoulder_measurement: Torso-connected silhouette at y=54, x=19..59, excludes raised hand
+  chest_width_px: 31
+  chest_measurement: Torso at y=64, x=35..65; near forearm excluded
+  waist_width_px: 28
+  waist_measurement: Trouser-connected interval at y=71, x=29..56
+  upper_arm_width_px: 15
+  upper_arm_measurement: Near arm horizontal interval at y=64, x=17..31
+  thigh_width_px: 31
+  thigh_measurement: Both thighs still joined at y=80, x=30..60; not an individual thigh diameter
+  leg_length_px: 54
+  leg_measurement: Waist y=71 through boot sole y=124
+  body_build: Compact reference proportions with full hips and short sturdy legs; under-clothing contours are reconstructed
+  hair_color: Copper brown, darker brown outline, no grey hair
+  beard_and_moustache_mask: none
+  preserved_expression_character: Small original smile and rightward three-quarter gaze
+  outline_rule: Native 1px dark contour; material shadows remain separate
+limb_identity:
+  side_convention: character_anatomical
+  near_side: right
+  far_side: left
+  identifying_marks: Near right hand rests on hip; far left hand grips leather; near right boot has gold buckle
+sockets_px:
+  neck: [45, 45]
+  waist: [47, 71]
+  eyes: [48, 31]
+  mouth: [48, 38]
+  left_hand: [75, 58]
+  right_hand: [36, 71]
+layers:
+  head_base: head-base.png
+  upper_base: body/upper-base.png
+  lower_base: body/lower-base.png
+  eyes: {open: eyes/open.png, half: eyes/half.png, closed: eyes/closed.png, happy-closed: eyes/happy-closed.png, wide: eyes/wide.png}
+  mouth: {rest: mouth/rest.png, small-open: mouth/small-open.png, wide-open: mouth/wide-open.png, round: mouth/round.png}
+  equipment:
+    - equipment/hairpin.png
+    - equipment/scarf.png
+    - equipment/apron.png
+    - equipment/belt-tools.png
+    - equipment/gloves.png
+  props: [props/leather-hide.png]
+eyebrow_owner: eyes
+expression_recipes:
+  neutral: {eyes: open, mouth: rest}
+  talk-small: {eyes: open, mouth: small-open}
+  talk-wide: {eyes: open, mouth: wide-open}
+  talk-round: {eyes: open, mouth: round}
+  blink: {eyes: closed, mouth: rest}
+  happy: {eyes: happy-closed, mouth: rest}
+  surprised: {eyes: wide, mouth: round}
+  relaxed: {eyes: half, mouth: rest}
+composition_order: [lower_base, upper_base, head_base, eyes, mouth, apron, scarf, belt_tools, gloves, hairpin, leather_hide]
+pose_overrides:
+  manifest: poses/recipes.json
+  generated: [nod-mid, nod-down, turn-toward, turn-away, give-mid, give-extended, walk-0, walk-1, walk-2, walk-3, walk-4, walk-5]
+  head_pose_facial_lock: Nod and rotated heads currently use open eyes and rest mouth; automatic blink/talk paused during those keys
+production_plan:
+  status: expressions_poses_and_authoring_atlas_generated
+  current_scope: 5 eyes, 4 mouths, 8 expression recipes, 12 pose recipes, 11 clips, 25 frame IDs
+animation:
+  manifest: animation.json
+  duration_unit: ms
+  root_motion: false
+  walk: {keys: 6, duration_ms: 120, loop: true, held_hide: false, near_side: right, gold_buckled_leg: right}
+  give: {keys: 6, transfer_key: 4, transfer_events: 1, prop_visible_after_transfer: false}
+runtime_export:
+  status: not_integrated
+  mode: baked_authoring_export
+  manifest: atlas-manifest.json
+  trim_supported_by_current_game_consumer: false
+  authoring_trim_preserves_offset_pivot: true
+  sampler: nearest
+  mipmaps: false
+generation:
+  tool: built-in image_gen
+  final_prompts: source/generation-prompts.json
+  registration: qa/coverage-report.json
+  ownership_masks: source/ownership-regions.json
+  glove_registration: source/glove-registration.json
+  correction_registration: source/corrections/registration.json
+  correction_prompts: source/corrections/prompts.json
+  blush_mask: source/corrections/blush-mask.png
+  animation_prompts: source/animation-prompts.json
+  animation_plan: source/animation-plan.json
+  animation_builder: source/build-animation.mjs
+  outline_correction_prompts: source/outline-corrections/prompts.json
+  outline_feature_registration: source/outline-corrections/feature-registration.json
+  face_consistency_prompts: source/face-consistency/prompts.json
+  face_consistency_registration: source/face-consistency/registration.json
+  nod_consistency_prompts: source/nod-consistency/prompts.json
+  nod_consistency_registration: source/nod-consistency/registration.json
+  build_all: source/build-all.mjs

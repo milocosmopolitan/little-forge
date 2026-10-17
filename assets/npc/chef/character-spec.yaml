@@ -1,0 +1,467 @@
+{
+  "version": 1,
+  "id": "chef",
+  "scope": "8 expressions; nod, shake_head and give pose clips; no walk or runtime integration",
+  "grid": "B",
+  "grid_unit_px": [
+    16,
+    16
+  ],
+  "canvas_cells": [
+    6,
+    8
+  ],
+  "native_canvas_px": [
+    96,
+    128
+  ],
+  "preview_scale": 4,
+  "origin_px": [
+    0,
+    0
+  ],
+  "foot_anchor_px": [
+    48,
+    124
+  ],
+  "reference_roles": {
+    "identity": "source/reference.png",
+    "style": "source/reference.png",
+    "pose": "Reference standing pose: hand at waist and raised spoon"
+  },
+  "reconstructed_occluded_regions": [
+    "Shirt beneath scarf, straps, apron and belt",
+    "Trousers beneath apron and towel",
+    "Empty raised hand and waist hand; generated reconstruction, not observed measurements"
+  ],
+  "baseline": {
+    "complete_underlayer": "base-neutral.png",
+    "foundation": "source/foundation.png",
+    "builder": "source/build-character.py",
+    "coverage_report": "source/coverage-check.json",
+    "underlayer_source": "source/generated-candidate.png equipment-free panel, locally traced bare forearm"
+  },
+  "palette": {
+    "max_opaque_colors": 32,
+    "actual_union_opaque_colors": 32,
+    "alpha_values": [
+      0,
+      255
+    ],
+    "definition": "source/build-character.py: PALETTE",
+    "rgba_hex": [
+      "#000000ff",
+      "#211510ff",
+      "#38251dff",
+      "#42422dff",
+      "#433b35ff",
+      "#503729ff",
+      "#57573aff",
+      "#65594dff",
+      "#6a4933ff",
+      "#6b2520ff",
+      "#6e6b43ff",
+      "#79521dff",
+      "#83804fff",
+      "#855634ff",
+      "#8a7763ff",
+      "#96332bff",
+      "#a0693cff",
+      "#a88059ff",
+      "#bb4536ff",
+      "#bb811eff",
+      "#be8348ff",
+      "#bf9b73ff",
+      "#c4783fff",
+      "#d55b44ff",
+      "#d58b48ff",
+      "#d9bb96ff",
+      "#e9a15bff",
+      "#edb633ff",
+      "#efd9b8ff",
+      "#f7b773ff",
+      "#fff0d5ff",
+      "#ffffffff"
+    ]
+  },
+  "identity": {
+    "head_size_without_hat_px": [
+      40,
+      39
+    ],
+    "face_bbox_px": [
+      30,
+      7,
+      65,
+      43
+    ],
+    "eye_size_px": [
+      [
+        8,
+        7
+      ],
+      [
+        6,
+        6
+      ]
+    ],
+    "eye_spacing_px": 12,
+    "neck_length_px": 6,
+    "shoulder_width_px": 56,
+    "chest_width_px": 81,
+    "waist_width_px": 46,
+    "upper_arm_width_px": 13,
+    "thigh_width_px": 20,
+    "leg_length_px": 39,
+    "body_build": "Stocky middle-aged chef, bald crown, broad full beard",
+    "skin_color": [
+      "#d58b48",
+      "#e9a15b",
+      "#f7b773"
+    ],
+    "hair_color": "Dark brown side hair, bald crown",
+    "beard_and_moustache_mask": "Fixed head-base pixels; mouth overlay owns mouth line only",
+    "preserved_expression_character": "Attentive neutral, looking slightly right",
+    "outline_rule": "Native dark 1px traced silhouette; material shadows separate",
+    "measurement_notes": "Native authored mask measurements and design spans, not a claim of pixel-identical reference anatomy. Eye sizes are design regions; see actual layer bounds.",
+    "measurement_rows": {
+      "shoulder_width_px": "Opaque span at native y=45",
+      "chest_width_px": "Opaque span at native y=64",
+      "waist_width_px": "Opaque span at native y=82"
+    }
+  },
+  "sockets_px": {
+    "neck": [
+      49,
+      44
+    ],
+    "waist": [
+      49,
+      84
+    ],
+    "eyes": [
+      [
+        47,
+        24
+      ],
+      [
+        60,
+        23
+      ]
+    ],
+    "mouth": [
+      55,
+      36
+    ],
+    "left_hand": [
+      31,
+      74
+    ],
+    "right_hand": [
+      86,
+      59
+    ]
+  },
+  "layers": {
+    "head_base": "head-base.png",
+    "upper_base": "body/upper-base.png",
+    "lower_base": "body/lower-base.png",
+    "eyes": {
+      "open": "eyes/open.png",
+      "half": "eyes/half.png",
+      "closed": "eyes/closed.png",
+      "happy-closed": "eyes/happy-closed.png",
+      "wide": "eyes/wide.png"
+    },
+    "mouth": {
+      "rest": "mouth/rest.png",
+      "small-open": "mouth/small-open.png",
+      "wide-open": "mouth/wide-open.png",
+      "round": "mouth/round.png",
+      "round-talk": "mouth/round-talk.png",
+      "smile": "mouth/smile.png",
+      "laugh": "mouth/laugh.png"
+    },
+    "equipment": [
+      "equipment/apron.png",
+      "equipment/straps.png",
+      "equipment/belt-tools.png",
+      "equipment/towel.png",
+      "equipment/scarf.png",
+      "equipment/spoon.png"
+    ],
+    "spoon_front_fingers": "body/hand-front-spoon.png"
+  },
+  "eyebrow_owner": "eyes",
+  "expression_recipes": {
+    "neutral": {
+      "eyes": "open",
+      "mouth": "rest"
+    },
+    "talk-small": {
+      "eyes": "open",
+      "mouth": "small-open"
+    },
+    "talk-wide": {
+      "eyes": "open",
+      "mouth": "wide-open"
+    },
+    "talk-round": {
+      "eyes": "open",
+      "mouth": "round-talk"
+    },
+    "blink": {
+      "eyes": "closed",
+      "mouth": "rest"
+    },
+    "happy": {
+      "eyes": "happy-closed",
+      "mouth": "laugh"
+    },
+    "surprised": {
+      "eyes": "wide",
+      "mouth": "round"
+    },
+    "relaxed": {
+      "eyes": "half",
+      "mouth": "rest"
+    }
+  },
+  "composition_order": [
+    "lower_base",
+    "upper_base",
+    "head_base",
+    "eyes",
+    "mouth",
+    "equipment/apron.png",
+    "equipment/straps.png",
+    "equipment/belt-tools.png",
+    "equipment/towel.png",
+    "equipment/scarf.png",
+    "equipment/spoon.png"
+  ],
+  "pose_overrides": {
+    "recipes": "poses/recipes.json",
+    "registration": "source/animation/registration.json"
+  },
+  "animation": {
+    "manifest": "animation.json",
+    "frame_order": [
+      "blink",
+      "give-empty",
+      "give-full",
+      "give-mid",
+      "give-retract",
+      "happy",
+      "neutral",
+      "neutral-empty",
+      "nod-down",
+      "nod-mid",
+      "relaxed",
+      "surprised",
+      "talk-round",
+      "talk-small",
+      "talk-wide",
+      "turn-left",
+      "turn-right"
+    ],
+    "clips": [
+      "idle",
+      "blink",
+      "talk",
+      "happy",
+      "surprised",
+      "nod",
+      "shake_head",
+      "give"
+    ],
+    "duration_unit": "ms",
+    "transfer": {
+      "clip": "give",
+      "key_index_zero_based": 3,
+      "event": "transfer",
+      "count": 1
+    }
+  },
+  "runtime_export": {
+    "status": "authoring_export_not_integrated",
+    "mode": "baked",
+    "atlas": "atlas.png",
+    "frame_rects": [
+      [
+        0,
+        0,
+        96,
+        128
+      ]
+    ],
+    "duration_unit": "ms",
+    "sampler": "nearest",
+    "mipmaps": false,
+    "rotate_packing": false,
+    "manifest": "atlas-manifest.json",
+    "frame_size": [
+      128,
+      160
+    ],
+    "trim_supported_by_consumer": false,
+    "extrude_px": 1,
+    "gutter_px": 1
+  },
+  "generation": {
+    "tool": "built-in image_gen",
+    "final_prompts": "source/generation-prompts.json",
+    "candidate": "source/generated-candidate.png",
+    "native_export": "source/build-character.py",
+    "status": "Expressions and three pose clips generated and natively registered",
+    "registration": "Both source panels use fixed 8:1 sampling; common native translation [0,2]. Same underlayer supplies all body regions; equipment masks registered on same canvas.",
+    "hat": "Reference has no hat. No hat layer or hat toggle generated.",
+    "native_cleanup": "Authored silhouette polygons, material-isolated scarf, hand-authored continuous leather straps/buckles; no automatic contour erosion",
+    "outline_revision": "Local scalp, spoon/arm, towel, scarf and boots repairs; see reference_repair",
+    "reference_repair": {
+      "spoon": "Original reference sampled at uniform body scale 118/1342 with integer registration; traced rim and long oval bowl",
+      "boots": "Original reference sampled at the same scale, registered to each leg; restricted brown leather palette prevents red color drift",
+      "scalp": "Parallel arc highlight removed, replaced with compact patch",
+      "raised_arm": "Single forearm/fist silhouette without internal dark registration seam"
+    },
+    "hand_detail_revision": "Superseded by reference_grip_rebuild; earlier added finger bands were rejected by user.",
+    "reference_grip_rebuild": {
+      "reference": "source/reference.png",
+      "scale": 0.08792846497764531,
+      "registration_unshifted": [
+        9,
+        4
+      ],
+      "source_parts": "Original forearm shading, palm and folded finger clusters sampled from reference; traced thumb opposite fingers around handle",
+      "native_cleanup": "One-pixel local contours and visible skin center inside narrow thumb; palm/forearm/prop ownership explicit",
+      "prop_alignment": "Spoon translated +2 native x to share reference registration with grip; bowl scale and shape retained",
+      "review": "previews/grip-reference-check.png",
+      "underlayer": "Complete bare grip remains a connected silhouette when spoon is disabled",
+      "status": "Superseded: reference equipment grip was unsuitable as an empty-hand underlayer."
+    },
+    "empty_hand_repair": {
+      "source": "source/generated-candidate.png right equipment-free panel",
+      "geometry": "Single complete palm/wrist/forearm silhouette; source anatomy retained, no equipment-grip fragments",
+      "palette": "Local shared skin ramp excludes scarf-red color drift",
+      "prop_occlusion": "Hand silhouette occludes shaft; spoon never erases the underlayer",
+      "review": "previews/empty-hand-toggle-check.png"
+    },
+    "spoon_layer_order_revision": {
+      "prop": "Complete connected spoon; wood restored where the reference hand had occluded it. No hand cutout in the prop PNG.",
+      "foreground": "Existing hand pixels copied to a conditional foreground finger layer.",
+      "bare_hand": "Pixel-identical to preceding accepted empty-hand build",
+      "review": "previews/spoon-layer-order.png",
+      "status": "Superseded by grip-only cutout per user correction"
+    },
+    "grip_occlusion_revision": {
+      "cutout": "Only curled-finger region; forearm excluded",
+      "bare_hand": "Unchanged",
+      "complete_prop": "source/spoon-complete.png",
+      "removed_shaft_pixels": 39,
+      "review": "previews/spoon-layer-order.png"
+    },
+    "animation_builder": "source/build-animation.py",
+    "animation_prompts": "source/animation/generation-prompts.json"
+  },
+  "verification": {
+    "structure": "source/coverage-check.json",
+    "visual_review": [
+      "previews/layer-check.png",
+      "previews/face-8x.png",
+      "previews/reference-comparison-4x.png",
+      "previews/outline-before-after.png",
+      "previews/reference-details-4x.png",
+      "previews/hand-detail-before-after.png",
+      "previews/grip-reference-check.png",
+      "previews/empty-hand-toggle-check.png",
+      "previews/spoon-layer-order.png"
+    ],
+    "approval": "Author visual review only; no user approval recorded",
+    "empty_and_held_connected_components": 1,
+    "animation": "qa/animation-validation.json",
+    "playback": "qa/playback-review.json",
+    "static_atlas_audit": "qa/sprite-audit.json"
+  },
+  "equipment_recipes": {
+    "empty_hand": {
+      "enabled": [],
+      "front_hand": null
+    },
+    "spoon": {
+      "enabled": [
+        "equipment/spoon.png"
+      ],
+      "front_hand": null,
+      "order": [
+        "upper_base",
+        "equipment/spoon.png"
+      ],
+      "occlusion": "Only shaft pixels behind curled fingers are transparent",
+      "complete_source": "source/spoon-complete.png",
+      "equivalent_alternative_order": [
+        "upper_base",
+        "source/spoon-complete.png",
+        "body/hand-front-spoon.png"
+      ]
+    }
+  },
+  "pose_canvas": {
+    "grid": "B",
+    "canvas_cells": [
+      8,
+      10
+    ],
+    "native_canvas_px": [
+      128,
+      160
+    ],
+    "base_offset_px": [
+      16,
+      16
+    ],
+    "foot_anchor_px": [
+      64,
+      140
+    ]
+  },
+  "expression_channels": {
+    "eyes": "Independent blink: open, half, closed, half, open",
+    "mouth": "Independent talk: rest, small-open, wide-open, small-open, round-talk, rest",
+    "priority": "surprised temporarily locks automatic blink"
+  },
+  "production_plan": {
+    "status": "generated",
+    "eyes": [
+      "open",
+      "half",
+      "closed",
+      "happy-closed",
+      "wide"
+    ],
+    "mouth": [
+      "rest",
+      "small-open",
+      "wide-open",
+      "round",
+      "round-talk",
+      "smile",
+      "laugh"
+    ],
+    "expressions": [
+      "neutral",
+      "talk-small",
+      "talk-wide",
+      "talk-round",
+      "blink",
+      "happy",
+      "surprised",
+      "relaxed"
+    ],
+    "pose_clips": [
+      "nod",
+      "shake_head",
+      "give"
+    ],
+    "walk": "not_generated"
+  }
+}

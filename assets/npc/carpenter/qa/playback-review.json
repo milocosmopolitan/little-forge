@@ -1,0 +1,24 @@
+{
+  "status": "static_outline_review_only_live_playback_not_repeated",
+  "current_review": "qa/outline-review.json",
+  "previous_review": "source/animation/outline-review-before/qa/playback-review.json",
+  "frame_hashes": {
+    "blink": "08f8b4b4f41479a74dc5a2f3dd421f1f0213ae846aaf54080f157eb6d4903de3",
+    "give-empty": "6cd4ebf8f8ae44f3acb54c22fd034661ef0101d66d6f3869e1d6fe46ba8d12cd",
+    "give-full": "51bf2b20987e6d1bab5d0b2c949bae07020ae4db45733862f98b266af52bccfe",
+    "give-mid": "6cbbd465d66c297f3c0d342c962403930070daaa48736a8bbee1b3a46c68642d",
+    "give-retract": "58cc47fb52d6d08d74aeeac12bb9291e655dedd6487dcbf34df7b76ceceed264",
+    "happy": "2c58b976fa902de3a80405a9db2034c4977c4597652136c6ed6b175d4c7c80dc",
+    "neutral": "49a9f8d582a6b0f931cd16c1058a01ed8cbbf471b588c8ef7efdbcb187fac2db",
+    "neutral-empty": "53f86e4947d945004db8e101110d602717ab59d3e57c7aaf887c2517fb284383",
+    "nod-down": "3f35ae1b0fb4180517e5d907fdde0f0962a48d41bcc9115e83a924ef376e4494",
+    "nod-mid": "b3bf584b9a890b14a2825e0eb193a02d1728ad6f66958befc9ac02d9bc43d099",
+    "relaxed": "57e52dcbfce05f71cb94cfb6f77490db489d9672f05025e05f8124ad62b8c557",
+    "surprised": "07db84e55842ef2b6d6a73b83ade757250068ca4e49d1cce5d267444de3bd173",
+    "talk-round": "de43dc95397dd35992486c3635df036abb5d7b55963141b0b5195ce4e9fa4935",
+    "talk-small": "07afd27ee3f2c0c487ee0537ebc5f580f05ea9b22f3902de3d5cb4aba6acbb0e",
+    "talk-wide": "ebb743192627b266f8e3f442dfb59283781f30471dc4c75ef557f79c4066324e",
+    "turn-left": "6d6c852dc9f800c7008c6807ff1ee788d96a2c96e4440be070c33537e720c069",
+    "turn-right": "4b5d7c923836c8c0f23c638592d6ad98547c0e8cb7617c130a0b124d59ee603e"
+  }
+}

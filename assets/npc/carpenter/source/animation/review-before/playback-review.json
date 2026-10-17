@@ -1,0 +1,50 @@
+{
+  "status": "author_visual_review_complete",
+  "date": "2026-10-16",
+  "viewer": "previews/animation.html",
+  "environment": "Google Chrome on macOS through native computer-use controls; local HTTP viewer",
+  "scales_reviewed": [
+    1,
+    4
+  ],
+  "speed_multipliers_reviewed": [
+    1,
+    0.25
+  ],
+  "equipment_states": [
+    "complete equipment-free",
+    "equipped"
+  ],
+  "backgrounds": [
+    "light cream",
+    "dark gray"
+  ],
+  "pose_playback": {
+    "nod": {
+      "normal_and_slow": true,
+      "keys": 5,
+      "notes": "head and facial parts move together; fixed collar and neck junction reviewed"
+    },
+    "shake_head": {
+      "normal_and_slow": true,
+      "keys": 5,
+      "notes": "alternate directions replace head; original clothing and equipment remain fixed"
+    },
+    "give": {
+      "normal_and_slow": true,
+      "keys": 6,
+      "notes": "bare/equipped arm extension reviewed; key 3 mallet/palm contact and key 4 empty palm inspected while paused; return stays without mallet"
+    }
+  },
+  "expressions": {
+    "count": 8,
+    "eye_mouth_combinations": 20,
+    "sheet": "previews/expressions-4x.png",
+    "dark_sheet": "previews/expressions-dark-4x.png",
+    "live_hold": "happy at nearest 4x"
+  },
+  "hats": "not applicable; no hat",
+  "walk": "not generated in this phase",
+  "runtime": "authoring preview only; not integrated or profiled",
+  "user_approval": "not claimed"
+}

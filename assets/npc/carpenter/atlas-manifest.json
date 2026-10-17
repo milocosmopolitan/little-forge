@@ -1,0 +1,641 @@
+{
+  "version": 1,
+  "sampler": "nearest",
+  "mipmaps": false,
+  "extrude_px": 1,
+  "gutter_px": 1,
+  "trimmed": false,
+  "runtime_status": "authoring_export_not_integrated",
+  "pages": [
+    {
+      "id": "carpenter-0",
+      "path": "atlas.png",
+      "size": [
+        1056,
+        496
+      ]
+    }
+  ],
+  "sprites": [
+    {
+      "id": "blink",
+      "page": "carpenter-0",
+      "rect": [
+        2,
+        2,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/blink.png",
+      "rotated": false,
+      "sha256_pixels": "a2c5184adca3a797f4f9d5b41cf0d33e28d1c22089a73e8025f4a9f5add191a3"
+    },
+    {
+      "id": "give-empty",
+      "page": "carpenter-0",
+      "rect": [
+        134,
+        2,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/give-empty.png",
+      "rotated": false,
+      "sha256_pixels": "c8b8f51f2745f5a2dde8260a342f8042a1d97ede4cbfea3f397907d8750b2feb"
+    },
+    {
+      "id": "give-full",
+      "page": "carpenter-0",
+      "rect": [
+        266,
+        2,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/give-full.png",
+      "rotated": false,
+      "sha256_pixels": "8ce6f3558e10b60ff6b1f3f8248db6f31d8da99cd28d9cabea4a53eb0ccfacb1"
+    },
+    {
+      "id": "give-mid",
+      "page": "carpenter-0",
+      "rect": [
+        398,
+        2,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/give-mid.png",
+      "rotated": false,
+      "sha256_pixels": "c664ec28c80b3359b47e49f68ec0a29257f04e252acebeffb4fc414a5f31f53a"
+    },
+    {
+      "id": "give-retract",
+      "page": "carpenter-0",
+      "rect": [
+        530,
+        2,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/give-retract.png",
+      "rotated": false,
+      "sha256_pixels": "3e305e931b854c99e52b702972cdf0761832c4be9fe91b1e55ebea08a65f8904"
+    },
+    {
+      "id": "happy",
+      "page": "carpenter-0",
+      "rect": [
+        662,
+        2,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/happy.png",
+      "rotated": false,
+      "sha256_pixels": "ccaa30b06226021c3f52e8ac1b252c9cb947c9373824611b1d03d52e7ebf3fae"
+    },
+    {
+      "id": "neutral",
+      "page": "carpenter-0",
+      "rect": [
+        794,
+        2,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/neutral.png",
+      "rotated": false,
+      "sha256_pixels": "3fcf0d8b2c684c5c5a42f4286110ef2e1558cd9223755fec0ad3071325090d76"
+    },
+    {
+      "id": "neutral-empty",
+      "page": "carpenter-0",
+      "rect": [
+        926,
+        2,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/neutral-empty.png",
+      "rotated": false,
+      "sha256_pixels": "22ee95560cccac17099fc98ad138ecd2da51c9486adbe478b3f99608a6884c1d"
+    },
+    {
+      "id": "nod-down",
+      "page": "carpenter-0",
+      "rect": [
+        2,
+        166,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/nod-down.png",
+      "rotated": false,
+      "sha256_pixels": "2fb92a814dabfc8bfb1aa8afd6ea97fd6015cddeaf938645dbe2f4c2c352df4b"
+    },
+    {
+      "id": "nod-mid",
+      "page": "carpenter-0",
+      "rect": [
+        134,
+        166,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/nod-mid.png",
+      "rotated": false,
+      "sha256_pixels": "6b74efec6dd07419fc8b68ff41eaa80122f87b66a1848438ecbe1ec17c027bf8"
+    },
+    {
+      "id": "relaxed",
+      "page": "carpenter-0",
+      "rect": [
+        266,
+        166,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/relaxed.png",
+      "rotated": false,
+      "sha256_pixels": "07ef2f6942984ab64ab9bf8454d09c4391dafa028f433f45f2b950ee1ee6e7bc"
+    },
+    {
+      "id": "surprised",
+      "page": "carpenter-0",
+      "rect": [
+        398,
+        166,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/surprised.png",
+      "rotated": false,
+      "sha256_pixels": "bf5a65cd7c5be264052483313f4e9b99000c5710a2291e5712368769fa754980"
+    },
+    {
+      "id": "talk-round",
+      "page": "carpenter-0",
+      "rect": [
+        530,
+        166,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/talk-round.png",
+      "rotated": false,
+      "sha256_pixels": "b5c83e12cd5cd0374ca9dc1fed840597a12438ca18ede0c9555abc3acb3d5b56"
+    },
+    {
+      "id": "talk-small",
+      "page": "carpenter-0",
+      "rect": [
+        662,
+        166,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/talk-small.png",
+      "rotated": false,
+      "sha256_pixels": "5925e967595502d227d0216a76098c86d8423a9f1e17b109091085d7a60071da"
+    },
+    {
+      "id": "talk-wide",
+      "page": "carpenter-0",
+      "rect": [
+        794,
+        166,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/talk-wide.png",
+      "rotated": false,
+      "sha256_pixels": "7e06e9d3536e2365e9a06a334ce6ed5c9fbbd8d7310554411d0859f946ec05b8"
+    },
+    {
+      "id": "turn-left",
+      "page": "carpenter-0",
+      "rect": [
+        926,
+        166,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/turn-left.png",
+      "rotated": false,
+      "sha256_pixels": "0dbfd548c8f0201aa7312ae3f34895025c34db2e323fdf0d141f6361ac602cdb"
+    },
+    {
+      "id": "turn-right",
+      "page": "carpenter-0",
+      "rect": [
+        2,
+        330,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/turn-right.png",
+      "rotated": false,
+      "sha256_pixels": "31e81904793a0ea93de005646c885c5025b2aba16ff0b477546411b9c1dafe32"
+    }
+  ],
+  "clips": {
+    "idle": {
+      "loop": true,
+      "frames": [
+        {
+          "sprite": "neutral",
+          "duration_ms": 1400
+        },
+        {
+          "sprite": "relaxed",
+          "duration_ms": 40
+        },
+        {
+          "sprite": "blink",
+          "duration_ms": 80
+        },
+        {
+          "sprite": "relaxed",
+          "duration_ms": 40
+        },
+        {
+          "sprite": "neutral",
+          "duration_ms": 1800
+        }
+      ]
+    },
+    "blink": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "neutral",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "relaxed",
+          "duration_ms": 40
+        },
+        {
+          "sprite": "blink",
+          "duration_ms": 80
+        },
+        {
+          "sprite": "relaxed",
+          "duration_ms": 40
+        },
+        {
+          "sprite": "neutral",
+          "duration_ms": 120
+        }
+      ]
+    },
+    "talk": {
+      "loop": true,
+      "frames": [
+        {
+          "sprite": "neutral",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "talk-small",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "talk-wide",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "talk-small",
+          "duration_ms": 90
+        },
+        {
+          "sprite": "talk-round",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "neutral",
+          "duration_ms": 120
+        }
+      ]
+    },
+    "happy": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "neutral",
+          "duration_ms": 160
+        },
+        {
+          "sprite": "happy",
+          "duration_ms": 700
+        },
+        {
+          "sprite": "neutral",
+          "duration_ms": 160
+        }
+      ]
+    },
+    "surprised": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "neutral",
+          "duration_ms": 160
+        },
+        {
+          "sprite": "surprised",
+          "duration_ms": 600
+        },
+        {
+          "sprite": "neutral",
+          "duration_ms": 180
+        }
+      ]
+    },
+    "nod": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "neutral",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "nod-mid",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "nod-down",
+          "duration_ms": 140
+        },
+        {
+          "sprite": "nod-mid",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "neutral",
+          "duration_ms": 120
+        }
+      ]
+    },
+    "shake_head": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "neutral",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "turn-left",
+          "duration_ms": 140
+        },
+        {
+          "sprite": "neutral",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "turn-right",
+          "duration_ms": 140
+        },
+        {
+          "sprite": "neutral",
+          "duration_ms": 100
+        }
+      ]
+    },
+    "give": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "neutral",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "give-mid",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "give-full",
+          "duration_ms": 180
+        },
+        {
+          "sprite": "give-empty",
+          "duration_ms": 120,
+          "event": "transfer"
+        },
+        {
+          "sprite": "give-retract",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "neutral-empty",
+          "duration_ms": 120
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "version": 2,
+  "canvas_px": [
+    96,
+    128
+  ],
+  "palette_max_colors": 80,
+  "locked_native_sources": [
+    "../revision-1-before/body/lower-base.png",
+    "../revision-1-before/body/upper-base.png",
+    "../revision-1-before/head-base.png",
+    "../revision-1-before/eyes/open.png",
+    "../revision-1-before/mouth/rest.png"
+  ],
+  "sampling": "Evaluate inverse registration in full-resolution source, sample pixel center once, alpha >= 128",
+  "apron": {
+    "source": "../isolated-apron.png",
+    "inverse_x": "(x-8.5)/0.82",
+    "inverse_y": "y <= 57 ? y : 57 + (y-57)/0.868",
+    "reason": "Align strap/buckle landmarks without stretching the bib to the skirt hem"
+  },
+  "belt_tools": {
+    "source": "../isolated-belt-tools.png",
+    "inverse_x": "(x-9)/0.7",
+    "inverse_y": "(y-(x<37?30:27))/0.7",
+    "reason": "Keep side roll/pouches below the hip hand while aligning the central waist buckle"
+  },
+  "scarf": {
+    "source": "../isolated-scarf.png",
+    "inverse_x": "(x-11.65)/0.75",
+    "inverse_y": "(y-11.1)/0.75",
+    "palette": "Original reference scarf reds and existing dark contours"
+  },
+  "hide": {
+    "source": "leather-hide-closed.png",
+    "source_native_bbox": [
+      61,
+      56.5,
+      90,
+      113.4
+    ],
+    "target_native_bbox": [
+      64,
+      59,
+      88,
+      103
+    ],
+    "composition": "Front of body/equipment; upper gripping knuckles remain above its y=59 top"
+  },
+  "blush": {
+    "source": "../reference.png",
+    "mask": "blush-mask.png",
+    "changed_pixels": 7
+  },
+  "obsolete_masks": "../ownership-regions.json records revision 1 only; current gear does not use these clipped polygons"
+}

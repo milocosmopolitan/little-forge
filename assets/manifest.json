@@ -455,32 +455,18 @@
       "sha256": "98b77307f13d2a8ef18b4c80094812f18b8c3ede3bffcbc12d8a1df51d908162"
     },
     {
-      "id": "farmer_atlas",
-      "path": "npc/farmer/atlas.png",
-      "width": 1536,
-      "height": 2112,
+      "id": "farmer_runtime_atlas",
+      "path": "npc/farmer/runtime-atlas.png",
+      "width": 384,
+      "height": 768,
       "columns": 4,
       "rows": 6,
       "alpha": true,
       "anchor": [
         0.5,
-        0.9659090909090909
+        0.96875
       ],
-      "sha256": "2f028708ef2e793714cc86d52cc12249c95e0fa43611f8c95f7f1a8fecfe2d09"
-    },
-    {
-      "id": "farmer_body",
-      "path": "npc/farmer/body.png",
-      "width": 384,
-      "height": 352,
-      "columns": 1,
-      "rows": 1,
-      "alpha": true,
-      "anchor": [
-        0.5,
-        0.9659090909090909
-      ],
-      "sha256": "a9a0a7369dec13bdab3d39c125a1fe44e1cbeaf1d91feb2d383c2ecc842987b0"
+      "sha256": "19f69e4deac60c0045fc996ca0db16fb9a508a69b442047378b1caecb7c3b6bc"
     },
     {
       "id": "farmer_carrot",
@@ -495,90 +481,6 @@
         0.5
       ],
       "sha256": "901053d248accdcff28e7206fa25241f1200c25e18aba0c72ffabf1b751e3d52"
-    },
-    {
-      "id": "farmer_eyes_atlas",
-      "path": "npc/farmer/eyes-atlas.png",
-      "width": 1152,
-      "height": 352,
-      "columns": 3,
-      "rows": 1,
-      "alpha": true,
-      "anchor": [
-        0.5,
-        0.9659090909090909
-      ],
-      "sha256": "0915fa1ad70d87eb6d2738fa8c9b094657725b5658cae84f714161999ad46bbc"
-    },
-    {
-      "id": "farmer_eyes",
-      "path": "npc/farmer/eyes.png",
-      "width": 384,
-      "height": 352,
-      "columns": 1,
-      "rows": 1,
-      "alpha": true,
-      "anchor": [
-        0.5,
-        0.9659090909090909
-      ],
-      "sha256": "3f6cea4913539b6ea9c93735b3c0dedb09f94549e6c314a1a18efca463c2ec26"
-    },
-    {
-      "id": "farmer_hands",
-      "path": "npc/farmer/hands.png",
-      "width": 1536,
-      "height": 2112,
-      "columns": 4,
-      "rows": 6,
-      "alpha": true,
-      "anchor": [
-        0.5,
-        0.9659090909090909
-      ],
-      "sha256": "6651b4823f668ebfe350f468b149c9dd7ca787584a376e15d8ff70af47537438"
-    },
-    {
-      "id": "farmer_head",
-      "path": "npc/farmer/head.png",
-      "width": 384,
-      "height": 352,
-      "columns": 1,
-      "rows": 1,
-      "alpha": true,
-      "anchor": [
-        0.5,
-        0.9659090909090909
-      ],
-      "sha256": "514670722c44a0fc71bca36d981ed47e0a34b2b5ba160a9b23d47fcea2123422"
-    },
-    {
-      "id": "farmer_mouth",
-      "path": "npc/farmer/mouth.png",
-      "width": 384,
-      "height": 352,
-      "columns": 1,
-      "rows": 1,
-      "alpha": true,
-      "anchor": [
-        0.5,
-        0.9659090909090909
-      ],
-      "sha256": "f3ceb144577ae20a3d672d148a0142a2ed2ee82e30a792af2dd66311d66116e5"
-    },
-    {
-      "id": "farmer_mouths",
-      "path": "npc/farmer/mouths.png",
-      "width": 1536,
-      "height": 352,
-      "columns": 4,
-      "rows": 1,
-      "alpha": true,
-      "anchor": [
-        0.5,
-        0.9659090909090909
-      ],
-      "sha256": "36056467686892edf86cb356038e6c7dd2e0b806fa9e8b9423a8cfb98630a175"
     }
   ]
 }

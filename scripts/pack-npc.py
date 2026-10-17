@@ -34,9 +34,9 @@ def split(im,rect,scale=1):
     registration.append({'source_rect':rect,'source_scale':scale,'offset':list(offset),'foot':[W//2,H-12]})
     return out
 im=Image.open(folder/'source/expressions.png').convert('RGBA')
-xs=[0,350,630,930,1254];ys=[0,320,635,932,1254]
+xs=[0,300,560,820,1122];ys=[0,347,698,1044,1402]
 for row in range(4):
- for col in range(4):frames.append(split(im,(xs[col],ys[row],xs[col+1],ys[row+1])))
+ for col in range(4):frames.append(split(im,(xs[col],ys[row],xs[col+1],ys[row+1]),.9))
 im=Image.open(folder/'source/walk.png').convert('RGBA')
 for row in range(2):
  for col in range(3):frames.append(split(im,(col*512,row*512,(col+1)*512,(row+1)*512),.625))
@@ -45,7 +45,9 @@ for i,frame in enumerate(frames):atlas.alpha_composite(frame,((i%4)*W,(i//4)*H))
 atlas.save(folder/'atlas.png')
 # Source layers for the neutral authoring pose, on the SAME registered canvas.
 neutral=frames[0]
-for name,box in {'head':(0,0,W,180),'body':(0,180,W,H),'eyes':(175,108,238,145),'mouth':(180,143,237,174)}.items():
+eye_box=(180,99,232,128)
+mouth_box=(180,128,235,157)
+for name,box in {'head':(0,0,W,160),'body':(0,160,W,H),'eyes':eye_box,'mouth':mouth_box}.items():
  layer=Image.new('RGBA',(W,H));layer.alpha_composite(neutral.crop(box),(box[0],box[1]));layer.save(folder/f'{name}.png')
 c={'id':'farmer','faces':{'mouths':'npc/farmer/mouths.png','eyes':'npc/farmer/eyes-atlas.png','hands':'npc/farmer/hands.png'},'version':1,'image':'npc/farmer/atlas.png','size':[W*4,H*6],'cell':[W,H],'foot':[W/2,H-12],'head':[W/2,100],'frames':[],'clips':{}}
 for i in range(len(frames)):
@@ -65,11 +67,11 @@ hands.save(folder/'hands.png')
 # Small, independently addressable face patches for dialogue composition.
 face=Image.new('RGBA',(W*4,H))
 for j,i in enumerate([0,1,2,3]):
- patch=frames[i].crop((180,143,237,174));face.alpha_composite(patch,(j*W+180,143))
+ patch=frames[i].crop(mouth_box);face.alpha_composite(patch,(j*W+mouth_box[0],mouth_box[1]))
 face.save(folder/'mouths.png')
 blink=Image.new('RGBA',(W*3,H))
 for j,i in enumerate([0,4,5]):
- patch=frames[i].crop((175,108,238,145));blink.alpha_composite(patch,(j*W+175,108))
+ patch=frames[i].crop(eye_box);blink.alpha_composite(patch,(j*W+eye_box[0],eye_box[1]))
 blink.save(folder/'eyes-atlas.png')
 print('Packed',len(frames),'registered frames',atlas.size)
 # Runtime prop gets a bounded texture; preserve original generated resolution in source.

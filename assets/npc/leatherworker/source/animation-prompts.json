@@ -1,0 +1,149 @@
+[
+  {
+    "id": "eye-half",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Modular pixel-art expression source, not a new character. Input is a 64x64 native head tile enlarged 16x to 1024. Preserve exact tile placement, scale, copper-brown bob silhouette, face shape, ears, nose, blush, dark 1-native-pixel contour and pixel grid. Keep the head centered at its EXISTING coordinates, do not zoom or crop. Transparent background, no text, no new objects. Only change the specified facial feature; keep all other pixels as close to input as possible. Work in aligned coarse square clusters corresponding to original native pixels. Only change both eyes and their brows to relaxed half-lidded eyes. Preserve near-eye width and brown iris, conceal upper half naturally with an eyelid. Far eye remains narrower by original perspective. Keep the small smile.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-09331c8b-0749-496d-87eb-9590afb621f6.png",
+    "saved": "source/expressions/eye-half.png"
+  },
+  {
+    "id": "eye-closed",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Modular pixel-art expression source, not a new character. Input is a 64x64 native head tile enlarged 16x to 1024. Preserve exact tile placement, scale, copper-brown bob silhouette, face shape, ears, nose, blush, dark 1-native-pixel contour and pixel grid. Keep the head centered at its EXISTING coordinates, do not zoom or crop. Transparent background, no text, no new objects. Only change the specified facial feature; keep all other pixels as close to input as possible. Work in aligned coarse square clusters corresponding to original native pixels. Only change both eyes to closed blink eyelid lines, dark gently descending relaxed strokes. Keep original brows, blush and small smile. Do not retain white pupils or open-eye remnants.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-75773765-e809-4767-82f0-e9789c1dae6b.png",
+    "saved": "source/expressions/eye-closed.png"
+  },
+  {
+    "id": "eye-happy-closed",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Modular pixel-art expression source, not a new character. Input is a 64x64 native head tile enlarged 16x to 1024. Preserve exact tile placement, scale, copper-brown bob silhouette, face shape, ears, nose, blush, dark 1-native-pixel contour and pixel grid. Keep the head centered at its EXISTING coordinates, do not zoom or crop. Transparent background, no text, no new objects. Only change the specified facial feature; keep all other pixels as close to input as possible. Work in aligned coarse square clusters corresponding to original native pixels. Only change both eyes and brows to happy closed-eye upward curves, visibly distinct from a blink. Express a warm delighted smile through eyes; keep original mouth small smile and face dimensions.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-61f4df0e-e915-484d-af83-944a205ad7b9.png",
+    "saved": "source/expressions/eye-happy-closed.png"
+  },
+  {
+    "id": "eye-wide",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Modular pixel-art expression source, not a new character. Input is a 64x64 native head tile enlarged 16x to 1024. Preserve exact tile placement, scale, copper-brown bob silhouette, face shape, ears, nose, blush, dark 1-native-pixel contour and pixel grid. Keep the head centered at its EXISTING coordinates, do not zoom or crop. Transparent background, no text, no new objects. Only change the specified facial feature; keep all other pixels as close to input as possible. Work in aligned coarse square clusters corresponding to original native pixels. Only change both eyes and brows to surprised wide eyes: brows raised, more white visible around slightly smaller brown pupils, while preserving original perspective and gaze. Remain within existing forehead/eye area; no face widening. Keep mouth as input.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-7ad33ed8-b385-456a-8743-4a2c5269c253.png",
+    "saved": "source/expressions/eye-wide.png"
+  },
+  {
+    "id": "mouth-small-open",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Modular pixel-art expression source, not a new character. Input is a 64x64 native head tile enlarged 16x to 1024. Preserve exact tile placement, scale, copper-brown bob silhouette, face shape, ears, nose, blush, dark 1-native-pixel contour and pixel grid. Keep the head centered at its EXISTING coordinates, do not zoom or crop. Transparent background, no text, no new objects. Only change the specified facial feature; keep all other pixels as close to input as possible. Work in aligned coarse square clusters corresponding to original native pixels. Only change mouth to a small speaking opening, about 4 native pixels wide and 2 high, dark interior with subtle lower lip. Preserve exact eyes, brows and blush. No rectangular skin patch, no big cheek deformation.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-9f402c1e-41fd-4a74-9c54-7d6e3da9cabe.png",
+    "saved": "source/expressions/mouth-small-open.png"
+  },
+  {
+    "id": "mouth-wide-open",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Modular pixel-art expression source, not a new character. Input is a 64x64 native head tile enlarged 16x to 1024. Preserve exact tile placement, scale, copper-brown bob silhouette, face shape, ears, nose, blush, dark 1-native-pixel contour and pixel grid. Keep the head centered at its EXISTING coordinates, do not zoom or crop. Transparent background, no text, no new objects. Only change the specified facial feature; keep all other pixels as close to input as possible. Work in aligned coarse square clusters corresponding to original native pixels. Only change mouth to a larger speaking smile, about 6 native pixels wide and 4 high, dark interior and one small cream tooth band at top, subtle tongue. Preserve eyes, nose, jaw and cheek blush. Do not enlarge face.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-4e5fbb32-128b-4e18-8eb4-bac790309d3b.png",
+    "saved": "source/expressions/mouth-wide-open.png"
+  },
+  {
+    "id": "mouth-round",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Modular pixel-art expression source, not a new character. Input is a 64x64 native head tile enlarged 16x to 1024. Preserve exact tile placement, scale, copper-brown bob silhouette, face shape, ears, nose, blush, dark 1-native-pixel contour and pixel grid. Keep the head centered at its EXISTING coordinates, do not zoom or crop. Transparent background, no text, no new objects. Only change the specified facial feature; keep all other pixels as close to input as possible. Work in aligned coarse square clusters corresponding to original native pixels. Only change mouth to a compact round O, about 3 native pixels wide and 4 high. A dark oval hole and small lower lip, clearly narrower than a wide talking mouth. Preserve other facial features.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-a4f95040-8909-4bae-aede-e6ee553d3a4e.png",
+    "saved": "source/expressions/mouth-round.png"
+  },
+  {
+    "id": "nod-down",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Modular pixel-art expression source, not a new character. Input is a 64x64 native head tile enlarged 16x to 1024. Preserve exact tile placement, scale, copper-brown bob silhouette, face shape, ears, nose, blush, dark 1-native-pixel contour and pixel grid. Keep the head centered at its EXISTING coordinates, do not zoom or crop. Transparent background, no text, no new objects. Only change the specified facial feature; keep all other pixels as close to input as possible. Work in aligned coarse square clusters corresponding to original native pixels. Change ONLY the HEAD ORIENTATION to a small natural chin-down nod. Keep full copper bob and head volume, eye sizes, small smile, blush; chin slightly tucks toward neck and eyes follow face perspective. Maximum 2-native-pixel chin displacement. Keep head overall scale and center close to input. No gold hairpin or clothing.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-0d6259f3-164f-4878-8099-8d116e8a83db.png",
+    "saved": "source/poses/nod-down.png"
+  },
+  {
+    "id": "turn-toward",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Modular pixel-art expression source, not a new character. Input is a 64x64 native head tile enlarged 16x to 1024. Preserve exact tile placement, scale, copper-brown bob silhouette, face shape, ears, nose, blush, dark 1-native-pixel contour and pixel grid. Keep the head centered at its EXISTING coordinates, do not zoom or crop. Transparent background, no text, no new objects. Only change the specified facial feature; keep all other pixels as close to input as possible. Work in aligned coarse square clusters corresponding to original native pixels. Change ONLY head orientation to turn about 15 degrees toward camera from the current right-facing three-quarter view, still slightly facing right. Both eyes become more equally visible, nose shifts slightly toward center. Preserve full bob, face volume, blush, small smile, ear and head scale. No gold hairpin or clothes.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-fbe2bf83-0e6d-448a-877b-a722070381a3.png",
+    "saved": "source/poses/turn-toward.png"
+  },
+  {
+    "id": "turn-away",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Modular pixel-art expression source, not a new character. Input is a 64x64 native head tile enlarged 16x to 1024. Preserve exact tile placement, scale, copper-brown bob silhouette, face shape, ears, nose, blush, dark 1-native-pixel contour and pixel grid. Keep the head centered at its EXISTING coordinates, do not zoom or crop. Transparent background, no text, no new objects. Only change the specified facial feature; keep all other pixels as close to input as possible. Work in aligned coarse square clusters corresponding to original native pixels. Change ONLY head orientation to turn about 15 degrees farther to character's left, toward screen-right. A gentle near-profile right-facing view; near eye visible and far eye narrowly occluded by nose. Preserve full rounded bob, nose silhouette with cheek reaching naturally up to forehead, blush, short jaw and head scale. Do not cut a notch into eye silhouette. No gold hairpin or clothes.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-422bbeaf-7fc6-4b24-b5d4-8f0deb3516a9.png",
+    "saved": "source/poses/turn-away.png"
+  },
+  {
+    "id": "walk-0",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Pixel-art modular BODY pose source. Input is the approved leatherworker's equipment-free complete body, 96x128 native canvas enlarged to 384x512. Preserve the EXACT original canvas framing, compact body build, cream rolled-sleeve shirt, olive trousers, brown cuffed boots with grey toe caps, warm skin, coarse native pixel clusters and 1px dark outline. Never copy farmer features. Keep copper bob/face/eyes/blush unchanged in original top-of-frame position as registration landmarks; they will be replaced by the locked head later. Foot ground y=124 native, neck=(45,45), waist near (47,71). Both hands BARE, no gloves, scarf, belt, apron, pouches, tools, hairpin, hide or other prop. Reconstruct a complete shirt/waist/hips, clean shoulder/armpit/elbow connections, no holes or old pose arms. Anatomical RIGHT is the near side, anatomical LEFT is far side. The GOLD BUCKLE belongs only to the near RIGHT boot in every pose, never moves to the other leg. Keep 96x128 full canvas proportions, no per-frame zoom or center fit. Transparent background. Create walking key left-contact. Far anatomical LEFT foot leads forward to screen-right, near anatomical RIGHT gold-buckled foot is behind toward screen-left. Near RIGHT arm leads FORWARD and across the front toward screen-right; far LEFT arm swings BACK toward screen-left. Target approximate native hand centers: near RIGHT [61,76], far LEFT [31,74]. Target toe/sole ends: near RIGHT [31,124], far LEFT [65,124]. The torso faces right in the same three-quarter view, without mirroring the character. Arms and same-side legs MUST swing oppositely. Show only one near right arm and one far left arm, one leg per side. This is an in-place walk key, not a new standing pose.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-6cf820d0-0964-4859-89b0-9f5ec2315d9e.png",
+    "saved": "source/poses/walk-0.png"
+  },
+  {
+    "id": "walk-1",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Pixel-art modular BODY pose source. Input is the approved leatherworker's equipment-free complete body, 96x128 native canvas enlarged to 384x512. Preserve the EXACT original canvas framing, compact body build, cream rolled-sleeve shirt, olive trousers, brown cuffed boots with grey toe caps, warm skin, coarse native pixel clusters and 1px dark outline. Never copy farmer features. Keep copper bob/face/eyes/blush unchanged in original top-of-frame position as registration landmarks; they will be replaced by the locked head later. Foot ground y=124 native, neck=(45,45), waist near (47,71). Both hands BARE, no gloves, scarf, belt, apron, pouches, tools, hairpin, hide or other prop. Reconstruct a complete shirt/waist/hips, clean shoulder/armpit/elbow connections, no holes or old pose arms. Anatomical RIGHT is the near side, anatomical LEFT is far side. The GOLD BUCKLE belongs only to the near RIGHT boot in every pose, never moves to the other leg. Keep 96x128 full canvas proportions, no per-frame zoom or center fit. Transparent background. Create walking key left-support-down. Far LEFT leg supports, near RIGHT gold-buckled leg starts recovering with bent knee/heel lifting. Near RIGHT arm is still forward but has swung inward toward center; far LEFT arm moves in from its back extreme. Body settles one native pixel. Target approximate native hand centers: near RIGHT [56,79], far LEFT [37,77]. Target toe/sole ends: near RIGHT [40,121], far LEFT [58,124]. The torso faces right in the same three-quarter view, without mirroring the character. Arms and same-side legs MUST swing oppositely. Show only one near right arm and one far left arm, one leg per side. This is an in-place walk key, not a new standing pose.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-ca8379f8-fdff-46dd-9727-025206c6758f.png",
+    "saved": "source/poses/walk-1.png"
+  },
+  {
+    "id": "walk-2",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Pixel-art modular BODY pose source. Input is the approved leatherworker's equipment-free complete body, 96x128 native canvas enlarged to 384x512. Preserve the EXACT original canvas framing, compact body build, cream rolled-sleeve shirt, olive trousers, brown cuffed boots with grey toe caps, warm skin, coarse native pixel clusters and 1px dark outline. Never copy farmer features. Keep copper bob/face/eyes/blush unchanged in original top-of-frame position as registration landmarks; they will be replaced by the locked head later. Foot ground y=124 native, neck=(45,45), waist near (47,71). Both hands BARE, no gloves, scarf, belt, apron, pouches, tools, hairpin, hide or other prop. Reconstruct a complete shirt/waist/hips, clean shoulder/armpit/elbow connections, no holes or old pose arms. Anatomical RIGHT is the near side, anatomical LEFT is far side. The GOLD BUCKLE belongs only to the near RIGHT boot in every pose, never moves to the other leg. Keep 96x128 full canvas proportions, no per-frame zoom or center fit. Transparent background. Create walking key right-passing. Near RIGHT gold-buckled leg passes ahead with raised knee and lifted foot; far LEFT leg supports under hip. Both arms pass close to vertical/under their shoulders, neither in an extreme. RIGHT arm is moving backward; LEFT arm forward. Target approximate native hand centers: near RIGHT [45,82], far LEFT [59,80]. Target toe/sole ends: near RIGHT [54,118], far LEFT [47,124]. The torso faces right in the same three-quarter view, without mirroring the character. Arms and same-side legs MUST swing oppositely. Show only one near right arm and one far left arm, one leg per side. This is an in-place walk key, not a new standing pose.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-63e9a35e-4522-4047-b04b-7b27efa55753.png",
+    "saved": "source/poses/walk-2.png"
+  },
+  {
+    "id": "walk-3",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Pixel-art modular BODY pose source. Input is the approved leatherworker's equipment-free complete body, 96x128 native canvas enlarged to 384x512. Preserve the EXACT original canvas framing, compact body build, cream rolled-sleeve shirt, olive trousers, brown cuffed boots with grey toe caps, warm skin, coarse native pixel clusters and 1px dark outline. Never copy farmer features. Keep copper bob/face/eyes/blush unchanged in original top-of-frame position as registration landmarks; they will be replaced by the locked head later. Foot ground y=124 native, neck=(45,45), waist near (47,71). Both hands BARE, no gloves, scarf, belt, apron, pouches, tools, hairpin, hide or other prop. Reconstruct a complete shirt/waist/hips, clean shoulder/armpit/elbow connections, no holes or old pose arms. Anatomical RIGHT is the near side, anatomical LEFT is far side. The GOLD BUCKLE belongs only to the near RIGHT boot in every pose, never moves to the other leg. Keep 96x128 full canvas proportions, no per-frame zoom or center fit. Transparent background. Create walking key right-contact. Near anatomical RIGHT gold-buckled foot leads FORWARD toward screen-right, far LEFT foot is behind toward screen-left. Near RIGHT arm swings BACK toward screen-left; far LEFT arm leads FORWARD toward screen-right. Target approximate native hand centers: near RIGHT [28,76], far LEFT [67,76]. Target toe/sole ends: near RIGHT [66,124], far LEFT [31,124]. The torso faces right in the same three-quarter view, without mirroring the character. Arms and same-side legs MUST swing oppositely. Show only one near right arm and one far left arm, one leg per side. This is an in-place walk key, not a new standing pose.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-387830de-8750-4237-b743-ae36ffd85492.png",
+    "saved": "source/poses/walk-3.png"
+  },
+  {
+    "id": "walk-4",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Pixel-art modular BODY pose source. Input is the approved leatherworker's equipment-free complete body, 96x128 native canvas enlarged to 384x512. Preserve the EXACT original canvas framing, compact body build, cream rolled-sleeve shirt, olive trousers, brown cuffed boots with grey toe caps, warm skin, coarse native pixel clusters and 1px dark outline. Never copy farmer features. Keep copper bob/face/eyes/blush unchanged in original top-of-frame position as registration landmarks; they will be replaced by the locked head later. Foot ground y=124 native, neck=(45,45), waist near (47,71). Both hands BARE, no gloves, scarf, belt, apron, pouches, tools, hairpin, hide or other prop. Reconstruct a complete shirt/waist/hips, clean shoulder/armpit/elbow connections, no holes or old pose arms. Anatomical RIGHT is the near side, anatomical LEFT is far side. The GOLD BUCKLE belongs only to the near RIGHT boot in every pose, never moves to the other leg. Keep 96x128 full canvas proportions, no per-frame zoom or center fit. Transparent background. Create walking key right-support-down. Near RIGHT gold-buckled leg supports, far LEFT leg begins recovering heel lifted. Near RIGHT arm is still back but moving toward center, far LEFT arm moves inward from forward extreme. Body settles one native pixel. Target approximate native hand centers: near RIGHT [34,79], far LEFT [62,79]. Target toe/sole ends: near RIGHT [58,124], far LEFT [41,120]. The torso faces right in the same three-quarter view, without mirroring the character. Arms and same-side legs MUST swing oppositely. Show only one near right arm and one far left arm, one leg per side. This is an in-place walk key, not a new standing pose.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-ba7688af-7896-4891-b6ba-08291a49e7c4.png",
+    "saved": "source/poses/walk-4.png"
+  },
+  {
+    "id": "walk-5",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Pixel-art modular BODY pose source. Input is the approved leatherworker's equipment-free complete body, 96x128 native canvas enlarged to 384x512. Preserve the EXACT original canvas framing, compact body build, cream rolled-sleeve shirt, olive trousers, brown cuffed boots with grey toe caps, warm skin, coarse native pixel clusters and 1px dark outline. Never copy farmer features. Keep copper bob/face/eyes/blush unchanged in original top-of-frame position as registration landmarks; they will be replaced by the locked head later. Foot ground y=124 native, neck=(45,45), waist near (47,71). Both hands BARE, no gloves, scarf, belt, apron, pouches, tools, hairpin, hide or other prop. Reconstruct a complete shirt/waist/hips, clean shoulder/armpit/elbow connections, no holes or old pose arms. Anatomical RIGHT is the near side, anatomical LEFT is far side. The GOLD BUCKLE belongs only to the near RIGHT boot in every pose, never moves to the other leg. Keep 96x128 full canvas proportions, no per-frame zoom or center fit. Transparent background. Create walking key left-passing. Far LEFT leg passes ahead with lifted foot and raised knee; near RIGHT gold-buckled leg supports under hip. Arms pass close to vertical under shoulders. RIGHT arm is moving forward, LEFT arm backward. Target approximate native hand centers: near RIGHT [46,82], far LEFT [56,80]. Target toe/sole ends: near RIGHT [47,124], far LEFT [55,118]. The torso faces right in the same three-quarter view, without mirroring the character. Arms and same-side legs MUST swing oppositely. Show only one near right arm and one far left arm, one leg per side. This is an in-place walk key, not a new standing pose.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-ebc0028a-cda0-4bb4-a528-e29dd451f226.png",
+    "saved": "source/poses/walk-5.png"
+  },
+  {
+    "id": "give-mid",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Pixel-art modular BODY pose source. Input is the approved leatherworker's equipment-free complete body, 96x128 native canvas enlarged to 384x512. Preserve the EXACT original canvas framing, compact body build, cream rolled-sleeve shirt, olive trousers, brown cuffed boots with grey toe caps, warm skin, coarse native pixel clusters and 1px dark outline. Never copy farmer features. Keep copper bob/face/eyes/blush unchanged in original top-of-frame position as registration landmarks; they will be replaced by the locked head later. Foot ground y=124 native, neck=(45,45), waist near (47,71). Both hands BARE, no gloves, scarf, belt, apron, pouches, tools, hairpin, hide or other prop. Reconstruct a complete shirt/waist/hips, clean shoulder/armpit/elbow connections, no holes or old pose arms. Anatomical RIGHT is the near side, anatomical LEFT is far side. The GOLD BUCKLE belongs only to the near RIGHT boot in every pose, never moves to the other leg. Keep 96x128 full canvas proportions, no per-frame zoom or center fit. Transparent background. Create a preparing-to-offer gesture. Keep original standing leg proportions and foot positions, remove near hand resting on hip and complete the hip behind it. Bring near RIGHT forearm forward from waist, palm supporting, hand near native (53,73). Far LEFT raised hand reaches slightly forward, native (76,62), as if grasping a folded leather hide but NOTHING is held. Both elbows naturally bent. Keep head unchanged.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-a80edff3-bef2-4076-8574-a928cdabf5af.png",
+    "saved": "source/poses/give-mid.png"
+  },
+  {
+    "id": "give-extended",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Pixel-art modular BODY pose source. Input is the approved leatherworker's equipment-free complete body, 96x128 native canvas enlarged to 384x512. Preserve the EXACT original canvas framing, compact body build, cream rolled-sleeve shirt, olive trousers, brown cuffed boots with grey toe caps, warm skin, coarse native pixel clusters and 1px dark outline. Never copy farmer features. Keep copper bob/face/eyes/blush unchanged in original top-of-frame position as registration landmarks; they will be replaced by the locked head later. Foot ground y=124 native, neck=(45,45), waist near (47,71). Both hands BARE, no gloves, scarf, belt, apron, pouches, tools, hairpin, hide or other prop. Reconstruct a complete shirt/waist/hips, clean shoulder/armpit/elbow connections, no holes or old pose arms. Anatomical RIGHT is the near side, anatomical LEFT is far side. The GOLD BUCKLE belongs only to the near RIGHT boot in every pose, never moves to the other leg. Keep 96x128 full canvas proportions, no per-frame zoom or center fit. Transparent background. Create an offering gesture with both forearms gently reaching screen-right. Keep original standing legs/feet, reconstruct the complete hips previously hidden by near hand. Near RIGHT hand supports from below near native (67,73), far LEFT hand grips upper edge near (83,62), as if offering folded leather but NOTHING held. Arms stay inside frame, shoulders and torso do not move. Keep head unchanged.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-426e242c-9742-4433-8f14-e3a6b7ec3dc2.png",
+    "saved": "source/poses/give-extended.png"
+  },
+  {
+    "id": "walk-gloves-sheet",
+    "tool": "built-in image_gen",
+    "prompt": "A fixed 3 columns x 2 rows reference sheet, six full-body walking keys in reading order. Edit ONLY both hands/wrists in EVERY cell: equip snug brown fingerless leather work gloves/bracers like the leatherworker, exposed fingertips remain skin. Keep exact existing hand silhouettes, wrist/arm pose, character placement/scale and all other pixels. Do not change shirt, legs, boots, head, face, grid boundaries or framing. Do not move fingers or straighten arms. Preserve actual transparent background and original coarse pixel clusters. Keep every cell exactly where it is, no labels, no spacing, no extra frames. This is a glove source plate, not an atlas to redesign.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-12aefdd4-80d6-4d1b-828c-b1a124449401.png",
+    "saved": "source/poses/walk-gloves-sheet.png"
+  },
+  {
+    "id": "give-gloves-sheet",
+    "tool": "built-in image_gen",
+    "prompt": "A fixed 2 columns x 1 row reference sheet, two offering body keys. Edit ONLY both hands and wrists in each cell: add brown fingerless leather work gloves/bracers, preserve all existing exposed fingertips, palm/hand pose and coordinates. Keep exact body, head, legs, shirt and canvas/grid placement. No hide or other held object. No new equipment elsewhere. Transparent background, crisp aligned pixel clusters, no zoom, no labels or cell reordering.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-ddd4717c-c5ab-47f9-8021-5f05b669be2e.png",
+    "saved": "source/poses/give-gloves-sheet.png"
+  },
+  {
+    "id": "head-blank-sheet",
+    "tool": "built-in image_gen",
+    "prompt": "A fixed 3 columns x 1 row sheet of THREE head orientations. In ALL THREE cells remove ONLY eyebrows, eyes and mouth and replace their former pixels with continuous warm skin. Preserve nose, cheek blush, face exterior contour/alpha, ears, complete bob, jaw and neck; exactly the same head orientation, position, scale and silhouette in each cell. Where far eye approaches the nose edge, fill its eye with skin and keep the full forehead-to-nose contour: NEVER make a notch or transparent cut in the eye socket. The 3 heads are nod-down, turned toward camera, turned screen-right. Keep exact original 3x1 layout and every feature position, no automatic centering/zoom. True transparent background, no text, no new elements, same pixel clusters.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-74635fbf-153d-439f-bd42-791fecc0326a.png",
+    "saved": "source/poses/head-blank-sheet.png"
+  }
+]

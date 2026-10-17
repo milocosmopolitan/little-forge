@@ -1,0 +1,15 @@
+{
+  "native_files_checked": 17,
+  "shared_opaque_colors": 80,
+  "equipment_combinations_checked": 64,
+  "foundation_lost_pixels": 0,
+  "face_layers_contained": true,
+  "nearest_previews_exact": true,
+  "png_rebuild_byte_identical": true,
+  "accepted_body_hands_eyes_mouth_unchanged": true,
+  "head_changed_only_in_blush_mask": true,
+  "blush_pixels_restored": 7,
+  "hide_interior_transparent_pixels": 0,
+  "hide_front_occlusion_exact": true,
+  "visual_review": "Reference/base/equipped, face, and individual layers on light/dark backgrounds reviewed separately"
+}

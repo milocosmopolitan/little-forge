@@ -1,0 +1,30 @@
+{
+  "status": "pass",
+  "date": "2026-10-17",
+  "scope": "static neutral hand outlines and wrist join; same grip mask propagated to give poses",
+  "changed_base_pixels": 40,
+  "changed_equipped_pixels": 5,
+  "only_changed_regions": [
+    [
+      28,
+      67,
+      34,
+      73
+    ],
+    [
+      73,
+      74,
+      85,
+      87
+    ]
+  ],
+  "head_eyes_mouth_equipment_lower_body": "pixel-identical to preceding review",
+  "comparisons": [
+    "previews/outline-wrist-review.png",
+    "previews/outline-wrist-review-dark.png"
+  ],
+  "pixel_checks": 35,
+  "gif_exports_checked": 16,
+  "live_browser_playback": "not repeated for this contour-only revision; prior control failure retained in archived playback report",
+  "user_approval": "not claimed"
+}

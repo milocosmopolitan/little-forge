@@ -1,0 +1,42 @@
+{
+  "source_cell": {
+    "cw": 64,
+    "ch": 64,
+    "ox": 11,
+    "oy": -2
+  },
+  "eye_boxes": [
+    [
+      39,
+      29,
+      49,
+      37
+    ],
+    [
+      52,
+      26,
+      57,
+      37
+    ]
+  ],
+  "mouth_box": [
+    48,
+    38,
+    52,
+    41
+  ],
+  "nose_cleanup": [
+    45,
+    37,
+    48,
+    39
+  ],
+  "head_bbox": [
+    16,
+    8,
+    68,
+    46
+  ],
+  "feature_transform": "none; split at source positions",
+  "mid_source": "approved neutral head and features translated [0,1]"
+}

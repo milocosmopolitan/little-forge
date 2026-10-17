@@ -1,0 +1,716 @@
+{
+  "browser": "isolated headless Chrome, actual requestAnimationFrame clock",
+  "runtime_integration": false,
+  "walk": [
+    {
+      "scale": 1,
+      "gear": false,
+      "speed": 1,
+      "keys_captured": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "transitions": [
+        {
+          "t": 85,
+          "src": "../frames/base/walk-0.png",
+          "info": "1/6 · walk-0 · 120ms"
+        },
+        {
+          "t": 213.60000000149012,
+          "src": "../frames/base/walk-1.png",
+          "info": "2/6 · walk-1 · 120ms"
+        },
+        {
+          "t": 331.29999999701977,
+          "src": "../frames/base/walk-2.png",
+          "info": "3/6 · walk-2 · 120ms"
+        },
+        {
+          "t": 447.70000000298023,
+          "src": "../frames/base/walk-3.png",
+          "info": "4/6 · walk-3 · 120ms"
+        },
+        {
+          "t": 564.6000000014901,
+          "src": "../frames/base/walk-4.png",
+          "info": "5/6 · walk-4 · 120ms"
+        },
+        {
+          "t": 697.2000000029802,
+          "src": "../frames/base/walk-5.png",
+          "info": "6/6 · walk-5 · 120ms"
+        }
+      ]
+    },
+    {
+      "scale": 1,
+      "gear": false,
+      "speed": 0.25,
+      "keys_captured": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "transitions": [
+        {
+          "t": 787.7999999970198,
+          "src": "../frames/base/walk-0.png",
+          "info": "1/6 · walk-0 · 120ms"
+        },
+        {
+          "t": 1264.3999999985099,
+          "src": "../frames/base/walk-1.png",
+          "info": "2/6 · walk-1 · 120ms"
+        },
+        {
+          "t": 1747.8999999985099,
+          "src": "../frames/base/walk-2.png",
+          "info": "3/6 · walk-2 · 120ms"
+        },
+        {
+          "t": 2231.2000000029802,
+          "src": "../frames/base/walk-3.png",
+          "info": "4/6 · walk-3 · 120ms"
+        },
+        {
+          "t": 2713.60000000149,
+          "src": "../frames/base/walk-4.png",
+          "info": "5/6 · walk-4 · 120ms"
+        },
+        {
+          "t": 3197.7000000029802,
+          "src": "../frames/base/walk-5.png",
+          "info": "6/6 · walk-5 · 120ms"
+        }
+      ]
+    },
+    {
+      "scale": 1,
+      "gear": true,
+      "speed": 1,
+      "keys_captured": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "transitions": [
+        {
+          "t": 3233.60000000149,
+          "src": "../frames/walk-0.png",
+          "info": "1/6 · walk-0 · 120ms"
+        },
+        {
+          "t": 3364.5,
+          "src": "../frames/walk-1.png",
+          "info": "2/6 · walk-1 · 120ms"
+        },
+        {
+          "t": 3480.10000000149,
+          "src": "../frames/walk-2.png",
+          "info": "3/6 · walk-2 · 120ms"
+        },
+        {
+          "t": 3597.2000000029802,
+          "src": "../frames/walk-3.png",
+          "info": "4/6 · walk-3 · 120ms"
+        },
+        {
+          "t": 3713.7000000029802,
+          "src": "../frames/walk-4.png",
+          "info": "5/6 · walk-4 · 120ms"
+        },
+        {
+          "t": 3831.10000000149,
+          "src": "../frames/walk-5.png",
+          "info": "6/6 · walk-5 · 120ms"
+        }
+      ]
+    },
+    {
+      "scale": 1,
+      "gear": true,
+      "speed": 0.25,
+      "keys_captured": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "transitions": [
+        {
+          "t": 3870.60000000149,
+          "src": "../frames/walk-0.png",
+          "info": "1/6 · walk-0 · 120ms"
+        },
+        {
+          "t": 4347.29999999702,
+          "src": "../frames/walk-1.png",
+          "info": "2/6 · walk-1 · 120ms"
+        },
+        {
+          "t": 4831.29999999702,
+          "src": "../frames/walk-2.png",
+          "info": "3/6 · walk-2 · 120ms"
+        },
+        {
+          "t": 5313.70000000298,
+          "src": "../frames/walk-3.png",
+          "info": "4/6 · walk-3 · 120ms"
+        },
+        {
+          "t": 5798.10000000149,
+          "src": "../frames/walk-4.png",
+          "info": "5/6 · walk-4 · 120ms"
+        },
+        {
+          "t": 6281.39999999851,
+          "src": "../frames/walk-5.png",
+          "info": "6/6 · walk-5 · 120ms"
+        }
+      ]
+    },
+    {
+      "scale": 4,
+      "gear": false,
+      "speed": 1,
+      "keys_captured": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "transitions": [
+        {
+          "t": 6355.5,
+          "src": "../frames/base/walk-0.png",
+          "info": "1/6 · walk-0 · 120ms"
+        },
+        {
+          "t": 6481.10000000149,
+          "src": "../frames/base/walk-1.png",
+          "info": "2/6 · walk-1 · 120ms"
+        },
+        {
+          "t": 6597,
+          "src": "../frames/base/walk-2.png",
+          "info": "3/6 · walk-2 · 120ms"
+        },
+        {
+          "t": 6713.5,
+          "src": "../frames/base/walk-3.png",
+          "info": "4/6 · walk-3 · 120ms"
+        },
+        {
+          "t": 6831,
+          "src": "../frames/base/walk-4.png",
+          "info": "5/6 · walk-4 · 120ms"
+        },
+        {
+          "t": 6963.5,
+          "src": "../frames/base/walk-5.png",
+          "info": "6/6 · walk-5 · 120ms"
+        }
+      ]
+    },
+    {
+      "scale": 4,
+      "gear": false,
+      "speed": 0.25,
+      "keys_captured": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "transitions": [
+        {
+          "t": 7038,
+          "src": "../frames/base/walk-0.png",
+          "info": "1/6 · walk-0 · 120ms"
+        },
+        {
+          "t": 7514.29999999702,
+          "src": "../frames/base/walk-1.png",
+          "info": "2/6 · walk-1 · 120ms"
+        },
+        {
+          "t": 7997.20000000298,
+          "src": "../frames/base/walk-2.png",
+          "info": "3/6 · walk-2 · 120ms"
+        },
+        {
+          "t": 8480.60000000149,
+          "src": "../frames/base/walk-3.png",
+          "info": "4/6 · walk-3 · 120ms"
+        },
+        {
+          "t": 8964,
+          "src": "../frames/base/walk-4.png",
+          "info": "5/6 · walk-4 · 120ms"
+        },
+        {
+          "t": 9447.70000000298,
+          "src": "../frames/base/walk-5.png",
+          "info": "6/6 · walk-5 · 120ms"
+        }
+      ]
+    },
+    {
+      "scale": 4,
+      "gear": true,
+      "speed": 1,
+      "keys_captured": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "transitions": [
+        {
+          "t": 9507.60000000149,
+          "src": "../frames/walk-0.png",
+          "info": "1/6 · walk-0 · 120ms"
+        },
+        {
+          "t": 9631.29999999702,
+          "src": "../frames/walk-1.png",
+          "info": "2/6 · walk-1 · 120ms"
+        },
+        {
+          "t": 9747.89999999851,
+          "src": "../frames/walk-2.png",
+          "info": "3/6 · walk-2 · 120ms"
+        },
+        {
+          "t": 9863.79999999702,
+          "src": "../frames/walk-3.png",
+          "info": "4/6 · walk-3 · 120ms"
+        },
+        {
+          "t": 9980.29999999702,
+          "src": "../frames/walk-4.png",
+          "info": "5/6 · walk-4 · 120ms"
+        },
+        {
+          "t": 10097.29999999702,
+          "src": "../frames/walk-5.png",
+          "info": "6/6 · walk-5 · 120ms"
+        }
+      ]
+    },
+    {
+      "scale": 4,
+      "gear": true,
+      "speed": 0.25,
+      "keys_captured": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "transitions": [
+        {
+          "t": 10172.29999999702,
+          "src": "../frames/walk-0.png",
+          "info": "1/6 · walk-0 · 120ms"
+        },
+        {
+          "t": 10647.60000000149,
+          "src": "../frames/walk-1.png",
+          "info": "2/6 · walk-1 · 120ms"
+        },
+        {
+          "t": 11130.10000000149,
+          "src": "../frames/walk-2.png",
+          "info": "3/6 · walk-2 · 120ms"
+        },
+        {
+          "t": 11613.79999999702,
+          "src": "../frames/walk-3.png",
+          "info": "4/6 · walk-3 · 120ms"
+        },
+        {
+          "t": 12096.89999999851,
+          "src": "../frames/walk-4.png",
+          "info": "5/6 · walk-4 · 120ms"
+        },
+        {
+          "t": 12580.60000000149,
+          "src": "../frames/walk-5.png",
+          "info": "6/6 · walk-5 · 120ms"
+        }
+      ]
+    }
+  ],
+  "other_clips": [
+    {
+      "name": "talk",
+      "transitions": [
+        {
+          "t": 12641.70000000298,
+          "src": "../frames/neutral.png",
+          "info": "1/6 · neutral · 140ms"
+        },
+        {
+          "t": 12780,
+          "src": "../frames/talk-small.png",
+          "info": "2/6 · talk-small · 100ms"
+        },
+        {
+          "t": 12879.89999999851,
+          "src": "../frames/talk-wide.png",
+          "info": "3/6 · talk-wide · 100ms"
+        },
+        {
+          "t": 12980.39999999851,
+          "src": "../frames/talk-small.png",
+          "info": "4/6 · talk-small · 100ms"
+        },
+        {
+          "t": 13079.79999999702,
+          "src": "../frames/talk-round.png",
+          "info": "5/6 · talk-round · 100ms"
+        },
+        {
+          "t": 13180,
+          "src": "../frames/neutral.png",
+          "info": "6/6 · neutral · 140ms"
+        },
+        {
+          "t": 13313.39999999851,
+          "src": "../frames/neutral.png",
+          "info": "1/6 · neutral · 140ms"
+        }
+      ]
+    },
+    {
+      "name": "blink",
+      "transitions": [
+        {
+          "t": 13404.39999999851,
+          "src": "../frames/neutral.png",
+          "info": "1/5 · neutral · 300ms"
+        },
+        {
+          "t": 13697.5,
+          "src": "../frames/blink-half.png",
+          "info": "2/5 · blink-half · 40ms"
+        },
+        {
+          "t": 13747,
+          "src": "../frames/blink.png",
+          "info": "3/5 · blink · 80ms"
+        },
+        {
+          "t": 13830.60000000149,
+          "src": "../frames/blink-half.png",
+          "info": "4/5 · blink-half · 40ms"
+        },
+        {
+          "t": 13863.20000000298,
+          "src": "../frames/neutral.png",
+          "info": "5/5 · neutral · 300ms"
+        },
+        {
+          "t": 14163.39999999851,
+          "src": "../frames/neutral.png",
+          "info": "1/5 · neutral · 300ms"
+        }
+      ]
+    },
+    {
+      "name": "nod",
+      "transitions": [
+        {
+          "t": 14247.89999999851,
+          "src": "../frames/neutral.png",
+          "info": "1/5 · neutral · 120ms"
+        },
+        {
+          "t": 14380.29999999702,
+          "src": "../frames/nod-mid.png",
+          "info": "2/5 · nod-mid · 100ms"
+        },
+        {
+          "t": 14480.29999999702,
+          "src": "../frames/nod-down.png",
+          "info": "3/5 · nod-down · 140ms"
+        },
+        {
+          "t": 14614.20000000298,
+          "src": "../frames/nod-mid.png",
+          "info": "4/5 · nod-mid · 100ms"
+        },
+        {
+          "t": 14714,
+          "src": "../frames/neutral.png",
+          "info": "5/5 · neutral · 120ms"
+        },
+        {
+          "t": 14830.89999999851,
+          "src": "../frames/neutral.png",
+          "info": "1/5 · neutral · 120ms"
+        }
+      ]
+    },
+    {
+      "name": "shake_head",
+      "transitions": [
+        {
+          "t": 14911.20000000298,
+          "src": "../frames/neutral.png",
+          "info": "1/5 · neutral · 100ms"
+        },
+        {
+          "t": 14996.60000000149,
+          "src": "../frames/turn-toward.png",
+          "info": "2/5 · turn-toward · 140ms"
+        },
+        {
+          "t": 15147.20000000298,
+          "src": "../frames/neutral.png",
+          "info": "3/5 · neutral · 100ms"
+        },
+        {
+          "t": 15246.79999999702,
+          "src": "../frames/turn-away.png",
+          "info": "4/5 · turn-away · 140ms"
+        },
+        {
+          "t": 15380.79999999702,
+          "src": "../frames/neutral.png",
+          "info": "5/5 · neutral · 100ms"
+        },
+        {
+          "t": 15480.70000000298,
+          "src": "../frames/neutral.png",
+          "info": "1/5 · neutral · 100ms"
+        }
+      ]
+    },
+    {
+      "name": "give",
+      "transitions": [
+        {
+          "t": 15574.29999999702,
+          "src": "../frames/neutral.png",
+          "info": "1/6 · neutral · 120ms"
+        },
+        {
+          "t": 15696.60000000149,
+          "src": "../frames/give-mid.png",
+          "info": "2/6 · give-mid · 120ms"
+        },
+        {
+          "t": 15813.39999999851,
+          "src": "../frames/give-extended.png",
+          "info": "3/6 · give-extended · 180ms"
+        },
+        {
+          "t": 15996.79999999702,
+          "src": "../frames/give-extended-empty.png",
+          "info": "4/6 · give-extended-empty · 120ms · transfer"
+        },
+        {
+          "t": 16114.29999999702,
+          "src": "../frames/give-mid-empty.png",
+          "info": "5/6 · give-mid-empty · 120ms"
+        },
+        {
+          "t": 16229.70000000298,
+          "src": "../frames/neutral-no-prop.png",
+          "info": "6/6 · neutral-no-prop · 120ms"
+        },
+        {
+          "t": 16347.39999999851,
+          "src": "../frames/neutral.png",
+          "info": "1/6 · neutral · 120ms"
+        }
+      ]
+    },
+    {
+      "name": "talk_blink",
+      "transitions": [
+        {
+          "t": 16438.29999999702,
+          "src": "../frames/talk-small.png",
+          "info": "1/5 · talk-small · 240ms"
+        },
+        {
+          "t": 16680.79999999702,
+          "src": "../frames/talk-blink.png",
+          "info": "2/5 · talk-blink · 100ms"
+        },
+        {
+          "t": 16780.60000000149,
+          "src": "../frames/talk-small.png",
+          "info": "3/5 · talk-small · 140ms"
+        },
+        {
+          "t": 16913.20000000298,
+          "src": "../frames/talk-wide.png",
+          "info": "4/5 · talk-wide · 140ms"
+        },
+        {
+          "t": 17063.20000000298,
+          "src": "../frames/talk-round.png",
+          "info": "5/5 · talk-round · 140ms"
+        },
+        {
+          "t": 17196.29999999702,
+          "src": "../frames/talk-small.png",
+          "info": "1/5 · talk-small · 240ms"
+        }
+      ]
+    }
+  ],
+  "gesture_captures": [
+    {
+      "name": "nod",
+      "scale": 4,
+      "gear": false,
+      "speed": 0.25,
+      "keys_captured": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "transitions": [
+        {
+          "t": 17281.89999999851,
+          "src": "../frames/base/neutral.png",
+          "info": "1/5 · neutral · 120ms"
+        },
+        {
+          "t": 17764,
+          "src": "../frames/base/nod-mid.png",
+          "info": "2/5 · nod-mid · 100ms"
+        },
+        {
+          "t": 18164.10000000149,
+          "src": "../frames/base/nod-down.png",
+          "info": "3/5 · nod-down · 140ms"
+        },
+        {
+          "t": 18730.10000000149,
+          "src": "../frames/base/nod-mid.png",
+          "info": "4/5 · nod-mid · 100ms"
+        },
+        {
+          "t": 19130.39999999851,
+          "src": "../frames/base/neutral.png",
+          "info": "5/5 · neutral · 120ms"
+        }
+      ]
+    },
+    {
+      "name": "shake_head",
+      "scale": 4,
+      "gear": false,
+      "speed": 0.25,
+      "keys_captured": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "transitions": [
+        {
+          "t": 19172.89999999851,
+          "src": "../frames/base/neutral.png",
+          "info": "1/5 · neutral · 100ms"
+        },
+        {
+          "t": 19580.5,
+          "src": "../frames/base/turn-toward.png",
+          "info": "2/5 · turn-toward · 140ms"
+        },
+        {
+          "t": 20129.70000000298,
+          "src": "../frames/base/neutral.png",
+          "info": "3/5 · neutral · 100ms"
+        },
+        {
+          "t": 20530.5,
+          "src": "../frames/base/turn-away.png",
+          "info": "4/5 · turn-away · 140ms"
+        },
+        {
+          "t": 21097.10000000149,
+          "src": "../frames/base/neutral.png",
+          "info": "5/5 · neutral · 100ms"
+        }
+      ]
+    },
+    {
+      "name": "give",
+      "scale": 4,
+      "gear": false,
+      "speed": 0.25,
+      "keys_captured": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "transitions": [
+        {
+          "t": 21152.60000000149,
+          "src": "../frames/base/neutral.png",
+          "info": "1/6 · neutral · 120ms"
+        },
+        {
+          "t": 21630.39999999851,
+          "src": "../frames/base/give-mid.png",
+          "info": "2/6 · give-mid · 120ms"
+        },
+        {
+          "t": 22113.79999999702,
+          "src": "../frames/base/give-extended.png",
+          "info": "3/6 · give-extended · 180ms"
+        },
+        {
+          "t": 22830.20000000298,
+          "src": "../frames/base/give-extended-empty.png",
+          "info": "4/6 · give-extended-empty · 120ms · transfer"
+        },
+        {
+          "t": 23313.70000000298,
+          "src": "../frames/base/give-mid-empty.png",
+          "info": "5/6 · give-mid-empty · 120ms"
+        },
+        {
+          "t": 23796.29999999702,
+          "src": "../frames/base/neutral-no-prop.png",
+          "info": "6/6 · neutral-no-prop · 120ms"
+        }
+      ]
+    }
+  ]
+}

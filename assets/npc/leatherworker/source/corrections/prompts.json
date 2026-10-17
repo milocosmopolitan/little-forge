@@ -1,0 +1,9 @@
+[
+  {
+    "id": "leather-hide-closed",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Edit target: the isolated folded leather hide on a transparent full-size canvas. This is a modular pixel-art game prop for the leatherworker reference. Preserve its warm orange/tan lit flap, rusty red hanging face, golden stitches, coarse square pixel clusters and dark 1-native-pixel silhouette. Refine ONLY the leather hide: make the folded top a closed, continuous pinch edge that can cover a hand underneath, and make all fold interiors solid leather rather than transparent slits. Keep a readable dark fold separating front/back panels, clean one-pixel contour, deliberate small stitch marks, no shredded/noisy outlines or disconnected pieces. No hand, finger, glove, character, text, ground shadow or background. Preserve the same full canvas, placement, approximate size and overall original hanging silhouette as the input. Actual transparent background, no antialiasing. This source will be registered to a 24x44-native-pixel footprint on the 96x128 character; retain clear features at that scale.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-efd2b156-f516-421e-8013-f15d7ed438c4.png",
+    "saved": "leather-hide-closed.png"
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "master",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: background-extraction. Edit target is this EXACT leatherworker pixel-art character reference. Remove ONLY the black background to genuine alpha transparency, including negative spaces between arms, clothes, tools and held leather. Keep every character feature, warm copper brown bob haircut, full hair silhouette, gold hair clip, exact large brown eyes, short friendly face, red scarf, cream rolled sleeves, leather apron stitchwork, belt, scissors/tools/pouches, fingerless glove, olive trousers, boots and held leather hide EXACTLY unchanged. Keep identical 1086x1448 canvas, scale, pose and placement. Do not redraw, simplify, brighten dark outlines, add detail or smooth pixel edges. Preserve dark internal outlines and leather shadows; they are artwork, not background. No floor shadow or text. Transparent background.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-9b484c47-4a6c-4a6a-a0ad-ed6d259d5da9.png",
+    "saved": "source/generated-master.png"
+  },
+  {
+    "id": "underlayer",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: identity-preserve. Make the COMPLETE modular BASIC UNDERLAYER of this exact leatherworker, on the SAME 1086x1448 canvas, pose, placement and scale. Preserve her original copper-brown chin-length bob and complete rounded skull, warm skin, ear, nose, short face/jaw silhouette, sturdy short-limbed reference proportions, original cream rolled-sleeve shirt and olive trousers with the same brown capped boots. Remove the gold hair clip, red scarf, ALL leather apron/straps, ALL belts/pouches/rolls/tools/scissors/dangling tags, the fingerless glove/wrist bracer, and the leather hide she holds. Reconstruct the COMPLETE cream shirt/collar, full waist/hips/trousers and BARE near wrist/hand under removed gear, leaving no holes, remnants or black missing wedges. Keep both arms/hand poses: near hand at hip, far forearm raised with relaxed gripping fingers at original height but NO held object. Remove BOTH eyes including brows/whites/pupils and mouth line; fill their locations with matching flat skin, never transparency. Preserve the original outer facial silhouette and tiny nose. No beard, no hat, no accessories, no extra clothing. Match original coarse pixel-art clusters and native 1px dark outlines; material shadows separate browns/creams. Do NOT make her taller/thinner or change haircut, face proportions or boots. Transparent background.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-72c1d255-e07e-46e2-a60d-81fa465a1f5f.png",
+    "saved": "source/generated-underlayer.png"
+  },
+  {
+    "id": "apron-underlay",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Edit this exact leatherworker reference to supply the complete LEATHER APRON fabric underneath removable belt/tools. Remove ONLY the waist belt and gold buckle, hanging belt pouches/leather rolls/tool holsters/tags, scissors and tools, and the held leather hide. Reconstruct the complete brown stitched apron fabric beneath removed objects, including a complete empty sewn front apron pocket with its gold stitching, retaining original apron bib/shoulder straps/strap buckles and full skirt hem shape. Keep the original full copper bob, gold hair clip, face/eyes/smile, red scarf, shirt, glove, olive trousers and boots EXACTLY unchanged in the SAME original pose, placement, scale and 1086x1448 canvas. No simplification, extra patches or new tools. Same coarse pixel grid, native 1px near-black contour and distinct leather shadows. Transparent background.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-ef5c1cc6-6e42-4a4c-a42a-df39f49246e4.png",
+    "saved": "source/generated-apron-underlay.png"
+  },
+  {
+    "id": "hairpin",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: background-extraction. Make ONE isolated equipment layer from this exact pixel-art reference, on a genuinely TRANSPARENT full 1086x1448 canvas. The item must stay at its EXACT ORIGINAL position and ORIGINAL SCALE, not centered, enlarged, cropped or rearranged. Every other pixel/character part must be transparent. Same coarse pixel grid, original colors and dark outline, no smoothing. No text, guides or other objects. Keep ONLY the tiny gold square/ring HAIR CLIP at source x350..420,y340..410. It must remain a tiny approx70x70 item in that location on the full canvas. Remove hair, head, face, body and everything else; keep the clip's dark inner opening and gold rim.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-482e25b6-5605-4e3e-bcb4-1fdbb5a4ddc7.png",
+    "saved": "isolated-hairpin.png",
+    "status": "rejected_object_scale_drift"
+  },
+  {
+    "id": "scarf",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: background-extraction. Make ONE isolated equipment layer from this exact pixel-art reference, on a genuinely TRANSPARENT full 1086x1448 canvas. The item must stay at its EXACT ORIGINAL position and ORIGINAL SCALE, not centered, enlarged, cropped or rearranged. Every other pixel/character part must be transparent. Same coarse pixel grid, original colors and dark outline, no smoothing. No text, guides or other objects. Keep ONLY the red neck scarf/bandana, including its dark red folds, full outer outline and pointed lower end, around source x415..650,y545..670. Remove hair, head, all skin, collar/shirt, apron straps, body and all other objects. Restore any few hidden scarf cloth pixels under collar overlap naturally, but do not alter its visible contour or size.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-eebe70d6-cadb-4116-b631-96f96542ddae.png",
+    "saved": "isolated-scarf.png",
+    "status": "rejected_object_scale_drift",
+    "revision_2_status": "accepted_after_full_resolution_landmark_registration"
+  },
+  {
+    "id": "apron",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: background-extraction. Make ONE isolated equipment layer from this exact pixel-art reference, on a genuinely TRANSPARENT full 1086x1448 canvas. The item must stay at its EXACT ORIGINAL position and ORIGINAL SCALE, not centered, enlarged, cropped or rearranged. Every other pixel/character part must be transparent. Same coarse pixel grid, original colors and dark outline, no smoothing. No text, guides or other objects. Keep ONLY the complete BROWN LEATHER APRON from this cleaned reference: both shoulder straps and their gold strap buckles, bib, skirt and stitched empty front apron pocket. Approx source x350..760,y575..1130. Remove red scarf, skin, shirt, gloves, hair, trousers/boots and all other parts. Preserve the EXACT apron contour, size, placement, folds, stitching, original dark perimeter. This source has no waist belt/tools: do not add any belt, side pouches, rolls, scissors, tags or props. Keep apron fully filled under where those removable parts normally sit.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-ce0376f0-08bc-4fc6-b4a4-cdc1700bf310.png",
+    "saved": "isolated-apron.png",
+    "status": "rejected_object_scale_drift",
+    "revision_2_status": "accepted_after_full_resolution_landmark_registration"
+  },
+  {
+    "id": "belt-tools",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: background-extraction. Make ONE isolated equipment layer from this exact pixel-art reference, on a genuinely TRANSPARENT full 1086x1448 canvas. The item must stay at its EXACT ORIGINAL position and ORIGINAL SCALE, not centered, enlarged, cropped or rearranged. Every other pixel/character part must be transparent. Same coarse pixel grid, original colors and dark outline, no smoothing. No text, guides or other objects. Keep ONLY the waist leather belt and its large gold buckle, belt-mounted side pouches and rolled leather, hanging tool holsters/keys/green and red leather tags, scissors and tools visible above the front sewn apron pocket. Approx source x235..710,y770..1115. Remove apron fabric and sewn front apron pocket, shirt, hair, scarf, arms/skin/gloves, legs/boots, and the held leather hide. Preserve exact tool details, silver scissor loops and original belt fittings. Do not connect separated tools with invented strips or fill empty gaps with apron fabric.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-1910fada-8527-4966-adbe-27193e17f812.png",
+    "saved": "isolated-belt-tools.png",
+    "status": "rejected_object_scale_drift",
+    "revision_2_status": "accepted_after_full_resolution_landmark_registration"
+  },
+  {
+    "id": "gloves",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: background-extraction. Make ONE isolated equipment layer from this exact pixel-art reference, on a genuinely TRANSPARENT full 1086x1448 canvas. The item must stay at its EXACT ORIGINAL position and ORIGINAL SCALE, not centered, enlarged, cropped or rearranged. Every other pixel/character part must be transparent. Same coarse pixel grid, original colors and dark outline, no smoothing. No text, guides or other objects. Keep ONLY BOTH fingerless brown leather gloves/wrist bracers: the near glove on the hand at the hip around source x320..490,y730..855, AND the far glove on the raised hand around source x735..880,y665..780. Preserve all brown leather parts and thin dark perimeter, but make exposed fingers/skin and both forearms transparent. No shirt cuffs, no held hide, no belt, no head or other items. Do not move the two gloves relative to one another.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-c354dcf6-0a08-4383-b360-0e62a1d3753e.png",
+    "saved": "isolated-gloves.png",
+    "status": "accepted_after_explicit_hand_registration"
+  },
+  {
+    "id": "leather-hide",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: background-extraction. Make ONE isolated equipment layer from this exact pixel-art reference, on a genuinely TRANSPARENT full 1086x1448 canvas. The item must stay at its EXACT ORIGINAL position and ORIGINAL SCALE, not centered, enlarged, cropped or rearranged. Every other pixel/character part must be transparent. Same coarse pixel grid, original colors and dark outline, no smoothing. No text, guides or other objects. Keep ONLY the tan/rust-brown folded leather hide held on the right, around source x745..970,y695..1105. Remove the ENTIRE character including all gloves, fingers, arms and clothing. Keep the original leather's folded silhouette, tan front fold, rust back panel, dark outline, seam and stitch marks. Reconstruct the tiny gripped top edge hidden behind the fingers so the prop is complete on its own. Do not move or resize it.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-93716396-b12d-487e-bf84-4f541473e9a3.png",
+    "saved": "isolated-leather-hide.png",
+    "status": "rejected_object_scale_drift"
+  }
+]

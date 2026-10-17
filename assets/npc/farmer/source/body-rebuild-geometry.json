@@ -1,0 +1,22 @@
+{
+  "native_canvas": [
+    96,
+    128
+  ],
+  "source_scale": 0.1,
+  "source_offset": [
+    -11,
+    -10
+  ],
+  "approved_face_translation": [
+    -2,
+    6
+  ],
+  "waist_y": 76,
+  "foot": [
+    48,
+    124
+  ],
+  "palette_colors": 64,
+  "outline_processing": "none; preserve authored source contours and material shadows"
+}

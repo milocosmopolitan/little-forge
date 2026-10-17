@@ -1,0 +1,330 @@
+version: 1
+id: farmer2
+grid: B
+grid_unit_px:
+- 16
+- 16
+canvas_cells:
+- 6
+- 8
+native_canvas_px:
+- 96
+- 128
+preview_scale: 4
+origin_px:
+- 0
+- 0
+foot_anchor_px:
+- 48
+- 124
+design_bands_y:
+  head_with_hat:
+  - 6
+  - 55
+  upper:
+  - 50
+  - 76
+  lower:
+  - 76
+  - 124
+reference_roles:
+  identity: ../farmer/source/reference.png
+  style: ../farmer/source/reference.png
+  expressions: Friendly original neutral smile, no expression sheet generated in this
+    sample
+palette:
+  max_opaque_colors: 64
+  rgba_hex:
+  - '#150909ff'
+  - '#15090bff'
+  - '#19080bff'
+  - '#1a0d0cff'
+  - '#211f22ff'
+  - '#251213ff'
+  - '#271614ff'
+  - '#2f1b17ff'
+  - '#35241cff'
+  - '#382f2cff'
+  - '#39221cff'
+  - '#3e2822ff'
+  - '#403e43ff'
+  - '#443e40ff'
+  - '#492f24ff'
+  - '#4d352bff'
+  - '#532b1aff'
+  - '#554e4aff'
+  - '#56523bff'
+  - '#5e331fff'
+  - '#626066ff'
+  - '#676531ff'
+  - '#6a331cff'
+  - '#6a5946ff'
+  - '#6f4932ff'
+  - '#714833ff'
+  - '#726968ff'
+  - '#736843ff'
+  - '#778629ff'
+  - '#795844ff'
+  - '#893820ff'
+  - '#8a644eff'
+  - '#8c4f2dff'
+  - '#8e684cff'
+  - '#906951ff'
+  - '#916b53ff'
+  - '#aa5b30ff'
+  - '#ab6231ff'
+  - '#b38b6cff'
+  - '#b38d6dff'
+  - '#bc8743ff'
+  - '#c49059ff'
+  - '#c6ab92ff'
+  - '#c6b2a0ff'
+  - '#cc6c38ff'
+  - '#cf7638ff'
+  - '#d46e3cff'
+  - '#d5753eff'
+  - '#d77842ff'
+  - '#dbc7a7ff'
+  - '#e3cdb6ff'
+  - '#e4dacaff'
+  - '#ea9652ff'
+  - '#ea9c59ff'
+  - '#eea65fff'
+  - '#ef9952ff'
+  - '#f0e4d7ff'
+  - '#f1a748ff'
+  - '#f49d56ff'
+  - '#f6a25aff'
+  - '#fbf9f6ff'
+  - '#fbfaf7ff'
+  - '#fca55bff'
+  - '#fcebd4ff'
+  alpha_values:
+  - 0
+  - 255
+  reason: Approved face palette reserved; remaining colors describe original cloth/leather/metal/hat
+    ramps
+identity:
+  head_size_without_hat_px:
+  - 46
+  - 48
+  face_bbox_px:
+  - 30
+  - 24
+  - 62
+  - 55
+  eye_size_px:
+  - 8
+  - 8
+  eye_spacing_px: 11
+  eye_white_iris_design: Registered original reference white/iris layout; rounded
+    cheeks and original short chin retained
+  shoulder_width_px: 45
+  beard_and_moustache_mask: Fixed pixels in head-base.png, no expression-level beard
+    removal
+  preserved_expression_character: Warm relaxed neutral smile
+  hair_color: Dark charcoal gray with neutral-gray highlights; neutral hair shades
+    reserved in shared palette
+  chest_width_px: 32
+  waist_width_px: 30
+  upper_arm_width_px: 12
+  thigh_width_px: 16
+  body_build: Sturdy stocky farmer with broader shoulders, rounded torso and thick
+    arms/thighs
+  measurement_notes: Complete hair/head silhouette comes from the registered underlayer;
+    approved donor contributes facial interior only. Head bounds include the retained
+    neck connection.
+  hair_shape: Complete rounded skull without hat; tidy broad charcoal clusters
+sockets_px:
+  neck:
+  - 46
+  - 55
+  waist:
+  - 48
+  - 76
+  eyes:
+  - - 48
+    - 37
+  - - 59
+    - 37
+  mouth:
+  - 53
+  - 45
+  left_hand:
+  - 70
+  - 85
+  right_hand:
+  - 30
+  - 79
+layers:
+  head_base: head-base.png
+  upper_base: body/upper-base.png
+  lower_base: body/lower-base.png
+  eyes:
+    open: eyes/open.png
+    half: eyes/half.png
+    closed: eyes/closed.png
+    happy-closed: eyes/happy-closed.png
+    wide: eyes/wide.png
+  mouth:
+    rest: mouth/rest.png
+    small-open: mouth/small-open.png
+    wide-open: mouth/wide-open.png
+    round: mouth/round.png
+  equipment:
+  - equipment/apron.png
+  - equipment/belt-tools.png
+  - equipment/gloves.png
+  - equipment/hat.png
+composition_order:
+- lower_base
+- upper_base
+- head_base
+- eyes
+- mouth
+- equipment/apron.png
+- equipment/belt-tools.png
+- equipment/gloves.png
+- equipment/hat.png
+pose_overrides:
+  nod-down:
+    recipe_ref: poses/recipes.json#/poses/nod-down
+  turn-toward:
+    recipe_ref: poses/recipes.json#/poses/turn-toward
+  turn-away:
+    recipe_ref: poses/recipes.json#/poses/turn-away
+  give-mid:
+    recipe_ref: poses/recipes.json#/poses/give-mid
+  give-extended:
+    recipe_ref: poses/recipes.json#/poses/give-extended
+  walk-upper-a:
+    recipe_ref: poses/recipes.json#/poses/walk-upper-a
+  walk-upper-b:
+    recipe_ref: poses/recipes.json#/poses/walk-upper-b
+  walk-0:
+    recipe_ref: poses/recipes.json#/poses/walk-0
+  walk-1:
+    recipe_ref: poses/recipes.json#/poses/walk-1
+  walk-2:
+    recipe_ref: poses/recipes.json#/poses/walk-2
+  walk-3:
+    recipe_ref: poses/recipes.json#/poses/walk-3
+  walk-4:
+    recipe_ref: poses/recipes.json#/poses/walk-4
+  walk-5:
+    recipe_ref: poses/recipes.json#/poses/walk-5
+  nod-mid:
+    recipe_ref: poses/recipes.json#/poses/nod-mid
+animation:
+  manifest: animation.json
+  frame_duration_unit: ms
+  root_motion: false
+generation:
+  tool: built-in image_gen
+  final_prompts: source/generation-prompts.json
+  native_export: source/build-all.mjs
+  status: Modular expressions and posed body/head layers, 11 authoring clips; not
+    integrated into game runtime
+  actual_union_color_count: 64
+  geometry_note: Whole-body source scale .1, offset -11,-10; reference full-figure
+    proportions and foot anchor [48,124]
+  hair_correction_prompts: source/hair-correction-prompts.json
+  native_prepare: source/build-character.mjs
+  body_correction_prompts: source/body-correction-prompts.json
+  cleanup_prompts: source/cleanup-prompts.json
+  outline_rule: Authored source contours and material shadows retained; no global
+    skeletonization or recoloring
+  face_export: source/build-character.mjs
+  face_comparison: previews/face-comparison.png
+  body_rebuild_prompts: source/body-rebuild-prompts.json
+  body_comparison: previews/body-comparison.png
+  face_geometry: Facial interior and eye/mouth donor translated -2,+6; complete hair
+    silhouette comes from underlayer
+  face_source: source/approved-face/
+  source_files:
+  - source/body-rebuilt-master.png
+  - source/body-rebuilt-base.png
+  - source/body-rebuilt-apron.png
+  coverage_check: source/coverage-check.json
+  underlayer_comparison: previews/underlayer-check.png
+  foundation_source: source/body-rebuilt-base.png
+  animation_export: source/build-animation.mjs
+  animation_verify: source/verify-animation.py
+  expression_prompts: source/expression-prompts.json
+  pose_prompts: source/pose-prompts.json
+eyebrow_owner: eyes
+expression_recipes:
+  neutral:
+    eyes: open
+    mouth: rest
+  talk-small:
+    eyes: open
+    mouth: small-open
+  talk-wide:
+    eyes: open
+    mouth: wide-open
+  talk-round:
+    eyes: open
+    mouth: round
+  blink:
+    eyes: closed
+    mouth: rest
+  happy:
+    eyes: happy-closed
+    mouth: rest
+  surprised:
+    eyes: wide
+    mouth: round
+  relaxed:
+    eyes: half
+    mouth: rest
+expression_channels:
+  eyes: Independent blink on neutral head; posed heads currently provide open only
+  mouth: Independent speech on neutral head; posed heads currently provide rest only
+  priority: Explicit surprised state locks automatic blink
+limb_identity:
+  side_convention: character anatomical sides; near/far describe camera depth
+  near_arm: right_arm
+  far_arm: left_arm
+  near_leg: right_leg; gold boot buckle
+  far_leg: left_leg; plain boot
+  walk_phase_contract: near leg forward pairs with near arm back; far leg forward
+    pairs with far arm back; passing keys use intermediate arms
+production_plan:
+  status: generated_and_structurally_checked
+  expressions:
+  - neutral
+  - talk-small
+  - talk-wide
+  - talk-round
+  - blink
+  - happy
+  - surprised
+  - relaxed
+  clips:
+  - idle
+  - talk
+  - blink
+  - surprised
+  - happy
+  - relaxed
+  - nod
+  - shake_head
+  - give
+  - walk
+  - talk_blink
+runtime_export:
+  status: authoring_export_not_integrated
+  mode: baked
+  manifest: atlas-manifest.json
+  sampler: nearest
+  mipmaps: false
+  extrude_px: 1
+  gutter_px: 1
+  rotate_packing: false
+  page_size_px:
+  - 512
+  - 384
+  logical_sprite_count: 22
+  trim_supported_by_current_game_consumer: false
+pose_manifest: poses/recipes.json

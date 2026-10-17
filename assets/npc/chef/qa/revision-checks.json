@@ -1,0 +1,37 @@
+{
+  "small-open": {
+    "native_dy": -2,
+    "pixel_identical_translation": true
+  },
+  "wide-open": {
+    "native_dy": -2,
+    "pixel_identical_translation": true
+  },
+  "round-talk": {
+    "native_dy": -2,
+    "pixel_identical_translation": true
+  },
+  "round": {
+    "native_dy": -1,
+    "pixel_identical_translation": true
+  },
+  "moving_neck": {
+    "original_clean_upper_reused": [
+      "nod-mid",
+      "nod-down",
+      "turn-right"
+    ],
+    "far_collar_repaired": "turn-left"
+  },
+  "give": {
+    "former_shoulder_spike_removed": true,
+    "upper_forearm_rim_restored": true
+  },
+  "pixel_assets_validated": 24,
+  "atlas_audit": "structural_pass_runtime_unmeasured",
+  "historical_entrypoint_rebuild": {
+    "byte_identical_files": 422,
+    "passed": true
+  },
+  "status": "pass"
+}

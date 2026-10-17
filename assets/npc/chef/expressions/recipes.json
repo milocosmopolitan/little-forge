@@ -1,0 +1,56 @@
+{
+  "eyes": {
+    "open": "eyes/open.png",
+    "half": "eyes/half.png",
+    "closed": "eyes/closed.png",
+    "happy-closed": "eyes/happy-closed.png",
+    "wide": "eyes/wide.png"
+  },
+  "mouth": {
+    "rest": "mouth/rest.png",
+    "small-open": "mouth/small-open.png",
+    "wide-open": "mouth/wide-open.png",
+    "round": "mouth/round.png",
+    "round-talk": "mouth/round-talk.png",
+    "smile": "mouth/smile.png",
+    "laugh": "mouth/laugh.png"
+  },
+  "recipes": {
+    "neutral": {
+      "eyes": "open",
+      "mouth": "rest"
+    },
+    "talk-small": {
+      "eyes": "open",
+      "mouth": "small-open"
+    },
+    "talk-wide": {
+      "eyes": "open",
+      "mouth": "wide-open"
+    },
+    "talk-round": {
+      "eyes": "open",
+      "mouth": "round-talk"
+    },
+    "blink": {
+      "eyes": "closed",
+      "mouth": "rest"
+    },
+    "happy": {
+      "eyes": "happy-closed",
+      "mouth": "laugh"
+    },
+    "surprised": {
+      "eyes": "wide",
+      "mouth": "round"
+    },
+    "relaxed": {
+      "eyes": "half",
+      "mouth": "rest"
+    }
+  },
+  "eyebrow_owner": "eyes",
+  "expression_mask": "source/animation/expression-eyes-mask.png",
+  "mouth_mask": "source/animation/expression-mouth-mask.png",
+  "priority": "surprised locks blink; talk mouth and idle eyes otherwise independent"
+}

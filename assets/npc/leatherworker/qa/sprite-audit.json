@@ -1,0 +1,1409 @@
+{
+  "images": [
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/atlas.png",
+      "disk_bytes": 97373,
+      "size": [
+        512,
+        496
+      ],
+      "alpha_bbox_xyxy": [
+        1,
+        1,
+        461,
+        487
+      ],
+      "visible_pixels": 120049,
+      "transparent_fraction": 0.5272768082157258,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 0.8803238407258065,
+      "visible_rgba_sha256": "cc519fc40b5048b987ae123e10730902ae49a620cf84a22bc2765e7a59a6ba0d",
+      "rgba8_base_bytes": 1015808,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 1015808,
+      "selected_format_full_mip_chain_bytes": 1354332
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/blink.png",
+      "disk_bytes": 12539,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        16,
+        7,
+        88,
+        125
+      ],
+      "visible_pixels": 5335,
+      "transparent_fraction": 0.5658365885416667,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 0.69140625,
+      "visible_rgba_sha256": "09d55985bbdf684c4c393daa89608c392bd2136589cfae6aaa2224e8fe09c68e",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/blink-half.png",
+      "disk_bytes": 12599,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        16,
+        7,
+        88,
+        125
+      ],
+      "visible_pixels": 5335,
+      "transparent_fraction": 0.5658365885416667,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 0.69140625,
+      "visible_rgba_sha256": "16f29eaac671e408cb37a6b438552be8337c05ad0bc79d37a2d5f38a547eb1da",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/give-extended.png",
+      "disk_bytes": 12188,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        16,
+        7,
+        95,
+        125
+      ],
+      "visible_pixels": 5144,
+      "transparent_fraction": 0.5813802083333333,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 0.7586263020833334,
+      "visible_rgba_sha256": "ac44e4c5d116a704b0f45412088128ccec8a2cc8697cd71b2299a1cd386d46de",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/give-extended-empty.png",
+      "disk_bytes": 10763,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        16,
+        7,
+        87,
+        125
+      ],
+      "visible_pixels": 4475,
+      "transparent_fraction": 0.6358235677083333,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 0.6818033854166666,
+      "visible_rgba_sha256": "859eb388164223159b000c926b09a5d04b38ee3633724836f2e7028728f052e8",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/give-mid.png",
+      "disk_bytes": 12101,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        16,
+        7,
+        92,
+        125
+      ],
+      "visible_pixels": 5129,
+      "transparent_fraction": 0.5826009114583333,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 0.7298177083333334,
+      "visible_rgba_sha256": "ccb046b49d84415d2b5da35a8d8ba0c1c76c725bfc1dd095beb87b943aa4bf64",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/give-mid-empty.png",
+      "disk_bytes": 10657,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        16,
+        7,
+        84,
+        125
+      ],
+      "visible_pixels": 4461,
+      "transparent_fraction": 0.636962890625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 0.6529947916666666,
+      "visible_rgba_sha256": "2693870149d4d7b6861c3ca63ad67f39161a12d75576359aecfd588dcc1936bb",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/happy.png",
+      "disk_bytes": 12537,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        16,
+        7,
+        88,
+        125
+      ],
+      "visible_pixels": 5335,
+      "transparent_fraction": 0.5658365885416667,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 0.69140625,
+      "visible_rgba_sha256": "04ac5adba5b56e5dba7ac575d46919e7ea8584e122adf0ab2afe824626f48f99",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/neutral.png",
+      "disk_bytes": 12651,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        16,
+        7,
+        88,
+        125
+      ],
+      "visible_pixels": 5335,
+      "transparent_fraction": 0.5658365885416667,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 0.69140625,
+      "visible_rgba_sha256": "3081575f7da66b52f1464686f04fdcbbd584fabcf861a09741a4a5e1c323d56a",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/neutral-no-prop.png",
+      "disk_bytes": 11265,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        16,
+        7,
+        80,
+        125
+      ],
+      "visible_pixels": 4708,
+      "transparent_fraction": 0.6168619791666667,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 0.6145833333333334,
+      "visible_rgba_sha256": "c1efe5d1033f1272c0eb80cb0937d420292d3707c29c586e17cd7b3d62dfc8d8",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/nod-down.png",
+      "disk_bytes": 12497,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        16,
+        8,
+        88,
+        125
+      ],
+      "visible_pixels": 5259,
+      "transparent_fraction": 0.572021484375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 0.685546875,
+      "visible_rgba_sha256": "fd1fdbbc662d57fb0a2785feb25f4f2fe6181f823852b16a437638f55961497b",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/nod-mid.png",
+      "disk_bytes": 12626,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        16,
+        8,
+        88,
+        125
+      ],
+      "visible_pixels": 5318,
+      "transparent_fraction": 0.5672200520833333,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 0.685546875,
+      "visible_rgba_sha256": "17587811d83c5bcd46463652f5de9b67b510f12c7ec888e05297cae3fc930c02",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/relaxed.png",
+      "disk_bytes": 12599,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        16,
+        7,
+        88,
+        125
+      ],
+      "visible_pixels": 5335,
+      "transparent_fraction": 0.5658365885416667,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 0.69140625,
+      "visible_rgba_sha256": "16f29eaac671e408cb37a6b438552be8337c05ad0bc79d37a2d5f38a547eb1da",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/surprised.png",
+      "disk_bytes": 12607,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        16,
+        7,
+        88,
+        125
+      ],
+      "visible_pixels": 5335,
+      "transparent_fraction": 0.5658365885416667,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 0.69140625,
+      "visible_rgba_sha256": "5a93b6d530f92115e67000c1e99b4db482aadc874454c30a6de72ee96034f71f",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/talk-blink.png",
+      "disk_bytes": 12527,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        16,
+        7,
+        88,
+        125
+      ],
+      "visible_pixels": 5335,
+      "transparent_fraction": 0.5658365885416667,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 0.69140625,
+      "visible_rgba_sha256": "4b4db11772ee02469956cfd6fc3dd29e4ff8a01e35c6988b7acfef360a179f3a",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/talk-round.png",
+      "disk_bytes": 12637,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        16,
+        7,
+        88,
+        125
+      ],
+      "visible_pixels": 5335,
+      "transparent_fraction": 0.5658365885416667,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 0.69140625,
+      "visible_rgba_sha256": "414c133fca16e6a040419b2d0fe8b6106a5f8c3d67c23d21cb9feb7b83e908d7",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/talk-small.png",
+      "disk_bytes": 12636,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        16,
+        7,
+        88,
+        125
+      ],
+      "visible_pixels": 5335,
+      "transparent_fraction": 0.5658365885416667,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 0.69140625,
+      "visible_rgba_sha256": "1f69d4e6e2329166eb7185b93bbeedbf943669a5c1bd74d8e123085ddca6711d",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/talk-wide.png",
+      "disk_bytes": 12670,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        16,
+        7,
+        88,
+        125
+      ],
+      "visible_pixels": 5335,
+      "transparent_fraction": 0.5658365885416667,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 0.69140625,
+      "visible_rgba_sha256": "f1c575d7028ef89dd1b4f2dc5a3e7f6d024cc46c079066c2c7d65d91a75c7621",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/turn-away.png",
+      "disk_bytes": 12548,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        16,
+        8,
+        88,
+        125
+      ],
+      "visible_pixels": 5296,
+      "transparent_fraction": 0.5690104166666667,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 0.685546875,
+      "visible_rgba_sha256": "1d7048c76d2e2226c0701c0cbbbbd92dda1ec4abb08ab35736f1b641481022db",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/turn-toward.png",
+      "disk_bytes": 12649,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        16,
+        8,
+        88,
+        125
+      ],
+      "visible_pixels": 5316,
+      "transparent_fraction": 0.5673828125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 0.685546875,
+      "visible_rgba_sha256": "25e42bcd2874a8929eb0fa3f2d3778951795fd4467d9c2b48c74c54a97430a36",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/walk-0.png",
+      "disk_bytes": 10830,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        16,
+        8,
+        80,
+        125
+      ],
+      "visible_pixels": 4394,
+      "transparent_fraction": 0.6424153645833333,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 0.609375,
+      "visible_rgba_sha256": "9196662bcac28b0554ce72c9136f9a02bd2eacd04c67b8fd60c53212af8f7e08",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/walk-1.png",
+      "disk_bytes": 10518,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        16,
+        9,
+        74,
+        125
+      ],
+      "visible_pixels": 4187,
+      "transparent_fraction": 0.6592610677083333,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 0.5475260416666666,
+      "visible_rgba_sha256": "6b2f6f8d9d07b79c3791d56053979547def406e52c7d333dc0d16d263bba5b20",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/walk-2.png",
+      "disk_bytes": 10779,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        16,
+        7,
+        76,
+        125
+      ],
+      "visible_pixels": 4385,
+      "transparent_fraction": 0.6431477864583333,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 0.576171875,
+      "visible_rgba_sha256": "b37e2d484ca5b73303756147b6d03144912658d9771c94d43f1ef3e5b389e7fd",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/walk-3.png",
+      "disk_bytes": 11239,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        16,
+        8,
+        81,
+        125
+      ],
+      "visible_pixels": 4537,
+      "transparent_fraction": 0.6307779947916667,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 0.618896484375,
+      "visible_rgba_sha256": "f7ba30ba98929ed423e14e540230eabc5ef8339df137c765d3de1a18c59d86ae",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/walk-4.png",
+      "disk_bytes": 10879,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        16,
+        9,
+        78,
+        125
+      ],
+      "visible_pixels": 4399,
+      "transparent_fraction": 0.6420084635416667,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 0.5852864583333334,
+      "visible_rgba_sha256": "5414fd054d54b3ee70466250abc8c02c4a33d687ef65f9b2ec1b94799c149998",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/walk-5.png",
+      "disk_bytes": 10722,
+      "size": [
+        96,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        16,
+        7,
+        75,
+        125
+      ],
+      "visible_pixels": 4310,
+      "transparent_fraction": 0.6492513020833333,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 0.5665690104166666,
+      "visible_rgba_sha256": "a3eef5161303e135dbbd708ccd0ce447ebc28d106c63807e4352f6586e90c343",
+      "rgba8_base_bytes": 49152,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 49152,
+      "selected_format_full_mip_chain_bytes": 65532
+    }
+  ],
+  "sprites": [
+    {
+      "id": "blink",
+      "page": "leatherworker-0",
+      "rect": [
+        2,
+        2,
+        72,
+        118
+      ],
+      "size": [
+        72,
+        118
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        72,
+        118
+      ],
+      "visible_pixels": 5335,
+      "transparent_fraction": 0.37205743879472697,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "cd88c7f574ef47a15c9cd705f2296ad71cffa74529d570a25c3c447b9e6050e9",
+      "trimmed_pivot": [
+        32,
+        117
+      ]
+    },
+    {
+      "id": "blink-half",
+      "page": "leatherworker-0",
+      "rect": [
+        78,
+        2,
+        72,
+        118
+      ],
+      "size": [
+        72,
+        118
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        72,
+        118
+      ],
+      "visible_pixels": 5335,
+      "transparent_fraction": 0.37205743879472697,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "7de0ba0003ba3b80f389fc05e94186f2af51b03b2d0501c47b99cb1d73182f04",
+      "trimmed_pivot": [
+        32,
+        117
+      ]
+    },
+    {
+      "id": "give-extended",
+      "page": "leatherworker-0",
+      "rect": [
+        154,
+        2,
+        79,
+        118
+      ],
+      "size": [
+        79,
+        118
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        79,
+        118
+      ],
+      "visible_pixels": 5144,
+      "transparent_fraction": 0.4481870843166702,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "53fcd6160b340555129a137c233c9653f92b5a7d3c88596619b4dba78b12c005",
+      "trimmed_pivot": [
+        32,
+        117
+      ]
+    },
+    {
+      "id": "give-extended-empty",
+      "page": "leatherworker-0",
+      "rect": [
+        237,
+        2,
+        71,
+        118
+      ],
+      "size": [
+        71,
+        118
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        71,
+        118
+      ],
+      "visible_pixels": 4475,
+      "transparent_fraction": 0.46586297445691094,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "e4de68255e3657b5bf6e299ee7dbcab391decfdc74567f80b01a8617fbd310dc",
+      "trimmed_pivot": [
+        32,
+        117
+      ]
+    },
+    {
+      "id": "give-mid",
+      "page": "leatherworker-0",
+      "rect": [
+        312,
+        2,
+        76,
+        118
+      ],
+      "size": [
+        76,
+        118
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        76,
+        118
+      ],
+      "visible_pixels": 5129,
+      "transparent_fraction": 0.4280776092774309,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "cae19653f4ddf008bbf07db5df0ed57d2553b9f56f009ced5fd0ff46ad03c37c",
+      "trimmed_pivot": [
+        32,
+        117
+      ]
+    },
+    {
+      "id": "give-mid-empty",
+      "page": "leatherworker-0",
+      "rect": [
+        392,
+        2,
+        68,
+        118
+      ],
+      "size": [
+        68,
+        118
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        68,
+        118
+      ],
+      "visible_pixels": 4461,
+      "transparent_fraction": 0.4440428713858424,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "8cf0830ec02f80d0c0fd7d6adec22b2ba7e28bd50eefe344cc020e3e43f11b49",
+      "trimmed_pivot": [
+        32,
+        117
+      ]
+    },
+    {
+      "id": "happy",
+      "page": "leatherworker-0",
+      "rect": [
+        2,
+        124,
+        72,
+        118
+      ],
+      "size": [
+        72,
+        118
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        72,
+        118
+      ],
+      "visible_pixels": 5335,
+      "transparent_fraction": 0.37205743879472697,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "31a17c180ff5af925aa3468e88e7ac82b12a99a2ccf21268048c37f9fb28b36e",
+      "trimmed_pivot": [
+        32,
+        117
+      ]
+    },
+    {
+      "id": "neutral",
+      "page": "leatherworker-0",
+      "rect": [
+        78,
+        124,
+        72,
+        118
+      ],
+      "size": [
+        72,
+        118
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        72,
+        118
+      ],
+      "visible_pixels": 5335,
+      "transparent_fraction": 0.37205743879472697,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "89ed465b2eaa5ad3b4e29bf97a314b26d9151a0499e6e887d4903f075219f1d3",
+      "trimmed_pivot": [
+        32,
+        117
+      ]
+    },
+    {
+      "id": "neutral-no-prop",
+      "page": "leatherworker-0",
+      "rect": [
+        154,
+        124,
+        64,
+        118
+      ],
+      "size": [
+        64,
+        118
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        64,
+        118
+      ],
+      "visible_pixels": 4708,
+      "transparent_fraction": 0.3765889830508474,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "0f369a384441a524dba43090eead8739c762829f41f2d2b8e66163ea98bc282b",
+      "trimmed_pivot": [
+        32,
+        117
+      ]
+    },
+    {
+      "id": "nod-down",
+      "page": "leatherworker-0",
+      "rect": [
+        222,
+        124,
+        72,
+        117
+      ],
+      "size": [
+        72,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        72,
+        117
+      ],
+      "visible_pixels": 5259,
+      "transparent_fraction": 0.3757122507122507,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "eb0199b926d6833eadc5ef22fb5b8c8c889e42cd92c1cba8b091b8a9e713e461",
+      "trimmed_pivot": [
+        32,
+        116
+      ]
+    },
+    {
+      "id": "nod-mid",
+      "page": "leatherworker-0",
+      "rect": [
+        298,
+        124,
+        72,
+        117
+      ],
+      "size": [
+        72,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        72,
+        117
+      ],
+      "visible_pixels": 5318,
+      "transparent_fraction": 0.3687084520417854,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "2a3fe886b917042487dcc71c5096a2be4302a4074e53c095b455586f4baf601a",
+      "trimmed_pivot": [
+        32,
+        116
+      ]
+    },
+    {
+      "id": "relaxed",
+      "page": "leatherworker-0",
+      "rect": [
+        78,
+        2,
+        72,
+        118
+      ],
+      "size": [
+        72,
+        118
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        72,
+        118
+      ],
+      "visible_pixels": 5335,
+      "transparent_fraction": 0.37205743879472697,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "7de0ba0003ba3b80f389fc05e94186f2af51b03b2d0501c47b99cb1d73182f04",
+      "trimmed_pivot": [
+        32,
+        117
+      ]
+    },
+    {
+      "id": "surprised",
+      "page": "leatherworker-0",
+      "rect": [
+        374,
+        124,
+        72,
+        118
+      ],
+      "size": [
+        72,
+        118
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        72,
+        118
+      ],
+      "visible_pixels": 5335,
+      "transparent_fraction": 0.37205743879472697,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "b0ad0216d80857c2c18f4e863ce8de3ae09ca1f248480cc4f16d339faca48baa",
+      "trimmed_pivot": [
+        32,
+        117
+      ]
+    },
+    {
+      "id": "talk-blink",
+      "page": "leatherworker-0",
+      "rect": [
+        2,
+        246,
+        72,
+        118
+      ],
+      "size": [
+        72,
+        118
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        72,
+        118
+      ],
+      "visible_pixels": 5335,
+      "transparent_fraction": 0.37205743879472697,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "4953668049b70786f4ad37f70f7e8383575cb44a1e61baf17d8d6a32ad6ccc2f",
+      "trimmed_pivot": [
+        32,
+        117
+      ]
+    },
+    {
+      "id": "talk-round",
+      "page": "leatherworker-0",
+      "rect": [
+        78,
+        246,
+        72,
+        118
+      ],
+      "size": [
+        72,
+        118
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        72,
+        118
+      ],
+      "visible_pixels": 5335,
+      "transparent_fraction": 0.37205743879472697,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "f3705c959031892c2ed566fdf7964ba12d2db644ff56a597f64857a43b7ce9fa",
+      "trimmed_pivot": [
+        32,
+        117
+      ]
+    },
+    {
+      "id": "talk-small",
+      "page": "leatherworker-0",
+      "rect": [
+        154,
+        246,
+        72,
+        118
+      ],
+      "size": [
+        72,
+        118
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        72,
+        118
+      ],
+      "visible_pixels": 5335,
+      "transparent_fraction": 0.37205743879472697,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "b031c9c7c719e49d3356c7596e61eba32aa2f35b4a37357fa3bbd10fea882034",
+      "trimmed_pivot": [
+        32,
+        117
+      ]
+    },
+    {
+      "id": "talk-wide",
+      "page": "leatherworker-0",
+      "rect": [
+        230,
+        246,
+        72,
+        118
+      ],
+      "size": [
+        72,
+        118
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        72,
+        118
+      ],
+      "visible_pixels": 5335,
+      "transparent_fraction": 0.37205743879472697,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "717742b5220fda28c7d495eb92b1ec5da01d9e161e758c7ca83edd974847f982",
+      "trimmed_pivot": [
+        32,
+        117
+      ]
+    },
+    {
+      "id": "turn-away",
+      "page": "leatherworker-0",
+      "rect": [
+        306,
+        246,
+        72,
+        117
+      ],
+      "size": [
+        72,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        72,
+        117
+      ],
+      "visible_pixels": 5296,
+      "transparent_fraction": 0.37132003798670465,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "14a2cace386afd8da42b9805684a1932d9335c99c1700b97a517ac0606d86920",
+      "trimmed_pivot": [
+        32,
+        116
+      ]
+    },
+    {
+      "id": "turn-toward",
+      "page": "leatherworker-0",
+      "rect": [
+        382,
+        246,
+        72,
+        117
+      ],
+      "size": [
+        72,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        72,
+        117
+      ],
+      "visible_pixels": 5316,
+      "transparent_fraction": 0.3689458689458689,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "50753efdf2fc1d97d0cc78a948864a0964fe831eabbea9687800b565bca99987",
+      "trimmed_pivot": [
+        32,
+        116
+      ]
+    },
+    {
+      "id": "walk-0",
+      "page": "leatherworker-0",
+      "rect": [
+        2,
+        368,
+        64,
+        117
+      ],
+      "size": [
+        64,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        64,
+        117
+      ],
+      "visible_pixels": 4394,
+      "transparent_fraction": 0.4131944444444444,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "1bab38b28fa3ad7408f7e07417e9410b4c3371615e4e42b75dd09d983820e7b8",
+      "trimmed_pivot": [
+        32,
+        116
+      ]
+    },
+    {
+      "id": "walk-1",
+      "page": "leatherworker-0",
+      "rect": [
+        70,
+        368,
+        58,
+        116
+      ],
+      "size": [
+        58,
+        116
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        58,
+        116
+      ],
+      "visible_pixels": 4187,
+      "transparent_fraction": 0.37767538644470866,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "7fd488b7d9fe2e222d2b4ea0724f1284b93e659554c55234130c865a5b090be7",
+      "trimmed_pivot": [
+        32,
+        115
+      ]
+    },
+    {
+      "id": "walk-2",
+      "page": "leatherworker-0",
+      "rect": [
+        132,
+        368,
+        60,
+        118
+      ],
+      "size": [
+        60,
+        118
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        60,
+        118
+      ],
+      "visible_pixels": 4385,
+      "transparent_fraction": 0.38064971751412424,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "32d0f66dfe8436c3d5a1f6da0232002cf4f79e3d364b830f8a262fcb2cdc62b1",
+      "trimmed_pivot": [
+        32,
+        117
+      ]
+    },
+    {
+      "id": "walk-3",
+      "page": "leatherworker-0",
+      "rect": [
+        196,
+        368,
+        65,
+        117
+      ],
+      "size": [
+        65,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        65,
+        117
+      ],
+      "visible_pixels": 4537,
+      "transparent_fraction": 0.40341880341880343,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "b1b756d4aa219f4d1c4c050d6ce9dccac6fa8e40f314299dea1dad18324f6167",
+      "trimmed_pivot": [
+        32,
+        116
+      ]
+    },
+    {
+      "id": "walk-4",
+      "page": "leatherworker-0",
+      "rect": [
+        265,
+        368,
+        62,
+        116
+      ],
+      "size": [
+        62,
+        116
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        62,
+        116
+      ],
+      "visible_pixels": 4399,
+      "transparent_fraction": 0.38834816462736377,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "bf5b8c33e6222dfa7d89a17c0c367cc289ba624a422496b7cc140105b1b6b159",
+      "trimmed_pivot": [
+        32,
+        115
+      ]
+    },
+    {
+      "id": "walk-5",
+      "page": "leatherworker-0",
+      "rect": [
+        331,
+        368,
+        59,
+        118
+      ],
+      "size": [
+        59,
+        118
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        59,
+        118
+      ],
+      "visible_pixels": 4310,
+      "transparent_fraction": 0.38092502154553287,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "f20ec98d8c0b98d03c53acbc93db22ff5153c44bcfa9bd0d667bddaf1d35791a",
+      "trimmed_pivot": [
+        32,
+        117
+      ]
+    }
+  ],
+  "errors": [],
+  "warnings": [
+    "Extrude/gutter pixel contents, runtime sampling and performance were not measured"
+  ],
+  "runtime": {
+    "draw_calls": "not_measured",
+    "overdraw": "not_measured",
+    "gpu_format_support": "not_checked"
+  },
+  "memory_note": "Format arithmetic only; excludes CPU copies, staging, alignment and driver overhead.",
+  "pages": [
+    {
+      "id": "leatherworker-0",
+      "size": [
+        512,
+        496
+      ],
+      "unique_rect_area_fraction": 0.7696690713205645,
+      "estimated_texture_bytes": 1015808
+    }
+  ],
+  "declared_page_texture_bytes": 1015808,
+  "duplicate_image_groups": [
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/blink-half.png",
+      "/Users/minhokang/Work/games/little-forge/assets/npc/leatherworker/frames/relaxed.png"
+    ]
+  ],
+  "status": "structural_pass_runtime_unmeasured"
+}

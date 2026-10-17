@@ -1,0 +1,41 @@
+{
+  "source_cell": {
+    "cw": 60,
+    "ch": 60,
+    "ox": 12
+  },
+  "eye_boxes": [
+    [
+      43,
+      28,
+      51,
+      36
+    ],
+    [
+      55,
+      25,
+      59,
+      36
+    ]
+  ],
+  "mouth_box": [
+    51,
+    37,
+    55,
+    40
+  ],
+  "nose_cleanup": [
+    49,
+    36,
+    52,
+    38
+  ],
+  "head_bbox": [
+    17,
+    8,
+    68,
+    46
+  ],
+  "feature_transform": "none; split at native source positions",
+  "toward_eyes": "source/outline-before/poses/turn-toward/eyes/open.png"
+}

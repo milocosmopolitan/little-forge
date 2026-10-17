@@ -1,0 +1,9 @@
+{
+  "status": "pass",
+  "byte_identical_files": 384,
+  "entrypoints": [
+    "source/build-animation.py",
+    "source/build-character.py"
+  ],
+  "scope": "production PNG/GIF/JSON/YAML/HTML unchanged across rebuilds; source and QA excluded"
+}

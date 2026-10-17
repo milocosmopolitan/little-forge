@@ -1,394 +1,816 @@
 {
   "id": "farmer",
-  "faces": {
-    "mouths": "npc/farmer/mouths.png",
-    "eyes": "npc/farmer/eyes-atlas.png",
-    "hands": "npc/farmer/hands.png"
-  },
   "version": 1,
-  "image": "npc/farmer/atlas.png",
+  "faces": null,
+  "image": "npc/farmer/runtime-atlas.png",
   "size": [
-    1536,
-    2112
+    384,
+    768
   ],
   "cell": [
-    384,
-    352
+    96,
+    128
   ],
   "foot": [
-    192.0,
-    340
+    48,
+    124
   ],
   "head": [
-    192.0,
-    100
+    53,
+    37
   ],
   "frames": [
     {
       "rect": [
         0,
         0,
-        384,
-        352
+        96,
+        128
       ],
-      "duration": 0.12,
+      "duration": 1.6,
       "hand": [
-        250,
-        244
-      ]
+        70,
+        85
+      ],
+      "transfer": false
     },
     {
       "rect": [
-        384,
+        192,
         0,
-        384,
-        352
+        96,
+        128
       ],
-      "duration": 0.12,
+      "duration": 0.04,
       "hand": [
-        250,
-        244
-      ]
+        70,
+        85
+      ],
+      "transfer": false
     },
     {
       "rect": [
-        768,
+        96,
         0,
-        384,
-        352
+        96,
+        128
       ],
-      "duration": 0.12,
+      "duration": 0.08,
       "hand": [
-        250,
-        244
-      ]
+        70,
+        85
+      ],
+      "transfer": false
     },
     {
       "rect": [
-        1152,
+        192,
         0,
-        384,
-        352
+        96,
+        128
       ],
-      "duration": 0.12,
+      "duration": 0.04,
       "hand": [
-        250,
-        244
-      ]
-    },
-    {
-      "rect": [
-        0,
-        352,
-        384,
-        352
+        70,
+        85
       ],
-      "duration": 0.12,
-      "hand": [
-        250,
-        244
-      ]
-    },
-    {
-      "rect": [
-        384,
-        352,
-        384,
-        352
-      ],
-      "duration": 0.12,
-      "hand": [
-        250,
-        244
-      ]
-    },
-    {
-      "rect": [
-        768,
-        352,
-        384,
-        352
-      ],
-      "duration": 0.12,
-      "hand": [
-        250,
-        244
-      ]
-    },
-    {
-      "rect": [
-        1152,
-        352,
-        384,
-        352
-      ],
-      "duration": 0.12,
-      "hand": [
-        250,
-        244
-      ]
+      "transfer": false
     },
     {
       "rect": [
         0,
-        704,
-        384,
-        352
+        0,
+        96,
+        128
       ],
-      "duration": 0.12,
+      "duration": 1.2,
       "hand": [
-        250,
-        244
-      ]
-    },
-    {
-      "rect": [
-        384,
-        704,
-        384,
-        352
+        70,
+        85
       ],
-      "duration": 0.12,
-      "hand": [
-        250,
-        244
-      ]
-    },
-    {
-      "rect": [
-        768,
-        704,
-        384,
-        352
-      ],
-      "duration": 0.12,
-      "hand": [
-        250,
-        244
-      ]
-    },
-    {
-      "rect": [
-        1152,
-        704,
-        384,
-        352
-      ],
-      "duration": 0.12,
-      "hand": [
-        250,
-        244
-      ]
+      "transfer": false
     },
     {
       "rect": [
         0,
-        1056,
-        384,
-        352
+        0,
+        96,
+        128
       ],
-      "duration": 0.12,
+      "duration": 0.14,
       "hand": [
-        250,
-        244
-      ]
+        70,
+        85
+      ],
+      "transfer": false
     },
     {
       "rect": [
+        0,
         384,
-        1056,
-        384,
-        352
+        96,
+        128
       ],
-      "duration": 0.12,
+      "duration": 0.1,
       "hand": [
-        242,
-        230
-      ]
+        70,
+        85
+      ],
+      "transfer": false
     },
     {
       "rect": [
-        768,
-        1056,
+        96,
         384,
-        352
+        96,
+        128
       ],
-      "duration": 0.4,
+      "duration": 0.1,
       "hand": [
-        294,
-        205
-      ]
+        70,
+        85
+      ],
+      "transfer": false
     },
     {
       "rect": [
-        1152,
-        1056,
+        0,
         384,
-        352
+        96,
+        128
+      ],
+      "duration": 0.1,
+      "hand": [
+        70,
+        85
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        288,
+        256,
+        96,
+        128
+      ],
+      "duration": 0.1,
+      "hand": [
+        70,
+        85
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        0,
+        0,
+        96,
+        128
+      ],
+      "duration": 0.14,
+      "hand": [
+        70,
+        85
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        0,
+        0,
+        96,
+        128
+      ],
+      "duration": 0.3,
+      "hand": [
+        70,
+        85
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        192,
+        0,
+        96,
+        128
+      ],
+      "duration": 0.04,
+      "hand": [
+        70,
+        85
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        96,
+        0,
+        96,
+        128
+      ],
+      "duration": 0.08,
+      "hand": [
+        70,
+        85
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        192,
+        0,
+        96,
+        128
+      ],
+      "duration": 0.04,
+      "hand": [
+        70,
+        85
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        0,
+        0,
+        96,
+        128
+      ],
+      "duration": 0.3,
+      "hand": [
+        70,
+        85
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        96,
+        256,
+        96,
+        128
+      ],
+      "duration": 0.6,
+      "hand": [
+        70,
+        85
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        0,
+        0,
+        96,
+        128
+      ],
+      "duration": 0.14,
+      "hand": [
+        70,
+        85
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        96,
+        128,
+        96,
+        128
+      ],
+      "duration": 0.7,
+      "hand": [
+        70,
+        85
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        0,
+        0,
+        96,
+        128
+      ],
+      "duration": 0.14,
+      "hand": [
+        70,
+        85
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        0,
+        256,
+        96,
+        128
+      ],
+      "duration": 0.7,
+      "hand": [
+        70,
+        85
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        0,
+        0,
+        96,
+        128
+      ],
+      "duration": 0.14,
+      "hand": [
+        70,
+        85
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        0,
+        0,
+        96,
+        128
       ],
       "duration": 0.12,
       "hand": [
-        225,
-        244
+        70,
+        85
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        288,
+        128,
+        96,
+        128
+      ],
+      "duration": 0.1,
+      "hand": [
+        70,
+        85
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        192,
+        128,
+        96,
+        128
+      ],
+      "duration": 0.14,
+      "hand": [
+        70,
+        85
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        288,
+        128,
+        96,
+        128
+      ],
+      "duration": 0.1,
+      "hand": [
+        70,
+        85
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        0,
+        0,
+        96,
+        128
+      ],
+      "duration": 0.12,
+      "hand": [
+        70,
+        85
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        0,
+        0,
+        96,
+        128
+      ],
+      "duration": 0.1,
+      "hand": [
+        70,
+        85
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        288,
+        384,
+        96,
+        128
+      ],
+      "duration": 0.14,
+      "hand": [
+        70,
+        85
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        0,
+        0,
+        96,
+        128
+      ],
+      "duration": 0.1,
+      "hand": [
+        70,
+        85
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        192,
+        384,
+        96,
+        128
+      ],
+      "duration": 0.14,
+      "hand": [
+        70,
+        85
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        0,
+        0,
+        96,
+        128
+      ],
+      "duration": 0.1,
+      "hand": [
+        70,
+        85
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        0,
+        0,
+        96,
+        128
+      ],
+      "duration": 0.12,
+      "hand": [
+        70,
+        85
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        0,
+        128,
+        96,
+        128
+      ],
+      "duration": 0.12,
+      "hand": [
+        75,
+        75
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        288,
+        0,
+        96,
+        128
+      ],
+      "duration": 0.18,
+      "hand": [
+        85,
+        67
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        288,
+        0,
+        96,
+        128
+      ],
+      "duration": 0.12,
+      "hand": [
+        85,
+        67
       ],
       "transfer": true
     },
     {
       "rect": [
         0,
-        1408,
-        384,
-        352
+        128,
+        96,
+        128
       ],
       "duration": 0.12,
       "hand": [
-        250,
-        244
-      ]
-    },
-    {
-      "rect": [
-        384,
-        1408,
-        384,
-        352
+        75,
+        75
       ],
-      "duration": 0.12,
-      "hand": [
-        250,
-        244
-      ]
-    },
-    {
-      "rect": [
-        768,
-        1408,
-        384,
-        352
-      ],
-      "duration": 0.12,
-      "hand": [
-        250,
-        244
-      ]
-    },
-    {
-      "rect": [
-        1152,
-        1408,
-        384,
-        352
-      ],
-      "duration": 0.12,
-      "hand": [
-        250,
-        244
-      ]
+      "transfer": false
     },
     {
       "rect": [
         0,
-        1760,
-        384,
-        352
+        0,
+        96,
+        128
       ],
       "duration": 0.12,
       "hand": [
-        250,
-        244
-      ]
+        70,
+        85
+      ],
+      "transfer": false
     },
     {
       "rect": [
-        384,
-        1760,
-        384,
-        352
+        0,
+        512,
+        96,
+        128
       ],
       "duration": 0.12,
       "hand": [
-        250,
-        244
-      ]
+        74,
+        79
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        96,
+        512,
+        96,
+        128
+      ],
+      "duration": 0.12,
+      "hand": [
+        74,
+        80
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        192,
+        512,
+        96,
+        128
+      ],
+      "duration": 0.12,
+      "hand": [
+        70,
+        85
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        288,
+        512,
+        96,
+        128
+      ],
+      "duration": 0.12,
+      "hand": [
+        67,
+        80
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        0,
+        640,
+        96,
+        128
+      ],
+      "duration": 0.12,
+      "hand": [
+        67,
+        81
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        96,
+        640,
+        96,
+        128
+      ],
+      "duration": 0.12,
+      "hand": [
+        70,
+        85
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        0,
+        384,
+        96,
+        128
+      ],
+      "duration": 0.24,
+      "hand": [
+        70,
+        85
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        192,
+        256,
+        96,
+        128
+      ],
+      "duration": 0.1,
+      "hand": [
+        70,
+        85
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        0,
+        384,
+        96,
+        128
+      ],
+      "duration": 0.14,
+      "hand": [
+        70,
+        85
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        96,
+        384,
+        96,
+        128
+      ],
+      "duration": 0.14,
+      "hand": [
+        70,
+        85
+      ],
+      "transfer": false
+    },
+    {
+      "rect": [
+        288,
+        256,
+        96,
+        128
+      ],
+      "duration": 0.14,
+      "hand": [
+        70,
+        85
+      ],
+      "transfer": false
     }
   ],
   "clips": {
     "idle": {
       "frames": [
-        0
+        0,
+        1,
+        2,
+        3,
+        4
       ],
       "looping": true
     },
     "talk": {
       "frames": [
-        0,
-        1,
-        2,
-        1,
-        3,
-        1
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
       ],
       "looping": true
     },
     "blink": {
       "frames": [
-        0,
-        4,
-        5,
-        4,
-        0
+        11,
+        12,
+        13,
+        14,
+        15
       ],
       "looping": false
     },
     "surprised": {
       "frames": [
-        6,
-        7,
-        6,
-        0
+        16,
+        17
+      ],
+      "looping": false
+    },
+    "happy": {
+      "frames": [
+        18,
+        19
+      ],
+      "looping": false
+    },
+    "relaxed": {
+      "frames": [
+        20,
+        21
       ],
       "looping": false
     },
     "nod": {
       "frames": [
-        0,
-        8,
-        9,
-        8,
-        0
+        22,
+        23,
+        24,
+        25,
+        26
       ],
       "looping": false
     },
     "shake_head": {
       "frames": [
-        0,
-        10,
-        0,
-        11,
-        0
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "looping": false
+    },
+    "give": {
+      "frames": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37
       ],
       "looping": false
     },
     "walk": {
       "frames": [
-        16,
-        17,
-        18,
-        19,
-        20,
-        21
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
       ],
       "looping": true
     },
-    "give": {
+    "talk_blink": {
       "frames": [
-        12,
-        13,
-        14,
-        15,
-        0
+        44,
+        45,
+        46,
+        47,
+        48
       ],
-      "looping": false
+      "looping": true
     }
   }
 }

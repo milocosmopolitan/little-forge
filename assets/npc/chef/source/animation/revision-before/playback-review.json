@@ -1,0 +1,55 @@
+{
+  "status": "author_visual_review_complete",
+  "date": "2026-10-16",
+  "viewer": "previews/animation.html",
+  "environment": "Google Chrome on host macOS through native computer-use controls; local HTTP viewer",
+  "scales_reviewed": [
+    1,
+    4
+  ],
+  "speed_multipliers_reviewed": [
+    1,
+    0.25
+  ],
+  "equipment_states": [
+    "equipment-free complete underlayer",
+    "equipped"
+  ],
+  "backgrounds": [
+    "light cream",
+    "dark gray"
+  ],
+  "pose_playback": {
+    "nod": {
+      "keys": 5,
+      "normal_and_slow": true,
+      "notes": "Head and facial parts move together, bowed head perspective visible; neck remains connected"
+    },
+    "shake_head": {
+      "keys": 5,
+      "normal_and_slow": true,
+      "notes": "Actual left and right head perspectives replace the previous head; no doubled head"
+    },
+    "give": {
+      "keys": 6,
+      "normal_and_slow": true,
+      "notes": "Bent-to-extended sleeve/arm transition, open palm with spoon, empty palm after transfer, return without spoon"
+    }
+  },
+  "expressions": {
+    "sheet": "previews/expressions-4x.png",
+    "combination_sheet": "previews/eye-mouth-combinations.png",
+    "combination_count": 25,
+    "live_checks": [
+      "happy at native 1x",
+      "surprised at nearest 4x",
+      "talk loop at nearest 4x"
+    ],
+    "notes": "Neutral identity retained; eyes, brows and mouth change without modifying the fixed foundation"
+  },
+  "hats": "Not applicable; original chef has no hat",
+  "walk": "Not generated in this scope",
+  "runtime": "Not integrated or profiled; browser preview is authoring playback, not Bevy runtime qualification",
+  "reviewer": "agent",
+  "user_approval": "not_requested_or_claimed"
+}

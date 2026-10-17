@@ -1,0 +1,37 @@
+{
+  "status": "pass",
+  "native_size": [
+    96,
+    128
+  ],
+  "opaque_union_colors": 32,
+  "base_loss_pixels": 0,
+  "layer_recomposition": "pixel-identical",
+  "head_silhouette_complete": true,
+  "expression_invariance": "not_applicable_one_expression",
+  "neutral_visible_bbox": [
+    16,
+    4,
+    92,
+    124
+  ],
+  "base_visible_bbox": [
+    16,
+    4,
+    81,
+    124
+  ],
+  "reference_native_transform": [
+    10,
+    0,
+    60,
+    0,
+    10,
+    130
+  ],
+  "reference_exact_anatomy": "not_claimed",
+  "files": {
+    "neutral.png": "a410435f2bc93ec5e218c3594677d2102eece802184967c4592c725276dc54c6",
+    "base-neutral.png": "94e94b4aa5731db68a326df28d7ff2fae4ba2f8497476f2af332520cebd3c14b"
+  }
+}

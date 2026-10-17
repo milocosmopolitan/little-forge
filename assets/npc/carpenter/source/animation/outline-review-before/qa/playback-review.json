@@ -1,0 +1,50 @@
+{
+  "status": "static_frame_review_complete_live_playback_incomplete",
+  "viewer": "previews/animation.html",
+  "comparison_sheets": [
+    "previews/review-round2.png",
+    "previews/review-round2-dark.png"
+  ],
+  "native_sheet": "previews/review-native-1x.png",
+  "equipment_states": [
+    "complete bare base",
+    "equipped"
+  ],
+  "backgrounds": [
+    "cream",
+    "dark gray"
+  ],
+  "scales": [
+    "native 1x",
+    "nearest 4x and larger diagnostic crops"
+  ],
+  "review_focus": [
+    "upright mallet with approved curled fingers and original glove",
+    "local wrist attachment seam only",
+    "turned jaws at neutral height, fixed original neck cross-section",
+    "raised original eyebrows and larger warm whites with right-looking pupils"
+  ],
+  "browser_limitation": "Chrome native controls stopped responding and navigation intermittently rendered a blank surface; browser-tab connector timed out and reset its kernel; Safari control also timed out. Final normal/slow browser playback is not claimed. All 16 normal/slow GIF files were decoded and every key duration and base/equipped panel verified.",
+  "previous_report": "source/animation/review-round2-before/qa/playback-review.json",
+  "user_approval": "not claimed",
+  "runtime": "not integrated or profiled",
+  "frame_hashes": {
+    "blink": "adc6448952036c5432b11bfd7b55b1fe39aa61e9e7890be5039c588312a8d142",
+    "give-empty": "97403cb9d9bba83f58999940782a28e99a3401037269150f8a3f6e4d15f6ac78",
+    "give-full": "14d812303b2b26cacc2421ef5563e5862a221c6f40a298d38270aba250d4c9ec",
+    "give-mid": "44d038f31006e52d091bfd70e9fada224735c3d6bb9caf03db9784cde7ce37c5",
+    "give-retract": "7da6ab707b277d2c848ad3ce3ac8a33d70981bbfd881435f4b7af473bb020c87",
+    "happy": "96cf047e5c660e2a23826cefa8613d01019545ed810c6c985ec6a1f80a0d277a",
+    "neutral": "60ace4c46ef5317f473454addfd1ab3633ed5486f9d5c688b82de8e6f6c021be",
+    "neutral-empty": "559e8f879d616bac60d63524afb982dd6b8a8bf109430de1b6a2e2d6fd17af2e",
+    "nod-down": "1d00da8037beb1c566fec18d843d18e30a7a4657cf56b444ba16a403a6c0c402",
+    "nod-mid": "afde32510506fde611090b4473ac76b8d202b12437dbe29398c83dfbfb5eebfa",
+    "relaxed": "3226f269acaa8ddc3cc0fa6a2297cc64ff2652850d80d6f358d5572a68191afc",
+    "surprised": "5ecf24e8e7afa4c3cfc3b69245d12f87f4f8861c9743893d9eec0337bbf6911b",
+    "talk-round": "3565bc4bc3e4e71542deafad3a8757609907ee460ffde0bfddb943c948651734",
+    "talk-small": "0a603768ff3fb626a29df76540143597ea37c95142156119e2f930a65650ed08",
+    "talk-wide": "057287a39a22b47bad1b36e29afac8a8ddde5e06db65662fc646f0c867cf43be",
+    "turn-left": "ea8d76bba06840a748a585d7a79908a1f08560ac33f488540282fd8b187a68af",
+    "turn-right": "38b418e71cc806b4338876e7a91b8935b61b274271e1cbd70c3ec097ef886103"
+  }
+}

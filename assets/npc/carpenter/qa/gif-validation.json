@@ -1,0 +1,24 @@
+{
+  "status": "pass",
+  "gif_files": 16,
+  "timing": "all normal/slow durations exact",
+  "pixel_content": "all decoded equipment-free/equipped panels match current nearest 4x frames",
+  "paths": [
+    "previews/idle.gif",
+    "previews/idle-slow.gif",
+    "previews/blink.gif",
+    "previews/blink-slow.gif",
+    "previews/talk.gif",
+    "previews/talk-slow.gif",
+    "previews/happy.gif",
+    "previews/happy-slow.gif",
+    "previews/surprised.gif",
+    "previews/surprised-slow.gif",
+    "previews/nod.gif",
+    "previews/nod-slow.gif",
+    "previews/shake_head.gif",
+    "previews/shake_head-slow.gif",
+    "previews/give.gif",
+    "previews/give-slow.gif"
+  ]
+}

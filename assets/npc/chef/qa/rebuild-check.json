@@ -1,0 +1,8 @@
+{
+  "entrypoint": "source/build-character.py",
+  "result": {
+    "byte_identical_files": 422,
+    "passed": true
+  },
+  "scope": "PNG, GIF, HTML, JSON and YAML production outputs; QA and revision-before excluded"
+}

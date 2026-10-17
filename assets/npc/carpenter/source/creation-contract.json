@@ -1,0 +1,46 @@
+{
+  "id": "carpenter",
+  "scope": "neutral basic standing pose only",
+  "native_canvas_px": [
+    96,
+    128
+  ],
+  "grid": "B",
+  "canvas_cells": [
+    6,
+    8
+  ],
+  "foot_anchor_px": [
+    48,
+    124
+  ],
+  "reference_registration": {
+    "source_px_per_native_px": 10,
+    "source_origin_px": [
+      60,
+      130
+    ],
+    "reference_size": [
+      1086,
+      1448
+    ]
+  },
+  "palette_max_opaque_colors": 32,
+  "alpha_values": [
+    0,
+    255
+  ],
+  "identity": "young carpenter with dirty blond tousled hair, short sparse jaw stubble, friendly original smile, slim-to-average body",
+  "equipment": [
+    "leather apron with straps and pockets",
+    "tool set",
+    "belt pouches",
+    "cream green-striped towel",
+    "work gloves",
+    "boards",
+    "wooden mallet"
+  ],
+  "base": "complete cream rolled-sleeve collared shirt, olive trousers, brown dark-toecap boots, complete bare hands",
+  "runtime_integration": false,
+  "animations_generated": false
+}

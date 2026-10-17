@@ -288,7 +288,11 @@ pub fn animate(
             catalog,
         );
         if let Some(a) = &mut s.texture_atlas {
-            a.index = if p.action == "talk" { 0 } else { p.frame };
+            a.index = if p.action == "talk" && catalog.faces.is_some() {
+                0
+            } else {
+                p.frame
+            };
         }
         s.flip_x = p.facing_left;
         if matches!(

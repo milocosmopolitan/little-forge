@@ -1,0 +1,13 @@
+{
+  "status": "pass",
+  "head_eyes_mouth": "pixel-identical to previous export",
+  "base_changed_pixels": 346,
+  "base_changes_outside_hands_and_shirt": 0,
+  "pants_and_boots_below_y87": "pixel-identical",
+  "towel_enclosed_alpha_holes": 0,
+  "apron_enclosed_alpha_holes": 0,
+  "palette": "locked previous 32 colors",
+  "mallet": "complete source shaft with explicit front-finger bands",
+  "native_pixel_validator_checks": 16,
+  "rebuild_byte_identical_files": 62
+}

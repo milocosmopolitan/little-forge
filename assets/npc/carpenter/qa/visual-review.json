@@ -1,0 +1,91 @@
+{
+  "status": "static_author_review_complete",
+  "date": "2026-10-16",
+  "native_scales_reviewed": [
+    1,
+    4,
+    8
+  ],
+  "backgrounds": [
+    "light cream",
+    "dark gray"
+  ],
+  "states": [
+    "complete equipment-free",
+    "equipped"
+  ],
+  "evidence": [
+    "previews/layers-light-4x.png",
+    "previews/layers-dark-4x.png",
+    "previews/face-8x.png",
+    "previews/reference-comparison-4x.png",
+    "previews/equipment-4x.png"
+  ],
+  "inspected": [
+    "hair silhouette and dirty blond highlights",
+    "eye whites and rightward gaze",
+    "original small smile and short sparse stubble",
+    "collar and shirt continuity",
+    "complete supporting and gripping bare hands",
+    "board and glove overlap",
+    "mallet grip gap",
+    "towel hem and apron edge",
+    "brown boots and neutral toe caps"
+  ],
+  "hats": "not applicable; reference has no hat",
+  "expressions": "neutral only",
+  "animations": "not generated; animated playback not applicable",
+  "runtime": "not integrated or profiled",
+  "user_approval": "not claimed",
+  "cleanup_revision": {
+    "status": "static_author_review_complete",
+    "scales": [
+      1,
+      4,
+      8
+    ],
+    "backgrounds": [
+      "light cream",
+      "dark gray"
+    ],
+    "evidence": [
+      "previews/cleanup-hands-8x.png",
+      "previews/cleanup-towel-8x.png",
+      "previews/cleanup-mallet-8x.png",
+      "previews/cleanup-apron-8x.png",
+      "previews/layers-light-4x.png",
+      "previews/layers-dark-4x.png"
+    ],
+    "findings_addressed": [
+      "continuous supporting wrist and grouped fingers",
+      "fitted shirt edge instead of protruding translated patch",
+      "complete towel and leather pouch",
+      "restored near mallet face and continuous source shaft with finger occlusion",
+      "closed apron contour without shirt fringe or punched-out side gaps"
+    ],
+    "validation": "qa/cleanup-checks.json",
+    "method": "local edits to retained native code source; no full character regeneration"
+  },
+  "hand_towel_followup": {
+    "status": "static_author_review_complete",
+    "evidence": [
+      "previews/hand-towel-hand-8x.png",
+      "previews/hand-towel-towel-8x.png"
+    ],
+    "scales": [
+      1,
+      4,
+      8
+    ],
+    "backgrounds": [
+      "light cream",
+      "dark gray"
+    ],
+    "notes": [
+      "localized generated thumb/palm/curled-finger anatomy replaces simplified palm",
+      "towel left edge and folded bottom expanded",
+      "obsolete dangling partial pouch removed"
+    ],
+    "prompt": "source/hand-repair-prompts.json"
+  }
+}

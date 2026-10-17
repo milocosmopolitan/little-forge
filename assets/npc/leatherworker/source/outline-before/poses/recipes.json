@@ -1,0 +1,864 @@
+{
+  "canvas": [
+    96,
+    128
+  ],
+  "poses": {
+    "nod-down": {
+      "layers": [
+        "poses/nod-down/body/lower-base.png",
+        "poses/nod-down/body/upper-base.png",
+        "poses/nod-down/head-base.png",
+        "poses/nod-down/eyes/open.png",
+        "poses/nod-down/mouth/rest.png",
+        "poses/nod-down/equipment/apron.png",
+        "poses/nod-down/equipment/scarf.png",
+        "poses/nod-down/equipment/belt-tools.png",
+        "poses/nod-down/equipment/gloves.png",
+        "poses/nod-down/equipment/hairpin.png",
+        "poses/nod-down/props/leather-hide.png"
+      ],
+      "sockets_px": {
+        "neck": [
+          45,
+          45
+        ],
+        "waist": [
+          47,
+          71
+        ],
+        "eyes": [
+          48,
+          33
+        ],
+        "mouth": [
+          50,
+          42
+        ],
+        "right_hand": [
+          36,
+          71
+        ],
+        "left_hand": [
+          75,
+          58
+        ]
+      },
+      "head_source": "source/poses/nod-down.png",
+      "facial_states": {
+        "eyes": [
+          "open"
+        ],
+        "mouth": [
+          "rest"
+        ]
+      }
+    },
+    "turn-toward": {
+      "layers": [
+        "poses/turn-toward/body/lower-base.png",
+        "poses/turn-toward/body/upper-base.png",
+        "poses/turn-toward/head-base.png",
+        "poses/turn-toward/eyes/open.png",
+        "poses/turn-toward/mouth/rest.png",
+        "poses/turn-toward/equipment/apron.png",
+        "poses/turn-toward/equipment/scarf.png",
+        "poses/turn-toward/equipment/belt-tools.png",
+        "poses/turn-toward/equipment/gloves.png",
+        "poses/turn-toward/equipment/hairpin.png",
+        "poses/turn-toward/props/leather-hide.png"
+      ],
+      "sockets_px": {
+        "neck": [
+          45,
+          45
+        ],
+        "waist": [
+          47,
+          71
+        ],
+        "eyes": [
+          49,
+          32
+        ],
+        "mouth": [
+          49,
+          40
+        ],
+        "right_hand": [
+          36,
+          71
+        ],
+        "left_hand": [
+          75,
+          58
+        ]
+      },
+      "head_source": "source/poses/turn-toward.png",
+      "facial_states": {
+        "eyes": [
+          "open"
+        ],
+        "mouth": [
+          "rest"
+        ]
+      }
+    },
+    "turn-away": {
+      "layers": [
+        "poses/turn-away/body/lower-base.png",
+        "poses/turn-away/body/upper-base.png",
+        "poses/turn-away/head-base.png",
+        "poses/turn-away/eyes/open.png",
+        "poses/turn-away/mouth/rest.png",
+        "poses/turn-away/equipment/apron.png",
+        "poses/turn-away/equipment/scarf.png",
+        "poses/turn-away/equipment/belt-tools.png",
+        "poses/turn-away/equipment/gloves.png",
+        "poses/turn-away/equipment/hairpin.png",
+        "poses/turn-away/props/leather-hide.png"
+      ],
+      "sockets_px": {
+        "neck": [
+          45,
+          45
+        ],
+        "waist": [
+          47,
+          71
+        ],
+        "eyes": [
+          54,
+          30
+        ],
+        "mouth": [
+          55,
+          39
+        ],
+        "right_hand": [
+          36,
+          71
+        ],
+        "left_hand": [
+          75,
+          58
+        ]
+      },
+      "head_source": "source/poses/turn-away.png",
+      "facial_states": {
+        "eyes": [
+          "open"
+        ],
+        "mouth": [
+          "rest"
+        ]
+      }
+    },
+    "nod-mid": {
+      "layers": [
+        "poses/nod-mid/body/lower-base.png",
+        "poses/nod-mid/body/upper-base.png",
+        "poses/nod-mid/head-base.png",
+        "poses/nod-mid/eyes/open.png",
+        "poses/nod-mid/mouth/rest.png",
+        "poses/nod-mid/equipment/apron.png",
+        "poses/nod-mid/equipment/scarf.png",
+        "poses/nod-mid/equipment/belt-tools.png",
+        "poses/nod-mid/equipment/gloves.png",
+        "poses/nod-mid/equipment/hairpin.png",
+        "poses/nod-mid/props/leather-hide.png"
+      ],
+      "sockets_px": {
+        "neck": [
+          45,
+          45
+        ],
+        "waist": [
+          47,
+          71
+        ],
+        "eyes": [
+          48,
+          32
+        ],
+        "mouth": [
+          50,
+          41
+        ],
+        "right_hand": [
+          36,
+          71
+        ],
+        "left_hand": [
+          75,
+          58
+        ]
+      },
+      "head_source": "source/poses/nod-down.png",
+      "facial_states": {
+        "eyes": [
+          "open"
+        ],
+        "mouth": [
+          "rest"
+        ]
+      }
+    },
+    "walk-0": {
+      "layers": [
+        "poses/walk-0/body/lower-base.png",
+        "poses/walk-0/body/upper-base.png",
+        "poses/walk-0/head-base.png",
+        "poses/walk-0/eyes/open.png",
+        "poses/walk-0/mouth/rest.png",
+        "poses/walk-0/equipment/apron.png",
+        "poses/walk-0/equipment/scarf.png",
+        "poses/walk-0/equipment/belt-tools.png",
+        "poses/walk-0/body/arms-front.png",
+        "poses/walk-0/equipment/gloves.png",
+        "poses/walk-0/equipment/hairpin.png"
+      ],
+      "sockets_px": {
+        "neck": [
+          45,
+          46
+        ],
+        "waist": [
+          47,
+          73
+        ],
+        "eyes": [
+          48,
+          32
+        ],
+        "mouth": [
+          48,
+          39
+        ],
+        "left_hand": [
+          23,
+          74
+        ],
+        "right_hand": [
+          66,
+          67
+        ]
+      },
+      "source": "source/poses/walk-0.png",
+      "body_registration": {
+        "neck": [
+          45,
+          46
+        ],
+        "waist": [
+          71,
+          73
+        ],
+        "lower_translation": [
+          0,
+          2
+        ]
+      },
+      "head_translation_px": [
+        0,
+        1
+      ],
+      "facial_states": {
+        "eyes": [
+          "open",
+          "half",
+          "closed",
+          "happy-closed",
+          "wide"
+        ],
+        "mouth": [
+          "rest",
+          "small-open",
+          "wide-open",
+          "round"
+        ]
+      },
+      "limb_identity": {
+        "near": "anatomical right",
+        "far": "anatomical left",
+        "gold_buckled_boot": "right"
+      },
+      "held_hide": false,
+      "walk_phase": "left-contact"
+    },
+    "walk-1": {
+      "layers": [
+        "poses/walk-1/body/lower-base.png",
+        "poses/walk-1/body/upper-base.png",
+        "poses/walk-1/head-base.png",
+        "poses/walk-1/eyes/open.png",
+        "poses/walk-1/mouth/rest.png",
+        "poses/walk-1/equipment/apron.png",
+        "poses/walk-1/equipment/scarf.png",
+        "poses/walk-1/equipment/belt-tools.png",
+        "poses/walk-1/body/arms-front.png",
+        "poses/walk-1/equipment/gloves.png",
+        "poses/walk-1/equipment/hairpin.png"
+      ],
+      "sockets_px": {
+        "neck": [
+          45,
+          47
+        ],
+        "waist": [
+          47,
+          72
+        ],
+        "eyes": [
+          48,
+          33
+        ],
+        "mouth": [
+          48,
+          40
+        ],
+        "left_hand": [
+          25,
+          76
+        ],
+        "right_hand": [
+          61,
+          69
+        ]
+      },
+      "source": "source/poses/walk-1.png",
+      "body_registration": {
+        "neck": [
+          45,
+          47
+        ],
+        "waist": [
+          71,
+          72
+        ],
+        "lower_translation": [
+          0,
+          1
+        ]
+      },
+      "head_translation_px": [
+        0,
+        2
+      ],
+      "facial_states": {
+        "eyes": [
+          "open",
+          "half",
+          "closed",
+          "happy-closed",
+          "wide"
+        ],
+        "mouth": [
+          "rest",
+          "small-open",
+          "wide-open",
+          "round"
+        ]
+      },
+      "limb_identity": {
+        "near": "anatomical right",
+        "far": "anatomical left",
+        "gold_buckled_boot": "right"
+      },
+      "held_hide": false,
+      "walk_phase": "left-support-down"
+    },
+    "walk-2": {
+      "layers": [
+        "poses/walk-2/body/lower-base.png",
+        "poses/walk-2/body/upper-base.png",
+        "poses/walk-2/head-base.png",
+        "poses/walk-2/eyes/open.png",
+        "poses/walk-2/mouth/rest.png",
+        "poses/walk-2/equipment/apron.png",
+        "poses/walk-2/equipment/scarf.png",
+        "poses/walk-2/equipment/belt-tools.png",
+        "poses/walk-2/body/arms-front.png",
+        "poses/walk-2/equipment/gloves.png",
+        "poses/walk-2/equipment/hairpin.png"
+      ],
+      "sockets_px": {
+        "neck": [
+          45,
+          45
+        ],
+        "waist": [
+          47,
+          72
+        ],
+        "eyes": [
+          48,
+          31
+        ],
+        "mouth": [
+          48,
+          38
+        ],
+        "left_hand": [
+          69,
+          72
+        ],
+        "right_hand": [
+          26,
+          79
+        ]
+      },
+      "source": "source/poses/walk-2.png",
+      "body_registration": {
+        "neck": [
+          45,
+          45
+        ],
+        "waist": [
+          71,
+          72
+        ],
+        "lower_translation": [
+          0,
+          1
+        ]
+      },
+      "head_translation_px": [
+        0,
+        0
+      ],
+      "facial_states": {
+        "eyes": [
+          "open",
+          "half",
+          "closed",
+          "happy-closed",
+          "wide"
+        ],
+        "mouth": [
+          "rest",
+          "small-open",
+          "wide-open",
+          "round"
+        ]
+      },
+      "limb_identity": {
+        "near": "anatomical right",
+        "far": "anatomical left",
+        "gold_buckled_boot": "right"
+      },
+      "held_hide": false,
+      "walk_phase": "right-passing"
+    },
+    "walk-3": {
+      "layers": [
+        "poses/walk-3/body/lower-base.png",
+        "poses/walk-3/body/upper-base.png",
+        "poses/walk-3/head-base.png",
+        "poses/walk-3/eyes/open.png",
+        "poses/walk-3/mouth/rest.png",
+        "poses/walk-3/equipment/apron.png",
+        "poses/walk-3/equipment/scarf.png",
+        "poses/walk-3/equipment/belt-tools.png",
+        "poses/walk-3/body/arms-front.png",
+        "poses/walk-3/equipment/gloves.png",
+        "poses/walk-3/equipment/hairpin.png"
+      ],
+      "sockets_px": {
+        "neck": [
+          45,
+          46
+        ],
+        "waist": [
+          47,
+          73
+        ],
+        "eyes": [
+          48,
+          32
+        ],
+        "mouth": [
+          48,
+          39
+        ],
+        "left_hand": [
+          76,
+          70
+        ],
+        "right_hand": [
+          22,
+          81
+        ]
+      },
+      "source": "source/poses/walk-3.png",
+      "body_registration": {
+        "neck": [
+          45,
+          46
+        ],
+        "waist": [
+          71,
+          73
+        ],
+        "lower_translation": [
+          0,
+          2
+        ]
+      },
+      "head_translation_px": [
+        0,
+        1
+      ],
+      "facial_states": {
+        "eyes": [
+          "open",
+          "half",
+          "closed",
+          "happy-closed",
+          "wide"
+        ],
+        "mouth": [
+          "rest",
+          "small-open",
+          "wide-open",
+          "round"
+        ]
+      },
+      "limb_identity": {
+        "near": "anatomical right",
+        "far": "anatomical left",
+        "gold_buckled_boot": "right"
+      },
+      "held_hide": false,
+      "walk_phase": "right-contact"
+    },
+    "walk-4": {
+      "layers": [
+        "poses/walk-4/body/lower-base.png",
+        "poses/walk-4/body/upper-base.png",
+        "poses/walk-4/head-base.png",
+        "poses/walk-4/eyes/open.png",
+        "poses/walk-4/mouth/rest.png",
+        "poses/walk-4/equipment/apron.png",
+        "poses/walk-4/equipment/scarf.png",
+        "poses/walk-4/equipment/belt-tools.png",
+        "poses/walk-4/body/arms-front.png",
+        "poses/walk-4/equipment/gloves.png",
+        "poses/walk-4/equipment/hairpin.png"
+      ],
+      "sockets_px": {
+        "neck": [
+          45,
+          47
+        ],
+        "waist": [
+          47,
+          74
+        ],
+        "eyes": [
+          48,
+          33
+        ],
+        "mouth": [
+          48,
+          40
+        ],
+        "left_hand": [
+          72,
+          72
+        ],
+        "right_hand": [
+          22,
+          82
+        ]
+      },
+      "source": "source/poses/walk-4.png",
+      "body_registration": {
+        "neck": [
+          45,
+          47
+        ],
+        "waist": [
+          71,
+          74
+        ],
+        "lower_translation": [
+          0,
+          3
+        ]
+      },
+      "head_translation_px": [
+        0,
+        2
+      ],
+      "facial_states": {
+        "eyes": [
+          "open",
+          "half",
+          "closed",
+          "happy-closed",
+          "wide"
+        ],
+        "mouth": [
+          "rest",
+          "small-open",
+          "wide-open",
+          "round"
+        ]
+      },
+      "limb_identity": {
+        "near": "anatomical right",
+        "far": "anatomical left",
+        "gold_buckled_boot": "right"
+      },
+      "held_hide": false,
+      "walk_phase": "right-support-down"
+    },
+    "walk-5": {
+      "layers": [
+        "poses/walk-5/body/lower-base.png",
+        "poses/walk-5/body/upper-base.png",
+        "poses/walk-5/head-base.png",
+        "poses/walk-5/eyes/open.png",
+        "poses/walk-5/mouth/rest.png",
+        "poses/walk-5/equipment/apron.png",
+        "poses/walk-5/equipment/scarf.png",
+        "poses/walk-5/equipment/belt-tools.png",
+        "poses/walk-5/body/arms-front.png",
+        "poses/walk-5/equipment/gloves.png",
+        "poses/walk-5/equipment/hairpin.png"
+      ],
+      "sockets_px": {
+        "neck": [
+          45,
+          45
+        ],
+        "waist": [
+          47,
+          72
+        ],
+        "eyes": [
+          48,
+          31
+        ],
+        "mouth": [
+          48,
+          38
+        ],
+        "left_hand": [
+          68,
+          76
+        ],
+        "right_hand": [
+          25,
+          81
+        ]
+      },
+      "source": "source/poses/walk-5.png",
+      "body_registration": {
+        "neck": [
+          45,
+          45
+        ],
+        "waist": [
+          71,
+          72
+        ],
+        "lower_translation": [
+          0,
+          1
+        ]
+      },
+      "head_translation_px": [
+        0,
+        0
+      ],
+      "facial_states": {
+        "eyes": [
+          "open",
+          "half",
+          "closed",
+          "happy-closed",
+          "wide"
+        ],
+        "mouth": [
+          "rest",
+          "small-open",
+          "wide-open",
+          "round"
+        ]
+      },
+      "limb_identity": {
+        "near": "anatomical right",
+        "far": "anatomical left",
+        "gold_buckled_boot": "right"
+      },
+      "held_hide": false,
+      "walk_phase": "left-passing"
+    },
+    "give-mid": {
+      "layers": [
+        "poses/give-mid/body/lower-base.png",
+        "poses/give-mid/body/upper-base.png",
+        "poses/give-mid/head-base.png",
+        "poses/give-mid/eyes/open.png",
+        "poses/give-mid/mouth/rest.png",
+        "poses/give-mid/equipment/apron.png",
+        "poses/give-mid/equipment/scarf.png",
+        "poses/give-mid/equipment/belt-tools.png",
+        "poses/give-mid/body/arms-front.png",
+        "poses/give-mid/equipment/gloves.png",
+        "poses/give-mid/equipment/hairpin.png",
+        "poses/give-mid/props/leather-hide.png"
+      ],
+      "sockets_px": {
+        "neck": [
+          45,
+          45
+        ],
+        "waist": [
+          47,
+          72
+        ],
+        "eyes": [
+          48,
+          31
+        ],
+        "mouth": [
+          48,
+          38
+        ],
+        "left_hand": [
+          80,
+          61
+        ],
+        "right_hand": [
+          55,
+          74
+        ]
+      },
+      "source": "source/poses/give-mid.png",
+      "body_registration": {
+        "neck": [
+          45,
+          45
+        ],
+        "waist": [
+          71,
+          72
+        ],
+        "lower_translation": [
+          0,
+          1
+        ]
+      },
+      "head_translation_px": [
+        0,
+        0
+      ],
+      "facial_states": {
+        "eyes": [
+          "open",
+          "half",
+          "closed",
+          "happy-closed",
+          "wide"
+        ],
+        "mouth": [
+          "rest",
+          "small-open",
+          "wide-open",
+          "round"
+        ]
+      },
+      "limb_identity": {
+        "near": "anatomical right",
+        "far": "anatomical left",
+        "gold_buckled_boot": "right"
+      },
+      "held_hide": true
+    },
+    "give-extended": {
+      "layers": [
+        "poses/give-extended/body/lower-base.png",
+        "poses/give-extended/body/upper-base.png",
+        "poses/give-extended/head-base.png",
+        "poses/give-extended/eyes/open.png",
+        "poses/give-extended/mouth/rest.png",
+        "poses/give-extended/equipment/apron.png",
+        "poses/give-extended/equipment/scarf.png",
+        "poses/give-extended/equipment/belt-tools.png",
+        "poses/give-extended/body/arms-front.png",
+        "poses/give-extended/equipment/gloves.png",
+        "poses/give-extended/equipment/hairpin.png",
+        "poses/give-extended/props/leather-hide.png"
+      ],
+      "sockets_px": {
+        "neck": [
+          45,
+          45
+        ],
+        "waist": [
+          47,
+          71
+        ],
+        "eyes": [
+          48,
+          31
+        ],
+        "mouth": [
+          48,
+          38
+        ],
+        "left_hand": [
+          83,
+          59
+        ],
+        "right_hand": [
+          68,
+          73
+        ]
+      },
+      "source": "source/poses/give-extended.png",
+      "body_registration": {
+        "neck": [
+          45,
+          45
+        ],
+        "waist": [
+          71,
+          71
+        ],
+        "lower_translation": [
+          0,
+          0
+        ]
+      },
+      "head_translation_px": [
+        0,
+        0
+      ],
+      "facial_states": {
+        "eyes": [
+          "open",
+          "half",
+          "closed",
+          "happy-closed",
+          "wide"
+        ],
+        "mouth": [
+          "rest",
+          "small-open",
+          "wide-open",
+          "round"
+        ]
+      },
+      "limb_identity": {
+        "near": "anatomical right",
+        "far": "anatomical left",
+        "gold_buckled_boot": "right"
+      },
+      "held_hide": true
+    }
+  }
+}

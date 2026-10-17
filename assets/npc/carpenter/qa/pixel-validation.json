@@ -1,0 +1,145 @@
+{
+  "status": "pass",
+  "checks": [
+    {
+      "path": "eyes/happy-closed.png",
+      "status": "pass"
+    },
+    {
+      "path": "eyes/wide.png",
+      "status": "pass"
+    },
+    {
+      "path": "eyes/closed.png",
+      "status": "pass"
+    },
+    {
+      "path": "eyes/half.png",
+      "status": "pass"
+    },
+    {
+      "path": "eyes/open.png",
+      "status": "pass"
+    },
+    {
+      "path": "mouth/round.png",
+      "status": "pass"
+    },
+    {
+      "path": "mouth/wide-open.png",
+      "status": "pass"
+    },
+    {
+      "path": "mouth/small-open.png",
+      "status": "pass"
+    },
+    {
+      "path": "mouth/rest.png",
+      "status": "pass"
+    },
+    {
+      "path": "expressions/talk-small.png",
+      "status": "pass"
+    },
+    {
+      "path": "expressions/happy.png",
+      "status": "pass"
+    },
+    {
+      "path": "expressions/neutral.png",
+      "status": "pass"
+    },
+    {
+      "path": "expressions/surprised.png",
+      "status": "pass"
+    },
+    {
+      "path": "expressions/relaxed.png",
+      "status": "pass"
+    },
+    {
+      "path": "expressions/blink.png",
+      "status": "pass"
+    },
+    {
+      "path": "expressions/talk-round.png",
+      "status": "pass"
+    },
+    {
+      "path": "expressions/talk-wide.png",
+      "status": "pass"
+    },
+    {
+      "path": "frames/talk-small.png",
+      "status": "pass"
+    },
+    {
+      "path": "frames/happy.png",
+      "status": "pass"
+    },
+    {
+      "path": "frames/give-empty.png",
+      "status": "pass"
+    },
+    {
+      "path": "frames/neutral.png",
+      "status": "pass"
+    },
+    {
+      "path": "frames/turn-right.png",
+      "status": "pass"
+    },
+    {
+      "path": "frames/surprised.png",
+      "status": "pass"
+    },
+    {
+      "path": "frames/relaxed.png",
+      "status": "pass"
+    },
+    {
+      "path": "frames/neutral-empty.png",
+      "status": "pass"
+    },
+    {
+      "path": "frames/nod-mid.png",
+      "status": "pass"
+    },
+    {
+      "path": "frames/give-full.png",
+      "status": "pass"
+    },
+    {
+      "path": "frames/blink.png",
+      "status": "pass"
+    },
+    {
+      "path": "frames/talk-round.png",
+      "status": "pass"
+    },
+    {
+      "path": "frames/give-retract.png",
+      "status": "pass"
+    },
+    {
+      "path": "frames/turn-left.png",
+      "status": "pass"
+    },
+    {
+      "path": "frames/give-mid.png",
+      "status": "pass"
+    },
+    {
+      "path": "frames/nod-down.png",
+      "status": "pass"
+    },
+    {
+      "path": "frames/talk-wide.png",
+      "status": "pass"
+    },
+    {
+      "path": "atlas.png",
+      "status": "pass"
+    }
+  ]
+}

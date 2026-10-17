@@ -1,0 +1,95 @@
+# Copy for a new character. Fill applicable fields; omit unused optional fields.
+# Record existing files in layers, planned IDs only in production_plan.
+version: 1
+id: null
+grid: B
+grid_unit_px: [16, 16]
+canvas_cells: [6, 8]
+native_canvas_px: [96, 128]
+preview_scale: 4
+origin_px: [0, 0]
+foot_anchor_px: [48, 124]
+# Half-open design guides, not clipping rectangles.
+design_bands_y: {head_with_hat: [4, 48], upper: [48, 80], lower: [80, 124]}
+reference_roles: {identity: null, style: null, expressions: null}
+reconstructed_occluded_regions: []
+baseline:
+  complete_underlayer: null
+  foundation: null
+  facial_change_mask: null
+  builder: null
+  coverage_report: null
+palette:
+  max_opaque_colors: 32
+  rgba_hex: null
+  alpha_values: [0, 255]
+identity:
+  head_size_without_hat_px: null
+  face_bbox_px: null
+  eye_size_px: null
+  eye_spacing_px: null
+  eye_white_iris_design: null
+  shoulder_width_px: null
+  chest_width_px: null
+  waist_width_px: null
+  upper_arm_width_px: null
+  thigh_width_px: null
+  body_build: null
+  hair_color: null
+  beard_and_moustache_mask: null
+  preserved_expression_character: null
+  outline_rule: Native 1px dark contour; separate material shadows
+# Sides are the character's anatomical left/right, not screen-left/right.
+limb_identity:
+  side_convention: character_anatomical
+  near_side: null
+  far_side: null
+  identifying_marks: null
+sockets_px:
+  neck: [48, 48]
+  waist: [48, 80]
+  eyes: null
+  mouth: null
+  left_hand: null
+  right_hand: null
+# Paths relative to the copied spec, not the repository root.
+layers:
+  head_base: head-base.png
+  upper_base: body/upper-base.png
+  lower_base: body/lower-base.png
+  eyes: {open: eyes/open.png}
+  mouth: {rest: mouth/rest.png}
+  equipment: []
+eyebrow_owner: eyes
+expression_recipes:
+  neutral: {eyes: open, mouth: rest}
+expression_channels:
+  eyes: Independent blink unless an expression locks the channel
+  mouth: Independent talking
+  priority: Explicit expression locks override automatic blink
+composition_order: [lower_base, upper_base, head_base, eyes, mouth]
+# Each pose supplies its own complete underlayer, layers, sockets and occlusion order.
+pose_overrides: {}
+production_plan:
+  status: planned_not_generated
+  eyes: [open, half, closed, happy-closed, wide]
+  mouth: [rest, small-open, wide-open, round]
+  expressions: [neutral, talk-small, talk-wide, talk-round, blink, happy, surprised, relaxed]
+  pose_phases: [[neutral], [nod, shake_head, give], [walk]]
+animation:
+  frame_order: [neutral]
+  frame_duration_ms: [120]
+  looping: false
+runtime_export:
+  status: not_integrated
+  mode: null
+  manifest: null
+  trim_supported_by_consumer: false
+  duration_unit: ms
+  sampler: nearest
+  mipmaps: false
+  extrude_px: 1
+  gutter_px: 1
+  rotate_packing: false
+  page_review_budget_px: [2048, 2048]
+generation: {tool: null, final_prompts: null}

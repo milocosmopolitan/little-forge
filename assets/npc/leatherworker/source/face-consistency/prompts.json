@@ -1,0 +1,14 @@
+[
+  {
+    "id": "turn-away-identity",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: identity-preserve. Edit THIS EXACT pixel-art woman's head into one small head turn further toward screen-right, for a shake-head animation. Only ONE pose, no sheet. Keep the SAME young leatherworker: identical copper-brown short side-part bob, warm peach skin, cheek blush, compact rounded face and tiny smile, identical eye design and 1-pixel cluster density. Turn the head 10 degrees more screen-right from this existing right-facing three-quarter view, not a full profile. Near eye must remain the reference's calm vertical brown eye, same 7-8 pixel apparent height, with white sclera on its right edge and small square highlight. Far eye becomes narrower naturally, still visible to the left of the screen-right hair lock, never placed on top of that hair. Eyebrows neutral, no raised eyebrow, eyeliner wing, slanted angry look, enlarged anime eyes, or squint. Keep face height and skull volume the same, cheeks rounded, forehead not longer. Face, nose, mouth and chin must turn together, not just move eyes. Existing native tile is64x64 pixels, head occupies x4..55,y7..46 in tile; preserve native pixel scale, tile margins and neck attachment x29..40,y43..46. Do not enlarge, recenter, crop or add shoulders. Clean 1px dark exterior contour, warm skin shadow at neck, NO black choker line across base of neck. Exact transparent background. Retain blocky pixel clusters with no new fine detail, blur or anti-aliasing. Output one square64x64-native-look head enlarged nearest for viewing.",
+    "saved": "turn-away-full.png"
+  },
+  {
+    "id": "turn-away-feature-underlay",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Make the modular faceless head base from the input. Change ONLY the facial feature pixels: remove both eyes, highlights, lashes, eyebrows and the small brown mouth by filling their exact positions with the adjacent warm peach face skin. Also remove the tiny dark-brown dot immediately above-left of the mouth: it should be skin-tone nose shading, not a dark dot. Preserve the entire copper bob hair silhouette and all hair pixels, face outline, ear, nose outline, cheeks and blush, chin, neck, palette, native pixel size, canvas size and placement EXACTLY. No other movement, redraw or changes. Do not remove cheek blush. Do not punch transparent eye or mouth holes. Keep the face solid opaque skin. Keep transparent background. No new details. Pixel-art head only, same tile.",
+    "saved": "turn-away-blank.png"
+  }
+]

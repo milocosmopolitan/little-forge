@@ -1,0 +1,57 @@
+{
+  "status": "revision_static_visual_review_complete",
+  "date": "2026-10-16",
+  "viewer": "previews/animation.html",
+  "reviewer": "agent",
+  "user_approval": "not_claimed",
+  "supersedes": "source/animation/revision-before/playback-review.json",
+  "current_review": {
+    "static": [
+      "all eight expressions at nearest 4x",
+      "nod-mid, nod-down, turn-left, turn-right and give-full before/after joints",
+      "equipment-free and equipped pose sheets",
+      "individual arm layers and torso shoulder join",
+      "native layers, palette, alpha and exact nearest exports"
+    ],
+    "live": [
+      "refreshed Chrome viewer, normal-speed nod at nearest 4x"
+    ],
+    "light_and_dark_static": true,
+    "normal_slow_replay_for_all_revised_clips": "not_repeated_in_current_pass; Chrome controls were being changed by the user, so further automation stopped"
+  },
+  "expressions": {
+    "eyes": 5,
+    "mouths": 7,
+    "combinations": 35,
+    "happy": "wide open laugh",
+    "talk_native_dy": -2,
+    "surprise_native_dy": -1
+  },
+  "evidence": [
+    "previews/revision-faces-4x.png",
+    "previews/revision-joints-4x.png",
+    "qa/revision-checks.json"
+  ],
+  "runtime": "authoring export; Bevy runtime not integrated or profiled",
+  "happy_correction": {
+    "status": "pass",
+    "mouth_translation_from_previous_px": [
+      -1,
+      -1
+    ],
+    "mouth_translation_pixel_identical": true,
+    "happy_preview_exact_nearest_4x": true,
+    "neutral_locks": 14,
+    "expression_silhouette_unchanged": true,
+    "eye_reference": "user closed-eye laugh reference, 2026-10-16 17:30:05",
+    "eyes": "low shallow upper arcs with lower creases",
+    "comparison": "previews/happy-correction-8x.png",
+    "visual_review": "static nearest comparison on light/dark face sheets; no new live playback claim"
+  },
+  "shake_clothing_correction": {
+    "static_comparison": "previews/shake-fixed-clothing-8x.png",
+    "upper_lower_and_equipment": "pixel-identical to neutral",
+    "neck_bridge": "transparent gap only, zero upper overlap",
+    "live_replay": "not newly claimed"
+  }
+}

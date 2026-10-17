@@ -1,0 +1,10 @@
+[
+  {
+    "tool": "built-in image_gen",
+    "id": "head-eyes-neck-repair",
+    "prompt": "Use case: precise-object-edit. This is a modular pixel-art head source plate in a FIXED 3 columns x 1 row layout (each cell is 64x64 native pixels). Edit the input blank head plate without changing any head's overall placement, copper bob silhouette, skull size, facial proportions, blush, ears, nose, pose angles or background. Add the leatherworker's original friendly OPEN brown eyes with bright white sclera, coherent brown pupils and tiny highlights, plus natural dark brows, and the original small smile. First head is a mild chin-down nod: eyes follow the downward gaze but remain clearly OPEN and rounded, never squinting narrow slits or angry half-lids. Middle head turns slightly toward camera: both eyes readable, near eye larger; third turns screen-right: clear near eye and naturally smaller far eye, no white pixels cut out by skin masks. Use clean, deliberate native-sized pixel clusters and 1px dark eyelid outlines. Also clean each neck attachment: keep a thin dark JAW contour but REMOVE the horizontal black bottom-cap/choker stripe beneath the neck; let skin continue naturally to the lower cropped neck attachment, with warm skin-tone shadow rather than black fill. No floating black neck wedges. No hair pin, scarf, shoulders, extra clothing or body. Actual transparent background. Preserve EXACT existing three cell positions, head sizes and 3:1 canvas. Do not recenter, zoom, crop or rearrange. All other features must remain as input.",
+    "generated_source": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-5eaa29c3-ca8d-45c2-b893-c44b611ac4a7.png",
+    "saved": "head-open-sheet.png",
+    "usage": "Only angle-specific eye features and x=41..53,y=43..47 jaw/neck attachment; other head pixels stay on existing head base"
+  }
+]

@@ -1,0 +1,178 @@
+{
+  "canvas": [
+    96,
+    128
+  ],
+  "foot": [
+    48,
+    124
+  ],
+  "palette_max": 80,
+  "scope": {
+    "eyes": [
+      "open",
+      "half",
+      "closed",
+      "happy-closed",
+      "wide"
+    ],
+    "mouth": [
+      "rest",
+      "small-open",
+      "wide-open",
+      "round"
+    ],
+    "expressions": 8,
+    "poses": [
+      "nod",
+      "shake_head",
+      "give",
+      "walk"
+    ]
+  },
+  "identity": {
+    "near": "anatomical right",
+    "far": "anatomical left",
+    "gold_buckle_leg": "near right",
+    "hairpin_side": "near right temple"
+  },
+  "walk": {
+    "root_motion": false,
+    "held_hide": false,
+    "phases": [
+      {
+        "id": "walk-0",
+        "label": "left-contact",
+        "nearFoot": [
+          31,
+          124
+        ],
+        "farFoot": [
+          65,
+          124
+        ],
+        "nearHand": [
+          61,
+          76
+        ],
+        "farHand": [
+          31,
+          74
+        ],
+        "note": "Far anatomical LEFT foot leads forward to screen-right, near anatomical RIGHT gold-buckled foot is behind toward screen-left. Near RIGHT arm leads FORWARD and across the front toward screen-right; far LEFT arm swings BACK toward screen-left."
+      },
+      {
+        "id": "walk-1",
+        "label": "left-support-down",
+        "nearFoot": [
+          40,
+          121
+        ],
+        "farFoot": [
+          58,
+          124
+        ],
+        "nearHand": [
+          56,
+          79
+        ],
+        "farHand": [
+          37,
+          77
+        ],
+        "note": "Far LEFT leg supports, near RIGHT gold-buckled leg starts recovering with bent knee/heel lifting. Near RIGHT arm is still forward but has swung inward toward center; far LEFT arm moves in from its back extreme. Body settles one native pixel."
+      },
+      {
+        "id": "walk-2",
+        "label": "right-passing",
+        "nearFoot": [
+          54,
+          118
+        ],
+        "farFoot": [
+          47,
+          124
+        ],
+        "nearHand": [
+          45,
+          82
+        ],
+        "farHand": [
+          59,
+          80
+        ],
+        "note": "Near RIGHT gold-buckled leg passes ahead with raised knee and lifted foot; far LEFT leg supports under hip. Both arms pass close to vertical/under their shoulders, neither in an extreme. RIGHT arm is moving backward; LEFT arm forward."
+      },
+      {
+        "id": "walk-3",
+        "label": "right-contact",
+        "nearFoot": [
+          66,
+          124
+        ],
+        "farFoot": [
+          31,
+          124
+        ],
+        "nearHand": [
+          28,
+          76
+        ],
+        "farHand": [
+          67,
+          76
+        ],
+        "note": "Near anatomical RIGHT gold-buckled foot leads FORWARD toward screen-right, far LEFT foot is behind toward screen-left. Near RIGHT arm swings BACK toward screen-left; far LEFT arm leads FORWARD toward screen-right."
+      },
+      {
+        "id": "walk-4",
+        "label": "right-support-down",
+        "nearFoot": [
+          58,
+          124
+        ],
+        "farFoot": [
+          41,
+          120
+        ],
+        "nearHand": [
+          34,
+          79
+        ],
+        "farHand": [
+          62,
+          79
+        ],
+        "note": "Near RIGHT gold-buckled leg supports, far LEFT leg begins recovering heel lifted. Near RIGHT arm is still back but moving toward center, far LEFT arm moves inward from forward extreme. Body settles one native pixel."
+      },
+      {
+        "id": "walk-5",
+        "label": "left-passing",
+        "nearFoot": [
+          47,
+          124
+        ],
+        "farFoot": [
+          55,
+          118
+        ],
+        "nearHand": [
+          46,
+          82
+        ],
+        "farHand": [
+          56,
+          80
+        ],
+        "note": "Far LEFT leg passes ahead with lifted foot and raised knee; near RIGHT gold-buckled leg supports under hip. Arms pass close to vertical under shoulders. RIGHT arm is moving forward, LEFT arm backward."
+      }
+    ]
+  },
+  "preserve": [
+    "current neutral body/face",
+    "blush",
+    "full copper bob",
+    "reference clothes and equipment"
+  ],
+  "notes": "Target sockets guide generation; actual inspected sockets are recorded in final pose recipes, not assumed from prompt."
+}

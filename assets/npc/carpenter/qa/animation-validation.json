@@ -1,0 +1,33 @@
+{
+  "status": "pass",
+  "baseline_pixel_locks": 14,
+  "native_layers_and_frames_checked": 243,
+  "eye_states": 5,
+  "mouth_states": 4,
+  "expression_count": 8,
+  "unique_frames": 17,
+  "clip_count": 8,
+  "opaque_union_colors": 32,
+  "base_loss_pixels": 0,
+  "expression_changes_outside_features": 0,
+  "head_gesture_clothing_and_gear": "source layers pixel-identical; exposed collar preserved",
+  "transfer_events": 1,
+  "atlas_size": [
+    1056,
+    496
+  ],
+  "atlas_roundtrip": "pixel-identical",
+  "extrude_and_gutter": "pass",
+  "nearest_4x_previews": "exact",
+  "visual_review": "recorded separately",
+  "runtime_performance": "not_measured",
+  "review_regressions": [
+    "nose retained in all expressions",
+    "no open-eye white in closed lid",
+    "exposed collar pixels fixed",
+    "skin joins across neck rows",
+    "supporting forearm contour continuous",
+    "turned jaws remain at neutral chin height",
+    "approved gripping fingers and upright tool retained"
+  ]
+}

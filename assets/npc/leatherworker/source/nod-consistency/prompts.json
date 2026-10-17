@@ -1,0 +1,14 @@
+[
+  {
+    "id": "nod-identity",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: identity-preserve. Edit this EXACT pixel-art leatherworker woman's head into a SMALL CHIN-DOWN NOD, pitch forward/down 8 degrees, keeping the SAME existing right-facing 3/4 yaw and gaze direction. One head only. Identity must remain nearly identical between neutral and nod: original straight vertical BROWN eye shapes, narrow far eye, original calm upper lids and tiny square highlights, same white sclera on right edge, same rounded cheeks, peach skin, cheek blush and tiny subtle horizontal smile. Do NOT enlarge the eyes, make round/circular eyes, curve/slant eyelids, angle eyes inward, squint, close eyes, raise eyebrows, change facial expression, or rotate toward camera. Eyes move slightly lower on the face with the pitch, pupils look gently down, but retain the neutral reference's shape. Hair, forehead, eyes, nose, mouth and chin pitch together. Show only 1-2 native pixels more crown, slightly shorten visible chin/neck, no bobbing the entire head down as a substitute for pitch. Keep this same copper bob's outer volume, head width and cheek width; no new hairstyle, strands or face shadows. Native tile64x64, head bbox x4..55,y7..46 in tile, native visible head51x39. Keep the same pixel density and tile placement. Neck socket stays x33,y45, short warm skin continuation into shirt, NO black horizontal neck cap or choker or floating dark wedge. No body, clothes, pin, text or other elements. Transparent background. 1px dark exterior contour and blocky native pixel clusters matching input, no added fine detail, blur or antialiasing. This is a subtle animation key, not a new portrait design.",
+    "saved": "nod-full.png"
+  },
+  {
+    "id": "nod-feature-underlay",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Produce the modular skin-filled head base from this exact pixel-art nodding head. Remove ONLY both eyes, their eyelids, highlights, both eyebrows, and the small dark mouth. Fill exactly those feature pixels with matching warm peach skin. Also remove the tiny dark-brown dot immediately above-left of the mouth, preserving a subtle skin-tone nose instead of a dark dot. Keep cheek blush. Keep ALL hair, skull, face/ear/chin/neck outlines, face shape, native pixel grid and placement EXACTLY unchanged. Do not change head angle, zoom, scale, recenter, repaint other regions or add anything. No transparent holes in face. Same transparent background, same square canvas and same head placement.",
+    "saved": "nod-blank.png"
+  }
+]

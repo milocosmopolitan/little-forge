@@ -1,0 +1,173 @@
+{
+  "canvas": [
+    128,
+    160
+  ],
+  "base_offset": [
+    16,
+    16
+  ],
+  "head_registration": {
+    "nod-down": {
+      "size": [
+        41,
+        41
+      ],
+      "xy": [
+        44,
+        21
+      ]
+    },
+    "turn-left": {
+      "size": [
+        41,
+        41
+      ],
+      "xy": [
+        44,
+        22
+      ]
+    },
+    "turn-right": {
+      "size": [
+        41,
+        41
+      ],
+      "xy": [
+        44,
+        22
+      ]
+    }
+  },
+  "head_eye_boxes": {
+    "nod-down": [
+      [
+        64,
+        42,
+        72,
+        45
+      ],
+      [
+        62,
+        46,
+        72,
+        52
+      ],
+      [
+        74,
+        43,
+        79,
+        46
+      ],
+      [
+        73,
+        47,
+        79,
+        53
+      ]
+    ],
+    "turn-left": [
+      [
+        54,
+        41,
+        62,
+        44
+      ],
+      [
+        57,
+        44,
+        65,
+        51
+      ],
+      [
+        50,
+        43,
+        55,
+        46
+      ],
+      [
+        50,
+        46,
+        55,
+        51
+      ]
+    ],
+    "turn-right": [
+      [
+        66,
+        40,
+        73,
+        43
+      ],
+      [
+        63,
+        43,
+        73,
+        51
+      ],
+      [
+        76,
+        44,
+        80,
+        50
+      ]
+    ]
+  },
+  "head_mouth_boxes": {
+    "nod-down": [
+      66,
+      53,
+      74,
+      57
+    ],
+    "turn-left": [
+      53,
+      52,
+      61,
+      56
+    ],
+    "turn-right": [
+      69,
+      54,
+      75,
+      57
+    ]
+  },
+  "arm_contracts": {
+    "give-mid": {
+      "palm": [
+        100,
+        91
+      ],
+      "wrist": [
+        97,
+        92
+      ],
+      "shift": [
+        -10,
+        5
+      ]
+    },
+    "give-full": {
+      "palm": [
+        110,
+        86
+      ],
+      "wrist": [
+        107,
+        87
+      ],
+      "shift": [
+        0,
+        0
+      ]
+    }
+  },
+  "distal_forearm_source": "source/animation/grip-repair-prompt.json",
+  "hand_and_tool": "approved neutral hand, glove, upright mallet translated together",
+  "arm_target_root": [
+    80,
+    74
+  ],
+  "palette": "source/palette-locked.png"
+}

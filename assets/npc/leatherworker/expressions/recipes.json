@@ -1,0 +1,54 @@
+{
+  "canvas": [
+    96,
+    128
+  ],
+  "eyebrow_owner": "eyes",
+  "eyes": {
+    "open": "eyes/open.png",
+    "half": "eyes/half.png",
+    "closed": "eyes/closed.png",
+    "happy-closed": "eyes/happy-closed.png",
+    "wide": "eyes/wide.png"
+  },
+  "mouth": {
+    "rest": "mouth/rest.png",
+    "small-open": "mouth/small-open.png",
+    "wide-open": "mouth/wide-open.png",
+    "round": "mouth/round.png"
+  },
+  "recipes": {
+    "neutral": {
+      "eyes": "open",
+      "mouth": "rest"
+    },
+    "talk-small": {
+      "eyes": "open",
+      "mouth": "small-open"
+    },
+    "talk-wide": {
+      "eyes": "open",
+      "mouth": "wide-open"
+    },
+    "talk-round": {
+      "eyes": "open",
+      "mouth": "round"
+    },
+    "blink": {
+      "eyes": "closed",
+      "mouth": "rest"
+    },
+    "happy": {
+      "eyes": "happy-closed",
+      "mouth": "rest"
+    },
+    "surprised": {
+      "eyes": "wide",
+      "mouth": "round"
+    },
+    "relaxed": {
+      "eyes": "half",
+      "mouth": "rest"
+    }
+  }
+}

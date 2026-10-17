@@ -1,0 +1,62 @@
+{
+  "status": "author_review_after_user_corrections",
+  "viewer": "previews/animation.html",
+  "environment": "Google Chrome on macOS, native computer-use controls",
+  "previous_review": "source/animation/review-before/playback-review.json; user subsequently found defects, superseded by this review",
+  "reviewed_scales": [
+    1,
+    4
+  ],
+  "reviewed_speed_multipliers": [
+    1,
+    0.25
+  ],
+  "backgrounds": [
+    "cream",
+    "dark gray"
+  ],
+  "equipment_states": [
+    "complete equipment-free",
+    "equipped"
+  ],
+  "browser_checks": [
+    "nod normal and slow, static collar and shoulder junction",
+    "shake-head normal and slow, paused left and right head-to-neck connection",
+    "give normal and slow; paused key 3 tool contact and key 4 empty palm/transfer",
+    "blink normal and slow; half closure and closed-eye hold at native and 4x",
+    "surprised hold at native scale; feature crops at 4x and 6x"
+  ],
+  "comparison_sheets": [
+    "previews/review-fixes.png",
+    "previews/review-fixes-dark.png"
+  ],
+  "source_of_before_images": "retained old builder and baseline reconstructed in an isolated temporary directory",
+  "structural_evidence": [
+    "qa/animation-validation.json",
+    "qa/pixel-validation.json",
+    "qa/gif-validation.json",
+    "qa/rebuild-check.json"
+  ],
+  "approved_base_delta": "nine inner-forearm contour pixels, two visible equipped, alpha unchanged; exact migration retained",
+  "user_approval": "not claimed",
+  "runtime": "authoring export, not integrated or profiled",
+  "frame_hashes": {
+    "blink": "adc6448952036c5432b11bfd7b55b1fe39aa61e9e7890be5039c588312a8d142",
+    "give-empty": "7a3a884bd1b45a78837a90f2eb7d3c2c8aa730052d0b3bd549c72727ebe37f80",
+    "give-full": "e2b7fef2aafe6d259803364f15af5d7c5d2753712539b5aa4f4e15d536e1c186",
+    "give-mid": "e5502f4e4523f69c54bfe2954a0bdfb207084f7e5f3957d1218188e7411494f4",
+    "give-retract": "eab6477c592c02e03ca3a239bf69a4295b6f28fabd96cffcf5d3a4c0ff5bbbb1",
+    "happy": "96cf047e5c660e2a23826cefa8613d01019545ed810c6c985ec6a1f80a0d277a",
+    "neutral": "60ace4c46ef5317f473454addfd1ab3633ed5486f9d5c688b82de8e6f6c021be",
+    "neutral-empty": "559e8f879d616bac60d63524afb982dd6b8a8bf109430de1b6a2e2d6fd17af2e",
+    "nod-down": "1d00da8037beb1c566fec18d843d18e30a7a4657cf56b444ba16a403a6c0c402",
+    "nod-mid": "afde32510506fde611090b4473ac76b8d202b12437dbe29398c83dfbfb5eebfa",
+    "relaxed": "3226f269acaa8ddc3cc0fa6a2297cc64ff2652850d80d6f358d5572a68191afc",
+    "surprised": "2a137df96af2cc955f31f8cc6663e0d3a68e69ccf57dd01018fb3aba449a224e",
+    "talk-round": "3565bc4bc3e4e71542deafad3a8757609907ee460ffde0bfddb943c948651734",
+    "talk-small": "0a603768ff3fb626a29df76540143597ea37c95142156119e2f930a65650ed08",
+    "talk-wide": "057287a39a22b47bad1b36e29afac8a8ddde5e06db65662fc646f0c867cf43be",
+    "turn-left": "c5fe0a97421f38cb1d84fc25b239d9552bde4f535c0edfb46c174e3ece52cfd1",
+    "turn-right": "16c3577193e854277b64143e0033d9f0b6c1a66f4d4b967b1b44e54799837433"
+  }
+}

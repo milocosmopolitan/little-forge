@@ -1,0 +1,4 @@
+interface:
+  display_name: "Sprite Optimization"
+  short_description: "Audit sprite atlases, overdraw and texture memory"
+  default_prompt: "Use $sprite-optimization to audit sprite batching, transparent margins, atlas integrity and texture memory while preserving pixel art and pivots."

@@ -1,0 +1,31 @@
+{
+  "native_size": [
+    96,
+    128
+  ],
+  "union_opaque_colors": 32,
+  "alpha_values": [
+    0,
+    255
+  ],
+  "base_opaque_pixels": 5402,
+  "equipped_opaque_pixels": 5837,
+  "lost_base_pixels": 0,
+  "underlayer_recomposition_mismatched_pixels": 0,
+  "raised_arm_interior_outline_pixels": 0,
+  "expression_invariance": "Foundation report covers neutral; additional expressions checked in qa/animation-validation.json",
+  "sha256_pixels": {
+    "body/lower-base.png": "f97f2c9d693b650b68ed3d3df1288a836d28ee4b802759e74207fa6cc5c904b2",
+    "body/upper-base.png": "32230b8477bf94be224e6bb7c19c20009a26f082be547e4d31766b35417f02b0",
+    "head-base.png": "70880dc0a7868c44c96474b09786c460b14a6ee1502de3cd84a5a34acb3f9c21",
+    "eyes/open.png": "866fafd52142a56e81681b47e8590a32d2cf8fa6c8fd26f35a0b1102910fafac",
+    "mouth/rest.png": "4cae82b688b4baa35e4a2e68827d23229b70b41451d0dea37514dcb58faf0555",
+    "body/hand-front-spoon.png": "a2237e026eba82b009a031f1f1a159a9f7da7240ddd6bc569a4da0d39e7289ea",
+    "equipment/scarf.png": "28975f3933411111623a6c33280d7299213f866f1681a3f490a0cf6841228e8c",
+    "equipment/straps.png": "236dadcfb2988b491d0c33a4db2b93f347f10e76f1cbd587959771e1b454c951",
+    "equipment/apron.png": "0369d3b35de34d5f630b233fa94e1d7ced82515df39d33c01f7872e3e75e1339",
+    "equipment/belt-tools.png": "aa3c2709d0a217a7935491a30d8cb931fe3d9eecb96cc8e2daaf8662055ae2d3",
+    "equipment/towel.png": "79fe56957a3a838a8a3f399880f59b5e8fae10d1c9b7828bbc9adaaf39446dbb",
+    "equipment/spoon.png": "169c784f85877962267050088a2357092c3e661c86339789c75d93d668dd28b7"
+  }
+}

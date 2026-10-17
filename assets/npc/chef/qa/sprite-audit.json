@@ -1,0 +1,972 @@
+{
+  "images": [
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/chef/atlas.png",
+      "disk_bytes": 36697,
+      "size": [
+        1056,
+        496
+      ],
+      "alpha_bbox_xyxy": [
+        25,
+        24,
+        1036,
+        471
+      ],
+      "visible_pixels": 97997,
+      "transparent_fraction": 0.8129028439638318,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 32,
+      "trim_rect_area_fraction": 0.8628058559384164,
+      "visible_rgba_sha256": "d20a1b27e6fca26ceca2847c26243fdd1b39ed9ca844f15c74da0f1616bf2a1f",
+      "rgba8_base_bytes": 2095104,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 2095104,
+      "selected_format_full_mip_chain_bytes": 2793296
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/chef/frames/blink.png",
+      "disk_bytes": 6960,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        23,
+        22,
+        110,
+        141
+      ],
+      "visible_pixels": 5837,
+      "transparent_fraction": 0.714990234375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 31,
+      "trim_rect_area_fraction": 0.505517578125,
+      "visible_rgba_sha256": "cdcc2d5c3d9563f077224165545c101c85840f738e013038e0664716cbae8d17",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/chef/frames/give-empty.png",
+      "disk_bytes": 6596,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        23,
+        22,
+        124,
+        141
+      ],
+      "visible_pixels": 5606,
+      "transparent_fraction": 0.72626953125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 32,
+      "trim_rect_area_fraction": 0.586865234375,
+      "visible_rgba_sha256": "2e67373a3475cacf574cecb4cc20505a046d5d3d89748666cf2467afabea905d",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/chef/frames/give-full.png",
+      "disk_bytes": 6747,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        23,
+        22,
+        126,
+        141
+      ],
+      "visible_pixels": 5796,
+      "transparent_fraction": 0.7169921875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 32,
+      "trim_rect_area_fraction": 0.598486328125,
+      "visible_rgba_sha256": "e4eec3babe21b769395dbb748bb95a489f2d851cff018e5c033d8c743fd88bb5",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/chef/frames/give-mid.png",
+      "disk_bytes": 6701,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        23,
+        22,
+        116,
+        141
+      ],
+      "visible_pixels": 5645,
+      "transparent_fraction": 0.724365234375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 32,
+      "trim_rect_area_fraction": 0.540380859375,
+      "visible_rgba_sha256": "6a4d9f802c11cb2c5e3719e5c6c0cf959c878dd3187be750aa676463f607eacb",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/chef/frames/give-retract.png",
+      "disk_bytes": 6578,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        23,
+        22,
+        113,
+        141
+      ],
+      "visible_pixels": 5513,
+      "transparent_fraction": 0.730810546875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 31,
+      "trim_rect_area_fraction": 0.52294921875,
+      "visible_rgba_sha256": "afb7dcd9103fcf826e9382c44c11957211c4e8975be02c3de1648043edfa04b1",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/chef/frames/happy.png",
+      "disk_bytes": 6959,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        23,
+        22,
+        110,
+        141
+      ],
+      "visible_pixels": 5837,
+      "transparent_fraction": 0.714990234375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 32,
+      "trim_rect_area_fraction": 0.505517578125,
+      "visible_rgba_sha256": "7e06200a0507f13ef1eccb601587502037a94b53c0bdb45521d2057a53e52a1f",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/chef/frames/neutral.png",
+      "disk_bytes": 6983,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        23,
+        22,
+        110,
+        141
+      ],
+      "visible_pixels": 5837,
+      "transparent_fraction": 0.714990234375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 32,
+      "trim_rect_area_fraction": 0.505517578125,
+      "visible_rgba_sha256": "dfbddf9c5435a5aca9ff12fce874d252b42777950e7208a2dab5d42103725121",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/chef/frames/neutral-empty.png",
+      "disk_bytes": 6618,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        23,
+        22,
+        109,
+        141
+      ],
+      "visible_pixels": 5614,
+      "transparent_fraction": 0.72587890625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 31,
+      "trim_rect_area_fraction": 0.49970703125,
+      "visible_rgba_sha256": "c0d9d31fb0013904ae51546d70e18606387ff153089eddaa51dc855a89cb5726",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/chef/frames/nod-down.png",
+      "disk_bytes": 6941,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        23,
+        24,
+        110,
+        141
+      ],
+      "visible_pixels": 5752,
+      "transparent_fraction": 0.719140625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 32,
+      "trim_rect_area_fraction": 0.497021484375,
+      "visible_rgba_sha256": "2102eb772ee716d4f91abb11f850df8a40a6d5839097fbee5963da54393d326a",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/chef/frames/nod-mid.png",
+      "disk_bytes": 6953,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        23,
+        23,
+        110,
+        141
+      ],
+      "visible_pixels": 5804,
+      "transparent_fraction": 0.7166015625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 32,
+      "trim_rect_area_fraction": 0.50126953125,
+      "visible_rgba_sha256": "1951396ee7e8efa1d89fe98ca3a68c29e3be4c4fc49c6454d9ce1e39ac541644",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/chef/frames/relaxed.png",
+      "disk_bytes": 6978,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        23,
+        22,
+        110,
+        141
+      ],
+      "visible_pixels": 5837,
+      "transparent_fraction": 0.714990234375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 32,
+      "trim_rect_area_fraction": 0.505517578125,
+      "visible_rgba_sha256": "5a323f0eeb4b40e0faa1bed9ed314e165613cb8d788df4c78f0b491954a26cb1",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/chef/frames/surprised.png",
+      "disk_bytes": 6992,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        23,
+        22,
+        110,
+        141
+      ],
+      "visible_pixels": 5837,
+      "transparent_fraction": 0.714990234375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 32,
+      "trim_rect_area_fraction": 0.505517578125,
+      "visible_rgba_sha256": "f82c29c7c4c7852aba2f18bf1ad43690d89b71f2ec52621a12c78f2674115cd5",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/chef/frames/talk-round.png",
+      "disk_bytes": 6960,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        23,
+        22,
+        110,
+        141
+      ],
+      "visible_pixels": 5837,
+      "transparent_fraction": 0.714990234375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 32,
+      "trim_rect_area_fraction": 0.505517578125,
+      "visible_rgba_sha256": "8ac8e207a42521c0d654daeb17fec33592fe941fbce71cbb2d57ec3a2ec5dcd0",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/chef/frames/talk-small.png",
+      "disk_bytes": 6970,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        23,
+        22,
+        110,
+        141
+      ],
+      "visible_pixels": 5837,
+      "transparent_fraction": 0.714990234375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 32,
+      "trim_rect_area_fraction": 0.505517578125,
+      "visible_rgba_sha256": "a569459c7d2b89734e417f6ce700226840d70e7c1c0583a709949fbccf193bbd",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/chef/frames/talk-wide.png",
+      "disk_bytes": 6974,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        23,
+        22,
+        110,
+        141
+      ],
+      "visible_pixels": 5837,
+      "transparent_fraction": 0.714990234375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 32,
+      "trim_rect_area_fraction": 0.505517578125,
+      "visible_rgba_sha256": "0b4af37d39c5839a520acb42633ca2713c845384590ea9d21a53adf08873af46",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/chef/frames/turn-left.png",
+      "disk_bytes": 6970,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        23,
+        22,
+        110,
+        141
+      ],
+      "visible_pixels": 5771,
+      "transparent_fraction": 0.718212890625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 32,
+      "trim_rect_area_fraction": 0.505517578125,
+      "visible_rgba_sha256": "9179da5aed7634c912870fd1805e537a2350c466b969b17aa40fe1c3404974ec",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/npc/chef/frames/turn-right.png",
+      "disk_bytes": 6984,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        23,
+        22,
+        110,
+        141
+      ],
+      "visible_pixels": 5800,
+      "transparent_fraction": 0.716796875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 32,
+      "trim_rect_area_fraction": 0.505517578125,
+      "visible_rgba_sha256": "972812c2bdc57982384a18215d889134def5f7fc9f29bcc25ee0979539ad37b6",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    }
+  ],
+  "sprites": [
+    {
+      "id": "blink",
+      "page": "chef-0",
+      "rect": [
+        2,
+        2,
+        128,
+        160
+      ],
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        23,
+        22,
+        110,
+        141
+      ],
+      "visible_pixels": 5837,
+      "transparent_fraction": 0.714990234375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 31,
+      "trim_rect_area_fraction": 0.505517578125,
+      "visible_rgba_sha256": "cdcc2d5c3d9563f077224165545c101c85840f738e013038e0664716cbae8d17",
+      "trimmed_pivot": [
+        64,
+        140
+      ]
+    },
+    {
+      "id": "give-empty",
+      "page": "chef-0",
+      "rect": [
+        134,
+        2,
+        128,
+        160
+      ],
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        23,
+        22,
+        124,
+        141
+      ],
+      "visible_pixels": 5606,
+      "transparent_fraction": 0.72626953125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 32,
+      "trim_rect_area_fraction": 0.586865234375,
+      "visible_rgba_sha256": "2e67373a3475cacf574cecb4cc20505a046d5d3d89748666cf2467afabea905d",
+      "trimmed_pivot": [
+        64,
+        140
+      ]
+    },
+    {
+      "id": "give-full",
+      "page": "chef-0",
+      "rect": [
+        266,
+        2,
+        128,
+        160
+      ],
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        23,
+        22,
+        126,
+        141
+      ],
+      "visible_pixels": 5796,
+      "transparent_fraction": 0.7169921875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 32,
+      "trim_rect_area_fraction": 0.598486328125,
+      "visible_rgba_sha256": "e4eec3babe21b769395dbb748bb95a489f2d851cff018e5c033d8c743fd88bb5",
+      "trimmed_pivot": [
+        64,
+        140
+      ]
+    },
+    {
+      "id": "give-mid",
+      "page": "chef-0",
+      "rect": [
+        398,
+        2,
+        128,
+        160
+      ],
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        23,
+        22,
+        116,
+        141
+      ],
+      "visible_pixels": 5645,
+      "transparent_fraction": 0.724365234375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 32,
+      "trim_rect_area_fraction": 0.540380859375,
+      "visible_rgba_sha256": "6a4d9f802c11cb2c5e3719e5c6c0cf959c878dd3187be750aa676463f607eacb",
+      "trimmed_pivot": [
+        64,
+        140
+      ]
+    },
+    {
+      "id": "give-retract",
+      "page": "chef-0",
+      "rect": [
+        530,
+        2,
+        128,
+        160
+      ],
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        23,
+        22,
+        113,
+        141
+      ],
+      "visible_pixels": 5513,
+      "transparent_fraction": 0.730810546875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 31,
+      "trim_rect_area_fraction": 0.52294921875,
+      "visible_rgba_sha256": "afb7dcd9103fcf826e9382c44c11957211c4e8975be02c3de1648043edfa04b1",
+      "trimmed_pivot": [
+        64,
+        140
+      ]
+    },
+    {
+      "id": "happy",
+      "page": "chef-0",
+      "rect": [
+        662,
+        2,
+        128,
+        160
+      ],
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        23,
+        22,
+        110,
+        141
+      ],
+      "visible_pixels": 5837,
+      "transparent_fraction": 0.714990234375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 32,
+      "trim_rect_area_fraction": 0.505517578125,
+      "visible_rgba_sha256": "7e06200a0507f13ef1eccb601587502037a94b53c0bdb45521d2057a53e52a1f",
+      "trimmed_pivot": [
+        64,
+        140
+      ]
+    },
+    {
+      "id": "neutral",
+      "page": "chef-0",
+      "rect": [
+        794,
+        2,
+        128,
+        160
+      ],
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        23,
+        22,
+        110,
+        141
+      ],
+      "visible_pixels": 5837,
+      "transparent_fraction": 0.714990234375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 32,
+      "trim_rect_area_fraction": 0.505517578125,
+      "visible_rgba_sha256": "dfbddf9c5435a5aca9ff12fce874d252b42777950e7208a2dab5d42103725121",
+      "trimmed_pivot": [
+        64,
+        140
+      ]
+    },
+    {
+      "id": "neutral-empty",
+      "page": "chef-0",
+      "rect": [
+        926,
+        2,
+        128,
+        160
+      ],
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        23,
+        22,
+        109,
+        141
+      ],
+      "visible_pixels": 5614,
+      "transparent_fraction": 0.72587890625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 31,
+      "trim_rect_area_fraction": 0.49970703125,
+      "visible_rgba_sha256": "c0d9d31fb0013904ae51546d70e18606387ff153089eddaa51dc855a89cb5726",
+      "trimmed_pivot": [
+        64,
+        140
+      ]
+    },
+    {
+      "id": "nod-down",
+      "page": "chef-0",
+      "rect": [
+        2,
+        166,
+        128,
+        160
+      ],
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        23,
+        24,
+        110,
+        141
+      ],
+      "visible_pixels": 5752,
+      "transparent_fraction": 0.719140625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 32,
+      "trim_rect_area_fraction": 0.497021484375,
+      "visible_rgba_sha256": "2102eb772ee716d4f91abb11f850df8a40a6d5839097fbee5963da54393d326a",
+      "trimmed_pivot": [
+        64,
+        140
+      ]
+    },
+    {
+      "id": "nod-mid",
+      "page": "chef-0",
+      "rect": [
+        134,
+        166,
+        128,
+        160
+      ],
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        23,
+        23,
+        110,
+        141
+      ],
+      "visible_pixels": 5804,
+      "transparent_fraction": 0.7166015625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 32,
+      "trim_rect_area_fraction": 0.50126953125,
+      "visible_rgba_sha256": "1951396ee7e8efa1d89fe98ca3a68c29e3be4c4fc49c6454d9ce1e39ac541644",
+      "trimmed_pivot": [
+        64,
+        140
+      ]
+    },
+    {
+      "id": "relaxed",
+      "page": "chef-0",
+      "rect": [
+        266,
+        166,
+        128,
+        160
+      ],
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        23,
+        22,
+        110,
+        141
+      ],
+      "visible_pixels": 5837,
+      "transparent_fraction": 0.714990234375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 32,
+      "trim_rect_area_fraction": 0.505517578125,
+      "visible_rgba_sha256": "5a323f0eeb4b40e0faa1bed9ed314e165613cb8d788df4c78f0b491954a26cb1",
+      "trimmed_pivot": [
+        64,
+        140
+      ]
+    },
+    {
+      "id": "surprised",
+      "page": "chef-0",
+      "rect": [
+        398,
+        166,
+        128,
+        160
+      ],
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        23,
+        22,
+        110,
+        141
+      ],
+      "visible_pixels": 5837,
+      "transparent_fraction": 0.714990234375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 32,
+      "trim_rect_area_fraction": 0.505517578125,
+      "visible_rgba_sha256": "f82c29c7c4c7852aba2f18bf1ad43690d89b71f2ec52621a12c78f2674115cd5",
+      "trimmed_pivot": [
+        64,
+        140
+      ]
+    },
+    {
+      "id": "talk-round",
+      "page": "chef-0",
+      "rect": [
+        530,
+        166,
+        128,
+        160
+      ],
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        23,
+        22,
+        110,
+        141
+      ],
+      "visible_pixels": 5837,
+      "transparent_fraction": 0.714990234375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 32,
+      "trim_rect_area_fraction": 0.505517578125,
+      "visible_rgba_sha256": "8ac8e207a42521c0d654daeb17fec33592fe941fbce71cbb2d57ec3a2ec5dcd0",
+      "trimmed_pivot": [
+        64,
+        140
+      ]
+    },
+    {
+      "id": "talk-small",
+      "page": "chef-0",
+      "rect": [
+        662,
+        166,
+        128,
+        160
+      ],
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        23,
+        22,
+        110,
+        141
+      ],
+      "visible_pixels": 5837,
+      "transparent_fraction": 0.714990234375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 32,
+      "trim_rect_area_fraction": 0.505517578125,
+      "visible_rgba_sha256": "a569459c7d2b89734e417f6ce700226840d70e7c1c0583a709949fbccf193bbd",
+      "trimmed_pivot": [
+        64,
+        140
+      ]
+    },
+    {
+      "id": "talk-wide",
+      "page": "chef-0",
+      "rect": [
+        794,
+        166,
+        128,
+        160
+      ],
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        23,
+        22,
+        110,
+        141
+      ],
+      "visible_pixels": 5837,
+      "transparent_fraction": 0.714990234375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 32,
+      "trim_rect_area_fraction": 0.505517578125,
+      "visible_rgba_sha256": "0b4af37d39c5839a520acb42633ca2713c845384590ea9d21a53adf08873af46",
+      "trimmed_pivot": [
+        64,
+        140
+      ]
+    },
+    {
+      "id": "turn-left",
+      "page": "chef-0",
+      "rect": [
+        926,
+        166,
+        128,
+        160
+      ],
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        23,
+        22,
+        110,
+        141
+      ],
+      "visible_pixels": 5771,
+      "transparent_fraction": 0.718212890625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 32,
+      "trim_rect_area_fraction": 0.505517578125,
+      "visible_rgba_sha256": "9179da5aed7634c912870fd1805e537a2350c466b969b17aa40fe1c3404974ec",
+      "trimmed_pivot": [
+        64,
+        140
+      ]
+    },
+    {
+      "id": "turn-right",
+      "page": "chef-0",
+      "rect": [
+        2,
+        330,
+        128,
+        160
+      ],
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        23,
+        22,
+        110,
+        141
+      ],
+      "visible_pixels": 5800,
+      "transparent_fraction": 0.716796875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 32,
+      "trim_rect_area_fraction": 0.505517578125,
+      "visible_rgba_sha256": "972812c2bdc57982384a18215d889134def5f7fc9f29bcc25ee0979539ad37b6",
+      "trimmed_pivot": [
+        64,
+        140
+      ]
+    }
+  ],
+  "errors": [],
+  "warnings": [
+    "Extrude/gutter pixel contents, runtime sampling and performance were not measured"
+  ],
+  "runtime": {
+    "draw_calls": "not_measured",
+    "overdraw": "not_measured",
+    "gpu_format_support": "not_checked"
+  },
+  "memory_note": "Format arithmetic only; excludes CPU copies, staging, alignment and driver overhead.",
+  "pages": [
+    {
+      "id": "chef-0",
+      "size": [
+        1056,
+        496
+      ],
+      "unique_rect_area_fraction": 0.6647116324535679,
+      "estimated_texture_bytes": 2095104
+    }
+  ],
+  "declared_page_texture_bytes": 2095104,
+  "duplicate_image_groups": [],
+  "status": "structural_pass_runtime_unmeasured"
+}

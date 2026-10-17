@@ -1,0 +1,128 @@
+{
+  "canvas_px": [
+    96,
+    128
+  ],
+  "source_size_px": [
+    1086,
+    1448
+  ],
+  "sample_source_xy": "(95 + 10*x, 115 + 10*y)",
+  "scale": 0.1,
+  "translation_px": [
+    -9,
+    -11
+  ],
+  "alpha_values": [
+    0,
+    255
+  ],
+  "palette_colors": 80,
+  "partition_mismatches": 0,
+  "foundation_pixels_lost": {
+    "base": 0,
+    "no_prop": 0,
+    "full": 0
+  },
+  "layer_bounds": {
+    "head-base.png": {
+      "bbox_half_open": [
+        16,
+        7,
+        67,
+        46
+      ],
+      "opaque_pixels": 1501
+    },
+    "body/upper-base.png": {
+      "bbox_half_open": [
+        16,
+        45,
+        80,
+        76
+      ],
+      "opaque_pixels": 1232
+    },
+    "body/lower-base.png": {
+      "bbox_half_open": [
+        26,
+        71,
+        70,
+        125
+      ],
+      "opaque_pixels": 1620
+    },
+    "eyes/open.png": {
+      "bbox_half_open": [
+        39,
+        25,
+        57,
+        36
+      ],
+      "opaque_pixels": 73
+    },
+    "mouth/rest.png": {
+      "bbox_half_open": [
+        46,
+        37,
+        51,
+        39
+      ],
+      "opaque_pixels": 4
+    },
+    "equipment/hairpin.png": {
+      "bbox_half_open": [
+        26,
+        24,
+        33,
+        31
+      ],
+      "opaque_pixels": 41
+    },
+    "equipment/gloves.png": {
+      "bbox_half_open": [
+        23,
+        58,
+        77,
+        76
+      ],
+      "opaque_pixels": 199
+    },
+    "equipment/apron.png": {
+      "bbox_half_open": [
+        27,
+        45,
+        66,
+        103
+      ],
+      "opaque_pixels": 1372
+    },
+    "equipment/belt-tools.png": {
+      "bbox_half_open": [
+        17,
+        64,
+        63,
+        104
+      ],
+      "opaque_pixels": 1139
+    },
+    "equipment/scarf.png": {
+      "bbox_half_open": [
+        34,
+        45,
+        54,
+        57
+      ],
+      "opaque_pixels": 112
+    },
+    "props/leather-hide.png": {
+      "bbox_half_open": [
+        64,
+        59,
+        88,
+        103
+      ],
+      "opaque_pixels": 679
+    }
+  }
+}

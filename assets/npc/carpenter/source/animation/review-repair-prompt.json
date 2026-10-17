@@ -1,0 +1,24 @@
+{
+  "prompt": "Edit this isolated pixel-art cream rolled-sleeve arm ONLY. Transparent background. Keep exact 800x576 canvas and alignment, arm enters left at y112 and rolled cuff at x210..270, forearm extends screen right. Repair the unnatural fork-shaped hand into an anatomically readable young carpenter's bare palm-up offering hand: full connected wrist, broad solid palm at x570 y235, thumb short raised at x560 y165, four fingers together in one gently upturned rounded group reaching x730 y195, two restrained dark short fingertip/fold details, no large V gap, no detached fingers, no prop or glove. Maintain original skin warm orange palette, creamy sleeve, dark brown one-native-pixel contour. This is a native50x36 sprite shown16x: align all art to the same coarse16px pixel grid, sharp flat square pixels, no smoothing or antialias. Preserve cuff and forearm exactly. Entire open hand must look natural when empty. Do not add text, extra limbs, background or decoration.",
+  "reference": "source/animation/give-hand-edit-target.png",
+  "generated": "source/animation/candidates/give-hand-repair.png",
+  "original_path": "/Users/minhokang/.codex/generated_images/01a14621-7639-7551-beea-4e18468b4370/exec-5f562a4e-0abe-42f9-a430-dd328fd633f5.png",
+  "registration": {
+    "alpha_bbox_threshold": 128,
+    "whole_arm_resize": [
+      45,
+      17
+    ],
+    "whole_arm_xy": [
+      80,
+      73
+    ],
+    "full_adoption_x_min": 105,
+    "mid_translation": [
+      -12,
+      3
+    ],
+    "mid_adoption_x_min": 99
+  },
+  "scope": "Only generated palm/wrist pixels adopted; existing sleeves and proximal forearms retained"
+}
