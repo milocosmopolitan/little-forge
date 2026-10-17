@@ -11,7 +11,7 @@ description: 이 저장소의 레퍼런스 기반 사람형 픽셀 NPC와 플레
 
 - 새 레퍼런스: 이 문서와 [character-spec.yaml](references/character-spec.yaml)로 기준 포즈와 레이어 계약부터 잡는다.
 - 표정·대사: [expression.md](references/expression.md). 눈·입 부품과 조합을 정의한다.
-- 고개·팔·전신 동작: [pose.md](references/pose.md). NPC/플레이어 동작 세트를 먼저 선택한다. 보행은 손발 위상 계약을, 대장장이 작업은 기물·방향·가림 계약을 읽고 키별 접점과 합성 순서를 명세한다.
+- 고개·팔·전신 동작: [pose.md](references/pose.md). NPC/플레이어 모두 공통 기본 포즈·8표정·제스처·보행을 갖고, 플레이어는 대장장이 작업 5종을 추가한다. 보행은 손발 위상 계약을, 대장장이 작업은 기물·방향·가림 계약을 읽고 키별 접점과 합성 순서를 명세한다.
 - 게임용 패킹: [create-atlas.md](references/create-atlas.md). 레이어에서 합성한 뒤 패킹한다.
 - 성능 검수: [sprite-optimization](../sprite-optimization/SKILL.md). 제작 레이어 수를 런타임 스프라이트 수로 강제하지 않는다.
 

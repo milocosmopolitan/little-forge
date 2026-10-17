@@ -2,9 +2,10 @@
 # Record existing files in layers, planned IDs only in production_plan.
 version: 1
 id: null
-# Select one action set before generating poses; do not make every NPC gesture mandatory for players.
+# Both roles retain common poses, expressions and movement; player work extends them.
 role: npc # npc | player_blacksmith
-action_set: npc_common # npc_common | blacksmith_work
+action_set: human_common # neutral, nod, shake_head, give, walk + common expressions
+action_extensions: [] # Set [blacksmith_work] for player_blacksmith; not a replacement set.
 grid: B
 grid_unit_px: [16, 16]
 canvas_cells: [6, 8]

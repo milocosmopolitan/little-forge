@@ -1,4 +1,4 @@
 interface:
   display_name: "Human Character Gen"
   short_description: "Create faithful pixel NPCs and blacksmith player animations"
-  default_prompt: "Use $human-character-gen to preserve the current character reference and native layers, select the NPC or blacksmith player action set, plan expressions and workstation contacts, then derive atlas frames from those layers."
+  default_prompt: "Use $human-character-gen to preserve the current character reference and native layers, plan common expressions, gestures and walking for both NPCs and players, add blacksmith work actions for the player, then derive atlas frames from those layers."
