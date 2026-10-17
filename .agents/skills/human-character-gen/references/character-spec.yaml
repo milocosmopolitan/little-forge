@@ -2,6 +2,9 @@
 # Record existing files in layers, planned IDs only in production_plan.
 version: 1
 id: null
+# Select one action set before generating poses; do not make every NPC gesture mandatory for players.
+role: npc # npc | player_blacksmith
+action_set: npc_common # npc_common | blacksmith_work
 grid: B
 grid_unit_px: [16, 16]
 canvas_cells: [6, 8]
@@ -78,6 +81,11 @@ composition_order: [lower_base, upper_base, head_base, eyes, mouth]
 # Each pose supplies its own complete underlayer, layers, sockets and occlusion order.
 # Pose outputs/sockets use pose_canvas coordinates; sockets_px above uses authoring coordinates.
 pose_overrides: {}
+# Existing/planned direction baselines must be distinguished. Do not register preview sheets as native poses.
+direction_baselines: {}
+# Player work clips additionally record station_id, facing, measured contact_points,
+# per-frame occlusion_order, loop_range and visual events. See pose.md.
+workstation_clips: {}
 production_plan:
   status: planned_not_generated
   eyes: [open, half, closed, happy-closed, wide]
