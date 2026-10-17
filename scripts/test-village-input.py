@@ -53,9 +53,9 @@ try:
     x.x.XTranslateCoordinates.argtypes=[c.c_void_p,c.c_ulong,c.c_ulong,c.c_int,c.c_int,c.POINTER(c.c_int),c.POINTER(c.c_int),c.POINTER(c.c_ulong)]
     ox=c.c_int();oy=c.c_int();child=c.c_ulong()
     x.x.XTranslateCoordinates(x.d,window,x.x.XDefaultRootWindow(x.d),0,0,c.byref(ox),c.byref(oy),c.byref(child))
-    # Map image rectangle in the 960x540 layout is (152,67)-(378,349).
+    # Map image rectangle in the 960x540 layout is (162,85)-(506,514).
     # Point (0.69,0.48) is the carpenter yard; it is traced in locations.json.
-    x.t.XTestFakeMotionEvent(x.d,0,ox.value+308,oy.value+202,0);x.x.XFlush(x.d);time.sleep(.7)
+    x.t.XTestFakeMotionEvent(x.d,0,ox.value+399,oy.value+291,0);x.x.XFlush(x.d);time.sleep(.7)
     key('F10')  # preserve real pointer-hover before navigation
     x.t.XTestFakeButtonEvent(x.d,1,1,0);x.t.XTestFakeButtonEvent(x.d,1,0,0);x.x.XFlush(x.d);time.sleep(.7)
     assert diagnostics()['village_screen']=='Destination(Carpenter)'

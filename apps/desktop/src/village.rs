@@ -1,10 +1,6 @@
 //! Bevy presentation for the village. All money/stock changes go through State::command.
 use crate::{Options, Session, title::TitleScreen, window::Desktop};
-use bevy::{
-    prelude::*,
-    ui::RelativeCursorPosition,
-    ui_widgets::{Activate, Button},
-};
+use bevy::{prelude::*, ui::RelativeCursorPosition, ui_widgets::Activate};
 use forge_content::village::Registry;
 use forge_core::{
     Command,
@@ -20,6 +16,7 @@ pub struct Village {
     hover: Option<usize>,
     quantity: u32,
     category: usize,
+    selected_item: Option<Item>,
     redraw: bool,
     art_available: bool,
 }
@@ -31,6 +28,7 @@ impl Default for Village {
             hover: None,
             quantity: 1,
             category: 0,
+            selected_item: None,
             redraw: true,
             art_available: true,
         }
@@ -56,35 +54,15 @@ pub(crate) enum Action {
     Close,
     Visit(Location),
     Category(usize),
+    SelectItem(Item),
     Quantity(i32),
     Buy(Item, u64),
 }
-fn text(s: impl Into<String>, size: f32) -> (Text, TextFont, TextColor) {
-    (
-        Text::new(s),
-        TextFont {
-            font_size: size.into(),
-            ..default()
-        },
-        TextColor(Color::srgb(0.9, 0.87, 0.77)),
-    )
+fn text(s: impl Into<String>, size: f32) -> impl Bundle {
+    forge_ui::text(s, size)
 }
 fn button(parent: &mut ChildSpawnerCommands, label: impl Into<String>, action: Action) {
-    parent
-        .spawn((
-            Button,
-            action,
-            Node {
-                padding: UiRect::axes(px(10), px(3)),
-                border: UiRect::all(px(1)),
-                ..default()
-            },
-            BorderColor::all(Color::srgb(0.4, 0.32, 0.23)),
-            BackgroundColor(Color::srgb(0.14, 0.18, 0.17)),
-        ))
-        .with_children(|b| {
-            b.spawn(text(label, 13.));
-        });
+    forge_ui::button(parent, label, action);
 }
 /// Keep management controls inside smaller logical work areas and high-DPI windows.
 /// Native DPI remains owned by Bevy; this is only an additional fit for the 960x540 UI.
@@ -126,6 +104,14 @@ pub fn setup(
             v.nav.focus = Some(1);
         }
     }
+    if opts.qa.as_deref().is_some_and(|q| {
+        matches!(
+            q,
+            "village-home" | "village-materials" | "village-provisions"
+        )
+    }) {
+        v.nav = Navigation::default();
+    }
     // Optional assets fail to readable navigation; existing forge manifest remains strict.
     let root = &root.0;
     v.art_available = root.join("map/ashbrook/base.png").is_file()
@@ -138,6 +124,8 @@ pub fn setup(
     }
     commands.spawn((
         Root,
+        forge_ui::WindowSkin,
+        bevy::input_focus::tab_navigation::TabGroup::new(0),
         Node {
             display: Display::None,
             ..default()
@@ -154,9 +142,10 @@ pub fn activate(
     mut s: ResMut<Session>,
     opts: Res<Options>,
     title: Res<TitleScreen>,
+    dialog: Option<Res<forge_ui::DialogState>>,
     mut farmer: Option<ResMut<crate::npc::FarmerPresentation>>,
 ) {
-    if title.active || !d.shell.expanded {
+    if title.active || !d.shell.expanded || dialog.as_ref().is_some_and(|d| d.is_open()) {
         return;
     }
     let Ok(action) = actions.get(event.entity) else {
@@ -207,8 +196,15 @@ fn apply(
             v.nav.visit(l);
             v.category = 0;
             v.quantity = 1;
+            v.selected_item = None;
         }
         Action::Category(i) => v.category = i,
+        Action::SelectItem(item) => {
+            if v.nav.screen == Screen::Destination(item.vendor()) {
+                v.selected_item = Some(item);
+                v.quantity = 1;
+            }
+        }
         Action::Quantity(delta) => v.quantity = (v.quantity as i32 + delta).clamp(1, 99) as u32,
         Action::Buy(item, id) => {
             if s.disabled || v.nav.screen != Screen::Destination(item.vendor()) {
@@ -241,17 +237,23 @@ fn apply(
 pub fn input(
     keys: Res<ButtonInput<KeyCode>>,
     mouse: Res<ButtonInput<MouseButton>>,
+    focus: Option<Res<bevy::input_focus::InputFocus>>,
+    widgets: Query<(), With<forge_ui::SkinButton>>,
     mut v: ResMut<Village>,
     mut d: ResMut<Desktop>,
     mut s: ResMut<Session>,
     opts: Res<Options>,
     title: Res<TitleScreen>,
+    dialog: Option<Res<forge_ui::DialogState>>,
     mut farmer: Option<ResMut<crate::npc::FarmerPresentation>>,
     surface: Query<(&RelativeCursorPosition, &ComputedNode), With<MapSurface>>,
 ) {
-    if title.active {
+    if title.active || dialog.as_ref().is_some_and(|d| d.is_open()) {
         return;
     }
+    let widget_focused = focus
+        .as_ref()
+        .is_some_and(|f| f.get().is_some_and(|e| widgets.contains(e)));
     if keys.just_pressed(KeyCode::KeyM) {
         d.shell.recover();
         d.shell.expanded = true;
@@ -302,10 +304,7 @@ pub fn input(
                 v.nav.focus = None;
             }
         }
-        if keys.just_pressed(KeyCode::ArrowDown)
-            || keys.just_pressed(KeyCode::ArrowRight)
-            || keys.just_pressed(KeyCode::Tab)
-        {
+        if keys.just_pressed(KeyCode::ArrowDown) || keys.just_pressed(KeyCode::ArrowRight) {
             v.nav
                 .cycle(keys.pressed(KeyCode::ShiftLeft) || keys.pressed(KeyCode::ShiftRight));
             v.hover = None;
@@ -327,7 +326,7 @@ pub fn input(
         .iter()
         .position(|k| keys.just_pressed(*k));
         let visit = digit.or_else(|| {
-            if keys.just_pressed(KeyCode::Enter) {
+            if keys.just_pressed(KeyCode::Enter) && !widget_focused {
                 v.nav.focus.or(v.hover)
             } else if mouse.just_pressed(MouseButton::Left) {
                 v.hover
@@ -372,8 +371,12 @@ pub fn input(
             );
         }
         if keys.just_pressed(KeyCode::Enter)
+            && !widget_focused
             && v.category == 0
-            && let Some(item) = Item::ALL.into_iter().find(|i| i.vendor() == l)
+            && let Some(item) = v
+                .selected_item
+                .filter(|i| i.vendor() == l)
+                .or_else(|| Item::ALL.into_iter().find(|i| i.vendor() == l))
         {
             apply(
                 Action::Buy(item, s.save.state.command_id.saturating_add(1)),
@@ -421,23 +424,15 @@ pub fn draw(
         && opts
             .qa
             .as_deref()
-            .is_none_or(|q| q.starts_with("village-") || q.starts_with("life-"));
+            .is_none_or(|q| q.starts_with("village-") || q.starts_with("life-") || q == "expanded");
     commands.entity(root).insert((
         Node {
             display: if show { Display::Flex } else { Display::None },
             position_type: PositionType::Absolute,
-            top: if v.nav.screen == Screen::Home {
-                px(78)
-            } else {
-                px(0)
-            },
+            top: px(8),
             left: px(12),
             right: px(12),
-            bottom: if v.nav.screen == Screen::Home {
-                Val::Auto
-            } else {
-                px(180)
-            },
+            bottom: px(16),
             padding: UiRect::all(px(10)),
             border: UiRect::all(px(1)),
             flex_direction: FlexDirection::Column,
@@ -446,7 +441,7 @@ pub fn draw(
             ..default()
         },
         BorderColor::all(Color::srgb(0.38, 0.28, 0.18)),
-        BackgroundColor(Color::srgb(0.045, 0.055, 0.052)),
+        BackgroundColor(forge_ui::SURFACE),
     ));
     commands.entity(root).with_children(|parent| {
         parent
@@ -464,6 +459,15 @@ pub fn draw(
                 row.spawn((text("", 13.), Wallet));
             });
         if v.nav.screen == Screen::Home {
+            parent.spawn((
+                crate::lifestyle::Management,
+                bevy::input_focus::tab_navigation::TabGroup::new(1),
+                Node {
+                    flex_grow: 1.,
+                    min_height: px(0),
+                    ..default()
+                },
+            ));
             return;
         }
         parent.spawn((text("", 13.), Status));
@@ -490,7 +494,7 @@ fn draw_map(parent: &mut ChildSpawnerCommands, village: &Village, server: &Asset
                 MapSurface,
                 RelativeCursorPosition::default(),
                 Node {
-                    width: percent(53),
+                    width: percent(68),
                     height: percent(100),
                     position_type: PositionType::Relative,
                     overflow: Overflow::clip(),
@@ -539,7 +543,7 @@ fn draw_map(parent: &mut ChildSpawnerCommands, village: &Village, server: &Asset
                 ..default()
             })
             .with_children(|list| {
-                list.spawn(text("ASHBROOK  /  Choose a destination", 16.));
+                list.spawn(text("ASHBROOK", 16.));
                 for (i, region) in village.registry.locations.iter().enumerate() {
                     button(
                         list,
@@ -594,78 +598,146 @@ fn draw_destination(
     assets: &AssetRoot,
 ) {
     let state = &session.save.state;
-    parent.spawn(Node {
-        column_gap: px(18), flex_grow: 1., min_height: px(0), ..default()
-    }).with_children(|row| {
-        let item = Item::ALL.into_iter().find(|item| item.vendor() == location);
-        if item.is_some() {
-            let (id, width) = match location {
-                Location::Carpenter => ("carpenter", 116.),
-                Location::Leatherworker => ("leatherworker", 116.),
-                Location::Farm => ("farm", 125.),
-                _ => ("tavern", 103.),
-            };
-            let path = format!("village/{id}.png");
-            if assets.0.join(&path).is_file() {
-                row.spawn((ImageNode::new(server.load(path)), Node {
-                    width: px(width), height: px(155), ..default()
-                }));
-            } else {
-                row.spawn(text("Merchant\nportrait\nunavailable", 13.));
-            }
-        }
-        row.spawn(Node {
-            flex_direction: FlexDirection::Column, row_gap: px(10), flex_grow: 1.,
-            min_width: px(0), width: percent(80), ..default()
-        }).with_children(|body| {
-            body.spawn(text(location.label(), 22.));
-            let (tabs, locked) = destination_copy(location);
-            if let Some(item) = item {
-                body.spawn(Node { column_gap: px(8), ..default() }).with_children(|row| {
-                    for (i, label) in tabs.iter().enumerate() {
-                        button(row, format!("{}{}", if village.category == i { "* " } else { "" }, label), Action::Category(i));
+    let (id, line) = match location {
+        Location::Carpenter => ("carpenter", "Good timber. Tools made to last."),
+        Location::Leatherworker => ("leatherworker", "A little care goes a long way."),
+        Location::Farm => ("farmer", "Fresh provisions for a good day's work."),
+        Location::Tavern => ("chef", "Come in. There is something warm on the stove."),
+        _ => ("", ""),
+    };
+    if !id.is_empty() && assets.0.join(format!("npc/{id}/neutral.png")).is_file() {
+        forge_ui::merchant_header(parent, server, id, location.label(), line);
+    } else {
+        parent.spawn(text(location.label(), 24.));
+    }
+    let (tabs, locked) = destination_copy(location);
+    let items: Vec<_> = Item::ALL
+        .into_iter()
+        .filter(|i| i.vendor() == location)
+        .collect();
+    parent
+        .spawn(Node {
+            flex_grow: 1.,
+            min_height: px(0),
+            column_gap: px(12),
+            ..default()
+        })
+        .with_children(|row| {
+            row.spawn(forge_ui::panel(percent(18)))
+                .with_children(|side| {
+                    for (i, tab) in tabs.iter().enumerate().filter(|(_, t)| !t.is_empty()) {
+                        button(
+                            side,
+                            format!("{}{}", if village.category == i { "> " } else { "" }, tab),
+                            Action::Category(i),
+                        );
                     }
+                    side.spawn(text("Esc · Village", 12.));
                 });
-                if village.category == 0 {
+            if village.category != 0 || items.is_empty() {
+                row.spawn(forge_ui::panel(percent(82))).with_children(|p| {
+                    p.spawn(text("Not available yet", 20.));
+                    p.spawn(text(locked, 14.));
+                    button(p, "Return to map", Action::Map);
+                });
+                return;
+            }
+            row.spawn(forge_ui::panel(percent(38)))
+                .with_children(|list| {
+                    list.spawn(text("AVAILABLE GOODS", 13.));
+                    for item in &items {
+                        forge_ui::item_button(
+                            list,
+                            server,
+                            item_icon(*item),
+                            item.label(),
+                            item.price(state),
+                            village.selected_item.unwrap_or(items[0]) == *item,
+                            Action::SelectItem(*item),
+                        );
+                    }
+                    list.spawn(text("More goods unlock as the village grows.", 12.));
+                });
+            let item = village
+                .selected_item
+                .filter(|i| items.contains(i))
+                .unwrap_or(items[0]);
+            row.spawn(forge_ui::panel(percent(44)))
+                .with_children(|body| {
+                    body.spawn(Node {
+                        column_gap: px(12),
+                        align_items: AlignItems::Center,
+                        ..default()
+                    })
+                    .with_children(|p| {
+                        forge_ui::icon(p, server, item_icon(item), 40.);
+                        p.spawn(text(item.label(), 18.));
+                    });
                     let owned = match item {
                         Item::Timber => state.commerce.timber,
                         Item::Leather => state.commerce.leather,
                         Item::Staple => state.life.pantry.staples(),
-                        Item::Meal => state.life.pantry.slots.iter().flatten()
-                            .filter(|stack| stack.food == forge_core::life::Food::Premium)
-                            .map(|stack| stack.count).sum(),
+                        Item::Meal => state
+                            .life
+                            .pantry
+                            .slots
+                            .iter()
+                            .flatten()
+                            .filter(|s| s.food == forge_core::life::Food::Premium)
+                            .map(|s| s.count)
+                            .sum(),
                     };
-                    body.spawn(text(format!("{}\n{} gold each  /  Stock {}  /  Owned {}",
-                        item.label(), item.price(state), state.commerce.stock[item.index()], owned), 16.));
+                    body.spawn(text(
+                        format!(
+                            "In stock {}   ·   Owned {}",
+                            state.commerce.stock[item.index()],
+                            owned
+                        ),
+                        13.,
+                    ));
                     let reason = match state.quote(location, item, village.quantity) {
-                        Err(error) => purchase_error(&error).to_owned(),
-                        Ok(price) if price > state.gold => format!("Need {price} gold; wallet has {}", state.gold),
-                        Ok(price) => format!("Total: {price} gold"),
+                        Err(e) => purchase_error(&e).to_owned(),
+                        Ok(p) if p > state.gold => {
+                            format!("Need {p} gold · You have {}", state.gold)
+                        }
+                        Ok(p) => format!("Total: {p} gold"),
                     };
-                    body.spawn(Node { column_gap: px(8), align_items: AlignItems::Center, ..default() })
-                        .with_children(|row| {
-                            button(row, "- [-]", Action::Quantity(-1));
-                            row.spawn(text(format!("Quantity {}", village.quantity), 14.));
-                            button(row, "+ [=]", Action::Quantity(1));
-                            button(row, "Buy [Enter]", Action::Buy(item, state.command_id.saturating_add(1)));
-                        });
+                    body.spawn(Node {
+                        column_gap: px(8),
+                        align_items: AlignItems::Center,
+                        ..default()
+                    })
+                    .with_children(|p| {
+                        button(p, "-", Action::Quantity(-1));
+                        p.spawn(text(village.quantity.to_string(), 17.));
+                        button(p, "+", Action::Quantity(1));
+                    });
                     body.spawn(text(reason, 14.));
-                    body.spawn(text("[Left / Right] category  |  [- / =] quantity  |  [Esc] map", 12.));
-                    let note = match item {
-                        Item::Meal => "Premium meal stays in the pantry until explicitly consumed at the forge.",
-                        Item::Staple => "Staples use the existing pantry and automatic eating rules. Well water remains free.",
-                        _ => "Materials are stored locally. Crafting recipes and commissions are future progression.",
-                    };
-                    body.spawn(text(note, 13.));
-                } else {
-                    body.spawn(text(locked, 16.));
-                }
-            } else {
-                body.spawn(text(locked, 16.));
-                button(body, "Return to map", Action::Map);
-            }
+                    button(
+                        body,
+                        "Purchase [Enter]",
+                        Action::Buy(item, state.command_id.saturating_add(1)),
+                    );
+                    body.spawn(text(
+                        if item == Item::Meal {
+                            "A warm meal. Use it from your provisions."
+                        } else if item == Item::Staple {
+                            "Everyday provisions. Your smith eats these when needed."
+                        } else {
+                            "Stored for future recipes and commissions."
+                        },
+                        12.,
+                    ));
+                });
         });
-    });
+}
+fn item_icon(item: Item) -> &'static str {
+    match item {
+        Item::Timber => "timber",
+        Item::Leather => "leather",
+        Item::Staple => "staples",
+        Item::Meal => "meal",
+    }
 }
 #[allow(clippy::type_complexity)]
 pub fn update(
@@ -673,7 +745,13 @@ pub fn update(
     s: Res<Session>,
     surface: Query<&ComputedNode, With<MapSurface>>,
     mut layers: Query<(&MapLayer, &mut Node, &mut Visibility)>,
-    mut buttons: Query<(&Action, &mut BackgroundColor)>,
+    mut commands: Commands,
+    buttons: Query<(
+        Entity,
+        &Action,
+        Has<bevy::ui::InteractionDisabled>,
+        Has<forge_ui::Selected>,
+    )>,
     mut labels: ParamSet<(
         Query<&mut Text, With<Caption>>,
         Query<&mut Text, With<Wallet>>,
@@ -681,16 +759,32 @@ pub fn update(
     )>,
 ) {
     let active = v.hover.or(v.nav.focus);
-    for (action, mut color) in &mut buttons {
-        let focused = matches!(action,Action::Visit(l) if active.is_some_and(|i|v.registry.locations[i].id==*l));
+    for (entity, action, was_disabled, was_selected) in &buttons {
+        let selected = matches!(action,Action::Visit(l) if active.is_some_and(|i|v.registry.locations[i].id==*l))
+            || matches!(action,Action::Category(i) if v.category==*i)
+            || matches!(action,Action::SelectItem(item) if v.selected_item.or_else(|| Item::ALL.into_iter().find(|candidate| candidate.vendor() == item.vendor()))==Some(*item));
         let disabled = matches!(action,Action::Buy(item,_) if s.disabled || s.save.state.quote(item.vendor(),*item,v.quantity).map_or(true,|p|p>s.save.state.gold));
-        color.0 = if focused {
-            Color::srgb(0.32, 0.29, 0.20)
-        } else if disabled {
-            Color::srgb(0.12, 0.12, 0.12)
-        } else {
-            Color::srgb(0.14, 0.18, 0.17)
-        };
+        if disabled != was_disabled {
+            if disabled {
+                commands.entity(entity).insert((
+                    bevy::ui::InteractionDisabled,
+                    forge_ui::Unavailable(
+                        "Check gold, stock and storage before purchasing.".into(),
+                    ),
+                ));
+            } else {
+                commands
+                    .entity(entity)
+                    .remove::<(bevy::ui::InteractionDisabled, forge_ui::Unavailable)>();
+            }
+        }
+        if selected != was_selected {
+            if selected {
+                commands.entity(entity).insert(forge_ui::Selected);
+            } else {
+                commands.entity(entity).remove::<forge_ui::Selected>();
+            }
+        }
     }
     if let Ok(surface) = surface.single() {
         let size = surface.size() * surface.inverse_scale_factor;
@@ -740,8 +834,9 @@ pub fn update(
         }
     }
     for mut t in &mut labels.p2() {
-        if **t != s.status {
-            **t = s.status.clone();
+        let value = s.status.split(". C craft").next().unwrap_or(&s.status);
+        if **t != value {
+            **t = value.to_owned();
         }
     }
 }
@@ -884,6 +979,16 @@ mod tests {
         assert!(!app.world().resource::<Desktop>().shell.expanded);
         let old = app.world().resource::<Session>().save.state.clone();
         app.world_mut().trigger(Activate { entity: buy });
+        assert_eq!(app.world().resource::<Session>().save.state, old);
+        // Even a direct observer event cannot purchase through an active modal.
+        app.world_mut().resource_mut::<Desktop>().shell.expanded = true;
+        app.world_mut().trigger(Activate { entity: farm });
+        let mut dialog = forge_ui::DialogState::default();
+        dialog.open("quit", "Quit?", "", None);
+        app.insert_resource(dialog);
+        let next = app.world().resource::<Session>().save.state.command_id + 1;
+        let blocked = app.world_mut().spawn(Action::Buy(Item::Staple, next)).id();
+        app.world_mut().trigger(Activate { entity: blocked });
         assert_eq!(app.world().resource::<Session>().save.state, old);
         drop(app);
         std::fs::remove_dir_all(dir).unwrap();

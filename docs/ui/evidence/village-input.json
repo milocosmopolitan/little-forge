@@ -1,0 +1,129 @@
+{
+  "adapter": "llvmpipe (LLVM 20.1.2, 256 bits) | Vulkan | llvmpipe Mesa 25.2.8-0ubuntu0.24.04.2 (LLVM 20.1.2)",
+  "arch": "x86_64",
+  "fps": 29.98017758372108,
+  "life": {
+    "action": "Idle",
+    "config": {
+      "consume_seconds": 2,
+      "drink_threshold": 3000,
+      "eat_threshold": 3000,
+      "food_price": 2,
+      "food_restore": 6000,
+      "hunger_rate": 1,
+      "minimum_speed": 250,
+      "sleep_seconds": 120,
+      "sleep_threshold": 9000,
+      "slowdown_threshold": 2500,
+      "stack_limit": 20,
+      "thirst_rate": 2,
+      "work_fatigue": 4
+    },
+    "fatigue": 20,
+    "hunger": 12,
+    "pantry": {
+      "slots": [
+        {
+          "count": 4,
+          "food": "Staple"
+        },
+        {
+          "count": 1,
+          "food": "Premium"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    "queue": 0,
+    "remaining": 0,
+    "thirst": 24,
+    "work": 0
+  },
+  "native_display": "monitor=Some(\"screen\") physical=1280x800 scale=1 position=At(IVec2(160, 540)); native_work_area=false; Ctrl+Alt+F8 global recovery registered",
+  "note": "Native transparency requires manual verification",
+  "os": "linux",
+  "qa": "village-input",
+  "safe": true,
+  "shell": "Shell { mode: Interaction, expanded: false, safe: true, always_on_top: false, lease_left: 0.0 }",
+  "state": {
+    "command_id": 4,
+    "commerce": {
+      "leather": 0,
+      "stock": [
+        39,
+        30,
+        59,
+        11
+      ],
+      "timber": 1
+    },
+    "crafted": 1,
+    "daggers": 0,
+    "event_id": 3,
+    "gold": 22,
+    "job_due": null,
+    "life": {
+      "action": "Idle",
+      "config": {
+        "consume_seconds": 2,
+        "drink_threshold": 3000,
+        "eat_threshold": 3000,
+        "food_price": 2,
+        "food_restore": 6000,
+        "hunger_rate": 1,
+        "minimum_speed": 250,
+        "sleep_seconds": 120,
+        "sleep_threshold": 9000,
+        "slowdown_threshold": 2500,
+        "stack_limit": 20,
+        "thirst_rate": 2,
+        "work_fatigue": 4
+      },
+      "fatigue": 20,
+      "hunger": 12,
+      "pantry": {
+        "slots": [
+          {
+            "count": 4,
+            "food": "Staple"
+          },
+          {
+            "count": 1,
+            "food": "Premium"
+          },
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "queue": 0,
+      "remaining": 0,
+      "thirst": 24,
+      "work": 0
+    },
+    "next_visitor": 35,
+    "ore": 8,
+    "rng": 45454805674,
+    "sold": 1,
+    "tick": 12
+  },
+  "tick": 12,
+  "version": "0.1.0",
+  "village_screen": "Home"
+}

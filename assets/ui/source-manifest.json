@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "epic": 58,
+  "generator": "built-in imagegen",
+  "created": "2026-10-16",
+  "runtime_ready": false,
+  "assets": [
+    {
+      "path": "assets/ui/source/controls-v1.png",
+      "status": "source-candidate-not-runtime",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "sha256": "bcb54272b4e3c321d47495b2e49003f7b3e13ca72afef82b4654c24fd0909485"
+    },
+    {
+      "path": "assets/ui/source/icons-v1.png",
+      "status": "source-candidate-not-runtime",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "sha256": "d6c6093617efa7f00b151b729a124aec35828887a96ec355fdd0870db18edefb"
+    },
+    {
+      "path": "assets/ui/source/merchant-headers-v1.png",
+      "status": "source-candidate-not-runtime",
+      "width": 1774,
+      "height": 887,
+      "mode": "RGB",
+      "alpha_extrema": null,
+      "sha256": "a5eeefdcefcc15a4a97acd96373396ae52ac8885b237aafcb8db01a3a49b3f39"
+    }
+  ]
+}

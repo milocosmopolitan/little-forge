@@ -296,6 +296,8 @@ pub fn refresh(
                 let enabled = available(&title, action);
                 let mut button = m.spawn((
                     Button,
+                    forge_ui::SkinButton,
+                    bevy::picking::hover::Hovered::default(),
                     action,
                     Node {
                         width: percent(100),
@@ -316,7 +318,8 @@ pub fn refresh(
                         Color::srgba(0.085, 0.071, 0.06, 0.93)
                     }),
                 ));
-                if !enabled { button.insert(InteractionDisabled); }
+                if selected { button.insert(forge_ui::Selected); }
+                if !enabled { button.insert((InteractionDisabled, forge_ui::Unavailable("Not available yet".into()))); }
                 button.with_children(|b| {
                     b.spawn((
                         Text::new(label),
