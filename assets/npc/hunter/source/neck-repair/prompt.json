@@ -1,0 +1,10 @@
+{
+  "mode": "built-in image_gen",
+  "use_case": "precise-object-edit",
+  "prompt": "Use case: precise-object-edit.\nAsset: 128x160 native pixel-art hunter NPC, transparent background, shown enlarged 8x in image 1.\nImage 1 EDIT TARGET: gear-free hunter. Image 2 IDENTITY REFERENCE: original hunter wearing a fur hat and cloak.\nRepair ONLY the lower jaw stubble, neck anatomy, and cream shirt collar in image 1. The present neck is an ugly long diagonal ribbon with a cut-out jaw and harsh stripe. Reconstruct these three areas as ONE anatomically coherent connection: a short sturdy neck planted vertically into the shoulders, emerging naturally from beneath the jaw, with a small warm shadow beneath the chin. Restore the original light brown jaw stubble seen in image 2. Keep a full, rounded original hunter jaw, no clipped-off beard, no duplicated jaw or second mouth. Raise the cream shirt collar slightly so the exposed neck is compact. Preserve the original green cloak-free cream shirt, no added gear.\nInvariants: Keep eyes, eyebrows, nose, smile, full brown hair, overall head position, shoulder positions, body, hands, trousers, boots and foot placement exactly as image 1. Keep youthful chibi proportions and 3/4 view. Do not extend the neck sideways or shift the head. Do not add a beard bib or thick black stripe.\nPixel style: native 1px dark outlines, warm peach skin and subtle brown stubble, 64-color earthy palette, crisp connected clusters. No smoothing or gradients. Output the full sprite on the same 128:160 canvas and at the same scale and coordinates, with actual transparency. No crop, no text, no extra character.",
+  "inputs": [
+    "source/neck-edit-target.png",
+    "source/reference.png"
+  ],
+  "output": "source/neck-repair/candidate.png"
+}

@@ -1,0 +1,87 @@
+{
+  "revision": "head-ownership-v8",
+  "status": "user_rejected_superseded_by_neck_cloth_v9",
+  "user_accepted": false,
+  "user_reported_keys": [
+    "hammering-2",
+    "hammering-3",
+    "hammering-4",
+    "quenching-0",
+    "quenching-1",
+    "quenching-2",
+    "quenching-5"
+  ],
+  "causes": [
+    "Reference head included short neck/collar pixels that travelled with the head",
+    "Old face/jaw contour was retained in the source upper body",
+    "Loose bright-pixel material matching classified ear/hair highlights as shirt",
+    "Broad imported neck skin extended beyond the anatomical connection"
+  ],
+  "repair": [
+    "Documented root-coordinate ownership mask removes neck/collar pixels only from work heads",
+    "Remove old source face contour from upper body while preserving connected shirt clusters and their 1px boundary",
+    "Restrict source neck skin to a narrow native polygon; outline only exposed neck/background boundaries",
+    "Male quenching keys 0,4,5: head, eyes and mouth down 1 native pixel",
+    "Thinking hand ownership remains in the upper body even when connected to facial skin"
+  ],
+  "checks": {
+    "head_ownership": "head-ownership-validation.json",
+    "neck_and_shirt": "neck-assembly-validation.json",
+    "exact_retained_head_and_eyes_mouth_atlas": "animation-validation.json",
+    "scene_arm_head_and_unrelated_frames": "work-style-validation.json",
+    "determinism": "animation-rebuild.json",
+    "byte_identical_rebuild_files": 2888
+  },
+  "visual_review": {
+    "all_visible_face_work_keys": 48,
+    "all_work_keys": 60,
+    "head_upper_neck_and_final_layers_reviewed": true,
+    "marked_keys_before_after": "head-ownership-before-after.png",
+    "separate_layers": "head-ownership-layers.png",
+    "all_necks_light": "neck-all-48-light.png",
+    "all_necks_dark": "neck-all-48-dark.png",
+    "scales": [
+      1,
+      4
+    ],
+    "separate_layer_scope": "Both sexes at the seven user-reported keys; thinking-hand pose additionally checked",
+    "base_variants_checked": "all 48 visible-head keys at nearest 4x; neck-base-48-dark.png"
+  },
+  "browser": {
+    "app": "Safari",
+    "manual_cases_observed": [
+      "hammering-2",
+      "quenching-2"
+    ],
+    "status": "complete",
+    "url": "http://127.0.0.1:8773/assets/characters/previews/animation.html?qa=work&revision=head-ownership-v8&build=final",
+    "completion_text_observed": "PLAYBACK QA COMPLETE: 40 scenarios, both characters.",
+    "speeds": [
+      1,
+      0.5
+    ],
+    "scenarios": 40,
+    "equipment": [
+      true,
+      false
+    ],
+    "backgrounds": [
+      "light",
+      "dark"
+    ],
+    "workstation": true
+  },
+  "runtime_integration": false,
+  "structural_checks_do_not_establish_visual_acceptance": true,
+  "artifact_hashes": {
+    "qa/head-ownership-before-after.png": "15d99263238ddef10fcd2a35229f34cbd1c6b577c164509746262bb4d82d56da",
+    "qa/head-ownership-layers.png": "bdf88c8ae1b5b30f6f5be4d085c2f0c55f1e7b128243cbb2bb3c42d52e6c4a68",
+    "qa/neck-all-48-dark.png": "0d39322188f9e50c23289d1cb1512cbfa673a6251a154359772e734880376f38",
+    "qa/neck-all-48-light.png": "caff9aeda169082bcd8238b3346f705a4f49d359c7ac2f97c8df469f209ab390",
+    "female/animation.json": "e94d3ffddde3d5e3de1998ff301a21d0a735fd479be15f9f2d072fabb1740216",
+    "male/animation.json": "9cefb73aa3a62b74fc0e84cdc7667e07fe3e78d0a487dc671e82318099531092",
+    "female/atlas.png": "6a4b2f30831c9d7f0972ba1d6e9e1a668611044cc63de06df795111c68ac5405",
+    "male/atlas.png": "ec284cfd1cbb4d1883bf5c0f8fe8326370e821e69dd5125ba8d0920c517e0ea1"
+  },
+  "superseded_by": "neck-cloth-v9-review.json"
+}

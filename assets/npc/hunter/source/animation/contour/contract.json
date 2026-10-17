@@ -1,0 +1,143 @@
+{
+  "canvas": [
+    128,
+    160
+  ],
+  "pivot": [
+    64,
+    140
+  ],
+  "edit_type": "native ownership and contour repair, existing generated sources retained",
+  "surprised": {
+    "mouth": "mouth/surprised-open.png",
+    "speech_round_unchanged": true
+  },
+  "nod_down": {
+    "head_delta_from_previous": [
+      0,
+      1
+    ],
+    "cap_source_crop": [
+      42,
+      18,
+      90,
+      48
+    ],
+    "cap_native_size_before": [
+      48,
+      30
+    ],
+    "cap_native_size_after": [
+      50,
+      33
+    ],
+    "cap_paste": [
+      41,
+      18
+    ],
+    "tail_delta": [
+      0,
+      2
+    ]
+  },
+  "neck_support": {
+    "coverage_files": [
+      "nod-down-neck-coverage.png",
+      "turn-left-neck-coverage.png",
+      "turn-right-neck-coverage.png"
+    ],
+    "fills_only_transparent_pixels": true,
+    "colors": "nearest skin sample inside the same posed neck source",
+    "rear_hair": "locked neutral motion head, original ear skin replaced with adjacent hair material behind the posed head"
+  },
+  "walk": {
+    "accepted_base_frames_unchanged": true,
+    "locked_native_bodies": {
+      "0": "a09bdf17c303ba5690baec34137db2c9a6fb0531e4a82a0ebf7835b9473001e3",
+      "1": "5f1184918818016b395f0ec83c1ff878766609ea1978a6d5659784aad245dfa3",
+      "2": "74c76dbd96b2e3088ee89141d71855de0c576f0df4156f1f15b5a8f97fbc41a9",
+      "3": "73543aca3d0fd2047fbf81c6b2fb05bc6d0403aeb64fdc100c13a1723a423b38",
+      "4": "ceafc1b34d90d4acfe5ae6c643cdc5e1fa31396f5d0654d70e49146bf6ed8b0c",
+      "5": "f301f1c29bdb1bc881a8d6ef5a5f06164797a86d1dd8c97974cb1ff05786c4e9"
+    },
+    "ownership": "walk-ownership.json",
+    "foreground": "complete native sleeves, wrists and hands; all sleeve shadow and outline colors preserved",
+    "gloves": "per-key palm polygons clipped to visible skin; curved wrist seam; hidden rear glove cannot overpaint clothing"
+  },
+  "validation": "qa/verify-contours.py",
+  "walk_equipment_occlusion": {
+    "scope": "six walk keys only; bare body/head/motion preserved",
+    "cape_back_polygon": [
+      [
+        45,
+        75
+      ],
+      [
+        53,
+        74
+      ],
+      [
+        57,
+        81
+      ],
+      [
+        55,
+        91
+      ],
+      [
+        51,
+        98
+      ],
+      [
+        45,
+        98
+      ],
+      [
+        42,
+        94
+      ],
+      [
+        43,
+        84
+      ]
+    ],
+    "cape_back_palette_source": "approved equipment/cloak.png native olive folds; 1px border",
+    "cape_shoulder": "original registered opaque cape pixels occlude the foreground sleeve",
+    "vest_repair": "complete the neutral bent-wrist cutout behind the moving arm",
+    "sleeve_inner_edges": "walk-ownership.json; per-key y/x traces exclude torso shirt while preserving cuff and skin",
+    "regression": "qa/verify-walk-occlusion.py",
+    "before": "qa/walk-occlusion-before/",
+    "far_panel": {
+      "polygon_unbobbed": [
+        [
+          80,
+          73
+        ],
+        [
+          85,
+          75
+        ],
+        [
+          87,
+          81
+        ],
+        [
+          87,
+          94
+        ],
+        [
+          85,
+          98
+        ],
+        [
+          81,
+          96
+        ]
+      ],
+      "ownership": "behind body and far arm; exclude all opaque body pixels from added cape",
+      "coverage_masks": "walk-{k}-far-cape-{coverage,shape}.png",
+      "comparison": "qa/far-cape-before/",
+      "scope": "all six walk keys"
+    }
+  }
+}

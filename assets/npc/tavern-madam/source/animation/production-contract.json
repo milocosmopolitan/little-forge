@@ -1,0 +1,136 @@
+{
+  "canvas": [
+    128,
+    160
+  ],
+  "foot_anchor": [
+    64,
+    140
+  ],
+  "palette_max": 64,
+  "baseline_locks": 14,
+  "expressions": [
+    "neutral",
+    "talk-small",
+    "talk-wide",
+    "talk-round",
+    "blink",
+    "happy",
+    "surprised",
+    "relaxed"
+  ],
+  "gestures": {
+    "nod": [
+      120,
+      100,
+      140,
+      100,
+      120
+    ],
+    "shake_head": [
+      100,
+      140,
+      100,
+      140,
+      100
+    ],
+    "give": [
+      120,
+      120,
+      180,
+      120,
+      120,
+      120
+    ]
+  },
+  "walk": {
+    "durations_ms": [
+      120,
+      120,
+      120,
+      120,
+      120,
+      120
+    ],
+    "near_side": "anatomical right, screen-left",
+    "far_side": "anatomical left, screen-right",
+    "handedness": "near gold boot buckle stays near right",
+    "keys": [
+      {
+        "id": 0,
+        "phase": "left contact",
+        "near_arm": "forward",
+        "near_leg": "back",
+        "far_arm": "back",
+        "far_leg": "forward",
+        "bob_y": 0
+      },
+      {
+        "id": 1,
+        "phase": "left support",
+        "near_arm": "recovering",
+        "near_leg": "recovering",
+        "far_arm": "recovering",
+        "far_leg": "support",
+        "bob_y": 1
+      },
+      {
+        "id": 2,
+        "phase": "right passing",
+        "near_arm": "passes down",
+        "near_leg": "raised passing",
+        "far_arm": "passes down",
+        "far_leg": "support",
+        "bob_y": -1
+      },
+      {
+        "id": 3,
+        "phase": "right contact",
+        "near_arm": "back",
+        "near_leg": "forward",
+        "far_arm": "forward",
+        "far_leg": "back",
+        "bob_y": 0
+      },
+      {
+        "id": 4,
+        "phase": "right support",
+        "near_arm": "recovering",
+        "near_leg": "support",
+        "far_arm": "recovering",
+        "far_leg": "recovering",
+        "bob_y": 1
+      },
+      {
+        "id": 5,
+        "phase": "left passing",
+        "near_arm": "passes down",
+        "near_leg": "support",
+        "far_arm": "passes down",
+        "far_leg": "raised passing",
+        "bob_y": -1
+      }
+    ],
+    "held_props": false,
+    "towel": false
+  },
+  "give": {
+    "hand": "anatomical left / screen-right",
+    "neutral_socket": [
+      68,
+      50
+    ],
+    "mid_socket": [
+      78,
+      61
+    ],
+    "full_socket": [
+      80,
+      71
+    ],
+    "tool": "original upright tankard, same grip holes",
+    "transfer_key_zero_based": 3,
+    "return_empty": true
+  },
+  "scope": "authoring only, no game runtime replacement"
+}

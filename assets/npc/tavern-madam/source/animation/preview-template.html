@@ -1,0 +1,43 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Tavern madam animation</title>
+<style>
+*{box-sizing:border-box}body{margin:0;padding:20px;font:14px system-ui;background:#e5dac5;color:#30231e}h1{font-size:20px;margin:0 0 12px}label{display:inline-flex;gap:6px;align-items:center}button,select,input{font:inherit}button,select{padding:6px 9px}header,.controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px}.stage{display:flex;gap:20px;overflow:auto;background:#eee3cc;border:1px solid #b7a78c;padding:12px;min-height:205px}figure{margin:0}figcaption{margin-bottom:8px}canvas{image-rendering:pixelated;display:block}body.dark{background:#201e24;color:#f0dfc6}body.dark .stage{background:#302b32;border-color:#706571}#status{white-space:pre-wrap;font-variant-numeric:tabular-nums;margin:12px 0;min-height:44px}details{max-width:850px;margin-top:12px}a{color:inherit}
+</style>
+<h1>Tavern madam · expressions and motions</h1>
+<header><label>Clip <select id="clip"></select></label><button id="play">Pause</button><button id="restart">Restart</button><button id="next">Next key</button><label>Key <input id="key" type="range" min="0" value="0" step="1"></label></header>
+<div class="controls"><label>Speed <select id="speed"><option value="1">Normal</option><option value="0.25">Slow ¼</option></select></label><label>Scale <select id="scale"><option value="4">4× nearest</option><option value="1">1× native</option></select></label><label>Background <select id="background"><option value="light">Light</option><option value="dark">Dark</option></select></label><label><input id="gear" type="checkbox" checked>Equipment</label><label><input id="autoBlink" type="checkbox">Independent blink during idle/talk</label></div>
+<div class="controls"><label><input id="faceMode" type="checkbox">Face combinations</label><label>Eyes <select id="eyes"></select></label><label>Mouth <select id="mouth"></select></label></div>
+<div class="stage"><figure><figcaption>Empty equipment</figcaption><canvas id="base" width="128" height="160"></canvas></figure><figure><figcaption id="fullCaption">Equipped</figcaption><canvas id="full" width="128" height="160"></canvas></figure></div>
+<div id="status" aria-live="polite"></div>
+<details><summary>Asset contract</summary><p>128×160 canvas · fixed foot pivot (64,140) · 64-color palette · binary alpha. Anatomical near side: right arm and large-buckle boot. Walk frees both arms and removes tankard/towel. Give transfers the tankard once on key 3 and returns empty-handed.</p><p>Motion clips stop on their final key. Restart replays the demonstration. Events fire on normal key entry; key stepping and seeking do not transfer anything. These previews are authoring assets; game runtime integration has not been performed.</p></details>
+<script id="asset-data" type="application/json">__DATA__</script>
+<script>
+const D=JSON.parse(document.querySelector('#asset-data').textContent),$=id=>document.getElementById(id),clips=D.animation.clips;
+const images={},load=async(url)=>{if(images[url])return images[url];const im=new Image();im.src=url;await im.decode();return images[url]=im};
+let index=0,elapsed=0,playing=true,last=0,total=0,transfers=0,entered=new Set(),drawToken=0;
+for(const id of Object.keys(clips))$('clip').add(new Option(id,id));
+for(const id of Object.keys(D.eyes))$('eyes').add(new Option(id,id));
+for(const id of Object.keys(D.mouth))$('mouth').add(new Option(id,id));
+function selected(){return clips[$('clip').value]}
+function enter(fire){if(fire&&!entered.has(index)){for(const event of selected().events.filter(e=>e.key===index)){if(event.name==='transfer')transfers++}entered.add(index)}}
+async function render(){
+ const token=++drawToken,clip=selected(),name=clip.frames[index],face=$('faceMode').checked,scale=Number($('scale').value),gear=$('gear').checked;
+ const lists={base:[],full:[]};
+ if(face){for(const variant of ['base','full']){lists[variant]=['lower','upper','head'].map(n=>D.parts[n]);lists[variant].push(D.eyes[$('eyes').value],D.mouth[$('mouth').value]);if(variant==='full'&&gear)lists[variant].push(...Object.values(D.equipment));}}
+ else{lists.base=[D.frames[name].base];lists.full=[D.frames[name][gear?'full':'base']];
+  if($('autoBlink').checked&&['idle','talk'].includes($('clip').value)&&total%3600>3200&&total%3600<3320){lists.base.push(D.eyes.closed);lists.full.push(D.eyes.closed)}}
+ const decoded=Object.fromEntries(await Promise.all(Object.entries(lists).map(async([id,urls])=>[id,await Promise.all(urls.map(load))])));if(token!==drawToken)return;
+ for(const [id,list] of Object.entries(decoded)){const canvas=$(id),ctx=canvas.getContext('2d');canvas.style.width=128*scale+'px';canvas.style.height=160*scale+'px';ctx.clearRect(0,0,128,160);ctx.imageSmoothingEnabled=false;for(const image of list)ctx.drawImage(image,0,0)}
+ $('key').max=clip.frames.length-1;$('key').value=index;$('play').textContent=playing?'Pause':'Play';$('fullCaption').textContent=gear?'Equipped':'Equipment off';
+ $('status').textContent=(face?`Face: ${$('eyes').value} / ${$('mouth').value}`:`${$('clip').value} · key ${index+1}/${clip.frames.length} · ${name} · ${clip.durations_ms[index]} ms`)+`\n${playing?'Playing':'Paused'} · transfer events: ${transfers}`;
+ window.madamPreview={clip:$('clip').value,key:index,frame:name,playing,transfers,scale,speed:Number($('speed').value),background:$('background').value,gear,faceMode:face};
+}
+function reset(){index=0;elapsed=0;total=0;transfers=0;entered.clear();playing=true;enter(true);render()}
+$('clip').onchange=()=>{$('faceMode').checked=false;reset()};$('play').onclick=()=>{playing=!playing;render()};$('restart').onclick=reset;
+$('next').onclick=()=>{playing=false;index=(index+1)%selected().frames.length;elapsed=0;render()};$('key').oninput=()=>{playing=false;index=Number($('key').value);elapsed=0;render()};
+for(const id of ['scale','gear','eyes','mouth','faceMode','autoBlink'])$(id).onchange=render;
+$('background').onchange=()=>{document.body.classList.toggle('dark',$('background').value==='dark');render()};
+const Q=new URLSearchParams(location.search);for(const id of ['clip','speed','scale','background','eyes','mouth'])if(Q.has(id))$(id).value=Q.get(id);
+if(Q.has('gear'))$('gear').checked=Q.get('gear')!=='0';if(Q.has('paused'))playing=false;if(Q.has('key'))index=Math.max(0,Math.min(selected().frames.length-1,Number(Q.get('key'))));
+document.body.classList.toggle('dark',$('background').value==='dark');enter(false);render();
+function tick(now){const dt=last?Math.min(now-last,100):0;last=now;if(playing&&!$('faceMode').checked){const clip=selected();elapsed+=dt*Number($('speed').value);total+=dt*Number($('speed').value);let changed=false;while(elapsed>=clip.durations_ms[index]){elapsed-=clip.durations_ms[index];if(index===clip.frames.length-1){if(!clip.loop){playing=false;elapsed=0;changed=true;break}index=0;entered.clear()}else index++;enter(true);changed=true}if(changed||$('autoBlink').checked)render()}requestAnimationFrame(tick)}requestAnimationFrame(tick);
+</script></html>

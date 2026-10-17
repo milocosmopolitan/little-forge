@@ -1,0 +1,30 @@
+{
+  "status": "pass",
+  "near_eye_translation": [
+    0,
+    2
+  ],
+  "far_eye_translation": [
+    0,
+    1
+  ],
+  "curve_shape_width_color": "exactly preserved",
+  "eyebrows_nose_mole_mouth": "unchanged",
+  "open_eye_remnant_cleanup_native": {
+    "x": 51,
+    "rows": [
+      30,
+      31,
+      32,
+      33
+    ]
+  },
+  "other_frames": "44 identical base/equipped files",
+  "canvas": [
+    128,
+    160
+  ],
+  "comparison": "previews/happy-eyes-before-after.png",
+  "visual_review": "Chrome happy key 2/3 at nearest 4x, base/equipped; lower eye curves and cleared far-eye remnant reviewed; slow playback returned to neutral key 3/3",
+  "provenance": "source/animation/happy-eye-repair/registration.json"
+}

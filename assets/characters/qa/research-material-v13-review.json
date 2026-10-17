@@ -1,0 +1,59 @@
+{
+  "revision": "research-material-v13",
+  "status": "internal_review_recorded_user_acceptance_pending",
+  "user_accepted": null,
+  "scope": "Female equipped research keys 0 through 5",
+  "prior_qa_failure": "Opacity and bright plate pigment did not prove leather material identity, shoulder continuity or anatomical connection",
+  "corrections": [
+    "Source leather straps and buckles restored as explicit garment ownership regions",
+    "Source collars repositioned around short neck; original source-face jaw edge excluded",
+    "Original source-hair seam removed at thinking shoulder",
+    "Approved facial pixels, female base and all male frames preserved"
+  ],
+  "pixel_checks": {
+    "status": "pass",
+    "revision": "research-material-v13",
+    "unique_material_straps": 7,
+    "rejected_v12_strap_gap_rows": 18,
+    "old_hair_seam_pixels": 0,
+    "female_face_layers_preserved": 36,
+    "other_frames_preserved": 228,
+    "source_buckle_and_leather_pigments_preserved": true,
+    "visual_acceptance": "Not established by pixel assertions"
+  },
+  "build_check": {
+    "status": "pass",
+    "native_png_and_json_files": 3122,
+    "byte_identical": true,
+    "command": "node assets/characters/source/animation/build.mjs --no-previews",
+    "excluded": "QA JSON reports, which are independent check outputs"
+  },
+  "browser_review": {
+    "app": "Safari",
+    "version_label": "research-material-v13",
+    "manual_keys": [
+      0,
+      1,
+      2,
+      4
+    ],
+    "equipment": true,
+    "workstation": true,
+    "backgrounds": [
+      "light",
+      "dark"
+    ],
+    "playback_speeds": [
+      1,
+      0.5
+    ],
+    "scope": "Female equipped research; source-layer and native close-up sheets reviewed separately",
+    "page": "http://127.0.0.1:8773/assets/characters/previews/animation.html?clip=researching&frame=4&review=material-v13-final4"
+  },
+  "proofs": [
+    "research-material-v13-before-after.png",
+    "research-material-v13-all-keys.png"
+  ],
+  "structural_checks_do_not_establish_visual_acceptance": true,
+  "runtime_integration": false
+}

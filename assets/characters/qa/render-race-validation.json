@@ -1,0 +1,7 @@
+{
+  "status": "pass",
+  "scope": "Actual preview render function with deliberately reordered image promises",
+  "both_characters_commit_together": true,
+  "stale_render_discarded": true,
+  "latest_frame_and_equipment_snapshot_retained": true
+}

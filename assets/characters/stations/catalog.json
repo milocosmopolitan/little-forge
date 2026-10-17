@@ -1,0 +1,106 @@
+{
+  "version": 1,
+  "world_canvas": [
+    256,
+    192
+  ],
+  "character_origin": [
+    32,
+    16
+  ],
+  "sampler": "nearest",
+  "mipmaps": false,
+  "stations": {
+    "anvil": {
+      "size": [
+        64,
+        64
+      ],
+      "path": "stations/anvil.png",
+      "back": "stations/anvil-back.png",
+      "front": "stations/anvil-front.png",
+      "water": "stations/anvil-water.png",
+      "fire": "stations/anvil-fire.png",
+      "contact": [
+        18,
+        8
+      ],
+      "source": "../forge/workshop/source/anvil.png",
+      "source_status": "generated_reference",
+      "derived_native": true
+    },
+    "quenching-tub": {
+      "size": [
+        64,
+        48
+      ],
+      "path": "stations/quenching-tub.png",
+      "back": "stations/quenching-tub-back.png",
+      "front": "stations/quenching-tub-front.png",
+      "water": "stations/quenching-tub-water.png",
+      "fire": "stations/quenching-tub-fire.png",
+      "contact": [
+        29,
+        18
+      ],
+      "source": "../forge/workshop/source/quenching-tub.png",
+      "source_status": "generated_reference",
+      "derived_native": true
+    },
+    "forge": {
+      "size": [
+        128,
+        144
+      ],
+      "path": "stations/forge.png",
+      "back": "stations/forge-back.png",
+      "front": "stations/forge-front.png",
+      "water": "stations/forge-water.png",
+      "fire": "stations/forge-fire.png",
+      "contact": [
+        48,
+        76
+      ],
+      "source": "../forge/workshop/source/forge.png",
+      "source_status": "generated_reference",
+      "derived_native": true
+    },
+    "research-table": {
+      "size": [
+        128,
+        96
+      ],
+      "path": "stations/research-table.png",
+      "back": "stations/research-table-back.png",
+      "front": "stations/research-table-front.png",
+      "water": "stations/research-table-water.png",
+      "fire": "stations/research-table-fire.png",
+      "contact": [
+        64,
+        26
+      ],
+      "source": "source/animation/work-repair/research-table-tall.png",
+      "source_status": "generated_reference",
+      "derived_native": true
+    },
+    "salvage-table": {
+      "size": [
+        128,
+        96
+      ],
+      "path": "stations/salvage-table.png",
+      "back": "stations/salvage-table-back.png",
+      "front": "stations/salvage-table-front.png",
+      "water": "stations/salvage-table-water.png",
+      "fire": "stations/salvage-table-fire.png",
+      "contact": [
+        64,
+        39
+      ],
+      "source": "../forge/workshop/source/salvage-table.png",
+      "source_status": "generated_reference",
+      "derived_native": true
+    }
+  },
+  "runtime_integration": false
+}

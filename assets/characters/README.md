@@ -1,10 +1,16 @@
-# 플레이어 기본 자세
+# 플레이어 캐릭터와 애니메이션
 
-여자·남자 각 1개의 오른쪽 3/4 방향 기본 자세다. 현재 모든 캐릭터 부품과 합성 PNG는 **Grid B 8×10칸, 128×160 RGBA, 발 기준점 `(64,140)`**를 공유한다. NPC의 공통 캔버스와 같은 규격이다. 이동·공격·방향 전환이나 게임 컨트롤 연결은 이번 제작 범위에 포함되지 않는다.
+여자·남자 각 1개의 오른쪽 3/4 방향 기본 자세다. 현재 모든 캐릭터 부품과 합성 PNG는 **Grid B 8×10칸, 128×160 RGBA, 발 기준점 `(64,140)`**를 공유한다. NPC의 공통 캔버스와 같은 규격이다. 공통 표정·제스처·보행과 대장장이 작업 5종은 [ANIMATION.md](ANIMATION.md)에 정리한다. 게임 컨트롤 연결은 아직 하지 않았다.
 
 플레이어 작업 계획은 [포즈 스킬](../../.agents/skills/human-character-gen/references/pose.md)의 `player_blacksmith` 세트를 따른다. NPC와 같은 기본 포즈·8표정·끄덕임·도리도리·전달·보행에 작업 5종을 추가하며, 작업 세트가 공통 기본 세트를 대체하지 않는다. 망치질·담금질·화로 가열은 오른쪽 3/4, 연구는 책상 뒤 정면, 분해는 책상 앞 후면이다. [기물·배경과 동작 참고](../forge/workshop/PROVENANCE.md)는 고해상도 후보이며 이 폴더의 채택 기본 자세를 대체하지 않는다. 작업 프레임·정면/후면 네이티브 기본층·런타임 연동은 아직 추가하지 않았다.
 
 원본 제작 좌표 96×128에 `(16,16)`을 더해 공개 캔버스로 옮긴다. 여백 확장으로 기존 얼굴을 확대하거나 리샘플링하지 않는다. `source/reference-native.png`와 `source/revision-0/`는 이전 제작 좌표의 입력/기록이며, 게임용 부품이 아니다. 명세의 원점·소켓·얼굴 ROI·발 위치와 `character.json`도 공개 좌표로 갱신했다.
+
+## 표정·동작 미리보기
+
+[남녀 동시 재생](previews/animation.html), [여자 작업 5종](female/previews/work-actions-review.png), [남자 작업 5종](male/previews/work-actions-review.png).
+
+네이티브 프레임·레이어·아틀라스와 시간/이벤트는 각 캐릭터의 animation.json과 atlas-manifest.json에 있다. 전체 생성 경로·변환·검수 명령은 [ANIMATION.md](ANIMATION.md)를 따른다.
 
 ## 현재 얼굴과 목 보정, revision-3
 

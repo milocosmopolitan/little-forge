@@ -1,0 +1,227 @@
+version: 1
+id: hunter
+role: npc
+action_set: neutral_only
+grid: B
+grid_unit_px:
+- 16
+- 16
+canvas_cells:
+- 8
+- 10
+native_canvas_px:
+- 128
+- 160
+origin_px:
+- 0
+- 0
+foot_anchor_px:
+- 64
+- 140
+preview_scale: 4
+pose_canvas:
+  grid: B
+  canvas_cells:
+  - 8
+  - 10
+  native_canvas_px:
+  - 128
+  - 160
+  base_offset_px:
+  - 0
+  - 0
+  foot_anchor_px:
+  - 64
+  - 140
+reference_roles:
+  identity: source/reference.png
+  style: source/reference.png
+reconstructed_occluded_regions:
+- complete hair under fur hat
+- cream shirt under cloak and leather outfit
+- bare hands under fingerless gloves
+- plain boot shafts under fur cuffs
+baseline:
+  complete_underlayer: base-neutral.png
+  foundation: source/complete-underlayer-native.png
+  builder: source/build-character.py
+  coverage_report: qa/validation.json
+palette:
+  max_opaque_colors: 64
+  reason: preserve mottled fur, warm face/beard, green cloth, leather and gold buckle
+    clusters
+  source: source/palette.png
+  alpha_values:
+  - 0
+  - 255
+identity:
+  head_bbox_px:
+  - 43
+  - 25
+  - 88
+  - 65
+  head_size_without_hat_px:
+  - 45
+  - 40
+  face_bbox_px:
+  - 59
+  - 42
+  - 82
+  - 62
+  eye_bbox_with_brows_px:
+    near:
+    - 61
+    - 42
+    - 69
+    - 52
+    far:
+    - 76
+    - 42
+    - 81
+    - 54
+  eye_white_iris_design: large brown pupils with cream highlights; reference facial
+    pixels retained
+  hair_color: short tousled dark brown, restored under fur hat
+  beard: subtle warm jaw stubble retained from reference
+  body_build: youthful stocky hunter, original large head and short sturdy legs
+  outline_rule: native dark contour; separate fur/leather shading
+  eye_size_with_brows_px:
+    near:
+    - 8
+    - 10
+    far:
+    - 5
+    - 12
+  eye_gap_px: 7
+  neck_visible_skin_rows_px:
+  - 60
+  - 66
+  leg_span_to_sole_px:
+  - 97
+  - 140
+  visible_cross_sections:
+    neck:
+      y: 63
+      x_interval:
+      - 60
+      - 71
+      width_px: 11
+    shoulders:
+      y: 70
+      x_interval:
+      - 47
+      - 81
+      width_px: 34
+    chest:
+      y: 78
+      x_interval:
+      - 50
+      - 82
+      width_px: 32
+    waist:
+      y: 95
+      x_interval:
+      - 50
+      - 80
+      width_px: 30
+    near_thigh:
+      y: 108
+      x_interval:
+      - 52
+      - 64
+      width_px: 12
+    far_thigh:
+      y: 108
+      x_interval:
+      - 66
+      - 82
+      width_px: 16
+    near_arm:
+      y: 84
+      x_interval:
+      - 38
+      - 50
+      width_px: 12
+sockets_px:
+  neck:
+  - 68
+  - 62
+  waist:
+  - 65
+  - 91
+  right_hand:
+  - 53
+  - 93
+  left_hand:
+  - 86
+  - 104
+  head:
+  - 67
+  - 44
+limb_identity:
+  side_convention: character_anatomical
+  near_side: right
+  far_side: left
+layers:
+  head_base: head-base.png
+  upper_base: body/upper-base.png
+  lower_base: body/lower-base.png
+  hands_front: body/hands-front.png
+  eyes:
+    open: eyes/open.png
+  mouth:
+    rest: mouth/rest.png
+  equipment:
+  - equipment/bow.png
+  - equipment/quiver-and-arrows.png
+  - equipment/fur-hat.png
+  - equipment/cloak.png
+  - equipment/leather-outfit.png
+  - equipment/gloves.png
+  - equipment/boot-fur-cuffs.png
+eyebrow_owner: eyes
+composition_order:
+- bow
+- quiver-and-arrows
+- lower
+- upper
+- head
+- eyes
+- mouth
+- fur-hat
+- cloak
+- leather-outfit
+- boot-fur-cuffs
+- hands-front
+- gloves
+expression_recipes:
+  neutral:
+    eyes: open
+    mouth: rest
+production_plan:
+  status: neutral_only_complete
+  completed:
+  - neutral
+  not_generated:
+  - extra expressions
+  - nod
+  - shake_head
+  - give
+  - walk
+animation:
+  frames:
+  - neutral
+  clips: {}
+runtime_export:
+  status: not_integrated
+  mode: baked
+  manifest: atlas-manifest.json
+  sampler: nearest
+  mipmaps: false
+  extrude_px: 1
+  gutter_px: 1
+  rotate_packing: false
+generation:
+  tool: built-in image_gen
+  final_prompts: source/generation-prompts.json
+  registration: source/registration.json

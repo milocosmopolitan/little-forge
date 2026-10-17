@@ -1,0 +1,685 @@
+{
+  "status": "pass",
+  "revision": "joint-rebuild-v11",
+  "variants_checked": 96,
+  "missing_body_coverage_pixels": 0,
+  "nonuniform_head_bindings": 0,
+  "rejected_v10_binding_failures": 84,
+  "unrelated_frames_preserved": 120,
+  "coverage_scope": "Body-owned neck and shoulder plate, checked without the head; source garment colors checked separately",
+  "visual_acceptance": "Not established by pixel assertions",
+  "variants": [
+    {
+      "sex": "female",
+      "pose": "hammering-0",
+      "equipped": false,
+      "required_body_pixels": 163,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "hammering-0",
+      "equipped": true,
+      "required_body_pixels": 161,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "hammering-1",
+      "equipped": false,
+      "required_body_pixels": 240,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "hammering-1",
+      "equipped": true,
+      "required_body_pixels": 214,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "hammering-2",
+      "equipped": false,
+      "required_body_pixels": 225,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "hammering-2",
+      "equipped": true,
+      "required_body_pixels": 195,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "hammering-3",
+      "equipped": false,
+      "required_body_pixels": 225,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "hammering-3",
+      "equipped": true,
+      "required_body_pixels": 228,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "hammering-4",
+      "equipped": false,
+      "required_body_pixels": 217,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "hammering-4",
+      "equipped": true,
+      "required_body_pixels": 148,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "hammering-5",
+      "equipped": false,
+      "required_body_pixels": 163,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "hammering-5",
+      "equipped": true,
+      "required_body_pixels": 161,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "quenching-0",
+      "equipped": false,
+      "required_body_pixels": 162,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "quenching-0",
+      "equipped": true,
+      "required_body_pixels": 175,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "quenching-1",
+      "equipped": false,
+      "required_body_pixels": 179,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "quenching-1",
+      "equipped": true,
+      "required_body_pixels": 213,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "quenching-2",
+      "equipped": false,
+      "required_body_pixels": 232,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "quenching-2",
+      "equipped": true,
+      "required_body_pixels": 206,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "quenching-3",
+      "equipped": false,
+      "required_body_pixels": 232,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "quenching-3",
+      "equipped": true,
+      "required_body_pixels": 206,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "quenching-4",
+      "equipped": false,
+      "required_body_pixels": 162,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "quenching-4",
+      "equipped": true,
+      "required_body_pixels": 177,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "quenching-5",
+      "equipped": false,
+      "required_body_pixels": 162,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "quenching-5",
+      "equipped": true,
+      "required_body_pixels": 175,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "forging-0",
+      "equipped": false,
+      "required_body_pixels": 158,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "forging-0",
+      "equipped": true,
+      "required_body_pixels": 174,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "forging-1",
+      "equipped": false,
+      "required_body_pixels": 208,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "forging-1",
+      "equipped": true,
+      "required_body_pixels": 290,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "forging-2",
+      "equipped": false,
+      "required_body_pixels": 241,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "forging-2",
+      "equipped": true,
+      "required_body_pixels": 244,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "forging-3",
+      "equipped": false,
+      "required_body_pixels": 241,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "forging-3",
+      "equipped": true,
+      "required_body_pixels": 244,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "forging-4",
+      "equipped": false,
+      "required_body_pixels": 165,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "forging-4",
+      "equipped": true,
+      "required_body_pixels": 146,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "forging-5",
+      "equipped": false,
+      "required_body_pixels": 158,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "forging-5",
+      "equipped": true,
+      "required_body_pixels": 174,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "researching-0",
+      "equipped": false,
+      "required_body_pixels": 186,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "researching-0",
+      "equipped": true,
+      "required_body_pixels": 174,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "researching-1",
+      "equipped": false,
+      "required_body_pixels": 219,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "researching-1",
+      "equipped": true,
+      "required_body_pixels": 184,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "researching-2",
+      "equipped": false,
+      "required_body_pixels": 278,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "researching-2",
+      "equipped": true,
+      "required_body_pixels": 222,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "researching-3",
+      "equipped": false,
+      "required_body_pixels": 219,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "researching-3",
+      "equipped": true,
+      "required_body_pixels": 184,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "researching-4",
+      "equipped": false,
+      "required_body_pixels": 139,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "researching-4",
+      "equipped": true,
+      "required_body_pixels": 124,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "researching-5",
+      "equipped": false,
+      "required_body_pixels": 186,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "female",
+      "pose": "researching-5",
+      "equipped": true,
+      "required_body_pixels": 174,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "hammering-0",
+      "equipped": false,
+      "required_body_pixels": 138,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "hammering-0",
+      "equipped": true,
+      "required_body_pixels": 162,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "hammering-1",
+      "equipped": false,
+      "required_body_pixels": 154,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "hammering-1",
+      "equipped": true,
+      "required_body_pixels": 233,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "hammering-2",
+      "equipped": false,
+      "required_body_pixels": 222,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "hammering-2",
+      "equipped": true,
+      "required_body_pixels": 229,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "hammering-3",
+      "equipped": false,
+      "required_body_pixels": 225,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "hammering-3",
+      "equipped": true,
+      "required_body_pixels": 221,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "hammering-4",
+      "equipped": false,
+      "required_body_pixels": 233,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "hammering-4",
+      "equipped": true,
+      "required_body_pixels": 214,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "hammering-5",
+      "equipped": false,
+      "required_body_pixels": 138,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "hammering-5",
+      "equipped": true,
+      "required_body_pixels": 162,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "quenching-0",
+      "equipped": false,
+      "required_body_pixels": 122,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "quenching-0",
+      "equipped": true,
+      "required_body_pixels": 119,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "quenching-1",
+      "equipped": false,
+      "required_body_pixels": 208,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "quenching-1",
+      "equipped": true,
+      "required_body_pixels": 203,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "quenching-2",
+      "equipped": false,
+      "required_body_pixels": 232,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "quenching-2",
+      "equipped": true,
+      "required_body_pixels": 184,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "quenching-3",
+      "equipped": false,
+      "required_body_pixels": 232,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "quenching-3",
+      "equipped": true,
+      "required_body_pixels": 184,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "quenching-4",
+      "equipped": false,
+      "required_body_pixels": 190,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "quenching-4",
+      "equipped": true,
+      "required_body_pixels": 152,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "quenching-5",
+      "equipped": false,
+      "required_body_pixels": 122,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "quenching-5",
+      "equipped": true,
+      "required_body_pixels": 119,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "forging-0",
+      "equipped": false,
+      "required_body_pixels": 268,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "forging-0",
+      "equipped": true,
+      "required_body_pixels": 199,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "forging-1",
+      "equipped": false,
+      "required_body_pixels": 270,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "forging-1",
+      "equipped": true,
+      "required_body_pixels": 255,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "forging-2",
+      "equipped": false,
+      "required_body_pixels": 284,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "forging-2",
+      "equipped": true,
+      "required_body_pixels": 257,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "forging-3",
+      "equipped": false,
+      "required_body_pixels": 284,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "forging-3",
+      "equipped": true,
+      "required_body_pixels": 257,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "forging-4",
+      "equipped": false,
+      "required_body_pixels": 237,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "forging-4",
+      "equipped": true,
+      "required_body_pixels": 170,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "forging-5",
+      "equipped": false,
+      "required_body_pixels": 268,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "forging-5",
+      "equipped": true,
+      "required_body_pixels": 199,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "researching-0",
+      "equipped": false,
+      "required_body_pixels": 268,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "researching-0",
+      "equipped": true,
+      "required_body_pixels": 260,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "researching-1",
+      "equipped": false,
+      "required_body_pixels": 326,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "researching-1",
+      "equipped": true,
+      "required_body_pixels": 263,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "researching-2",
+      "equipped": false,
+      "required_body_pixels": 346,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "researching-2",
+      "equipped": true,
+      "required_body_pixels": 253,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "researching-3",
+      "equipped": false,
+      "required_body_pixels": 326,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "researching-3",
+      "equipped": true,
+      "required_body_pixels": 263,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "researching-4",
+      "equipped": false,
+      "required_body_pixels": 294,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "researching-4",
+      "equipped": true,
+      "required_body_pixels": 314,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "researching-5",
+      "equipped": false,
+      "required_body_pixels": 268,
+      "missing_required_body_pixels": 0
+    },
+    {
+      "sex": "male",
+      "pose": "researching-5",
+      "equipped": true,
+      "required_body_pixels": 260,
+      "missing_required_body_pixels": 0
+    }
+  ]
+}

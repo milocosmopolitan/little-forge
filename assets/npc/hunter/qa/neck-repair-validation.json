@@ -1,0 +1,17 @@
+{
+  "base-neutral.png": {
+    "changed_pixels": 373,
+    "changes_outside_jaw_neck_collar_mask": 0
+  },
+  "neutral.png": {
+    "changed_pixels": 69,
+    "changes_outside_jaw_neck_collar_mask": 0
+  },
+  "source": "source/neck-repair/prompt.json",
+  "scope": "Jaw, neck and collar only; all other pixels preserved.",
+  "visual_review": [
+    "light/dark static contact sheets",
+    "8x face crop",
+    "Chrome refreshed 4x base and equipped preview"
+  ]
+}

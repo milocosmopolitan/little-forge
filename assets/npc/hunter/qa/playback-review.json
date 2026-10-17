@@ -1,0 +1,17 @@
+{
+  "status": "reviewed",
+  "surface": "Chrome native UI",
+  "preview": "http://127.0.0.1:8791/assets/npc/hunter/previews/animation.html",
+  "observed": [
+    "walk normal playback, base and equipped, 4x",
+    "walk slow quarter-speed, 1x native, dark background, equipped without hat",
+    "walk loop boundary observed walk-5 to walk-1 while playing",
+    "nod slow playback from neutral through return; maximum key paused on dark background",
+    "shake_head left and right keys paused, with hat on and off",
+    "give normal playback finished at neutral with transfer cues exactly 1",
+    "happy held key with hat removed, rechecked after eye-channel ownership repair",
+    "surprised and blink held keys at 1x",
+    "talk slow playback and closed-eye plus wide-open mouth combination"
+  ],
+  "limits": "Authoring preview and static native-layer review. No Bevy/game runtime integration measured."
+}

@@ -1,0 +1,732 @@
+{
+  "version": 2,
+  "sampler": "nearest",
+  "mipmaps": false,
+  "extrude_px": 1,
+  "gutter_px": 1,
+  "pages": [
+    {
+      "id": "hunter-0",
+      "path": "atlas.png",
+      "size": [
+        1056,
+        496
+      ]
+    }
+  ],
+  "sprites": [
+    {
+      "id": "neutral",
+      "page": "hunter-0",
+      "rect": [
+        2,
+        2,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/neutral.png",
+      "rotated": false
+    },
+    {
+      "id": "talk-small",
+      "page": "hunter-0",
+      "rect": [
+        134,
+        2,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/talk-small.png",
+      "rotated": false
+    },
+    {
+      "id": "talk-wide",
+      "page": "hunter-0",
+      "rect": [
+        266,
+        2,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/talk-wide.png",
+      "rotated": false
+    },
+    {
+      "id": "talk-round",
+      "page": "hunter-0",
+      "rect": [
+        398,
+        2,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/talk-round.png",
+      "rotated": false
+    },
+    {
+      "id": "blink",
+      "page": "hunter-0",
+      "rect": [
+        530,
+        2,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/blink.png",
+      "rotated": false
+    },
+    {
+      "id": "happy",
+      "page": "hunter-0",
+      "rect": [
+        662,
+        2,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/happy.png",
+      "rotated": false
+    },
+    {
+      "id": "surprised",
+      "page": "hunter-0",
+      "rect": [
+        794,
+        2,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/surprised.png",
+      "rotated": false
+    },
+    {
+      "id": "relaxed",
+      "page": "hunter-0",
+      "rect": [
+        926,
+        2,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/relaxed.png",
+      "rotated": false
+    },
+    {
+      "id": "nod-down",
+      "page": "hunter-0",
+      "rect": [
+        2,
+        166,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/nod-down.png",
+      "rotated": false
+    },
+    {
+      "id": "turn-left",
+      "page": "hunter-0",
+      "rect": [
+        134,
+        166,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/turn-left.png",
+      "rotated": false
+    },
+    {
+      "id": "turn-right",
+      "page": "hunter-0",
+      "rect": [
+        266,
+        166,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/turn-right.png",
+      "rotated": false
+    },
+    {
+      "id": "nod-mid",
+      "page": "hunter-0",
+      "rect": [
+        398,
+        166,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/nod-mid.png",
+      "rotated": false
+    },
+    {
+      "id": "give-mid",
+      "page": "hunter-0",
+      "rect": [
+        530,
+        166,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/give-mid.png",
+      "rotated": false
+    },
+    {
+      "id": "give-full",
+      "page": "hunter-0",
+      "rect": [
+        662,
+        166,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/give-full.png",
+      "rotated": false
+    },
+    {
+      "id": "give-empty",
+      "page": "hunter-0",
+      "rect": [
+        794,
+        166,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/give-empty.png",
+      "rotated": false
+    },
+    {
+      "id": "give-retract",
+      "page": "hunter-0",
+      "rect": [
+        926,
+        166,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/give-retract.png",
+      "rotated": false
+    },
+    {
+      "id": "walk-0",
+      "page": "hunter-0",
+      "rect": [
+        2,
+        330,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/walk-0.png",
+      "rotated": false
+    },
+    {
+      "id": "walk-1",
+      "page": "hunter-0",
+      "rect": [
+        134,
+        330,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/walk-1.png",
+      "rotated": false
+    },
+    {
+      "id": "walk-2",
+      "page": "hunter-0",
+      "rect": [
+        266,
+        330,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/walk-2.png",
+      "rotated": false
+    },
+    {
+      "id": "walk-3",
+      "page": "hunter-0",
+      "rect": [
+        398,
+        330,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/walk-3.png",
+      "rotated": false
+    },
+    {
+      "id": "walk-4",
+      "page": "hunter-0",
+      "rect": [
+        530,
+        330,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/walk-4.png",
+      "rotated": false
+    },
+    {
+      "id": "walk-5",
+      "page": "hunter-0",
+      "rect": [
+        662,
+        330,
+        128,
+        160
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        0,
+        0
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/walk-5.png",
+      "rotated": false
+    }
+  ],
+  "clips": {
+    "idle": {
+      "frames": [
+        "neutral",
+        "relaxed",
+        "blink",
+        "relaxed",
+        "neutral"
+      ],
+      "durations_ms": [
+        1400,
+        40,
+        80,
+        40,
+        1600
+      ],
+      "loop": true,
+      "events": []
+    },
+    "blink": {
+      "frames": [
+        "neutral",
+        "relaxed",
+        "blink",
+        "relaxed",
+        "neutral"
+      ],
+      "durations_ms": [
+        120,
+        40,
+        80,
+        40,
+        120
+      ],
+      "loop": false,
+      "events": []
+    },
+    "talk": {
+      "frames": [
+        "neutral",
+        "talk-small",
+        "talk-wide",
+        "talk-small",
+        "talk-round",
+        "neutral"
+      ],
+      "durations_ms": [
+        120,
+        100,
+        120,
+        100,
+        100,
+        140
+      ],
+      "loop": true,
+      "events": []
+    },
+    "happy": {
+      "frames": [
+        "neutral",
+        "happy",
+        "neutral"
+      ],
+      "durations_ms": [
+        160,
+        700,
+        160
+      ],
+      "loop": false,
+      "events": []
+    },
+    "surprised": {
+      "frames": [
+        "neutral",
+        "surprised",
+        "neutral"
+      ],
+      "durations_ms": [
+        160,
+        600,
+        180
+      ],
+      "loop": false,
+      "events": []
+    },
+    "relaxed": {
+      "frames": [
+        "neutral",
+        "relaxed",
+        "neutral"
+      ],
+      "durations_ms": [
+        160,
+        600,
+        180
+      ],
+      "loop": false,
+      "events": []
+    },
+    "nod": {
+      "frames": [
+        "neutral",
+        "nod-mid",
+        "nod-down",
+        "nod-mid",
+        "neutral"
+      ],
+      "durations_ms": [
+        120,
+        100,
+        140,
+        100,
+        120
+      ],
+      "loop": false,
+      "events": []
+    },
+    "shake_head": {
+      "frames": [
+        "neutral",
+        "turn-left",
+        "neutral",
+        "turn-right",
+        "neutral"
+      ],
+      "durations_ms": [
+        100,
+        140,
+        100,
+        140,
+        100
+      ],
+      "loop": false,
+      "events": []
+    },
+    "give": {
+      "frames": [
+        "neutral",
+        "give-mid",
+        "give-full",
+        "give-empty",
+        "give-retract",
+        "neutral"
+      ],
+      "durations_ms": [
+        120,
+        120,
+        180,
+        120,
+        120,
+        120
+      ],
+      "loop": false,
+      "events": [
+        {
+          "key": 3,
+          "name": "transfer",
+          "hand": "left",
+          "item": null,
+          "fires": "once_on_entry"
+        }
+      ]
+    },
+    "walk": {
+      "frames": [
+        "walk-0",
+        "walk-1",
+        "walk-2",
+        "walk-3",
+        "walk-4",
+        "walk-5"
+      ],
+      "durations_ms": [
+        120,
+        120,
+        120,
+        120,
+        120,
+        120
+      ],
+      "loop": true,
+      "events": []
+    }
+  },
+  "usage": "authoring_not_integrated"
+}

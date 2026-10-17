@@ -1,0 +1,114 @@
+[
+  {
+    "id": "nod-down",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: identity-preserve / precise-object-edit. Edit provided isolated pixel-art head. Source is a 64x64 native grid enlarged 16x to 1024x1024, head originally occupies local native (5,4)..(53,49). Keep EXACT same identity, native pixel scale and head volume, auburn pinned-up bun and loose curls, big brown eyes, cheek beauty mark, warm peach skin and neutral expression. No earrings, ribbon or hair clip. No body, shoulders or neck stump: head with complete curls only. Leave transparent background. Same 1024x1024 placement; do not enlarge to fill frame, no rescale of eyes/mouth separately. Clean discrete pixel clusters and single native pixel dark outlines, no smoothing. Tilt the whole head downward about 10 degrees in a small nod. Keep yaw at original right-facing three-quarter angle. Eyes look slightly down, chin moves down ~2 native pixels toward collar. Preserve the same neutral smile and cheek beauty mark. Keep hair bun volume and complete hanging curls.",
+    "output": "candidates/nod-down.png",
+    "input": "head-target.png"
+  },
+  {
+    "id": "turn-left",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: identity-preserve / precise-object-edit. Edit provided isolated pixel-art head. Source is a 64x64 native grid enlarged 16x to 1024x1024, head originally occupies local native (5,4)..(53,49). Keep EXACT same identity, native pixel scale and head volume, auburn pinned-up bun and loose curls, big brown eyes, cheek beauty mark, warm peach skin and neutral expression. No earrings, ribbon or hair clip. No body, shoulders or neck stump: head with complete curls only. Leave transparent background. Same 1024x1024 placement; do not enlarge to fill frame, no rescale of eyes/mouth separately. Clean discrete pixel clusters and single native pixel dark outlines, no smoothing. Turn the head about 12 degrees toward the viewer, reducing the original rightward three-quarter yaw, almost frontal but still slightly rightward. Both eyes remain the original brown open eyes with correct perspective, original mild smile and cheek beauty mark follow the face. Preserve same bun and curl arrangement and volume.",
+    "output": "candidates/turn-left.png",
+    "input": "head-target.png"
+  },
+  {
+    "id": "turn-right",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: identity-preserve / precise-object-edit. Edit provided isolated pixel-art head. Source is a 64x64 native grid enlarged 16x to 1024x1024, head originally occupies local native (5,4)..(53,49). Keep EXACT same identity, native pixel scale and head volume, auburn pinned-up bun and loose curls, big brown eyes, cheek beauty mark, warm peach skin and neutral expression. No earrings, ribbon or hair clip. No body, shoulders or neck stump: head with complete curls only. Leave transparent background. Same 1024x1024 placement; do not enlarge to fill frame, no rescale of eyes/mouth separately. Clean discrete pixel clusters and single native pixel dark outlines, no smoothing. Turn the head about 12 degrees further toward screen-right, increasing the original three-quarter yaw into a gentle near profile. Far eye narrows naturally but remains visible. Keep original brown eyes, mild smile, cheek beauty mark, bun and curls. This is a modest head shake turn, not a 90 degree profile.",
+    "output": "candidates/turn-right.png",
+    "input": "head-target.png"
+  },
+  {
+    "id": "give-mid",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Edit this complete equipment-free pixel-art tavern hostess, preserving character, palette, chunky native pixel grid, curvy body, cream puff sleeves, dark fitted gold-laced bodice, dark skirt with tan hem, original boots and proportions. Preserve exact 1024x1536 framing. Each native pixel is 11x11 display pixels with native origin (-16,64); foot baseline native y124 is image y1428. Do not redraw face/hair or change any clothing design. No mug, towel, apron, shawl, belt, pouches, bottle, jewelry or other equipment. No gloves. Fully transparent background and no floor/glow. Change ONLY anatomical LEFT / SCREEN-RIGHT arm: lower and extend the originally raised empty grip diagonally forward to native hand socket (76,58), from original (68,50). Keep the original cream rolled sleeve design and shoulder at native (56,49), bend elbow naturally; compact curled empty fist upright, ready to grip the same tankard handle. Keep anatomical right hand on hip unchanged. The body, waist, feet, head, hair, face and dress remain exactly in original position.",
+    "output": "candidates/give-mid.png",
+    "input": "body-target.png"
+  },
+  {
+    "id": "give-full",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Edit this complete equipment-free pixel-art tavern hostess, preserving character, palette, chunky native pixel grid, curvy body, cream puff sleeves, dark fitted gold-laced bodice, dark skirt with tan hem, original boots and proportions. Preserve exact 1024x1536 framing. Each native pixel is 11x11 display pixels with native origin (-16,64); foot baseline native y124 is image y1428. Do not redraw face/hair or change any clothing design. No mug, towel, apron, shawl, belt, pouches, bottle, jewelry or other equipment. No gloves. Fully transparent background and no floor/glow. Change ONLY anatomical LEFT / SCREEN-RIGHT arm: extend forward/down in a welcoming serving gesture to native hand socket (84,66), from original (68,50). Shoulder remains at native (56,49), elbow around (67,63), forearm reaches right to the hand. Retain original cream rolled sleeve design. Compact curled empty fist upright ready to grip original tankard handle. Do not use open palm. Keep anatomical right hand on hip unchanged. Body, waist, feet, head, hair, face and dress remain exactly in original position.",
+    "output": "candidates/give-full.png",
+    "input": "body-target.png"
+  },
+  {
+    "id": "walk-0",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Create ONE in-place WALK animation key from this exact tavern hostess. Preserve her approved face, auburn updo/curls, cheek beauty mark, curvy body, cream puff blouse, dark fitted gold-laced bodice, DARK SKIRT WITH TAN HEM and original brown buckle boots. This is not pants. Keep skirt length and body proportions; small natural skirt folds/swing permit alternating steps. Keep exact 1024x1536 framing and source pixel scale (native grid 96x128, displayed pixels 11x11, native origin (-16,64)). Ground baseline native y124 = image y1428. Do not zoom, rescale body/head, shorten skirt or enlarge feet. Both arms now LOWERED and swinging naturally, compact relaxed hands with clean fingers. NO equipment: no shawl/apron/belt/jewelry/ribbon/bottle/keys/towel/tankard. No neck gaps, no duplicated arms. Anatomical RIGHT is near/screen-left, with near boot's large gold buckle preserved on same side. Anatomical LEFT is far/screen-right. Keep body facing screen-right three-quarter angle. Transparent background, no floor, no shadows/glow, crisp discrete pixel clusters with native one-pixel dark outlines. No labels, no sheet. Key 0, LEFT-FOOT CONTACT. Anatomical LEFT (far, screen-right) foot forward toward screen-right by ~6 native pixels, anatomical RIGHT (near, screen-left) foot back by ~6 pixels. Anatomical RIGHT/near arm swings FORWARD across front: lowered near hand around native (43,82). Anatomical LEFT/far arm swings BACK: lowered far hand around (56,84). Both hands hang below waist, not on hip, not raised.",
+    "output": "candidates/walk-0.png",
+    "input": "body-target.png"
+  },
+  {
+    "id": "walk-1",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Create ONE in-place WALK animation key from this exact tavern hostess. Preserve her approved face, auburn updo/curls, cheek beauty mark, curvy body, cream puff blouse, dark fitted gold-laced bodice, DARK SKIRT WITH TAN HEM and original brown buckle boots. This is not pants. Keep skirt length and body proportions; small natural skirt folds/swing permit alternating steps. Keep exact 1024x1536 framing and source pixel scale (native grid 96x128, displayed pixels 11x11, native origin (-16,64)). Ground baseline native y124 = image y1428. Do not zoom, rescale body/head, shorten skirt or enlarge feet. Both arms now LOWERED and swinging naturally, compact relaxed hands with clean fingers. NO equipment: no shawl/apron/belt/jewelry/ribbon/bottle/keys/towel/tankard. No neck gaps, no duplicated arms. Anatomical RIGHT is near/screen-left, with near boot's large gold buckle preserved on same side. Anatomical LEFT is far/screen-right. Keep body facing screen-right three-quarter angle. Transparent background, no floor, no shadows/glow, crisp discrete pixel clusters with native one-pixel dark outlines. No labels, no sheet. Key 1, LEFT-FOOT SUPPORT / LOWERING. Far LEFT foot supports body, near RIGHT heel lifts in recovery. Knees slightly bent, shoulders/waist lower about one native pixel. Near RIGHT arm recovers from forward extreme toward vertical: hand around (38,84); far LEFT arm recovers from back extreme: hand around (60,85). Both hands lowered, with clear wrist/knuckles.",
+    "output": "candidates/walk-1.png",
+    "input": "body-target.png"
+  },
+  {
+    "id": "walk-2",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Create ONE in-place WALK animation key from this exact tavern hostess. Preserve her approved face, auburn updo/curls, cheek beauty mark, curvy body, cream puff blouse, dark fitted gold-laced bodice, DARK SKIRT WITH TAN HEM and original brown buckle boots. This is not pants. Keep skirt length and body proportions; small natural skirt folds/swing permit alternating steps. Keep exact 1024x1536 framing and source pixel scale (native grid 96x128, displayed pixels 11x11, native origin (-16,64)). Ground baseline native y124 = image y1428. Do not zoom, rescale body/head, shorten skirt or enlarge feet. Both arms now LOWERED and swinging naturally, compact relaxed hands with clean fingers. NO equipment: no shawl/apron/belt/jewelry/ribbon/bottle/keys/towel/tankard. No neck gaps, no duplicated arms. Anatomical RIGHT is near/screen-left, with near boot's large gold buckle preserved on same side. Anatomical LEFT is far/screen-right. Keep body facing screen-right three-quarter angle. Transparent background, no floor, no shadows/glow, crisp discrete pixel clusters with native one-pixel dark outlines. No labels, no sheet. Key 2, RIGHT-FOOT PASSING. Far LEFT leg supports, near RIGHT foot lifted about 3 native pixels and passes inward toward center. Both arms pass down beside the body, hands near native (30,86) and (65,86), away from the original hand-on-hip / raised-mug pose. Shoulders/waist slightly raised versus support, keep same proportions.",
+    "output": "candidates/walk-2.png",
+    "input": "body-target.png"
+  },
+  {
+    "id": "walk-3",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Create ONE in-place WALK animation key from this exact tavern hostess. Preserve her approved face, auburn updo/curls, cheek beauty mark, curvy body, cream puff blouse, dark fitted gold-laced bodice, DARK SKIRT WITH TAN HEM and original brown buckle boots. This is not pants. Keep skirt length and body proportions; small natural skirt folds/swing permit alternating steps. Keep exact 1024x1536 framing and source pixel scale (native grid 96x128, displayed pixels 11x11, native origin (-16,64)). Ground baseline native y124 = image y1428. Do not zoom, rescale body/head, shorten skirt or enlarge feet. Both arms now LOWERED and swinging naturally, compact relaxed hands with clean fingers. NO equipment: no shawl/apron/belt/jewelry/ribbon/bottle/keys/towel/tankard. No neck gaps, no duplicated arms. Anatomical RIGHT is near/screen-left, with near boot's large gold buckle preserved on same side. Anatomical LEFT is far/screen-right. Keep body facing screen-right three-quarter angle. Transparent background, no floor, no shadows/glow, crisp discrete pixel clusters with native one-pixel dark outlines. No labels, no sheet. Key 3, RIGHT-FOOT CONTACT. Anatomical RIGHT (near, screen-left) foot forward toward screen-right by ~6 native pixels; far LEFT foot behind by ~6 pixels. Near RIGHT arm swings BACK, lowered near hand around native (20,84). Far LEFT arm swings FORWARD, lowered far hand around (75,82). Same-side arm and leg oppose each other. Both hands below waist.",
+    "output": "candidates/walk-3.png",
+    "input": "body-target.png"
+  },
+  {
+    "id": "walk-4",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Create ONE in-place WALK animation key from this exact tavern hostess. Preserve her approved face, auburn updo/curls, cheek beauty mark, curvy body, cream puff blouse, dark fitted gold-laced bodice, DARK SKIRT WITH TAN HEM and original brown buckle boots. This is not pants. Keep skirt length and body proportions; small natural skirt folds/swing permit alternating steps. Keep exact 1024x1536 framing and source pixel scale (native grid 96x128, displayed pixels 11x11, native origin (-16,64)). Ground baseline native y124 = image y1428. Do not zoom, rescale body/head, shorten skirt or enlarge feet. Both arms now LOWERED and swinging naturally, compact relaxed hands with clean fingers. NO equipment: no shawl/apron/belt/jewelry/ribbon/bottle/keys/towel/tankard. No neck gaps, no duplicated arms. Anatomical RIGHT is near/screen-left, with near boot's large gold buckle preserved on same side. Anatomical LEFT is far/screen-right. Keep body facing screen-right three-quarter angle. Transparent background, no floor, no shadows/glow, crisp discrete pixel clusters with native one-pixel dark outlines. No labels, no sheet. Key 4, RIGHT-FOOT SUPPORT / LOWERING. Near RIGHT foot supports body, far LEFT heel lifts and recovers. Knees slightly bent, shoulders/waist lower about one native pixel. Near RIGHT arm recovers from back extreme toward vertical: hand around native (25,85); far LEFT arm recovers from forward extreme: hand around (70,84). Both hands lowered.",
+    "output": "candidates/walk-4.png",
+    "input": "body-target.png"
+  },
+  {
+    "id": "walk-5",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Create ONE in-place WALK animation key from this exact tavern hostess. Preserve her approved face, auburn updo/curls, cheek beauty mark, curvy body, cream puff blouse, dark fitted gold-laced bodice, DARK SKIRT WITH TAN HEM and original brown buckle boots. This is not pants. Keep skirt length and body proportions; small natural skirt folds/swing permit alternating steps. Keep exact 1024x1536 framing and source pixel scale (native grid 96x128, displayed pixels 11x11, native origin (-16,64)). Ground baseline native y124 = image y1428. Do not zoom, rescale body/head, shorten skirt or enlarge feet. Both arms now LOWERED and swinging naturally, compact relaxed hands with clean fingers. NO equipment: no shawl/apron/belt/jewelry/ribbon/bottle/keys/towel/tankard. No neck gaps, no duplicated arms. Anatomical RIGHT is near/screen-left, with near boot's large gold buckle preserved on same side. Anatomical LEFT is far/screen-right. Keep body facing screen-right three-quarter angle. Transparent background, no floor, no shadows/glow, crisp discrete pixel clusters with native one-pixel dark outlines. No labels, no sheet. Key 5, LEFT-FOOT PASSING. Near RIGHT leg supports, far LEFT foot lifted about 3 native pixels and passes inward toward center. Both arms pass down beside the body, hands around native (30,85) and (65,86), no hand on hip and no raised fist. Subtle skirt swing opposite key 2. This key leads smoothly back to left-foot contact.",
+    "output": "candidates/walk-5.png",
+    "input": "body-target.png"
+  },
+  {
+    "id": "walk-3-arm",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Edit ONLY the stated limb in this pixel-art crop. Maintain original native pixel grid, scale, palette, clean one-native-pixel dark outline and all other clothing geometry. Transparent background, no shadow/glow, no equipment, no added limbs. One crop, same framing, no text. This is a 64x64 native crop (16x enlarged); its global origin is native (4,40). Change ONLY the NEAR anatomical RIGHT arm on SCREEN-LEFT. Swing it noticeably BACK toward screen-left: move the lowered hand SIX native pixels left, from crop x~19 to x~13 (global hand center17), keep hand height around global y84. Keep original near shoulder global (24,49), original puff sleeve design and rolled cuff, natural continuous elbow/forearm and complete compact fingers. Keep all bodice/skirt and far arm unchanged; no hand on hip.",
+    "output": "candidates/walk-3-arm.png",
+    "input": "walk-3-arm-target.png"
+  },
+  {
+    "id": "walk-5-arm",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Edit ONLY the stated limb in this pixel-art crop. Maintain original native pixel grid, scale, palette, clean one-native-pixel dark outline and all other clothing geometry. Transparent background, no shadow/glow, no equipment, no added limbs. One crop, same framing, no text. This is a 64x64 native crop (16x enlarged); its global origin is native (4,40). Change ONLY the NEAR anatomical RIGHT arm on SCREEN-LEFT into a PASSING arm pose. Its current hand is too far left/back. Put the hand DOWN beside hip at global native (29,85), crop (25,45), about TWELVE native pixels RIGHT from the current hand. Keep original shoulder global (24,49), original puff sleeve and rolled cuff, near arm hanging almost vertical/slightly forward, natural continuous wrist and compact relaxed fingers. Do not place the hand on hip or bend it upward. Preserve all bodice/skirt and far arm.",
+    "output": "candidates/walk-5-arm.png",
+    "input": "walk-5-arm-target.png"
+  },
+  {
+    "id": "walk-2-lower",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Edit ONLY the stated limb in this pixel-art crop. Maintain original native pixel grid, scale, palette, clean one-native-pixel dark outline and all other clothing geometry. Transparent background, no shadow/glow, no equipment, no added limbs. One crop, same framing, no text. This is a 96x64 native lower-body crop enlarged 16x. Its global origin is (0,64); ground is crop y60. Correct ONLY the near anatomical RIGHT leg/boot currently at screen-left, identified by its larger gold buckle. It is a PASSING foot and must be lifted and moved FOURTEEN native pixels RIGHT toward the middle of the skirt: near ankle center global native (43,115), crop (43,51), lifted sole around crop y56, toe points screen-right. Far leg/boot at screen-right remains planted at crop y60. Keep original brown stocking/boot, original boot size and gold buckle identity. No exposed bare skin under the skirt. Retain original long skirt length/tan hem; reconstruct hem and hidden thigh naturally around the new raised leg. Hands/waist and far boot unchanged. Feet should pass close under the hips, not remain spread.",
+    "output": "candidates/walk-2-lower.png",
+    "input": "walk-2-lower-target.png"
+  },
+  {
+    "id": "walk-5-lower",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Edit ONLY the stated limb in this pixel-art crop. Maintain original native pixel grid, scale, palette, clean one-native-pixel dark outline and all other clothing geometry. Transparent background, no shadow/glow, no equipment, no added limbs. One crop, same framing, no text. This is a 96x64 native lower-body crop enlarged 16x. Its global origin is (0,64); ground is crop y60. Correct ONLY the far anatomical LEFT leg/boot currently lifted at screen-right, with the smaller gold buckle. It is a PASSING foot and must move SIXTEEN native pixels LEFT toward center under skirt: far ankle center global native (44,115), crop (44,51), lifted sole around crop y56. Near RIGHT leg/boot at screen-left with larger gold buckle stays planted at crop y60. Preserve original brown stockings, boots and tan hem, no bare skin above the boot. Keep the skirt long, same widths/materials; reconstruct skirt hem and occlusion naturally. Waist, hands and planted near boot unchanged. Feet pass close under hips, not a forward kick.",
+    "output": "candidates/walk-5-lower.png",
+    "input": "walk-5-lower-target.png"
+  },
+  {
+    "id": "walk-4-lower",
+    "tool": "built-in image_gen",
+    "prompt": "Edit this enlarged pixel-art lower-body crop only. Keep the same canvas, skirt, colors, pixel grid, and dark 1-native-pixel outlines. This crop is a 96x64 native grid enlarged 16x, origin global (0,64). Correct walk key 4: anatomical RIGHT/NEAR leg is the planted supporting leg after its forward contact; its brown boot with the LARGE gold buckle must be on the SCREEN-RIGHT side, ankle global (56,116), crop (56,52), flat sole global y124/crop y60. Anatomical LEFT/FAR leg is beginning to recover from BEHIND: smaller buckle boot on screen-left, ankle global (38,115), crop(38,51), heel lifting, toe near global (40,121), sole above planted foot. Swap the current wrong leg phase while preserving both boot designs and original leg thickness. Continuous brown stockings, NO orange bare shins. Keep hem connected to both legs; no detached boots, no holes, no extra feet. Do not change any pixels above global y96/crop y32. Transparent background, no text.",
+    "output": "candidates/walk-4-lower.png",
+    "input": "walk-4-lower-target.png"
+  }
+]

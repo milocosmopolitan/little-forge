@@ -1,0 +1,296 @@
+[
+  {
+    "id": 0,
+    "left_leg": "front",
+    "right_leg": "back",
+    "left_arm": "back",
+    "right_arm": "front",
+    "bob": 0,
+    "source": "contour/walk-0-body.png",
+    "generated_source": "repair/walk-0-candidate.png",
+    "arm_source_key": 0,
+    "hands_measured_screen_rois": [
+      [
+        70,
+        100
+      ],
+      null
+    ],
+    "boots_measured_screen_rois": [
+      [
+        51,
+        122
+      ],
+      [
+        77,
+        123
+      ]
+    ],
+    "source_head_discarded": true,
+    "near_boot_screen_index": 0,
+    "anatomical_contacts": {
+      "right_hand": [
+        70,
+        100
+      ],
+      "left_hand": null,
+      "right_boot": [
+        51,
+        122
+      ],
+      "left_boot": [
+        77,
+        123
+      ]
+    }
+  },
+  {
+    "id": 1,
+    "left_leg": "support",
+    "right_leg": "recover",
+    "left_arm": "recover",
+    "right_arm": "passing",
+    "bob": 1,
+    "source": "contour/walk-1-body.png",
+    "generated_source": "repair/walk-1-candidate.png",
+    "arm_source_key": 4,
+    "hands_measured_screen_rois": [
+      [
+        66,
+        105
+      ],
+      null
+    ],
+    "boots_measured_screen_rois": [
+      [
+        52,
+        119
+      ],
+      [
+        76,
+        124
+      ]
+    ],
+    "source_head_discarded": true,
+    "near_boot_screen_index": 0,
+    "anatomical_contacts": {
+      "right_hand": [
+        66,
+        105
+      ],
+      "left_hand": null,
+      "right_boot": [
+        52,
+        119
+      ],
+      "left_boot": [
+        76,
+        124
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "left_leg": "support",
+    "right_leg": "pass",
+    "left_arm": "front-transition",
+    "right_arm": "back-transition",
+    "bob": 0,
+    "source": "contour/walk-2-body.png",
+    "generated_source": "repair/walk-2-candidate.png",
+    "arm_source_key": 2,
+    "hands_measured_screen_rois": [
+      [
+        48,
+        108
+      ],
+      [
+        88,
+        104
+      ]
+    ],
+    "boots_measured_screen_rois": [
+      [
+        55,
+        123
+      ],
+      [
+        79,
+        120
+      ]
+    ],
+    "source_head_discarded": true,
+    "near_boot_screen_index": 1,
+    "anatomical_contacts": {
+      "right_hand": [
+        48,
+        108
+      ],
+      "left_hand": [
+        88,
+        104
+      ],
+      "right_boot": [
+        79,
+        120
+      ],
+      "left_boot": [
+        55,
+        123
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "left_leg": "back",
+    "right_leg": "front",
+    "left_arm": "front",
+    "right_arm": "back",
+    "bob": 0,
+    "source": "contour/walk-3-body.png",
+    "generated_source": "repair/walk-3-candidate.png",
+    "arm_source_key": 3,
+    "hands_measured_screen_rois": [
+      [
+        45,
+        102
+      ],
+      [
+        88,
+        98
+      ]
+    ],
+    "boots_measured_screen_rois": [
+      [
+        51,
+        122
+      ],
+      [
+        77,
+        123
+      ]
+    ],
+    "source_head_discarded": true,
+    "near_boot_screen_index": 1,
+    "anatomical_contacts": {
+      "right_hand": [
+        45,
+        102
+      ],
+      "left_hand": [
+        88,
+        98
+      ],
+      "right_boot": [
+        77,
+        123
+      ],
+      "left_boot": [
+        51,
+        122
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "left_leg": "recover",
+    "right_leg": "support",
+    "left_arm": "passing",
+    "right_arm": "recover",
+    "bob": 1,
+    "source": "contour/walk-4-body.png",
+    "generated_source": "repair/walk-4-candidate.png",
+    "arm_source_key": 1,
+    "hands_measured_screen_rois": [
+      [
+        50,
+        105
+      ],
+      [
+        88,
+        98
+      ]
+    ],
+    "boots_measured_screen_rois": [
+      [
+        50,
+        115
+      ],
+      [
+        77,
+        125
+      ]
+    ],
+    "source_head_discarded": true,
+    "near_boot_screen_index": 1,
+    "anatomical_contacts": {
+      "right_hand": [
+        50,
+        105
+      ],
+      "left_hand": [
+        88,
+        98
+      ],
+      "right_boot": [
+        77,
+        125
+      ],
+      "left_boot": [
+        50,
+        115
+      ]
+    }
+  },
+  {
+    "id": 5,
+    "left_leg": "pass",
+    "right_leg": "support",
+    "left_arm": "back-transition",
+    "right_arm": "front-transition",
+    "bob": 0,
+    "source": "contour/walk-5-body.png",
+    "generated_source": "repair/walk-5-candidate.png",
+    "arm_source_key": 5,
+    "hands_measured_screen_rois": [
+      [
+        67,
+        104
+      ],
+      [
+        50,
+        103
+      ]
+    ],
+    "boots_measured_screen_rois": [
+      [
+        56,
+        125
+      ],
+      [
+        81,
+        120
+      ]
+    ],
+    "source_head_discarded": true,
+    "near_boot_screen_index": 0,
+    "anatomical_contacts": {
+      "right_hand": [
+        67,
+        104
+      ],
+      "left_hand": [
+        50,
+        103
+      ],
+      "right_boot": [
+        56,
+        125
+      ],
+      "left_boot": [
+        81,
+        120
+      ]
+    }
+  }
+]

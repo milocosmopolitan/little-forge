@@ -1,0 +1,246 @@
+{
+  "status": "pass",
+  "browser": "Safari",
+  "page": "previews/animation.html?qa=1",
+  "observed_completion": "PLAYBACK QA COMPLETE: 34 scenarios, both characters.",
+  "characters": [
+    "female",
+    "male"
+  ],
+  "speeds": [
+    1,
+    0.5
+  ],
+  "scenarios": [
+    {
+      "clip": "idle",
+      "speed": 1,
+      "frames": 1,
+      "events": []
+    },
+    {
+      "clip": "blink",
+      "speed": 1,
+      "frames": 5,
+      "events": []
+    },
+    {
+      "clip": "talk",
+      "speed": 1,
+      "frames": 6,
+      "events": []
+    },
+    {
+      "clip": "talk_blink",
+      "speed": 1,
+      "frames": 6,
+      "events": []
+    },
+    {
+      "clip": "happy",
+      "speed": 1,
+      "frames": 1,
+      "events": []
+    },
+    {
+      "clip": "surprised",
+      "speed": 1,
+      "frames": 1,
+      "events": []
+    },
+    {
+      "clip": "relaxed",
+      "speed": 1,
+      "frames": 1,
+      "events": []
+    },
+    {
+      "clip": "nod",
+      "speed": 1,
+      "frames": 5,
+      "events": []
+    },
+    {
+      "clip": "shake_head",
+      "speed": 1,
+      "frames": 5,
+      "events": []
+    },
+    {
+      "clip": "give",
+      "speed": 1,
+      "frames": 6,
+      "events": [
+        "transfer"
+      ]
+    },
+    {
+      "clip": "walk",
+      "speed": 1,
+      "frames": 6,
+      "events": []
+    },
+    {
+      "clip": "front_blink",
+      "speed": 1,
+      "frames": 3,
+      "events": []
+    },
+    {
+      "clip": "hammering",
+      "speed": 1,
+      "frames": 6,
+      "events": [
+        "hammer_contact"
+      ]
+    },
+    {
+      "clip": "quenching",
+      "speed": 1,
+      "frames": 6,
+      "events": [
+        "water_enter",
+        "water_exit"
+      ]
+    },
+    {
+      "clip": "forging",
+      "speed": 1,
+      "frames": 6,
+      "events": [
+        "heat_enter",
+        "heat_exit"
+      ]
+    },
+    {
+      "clip": "researching",
+      "speed": 1,
+      "frames": 6,
+      "events": []
+    },
+    {
+      "clip": "salvaging",
+      "speed": 1,
+      "frames": 6,
+      "events": [
+        "parts_place"
+      ]
+    },
+    {
+      "clip": "idle",
+      "speed": 0.5,
+      "frames": 1,
+      "events": []
+    },
+    {
+      "clip": "blink",
+      "speed": 0.5,
+      "frames": 5,
+      "events": []
+    },
+    {
+      "clip": "talk",
+      "speed": 0.5,
+      "frames": 6,
+      "events": []
+    },
+    {
+      "clip": "talk_blink",
+      "speed": 0.5,
+      "frames": 6,
+      "events": []
+    },
+    {
+      "clip": "happy",
+      "speed": 0.5,
+      "frames": 1,
+      "events": []
+    },
+    {
+      "clip": "surprised",
+      "speed": 0.5,
+      "frames": 1,
+      "events": []
+    },
+    {
+      "clip": "relaxed",
+      "speed": 0.5,
+      "frames": 1,
+      "events": []
+    },
+    {
+      "clip": "nod",
+      "speed": 0.5,
+      "frames": 5,
+      "events": []
+    },
+    {
+      "clip": "shake_head",
+      "speed": 0.5,
+      "frames": 5,
+      "events": []
+    },
+    {
+      "clip": "give",
+      "speed": 0.5,
+      "frames": 6,
+      "events": [
+        "transfer"
+      ]
+    },
+    {
+      "clip": "walk",
+      "speed": 0.5,
+      "frames": 6,
+      "events": []
+    },
+    {
+      "clip": "front_blink",
+      "speed": 0.5,
+      "frames": 3,
+      "events": []
+    },
+    {
+      "clip": "hammering",
+      "speed": 0.5,
+      "frames": 6,
+      "events": [
+        "hammer_contact"
+      ]
+    },
+    {
+      "clip": "quenching",
+      "speed": 0.5,
+      "frames": 6,
+      "events": [
+        "water_enter",
+        "water_exit"
+      ]
+    },
+    {
+      "clip": "forging",
+      "speed": 0.5,
+      "frames": 6,
+      "events": [
+        "heat_enter",
+        "heat_exit"
+      ]
+    },
+    {
+      "clip": "researching",
+      "speed": 0.5,
+      "frames": 6,
+      "events": []
+    },
+    {
+      "clip": "salvaging",
+      "speed": 0.5,
+      "frames": 6,
+      "events": [
+        "parts_place"
+      ]
+    }
+  ],
+  "rendered_character_frames": 304,
+  "runtime_integration": false
+}

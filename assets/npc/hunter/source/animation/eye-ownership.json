@@ -1,0 +1,12 @@
+{
+  "fixed_hair_and_brows": true,
+  "feature_mask": "repair/eye-coverage.png",
+  "far_eye_native_bounds": [
+    74,
+    46,
+    77,
+    52
+  ],
+  "neutral_appearance_unchanged": true,
+  "reason": "Original eye extraction included hair at x77..80; that material stays in the animation head."
+}

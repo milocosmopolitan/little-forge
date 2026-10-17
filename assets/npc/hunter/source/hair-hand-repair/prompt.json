@@ -1,0 +1,8 @@
+{
+  "mode": "built-in image_gen",
+  "prompt": "Use case: precise-object-edit. Edit target: the attached transparent hunter sprite, enlarged from a native 128x160 grid.\nChange ONLY the top and upper-left crown of his dark brown hair. The crown is currently flattened and hollow-looking under where the hat used to be. Restore a complete rounded, fuller youthful head of hair, adding roughly 3 to 4 native pixels of natural volume above the current crown, particularly across the upper-left arc. Connect the large locks coherently, with a gentle stair-step contour and a few restrained tufts; no thin isolated spike, no helmet, no hair gaps, no bald indentation at the crown. Use exactly the existing warm dark-brown hair shades and 1 native pixel dark outline.\nKeep the fringe/hairline against the face, eyes, eyebrows, nose, smile, beard, repaired neck, cream shirt collar, arms, hands, clothes, legs, boots, pose, head origin and body proportions unchanged. Do not move the face or enlarge its features. No hat, no equipment, no text, no background. Same full 128:160 canvas framing and same sprite registration. Transparent background. Crisp connected pixel clusters; no antialiasing, gradients or smooth painting.",
+  "inputs": [
+    "source/hair-hand-repair/edit-target.png"
+  ],
+  "output": "source/hair-hand-repair/hair-candidate.png"
+}

@@ -1,0 +1,90 @@
+{
+  "status": "pass",
+  "approved_neutral_locks": 14,
+  "frames": 23,
+  "clips": 10,
+  "expressions": 8,
+  "native_layer_files": 277,
+  "shared_opaque_colors": 62,
+  "frame_canvas": [
+    128,
+    160
+  ],
+  "foot_pivot": [
+    64,
+    140
+  ],
+  "binary_alpha": true,
+  "frame_recomposition": "exact",
+  "approved_mole_and_nose": "preserved",
+  "nod_mid_face": "approved rigid +[0,1]",
+  "head_gesture_clothing": "unchanged",
+  "tankard": "original pixels and grip holes",
+  "give_transfer_events": 1,
+  "walk_keys": 6,
+  "walk_held_props": false,
+  "walk_same_side_opposition": [
+    {
+      "keys": [
+        0,
+        3
+      ],
+      "side": "near",
+      "hand_dx": -27.28,
+      "boot_dx": 32.32
+    },
+    {
+      "keys": [
+        0,
+        3
+      ],
+      "side": "far",
+      "hand_dx": 7.8,
+      "boot_dx": -32.86
+    },
+    {
+      "keys": [
+        1,
+        4
+      ],
+      "side": "near",
+      "hand_dx": -12.57,
+      "boot_dx": 28.7
+    },
+    {
+      "keys": [
+        1,
+        4
+      ],
+      "side": "far",
+      "hand_dx": 4.51,
+      "boot_dx": -24.09
+    }
+  ],
+  "passing_boot_lift_and_intermediate_arms": "pass",
+  "walk_body_connected_components": 1,
+  "red_underhem": "registered to walking hem, behind legs",
+  "atlas_roundtrip_extrude_gutter": "pass",
+  "gif_keys_pixels_and_durations_checked": 86,
+  "nearest_4x": "exact",
+  "visual_playback": "see browser-playback.json",
+  "runtime": "not_integrated_or_measured",
+  "generated_candidate_hashes": {
+    "give-full.png": "b0cfe22954a5f564d6c504841fefcd7bb7c9eb9a54d0f7a79256662bcda4ab9c",
+    "give-mid.png": "996972bbfa64e2895e7b3acd498dfbf2c09d5645f58a8ae35d27e9946e90fb17",
+    "nod-down.png": "3d9c036576d9b35c675f113f7ea57e9b284ecfaafbf9be1b886af8e32d47ea26",
+    "turn-left.png": "5794e7a0fefa925376ea78302dd6eae2e266c5e8eec7a24766d6be761cae9a40",
+    "turn-right.png": "5ec2f5e320139078249e6bea02a6ba440994a28ba8065674f48a38e588fcb614",
+    "walk-0.png": "960ce1bd899e0a8f857d1829bb1ffcbda525aa7e43db61662b73f90a3dd2cf0c",
+    "walk-1.png": "06dcf4d759b9cf15d81cdcfabc0509a8e1a5980a389889f65884db83a501168c",
+    "walk-2-lower.png": "6f625f4bdf4d8ec4b5efff939a23e0a33294a3d7b88a0e0e6ff5372a3fd3e0bd",
+    "walk-2.png": "97b2aba64c13107f83a329f6cf03323648908e781477490df869b7012d07f561",
+    "walk-3-arm.png": "d376ec995e840f5a0c522d8078fad3567b11cdb2c129475fc0bb39cf6386d5a4",
+    "walk-3.png": "cd57595ee5912f51c6019755b2ae416d79ea348a8659af5553fc806da57275e2",
+    "walk-4-lower.png": "5434dd3cca0cd3ef8448dddb0d7ddcd006a4d02c83db206af9c6e859630aa759",
+    "walk-4.png": "b6e91010e61436783f4d6b114be390441407ecf675c9b00ae712b088aff5cb03",
+    "walk-5-arm.png": "d70ad2e59e70dba75a6002d5dbe0181c2c2d30b85272af849b73e73412d47b23",
+    "walk-5-lower.png": "5929f7d389218258b2be52b6a6a3b63482451436e75edb23226062ec80c45062",
+    "walk-5.png": "0e7a97070c6fe1e05e55f892d769c0b82516e597b0c08370cfb882a0524772a4"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "status": "pass",
+  "all_six_walk_keys_checked": true,
+  "bare_walk_motion_unchanged": true,
+  "keys": [
+    {
+      "key": 0,
+      "shoulder_pixels_no_longer_over_cape": 80,
+      "back_coverage_added": 268,
+      "torso_shirt_pixels_removed_from_foreground": 38
+    },
+    {
+      "key": 1,
+      "shoulder_pixels_no_longer_over_cape": 101,
+      "back_coverage_added": 268,
+      "torso_shirt_pixels_removed_from_foreground": 27
+    },
+    {
+      "key": 2,
+      "shoulder_pixels_no_longer_over_cape": 84,
+      "back_coverage_added": 268,
+      "torso_shirt_pixels_removed_from_foreground": 36
+    },
+    {
+      "key": 3,
+      "shoulder_pixels_no_longer_over_cape": 96,
+      "back_coverage_added": 268,
+      "torso_shirt_pixels_removed_from_foreground": 34
+    },
+    {
+      "key": 4,
+      "shoulder_pixels_no_longer_over_cape": 96,
+      "back_coverage_added": 268,
+      "torso_shirt_pixels_removed_from_foreground": 19
+    },
+    {
+      "key": 5,
+      "shoulder_pixels_no_longer_over_cape": 96,
+      "back_coverage_added": 268,
+      "torso_shirt_pixels_removed_from_foreground": 37
+    }
+  ]
+}

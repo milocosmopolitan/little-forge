@@ -1,0 +1,12 @@
+{
+  "mode": "built-in image_gen",
+  "edit_target": "nose-target.png",
+  "identity_reference": "neutral-target.png",
+  "candidate": "nose-candidate.png",
+  "adoption_box_native": [
+    50,
+    39,
+    56,
+    41
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "revision": "research-finish-v12",
+  "status": "internal_review_recorded_user_acceptance_pending",
+  "user_accepted": null,
+  "scope": "research only",
+  "corrections": [
+    "Remove male left hanging cloth, detached outline remnants and desk-front-pass leaks",
+    "Continue female added shoulder-plate pigment from neighboring shirt; remove inferred black ledges",
+    "Restore complete female thinking-key resting hand from existing generated key-0 source, keeping sleeve/cuff",
+    "Build desktop arm pass separately for each equipment variant"
+  ],
+  "preserved": {
+    "approved_face_layers": 72,
+    "non_research_frames": 216
+  },
+  "checks": [
+    "verify-research-finish.py",
+    "verify-animation.py",
+    "verify-head-ownership.py",
+    "verify-neck-assembly.py",
+    "verify-body-mount.py",
+    "verify-neck-material-water.py",
+    "verify-preview-race.mjs",
+    "check-rebuild.mjs"
+  ],
+  "browser_review": {
+    "app": "Safari",
+    "loaded_version": "research-finish-v12",
+    "manual_keys": [
+      1,
+      2,
+      4
+    ],
+    "key_4_equipment_light": true,
+    "key_4_base_dark": true,
+    "playback_speeds": [
+      1,
+      0.5
+    ],
+    "playback_completion_observed": "Frame 5 / 5, Play button after both runs",
+    "latest_page": "http://127.0.0.1:8773/assets/characters/previews/animation.html?clip=researching&frame=4&review=research-finish-v12-clean",
+    "scope": "Reported research keys checked in browser; all 24 variants reviewed on cyan contact sheet; final detached-cloth-outline cleanup subsequently checked in current key 4 and pixel tests"
+  },
+  "proofs": [
+    "research-finish-v12-layers.png",
+    "research-finish-v12-scenes.png",
+    "research-finish-v12-all-24.png"
+  ],
+  "runtime_integration": false,
+  "structural_checks_do_not_establish_visual_acceptance": true
+}

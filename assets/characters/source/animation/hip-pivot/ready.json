@@ -1,0 +1,6 @@
+{
+  "all_source_inputs_present": true,
+  "stage": "review_candidate",
+  "method": "Complete coherent pose variants, shared native scale and planted foot registration; no head or pelvis from another pose",
+  "visual_acceptance": "pending"
+}

@@ -1,0 +1,14 @@
+{
+  "base-neutral.png": {
+    "changed_pixels": 670,
+    "pixels_changed_outside_hair": 0
+  },
+  "neutral.png": {
+    "changed_pixels": 31,
+    "pixels_changed_outside_hair": 0
+  },
+  "eyes_mouth_unchanged": true,
+  "neck_and_body_unchanged": true,
+  "stretching_removed": true,
+  "source": "source/hair-restyle/prompt.json"
+}

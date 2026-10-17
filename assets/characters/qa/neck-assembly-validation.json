@@ -1,0 +1,682 @@
+{
+  "status": "pass",
+  "variants_checked": 96,
+  "source_fabric_loss": 0,
+  "intentional_material_relocations": 131,
+  "neck_skin_overwritten_by_old_contour": 0,
+  "variants": [
+    {
+      "sex": "female",
+      "pose": "hammering-0",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 464,
+      "exposed_neck_skin_pixels": 19
+    },
+    {
+      "sex": "female",
+      "pose": "hammering-0",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 198,
+      "exposed_neck_skin_pixels": 23
+    },
+    {
+      "sex": "female",
+      "pose": "hammering-1",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 534,
+      "exposed_neck_skin_pixels": 18
+    },
+    {
+      "sex": "female",
+      "pose": "hammering-1",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 208,
+      "exposed_neck_skin_pixels": 28
+    },
+    {
+      "sex": "female",
+      "pose": "hammering-2",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 240,
+      "exposed_neck_skin_pixels": 34
+    },
+    {
+      "sex": "female",
+      "pose": "hammering-2",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 125,
+      "exposed_neck_skin_pixels": 24
+    },
+    {
+      "sex": "female",
+      "pose": "hammering-3",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 331,
+      "exposed_neck_skin_pixels": 19
+    },
+    {
+      "sex": "female",
+      "pose": "hammering-3",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 166,
+      "exposed_neck_skin_pixels": 26
+    },
+    {
+      "sex": "female",
+      "pose": "hammering-4",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 485,
+      "exposed_neck_skin_pixels": 15
+    },
+    {
+      "sex": "female",
+      "pose": "hammering-4",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 181,
+      "exposed_neck_skin_pixels": 29
+    },
+    {
+      "sex": "female",
+      "pose": "hammering-5",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 464,
+      "exposed_neck_skin_pixels": 19
+    },
+    {
+      "sex": "female",
+      "pose": "hammering-5",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 198,
+      "exposed_neck_skin_pixels": 23
+    },
+    {
+      "sex": "female",
+      "pose": "quenching-0",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 450,
+      "exposed_neck_skin_pixels": 19
+    },
+    {
+      "sex": "female",
+      "pose": "quenching-0",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 204,
+      "exposed_neck_skin_pixels": 20
+    },
+    {
+      "sex": "female",
+      "pose": "quenching-1",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 360,
+      "exposed_neck_skin_pixels": 19
+    },
+    {
+      "sex": "female",
+      "pose": "quenching-1",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 239,
+      "exposed_neck_skin_pixels": 19
+    },
+    {
+      "sex": "female",
+      "pose": "quenching-2",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 327,
+      "exposed_neck_skin_pixels": 19
+    },
+    {
+      "sex": "female",
+      "pose": "quenching-2",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 270,
+      "exposed_neck_skin_pixels": 30
+    },
+    {
+      "sex": "female",
+      "pose": "quenching-3",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 327,
+      "exposed_neck_skin_pixels": 19
+    },
+    {
+      "sex": "female",
+      "pose": "quenching-3",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 270,
+      "exposed_neck_skin_pixels": 30
+    },
+    {
+      "sex": "female",
+      "pose": "quenching-4",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 429,
+      "exposed_neck_skin_pixels": 19
+    },
+    {
+      "sex": "female",
+      "pose": "quenching-4",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 194,
+      "exposed_neck_skin_pixels": 25
+    },
+    {
+      "sex": "female",
+      "pose": "quenching-5",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 450,
+      "exposed_neck_skin_pixels": 19
+    },
+    {
+      "sex": "female",
+      "pose": "quenching-5",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 204,
+      "exposed_neck_skin_pixels": 20
+    },
+    {
+      "sex": "female",
+      "pose": "forging-0",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 413,
+      "exposed_neck_skin_pixels": 19
+    },
+    {
+      "sex": "female",
+      "pose": "forging-0",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 209,
+      "exposed_neck_skin_pixels": 23
+    },
+    {
+      "sex": "female",
+      "pose": "forging-1",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 311,
+      "exposed_neck_skin_pixels": 17
+    },
+    {
+      "sex": "female",
+      "pose": "forging-1",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 240,
+      "exposed_neck_skin_pixels": 16
+    },
+    {
+      "sex": "female",
+      "pose": "forging-2",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 261,
+      "exposed_neck_skin_pixels": 31
+    },
+    {
+      "sex": "female",
+      "pose": "forging-2",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 217,
+      "exposed_neck_skin_pixels": 34
+    },
+    {
+      "sex": "female",
+      "pose": "forging-3",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 261,
+      "exposed_neck_skin_pixels": 31
+    },
+    {
+      "sex": "female",
+      "pose": "forging-3",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 217,
+      "exposed_neck_skin_pixels": 34
+    },
+    {
+      "sex": "female",
+      "pose": "forging-4",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 411,
+      "exposed_neck_skin_pixels": 19
+    },
+    {
+      "sex": "female",
+      "pose": "forging-4",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 199,
+      "exposed_neck_skin_pixels": 33
+    },
+    {
+      "sex": "female",
+      "pose": "forging-5",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 413,
+      "exposed_neck_skin_pixels": 19
+    },
+    {
+      "sex": "female",
+      "pose": "forging-5",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 209,
+      "exposed_neck_skin_pixels": 23
+    },
+    {
+      "sex": "female",
+      "pose": "researching-0",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 494,
+      "exposed_neck_skin_pixels": 19
+    },
+    {
+      "sex": "female",
+      "pose": "researching-0",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 188,
+      "exposed_neck_skin_pixels": 22
+    },
+    {
+      "sex": "female",
+      "pose": "researching-1",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 463,
+      "exposed_neck_skin_pixels": 19
+    },
+    {
+      "sex": "female",
+      "pose": "researching-1",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 201,
+      "exposed_neck_skin_pixels": 30
+    },
+    {
+      "sex": "female",
+      "pose": "researching-2",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 430,
+      "exposed_neck_skin_pixels": 19
+    },
+    {
+      "sex": "female",
+      "pose": "researching-2",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 190,
+      "exposed_neck_skin_pixels": 22
+    },
+    {
+      "sex": "female",
+      "pose": "researching-3",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 463,
+      "exposed_neck_skin_pixels": 19
+    },
+    {
+      "sex": "female",
+      "pose": "researching-3",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 201,
+      "exposed_neck_skin_pixels": 30
+    },
+    {
+      "sex": "female",
+      "pose": "researching-4",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 418,
+      "exposed_neck_skin_pixels": 19
+    },
+    {
+      "sex": "female",
+      "pose": "researching-4",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 184,
+      "exposed_neck_skin_pixels": 41
+    },
+    {
+      "sex": "female",
+      "pose": "researching-5",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 494,
+      "exposed_neck_skin_pixels": 19
+    },
+    {
+      "sex": "female",
+      "pose": "researching-5",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 188,
+      "exposed_neck_skin_pixels": 22
+    },
+    {
+      "sex": "male",
+      "pose": "hammering-0",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 674,
+      "exposed_neck_skin_pixels": 10
+    },
+    {
+      "sex": "male",
+      "pose": "hammering-0",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 390,
+      "exposed_neck_skin_pixels": 14
+    },
+    {
+      "sex": "male",
+      "pose": "hammering-1",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 708,
+      "exposed_neck_skin_pixels": 27
+    },
+    {
+      "sex": "male",
+      "pose": "hammering-1",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 390,
+      "exposed_neck_skin_pixels": 12
+    },
+    {
+      "sex": "male",
+      "pose": "hammering-2",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 465,
+      "exposed_neck_skin_pixels": 6
+    },
+    {
+      "sex": "male",
+      "pose": "hammering-2",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 394,
+      "exposed_neck_skin_pixels": 19
+    },
+    {
+      "sex": "male",
+      "pose": "hammering-3",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 365,
+      "exposed_neck_skin_pixels": 17
+    },
+    {
+      "sex": "male",
+      "pose": "hammering-3",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 366,
+      "exposed_neck_skin_pixels": 20
+    },
+    {
+      "sex": "male",
+      "pose": "hammering-4",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 528,
+      "exposed_neck_skin_pixels": 9
+    },
+    {
+      "sex": "male",
+      "pose": "hammering-4",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 289,
+      "exposed_neck_skin_pixels": 12
+    },
+    {
+      "sex": "male",
+      "pose": "hammering-5",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 674,
+      "exposed_neck_skin_pixels": 10
+    },
+    {
+      "sex": "male",
+      "pose": "hammering-5",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 390,
+      "exposed_neck_skin_pixels": 14
+    },
+    {
+      "sex": "male",
+      "pose": "quenching-0",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 567,
+      "exposed_neck_skin_pixels": 15
+    },
+    {
+      "sex": "male",
+      "pose": "quenching-0",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 390,
+      "exposed_neck_skin_pixels": 18
+    },
+    {
+      "sex": "male",
+      "pose": "quenching-1",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 507,
+      "exposed_neck_skin_pixels": 10
+    },
+    {
+      "sex": "male",
+      "pose": "quenching-1",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 440,
+      "exposed_neck_skin_pixels": 10
+    },
+    {
+      "sex": "male",
+      "pose": "quenching-2",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 542,
+      "exposed_neck_skin_pixels": 10
+    },
+    {
+      "sex": "male",
+      "pose": "quenching-2",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 475,
+      "exposed_neck_skin_pixels": 21
+    },
+    {
+      "sex": "male",
+      "pose": "quenching-3",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 542,
+      "exposed_neck_skin_pixels": 10
+    },
+    {
+      "sex": "male",
+      "pose": "quenching-3",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 475,
+      "exposed_neck_skin_pixels": 21
+    },
+    {
+      "sex": "male",
+      "pose": "quenching-4",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 551,
+      "exposed_neck_skin_pixels": 10
+    },
+    {
+      "sex": "male",
+      "pose": "quenching-4",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 374,
+      "exposed_neck_skin_pixels": 16
+    },
+    {
+      "sex": "male",
+      "pose": "quenching-5",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 567,
+      "exposed_neck_skin_pixels": 15
+    },
+    {
+      "sex": "male",
+      "pose": "quenching-5",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 390,
+      "exposed_neck_skin_pixels": 18
+    },
+    {
+      "sex": "male",
+      "pose": "forging-0",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 548,
+      "exposed_neck_skin_pixels": 2
+    },
+    {
+      "sex": "male",
+      "pose": "forging-0",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 380,
+      "exposed_neck_skin_pixels": 14
+    },
+    {
+      "sex": "male",
+      "pose": "forging-1",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 465,
+      "exposed_neck_skin_pixels": 11
+    },
+    {
+      "sex": "male",
+      "pose": "forging-1",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 465,
+      "exposed_neck_skin_pixels": 11
+    },
+    {
+      "sex": "male",
+      "pose": "forging-2",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 419,
+      "exposed_neck_skin_pixels": 9
+    },
+    {
+      "sex": "male",
+      "pose": "forging-2",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 441,
+      "exposed_neck_skin_pixels": 20
+    },
+    {
+      "sex": "male",
+      "pose": "forging-3",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 419,
+      "exposed_neck_skin_pixels": 9
+    },
+    {
+      "sex": "male",
+      "pose": "forging-3",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 441,
+      "exposed_neck_skin_pixels": 20
+    },
+    {
+      "sex": "male",
+      "pose": "forging-4",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 551,
+      "exposed_neck_skin_pixels": 2
+    },
+    {
+      "sex": "male",
+      "pose": "forging-4",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 361,
+      "exposed_neck_skin_pixels": 14
+    },
+    {
+      "sex": "male",
+      "pose": "forging-5",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 548,
+      "exposed_neck_skin_pixels": 2
+    },
+    {
+      "sex": "male",
+      "pose": "forging-5",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 380,
+      "exposed_neck_skin_pixels": 14
+    },
+    {
+      "sex": "male",
+      "pose": "researching-0",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 715,
+      "exposed_neck_skin_pixels": 10
+    },
+    {
+      "sex": "male",
+      "pose": "researching-0",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 370,
+      "exposed_neck_skin_pixels": 18
+    },
+    {
+      "sex": "male",
+      "pose": "researching-1",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 705,
+      "exposed_neck_skin_pixels": 10
+    },
+    {
+      "sex": "male",
+      "pose": "researching-1",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 383,
+      "exposed_neck_skin_pixels": 29
+    },
+    {
+      "sex": "male",
+      "pose": "researching-2",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 661,
+      "exposed_neck_skin_pixels": 10
+    },
+    {
+      "sex": "male",
+      "pose": "researching-2",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 389,
+      "exposed_neck_skin_pixels": 22
+    },
+    {
+      "sex": "male",
+      "pose": "researching-3",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 705,
+      "exposed_neck_skin_pixels": 10
+    },
+    {
+      "sex": "male",
+      "pose": "researching-3",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 383,
+      "exposed_neck_skin_pixels": 29
+    },
+    {
+      "sex": "male",
+      "pose": "researching-4",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 610,
+      "exposed_neck_skin_pixels": 26
+    },
+    {
+      "sex": "male",
+      "pose": "researching-4",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 297,
+      "exposed_neck_skin_pixels": 33
+    },
+    {
+      "sex": "male",
+      "pose": "researching-5",
+      "equipped": false,
+      "source_fabric_pixels_preserved": 715,
+      "exposed_neck_skin_pixels": 10
+    },
+    {
+      "sex": "male",
+      "pose": "researching-5",
+      "equipped": true,
+      "source_fabric_pixels_preserved": 370,
+      "exposed_neck_skin_pixels": 18
+    }
+  ],
+  "visual_acceptance": "separate from these pixel checks"
+}

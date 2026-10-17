@@ -1,0 +1,12 @@
+{
+  "browser": "Chrome native UI",
+  "url": "http://127.0.0.1:8791/assets/npc/hunter/previews/index.html",
+  "observed": [
+    "all equipment on at 1x and 4x UI scale",
+    "equipment off leaves matching complete base",
+    "dark background with all equipment off",
+    "light background with all equipment on"
+  ],
+  "status": "visually reviewed",
+  "scope": "static neutral authoring preview, not game runtime"
+}

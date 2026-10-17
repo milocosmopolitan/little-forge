@@ -1,0 +1,34 @@
+{
+  "mode": "native authored stroke translation; built-in image_gen position study retained separately",
+  "prompt": "Precise pixel sprite position edit. Image 1 is the HAPPY edit target; image 2 is the approved NEUTRAL eye-location reference, same head/canvas/scale. On image 1 change ONLY the positions of the two dark closed smiling-eye curves. They are too high and appear to jump upward when she smiles. Move the near/screen-left smiling eye exactly 2 native pixels DOWN and the far/screen-right smiling eye exactly 1 native pixel DOWN. Keep their x positions, curve shapes, width, 1-native-pixel thickness and dark brown color. Keep eyebrows fixed. This is a 64x64 native crop enlarged16x to1024x1024, so the moves are32 displayed pixels for near eye and16 for far eye. Restore the old stroke locations to the surrounding warm peach skin, not transparent holes. Preserve all hair/head outline, face width, beauty mark, NOSE, open smiling mouth/teeth, neck and clothing exactly. Do not shift the whole eye patch, eyebrows or beauty mark; move only the two eye curves. Same transparent background and crisp native square grid, no blur, new colors, text or comparison panels.",
+  "generated_reference": "position-study.png",
+  "generated_pixels_adopted": false,
+  "native_source": "before-eyes.png",
+  "near_curve_translation": [
+    0,
+    2
+  ],
+  "far_curve_translation": [
+    0,
+    1
+  ],
+  "extra_occlusion": {
+    "x": 51,
+    "rows": [
+      30,
+      31,
+      32,
+      33
+    ],
+    "purpose": "occlude residual open-eye pixels in head base for happy only"
+  },
+  "preserved": [
+    "curve shape, width and color",
+    "brows",
+    "nose",
+    "mole",
+    "mouth",
+    "all other frames"
+  ],
+  "builder": "../../build-animation.py"
+}

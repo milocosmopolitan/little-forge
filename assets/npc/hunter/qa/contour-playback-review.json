@@ -1,0 +1,21 @@
+{
+  "revision": "contour5",
+  "date": "2026-10-17",
+  "scope": "native contour correction, not user aesthetic approval",
+  "visual_checks": [
+    "deep nod at4x dark, larger cap and head lowered1px",
+    "shake_head turn-right key4/5 at4x light, complete neck",
+    "walking key3/6 at4x dark, full sleeves and shaped gloves",
+    "surprised key2/3 at4x light, separate open oval mouth",
+    "all6 walking body PNGs unchanged against before snapshot",
+    "final contour5 live walk Slow1/4 at4x light after far-arm inner-edge repair"
+  ],
+  "regression_tests": [
+    "verify-contours.py",
+    "verify-animation.py",
+    "verify-repairs.py",
+    "verify-neutral.py"
+  ],
+  "masks": "../source/animation/contour/walk-ownership.json",
+  "contract": "../source/animation/contour/contract.json"
+}

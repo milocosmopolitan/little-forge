@@ -1,0 +1,1830 @@
+{
+  "canvas": [
+    128,
+    160
+  ],
+  "foot_anchor_px": [
+    64,
+    140
+  ],
+  "poses": {
+    "neutral": {
+      "layers": {
+        "lower": "poses/neutral/layers/lower.png",
+        "upper": "poses/neutral/layers/upper.png",
+        "head": "poses/neutral/layers/head.png",
+        "eyes": "poses/neutral/layers/eyes.png",
+        "mouth": "poses/neutral/layers/mouth.png",
+        "hands-front": "poses/neutral/layers/hands-front.png"
+      },
+      "equipment": {
+        "bow": "poses/neutral/equipment/bow.png",
+        "boot-fur-cuffs": "poses/neutral/equipment/boot-fur-cuffs.png",
+        "cloak": "poses/neutral/equipment/cloak.png",
+        "quiver-and-arrows": "poses/neutral/equipment/quiver-and-arrows.png",
+        "leather-outfit": "poses/neutral/equipment/leather-outfit.png",
+        "fur-hat": "poses/neutral/equipment/fur-hat.png",
+        "gloves": "poses/neutral/equipment/gloves.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "bow",
+        "quiver-and-arrows",
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "fur-hat",
+        "cloak",
+        "leather-outfit",
+        "boot-fur-cuffs",
+        "hands-front",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          67,
+          65
+        ],
+        "waist": [
+          65,
+          94
+        ],
+        "right_hand": [
+          55,
+          94
+        ],
+        "left_hand": [
+          86,
+          105
+        ],
+        "eyes": [
+          70,
+          49
+        ],
+        "mouth": [
+          70,
+          55
+        ]
+      }
+    },
+    "talk-small": {
+      "layers": {
+        "lower": "poses/talk-small/layers/lower.png",
+        "upper": "poses/talk-small/layers/upper.png",
+        "head": "poses/talk-small/layers/head.png",
+        "eyes": "poses/talk-small/layers/eyes.png",
+        "mouth": "poses/talk-small/layers/mouth.png",
+        "hands-front": "poses/talk-small/layers/hands-front.png"
+      },
+      "equipment": {
+        "bow": "poses/talk-small/equipment/bow.png",
+        "boot-fur-cuffs": "poses/talk-small/equipment/boot-fur-cuffs.png",
+        "cloak": "poses/talk-small/equipment/cloak.png",
+        "quiver-and-arrows": "poses/talk-small/equipment/quiver-and-arrows.png",
+        "leather-outfit": "poses/talk-small/equipment/leather-outfit.png",
+        "fur-hat": "poses/talk-small/equipment/fur-hat.png",
+        "gloves": "poses/talk-small/equipment/gloves.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "bow",
+        "quiver-and-arrows",
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "fur-hat",
+        "cloak",
+        "leather-outfit",
+        "boot-fur-cuffs",
+        "hands-front",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          67,
+          65
+        ],
+        "waist": [
+          65,
+          94
+        ],
+        "right_hand": [
+          55,
+          94
+        ],
+        "left_hand": [
+          86,
+          105
+        ],
+        "eyes": [
+          70,
+          49
+        ],
+        "mouth": [
+          70,
+          55
+        ]
+      }
+    },
+    "talk-wide": {
+      "layers": {
+        "lower": "poses/talk-wide/layers/lower.png",
+        "upper": "poses/talk-wide/layers/upper.png",
+        "head": "poses/talk-wide/layers/head.png",
+        "eyes": "poses/talk-wide/layers/eyes.png",
+        "mouth": "poses/talk-wide/layers/mouth.png",
+        "hands-front": "poses/talk-wide/layers/hands-front.png"
+      },
+      "equipment": {
+        "bow": "poses/talk-wide/equipment/bow.png",
+        "boot-fur-cuffs": "poses/talk-wide/equipment/boot-fur-cuffs.png",
+        "cloak": "poses/talk-wide/equipment/cloak.png",
+        "quiver-and-arrows": "poses/talk-wide/equipment/quiver-and-arrows.png",
+        "leather-outfit": "poses/talk-wide/equipment/leather-outfit.png",
+        "fur-hat": "poses/talk-wide/equipment/fur-hat.png",
+        "gloves": "poses/talk-wide/equipment/gloves.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "bow",
+        "quiver-and-arrows",
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "fur-hat",
+        "cloak",
+        "leather-outfit",
+        "boot-fur-cuffs",
+        "hands-front",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          67,
+          65
+        ],
+        "waist": [
+          65,
+          94
+        ],
+        "right_hand": [
+          55,
+          94
+        ],
+        "left_hand": [
+          86,
+          105
+        ],
+        "eyes": [
+          70,
+          49
+        ],
+        "mouth": [
+          70,
+          55
+        ]
+      }
+    },
+    "talk-round": {
+      "layers": {
+        "lower": "poses/talk-round/layers/lower.png",
+        "upper": "poses/talk-round/layers/upper.png",
+        "head": "poses/talk-round/layers/head.png",
+        "eyes": "poses/talk-round/layers/eyes.png",
+        "mouth": "poses/talk-round/layers/mouth.png",
+        "hands-front": "poses/talk-round/layers/hands-front.png"
+      },
+      "equipment": {
+        "bow": "poses/talk-round/equipment/bow.png",
+        "boot-fur-cuffs": "poses/talk-round/equipment/boot-fur-cuffs.png",
+        "cloak": "poses/talk-round/equipment/cloak.png",
+        "quiver-and-arrows": "poses/talk-round/equipment/quiver-and-arrows.png",
+        "leather-outfit": "poses/talk-round/equipment/leather-outfit.png",
+        "fur-hat": "poses/talk-round/equipment/fur-hat.png",
+        "gloves": "poses/talk-round/equipment/gloves.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "bow",
+        "quiver-and-arrows",
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "fur-hat",
+        "cloak",
+        "leather-outfit",
+        "boot-fur-cuffs",
+        "hands-front",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          67,
+          65
+        ],
+        "waist": [
+          65,
+          94
+        ],
+        "right_hand": [
+          55,
+          94
+        ],
+        "left_hand": [
+          86,
+          105
+        ],
+        "eyes": [
+          70,
+          49
+        ],
+        "mouth": [
+          70,
+          55
+        ]
+      }
+    },
+    "blink": {
+      "layers": {
+        "lower": "poses/blink/layers/lower.png",
+        "upper": "poses/blink/layers/upper.png",
+        "head": "poses/blink/layers/head.png",
+        "eyes": "poses/blink/layers/eyes.png",
+        "mouth": "poses/blink/layers/mouth.png",
+        "hands-front": "poses/blink/layers/hands-front.png"
+      },
+      "equipment": {
+        "bow": "poses/blink/equipment/bow.png",
+        "boot-fur-cuffs": "poses/blink/equipment/boot-fur-cuffs.png",
+        "cloak": "poses/blink/equipment/cloak.png",
+        "quiver-and-arrows": "poses/blink/equipment/quiver-and-arrows.png",
+        "leather-outfit": "poses/blink/equipment/leather-outfit.png",
+        "fur-hat": "poses/blink/equipment/fur-hat.png",
+        "gloves": "poses/blink/equipment/gloves.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "bow",
+        "quiver-and-arrows",
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "fur-hat",
+        "cloak",
+        "leather-outfit",
+        "boot-fur-cuffs",
+        "hands-front",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          67,
+          65
+        ],
+        "waist": [
+          65,
+          94
+        ],
+        "right_hand": [
+          55,
+          94
+        ],
+        "left_hand": [
+          86,
+          105
+        ],
+        "eyes": [
+          70,
+          50
+        ],
+        "mouth": [
+          70,
+          55
+        ]
+      }
+    },
+    "happy": {
+      "layers": {
+        "lower": "poses/happy/layers/lower.png",
+        "upper": "poses/happy/layers/upper.png",
+        "head": "poses/happy/layers/head.png",
+        "eyes": "poses/happy/layers/eyes.png",
+        "mouth": "poses/happy/layers/mouth.png",
+        "hands-front": "poses/happy/layers/hands-front.png"
+      },
+      "equipment": {
+        "bow": "poses/happy/equipment/bow.png",
+        "boot-fur-cuffs": "poses/happy/equipment/boot-fur-cuffs.png",
+        "cloak": "poses/happy/equipment/cloak.png",
+        "quiver-and-arrows": "poses/happy/equipment/quiver-and-arrows.png",
+        "leather-outfit": "poses/happy/equipment/leather-outfit.png",
+        "fur-hat": "poses/happy/equipment/fur-hat.png",
+        "gloves": "poses/happy/equipment/gloves.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "bow",
+        "quiver-and-arrows",
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "fur-hat",
+        "cloak",
+        "leather-outfit",
+        "boot-fur-cuffs",
+        "hands-front",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          67,
+          65
+        ],
+        "waist": [
+          65,
+          94
+        ],
+        "right_hand": [
+          55,
+          94
+        ],
+        "left_hand": [
+          86,
+          105
+        ],
+        "eyes": [
+          70,
+          50
+        ],
+        "mouth": [
+          70,
+          55
+        ]
+      }
+    },
+    "surprised": {
+      "layers": {
+        "lower": "poses/surprised/layers/lower.png",
+        "upper": "poses/surprised/layers/upper.png",
+        "head": "poses/surprised/layers/head.png",
+        "eyes": "poses/surprised/layers/eyes.png",
+        "mouth": "poses/surprised/layers/mouth.png",
+        "hands-front": "poses/surprised/layers/hands-front.png"
+      },
+      "equipment": {
+        "bow": "poses/surprised/equipment/bow.png",
+        "boot-fur-cuffs": "poses/surprised/equipment/boot-fur-cuffs.png",
+        "cloak": "poses/surprised/equipment/cloak.png",
+        "quiver-and-arrows": "poses/surprised/equipment/quiver-and-arrows.png",
+        "leather-outfit": "poses/surprised/equipment/leather-outfit.png",
+        "fur-hat": "poses/surprised/equipment/fur-hat.png",
+        "gloves": "poses/surprised/equipment/gloves.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "bow",
+        "quiver-and-arrows",
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "fur-hat",
+        "cloak",
+        "leather-outfit",
+        "boot-fur-cuffs",
+        "hands-front",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          67,
+          65
+        ],
+        "waist": [
+          65,
+          94
+        ],
+        "right_hand": [
+          55,
+          94
+        ],
+        "left_hand": [
+          86,
+          105
+        ],
+        "eyes": [
+          70,
+          49
+        ],
+        "mouth": [
+          70,
+          55
+        ]
+      },
+      "mouth_override": "mouth/surprised-open.png"
+    },
+    "relaxed": {
+      "layers": {
+        "lower": "poses/relaxed/layers/lower.png",
+        "upper": "poses/relaxed/layers/upper.png",
+        "head": "poses/relaxed/layers/head.png",
+        "eyes": "poses/relaxed/layers/eyes.png",
+        "mouth": "poses/relaxed/layers/mouth.png",
+        "hands-front": "poses/relaxed/layers/hands-front.png"
+      },
+      "equipment": {
+        "bow": "poses/relaxed/equipment/bow.png",
+        "boot-fur-cuffs": "poses/relaxed/equipment/boot-fur-cuffs.png",
+        "cloak": "poses/relaxed/equipment/cloak.png",
+        "quiver-and-arrows": "poses/relaxed/equipment/quiver-and-arrows.png",
+        "leather-outfit": "poses/relaxed/equipment/leather-outfit.png",
+        "fur-hat": "poses/relaxed/equipment/fur-hat.png",
+        "gloves": "poses/relaxed/equipment/gloves.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "bow",
+        "quiver-and-arrows",
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "fur-hat",
+        "cloak",
+        "leather-outfit",
+        "boot-fur-cuffs",
+        "hands-front",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          67,
+          65
+        ],
+        "waist": [
+          65,
+          94
+        ],
+        "right_hand": [
+          55,
+          94
+        ],
+        "left_hand": [
+          86,
+          105
+        ],
+        "eyes": [
+          70,
+          50
+        ],
+        "mouth": [
+          70,
+          55
+        ]
+      }
+    },
+    "nod-down": {
+      "layers": {
+        "lower": "poses/nod-down/layers/lower.png",
+        "upper": "poses/nod-down/layers/upper.png",
+        "head": "poses/nod-down/layers/head.png",
+        "eyes": "poses/nod-down/layers/eyes.png",
+        "mouth": "poses/nod-down/layers/mouth.png",
+        "hands-front": "poses/nod-down/layers/hands-front.png"
+      },
+      "equipment": {
+        "bow": "poses/nod-down/equipment/bow.png",
+        "boot-fur-cuffs": "poses/nod-down/equipment/boot-fur-cuffs.png",
+        "cloak": "poses/nod-down/equipment/cloak.png",
+        "quiver-and-arrows": "poses/nod-down/equipment/quiver-and-arrows.png",
+        "leather-outfit": "poses/nod-down/equipment/leather-outfit.png",
+        "fur-hat": "poses/nod-down/equipment/fur-hat.png",
+        "gloves": "poses/nod-down/equipment/gloves.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "bow",
+        "quiver-and-arrows",
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "fur-hat",
+        "cloak",
+        "leather-outfit",
+        "boot-fur-cuffs",
+        "hands-front",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          67,
+          65
+        ],
+        "waist": [
+          65,
+          94
+        ],
+        "right_hand": [
+          55,
+          94
+        ],
+        "left_hand": [
+          86,
+          105
+        ],
+        "eyes": [
+          70,
+          50
+        ],
+        "mouth": [
+          70,
+          55
+        ]
+      },
+      "source": "repair/nod-down-candidate.png",
+      "head_only": true,
+      "fixed_clothing": true,
+      "neck_support": "generated skin only; original collar fixed"
+    },
+    "turn-left": {
+      "layers": {
+        "lower": "poses/turn-left/layers/lower.png",
+        "upper": "poses/turn-left/layers/upper.png",
+        "head": "poses/turn-left/layers/head.png",
+        "eyes": "poses/turn-left/layers/eyes.png",
+        "mouth": "poses/turn-left/layers/mouth.png",
+        "hands-front": "poses/turn-left/layers/hands-front.png"
+      },
+      "equipment": {
+        "bow": "poses/turn-left/equipment/bow.png",
+        "boot-fur-cuffs": "poses/turn-left/equipment/boot-fur-cuffs.png",
+        "cloak": "poses/turn-left/equipment/cloak.png",
+        "quiver-and-arrows": "poses/turn-left/equipment/quiver-and-arrows.png",
+        "leather-outfit": "poses/turn-left/equipment/leather-outfit.png",
+        "fur-hat": "poses/turn-left/equipment/fur-hat.png",
+        "gloves": "poses/turn-left/equipment/gloves.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "bow",
+        "quiver-and-arrows",
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "fur-hat",
+        "cloak",
+        "leather-outfit",
+        "boot-fur-cuffs",
+        "hands-front",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          67,
+          65
+        ],
+        "waist": [
+          65,
+          94
+        ],
+        "right_hand": [
+          55,
+          94
+        ],
+        "left_hand": [
+          86,
+          105
+        ],
+        "eyes": [
+          72,
+          48
+        ],
+        "mouth": [
+          70,
+          55
+        ]
+      },
+      "source": "repair/turn-left-candidate.png",
+      "head_only": true,
+      "fixed_clothing": true,
+      "neck_support": "generated skin only; original collar fixed"
+    },
+    "turn-right": {
+      "layers": {
+        "lower": "poses/turn-right/layers/lower.png",
+        "upper": "poses/turn-right/layers/upper.png",
+        "head": "poses/turn-right/layers/head.png",
+        "eyes": "poses/turn-right/layers/eyes.png",
+        "mouth": "poses/turn-right/layers/mouth.png",
+        "hands-front": "poses/turn-right/layers/hands-front.png"
+      },
+      "equipment": {
+        "bow": "poses/turn-right/equipment/bow.png",
+        "boot-fur-cuffs": "poses/turn-right/equipment/boot-fur-cuffs.png",
+        "cloak": "poses/turn-right/equipment/cloak.png",
+        "quiver-and-arrows": "poses/turn-right/equipment/quiver-and-arrows.png",
+        "leather-outfit": "poses/turn-right/equipment/leather-outfit.png",
+        "fur-hat": "poses/turn-right/equipment/fur-hat.png",
+        "gloves": "poses/turn-right/equipment/gloves.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "bow",
+        "quiver-and-arrows",
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "fur-hat",
+        "cloak",
+        "leather-outfit",
+        "boot-fur-cuffs",
+        "hands-front",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          67,
+          65
+        ],
+        "waist": [
+          65,
+          94
+        ],
+        "right_hand": [
+          55,
+          94
+        ],
+        "left_hand": [
+          86,
+          105
+        ],
+        "eyes": [
+          72,
+          48
+        ],
+        "mouth": [
+          70,
+          55
+        ]
+      },
+      "source": "repair/turn-right-candidate.png",
+      "head_only": true,
+      "fixed_clothing": true,
+      "neck_support": "generated skin only; original collar fixed"
+    },
+    "nod-mid": {
+      "layers": {
+        "lower": "poses/nod-mid/layers/lower.png",
+        "upper": "poses/nod-mid/layers/upper.png",
+        "head": "poses/nod-mid/layers/head.png",
+        "eyes": "poses/nod-mid/layers/eyes.png",
+        "mouth": "poses/nod-mid/layers/mouth.png",
+        "hands-front": "poses/nod-mid/layers/hands-front.png"
+      },
+      "equipment": {
+        "bow": "poses/nod-mid/equipment/bow.png",
+        "boot-fur-cuffs": "poses/nod-mid/equipment/boot-fur-cuffs.png",
+        "cloak": "poses/nod-mid/equipment/cloak.png",
+        "quiver-and-arrows": "poses/nod-mid/equipment/quiver-and-arrows.png",
+        "leather-outfit": "poses/nod-mid/equipment/leather-outfit.png",
+        "fur-hat": "poses/nod-mid/equipment/fur-hat.png",
+        "gloves": "poses/nod-mid/equipment/gloves.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "bow",
+        "quiver-and-arrows",
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "fur-hat",
+        "cloak",
+        "leather-outfit",
+        "boot-fur-cuffs",
+        "hands-front",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          67,
+          65
+        ],
+        "waist": [
+          65,
+          94
+        ],
+        "right_hand": [
+          55,
+          94
+        ],
+        "left_hand": [
+          86,
+          105
+        ],
+        "eyes": [
+          70,
+          50
+        ],
+        "mouth": [
+          70,
+          55
+        ]
+      },
+      "head_translation": [
+        0,
+        1
+      ],
+      "source": "locked neutral preparation",
+      "fixed_clothing": true
+    },
+    "give-mid": {
+      "layers": {
+        "lower": "poses/give-mid/layers/lower.png",
+        "upper": "poses/give-mid/layers/upper.png",
+        "head": "poses/give-mid/layers/head.png",
+        "eyes": "poses/give-mid/layers/eyes.png",
+        "mouth": "poses/give-mid/layers/mouth.png",
+        "hands-front": "poses/give-mid/layers/hands-front.png"
+      },
+      "equipment": {
+        "bow": "poses/give-mid/equipment/bow.png",
+        "boot-fur-cuffs": "poses/give-mid/equipment/boot-fur-cuffs.png",
+        "cloak": "poses/give-mid/equipment/cloak.png",
+        "quiver-and-arrows": "poses/give-mid/equipment/quiver-and-arrows.png",
+        "leather-outfit": "poses/give-mid/equipment/leather-outfit.png",
+        "fur-hat": "poses/give-mid/equipment/fur-hat.png",
+        "gloves": "poses/give-mid/equipment/gloves.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "bow",
+        "quiver-and-arrows",
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "fur-hat",
+        "cloak",
+        "leather-outfit",
+        "boot-fur-cuffs",
+        "hands-front",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          67,
+          65
+        ],
+        "waist": [
+          65,
+          94
+        ],
+        "right_hand": [
+          55,
+          94
+        ],
+        "left_hand": [
+          105,
+          83
+        ],
+        "eyes": [
+          70,
+          49
+        ],
+        "mouth": [
+          70,
+          55
+        ]
+      },
+      "giving_hand": "left",
+      "palm": "open; no held prop",
+      "source": "give-0"
+    },
+    "give-full": {
+      "layers": {
+        "lower": "poses/give-full/layers/lower.png",
+        "upper": "poses/give-full/layers/upper.png",
+        "head": "poses/give-full/layers/head.png",
+        "eyes": "poses/give-full/layers/eyes.png",
+        "mouth": "poses/give-full/layers/mouth.png",
+        "hands-front": "poses/give-full/layers/hands-front.png"
+      },
+      "equipment": {
+        "bow": "poses/give-full/equipment/bow.png",
+        "boot-fur-cuffs": "poses/give-full/equipment/boot-fur-cuffs.png",
+        "cloak": "poses/give-full/equipment/cloak.png",
+        "quiver-and-arrows": "poses/give-full/equipment/quiver-and-arrows.png",
+        "leather-outfit": "poses/give-full/equipment/leather-outfit.png",
+        "fur-hat": "poses/give-full/equipment/fur-hat.png",
+        "gloves": "poses/give-full/equipment/gloves.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "bow",
+        "quiver-and-arrows",
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "fur-hat",
+        "cloak",
+        "leather-outfit",
+        "boot-fur-cuffs",
+        "hands-front",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          67,
+          65
+        ],
+        "waist": [
+          65,
+          94
+        ],
+        "right_hand": [
+          55,
+          94
+        ],
+        "left_hand": [
+          116,
+          78
+        ],
+        "eyes": [
+          70,
+          49
+        ],
+        "mouth": [
+          70,
+          55
+        ]
+      },
+      "giving_hand": "left",
+      "palm": "open; no held prop",
+      "source": "give-1"
+    },
+    "give-empty": {
+      "layers": {
+        "lower": "poses/give-empty/layers/lower.png",
+        "upper": "poses/give-empty/layers/upper.png",
+        "head": "poses/give-empty/layers/head.png",
+        "eyes": "poses/give-empty/layers/eyes.png",
+        "mouth": "poses/give-empty/layers/mouth.png",
+        "hands-front": "poses/give-empty/layers/hands-front.png"
+      },
+      "equipment": {
+        "bow": "poses/give-empty/equipment/bow.png",
+        "boot-fur-cuffs": "poses/give-empty/equipment/boot-fur-cuffs.png",
+        "cloak": "poses/give-empty/equipment/cloak.png",
+        "quiver-and-arrows": "poses/give-empty/equipment/quiver-and-arrows.png",
+        "leather-outfit": "poses/give-empty/equipment/leather-outfit.png",
+        "fur-hat": "poses/give-empty/equipment/fur-hat.png",
+        "gloves": "poses/give-empty/equipment/gloves.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "bow",
+        "quiver-and-arrows",
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "fur-hat",
+        "cloak",
+        "leather-outfit",
+        "boot-fur-cuffs",
+        "hands-front",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          67,
+          65
+        ],
+        "waist": [
+          65,
+          94
+        ],
+        "right_hand": [
+          55,
+          94
+        ],
+        "left_hand": [
+          116,
+          78
+        ],
+        "eyes": [
+          70,
+          49
+        ],
+        "mouth": [
+          70,
+          55
+        ]
+      },
+      "transfer_event_only": true
+    },
+    "give-retract": {
+      "layers": {
+        "lower": "poses/give-retract/layers/lower.png",
+        "upper": "poses/give-retract/layers/upper.png",
+        "head": "poses/give-retract/layers/head.png",
+        "eyes": "poses/give-retract/layers/eyes.png",
+        "mouth": "poses/give-retract/layers/mouth.png",
+        "hands-front": "poses/give-retract/layers/hands-front.png"
+      },
+      "equipment": {
+        "bow": "poses/give-retract/equipment/bow.png",
+        "boot-fur-cuffs": "poses/give-retract/equipment/boot-fur-cuffs.png",
+        "cloak": "poses/give-retract/equipment/cloak.png",
+        "quiver-and-arrows": "poses/give-retract/equipment/quiver-and-arrows.png",
+        "leather-outfit": "poses/give-retract/equipment/leather-outfit.png",
+        "fur-hat": "poses/give-retract/equipment/fur-hat.png",
+        "gloves": "poses/give-retract/equipment/gloves.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "bow",
+        "quiver-and-arrows",
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "fur-hat",
+        "cloak",
+        "leather-outfit",
+        "boot-fur-cuffs",
+        "hands-front",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          67,
+          65
+        ],
+        "waist": [
+          65,
+          94
+        ],
+        "right_hand": [
+          55,
+          94
+        ],
+        "left_hand": [
+          105,
+          83
+        ],
+        "eyes": [
+          70,
+          49
+        ],
+        "mouth": [
+          70,
+          55
+        ]
+      }
+    },
+    "walk-0": {
+      "layers": {
+        "lower": "poses/walk-0/layers/lower.png",
+        "upper": "poses/walk-0/layers/upper.png",
+        "head": "poses/walk-0/layers/head.png",
+        "eyes": "poses/walk-0/layers/eyes.png",
+        "mouth": "poses/walk-0/layers/mouth.png",
+        "hands-front": "poses/walk-0/layers/hands-front.png"
+      },
+      "equipment": {
+        "bow": "poses/walk-0/equipment/bow.png",
+        "cloak": "poses/walk-0/equipment/cloak.png",
+        "quiver-and-arrows": "poses/walk-0/equipment/quiver-and-arrows.png",
+        "leather-outfit": "poses/walk-0/equipment/leather-outfit.png",
+        "fur-hat": "poses/walk-0/equipment/fur-hat.png",
+        "gloves": "poses/walk-0/equipment/gloves.png",
+        "boot-fur-cuffs": "poses/walk-0/equipment/boot-fur-cuffs.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "bow",
+        "quiver-and-arrows",
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "fur-hat",
+        "cloak",
+        "leather-outfit",
+        "boot-fur-cuffs",
+        "hands-front",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          67,
+          65
+        ],
+        "waist": [
+          65,
+          94
+        ],
+        "right_hand": [
+          70,
+          100
+        ],
+        "left_hand": null,
+        "eyes": [
+          70,
+          49
+        ],
+        "mouth": [
+          70,
+          55
+        ]
+      },
+      "gait": {
+        "id": 0,
+        "left_leg": "front",
+        "right_leg": "back",
+        "left_arm": "back",
+        "right_arm": "front",
+        "bob": 0,
+        "source": "contour/walk-0-body.png",
+        "generated_source": "repair/walk-0-candidate.png",
+        "arm_source_key": 0,
+        "hands_measured_screen_rois": [
+          [
+            70,
+            100
+          ],
+          null
+        ],
+        "boots_measured_screen_rois": [
+          [
+            51,
+            122
+          ],
+          [
+            77,
+            123
+          ]
+        ],
+        "source_head_discarded": true,
+        "near_boot_screen_index": 0,
+        "anatomical_contacts": {
+          "right_hand": [
+            70,
+            100
+          ],
+          "left_hand": null,
+          "right_boot": [
+            51,
+            122
+          ],
+          "left_boot": [
+            77,
+            123
+          ]
+        }
+      },
+      "head_translation": [
+        0,
+        0
+      ],
+      "source_head": "locked neutral; no rescaling"
+    },
+    "walk-1": {
+      "layers": {
+        "lower": "poses/walk-1/layers/lower.png",
+        "upper": "poses/walk-1/layers/upper.png",
+        "head": "poses/walk-1/layers/head.png",
+        "eyes": "poses/walk-1/layers/eyes.png",
+        "mouth": "poses/walk-1/layers/mouth.png",
+        "hands-front": "poses/walk-1/layers/hands-front.png"
+      },
+      "equipment": {
+        "bow": "poses/walk-1/equipment/bow.png",
+        "cloak": "poses/walk-1/equipment/cloak.png",
+        "quiver-and-arrows": "poses/walk-1/equipment/quiver-and-arrows.png",
+        "leather-outfit": "poses/walk-1/equipment/leather-outfit.png",
+        "fur-hat": "poses/walk-1/equipment/fur-hat.png",
+        "gloves": "poses/walk-1/equipment/gloves.png",
+        "boot-fur-cuffs": "poses/walk-1/equipment/boot-fur-cuffs.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "bow",
+        "quiver-and-arrows",
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "fur-hat",
+        "cloak",
+        "leather-outfit",
+        "boot-fur-cuffs",
+        "hands-front",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          67,
+          65
+        ],
+        "waist": [
+          65,
+          94
+        ],
+        "right_hand": [
+          66,
+          105
+        ],
+        "left_hand": null,
+        "eyes": [
+          70,
+          50
+        ],
+        "mouth": [
+          70,
+          55
+        ]
+      },
+      "gait": {
+        "id": 1,
+        "left_leg": "support",
+        "right_leg": "recover",
+        "left_arm": "recover",
+        "right_arm": "passing",
+        "bob": 1,
+        "source": "contour/walk-1-body.png",
+        "generated_source": "repair/walk-1-candidate.png",
+        "arm_source_key": 4,
+        "hands_measured_screen_rois": [
+          [
+            66,
+            105
+          ],
+          null
+        ],
+        "boots_measured_screen_rois": [
+          [
+            52,
+            119
+          ],
+          [
+            76,
+            124
+          ]
+        ],
+        "source_head_discarded": true,
+        "near_boot_screen_index": 0,
+        "anatomical_contacts": {
+          "right_hand": [
+            66,
+            105
+          ],
+          "left_hand": null,
+          "right_boot": [
+            52,
+            119
+          ],
+          "left_boot": [
+            76,
+            124
+          ]
+        }
+      },
+      "head_translation": [
+        0,
+        1
+      ],
+      "source_head": "locked neutral; no rescaling"
+    },
+    "walk-2": {
+      "layers": {
+        "lower": "poses/walk-2/layers/lower.png",
+        "upper": "poses/walk-2/layers/upper.png",
+        "head": "poses/walk-2/layers/head.png",
+        "eyes": "poses/walk-2/layers/eyes.png",
+        "mouth": "poses/walk-2/layers/mouth.png",
+        "hands-front": "poses/walk-2/layers/hands-front.png"
+      },
+      "equipment": {
+        "bow": "poses/walk-2/equipment/bow.png",
+        "cloak": "poses/walk-2/equipment/cloak.png",
+        "quiver-and-arrows": "poses/walk-2/equipment/quiver-and-arrows.png",
+        "leather-outfit": "poses/walk-2/equipment/leather-outfit.png",
+        "fur-hat": "poses/walk-2/equipment/fur-hat.png",
+        "gloves": "poses/walk-2/equipment/gloves.png",
+        "boot-fur-cuffs": "poses/walk-2/equipment/boot-fur-cuffs.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "bow",
+        "quiver-and-arrows",
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "fur-hat",
+        "cloak",
+        "leather-outfit",
+        "boot-fur-cuffs",
+        "hands-front",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          67,
+          65
+        ],
+        "waist": [
+          65,
+          94
+        ],
+        "right_hand": [
+          48,
+          108
+        ],
+        "left_hand": [
+          88,
+          104
+        ],
+        "eyes": [
+          70,
+          49
+        ],
+        "mouth": [
+          70,
+          55
+        ]
+      },
+      "gait": {
+        "id": 2,
+        "left_leg": "support",
+        "right_leg": "pass",
+        "left_arm": "front-transition",
+        "right_arm": "back-transition",
+        "bob": 0,
+        "source": "contour/walk-2-body.png",
+        "generated_source": "repair/walk-2-candidate.png",
+        "arm_source_key": 2,
+        "hands_measured_screen_rois": [
+          [
+            48,
+            108
+          ],
+          [
+            88,
+            104
+          ]
+        ],
+        "boots_measured_screen_rois": [
+          [
+            55,
+            123
+          ],
+          [
+            79,
+            120
+          ]
+        ],
+        "source_head_discarded": true,
+        "near_boot_screen_index": 1,
+        "anatomical_contacts": {
+          "right_hand": [
+            48,
+            108
+          ],
+          "left_hand": [
+            88,
+            104
+          ],
+          "right_boot": [
+            79,
+            120
+          ],
+          "left_boot": [
+            55,
+            123
+          ]
+        }
+      },
+      "head_translation": [
+        0,
+        0
+      ],
+      "source_head": "locked neutral; no rescaling"
+    },
+    "walk-3": {
+      "layers": {
+        "lower": "poses/walk-3/layers/lower.png",
+        "upper": "poses/walk-3/layers/upper.png",
+        "head": "poses/walk-3/layers/head.png",
+        "eyes": "poses/walk-3/layers/eyes.png",
+        "mouth": "poses/walk-3/layers/mouth.png",
+        "hands-front": "poses/walk-3/layers/hands-front.png"
+      },
+      "equipment": {
+        "bow": "poses/walk-3/equipment/bow.png",
+        "cloak": "poses/walk-3/equipment/cloak.png",
+        "quiver-and-arrows": "poses/walk-3/equipment/quiver-and-arrows.png",
+        "leather-outfit": "poses/walk-3/equipment/leather-outfit.png",
+        "fur-hat": "poses/walk-3/equipment/fur-hat.png",
+        "gloves": "poses/walk-3/equipment/gloves.png",
+        "boot-fur-cuffs": "poses/walk-3/equipment/boot-fur-cuffs.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "bow",
+        "quiver-and-arrows",
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "fur-hat",
+        "cloak",
+        "leather-outfit",
+        "boot-fur-cuffs",
+        "hands-front",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          67,
+          65
+        ],
+        "waist": [
+          65,
+          94
+        ],
+        "right_hand": [
+          45,
+          102
+        ],
+        "left_hand": [
+          88,
+          98
+        ],
+        "eyes": [
+          70,
+          49
+        ],
+        "mouth": [
+          70,
+          55
+        ]
+      },
+      "gait": {
+        "id": 3,
+        "left_leg": "back",
+        "right_leg": "front",
+        "left_arm": "front",
+        "right_arm": "back",
+        "bob": 0,
+        "source": "contour/walk-3-body.png",
+        "generated_source": "repair/walk-3-candidate.png",
+        "arm_source_key": 3,
+        "hands_measured_screen_rois": [
+          [
+            45,
+            102
+          ],
+          [
+            88,
+            98
+          ]
+        ],
+        "boots_measured_screen_rois": [
+          [
+            51,
+            122
+          ],
+          [
+            77,
+            123
+          ]
+        ],
+        "source_head_discarded": true,
+        "near_boot_screen_index": 1,
+        "anatomical_contacts": {
+          "right_hand": [
+            45,
+            102
+          ],
+          "left_hand": [
+            88,
+            98
+          ],
+          "right_boot": [
+            77,
+            123
+          ],
+          "left_boot": [
+            51,
+            122
+          ]
+        }
+      },
+      "head_translation": [
+        0,
+        0
+      ],
+      "source_head": "locked neutral; no rescaling"
+    },
+    "walk-4": {
+      "layers": {
+        "lower": "poses/walk-4/layers/lower.png",
+        "upper": "poses/walk-4/layers/upper.png",
+        "head": "poses/walk-4/layers/head.png",
+        "eyes": "poses/walk-4/layers/eyes.png",
+        "mouth": "poses/walk-4/layers/mouth.png",
+        "hands-front": "poses/walk-4/layers/hands-front.png"
+      },
+      "equipment": {
+        "bow": "poses/walk-4/equipment/bow.png",
+        "cloak": "poses/walk-4/equipment/cloak.png",
+        "quiver-and-arrows": "poses/walk-4/equipment/quiver-and-arrows.png",
+        "leather-outfit": "poses/walk-4/equipment/leather-outfit.png",
+        "fur-hat": "poses/walk-4/equipment/fur-hat.png",
+        "gloves": "poses/walk-4/equipment/gloves.png",
+        "boot-fur-cuffs": "poses/walk-4/equipment/boot-fur-cuffs.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "bow",
+        "quiver-and-arrows",
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "fur-hat",
+        "cloak",
+        "leather-outfit",
+        "boot-fur-cuffs",
+        "hands-front",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          67,
+          65
+        ],
+        "waist": [
+          65,
+          94
+        ],
+        "right_hand": [
+          50,
+          105
+        ],
+        "left_hand": [
+          88,
+          98
+        ],
+        "eyes": [
+          70,
+          50
+        ],
+        "mouth": [
+          70,
+          55
+        ]
+      },
+      "gait": {
+        "id": 4,
+        "left_leg": "recover",
+        "right_leg": "support",
+        "left_arm": "passing",
+        "right_arm": "recover",
+        "bob": 1,
+        "source": "contour/walk-4-body.png",
+        "generated_source": "repair/walk-4-candidate.png",
+        "arm_source_key": 1,
+        "hands_measured_screen_rois": [
+          [
+            50,
+            105
+          ],
+          [
+            88,
+            98
+          ]
+        ],
+        "boots_measured_screen_rois": [
+          [
+            50,
+            115
+          ],
+          [
+            77,
+            125
+          ]
+        ],
+        "source_head_discarded": true,
+        "near_boot_screen_index": 1,
+        "anatomical_contacts": {
+          "right_hand": [
+            50,
+            105
+          ],
+          "left_hand": [
+            88,
+            98
+          ],
+          "right_boot": [
+            77,
+            125
+          ],
+          "left_boot": [
+            50,
+            115
+          ]
+        }
+      },
+      "head_translation": [
+        0,
+        1
+      ],
+      "source_head": "locked neutral; no rescaling"
+    },
+    "walk-5": {
+      "layers": {
+        "lower": "poses/walk-5/layers/lower.png",
+        "upper": "poses/walk-5/layers/upper.png",
+        "head": "poses/walk-5/layers/head.png",
+        "eyes": "poses/walk-5/layers/eyes.png",
+        "mouth": "poses/walk-5/layers/mouth.png",
+        "hands-front": "poses/walk-5/layers/hands-front.png"
+      },
+      "equipment": {
+        "bow": "poses/walk-5/equipment/bow.png",
+        "cloak": "poses/walk-5/equipment/cloak.png",
+        "quiver-and-arrows": "poses/walk-5/equipment/quiver-and-arrows.png",
+        "leather-outfit": "poses/walk-5/equipment/leather-outfit.png",
+        "fur-hat": "poses/walk-5/equipment/fur-hat.png",
+        "gloves": "poses/walk-5/equipment/gloves.png",
+        "boot-fur-cuffs": "poses/walk-5/equipment/boot-fur-cuffs.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "bow",
+        "quiver-and-arrows",
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "fur-hat",
+        "cloak",
+        "leather-outfit",
+        "boot-fur-cuffs",
+        "hands-front",
+        "gloves"
+      ],
+      "sockets_px": {
+        "neck": [
+          67,
+          65
+        ],
+        "waist": [
+          65,
+          94
+        ],
+        "right_hand": [
+          67,
+          104
+        ],
+        "left_hand": [
+          50,
+          103
+        ],
+        "eyes": [
+          70,
+          49
+        ],
+        "mouth": [
+          70,
+          55
+        ]
+      },
+      "gait": {
+        "id": 5,
+        "left_leg": "pass",
+        "right_leg": "support",
+        "left_arm": "back-transition",
+        "right_arm": "front-transition",
+        "bob": 0,
+        "source": "contour/walk-5-body.png",
+        "generated_source": "repair/walk-5-candidate.png",
+        "arm_source_key": 5,
+        "hands_measured_screen_rois": [
+          [
+            67,
+            104
+          ],
+          [
+            50,
+            103
+          ]
+        ],
+        "boots_measured_screen_rois": [
+          [
+            56,
+            125
+          ],
+          [
+            81,
+            120
+          ]
+        ],
+        "source_head_discarded": true,
+        "near_boot_screen_index": 0,
+        "anatomical_contacts": {
+          "right_hand": [
+            67,
+            104
+          ],
+          "left_hand": [
+            50,
+            103
+          ],
+          "right_boot": [
+            56,
+            125
+          ],
+          "left_boot": [
+            81,
+            120
+          ]
+        }
+      },
+      "head_translation": [
+        0,
+        0
+      ],
+      "source_head": "locked neutral; no rescaling"
+    }
+  }
+}

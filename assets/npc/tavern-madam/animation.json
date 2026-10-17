@@ -1,0 +1,216 @@
+{
+  "version": 2,
+  "id": "tavern-madam",
+  "canvas": [
+    128,
+    160
+  ],
+  "foot_anchor_px": [
+    64,
+    140
+  ],
+  "frames": [
+    "neutral",
+    "talk-small",
+    "talk-wide",
+    "talk-round",
+    "blink",
+    "happy",
+    "surprised",
+    "relaxed",
+    "nod-mid",
+    "nod-down",
+    "turn-left",
+    "turn-right",
+    "give-mid",
+    "give-retract",
+    "give-full",
+    "give-empty",
+    "neutral-empty",
+    "walk-0",
+    "walk-1",
+    "walk-2",
+    "walk-3",
+    "walk-4",
+    "walk-5"
+  ],
+  "clips": {
+    "idle": {
+      "frames": [
+        "neutral"
+      ],
+      "durations_ms": [
+        1200
+      ],
+      "loop": true,
+      "events": []
+    },
+    "blink": {
+      "frames": [
+        "neutral",
+        "relaxed",
+        "blink",
+        "relaxed",
+        "neutral"
+      ],
+      "durations_ms": [
+        1200,
+        50,
+        100,
+        50,
+        500
+      ],
+      "loop": true,
+      "events": []
+    },
+    "talk": {
+      "frames": [
+        "neutral",
+        "talk-small",
+        "talk-wide",
+        "talk-small",
+        "talk-round",
+        "neutral"
+      ],
+      "durations_ms": [
+        160,
+        100,
+        120,
+        100,
+        120,
+        180
+      ],
+      "loop": true,
+      "events": []
+    },
+    "happy": {
+      "frames": [
+        "neutral",
+        "happy",
+        "neutral"
+      ],
+      "durations_ms": [
+        180,
+        700,
+        180
+      ],
+      "loop": false,
+      "events": []
+    },
+    "surprised": {
+      "frames": [
+        "neutral",
+        "surprised",
+        "neutral"
+      ],
+      "durations_ms": [
+        160,
+        650,
+        180
+      ],
+      "loop": false,
+      "events": []
+    },
+    "relaxed": {
+      "frames": [
+        "neutral",
+        "relaxed",
+        "neutral"
+      ],
+      "durations_ms": [
+        180,
+        700,
+        180
+      ],
+      "loop": false,
+      "events": []
+    },
+    "nod": {
+      "frames": [
+        "neutral",
+        "nod-mid",
+        "nod-down",
+        "nod-mid",
+        "neutral"
+      ],
+      "durations_ms": [
+        120,
+        100,
+        140,
+        100,
+        120
+      ],
+      "loop": false,
+      "events": []
+    },
+    "shake_head": {
+      "frames": [
+        "neutral",
+        "turn-left",
+        "neutral",
+        "turn-right",
+        "neutral"
+      ],
+      "durations_ms": [
+        100,
+        140,
+        100,
+        140,
+        100
+      ],
+      "loop": false,
+      "events": []
+    },
+    "give": {
+      "frames": [
+        "neutral",
+        "give-mid",
+        "give-full",
+        "give-empty",
+        "give-retract",
+        "neutral-empty"
+      ],
+      "durations_ms": [
+        120,
+        120,
+        180,
+        120,
+        120,
+        120
+      ],
+      "loop": false,
+      "events": [
+        {
+          "key": 3,
+          "name": "transfer",
+          "hand": "left",
+          "item": "tankard",
+          "fires": "once_on_entry"
+        }
+      ]
+    },
+    "walk": {
+      "frames": [
+        "walk-0",
+        "walk-1",
+        "walk-2",
+        "walk-3",
+        "walk-4",
+        "walk-5"
+      ],
+      "durations_ms": [
+        120,
+        120,
+        120,
+        120,
+        120,
+        120
+      ],
+      "loop": true,
+      "events": []
+    }
+  },
+  "recipes": "poses/recipes.json",
+  "channels": "expressions/recipes.json",
+  "scope": "authoring; not game runtime integration"
+}

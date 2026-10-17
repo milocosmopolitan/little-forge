@@ -1,0 +1,8 @@
+{
+  "scope": "authoring review",
+  "all_six_native_frames_reviewed": "far-cape-all-6.png",
+  "browser": "Chrome 4x light; reported walk-1 key and slow quarter speed loop",
+  "changed_pixels_outside_added_far_cape": 0,
+  "arm_and_bare_body_preserved": true,
+  "url": "http://127.0.0.1:8791/assets/npc/hunter/previews/animation.html?clip=walk&speed=0.25&rev=farcape7"
+}

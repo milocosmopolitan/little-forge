@@ -1,0 +1,25 @@
+{
+  "base-neutral.png": {
+    "changed_pixels": 497,
+    "changes_outside_hair_and_two_hand_pixels": 0
+  },
+  "crown_top_before_after": [
+    25,
+    22
+  ],
+  "neutral.png": {
+    "changed_pixels": 0,
+    "changes_outside_hair_and_two_hand_pixels": 0
+  },
+  "neck_and_face_outside_crown": "pixel-identical to approved repair checkpoint",
+  "hand_pixels_filled": [
+    [
+      45,
+      91
+    ],
+    [
+      61,
+      92
+    ]
+  ]
+}

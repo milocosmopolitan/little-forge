@@ -1,0 +1,133 @@
+{
+  "revision": "joint-rebuild-v11",
+  "status": "internal_review_recorded_user_acceptance_pending",
+  "user_accepted": null,
+  "rejected_baseline": "solid-underlap-v10",
+  "root_cause": [
+    "Source head removal was not followed by a complete body-owned shoulder plate",
+    "Triangular neck patches and per-key head offsets preserved incorrect anatomy",
+    "Old source head flecks and a grey headband were misclassified as body material"
+  ],
+  "scope": {
+    "sexes": [
+      "female",
+      "male"
+    ],
+    "actions": [
+      "hammering",
+      "quenching",
+      "forging",
+      "researching"
+    ],
+    "variants": 96,
+    "common_and_rear_frame_files_preserved": 120
+  },
+  "architecture": {
+    "body": "Source garment and complete short neck/shoulder mount built without the moving head as an input",
+    "head": "Approved root head without documented neck/collar rows, plus unchanged approved eyes and mouth",
+    "root_mount": {
+      "female": [
+        62,
+        66
+      ],
+      "male": [
+        57,
+        64
+      ]
+    },
+    "per_key_head_corrections": false,
+    "legacy_triangle_underlap_in_current_build": false
+  },
+  "checks": {
+    "body": "body-mount-validation.json",
+    "head_identity_and_atlas": "animation-validation.json",
+    "head_ownership": "head-ownership-validation.json",
+    "shirt_preservation": "neck-assembly-validation.json",
+    "source_material_and_water": "neck-material-water-validation.json",
+    "preview_race": "render-race-validation.json",
+    "rebuild": "animation-rebuild.json"
+  },
+  "visual_artifacts": [
+    "joint-rebuild-v11-layers.png",
+    "joint-rebuild-v11-female-48.png",
+    "joint-rebuild-v11-male-48.png",
+    "joint-rebuild-v11-female-body-only.png",
+    "joint-rebuild-v11-male-body-only.png"
+  ],
+  "visual_review": {
+    "source": "agent_internal_review",
+    "all_96_body_layers_and_composites_inspected": true,
+    "backgrounds": [
+      "cyan",
+      "light",
+      "dark"
+    ],
+    "not_user_acceptance": true
+  },
+  "browser_review": {
+    "browser": "Safari",
+    "loaded_version_label_observed": "Loaded assets: joint-rebuild-v11",
+    "playback_completion_observed": "PLAYBACK QA COMPLETE: 40 scenarios, both characters.",
+    "playback_scope": "Body/head registration build; subsequent small source-fleck cleanup and grey-headband classification verified with current pixel checks and targeted manual scenes",
+    "speeds": [
+      1,
+      0.5
+    ],
+    "equipment": [
+      true,
+      false
+    ],
+    "dark": [
+      false,
+      true
+    ],
+    "manual_forging_keys_observed": [
+      0,
+      4,
+      5
+    ],
+    "manual_research_keys_observed": [
+      0,
+      2,
+      4
+    ],
+    "page": "http://127.0.0.1:8773/assets/characters/previews/animation.html?clip=forging&frame=0&revision=joint-rebuild-v11&review=final-layers"
+  },
+  "preview_loading": {
+    "json_cache": "no-store",
+    "images": "per-page-session cache-busting query",
+    "loaded_revision": "Read from loaded animation metadata, not the page query"
+  },
+  "limitations": [
+    "Research keeps the approved three-quarter face over the existing front torso; no new front-facing head authored",
+    "Game integration and GPU performance not measured"
+  ],
+  "artifact_sha256": {
+    "female/animation.json": "6e690986a9550e996870979f23fd6cf8d72106c77821bca2d9d1385ddbc94838",
+    "male/animation.json": "7f302e073898a216525a8228fa47aff7ac2396e36158359491dcab0c3c796e25",
+    "female/frames/forging-0.png": "7e8ce36ec170bf2364374ca7d3e89506942eb9e6b9e690d63caf9246c5d6cbff",
+    "female/frames/forging-4.png": "1d1016dd6f8f3e44d35c53007ac89ca6ebbbbdd8470967539fe076bf8d8ff4e0",
+    "female/frames/forging-5.png": "7e8ce36ec170bf2364374ca7d3e89506942eb9e6b9e690d63caf9246c5d6cbff",
+    "female/frames/researching-0.png": "3947d13eec3b7aa1a339f117524cf02b75c7f1fde31e8d9b90539b990719c10c",
+    "male/frames/researching-0.png": "a2f4a0bbd37cee5c72ba7f3f1e2eaef2e873e017e2ff2b2ae3be7e076088cd8e",
+    "previews/animation.html": "6311b38e73717840f558837157197b73f7d93ddc1a16bfc8785dc6ae893ef967"
+  },
+  "body_checks": {
+    "status": "pass",
+    "revision": "joint-rebuild-v11",
+    "variants_checked": 96,
+    "missing_body_coverage_pixels": 0,
+    "nonuniform_head_bindings": 0,
+    "rejected_v10_binding_failures": 84,
+    "unrelated_frames_preserved": 120,
+    "coverage_scope": "Body-owned neck and shoulder plate, checked without the head; source garment colors checked separately",
+    "visual_acceptance": "Not established by pixel assertions"
+  },
+  "rebuild": {
+    "status": "pass",
+    "native_png_and_json_files": 3080,
+    "byte_identical": true,
+    "command": "node assets/characters/source/animation/build.mjs --no-previews",
+    "excluded": "QA JSON reports, which are independent check outputs"
+  }
+}

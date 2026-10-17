@@ -1,0 +1,19 @@
+{
+  "scope": "authoring visual review; no runtime integration or user approval implied",
+  "url": "http://127.0.0.1:8791/assets/npc/hunter/previews/animation.html?clip=walk&speed=0.25&rev=occlusion6",
+  "observed_browser_playback": [
+    "4x light slow quarter speed",
+    "4x dark normal speed"
+  ],
+  "static_all_six_keys": [
+    "4x light/dark/cyan torso crops",
+    "1x dark full body"
+  ],
+  "checked": [
+    "cape shoulder in front of sleeve",
+    "cape back filled behind swinging arm",
+    "torso shirt excluded from foreground over leather vest",
+    "bare motion remains exact"
+  ],
+  "regression_report": "walk-occlusion-validation.json"
+}

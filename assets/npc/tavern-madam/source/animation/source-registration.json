@@ -1,0 +1,199 @@
+{
+  "nod-down": {
+    "path": "source/animation/candidates/nod-down.png",
+    "native_cell": [
+      64,
+      64
+    ],
+    "paste": [
+      12,
+      0
+    ],
+    "nose_repair": {
+      "path": "source/animation/nod-eye-repair/nose-candidate.png",
+      "native_size": [
+        64,
+        64
+      ],
+      "paste": [
+        12,
+        0
+      ],
+      "adoption_box": [
+        50,
+        39,
+        56,
+        41
+      ],
+      "prompt": "source/animation/nod-eye-repair/nose-prompt.json"
+    },
+    "eye_repair": {
+      "path": "source/animation/nod-eye-repair/candidate.png",
+      "native_size": [
+        64,
+        64
+      ],
+      "paste": [
+        12,
+        0
+      ],
+      "eye_boxes": [
+        [
+          40,
+          33,
+          49,
+          39
+        ],
+        [
+          52,
+          34,
+          57,
+          40
+        ]
+      ],
+      "prompt": "source/animation/nod-eye-repair/prompt.json"
+    }
+  },
+  "turn-left": {
+    "path": "source/animation/candidates/turn-left.png",
+    "native_cell": [
+      64,
+      64
+    ],
+    "paste": [
+      12,
+      0
+    ]
+  },
+  "turn-right": {
+    "path": "source/animation/candidates/turn-right.png",
+    "native_cell": [
+      64,
+      64
+    ],
+    "paste": [
+      12,
+      0
+    ]
+  },
+  "give-mid": {
+    "path": "source/animation/candidates/give-mid.png",
+    "transform": [
+      11.0,
+      0,
+      -16.0,
+      0,
+      11.0,
+      64.0
+    ],
+    "source_size": [
+      1024,
+      1536
+    ]
+  },
+  "give-full": {
+    "path": "source/animation/candidates/give-full.png",
+    "transform": [
+      11.0,
+      0,
+      -16.0,
+      0,
+      11.0,
+      64.0
+    ],
+    "source_size": [
+      1024,
+      1536
+    ]
+  },
+  "walk-0": {
+    "path": "source/animation/candidates/walk-0.png",
+    "transform": [
+      11.0,
+      0,
+      -16.0,
+      0,
+      11.0,
+      64.0
+    ],
+    "source_size": [
+      1024,
+      1536
+    ]
+  },
+  "walk-1": {
+    "path": "source/animation/candidates/walk-1.png",
+    "transform": [
+      11.0,
+      0,
+      -16.0,
+      0,
+      11.0,
+      64.0
+    ],
+    "source_size": [
+      1024,
+      1536
+    ]
+  },
+  "walk-2": {
+    "path": "source/animation/candidates/walk-2.png",
+    "transform": [
+      11.0,
+      0,
+      -16.0,
+      0,
+      11.0,
+      64.0
+    ],
+    "source_size": [
+      1024,
+      1536
+    ]
+  },
+  "walk-3": {
+    "path": "source/animation/candidates/walk-3.png",
+    "transform": [
+      11.0,
+      0,
+      -16.0,
+      0,
+      11.0,
+      64.0
+    ],
+    "source_size": [
+      1024,
+      1536
+    ]
+  },
+  "walk-4": {
+    "path": "source/animation/candidates/walk-4.png",
+    "transform": [
+      11.0,
+      0,
+      -16.0,
+      0,
+      11.0,
+      64.0
+    ],
+    "source_size": [
+      1024,
+      1536
+    ]
+  },
+  "walk-5": {
+    "path": "source/animation/candidates/walk-5.png",
+    "transform": [
+      11.0,
+      0,
+      -16.0,
+      0,
+      11.0,
+      64.0
+    ],
+    "source_size": [
+      1024,
+      1536
+    ]
+  }
+}

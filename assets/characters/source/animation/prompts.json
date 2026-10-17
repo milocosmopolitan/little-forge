@@ -1,0 +1,146 @@
+[
+  {
+    "id": "female-expressions",
+    "sex": "female",
+    "prompt": "Create an expression-source sheet for the EXACT female player in the attached approved character image. Preserve face size, youthful identity, brown pupils, large asymmetric eyes, warm blush, copper ponytail, original closed smile, right three-quarter gaze, native pixel density and dark 1px contours. FOUR columns by TWO rows, eight equally sized head-and-neck portraits, same scale and position within every cell, transparent background, no grid or text. Read left to right top to bottom: 1 neutral original open eyes + original closed smile; 2 open eyes + small speaking mouth; 3 open eyes + wide speaking mouth with teeth and warm inner mouth; 4 open eyes + round O mouth; 5 CLOSED BLINK EYES + original smile; 6 HAPPY CLOSED curved eyes + original smile; 7 WIDE SURPRISED eyes + round O mouth; 8 HALF LIDDED relaxed eyes + original smile. These are feature swaps on ONE identity, not new faces or different poses. Native face approx22x24px within head approx53x41px. Large connected pixel clusters, native hard-edged pixels, no speckle, no blur, no shadows outside head. Every portrait must contain the complete same hairstyle and neck so registration can be checked. Clothing/equipment not required beyond collar. Exact 4x2 equally spaced grid.",
+    "path": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-aff4933e-6779-488f-a043-0e9e2efe8b8a.png"
+  },
+  {
+    "id": "male-expressions",
+    "sex": "male",
+    "prompt": "Create an expression-source sheet for the EXACT male player in the attached approved character image. Preserve face size, youthful identity, brown pupils, large asymmetric eyes, warm blush, chestnut spiky hair, original closed smile, right three-quarter gaze, native pixel density and dark 1px contours. FOUR columns by TWO rows, eight equally sized head-and-neck portraits, same scale and position within every cell, transparent background, no grid or text. Read left to right top to bottom: 1 neutral original open eyes + original closed smile; 2 open eyes + small speaking mouth; 3 open eyes + wide speaking mouth with teeth and warm inner mouth; 4 open eyes + round O mouth; 5 CLOSED BLINK EYES + original smile; 6 HAPPY CLOSED curved eyes + original smile; 7 WIDE SURPRISED eyes + round O mouth; 8 HALF LIDDED relaxed eyes + original smile. These are feature swaps on ONE identity, not new faces or different poses. Native face approx22x24px within head approx53x41px. Large connected pixel clusters, native hard-edged pixels, no speckle, no blur, no shadows outside head. Every portrait must contain the complete same hairstyle and neck so registration can be checked. Clothing/equipment not required beyond collar. Exact 4x2 equally spaced grid.",
+    "path": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-6bf7c530-4cf5-478c-96f8-1fd0e40d84fb.png"
+  },
+  {
+    "id": "female-walk",
+    "sex": "female",
+    "cols": 3,
+    "rows": 2,
+    "prompt": "Create SIX WALK-CYCLE keys for this exact female game player, in a precise THREE-column TWO-row sprite source sheet. Same character, proportions, height, head size, skin/copper-brown hair, cream rolled-sleeve shirt, olive work trousers, brown boots with steel toe and brass detail. NO apron, belt tools, gloves, headband, ribbon or hammer; this is complete unequipped underlayer. Match supplied approved bare player exactly, NOT slim, not longer legs. Right-facing three-quarter walk in place, all six keys same head size, no squash. Dark 1-native-pixel continuous contours, clean connected clusters. Hands bare and complete. Head may retain neutral face; it will be replaced with approved head. Every cell equal size, whole body fully visible, soles same baseline, generous empty margins, transparent background, no text or separators. Near side is character anatomical RIGHT. Row1: key1 LEFT leg forward/right leg back AND RIGHT arm forward/left arm back; key2 left support/body drops 1px while right foot recovers, arms halfway swinging; key3 right foot passes support leg lifted, arms pass midpoint. Row2: key4 RIGHT leg forward/left leg back AND LEFT arm forward/right arm back; key5 right support/body drops while left foot recovers, arms halfway swinging; key6 left foot passes lifted, arms returning. Same-side arm and leg always opposite phase; opposing arm and leg forward together. Walking is not running: one foot supports, moderate stride, no high knee. Deliberate 6 different keys, neutral hip-rest arm MUST NOT be reused. Crisp true pixel style at approx117px visible native height.",
+    "path": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-75d7bb5f-1fb6-469d-a46e-efd75e14e306.png"
+  },
+  {
+    "id": "male-walk",
+    "sex": "male",
+    "cols": 3,
+    "rows": 2,
+    "prompt": "Create SIX WALK-CYCLE keys for this exact male game player, in a precise THREE-column TWO-row sprite source sheet. Same character, proportions, height, head size, skin/copper-brown hair, cream rolled-sleeve shirt, olive work trousers, brown boots with steel toe and brass detail. NO apron, belt tools, gloves, headband, ribbon or hammer; this is complete unequipped underlayer. Match supplied approved bare player exactly, NOT slim, not longer legs. Right-facing three-quarter walk in place, all six keys same head size, no squash. Dark 1-native-pixel continuous contours, clean connected clusters. Hands bare and complete. Head may retain neutral face; it will be replaced with approved head. Every cell equal size, whole body fully visible, soles same baseline, generous empty margins, transparent background, no text or separators. Near side is character anatomical RIGHT. Row1: key1 LEFT leg forward/right leg back AND RIGHT arm forward/left arm back; key2 left support/body drops 1px while right foot recovers, arms halfway swinging; key3 right foot passes support leg lifted, arms pass midpoint. Row2: key4 RIGHT leg forward/left leg back AND LEFT arm forward/right arm back; key5 right support/body drops while left foot recovers, arms halfway swinging; key6 left foot passes lifted, arms returning. Same-side arm and leg always opposite phase; opposing arm and leg forward together. Walking is not running: one foot supports, moderate stride, no high knee. Deliberate 6 different keys, neutral hip-rest arm MUST NOT be reused. Crisp true pixel style at approx117px visible native height.",
+    "path": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-554e73d3-14f4-4684-aa54-424aa4a4df2e.png"
+  },
+  {
+    "id": "female-gestures",
+    "sex": "female",
+    "cols": 3,
+    "rows": 2,
+    "prompt": "Create a source sheet of EXACTLY SIX poses of the supplied female player, THREE columns TWO rows. Preserve approved character face shape, hair, sturdy body proportions, cream shirt/olive trousers/steel-toe brown boots. COMPLETE unequipped underlayer: NO apron, belt tools, gloves, headband or hammer. Transparent background, no ground/no gradient, no text, equal cells and scale. Row1 col1: neutral right3/4 body with head nodding DOWN mildly, eyes lowered half-closed, same skull volume and short neck; col2: same body, head turned slightly toward camera (front3/4), original neutral expression; col3: same body, head turned to RIGHT toward profile (not back), same neutral friendly eyes. Row2 col1: right3/4 body with near RIGHT hand released from hip and reaching forward halfway at waist level, palm up, other arm naturally down; col2: near RIGHT arm fully extended forward palm-up to GIVE an item (no item drawn), elbow softly bent, fingers complete, other hand down; col3: same extended palm after item release with fingers relaxed and wrist slightly lowered. Full body same baseline each key, no shortened heads or neck, no outline breaks. Native body117px tall, continuous dark1px outline, clean connected pixel clusters. DO NOT copy any NPC body or face.",
+    "path": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-6709cab9-01f9-4b02-89db-00d46475b114.png"
+  },
+  {
+    "id": "male-gestures",
+    "sex": "male",
+    "cols": 3,
+    "rows": 2,
+    "prompt": "Create a source sheet of EXACTLY SIX poses of the supplied male player, THREE columns TWO rows. Preserve approved character face shape, hair, sturdy body proportions, cream shirt/olive trousers/steel-toe brown boots. COMPLETE unequipped underlayer: NO apron, belt tools, gloves, headband or hammer. Transparent background, no ground/no gradient, no text, equal cells and scale. Row1 col1: neutral right3/4 body with head nodding DOWN mildly, eyes lowered half-closed, same skull volume and short neck; col2: same body, head turned slightly toward camera (front3/4), original neutral expression; col3: same body, head turned to RIGHT toward profile (not back), same neutral friendly eyes. Row2 col1: right3/4 body with near RIGHT hand released from hip and reaching forward halfway at waist level, palm up, other arm naturally down; col2: near RIGHT arm fully extended forward palm-up to GIVE an item (no item drawn), elbow softly bent, fingers complete, other hand down; col3: same extended palm after item release with fingers relaxed and wrist slightly lowered. Full body same baseline each key, no shortened heads or neck, no outline breaks. Native body117px tall, continuous dark1px outline, clean connected pixel clusters. DO NOT copy any NPC body or face.",
+    "path": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-af005d35-9cb7-4394-b87d-034aff437faf.png"
+  },
+  {
+    "id": "female-directions",
+    "sex": "female",
+    "cols": 2,
+    "rows": 2,
+    "prompt": "Create FOUR matching full-body direction baselines of THIS EXACT female player in TWO columns TWO rows. Identity, full head volume, hair and face detail, shirt/boot detail and sturdy proportions must match the approved reference, visible native height117px, same head-to-body ratio. Row1 col1: full FRONT view, no apron/gloves/tools/head accessory, cream shirt, olive trousers, boots, neutral arms loosely down with hands near waist ready to write; row1 col2: full BACK view of same unequipped player, complete scalp/back of head, full shirt/trousers/boots, arms loosely down ready to work at bench, NO FACE OR EYES visible on back. Row2 col1: same FRONT view wearing exactly reference brown leather apron with shoulder straps/brass fasteners, belt tool sheath, brown work gloves and red ponytail tie; row2 col2 same BACK view wearing crossed brown apron straps tied at waist, apron side tails and gloves, no front apron bib painted on back, ponytail tie. Complete bodies including hidden lower body, no table. Front has original warm brown eyes and SMALL CLOSED asymmetrical smile, nose/cheek/ear detail, not chibi redesign. Same scale/baseline within ALL equal cells, 1px dark native contours, no blur/no antialiasing/no gradients, transparent background. Do not use action-preview characters as identity.",
+    "path": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-0cade49d-7e83-4346-b74f-eaa1633afa15.png"
+  },
+  {
+    "id": "male-directions",
+    "sex": "male",
+    "cols": 2,
+    "rows": 2,
+    "prompt": "Create FOUR matching full-body direction baselines of THIS EXACT male player in TWO columns TWO rows. Identity, full head volume, hair and face detail, shirt/boot detail and sturdy proportions must match the approved reference, visible native height117px, same head-to-body ratio. Row1 col1: full FRONT view, no apron/gloves/tools/head accessory, cream shirt, olive trousers, boots, neutral arms loosely down with hands near waist ready to write; row1 col2: full BACK view of same unequipped player, complete scalp/back of head, full shirt/trousers/boots, arms loosely down ready to work at bench, NO FACE OR EYES visible on back. Row2 col1: same FRONT view wearing exactly reference brown leather apron with shoulder straps/brass fasteners, belt tool sheath, brown work gloves and blue-grey headband; row2 col2 same BACK view wearing crossed brown apron straps tied at waist, apron side tails and gloves, no front apron bib painted on back, back knot of bandana. Complete bodies including hidden lower body, no table. Front has original warm brown eyes and SMALL CLOSED asymmetrical smile, nose/cheek/ear detail, not chibi redesign. Same scale/baseline within ALL equal cells, 1px dark native contours, no blur/no antialiasing/no gradients, transparent background. Do not use action-preview characters as identity.",
+    "path": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-97bf7dc0-ff15-4851-9179-a583c4ab6732.png"
+  },
+  {
+    "id": "female-smith",
+    "sex": "female",
+    "cols": 6,
+    "rows": 3,
+    "prompt": "Create a precise SIX columns by THREE rows SOURCE SPRITE SHEET, 18 full-body keys, of the EXACT supplied female player facing RIGHT three-quarter. Approved identity, hair size, sturdy proportions, cream rolled-sleeve shirt, olive trousers, steel-toe leather boots. UNEQUIPPED BASE: NO apron, NO belt tools, NO gloves, NO headband or hair tie. COMPLETE BARE HANDS holding tools. Maintain117 nativepx visible body height, same foot baseline and head position/size across18 equal cells, native128x160 framing per cell. Tools fit within cell; no stations/background/ground/shadows/text. Clear transparent background! Match dark1px outlines, clean pixel clusters, same palette. Every cell must show an actual different phase, not duplicates. Near RIGHT hand operates hammer, far LEFT hand holds tongs and orange heated metal blade. Row1 HAMMERING 6 keys: ready with hammer in right hand forward at chest / raise hammer above shoulder / accelerating down / hammer face contacts blade at fixed waist-high point to right / rebound / return. LEFT tongs hand stays stable waist-high throughout, fingers never at strike point. No anvil drawn, fixed strike point approx native cell(106,91). Row2 QUENCHING 6 keys: left-hand tongs holding hot blade horizontally right / tilt blade downward / lower only blade below waist-waterline at cell(105,111) / hold submerged posture / lift blade tipped down / return horizontal. Other hand assists near handle, hands stay above nativey99, no water or tub drawn. Row3 HEATING 6 keys: tongs with blade approach right / extend horizontally / hold fully extended at cell(108,91) / subtle settled hold / retract blade / return. Keep hand outside imaginary forge opening at x107. All18 heads the approved neutral head, no head redesign or expression variation. Clothing and bare wrists complete even behind held tools. Any bright heat/glow limited to blade, not baked on body.",
+    "path": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-2c6fa3da-3cd3-4d34-8ba4-c7604f62bfb7.png"
+  },
+  {
+    "id": "male-smith",
+    "sex": "male",
+    "cols": 6,
+    "rows": 3,
+    "prompt": "Create a precise SIX columns by THREE rows SOURCE SPRITE SHEET, 18 full-body keys, of the EXACT supplied male player facing RIGHT three-quarter. Approved identity, hair size, sturdy proportions, cream rolled-sleeve shirt, olive trousers, steel-toe leather boots. UNEQUIPPED BASE: NO apron, NO belt tools, NO gloves, NO headband or hair tie. COMPLETE BARE HANDS holding tools. Maintain117 nativepx visible body height, same foot baseline and head position/size across18 equal cells, native128x160 framing per cell. Tools fit within cell; no stations/background/ground/shadows/text. Clear transparent background! Match dark1px outlines, clean pixel clusters, same palette. Every cell must show an actual different phase, not duplicates. Near RIGHT hand operates hammer, far LEFT hand holds tongs and orange heated metal blade. Row1 HAMMERING 6 keys: ready with hammer in right hand forward at chest / raise hammer above shoulder / accelerating down / hammer face contacts blade at fixed waist-high point to right / rebound / return. LEFT tongs hand stays stable waist-high throughout, fingers never at strike point. No anvil drawn, fixed strike point approx native cell(106,91). Row2 QUENCHING 6 keys: left-hand tongs holding hot blade horizontally right / tilt blade downward / lower only blade below waist-waterline at cell(105,111) / hold submerged posture / lift blade tipped down / return horizontal. Other hand assists near handle, hands stay above nativey99, no water or tub drawn. Row3 HEATING 6 keys: tongs with blade approach right / extend horizontally / hold fully extended at cell(108,91) / subtle settled hold / retract blade / return. Keep hand outside imaginary forge opening at x107. All18 heads the approved neutral head, no head redesign or expression variation. Clothing and bare wrists complete even behind held tools. Any bright heat/glow limited to blade, not baked on body.",
+    "path": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-d5dbfa5d-6840-4ca4-bad8-1bd7130b6930.png"
+  },
+  {
+    "id": "female-bench",
+    "sex": "female",
+    "cols": 6,
+    "rows": 2,
+    "prompt": "Create exactly SIX columns TWO rows, 12 fullbody animation source poses of the supplied female player. Same original skull volume, detailed hair, original sturdy proportions, native117px visible height, uniform cell size, fixed foot pivot. Transparent background, no ground/gradient/stations/text. Bare underlayer only: cream shirt, olive work pants, boots, BARE HANDS; NO apron/gloves/belt tools/head accessory. Row1 six STRICT STRAIGHT FRONT CAMERA-FACING RESEARCH keys, NOT right3/4: centered nose, two equally visible eyes, two shoulders frontal, head samewidth/height as reference. (1) looking down at imaginary waist-high blueprint, arms bent forward palms down; (2) right hand pen approaches paper, left palm stabilizes; (3) write left stroke; (4) write right stroke; (5) THINK right hand near chin, left arm resting forward; (6) return pen near blueprint. Pen a small dark/brown nib in right hand, no book or desk drawn. Complete torso and legs behind nonexistent desk. Row2 six EXACT BACK VIEW SALVAGE keys: no face, no eyes, full back skull/hair, pony tail still attached with full scalp. (1) hands working ahead at waist, body blocks target; (2) lean a little forward; (3) subtle right elbow inward work; (4) subtle left elbow inward work; (5) RIGHT arm reaches slightly sideways right to place small generic metal part at tray, keep central object fully hidden; (6) return. DO NOT reveal any weapon outline or turn head. Arms close to body, NOT widely spread, no weapon-specific animation. Use clean native1px dark outlines, no blurry tiny face, same approved identity not a simpler smaller chibi redesign.",
+    "path": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-bfec20fc-0a63-443d-b386-673b131de15c.png"
+  },
+  {
+    "id": "male-bench",
+    "sex": "male",
+    "cols": 6,
+    "rows": 2,
+    "prompt": "Create exactly SIX columns TWO rows, 12 fullbody animation source poses of the supplied male player. Same original skull volume, detailed hair, original sturdy proportions, native117px visible height, uniform cell size, fixed foot pivot. Transparent background, no ground/gradient/stations/text. Bare underlayer only: cream shirt, olive work pants, boots, BARE HANDS; NO apron/gloves/belt tools/head accessory. Row1 six STRICT STRAIGHT FRONT CAMERA-FACING RESEARCH keys, NOT right3/4: centered nose, two equally visible eyes, two shoulders frontal, head samewidth/height as reference. (1) looking down at imaginary waist-high blueprint, arms bent forward palms down; (2) right hand pen approaches paper, left palm stabilizes; (3) write left stroke; (4) write right stroke; (5) THINK right hand near chin, left arm resting forward; (6) return pen near blueprint. Pen a small dark/brown nib in right hand, no book or desk drawn. Complete torso and legs behind nonexistent desk. Row2 six EXACT BACK VIEW SALVAGE keys: no face, no eyes, full back skull/hair, spiky back hair. (1) hands working ahead at waist, body blocks target; (2) lean a little forward; (3) subtle right elbow inward work; (4) subtle left elbow inward work; (5) RIGHT arm reaches slightly sideways right to place small generic metal part at tray, keep central object fully hidden; (6) return. DO NOT reveal any weapon outline or turn head. Arms close to body, NOT widely spread, no weapon-specific animation. Use clean native1px dark outlines, no blurry tiny face, same approved identity not a simpler smaller chibi redesign.",
+    "path": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-ce9ce983-4fa8-4bbb-80d3-9de8b00cc516.png"
+  },
+  {
+    "id": "female-walk-opposite",
+    "sex": "female",
+    "cols": 3,
+    "rows": 1,
+    "prompt": "Three sequential full-body WALK keys of this EXACT female character, THREE equally sized cells in ONE ROW, transparent background NO ground NO gradient. Cream shirt/olive trousers/boots; NO apron/gloves/equipment. Face/hair/head size and sturdy proportions exactly approved reference. Walking right three-quarter. This is specifically the OPPOSITE half-cycle to the usual generated pose: the NEAR CAMERA RIGHT ARM is FORWARD, reaching to image-right in front of belly; the NEAR CAMERA RIGHT LEG with prominent buckle is BEHIND, its boot at IMAGE-LEFT. The FAR LEFT LEG is FORWARD with its boot at IMAGE-RIGHT, and FAR LEFT ARM is BACK at IMAGE-LEFT. Key1 maximum this opposing swing contact, key2 far-left-leg support/body drops1px with right leg recovering and right arm swinging backward, key3 near-right foot passes support lifted and arms return through midpoint. Do NOT show the near arm trailing backward in key1. Clearly read forward near forearm crossing in front of waist while near boot is behind. Correct contralateral human gait. Native117px tall, full silhouettes and complete fingers, same scale, soles at same baseline, no text.",
+    "path": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-cd273b4e-58c3-466f-943a-a0fa44d69610.png"
+  },
+  {
+    "id": "male-walk-opposite",
+    "sex": "male",
+    "cols": 3,
+    "rows": 1,
+    "prompt": "Three sequential full-body WALK keys of this EXACT male character, THREE equally sized cells in ONE ROW, transparent background NO ground NO gradient. Cream shirt/olive trousers/boots; NO apron/gloves/equipment. Face/hair/head size and sturdy proportions exactly approved reference. Walking right three-quarter. This is specifically the OPPOSITE half-cycle to the usual generated pose: the NEAR CAMERA RIGHT ARM is FORWARD, reaching to image-right in front of belly; the NEAR CAMERA RIGHT LEG with prominent buckle is BEHIND, its boot at IMAGE-LEFT. The FAR LEFT LEG is FORWARD with its boot at IMAGE-RIGHT, and FAR LEFT ARM is BACK at IMAGE-LEFT. Key1 maximum this opposing swing contact, key2 far-left-leg support/body drops1px with right leg recovering and right arm swinging backward, key3 near-right foot passes support lifted and arms return through midpoint. Do NOT show the near arm trailing backward in key1. Clearly read forward near forearm crossing in front of waist while near boot is behind. Correct contralateral human gait. Native117px tall, full silhouettes and complete fingers, same scale, soles at same baseline, no text.",
+    "path": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-884df32d-8d6f-4ea4-b7d1-3d080e058768.png"
+  },
+  {
+    "id": "direction-heads",
+    "cols": 2,
+    "rows": 2,
+    "prompt": "Create a DIRECTION HEAD source sheet for these TWO approved player characters. EXACT TWO columns TWO rows, four full head+short-neck portraits: row1 female FRONT then female BACK; row2 male FRONT then male BACK. Image1 female approved original, image2 male approved original. Identity and native pixel density fixed. Heads must be COMPACT, approx52x41 native pixels INCLUDING hairstyle, inside80x56 native cells. NOT tall balloon heads, not baby/chibi redesign. Match original head-to-face ratio, copper female ponytail with full scalp, chestnut male spikes, skin/ear/nose/blush detail. FRONT MUST BE STRICT STRAIGHT-ON: nose central, two eyes equally visible and same size, head camera-facing, original small CLOSED friendly smile. BACK is full scalp/rear hair and both ears with NO eyes/face, no head turned sideways. No head accessories, no shoulders or body, no cropped chin, no text/borders. All four portraits same head scale; reference head height about41 native pixels, do not use oversized research-preview head. Dark1px native outline, large clean connected pixel clusters, no AA/blur/gradients. Transparent background.",
+    "path": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-d4ff5453-6389-4e46-970d-b811257492b6.png"
+  },
+  {
+    "id": "angle-heads-blank",
+    "cols": 4,
+    "rows": 2,
+    "prompt": "Edit this EXACT four-column two-row head source sheet. Remove ONLY all eyes, eyebrows and mouths from all EIGHT heads. Fill those precise sites with continuous surrounding peach skin. Preserve noses, cheeks/blush, ears, every hair pixel, skull volume, chin, neck, silhouettes, grid layout, scale, position and transparent background IDENTICALLY. First row female nod/front3quarter/profile/strictfront, second row male same. This is a skin UNDERLAYER for separate expression overlays, no eyes, no eyebrows, no mouth. Do NOT redraw or enlarge heads, do NOT recenter each portrait. Exact alignment with input essential. Preserve nose and blush. Solid native pixels.",
+    "path": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-315fd6cc-7688-45d5-9dd1-ba7e4cbec912.png"
+  },
+  {
+    "id": "front-blink",
+    "cols": 2,
+    "rows": 2,
+    "prompt": "Edit this exact 2x2 head sheet: close ONLY the eyes of both FRONT heads in the LEFT column into relaxed thin closed-blink eyelid lines. Eyebrows remain neutral; no happy inverted-V eye arcs. Preserve original small closed smiles, nose/blush, hairstyles, necks, back-view heads in right column, positions, sizes, framing, pixel style and transparent background exactly. This is the blink overlay source for both frontal direction baselines.",
+    "path": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-1f64e690-5fc2-4e15-ba2b-2a98f83ca555.png"
+  },
+  {
+    "id": "male-smith-compact",
+    "sex": "male",
+    "cols": 6,
+    "rows": 3,
+    "prompt": "Edit this EXACT 6-column 3-row male blacksmith source sheet. Keep every character, pose, hand, hammer, clothing, body proportions, head, pixel scale, cell location and timing phase unchanged. ONLY shorten the ORANGE HOT METAL BLADE held in the tongs in EVERY CELL by about 55 percent, preserving its base gripped in the jaws. The hot blade should be a short compact billet, not a long sword. Preserve tongs and hands as they are. Every entire billet including glow must fit comfortably within its cell with transparent right margin at least12% cell width. Remove baked sparks/large glow on skin, keep the hot orange/yellow inside the compact billet silhouette only. Transparent background, no grid lines or text, no extra cells, no change to sheet framing. This must fit original128x160 native sprite cells without shrinking the character.",
+    "path": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-6990ed8d-7d05-475a-9328-29add5c22a86.png"
+  },
+  {
+    "id": "front-half",
+    "cols": 2,
+    "rows": 2,
+    "prompt": "Edit this exact two-column two-row direction-head sheet. ONLY change both FRONT heads in the LEFT column so their eyes look DOWN toward a blueprint below the frame, with relaxed HALF-CLOSED upper eyelids and visible brown pupils in the lower half. They are focused and awake, not fully closed, not angry. Preserve exact eye width/spacing, eyebrow identity, small CLOSED smile, nose, blush, hair, chin/neck, positions, scale and all BACK heads in right column. Transparent background, crisp native pixel art. Do not alter any non-eye pixels.",
+    "path": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-0c993b6e-2271-4183-9613-4f96a0a01c44.png"
+  }
+]

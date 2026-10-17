@@ -1,0 +1,42 @@
+{
+  "status": "pass",
+  "keys": [
+    {
+      "key": 0,
+      "visible_far_cape_pixels": 163,
+      "changed_pixels": 128,
+      "arm_pixels_changed": 0
+    },
+    {
+      "key": 1,
+      "visible_far_cape_pixels": 163,
+      "changed_pixels": 128,
+      "arm_pixels_changed": 0
+    },
+    {
+      "key": 2,
+      "visible_far_cape_pixels": 119,
+      "changed_pixels": 95,
+      "arm_pixels_changed": 0
+    },
+    {
+      "key": 3,
+      "visible_far_cape_pixels": 83,
+      "changed_pixels": 59,
+      "arm_pixels_changed": 0
+    },
+    {
+      "key": 4,
+      "visible_far_cape_pixels": 88,
+      "changed_pixels": 63,
+      "arm_pixels_changed": 0
+    },
+    {
+      "key": 5,
+      "visible_far_cape_pixels": 163,
+      "changed_pixels": 128,
+      "arm_pixels_changed": 0
+    }
+  ],
+  "scope": "six walk frames; exact preservation outside exposed rear cape"
+}

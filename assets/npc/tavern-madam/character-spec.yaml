@@ -1,0 +1,449 @@
+version: 1
+id: tavern-madam
+role: npc
+action_set: human_common
+grid: B
+grid_unit_px:
+- 16
+- 16
+canvas_cells:
+- 6
+- 8
+native_canvas_px:
+- 96
+- 128
+foot_anchor_px:
+- 48
+- 124
+preview_scale: 4
+pose_canvas:
+  grid: B
+  canvas_cells:
+  - 8
+  - 10
+  native_canvas_px:
+  - 128
+  - 160
+  base_offset_px:
+  - 16
+  - 16
+  foot_anchor_px:
+  - 64
+  - 140
+reference_roles:
+  identity: source/reference.png
+  style: source/reference.png
+reconstructed_occluded_regions:
+- complete hair and ear under ribbon/earring
+- blouse and bodice under shawl
+- skirt and waist under apron, belt and pouches
+- empty raised grip and forearm
+baseline:
+  complete_underlayer: base-neutral.png
+  foundation: source/complete-underlayer-native.png
+  builder: source/build-character.py
+  coverage_report: qa/validation.json
+palette:
+  max_opaque_colors: 64
+  reason: retain face, embroidered cloth, gold, green bottle, beer and leather
+  source: source/palette.png
+  alpha_values:
+  - 0
+  - 255
+identity:
+  head_bbox_px:
+  - 17
+  - 4
+  - 65
+  - 49
+  head_size_without_hat_px:
+  - 48
+  - 45
+  near_eye_bbox_px:
+  - 39
+  - 24
+  - 49
+  - 33
+  far_eye_bbox_px:
+  - 52
+  - 25
+  - 56
+  - 35
+  mouth_bbox_px:
+  - 45
+  - 36
+  - 51
+  - 38
+  hair_color: auburn / copper brown, pinned-up curls
+  body_build: curvy sturdy hostess; original puff sleeves and fitted bodice
+  skin_color: warm peach
+  beard: none
+  eyes: large brown eyes, looking screen-right
+  outline_rule: native dark 1px contours, material shadows separate
+  reference_exact_pixel_identity: false
+  reference_facial_interior_bbox_px:
+  - 39
+  - 19
+  - 57
+  - 42
+  eye_feature_sizes_with_brows_px:
+    near:
+    - 10
+    - 9
+    far:
+    - 4
+    - 10
+  eye_feature_gap_px: 3
+  visible_cross_sections:
+    neck_skin:
+      row_y: 44
+      roi_x:
+      - 35
+      - 56
+      visible_x_interval:
+      - 41
+      - 45
+      width_px: 4
+    puffed_shoulder_silhouette:
+      row_y: 49
+      roi_x:
+      - 12
+      - 64
+      visible_x_interval:
+      - 20
+      - 59
+      width_px: 39
+    bodice_chest:
+      row_y: 58
+      roi_x:
+      - 30
+      - 60
+      visible_x_interval:
+      - 30
+      - 60
+      width_px: 30
+    waist:
+      row_y: 70
+      roi_x:
+      - 32
+      - 60
+      visible_x_interval:
+      - 32
+      - 59
+      width_px: 27
+    near_arm_skin:
+      row_y: 61
+      roi_x:
+      - 12
+      - 28
+      visible_x_interval:
+      - 15
+      - 26
+      width_px: 11
+    far_forearm_skin:
+      row_y: 59
+      roi_x:
+      - 62
+      - 73
+      visible_x_interval:
+      - 65
+      - 70
+      width_px: 5
+  thigh_width_px:
+    value: null
+    observability: occluded by skirt
+  full_leg_length_px:
+    value: null
+    observability: occluded by skirt
+  visible_legs_and_boots_band_y:
+  - 112
+  - 124
+  face_source: reference facial interior, registered polygon; complete outer hair
+    reconstructed
+sockets_px:
+  neck:
+  - 46
+  - 43
+  waist:
+  - 46
+  - 70
+  left_hand:
+  - 68
+  - 50
+  right_hand:
+  - 33
+  - 67
+limb_identity:
+  side_convention: character_anatomical
+  near_side: right
+  far_side: left
+  walk_near: right arm and large-buckle boot
+  walk_far: left arm and small-buckle boot
+  held_props_during_walk: false
+  towel_during_walk: false
+layers:
+  head_base: head-base.png
+  upper_base: body/upper-base.png
+  lower_base: body/lower-base.png
+  eyes:
+    open: eyes/open.png
+    half: eyes/half.png
+    closed: eyes/closed.png
+    happy-closed: eyes/happy-closed.png
+    wide: eyes/wide.png
+  mouth:
+    rest: mouth/rest.png
+    small-open: mouth/small-open.png
+    wide-open: mouth/wide-open.png
+    round: mouth/round.png
+  equipment:
+  - equipment/hair-ribbon.png
+  - equipment/earrings.png
+  - equipment/shawl.png
+  - equipment/apron.png
+  - equipment/belt-accessories.png
+  - equipment/towel.png
+  - equipment/tankard.png
+eyebrow_owner: eyes
+composition_order:
+- lower
+- upper
+- head
+- eyes
+- mouth
+- hair-ribbon
+- earrings
+- shawl
+- apron
+- belt-accessories
+- towel
+- tankard
+expression_recipes:
+  neutral:
+    eyes: open
+    mouth: rest
+  talk-small:
+    eyes: open
+    mouth: small-open
+  talk-wide:
+    eyes: open
+    mouth: wide-open
+  talk-round:
+    eyes: open
+    mouth: round
+  blink:
+    eyes: closed
+    mouth: rest
+  happy:
+    eyes: happy-closed
+    mouth: wide-open
+  surprised:
+    eyes: wide
+    mouth: round
+  relaxed:
+    eyes: half
+    mouth: rest
+production_plan:
+  status: common_set_complete
+  completed:
+  - neutral
+  - expressions_8
+  - nod
+  - shake_head
+  - give
+  - walk_6
+  not_generated: []
+animation:
+  version: 2
+  id: tavern-madam
+  canvas:
+  - 128
+  - 160
+  foot_anchor_px:
+  - 64
+  - 140
+  frames:
+  - neutral
+  - talk-small
+  - talk-wide
+  - talk-round
+  - blink
+  - happy
+  - surprised
+  - relaxed
+  - nod-mid
+  - nod-down
+  - turn-left
+  - turn-right
+  - give-mid
+  - give-retract
+  - give-full
+  - give-empty
+  - neutral-empty
+  - walk-0
+  - walk-1
+  - walk-2
+  - walk-3
+  - walk-4
+  - walk-5
+  clips:
+    idle:
+      frames:
+      - neutral
+      durations_ms:
+      - 1200
+      loop: true
+      events: []
+    blink:
+      frames:
+      - neutral
+      - relaxed
+      - blink
+      - relaxed
+      - neutral
+      durations_ms:
+      - 1200
+      - 50
+      - 100
+      - 50
+      - 500
+      loop: true
+      events: []
+    talk:
+      frames:
+      - neutral
+      - talk-small
+      - talk-wide
+      - talk-small
+      - talk-round
+      - neutral
+      durations_ms:
+      - 160
+      - 100
+      - 120
+      - 100
+      - 120
+      - 180
+      loop: true
+      events: []
+    happy:
+      frames:
+      - neutral
+      - happy
+      - neutral
+      durations_ms:
+      - 180
+      - 700
+      - 180
+      loop: false
+      events: []
+    surprised:
+      frames:
+      - neutral
+      - surprised
+      - neutral
+      durations_ms:
+      - 160
+      - 650
+      - 180
+      loop: false
+      events: []
+    relaxed:
+      frames:
+      - neutral
+      - relaxed
+      - neutral
+      durations_ms:
+      - 180
+      - 700
+      - 180
+      loop: false
+      events: []
+    nod:
+      frames:
+      - neutral
+      - nod-mid
+      - nod-down
+      - nod-mid
+      - neutral
+      durations_ms:
+      - 120
+      - 100
+      - 140
+      - 100
+      - 120
+      loop: false
+      events: []
+    shake_head:
+      frames:
+      - neutral
+      - turn-left
+      - neutral
+      - turn-right
+      - neutral
+      durations_ms:
+      - 100
+      - 140
+      - 100
+      - 140
+      - 100
+      loop: false
+      events: []
+    give:
+      frames:
+      - neutral
+      - give-mid
+      - give-full
+      - give-empty
+      - give-retract
+      - neutral-empty
+      durations_ms:
+      - 120
+      - 120
+      - 180
+      - 120
+      - 120
+      - 120
+      loop: false
+      events:
+      - key: 3
+        name: transfer
+        hand: left
+        item: tankard
+        fires: once_on_entry
+    walk:
+      frames:
+      - walk-0
+      - walk-1
+      - walk-2
+      - walk-3
+      - walk-4
+      - walk-5
+      durations_ms:
+      - 120
+      - 120
+      - 120
+      - 120
+      - 120
+      - 120
+      loop: true
+      events: []
+  recipes: poses/recipes.json
+  channels: expressions/recipes.json
+  scope: authoring; not game runtime integration
+runtime_export:
+  status: not_integrated
+  manifest: atlas-manifest.json
+  mode: baked
+  sampler: nearest
+  mipmaps: false
+  extrude_px: 1
+  gutter_px: 1
+  rotate_packing: false
+generation:
+  tool: built-in image_gen
+  final_prompts: source/generation-prompts.json
+  registration: source/registration.json
+  animation_prompts: source/animation/generation-prompts.json
+  animation_registration: source/animation/source-registration.json
+animation_builder: source/build-animation.py

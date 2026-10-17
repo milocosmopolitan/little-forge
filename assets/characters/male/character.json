@@ -44,5 +44,6 @@
   "base_offset_px": [
     16,
     16
-  ]
+  ],
+  "animation_manifest": "animation.json"
 }

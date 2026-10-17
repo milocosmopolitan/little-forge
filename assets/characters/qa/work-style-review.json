@@ -1,0 +1,63 @@
+{
+  "revision": "approved-face-v5",
+  "status": "internally_reviewed_user_acceptance_pending",
+  "user_accepted": null,
+  "supersedes": "hip-pivot-v2 face and research-arm rejection",
+  "user_reported_issues": [
+    "approved style and face identity lost",
+    "research arms cut off"
+  ],
+  "changes": [
+    "Approved native root head, eyes and mouth reused with integer translation for all 48 visible-face work keys",
+    "Moving neck registration retained; no pinned head",
+    "Research front layers now include sleeves, elbows and hands",
+    "Thinking hand touching face no longer extends detected neck",
+    "Generated directional head candidates rejected; not builder inputs"
+  ],
+  "composition_choice": {
+    "research_body": "front",
+    "research_head": "approved right_3_4",
+    "rear_head": "original coherent pose retained",
+    "workwear_tools": "per-pose baked variants, not interchangeable equipment"
+  },
+  "checks": {
+    "approved_face_layers_exact": "pass in base and equipped variants",
+    "neck_and_bend_motion": "pass",
+    "research_sleeves_and_forearms": "pass",
+    "scene_front_arm_pixels_preserved": 9386,
+    "atlas_roundtrip_gutters": "pass",
+    "deterministic_rebuild_files": 2528,
+    "unrelated_base_frames_preserved": 28,
+    "static_sprite_audit": "structural_pass_runtime_unmeasured"
+  },
+  "browser": {
+    "app": "Safari",
+    "url": "http://127.0.0.1:8773/assets/characters/previews/animation.html?qa=work&revision=approved-face-v5",
+    "completion_text_observed": "PLAYBACK QA COMPLETE: 40 scenarios, both characters.",
+    "speeds": [
+      1,
+      0.5
+    ],
+    "equipment": [
+      true,
+      false
+    ],
+    "background": [
+      "light",
+      "dark"
+    ],
+    "workstation": true,
+    "manual_research_think_key_4_observed": true
+  },
+  "runtime_integration": false,
+  "artifact_hashes": {
+    "female/animation.json": "12ecc237eb858a8cb0a28e947a670e048e2389a61158a2dd0afebfb9d11daa77",
+    "female/atlas.png": "dd046ba81af72d23850058ed8fe083157c940313fb9f420b0c0be6519a1f7197",
+    "female/previews/work-style-reference.png": "f9cec60976196d4c1c1fe9caa8ac4b3b2b98982876da7dcfe10c9942b9a1b4b4",
+    "female/previews/work-actions-review.png": "3ce5b2b6fb8e77510cbe82a8b4daf1b778bf7f6f928ce08425f30f9de495f3b2",
+    "male/animation.json": "3a110d5417d4b5e49a696cce54d24f93986a99971b41ec6e981ce74a5d619d47",
+    "male/atlas.png": "b36d710b12e9b969794a0076aab03d73e44fbefe175325a13ef1533f546a628d",
+    "male/previews/work-style-reference.png": "ba91bf06974141edb59471877eae47ee6a09b67c734a38435f7acce0f9b8bc8a",
+    "male/previews/work-actions-review.png": "4abf71347583a66717607fea5edf89411ea1c21b4ae28ecaf14f3886c4b44632"
+  }
+}

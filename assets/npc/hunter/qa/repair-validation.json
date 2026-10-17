@@ -1,0 +1,43 @@
+{
+  "status": "pass",
+  "expression_combinations": 20,
+  "feature_pixels_outside_eye_coverage": 0,
+  "neutral_alpha_and_hair_preserved": true,
+  "nose_preserved": true,
+  "rejected_blink_detected": true,
+  "whole_generated_jaw_retained": true,
+  "head_metrics": {
+    "nod-down": {
+      "head_bbox": [
+        45,
+        24,
+        88,
+        65
+      ],
+      "face_skin_pixels": 145
+    },
+    "turn-left": {
+      "head_bbox": [
+        44,
+        24,
+        88,
+        65
+      ],
+      "face_skin_pixels": 182
+    },
+    "turn-right": {
+      "head_bbox": [
+        45,
+        24,
+        88,
+        65
+      ],
+      "face_skin_pixels": 178
+    }
+  },
+  "stale_foreground_pixels": 0,
+  "foreground_pixels_checked": 4174,
+  "near_hand_progresses_through_both_half_cycles": true,
+  "contact_and_support_same_side_opposition": true,
+  "scope": "structural regression evidence; visual playback reviewed separately"
+}

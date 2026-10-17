@@ -1,0 +1,16 @@
+{
+  "scope": "Approved native root head reused for all visible work faces; existing rear pose heads retained.",
+  "entries": [
+    {
+      "id": "directional-heads",
+      "prompt": "Use case: identity-preserve. Create a precise pixel-art HEAD angle sheet for the TWO EXACT approved blacksmith player characters in input image. This is a supporting angle source for an existing game, NOT a redesign. Pixel art with the SAME fine warm textured clusters, subtle skin shadows, 1-native-pixel dark outline, same mature-young-adult proportions, SAME small expressive eyes and their specific shapes, same nose and gentle CLOSED smile. Do NOT make rounder chibi heads, bigger or round anime eyes, simplified hair clumps, glossy smooth cel shading or change either face. Preserve female side swept brown fringe and tied bun, male swept spiky brown hair and gray headband/tied tails. Head and a short complete neck ONLY, no shoulders or clothes. Transparent background. A regular four-column TWO-row sheet, equal empty margins, no labels. TOP ROW FEMALE: column1 front-facing neutral head, col2 same front-facing head gently tilted downward reading at desk with eyes OPEN and looking down, col3 back-facing neutral head, col4 same back-facing head gently inclined down. BOTTOM ROW MALE same four views. Keep each head same original anatomical scale, widths and subtle detailed native pixel texture as input. The frontal view must clearly be the same person from input; do not copy generic frontal JRPG faces. All eight heads disconnected with generous transparent gutters. Intentionally enlarged nearest pixel clusters corresponding to roughly 48x42 native-pixel heads; avoid tiny speckled noise. No body, no table, no text.",
+      "generated_path": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-eff02737-4b60-4595-b723-251381130f12.png"
+    },
+    {
+      "id": "directional-heads-blank",
+      "prompt": "Edit the input sheet in-place without moving, resizing or redrawing any head, hair cluster, outline, ear, nose, neck or color texture. Remove ONLY the eyes, eyelashes, eyebrows, and mouth strokes from the four FRONT faces (top row columns1,2 and bottom row columns1,2); fill these small feature sites with continuous matching facial skin pixels. Retain noses, blush, face shading and entire hair unchanged. Back heads remain absolutely unchanged. This is a modular blank-face underlayer, not a faceless horror drawing. Preserve original sheet dimensions, all eight positions exactly. Make all space outside the eight heads fully transparent, no glow, no vignette, no shadow behind heads, no colored backdrop. Keep only opaque head pixels with clean dark pixel-art outlines. Transparent RGBA output.",
+      "generated_path": "/Users/minhokang/.codex/generated_images/01a14542-783b-7b51-a60f-57f18a7a7ea4/exec-364b32e6-cc2b-4ad3-a0fa-0a0ef312256f.png"
+    }
+  ],
+  "disposition": "rejected: new frontal face shape differs from approved identity; candidates are not builder inputs"
+}

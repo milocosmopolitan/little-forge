@@ -1,0 +1,5 @@
+{
+  "status": "pass",
+  "byte_identical_production_files": 50,
+  "entrypoint": "source/build-character.py"
+}

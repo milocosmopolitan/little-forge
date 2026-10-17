@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-17",
+  "browser": "Chrome native CUA",
+  "scope": "authoring preview; visual review is not user approval",
+  "reviewed": [
+    "blink key3/5 at4x",
+    "surprised key2/3 at4x, compact mouth",
+    "nod key3/5 base and no-hat equipped on dark",
+    "shake_head slow, left key2/5 base and no-hat equipped",
+    "give full key3/6 equipped without resting far hand",
+    "give slow complete key6/6, transfer cues1",
+    "walk normal1x base/equipped",
+    "walk slow4x dark base/equipped and hat off",
+    "walk key6/6 to key1/6 using Next key",
+    "20 native expression combinations"
+  ],
+  "notes": [
+    "Neck support follows generated skin; original collar retained.",
+    "Walk support keys reassign arm sources to retain intermediate swings; old hand remnants and trouser splice edges removed.",
+    "One opaque/glowing walk sheet candidate rejected; six individual source keys adopted."
+  ],
+  "validation_files": [
+    "repair-validation.json",
+    "animation-validation.json",
+    "validation.json"
+  ]
+}

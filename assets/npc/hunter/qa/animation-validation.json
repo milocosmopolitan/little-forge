@@ -1,0 +1,85 @@
+{
+  "status": "pass",
+  "frames": 22,
+  "clips": 10,
+  "native_layers_checked": 286,
+  "locked_neutral_files": 15,
+  "opaque_colors": 63,
+  "equipment_combinations": 2816,
+  "underlayer_pixels_lost": 0,
+  "expression_changes_outside_features": 0,
+  "walk_and_nod_preparation_face_identity": true,
+  "atlas_roundtrip_and_extrusion": true,
+  "transfer_events": 1,
+  "walk_keys": 6,
+  "deterministic_rebuild": true,
+  "alpha_components": {
+    "neutral": [
+      3897
+    ],
+    "talk-small": [
+      3897
+    ],
+    "talk-wide": [
+      3897
+    ],
+    "talk-round": [
+      3897
+    ],
+    "blink": [
+      3897
+    ],
+    "happy": [
+      3897
+    ],
+    "surprised": [
+      3897
+    ],
+    "relaxed": [
+      3897
+    ],
+    "nod-down": [
+      3926
+    ],
+    "turn-left": [
+      3886
+    ],
+    "turn-right": [
+      3888
+    ],
+    "nod-mid": [
+      3881
+    ],
+    "give-mid": [
+      3987
+    ],
+    "give-full": [
+      4085
+    ],
+    "give-empty": [
+      4085
+    ],
+    "give-retract": [
+      3987
+    ],
+    "walk-0": [
+      3340
+    ],
+    "walk-1": [
+      3120
+    ],
+    "walk-2": [
+      3480
+    ],
+    "walk-3": [
+      3608
+    ],
+    "walk-4": [
+      3492
+    ],
+    "walk-5": [
+      3362
+    ]
+  },
+  "scope": "authoring validation; not runtime integration"
+}

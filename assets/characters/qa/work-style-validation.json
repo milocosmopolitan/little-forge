@@ -1,0 +1,12 @@
+{
+  "revision": "neck-cloth-v9",
+  "status": "pass",
+  "research_front_arm_pixels_preserved_in_scene": 9330,
+  "research_head_pixels_not_overpainted": 18096,
+  "unrelated_base_frames_preserved": {
+    "female": 14,
+    "male": 14
+  },
+  "identity_check": "Approved head ownership mask; eyes and mouth exact after recorded integer translations",
+  "runtime_integration": false
+}

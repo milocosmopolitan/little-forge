@@ -1,0 +1,74 @@
+    def walk(self):
+        phases=json.loads((ROOT/'source/animation/production-contract.json').read_text())['walk']['keys'];self.gait=[]
+        contacts=[self.sheet('walk-contacts',k,2,1,(128,160),scale=.85,offset=(10,13)) for k in range(2)]
+        for k,phase in enumerate(phases):
+            body=self.sheet('walk',k,3,2,(128,160),scale=.80,offset=(7,20))
+            if k in (0,3):body=contacts[k//3].copy()
+            xs=[x for y in range(20,53) for x in range(128) if body.getpixel((x,y))[3]]
+            registration_dx=66-round((min(xs)+max(xs))/2)
+            body=move(body,registration_dx,0)
+            # Fix a single shared ground registration, retaining each leg's authored pose.
+            bbox=body.getbbox();dy=140-bbox[3];body=move(body,0,dy)
+            bob=phase['bob']
+            if k not in (0,3):
+                torso=blank();legs=blank()
+                for yy in range(160):
+                    for xx in range(128):
+                        q=body.getpixel((xx,yy));near_skin=any(skin(body.getpixel((max(0,min(127,xx+dx)),max(0,min(159,yy+ddy))))) for dx,ddy in [(0,0),(1,0),(-1,0),(0,1),(0,-1)])
+                        arm=yy<111 and (xx<55 or xx>78) and q[3] and (skin(q) or any(skin(body.getpixel((max(0,min(127,xx+dx)),max(0,min(159,yy+ddy))))) for dx in range(-2,3) for ddy in range(-2,3)))
+                        if yy>=94 and not arm:legs.putpixel((xx,yy),q)
+                        if yy<97 or arm:torso.putpixel((xx,yy),q)
+                body=compose([legs,move(torso,0,-3)])
+            source_body=body.copy()
+            for y in range(67):
+                for x in range(128):
+                    p=source_body.getpixel((x,y))
+                    def cream(q):return q[3] and q[0]>145 and q[1]>110 and q[2]>70 and not skin(q)
+                    border=p[3] and max(p[:3])<160 and any(cream(source_body.getpixel((xx,yy))) for xx,yy in [(max(0,x-1),y),(min(127,x+1),y),(x,max(0,y-1)),(x,min(159,y+1))])
+                    neck=skin(p) and 60<=x<=72 and y>=60
+                    if y<58 or not (cream(p) or border or neck):body.putpixel((x,y),(0,0,0,0))
+            head_dy=bob+(0 if k in (0,3) else 1)
+            collar=move(region(self.fixed_body,[(57,60),(76,60),(82,68),(82,77),(56,77),(53,68)]),0,head_dy)
+            collar_mask=move(region(Image.new('RGBA',SIZE,(255,255,255,255)),[(57,60),(76,60),(82,68),(82,77),(56,77),(53,68)]),0,head_dy)
+            for yy in range(58,80):
+                for xx in range(51,85):
+                    if collar_mask.getpixel((xx,yy))[3] and collar.getpixel((xx,yy))[3]:body.putpixel((xx,yy),collar.getpixel((xx,yy)))
+            head=move(self.motion_head,0,head_dy);h=move(self.motion_head_base,0,head_dy);e=move(self.parts['eyes'],0,head_dy);m=move(self.parts['mouth'],0,head_dy)
+            upper=body.copy();lower=body.copy()
+            for y in range(160):
+                for x in range(128):(lower if y<97 else upper).putpixel((x,y),(0,0,0,0))
+            parts={'lower':lower,'upper':upper,'head':h,'eyes':e,'mouth':m}
+            gear={n:move(im,0,bob) for n,im in self.gear.items() if n not in ['gloves','boot-fur-cuffs']}
+            # Gloves and boot cuffs are pose variants: place their original material at measured limb ends.
+            boots=[]
+            for left,right in [(25,64),(64,108)]:
+                points=[(x,y) for y in range(112,141) for x in range(left,right) if (p:=body.getpixel((x,y)))[3] and p[0]>p[1]*1.3 and p[1]<145]
+                boots.append([round(sum(x for x,y in points)/len(points)),min(y for x,y in points)+3] if points else [left+15,120])
+            cuffs=blank()
+            for i,(cx,cy) in enumerate(boots):
+                patch=region(self.gear['boot-fur-cuffs'],[(35 if i==0 else 65,112),(65 if i==0 else 90,112),(65 if i==0 else 90,126),(35 if i==0 else 65,126)])
+                cuffs.alpha_composite(move(patch,cx-([53,77][i]),cy-120))
+            for yy in range(160):
+                for xx in range(128):
+                    if not body.getpixel((xx,yy))[3]:cuffs.putpixel((xx,yy),(0,0,0,0))
+            gear['boot-fur-cuffs']=cuffs
+            front=self.front_hands(body);hands=[]
+            for left,right in [(20,64),(64,116)]:
+                points=[(x,y) for y in range(81,113) for x in range(left,right) if skin(body.getpixel((x,y)))]
+                if points:
+                    end=max(y for x,y in points);p=[q for q in points if q[1]>=end-3];hands.append([round(sum(x for x,y in p)/len(p)),round(sum(y for x,y in p)/len(p))])
+                else:hands.append([left+12,95])
+            # Keep finger silhouettes readable; glove material covers only wrist/palm, never the fingertips.
+            gloves=blank()
+            for i,(cx,cy) in enumerate(hands):
+                patch=region(self.gear['gloves'],[(0 if i==0 else 70,80),(65 if i==0 else 100,80),(65 if i==0 else 100,113),(0 if i==0 else 70,113)])
+                patch=move(patch,cx-([52,85][i]),cy-([92,104][i]))
+                for y in range(160):
+                    for x in range(128):
+                        if not body.getpixel((x,y))[3] or y>cy:patch.putpixel((x,y),(0,0,0,0))
+                gloves.alpha_composite(patch)
+            gear['gloves']=gloves
+            entry={**phase,'source_ground_translation_y':dy,'source_alignment_dx':registration_dx,'hands_measured_screen_rois':hands,'boots_measured_screen_rois':boots,'contact_source':k in (0,3),'source_head_discarded':True}
+            self.add(f'walk-{k}',parts,gear,front,{'gait':entry,'head_translation':[0,head_dy],'source_head':'locked neutral; no rescaling'})
+            self.gait.append(entry)
+        write('source/animation/walk-phases.json',self.gait)

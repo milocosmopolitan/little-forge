@@ -1,0 +1,18 @@
+{
+  "status": "pass",
+  "frame": "nod-down",
+  "changed_native_pixels": 10,
+  "adoption_box_native": [
+    50,
+    39,
+    56,
+    41
+  ],
+  "skin_gap_px": 1,
+  "nose_translation_x": -2,
+  "nose_owner": "head",
+  "near_eye_and_other_features": "unchanged from preceding eye repair",
+  "other_frames": "42 identical files; registered happy repair excluded",
+  "comparison": "previews/nod-nose-before-after.png",
+  "prompt": "source/animation/nod-eye-repair/nose-prompt.json"
+}

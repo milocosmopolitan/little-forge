@@ -1,0 +1,37 @@
+{
+  "status": "pass",
+  "native_files_checked": 30,
+  "palette_union_colors": 62,
+  "alpha_values": [
+    0,
+    255
+  ],
+  "authoring_canvas": [
+    96,
+    128
+  ],
+  "frame_canvas": [
+    128,
+    160
+  ],
+  "foot_anchor_px": [
+    64,
+    140
+  ],
+  "base_loss_pixels": 0,
+  "layer_recomposition": "exact",
+  "source_to_frame_pixels": "exact offset (16,16)",
+  "raised_wrist_skin_join": "continuous",
+  "atlas_roundtrip": "exact",
+  "extrude_gutter": "pass",
+  "nearest_4x": "exact",
+  "scope": "approved neutral baseline; animations checked separately",
+  "source_hashes": {
+    "reference.png": "151c18f4b5e4da16f29cd317d33ed51bd9a0523bb9965e78fe560a1ed5af814f",
+    "equipped-candidate.png": "9b1bb814eaa7be1631672ed153cae9b1a14e44f9047934c7a029393696e0092c",
+    "underlayer-corrected.png": "de391584b0bbf9335d5f7331a50d5b4b730a885f8bc1ed3b96948a0fd31a05f7",
+    "raised-arm-candidate.png": "5b447043c124d6b981d04ab6f9777eae56365d4edbb6cf2350496022b593ea41"
+  },
+  "visual_quality": "reviewed separately",
+  "runtime": "not_integrated_or_measured"
+}

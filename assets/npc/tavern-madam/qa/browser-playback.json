@@ -1,0 +1,87 @@
+{
+  "status": "reviewed",
+  "date": "2026-10-17",
+  "tool": "cua_repl native Chrome",
+  "url": "previews/animation.html",
+  "walk_modes": [
+    {
+      "scale": 1,
+      "speed": 1,
+      "background": "light",
+      "observed": "walk-4",
+      "variants": "base and equipped side by side"
+    },
+    {
+      "scale": 1,
+      "speed": 0.25,
+      "background": "dark",
+      "observed": "walk-1",
+      "variants": "base and equipped side by side"
+    },
+    {
+      "scale": 1,
+      "speed": 1,
+      "background": "dark",
+      "observed": "walk-2",
+      "variants": "base and equipped side by side"
+    },
+    {
+      "scale": 1,
+      "speed": 0.25,
+      "background": "light",
+      "observed": "walk-1",
+      "variants": "base and equipped side by side"
+    },
+    {
+      "scale": 4,
+      "speed": 1,
+      "background": "light",
+      "observed": "walk-5",
+      "variants": "base and equipped side by side"
+    },
+    {
+      "scale": 4,
+      "speed": 0.25,
+      "background": "light",
+      "observed": "walk-1",
+      "variants": "base and equipped side by side"
+    },
+    {
+      "scale": 4,
+      "speed": 1,
+      "background": "dark",
+      "observed": "walk-5",
+      "variants": "base and equipped side by side"
+    },
+    {
+      "scale": 4,
+      "speed": 0.25,
+      "background": "dark",
+      "observed": "walk-1",
+      "variants": "base and equipped side by side"
+    }
+  ],
+  "additional_observed_walk_keys": [
+    "walk-2",
+    "walk-3",
+    "walk-5"
+  ],
+  "give": {
+    "start": "key 1/6 neutral; playing; transfer 0",
+    "end": "key 6/6 neutral-empty; paused; transfer 1",
+    "seek": "Next key returned to neutral while paused; transfer remained 1"
+  },
+  "repairs_after_playback": [
+    "registered red underhem to moving skirt and drew it behind legs",
+    "removed isolated generated shoulder/head remnant pixels"
+  ],
+  "inspection": {
+    "heads": "native and enlarged coherent-pose contact sheets, fixed clothing and jaw attachment reviewed",
+    "hands": "native and 8x complete empty grip, forearm and original tankard overlay reviewed",
+    "encoded_clips": "all 86 normal/slow GIF keys checked against exact PNG pixels and durations"
+  },
+  "limits": [
+    "browser playback covered walk and give; head gestures were reviewed through native/enlarged frames and encoded GIF checks",
+    "no game runtime integration or performance measurement"
+  ]
+}

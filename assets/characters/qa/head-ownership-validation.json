@@ -1,0 +1,10 @@
+{
+  "status": "pass",
+  "work_head_variants_checked": 96,
+  "moving_head_neck_collar_pixels": 0,
+  "reported_old_head_fragment_points": 8,
+  "uniform_body_attachment_variants": 96,
+  "thinking_hand_source_points_preserved": 5,
+  "approved_eyes_and_mouth": "separate exact-pixel assertions in verify-animation.py",
+  "visual_acceptance": "not established by these assertions"
+}

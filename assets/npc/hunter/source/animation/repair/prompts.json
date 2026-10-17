@@ -1,0 +1,72 @@
+{
+  "turn-left": {
+    "prompt": "Edit the supplied pixel hunter head reference into ONE very slight head turn toward the viewer (approximately 10 degrees leftward from its current right-facing three-quarter view), for a shake-head animation. Preserve exactly the same adult young man's rounded brown side-part hairstyle, large dark eyes, face/chin size, light stubble, skin color, cream shirt collar and narrow natural neck. This is NOT a new smaller chibi face. Keep head height and width, face height, jaw height, and pixel density identical to reference. Only gentle yaw, no pitch, no shrinking. Native artwork uses 52x56 pixel crop, displayed 16x nearest; reference head occupies about 44x40 native pixels, face about 22x23. Keep crop framing and collar position identical. Crisp one-native-pixel dark jaw outline continuous into ear and neck. All pixel clusters square, no antialias. Transparent background. One single head, no sheet, no text.",
+    "tool": "builtin image_gen",
+    "reference": "approved-face.png",
+    "output": "turn-left-candidate.png",
+    "status": "adopted after native registration and ownership cleanup"
+  },
+  "turn-right": {
+    "prompt": "Edit the supplied pixel hunter head reference into ONE very slight head turn away from the viewer toward screen-right (approximately 10 degrees rightward from its current right-facing three-quarter view), for a shake-head animation. Preserve exactly the same adult young man's rounded brown side-part hairstyle, large dark eyes, face/chin size, light stubble, skin color, cream shirt collar and narrow natural neck. This is NOT a new smaller chibi face. Keep head height and width, face height, jaw height, and pixel density identical to reference. Only gentle yaw, no pitch, no shrinking. Native artwork uses 52x56 pixel crop, displayed 16x nearest; reference head occupies about 44x40 native pixels, face about 22x23. Keep crop framing and collar position identical. Crisp one-native-pixel dark jaw outline continuous into ear and neck. All pixel clusters square, no antialias. Transparent background. One single head, no sheet, no text.",
+    "tool": "builtin image_gen",
+    "reference": "approved-face.png",
+    "output": "turn-right-candidate.png",
+    "status": "adopted after native registration and ownership cleanup"
+  },
+  "nod-down": {
+    "prompt": "Edit the supplied hunter pixel head into ONE subtle downward nod key. Preserve this exact rounded brown side-part hair, large dark eyes, light stubble, natural slender neck and cream shirt collar. Chin tucks downward slightly, eyes look down, head rotates forward only about 8 degrees. Keep same head width and overall face/chin scale; NO small shrunken face. Keep the entire continuous dark one-native-pixel jawline visible where it lies against the neck. Anatomically normal jaw/neck connection. Shirt collar and shoulders remain exactly at reference position and shape. Native crop52x56 enlarged nearest. Head crown currently y4 native, face approx22x23 native, preserve density and recognizable identity. Complete neck with no horizontal black stripe across it and no detached jaw. Only one head and shoulders, same crop framing, transparent background, no text, crisp square pixel clusters without antialias.",
+    "tool": "builtin image_gen",
+    "reference": "approved-face.png",
+    "output": "nod-down-candidate.png",
+    "status": "adopted after native registration and ownership cleanup"
+  },
+  "walk-sheet-rejected": {
+    "prompt": "Use the supplied hunter as exact character identity, pixel density, scale, clothing and body proportion reference. Create a coherent SIX FRAME WALK CYCLE as a uniform 3 columns by 2 rows sprite sheet, transparent background, no text. Each equally sized cell is native 128x160 pixels displayed enlarged nearest. Fixed right-facing three-quarter camera throughout, NOT a profile turn. Character head/face must have same visible size in all six frames. Same cream rolled sleeve shirt, olive fitted trousers, same lace-up brown ankle/calf boots. No belt additions, no equipment. Short relaxed natural steps, small arm swing. Body height and torso length CONSTANT; no narrow tall torso on passing keys. Frame1 far LEFT leg forward, near RIGHT leg back, near RIGHT arm forward and far LEFT arm back. Frame2 far LEFT supports, near RIGHT recovers, arms move toward crossing. Frame3 near RIGHT leg passes forward with knee lifted slightly, far LEFT leg supports; near RIGHT arm recedes and far LEFT advances. Frame4 near RIGHT foot forward, far LEFT back; near RIGHT arm back and far LEFT arm forward. Frame5 near RIGHT supports, far LEFT recovers, arms approach crossing. Frame6 far LEFT passes forward with small knee lift, near RIGHT supports; near RIGHT arm advances, far LEFT recedes, continuing back to frame1. Anatomical identity of the NEAR leg is fixed: near RIGHT trouser leg has visible outside seam and brighter near boot, far leg darker. Hands are small clear relaxed fists, no hip hand. Draw complete smooth crisp dark one-native-pixel outlines around sleeves wrists hands and boots. Keep head center at same cell x and foot ground y140 each frame, head crown y24, collar y65, waist y96, native visible height116px. Keep all art inside each cell; generous transparent borders. No independent pose resizing. No antialias, no extra figures or objects.",
+    "tool": "builtin image_gen",
+    "reference": "../base-neutral-reference.png",
+    "output": "walk-candidate.png",
+    "status": "rejected: uneven grid, repeated limb phases and opaque glow"
+  },
+  "walk-0": {
+    "prompt": "Edit ONLY limbs of supplied hunter sprite into ONE short-stride walk contact key. Everything else, head, neck, collar, central torso, shirt design, olive pants material, brown lace-up boots design, pixel density and overall framing must remain unchanged. Same fixed 3/4 right-facing view, never profile. Near anatomical RIGHT arm (attached at viewer-left shoulder) swings gently FORWARD, elbow relaxed, small clear fist near front of waist. Far anatomical LEFT arm (viewer-right shoulder) swings BACK and is partly occluded by torso. Near RIGHT leg steps BACK, far LEFT leg steps FORWARD. Small grounded stride, not marching, not running. Native canvas128x160, foot ground140, crown24, shoulders70, waist97, same116px visible height. Entire figure in same place as reference, generous transparent margin, no scale or crop change. Crisp 1px outlines, square clusters, exact same palette. Transparent background with alpha, no colored glow, no floor, no text. ONE single sprite.",
+    "tool": "builtin image_gen",
+    "reference": "../base-neutral-reference.png",
+    "output": "walk-0-candidate.png",
+    "status": "adopted after native registration and ownership cleanup"
+  },
+  "walk-1": {
+    "prompt": "Edit supplied pixel hunter into ONE walk DOWN/SUPPORT key immediately after the shown contact key. Same fixed 3/4 right-facing view, same exact hair face neck shirt pants boots design, body proportions and framing. FAR anatomical LEFT leg is the planted support under front pelvis, NEAR anatomical RIGHT leg has pushed off and heel lifts behind, knee bent mildly. Stride narrows relative to reference contact. NEAR RIGHT arm attached viewer-left shoulder has moved BACK toward hip from the forward contact swing, elbow relaxed and fist lower at side. FAR LEFT arm is moving forward toward middle. Both arms are intermediate, no hand-on-hip. Body lowers only ONE native pixel, head and torso size constant. Crisp square native pixels, native canvas128x160 displayed enlarged, crown25 and foot ground140, constant waist position. Single sprite on true transparent alpha background, no glow/floor/text.",
+    "tool": "builtin image_gen",
+    "reference": "walk-contact-candidate.png",
+    "output": "walk-1-candidate.png",
+    "status": "adopted after native registration and ownership cleanup"
+  },
+  "walk-2": {
+    "prompt": "Edit supplied hunter walk contact sprite into a single WALK PASSING key, same fixed right-facing 3/4 view, same head/torso size, exact same shirt/pants/laced boots, same framing. Change only limbs. FAR anatomical LEFT leg is planted nearly upright under pelvis, NEAR anatomical RIGHT leg is passing toward front, knee slightly bent forward and boot lifted just 4 native pixels from ground, not high-knee marching. NEAR RIGHT arm attached viewer-left shoulder passes near vertical and is beginning to swing back, relaxed small fist at side; FAR LEFT arm attached viewer-right shoulder passes toward forward, small fist low at other side. BOTH arms are near their middle positions, do not repeat contact arm extreme or hand-on-hip. Keep torso length/waist height constant from reference. Pixel native128x160, crown24, foot baseline140. One single sprite, transparent background alpha, no glow or ground, crisp 1px dark outlines and square clusters, no text.",
+    "tool": "builtin image_gen",
+    "reference": "walk-contact-candidate.png",
+    "output": "walk-2-candidate.png",
+    "status": "adopted after native registration and ownership cleanup"
+  },
+  "walk-3": {
+    "prompt": "Edit the supplied walk contact hunter into the OPPOSITE contact key of the same short-stride walk. Keep head, neck, collar, torso, waist height, materials, pixel density, canvas framing and foot baseline exactly fixed. Same fixed right-facing THREE-QUARTER view. Change ONLY the arms and legs. NEAR anatomical RIGHT arm, attached viewer-left shoulder, swings BACK with relaxed fist on viewer-left of hip. FAR anatomical LEFT arm, attached viewer-right shoulder, swings FORWARD with small fist forward to viewer-right. NEAR RIGHT LEG steps FORWARD, FAR LEFT leg steps BACK. Crucial: near trouser leg and near boot remain the brighter limb, far leg slightly darker, never mirror the entire character or repeat first contact legs. Keep same cream rolled sleeves and same laced brown boots, small grounded step, not running. One single sprite, transparent alpha background, no glow, no text. Native128x160 with crown24, ground140; same enlarged pixel grid as reference.",
+    "tool": "builtin image_gen",
+    "reference": "walk-contact-candidate.png",
+    "output": "walk-3-candidate.png",
+    "status": "adopted after native registration and ownership cleanup"
+  },
+  "walk-4": {
+    "prompt": "Edit supplied pixel hunter into ONE walk DOWN/SUPPORT key for the opposite half cycle. Same fixed 3/4 right-facing view, same exact hair face neck shirt pants boots design, body proportions and framing. NEAR anatomical RIGHT leg is the planted support under front pelvis, FAR anatomical LEFT leg has pushed off and heel lifts behind, knee bent mildly. Stride narrows. NEAR RIGHT arm attached viewer-left shoulder has moved FORWARD toward hip from the back contact swing, elbow relaxed and fist lower at side. FAR LEFT arm is moving back toward middle. Both arms are intermediate, no hand-on-hip. Body lowers only ONE native pixel, head and torso size constant. Same cream rolled sleeve shirt and laced brown boots. Crisp square native pixels, native canvas128x160 displayed enlarged, crown25 and foot ground140, constant waist position. Single sprite on true transparent alpha background, no glow/floor/text.",
+    "tool": "builtin image_gen",
+    "reference": "walk-contact-candidate.png",
+    "output": "walk-4-candidate.png",
+    "status": "adopted after native registration and ownership cleanup"
+  },
+  "walk-5": {
+    "prompt": "Edit supplied hunter walk contact sprite into a single WALK PASSING key, same fixed right-facing 3/4 view, same head/torso size, exact same shirt/pants/laced boots, same framing. Change only limbs. NEAR anatomical RIGHT leg is planted nearly upright under pelvis, FAR anatomical LEFT leg is passing toward front, knee slightly bent forward and boot lifted just 4 native pixels from ground, not high-knee marching. NEAR RIGHT arm attached viewer-left shoulder passes near vertical and is beginning to swing forward, relaxed small fist at side; FAR LEFT arm attached viewer-right shoulder passes toward back, small fist low at other side. BOTH arms are near their middle positions, do not repeat contact arm extreme or hand-on-hip. Keep torso length/waist height constant from reference. Pixel native128x160, crown24, foot baseline140. One single sprite, transparent background alpha, no glow or ground, crisp 1px dark outlines and square clusters, no text.",
+    "tool": "builtin image_gen",
+    "reference": "walk-contact-candidate.png",
+    "output": "walk-5-candidate.png",
+    "status": "adopted after native registration and ownership cleanup"
+  }
+}

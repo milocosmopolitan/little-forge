@@ -1,0 +1,10 @@
+{
+  "status": "pass",
+  "source_garment_variants": 96,
+  "garment_pixels_equal_to_same_source_coordinate": 63706,
+  "garment_pixels_repainted_as_skin": 0,
+  "tool_pixels_visible_over_back_water": 294,
+  "submerged_tool_pixels_masked": 432,
+  "water_interface_station_y": 18,
+  "scope": "Current complete body garment layers for all visible work keys; both sexes tool occlusion. Body-owned neck pigment interpolation is checked by verify-body-mount.py."
+}

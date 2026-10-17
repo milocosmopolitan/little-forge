@@ -1,0 +1,3520 @@
+{
+  "version": 1,
+  "sampler": "nearest",
+  "mipmaps": false,
+  "extrude_px": 1,
+  "gutter_px": 1,
+  "pages": [
+    {
+      "id": "player",
+      "path": "atlas.png",
+      "size": [
+        1024,
+        752
+      ]
+    }
+  ],
+  "sprites": [
+    {
+      "id": "neutral",
+      "page": "player",
+      "rect": [
+        2,
+        2,
+        53,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        35,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/neutral.png",
+      "rotated": false
+    },
+    {
+      "id": "talk-small",
+      "page": "player",
+      "rect": [
+        59,
+        2,
+        53,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        35,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/talk-small.png",
+      "rotated": false
+    },
+    {
+      "id": "talk-wide",
+      "page": "player",
+      "rect": [
+        116,
+        2,
+        53,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        35,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/talk-wide.png",
+      "rotated": false
+    },
+    {
+      "id": "talk-round",
+      "page": "player",
+      "rect": [
+        173,
+        2,
+        53,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        35,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/talk-round.png",
+      "rotated": false
+    },
+    {
+      "id": "blink",
+      "page": "player",
+      "rect": [
+        230,
+        2,
+        53,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        35,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/blink.png",
+      "rotated": false
+    },
+    {
+      "id": "happy",
+      "page": "player",
+      "rect": [
+        287,
+        2,
+        53,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        35,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/happy.png",
+      "rotated": false
+    },
+    {
+      "id": "surprised",
+      "page": "player",
+      "rect": [
+        344,
+        2,
+        53,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        35,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/surprised.png",
+      "rotated": false
+    },
+    {
+      "id": "relaxed",
+      "page": "player",
+      "rect": [
+        401,
+        2,
+        53,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        35,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/relaxed.png",
+      "rotated": false
+    },
+    {
+      "id": "nod-down",
+      "page": "player",
+      "rect": [
+        458,
+        2,
+        52,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        36,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/nod-down.png",
+      "rotated": false
+    },
+    {
+      "id": "turn-toward",
+      "page": "player",
+      "rect": [
+        514,
+        2,
+        53,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        35,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/turn-toward.png",
+      "rotated": false
+    },
+    {
+      "id": "turn-away",
+      "page": "player",
+      "rect": [
+        571,
+        2,
+        56,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        32,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/turn-away.png",
+      "rotated": false
+    },
+    {
+      "id": "nod-mid",
+      "page": "player",
+      "rect": [
+        631,
+        2,
+        53,
+        116
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        35,
+        25
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/nod-mid.png",
+      "rotated": false
+    },
+    {
+      "id": "give-half",
+      "page": "player",
+      "rect": [
+        688,
+        2,
+        53,
+        113
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        35,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/give-half.png",
+      "rotated": false
+    },
+    {
+      "id": "give-full",
+      "page": "player",
+      "rect": [
+        745,
+        2,
+        69,
+        113
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        35,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/give-full.png",
+      "rotated": false
+    },
+    {
+      "id": "give-release",
+      "page": "player",
+      "rect": [
+        818,
+        2,
+        63,
+        113
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        35,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/give-release.png",
+      "rotated": false
+    },
+    {
+      "id": "walk-0",
+      "page": "player",
+      "rect": [
+        885,
+        2,
+        69,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        27,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/walk-0.png",
+      "rotated": false
+    },
+    {
+      "id": "walk-1",
+      "page": "player",
+      "rect": [
+        958,
+        2,
+        61,
+        116
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        27,
+        25
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/walk-1.png",
+      "rotated": false
+    },
+    {
+      "id": "walk-2",
+      "page": "player",
+      "rect": [
+        2,
+        123,
+        62,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        34,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/walk-2.png",
+      "rotated": false
+    },
+    {
+      "id": "walk-3",
+      "page": "player",
+      "rect": [
+        68,
+        123,
+        64,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        33,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/walk-3.png",
+      "rotated": false
+    },
+    {
+      "id": "walk-4",
+      "page": "player",
+      "rect": [
+        136,
+        123,
+        60,
+        116
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        35,
+        25
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/walk-4.png",
+      "rotated": false
+    },
+    {
+      "id": "walk-5",
+      "page": "player",
+      "rect": [
+        200,
+        123,
+        64,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        35,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/walk-5.png",
+      "rotated": false
+    },
+    {
+      "id": "front-neutral",
+      "page": "player",
+      "rect": [
+        268,
+        123,
+        43,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        43,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/front-neutral.png",
+      "rotated": false
+    },
+    {
+      "id": "back-neutral",
+      "page": "player",
+      "rect": [
+        315,
+        123,
+        46,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        41,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/back-neutral.png",
+      "rotated": false
+    },
+    {
+      "id": "front-blink",
+      "page": "player",
+      "rect": [
+        365,
+        123,
+        43,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        43,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/front-blink.png",
+      "rotated": false
+    },
+    {
+      "id": "hammering-0",
+      "page": "player",
+      "rect": [
+        412,
+        123,
+        76,
+        115
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        37,
+        26
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/hammering-0.png",
+      "rotated": false
+    },
+    {
+      "id": "hammering-1",
+      "page": "player",
+      "rect": [
+        492,
+        123,
+        90,
+        130
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        22,
+        11
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/hammering-1.png",
+      "rotated": false
+    },
+    {
+      "id": "hammering-2",
+      "page": "player",
+      "rect": [
+        586,
+        123,
+        71,
+        113
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        41,
+        28
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/hammering-2.png",
+      "rotated": false
+    },
+    {
+      "id": "hammering-3",
+      "page": "player",
+      "rect": [
+        661,
+        123,
+        78,
+        109
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        40,
+        32
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/hammering-3.png",
+      "rotated": false
+    },
+    {
+      "id": "hammering-4",
+      "page": "player",
+      "rect": [
+        743,
+        123,
+        75,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        39,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/hammering-4.png",
+      "rotated": false
+    },
+    {
+      "id": "hammering-5",
+      "page": "player",
+      "rect": [
+        412,
+        123,
+        76,
+        115
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        37,
+        26
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/hammering-5.png",
+      "rotated": false
+    },
+    {
+      "id": "quenching-0",
+      "page": "player",
+      "rect": [
+        822,
+        123,
+        70,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        36,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/quenching-0.png",
+      "rotated": false
+    },
+    {
+      "id": "quenching-1",
+      "page": "player",
+      "rect": [
+        896,
+        123,
+        70,
+        111
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        42,
+        30
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/quenching-1.png",
+      "rotated": false
+    },
+    {
+      "id": "quenching-2",
+      "page": "player",
+      "rect": [
+        2,
+        257,
+        70,
+        104
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        42,
+        37
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/quenching-2.png",
+      "rotated": false
+    },
+    {
+      "id": "quenching-3",
+      "page": "player",
+      "rect": [
+        2,
+        257,
+        70,
+        104
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        42,
+        37
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/quenching-3.png",
+      "rotated": false
+    },
+    {
+      "id": "quenching-4",
+      "page": "player",
+      "rect": [
+        76,
+        257,
+        72,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        36,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/quenching-4.png",
+      "rotated": false
+    },
+    {
+      "id": "quenching-5",
+      "page": "player",
+      "rect": [
+        822,
+        123,
+        70,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        36,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/quenching-5.png",
+      "rotated": false
+    },
+    {
+      "id": "forging-0",
+      "page": "player",
+      "rect": [
+        152,
+        257,
+        72,
+        116
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        36,
+        25
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/forging-0.png",
+      "rotated": false
+    },
+    {
+      "id": "forging-1",
+      "page": "player",
+      "rect": [
+        228,
+        257,
+        76,
+        110
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        42,
+        31
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/forging-1.png",
+      "rotated": false
+    },
+    {
+      "id": "forging-2",
+      "page": "player",
+      "rect": [
+        308,
+        257,
+        83,
+        105
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        42,
+        36
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/forging-2.png",
+      "rotated": false
+    },
+    {
+      "id": "forging-3",
+      "page": "player",
+      "rect": [
+        308,
+        257,
+        83,
+        105
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        42,
+        36
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/forging-3.png",
+      "rotated": false
+    },
+    {
+      "id": "forging-4",
+      "page": "player",
+      "rect": [
+        395,
+        257,
+        72,
+        118
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        37,
+        23
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/forging-4.png",
+      "rotated": false
+    },
+    {
+      "id": "forging-5",
+      "page": "player",
+      "rect": [
+        152,
+        257,
+        72,
+        116
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        36,
+        25
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/forging-5.png",
+      "rotated": false
+    },
+    {
+      "id": "researching-0",
+      "page": "player",
+      "rect": [
+        471,
+        257,
+        52,
+        114
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        36,
+        27
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/researching-0.png",
+      "rotated": false
+    },
+    {
+      "id": "researching-1",
+      "page": "player",
+      "rect": [
+        527,
+        257,
+        53,
+        114
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        35,
+        27
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/researching-1.png",
+      "rotated": false
+    },
+    {
+      "id": "researching-2",
+      "page": "player",
+      "rect": [
+        584,
+        257,
+        52,
+        109
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        37,
+        32
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/researching-2.png",
+      "rotated": false
+    },
+    {
+      "id": "researching-3",
+      "page": "player",
+      "rect": [
+        527,
+        257,
+        53,
+        114
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        35,
+        27
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/researching-3.png",
+      "rotated": false
+    },
+    {
+      "id": "researching-4",
+      "page": "player",
+      "rect": [
+        640,
+        257,
+        52,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        38,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/researching-4.png",
+      "rotated": false
+    },
+    {
+      "id": "researching-5",
+      "page": "player",
+      "rect": [
+        471,
+        257,
+        52,
+        114
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        36,
+        27
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/researching-5.png",
+      "rotated": false
+    },
+    {
+      "id": "salvaging-0",
+      "page": "player",
+      "rect": [
+        696,
+        257,
+        48,
+        114
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        40,
+        27
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/salvaging-0.png",
+      "rotated": false
+    },
+    {
+      "id": "salvaging-1",
+      "page": "player",
+      "rect": [
+        748,
+        257,
+        48,
+        108
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        40,
+        33
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/salvaging-1.png",
+      "rotated": false
+    },
+    {
+      "id": "salvaging-2",
+      "page": "player",
+      "rect": [
+        800,
+        257,
+        49,
+        106
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        40,
+        35
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/salvaging-2.png",
+      "rotated": false
+    },
+    {
+      "id": "salvaging-3",
+      "page": "player",
+      "rect": [
+        748,
+        257,
+        48,
+        108
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        40,
+        33
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/salvaging-3.png",
+      "rotated": false
+    },
+    {
+      "id": "salvaging-4",
+      "page": "player",
+      "rect": [
+        853,
+        257,
+        66,
+        106
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        40,
+        35
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/salvaging-4.png",
+      "rotated": false
+    },
+    {
+      "id": "salvaging-5",
+      "page": "player",
+      "rect": [
+        696,
+        257,
+        48,
+        114
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        40,
+        27
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/salvaging-5.png",
+      "rotated": false
+    },
+    {
+      "id": "base/neutral",
+      "page": "player",
+      "rect": [
+        923,
+        257,
+        53,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        35,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/neutral.png",
+      "rotated": false
+    },
+    {
+      "id": "base/talk-small",
+      "page": "player",
+      "rect": [
+        2,
+        379,
+        53,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        35,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/talk-small.png",
+      "rotated": false
+    },
+    {
+      "id": "base/talk-wide",
+      "page": "player",
+      "rect": [
+        59,
+        379,
+        53,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        35,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/talk-wide.png",
+      "rotated": false
+    },
+    {
+      "id": "base/talk-round",
+      "page": "player",
+      "rect": [
+        116,
+        379,
+        53,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        35,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/talk-round.png",
+      "rotated": false
+    },
+    {
+      "id": "base/blink",
+      "page": "player",
+      "rect": [
+        173,
+        379,
+        53,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        35,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/blink.png",
+      "rotated": false
+    },
+    {
+      "id": "base/happy",
+      "page": "player",
+      "rect": [
+        230,
+        379,
+        53,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        35,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/happy.png",
+      "rotated": false
+    },
+    {
+      "id": "base/surprised",
+      "page": "player",
+      "rect": [
+        287,
+        379,
+        53,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        35,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/surprised.png",
+      "rotated": false
+    },
+    {
+      "id": "base/relaxed",
+      "page": "player",
+      "rect": [
+        344,
+        379,
+        53,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        35,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/relaxed.png",
+      "rotated": false
+    },
+    {
+      "id": "base/nod-down",
+      "page": "player",
+      "rect": [
+        401,
+        379,
+        52,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        36,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/nod-down.png",
+      "rotated": false
+    },
+    {
+      "id": "base/turn-toward",
+      "page": "player",
+      "rect": [
+        457,
+        379,
+        53,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        35,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/turn-toward.png",
+      "rotated": false
+    },
+    {
+      "id": "base/turn-away",
+      "page": "player",
+      "rect": [
+        514,
+        379,
+        56,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        32,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/turn-away.png",
+      "rotated": false
+    },
+    {
+      "id": "base/nod-mid",
+      "page": "player",
+      "rect": [
+        574,
+        379,
+        53,
+        116
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        35,
+        25
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/nod-mid.png",
+      "rotated": false
+    },
+    {
+      "id": "base/give-half",
+      "page": "player",
+      "rect": [
+        631,
+        379,
+        53,
+        113
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        35,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/give-half.png",
+      "rotated": false
+    },
+    {
+      "id": "base/give-full",
+      "page": "player",
+      "rect": [
+        688,
+        379,
+        69,
+        113
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        35,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/give-full.png",
+      "rotated": false
+    },
+    {
+      "id": "base/give-release",
+      "page": "player",
+      "rect": [
+        761,
+        379,
+        63,
+        113
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        35,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/give-release.png",
+      "rotated": false
+    },
+    {
+      "id": "base/walk-0",
+      "page": "player",
+      "rect": [
+        828,
+        379,
+        69,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        27,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/walk-0.png",
+      "rotated": false
+    },
+    {
+      "id": "base/walk-1",
+      "page": "player",
+      "rect": [
+        901,
+        379,
+        61,
+        116
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        27,
+        25
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/walk-1.png",
+      "rotated": false
+    },
+    {
+      "id": "base/walk-2",
+      "page": "player",
+      "rect": [
+        2,
+        500,
+        62,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        34,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/walk-2.png",
+      "rotated": false
+    },
+    {
+      "id": "base/walk-3",
+      "page": "player",
+      "rect": [
+        68,
+        500,
+        64,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        33,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/walk-3.png",
+      "rotated": false
+    },
+    {
+      "id": "base/walk-4",
+      "page": "player",
+      "rect": [
+        136,
+        500,
+        60,
+        116
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        35,
+        25
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/walk-4.png",
+      "rotated": false
+    },
+    {
+      "id": "base/walk-5",
+      "page": "player",
+      "rect": [
+        200,
+        500,
+        64,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        35,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/walk-5.png",
+      "rotated": false
+    },
+    {
+      "id": "base/front-neutral",
+      "page": "player",
+      "rect": [
+        268,
+        500,
+        43,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        43,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/front-neutral.png",
+      "rotated": false
+    },
+    {
+      "id": "base/back-neutral",
+      "page": "player",
+      "rect": [
+        315,
+        500,
+        46,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        41,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/back-neutral.png",
+      "rotated": false
+    },
+    {
+      "id": "base/front-blink",
+      "page": "player",
+      "rect": [
+        365,
+        500,
+        43,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        43,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/front-blink.png",
+      "rotated": false
+    },
+    {
+      "id": "base/hammering-0",
+      "page": "player",
+      "rect": [
+        412,
+        500,
+        60,
+        116
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        37,
+        25
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/hammering-0.png",
+      "rotated": false
+    },
+    {
+      "id": "base/hammering-1",
+      "page": "player",
+      "rect": [
+        476,
+        500,
+        68,
+        119
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        27,
+        22
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/hammering-1.png",
+      "rotated": false
+    },
+    {
+      "id": "base/hammering-2",
+      "page": "player",
+      "rect": [
+        548,
+        500,
+        55,
+        111
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        41,
+        30
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/hammering-2.png",
+      "rotated": false
+    },
+    {
+      "id": "base/hammering-3",
+      "page": "player",
+      "rect": [
+        607,
+        500,
+        62,
+        107
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        40,
+        34
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/hammering-3.png",
+      "rotated": false
+    },
+    {
+      "id": "base/hammering-4",
+      "page": "player",
+      "rect": [
+        673,
+        500,
+        58,
+        115
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        39,
+        26
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/hammering-4.png",
+      "rotated": false
+    },
+    {
+      "id": "base/hammering-5",
+      "page": "player",
+      "rect": [
+        412,
+        500,
+        60,
+        116
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        37,
+        25
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/hammering-5.png",
+      "rotated": false
+    },
+    {
+      "id": "base/quenching-0",
+      "page": "player",
+      "rect": [
+        735,
+        500,
+        58,
+        118
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        34,
+        23
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/quenching-0.png",
+      "rotated": false
+    },
+    {
+      "id": "base/quenching-1",
+      "page": "player",
+      "rect": [
+        797,
+        500,
+        58,
+        114
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        41,
+        27
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/quenching-1.png",
+      "rotated": false
+    },
+    {
+      "id": "base/quenching-2",
+      "page": "player",
+      "rect": [
+        859,
+        500,
+        60,
+        104
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        41,
+        37
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/quenching-2.png",
+      "rotated": false
+    },
+    {
+      "id": "base/quenching-3",
+      "page": "player",
+      "rect": [
+        859,
+        500,
+        60,
+        104
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        41,
+        37
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/quenching-3.png",
+      "rotated": false
+    },
+    {
+      "id": "base/quenching-4",
+      "page": "player",
+      "rect": [
+        923,
+        500,
+        58,
+        118
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        34,
+        23
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/quenching-4.png",
+      "rotated": false
+    },
+    {
+      "id": "base/quenching-5",
+      "page": "player",
+      "rect": [
+        735,
+        500,
+        58,
+        118
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        34,
+        23
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/quenching-5.png",
+      "rotated": false
+    },
+    {
+      "id": "base/forging-0",
+      "page": "player",
+      "rect": [
+        2,
+        623,
+        55,
+        118
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        35,
+        23
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/forging-0.png",
+      "rotated": false
+    },
+    {
+      "id": "base/forging-1",
+      "page": "player",
+      "rect": [
+        61,
+        623,
+        59,
+        114
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        41,
+        27
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/forging-1.png",
+      "rotated": false
+    },
+    {
+      "id": "base/forging-2",
+      "page": "player",
+      "rect": [
+        124,
+        623,
+        67,
+        106
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        40,
+        35
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/forging-2.png",
+      "rotated": false
+    },
+    {
+      "id": "base/forging-3",
+      "page": "player",
+      "rect": [
+        124,
+        623,
+        67,
+        106
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        40,
+        35
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/forging-3.png",
+      "rotated": false
+    },
+    {
+      "id": "base/forging-4",
+      "page": "player",
+      "rect": [
+        195,
+        623,
+        55,
+        117
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        36,
+        24
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/forging-4.png",
+      "rotated": false
+    },
+    {
+      "id": "base/forging-5",
+      "page": "player",
+      "rect": [
+        2,
+        623,
+        55,
+        118
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        35,
+        23
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/forging-5.png",
+      "rotated": false
+    },
+    {
+      "id": "base/researching-0",
+      "page": "player",
+      "rect": [
+        254,
+        623,
+        52,
+        114
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        37,
+        27
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/researching-0.png",
+      "rotated": false
+    },
+    {
+      "id": "base/researching-1",
+      "page": "player",
+      "rect": [
+        310,
+        623,
+        52,
+        113
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        36,
+        28
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/researching-1.png",
+      "rotated": false
+    },
+    {
+      "id": "base/researching-2",
+      "page": "player",
+      "rect": [
+        366,
+        623,
+        52,
+        109
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        36,
+        32
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/researching-2.png",
+      "rotated": false
+    },
+    {
+      "id": "base/researching-3",
+      "page": "player",
+      "rect": [
+        310,
+        623,
+        52,
+        113
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        36,
+        28
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/researching-3.png",
+      "rotated": false
+    },
+    {
+      "id": "base/researching-4",
+      "page": "player",
+      "rect": [
+        422,
+        623,
+        52,
+        116
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        38,
+        25
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/researching-4.png",
+      "rotated": false
+    },
+    {
+      "id": "base/researching-5",
+      "page": "player",
+      "rect": [
+        254,
+        623,
+        52,
+        114
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        37,
+        27
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/researching-5.png",
+      "rotated": false
+    },
+    {
+      "id": "base/salvaging-0",
+      "page": "player",
+      "rect": [
+        478,
+        623,
+        48,
+        115
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        40,
+        26
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/salvaging-0.png",
+      "rotated": false
+    },
+    {
+      "id": "base/salvaging-1",
+      "page": "player",
+      "rect": [
+        530,
+        623,
+        50,
+        108
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        39,
+        33
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/salvaging-1.png",
+      "rotated": false
+    },
+    {
+      "id": "base/salvaging-2",
+      "page": "player",
+      "rect": [
+        584,
+        623,
+        50,
+        107
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        39,
+        34
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/salvaging-2.png",
+      "rotated": false
+    },
+    {
+      "id": "base/salvaging-3",
+      "page": "player",
+      "rect": [
+        530,
+        623,
+        50,
+        108
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        39,
+        33
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/salvaging-3.png",
+      "rotated": false
+    },
+    {
+      "id": "base/salvaging-4",
+      "page": "player",
+      "rect": [
+        638,
+        623,
+        66,
+        106
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        40,
+        35
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/salvaging-4.png",
+      "rotated": false
+    },
+    {
+      "id": "base/salvaging-5",
+      "page": "player",
+      "rect": [
+        478,
+        623,
+        48,
+        115
+      ],
+      "source_size": [
+        128,
+        160
+      ],
+      "trim_offset": [
+        40,
+        26
+      ],
+      "pivot": [
+        64,
+        140
+      ],
+      "source": "frames/base/salvaging-5.png",
+      "rotated": false
+    }
+  ],
+  "clips": {
+    "idle": {
+      "loop": true,
+      "frames": [
+        {
+          "sprite": "neutral",
+          "duration_ms": 1000
+        }
+      ]
+    },
+    "blink": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "neutral",
+          "duration_ms": 800
+        },
+        {
+          "sprite": "relaxed",
+          "duration_ms": 40
+        },
+        {
+          "sprite": "blink",
+          "duration_ms": 80
+        },
+        {
+          "sprite": "relaxed",
+          "duration_ms": 40
+        },
+        {
+          "sprite": "neutral",
+          "duration_ms": 800
+        }
+      ]
+    },
+    "talk": {
+      "loop": true,
+      "frames": [
+        {
+          "sprite": "neutral",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "talk-small",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "talk-wide",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "talk-small",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "talk-round",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "neutral",
+          "duration_ms": 120
+        }
+      ]
+    },
+    "talk_blink": {
+      "loop": true,
+      "frames": [
+        {
+          "sprite": "neutral",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "talk-small",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "talk-wide",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "blink",
+          "duration_ms": 80
+        },
+        {
+          "sprite": "talk-round",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "neutral",
+          "duration_ms": 120
+        }
+      ]
+    },
+    "happy": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "happy",
+          "duration_ms": 1000
+        }
+      ]
+    },
+    "surprised": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "surprised",
+          "duration_ms": 1000
+        }
+      ]
+    },
+    "relaxed": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "relaxed",
+          "duration_ms": 1000
+        }
+      ]
+    },
+    "nod": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "neutral",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "nod-mid",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "nod-down",
+          "duration_ms": 140
+        },
+        {
+          "sprite": "nod-mid",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "neutral",
+          "duration_ms": 120
+        }
+      ]
+    },
+    "shake_head": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "neutral",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "turn-toward",
+          "duration_ms": 140
+        },
+        {
+          "sprite": "neutral",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "turn-away",
+          "duration_ms": 140
+        },
+        {
+          "sprite": "neutral",
+          "duration_ms": 100
+        }
+      ]
+    },
+    "give": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "neutral",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "give-half",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "give-full",
+          "duration_ms": 180
+        },
+        {
+          "sprite": "give-release",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "give-half",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "neutral",
+          "duration_ms": 120
+        }
+      ],
+      "events": [
+        {
+          "frame": 3,
+          "event": "transfer"
+        }
+      ]
+    },
+    "walk": {
+      "loop": true,
+      "frames": [
+        {
+          "sprite": "walk-0",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "walk-1",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "walk-2",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "walk-3",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "walk-4",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "walk-5",
+          "duration_ms": 120
+        }
+      ]
+    },
+    "front_blink": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "front-neutral",
+          "duration_ms": 900
+        },
+        {
+          "sprite": "front-blink",
+          "duration_ms": 80
+        },
+        {
+          "sprite": "front-neutral",
+          "duration_ms": 900
+        }
+      ]
+    },
+    "hammering": {
+      "loop": true,
+      "frames": [
+        {
+          "sprite": "hammering-0",
+          "duration_ms": 140
+        },
+        {
+          "sprite": "hammering-1",
+          "duration_ms": 180
+        },
+        {
+          "sprite": "hammering-2",
+          "duration_ms": 80
+        },
+        {
+          "sprite": "hammering-3",
+          "duration_ms": 80
+        },
+        {
+          "sprite": "hammering-4",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "hammering-5",
+          "duration_ms": 160
+        }
+      ],
+      "station_id": "anvil",
+      "facing": "right_3_4",
+      "loop_range": [
+        1,
+        5
+      ],
+      "events": [
+        {
+          "frame": 3,
+          "event": "hammer_contact"
+        }
+      ]
+    },
+    "quenching": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "quenching-0",
+          "duration_ms": 160
+        },
+        {
+          "sprite": "quenching-1",
+          "duration_ms": 140
+        },
+        {
+          "sprite": "quenching-2",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "quenching-3",
+          "duration_ms": 400
+        },
+        {
+          "sprite": "quenching-4",
+          "duration_ms": 180
+        },
+        {
+          "sprite": "quenching-5",
+          "duration_ms": 160
+        }
+      ],
+      "station_id": "quenching-tub",
+      "facing": "right_3_4",
+      "events": [
+        {
+          "frame": 2,
+          "event": "water_enter"
+        },
+        {
+          "frame": 4,
+          "event": "water_exit"
+        }
+      ]
+    },
+    "forging": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "forging-0",
+          "duration_ms": 160
+        },
+        {
+          "sprite": "forging-1",
+          "duration_ms": 180
+        },
+        {
+          "sprite": "forging-2",
+          "duration_ms": 300
+        },
+        {
+          "sprite": "forging-3",
+          "duration_ms": 300
+        },
+        {
+          "sprite": "forging-4",
+          "duration_ms": 180
+        },
+        {
+          "sprite": "forging-5",
+          "duration_ms": 160
+        }
+      ],
+      "station_id": "forge",
+      "facing": "right_3_4",
+      "loop_range": [
+        2,
+        3
+      ],
+      "events": [
+        {
+          "frame": 2,
+          "event": "heat_enter"
+        },
+        {
+          "frame": 4,
+          "event": "heat_exit"
+        }
+      ]
+    },
+    "researching": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "researching-0",
+          "duration_ms": 220
+        },
+        {
+          "sprite": "researching-1",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "researching-2",
+          "duration_ms": 200
+        },
+        {
+          "sprite": "researching-3",
+          "duration_ms": 200
+        },
+        {
+          "sprite": "researching-4",
+          "duration_ms": 360
+        },
+        {
+          "sprite": "researching-5",
+          "duration_ms": 180
+        }
+      ],
+      "station_id": "research-table",
+      "facing": "front",
+      "loop_range": [
+        2,
+        3
+      ]
+    },
+    "salvaging": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "salvaging-0",
+          "duration_ms": 160
+        },
+        {
+          "sprite": "salvaging-1",
+          "duration_ms": 160
+        },
+        {
+          "sprite": "salvaging-2",
+          "duration_ms": 180
+        },
+        {
+          "sprite": "salvaging-3",
+          "duration_ms": 180
+        },
+        {
+          "sprite": "salvaging-4",
+          "duration_ms": 200
+        },
+        {
+          "sprite": "salvaging-5",
+          "duration_ms": 160
+        }
+      ],
+      "station_id": "salvage-table",
+      "facing": "back",
+      "loop_range": [
+        2,
+        3
+      ],
+      "events": [
+        {
+          "frame": 4,
+          "event": "parts_place"
+        }
+      ]
+    },
+    "base/idle": {
+      "loop": true,
+      "frames": [
+        {
+          "sprite": "base/neutral",
+          "duration_ms": 1000
+        }
+      ]
+    },
+    "base/blink": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "base/neutral",
+          "duration_ms": 800
+        },
+        {
+          "sprite": "base/relaxed",
+          "duration_ms": 40
+        },
+        {
+          "sprite": "base/blink",
+          "duration_ms": 80
+        },
+        {
+          "sprite": "base/relaxed",
+          "duration_ms": 40
+        },
+        {
+          "sprite": "base/neutral",
+          "duration_ms": 800
+        }
+      ]
+    },
+    "base/talk": {
+      "loop": true,
+      "frames": [
+        {
+          "sprite": "base/neutral",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "base/talk-small",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "base/talk-wide",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "base/talk-small",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "base/talk-round",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "base/neutral",
+          "duration_ms": 120
+        }
+      ]
+    },
+    "base/talk_blink": {
+      "loop": true,
+      "frames": [
+        {
+          "sprite": "base/neutral",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "base/talk-small",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "base/talk-wide",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "base/blink",
+          "duration_ms": 80
+        },
+        {
+          "sprite": "base/talk-round",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "base/neutral",
+          "duration_ms": 120
+        }
+      ]
+    },
+    "base/happy": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "base/happy",
+          "duration_ms": 1000
+        }
+      ]
+    },
+    "base/surprised": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "base/surprised",
+          "duration_ms": 1000
+        }
+      ]
+    },
+    "base/relaxed": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "base/relaxed",
+          "duration_ms": 1000
+        }
+      ]
+    },
+    "base/nod": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "base/neutral",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "base/nod-mid",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "base/nod-down",
+          "duration_ms": 140
+        },
+        {
+          "sprite": "base/nod-mid",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "base/neutral",
+          "duration_ms": 120
+        }
+      ]
+    },
+    "base/shake_head": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "base/neutral",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "base/turn-toward",
+          "duration_ms": 140
+        },
+        {
+          "sprite": "base/neutral",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "base/turn-away",
+          "duration_ms": 140
+        },
+        {
+          "sprite": "base/neutral",
+          "duration_ms": 100
+        }
+      ]
+    },
+    "base/give": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "base/neutral",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "base/give-half",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "base/give-full",
+          "duration_ms": 180
+        },
+        {
+          "sprite": "base/give-release",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "base/give-half",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "base/neutral",
+          "duration_ms": 120
+        }
+      ],
+      "events": [
+        {
+          "frame": 3,
+          "event": "transfer"
+        }
+      ]
+    },
+    "base/walk": {
+      "loop": true,
+      "frames": [
+        {
+          "sprite": "base/walk-0",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "base/walk-1",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "base/walk-2",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "base/walk-3",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "base/walk-4",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "base/walk-5",
+          "duration_ms": 120
+        }
+      ]
+    },
+    "base/front_blink": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "base/front-neutral",
+          "duration_ms": 900
+        },
+        {
+          "sprite": "base/front-blink",
+          "duration_ms": 80
+        },
+        {
+          "sprite": "base/front-neutral",
+          "duration_ms": 900
+        }
+      ]
+    },
+    "base/hammering": {
+      "loop": true,
+      "frames": [
+        {
+          "sprite": "base/hammering-0",
+          "duration_ms": 140
+        },
+        {
+          "sprite": "base/hammering-1",
+          "duration_ms": 180
+        },
+        {
+          "sprite": "base/hammering-2",
+          "duration_ms": 80
+        },
+        {
+          "sprite": "base/hammering-3",
+          "duration_ms": 80
+        },
+        {
+          "sprite": "base/hammering-4",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "base/hammering-5",
+          "duration_ms": 160
+        }
+      ],
+      "station_id": "anvil",
+      "facing": "right_3_4",
+      "loop_range": [
+        1,
+        5
+      ],
+      "events": [
+        {
+          "frame": 3,
+          "event": "hammer_contact"
+        }
+      ]
+    },
+    "base/quenching": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "base/quenching-0",
+          "duration_ms": 160
+        },
+        {
+          "sprite": "base/quenching-1",
+          "duration_ms": 140
+        },
+        {
+          "sprite": "base/quenching-2",
+          "duration_ms": 100
+        },
+        {
+          "sprite": "base/quenching-3",
+          "duration_ms": 400
+        },
+        {
+          "sprite": "base/quenching-4",
+          "duration_ms": 180
+        },
+        {
+          "sprite": "base/quenching-5",
+          "duration_ms": 160
+        }
+      ],
+      "station_id": "quenching-tub",
+      "facing": "right_3_4",
+      "events": [
+        {
+          "frame": 2,
+          "event": "water_enter"
+        },
+        {
+          "frame": 4,
+          "event": "water_exit"
+        }
+      ]
+    },
+    "base/forging": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "base/forging-0",
+          "duration_ms": 160
+        },
+        {
+          "sprite": "base/forging-1",
+          "duration_ms": 180
+        },
+        {
+          "sprite": "base/forging-2",
+          "duration_ms": 300
+        },
+        {
+          "sprite": "base/forging-3",
+          "duration_ms": 300
+        },
+        {
+          "sprite": "base/forging-4",
+          "duration_ms": 180
+        },
+        {
+          "sprite": "base/forging-5",
+          "duration_ms": 160
+        }
+      ],
+      "station_id": "forge",
+      "facing": "right_3_4",
+      "loop_range": [
+        2,
+        3
+      ],
+      "events": [
+        {
+          "frame": 2,
+          "event": "heat_enter"
+        },
+        {
+          "frame": 4,
+          "event": "heat_exit"
+        }
+      ]
+    },
+    "base/researching": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "base/researching-0",
+          "duration_ms": 220
+        },
+        {
+          "sprite": "base/researching-1",
+          "duration_ms": 120
+        },
+        {
+          "sprite": "base/researching-2",
+          "duration_ms": 200
+        },
+        {
+          "sprite": "base/researching-3",
+          "duration_ms": 200
+        },
+        {
+          "sprite": "base/researching-4",
+          "duration_ms": 360
+        },
+        {
+          "sprite": "base/researching-5",
+          "duration_ms": 180
+        }
+      ],
+      "station_id": "research-table",
+      "facing": "front",
+      "loop_range": [
+        2,
+        3
+      ]
+    },
+    "base/salvaging": {
+      "loop": false,
+      "frames": [
+        {
+          "sprite": "base/salvaging-0",
+          "duration_ms": 160
+        },
+        {
+          "sprite": "base/salvaging-1",
+          "duration_ms": 160
+        },
+        {
+          "sprite": "base/salvaging-2",
+          "duration_ms": 180
+        },
+        {
+          "sprite": "base/salvaging-3",
+          "duration_ms": 180
+        },
+        {
+          "sprite": "base/salvaging-4",
+          "duration_ms": 200
+        },
+        {
+          "sprite": "base/salvaging-5",
+          "duration_ms": 160
+        }
+      ],
+      "station_id": "salvage-table",
+      "facing": "back",
+      "loop_range": [
+        2,
+        3
+      ],
+      "events": [
+        {
+          "frame": 4,
+          "event": "parts_place"
+        }
+      ]
+    }
+  },
+  "runtime_integration": false
+}

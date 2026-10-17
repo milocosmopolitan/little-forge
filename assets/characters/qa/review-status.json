@@ -1,0 +1,257 @@
+{
+  "status": "internal_review_recorded_user_acceptance_pending",
+  "browser_review": {
+    "app": "Safari",
+    "version_label": "research-material-v13",
+    "manual_keys": [
+      0,
+      1,
+      2,
+      4
+    ],
+    "equipment": true,
+    "workstation": true,
+    "backgrounds": [
+      "light",
+      "dark"
+    ],
+    "playback_speeds": [
+      1,
+      0.5
+    ],
+    "scope": "Female equipped research; source-layer and native close-up sheets reviewed separately",
+    "page": "http://127.0.0.1:8773/assets/characters/previews/animation.html?clip=researching&frame=4&review=material-v13-final4"
+  },
+  "visual_artifacts": {
+    "expressions": "Each sex: previews/expressions-8.png",
+    "walk": "Each sex: previews/walk-6-base.png",
+    "work": "Each sex: previews/work-actions-review.png",
+    "gif_timing": "Per-clip normal and slow GIF previews",
+    "solid_body_underlap": [
+      "solid-underlap-v10-before-after.png",
+      "solid-underlap-v10-all-48.png",
+      "solid-underlap-v10-body-layers.png"
+    ],
+    "current_joint_layers": [
+      "joint-rebuild-v11-layers.png",
+      "joint-rebuild-v11-female-48.png",
+      "joint-rebuild-v11-male-48.png",
+      "joint-rebuild-v11-female-body-only.png",
+      "joint-rebuild-v11-male-body-only.png"
+    ],
+    "research_finish_v12": [
+      "research-finish-v12-layers.png",
+      "research-finish-v12-scenes.png",
+      "research-finish-v12-all-24.png"
+    ],
+    "research_material_v13": [
+      "research-material-v13-before-after.png",
+      "research-material-v13-all-keys.png"
+    ]
+  },
+  "runtime_integration": false,
+  "previous_user_rejection": {
+    "source": "user_review",
+    "accepted": false,
+    "issues": [
+      "torso separates from pelvis",
+      "broken shoulders",
+      "head incorrectly pinned while torso slides back",
+      "bending must carry torso neck head and arms around planted pelvis"
+    ],
+    "next_gate": "Review one coherent hip-pivot action before expanding the set",
+    "structural_checks_do_not_establish_visual_acceptance": true
+  },
+  "current_visual_verdict": {
+    "revision": "research-material-v13",
+    "source": "agent_internal_review",
+    "user_accepted": null,
+    "report": "research-material-v13-review.json",
+    "scope": "Female equipped research only",
+    "structural_checks_do_not_establish_visual_acceptance": true
+  },
+  "previous_revisions": [
+    {
+      "revision": "hip-pivot-v2",
+      "source": "agent_internal_review",
+      "user_accepted": null,
+      "report": "work-repair-review.json",
+      "structural_checks_do_not_establish_visual_acceptance": true
+    },
+    {
+      "revision": "approved-face-v5",
+      "source": "agent_internal_review",
+      "user_accepted": false,
+      "report": "work-style-review.json",
+      "structural_checks_do_not_establish_visual_acceptance": true,
+      "user_reported_issues": [
+        "Research dark line below neck",
+        "Head and torso separated from forging start, especially male",
+        "Quenching head pushed forward and shoulders cut flat",
+        "Hammering neck protrusion"
+      ],
+      "browser_review": {
+        "app": "Safari",
+        "url": "http://127.0.0.1:8773/assets/characters/previews/animation.html?qa=work&revision=approved-face-v5",
+        "completion_text_observed": "PLAYBACK QA COMPLETE: 40 scenarios, both characters.",
+        "speeds": [
+          1,
+          0.5
+        ],
+        "equipment": [
+          true,
+          false
+        ],
+        "background": [
+          "light",
+          "dark"
+        ],
+        "workstation": true,
+        "manual_research_think_key_4_observed": true
+      }
+    },
+    {
+      "revision": "collar-v7",
+      "source": "agent_internal_review",
+      "user_accepted": false,
+      "report": "neck-assembly-review.json",
+      "structural_checks_do_not_establish_visual_acceptance": true,
+      "user_reported_issues": [
+        "Reference head included short neck/collar pixels that travelled with the head",
+        "Old face/jaw contour was retained in the source upper body",
+        "Loose bright-pixel material matching classified ear/hair highlights as shirt",
+        "Broad imported neck skin extended beyond the anatomical connection"
+      ],
+      "browser_review": {
+        "status": "complete",
+        "app": "Safari",
+        "url": "http://127.0.0.1:8773/assets/characters/previews/animation.html?qa=work&revision=collar-v7",
+        "manual_researching_0_and_forging_0_and_quenching_1_observed": true,
+        "completion_text_observed": "PLAYBACK QA COMPLETE: 40 scenarios, both characters.",
+        "scenarios": 40,
+        "speeds": [
+          1,
+          0.5
+        ],
+        "equipment": [
+          true,
+          false
+        ],
+        "background": [
+          "light",
+          "dark"
+        ],
+        "workstation": true
+      }
+    },
+    {
+      "revision": "head-ownership-v8",
+      "source": "agent_internal_review",
+      "user_accepted": false,
+      "report": "head-ownership-review.json",
+      "structural_checks_do_not_establish_visual_acceptance": true,
+      "user_reported_issues": [
+        "Female quenching neck/shoulder seam messy",
+        "Female recovery shows skin where garment should remain",
+        "Female forging collar and head height unnatural",
+        "Research head/neck/torso misregistered",
+        "Both quenching tools disappear over rear water too early"
+      ],
+      "browser_review": {
+        "app": "Safari",
+        "manual_cases_observed": [
+          "hammering-2",
+          "quenching-2"
+        ],
+        "status": "complete",
+        "url": "http://127.0.0.1:8773/assets/characters/previews/animation.html?qa=work&revision=head-ownership-v8&build=final",
+        "completion_text_observed": "PLAYBACK QA COMPLETE: 40 scenarios, both characters.",
+        "speeds": [
+          1,
+          0.5
+        ],
+        "scenarios": 40,
+        "equipment": [
+          true,
+          false
+        ],
+        "backgrounds": [
+          "light",
+          "dark"
+        ],
+        "workstation": true
+      }
+    },
+    {
+      "revision": "neck-cloth-v9",
+      "source": "user_review",
+      "user_accepted": false,
+      "report": "neck-cloth-v9-review.json",
+      "structural_checks_do_not_establish_visual_acceptance": true,
+      "user_reported_issues": [
+        "Missing opaque neck and shoulder pixels across female work frames, including forging",
+        "Previous completion reports did not detect visible transparent holes"
+      ]
+    },
+    {
+      "revision": "solid-underlap-v10",
+      "source": "user_review",
+      "user_accepted": false,
+      "report": "solid-underlap-v10-review.json",
+      "structural_checks_do_not_establish_visual_acceptance": true,
+      "user_reported_issues": [
+        "Female forging keys 0,4,5 still show unnatural neck and shoulder connection",
+        "Research neck and shoulders remain wrong for both sexes",
+        "Pixel-hole checks did not establish anatomical or material correctness"
+      ]
+    },
+    {
+      "revision": "joint-rebuild-v11",
+      "source": "user_review",
+      "user_accepted": false,
+      "report": "joint-rebuild-v11-review.json",
+      "structural_checks_do_not_establish_visual_acceptance": true,
+      "user_reported_issues": [
+        "Male research towel crosses desk and appears on wrong side",
+        "Female research thinking-key shoulder outline protrusions and truncated resting fingers",
+        "Female research shoulder clothing colors break abruptly"
+      ]
+    },
+    {
+      "revision": "research-finish-v12",
+      "source": "user_review",
+      "user_accepted": false,
+      "report": "research-finish-v12-review.json",
+      "scope": "Research only; approved faces and other action frames preserved",
+      "structural_checks_do_not_establish_visual_acceptance": true,
+      "user_reported_issues": [
+        "Female research white shirt stops before shoulder outline",
+        "Missing leather strap ends painted white in keys 1 and 2",
+        "Dirty neck/collar connection",
+        "One-pixel horizontal source-hair seam at thinking shoulder"
+      ]
+    }
+  ],
+  "current_browser_review": {
+    "app": "Safari",
+    "version_label": "research-material-v13",
+    "manual_keys": [
+      0,
+      1,
+      2,
+      4
+    ],
+    "equipment": true,
+    "workstation": true,
+    "backgrounds": [
+      "light",
+      "dark"
+    ],
+    "playback_speeds": [
+      1,
+      0.5
+    ],
+    "scope": "Female equipped research; source-layer and native close-up sheets reviewed separately",
+    "page": "http://127.0.0.1:8773/assets/characters/previews/animation.html?clip=researching&frame=4&review=material-v13-final4"
+  }
+}

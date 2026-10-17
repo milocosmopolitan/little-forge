@@ -1,0 +1,36 @@
+{
+  "id": "hunter",
+  "scope": "neutral pose only",
+  "canvas": [
+    128,
+    160
+  ],
+  "authoring_canvas": [
+    128,
+    160
+  ],
+  "foot_anchor": [
+    64,
+    140
+  ],
+  "palette_max": 64,
+  "palette_reason": "preserve mottled fur, warm face/beard, green cloth, leather and gold buckle clusters",
+  "reference_transform": [
+    9.5,
+    0,
+    -45,
+    0,
+    9.5,
+    8
+  ],
+  "background": "connected near-black <=8 exterior removed; original RGB retained",
+  "planned_equipment": [
+    "bow",
+    "quiver-and-arrows",
+    "fur-hat",
+    "cloak",
+    "leather-outfit",
+    "gloves",
+    "boot-fur-cuffs"
+  ]
+}

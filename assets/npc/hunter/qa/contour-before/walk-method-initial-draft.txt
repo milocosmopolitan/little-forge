@@ -1,0 +1,75 @@
+    def walk(self):
+        phases=json.loads((ROOT/'source/animation/production-contract.json').read_text())['walk']['keys'];self.gait=[]
+        arm_sources=[0,4,2,3,1,5]
+        near_shapes=[
+            [(48,69),(59,70),(61,80),(61,87),(66,91),(74,94),(76,98),(73,103),(68,105),(60,103),(52,98),(47,92),(46,82)],
+            [(47,69),(60,70),(62,80),(62,89),(65,95),(71,99),(73,104),(69,110),(65,112),(59,107),(53,101),(49,96),(46,86)],
+            [(45,69),(60,70),(60,79),(57,87),(54,92),(53,99),(54,105),(51,111),(47,113),(42,110),(41,104),(44,98),(44,87)],
+            [(44,69),(60,70),(61,78),(57,86),(54,92),(51,98),(51,104),(47,109),(42,109),(38,105),(38,100),(42,94),(43,86)],
+            [(44,69),(60,70),(60,80),(57,89),(56,96),(56,103),(56,109),(51,113),(46,111),(43,107),(43,100),(44,92),(42,85)],
+            [(48,69),(61,70),(64,80),(63,88),(65,94),(71,98),(73,104),(70,110),(65,112),(59,107),(53,102),(49,96),(47,87)]]
+        far_shape=[(78,78),(84,78),(86,87),(95,92),(97,101),(94,110),(86,112),(81,106),(79,98),(79,90)]
+        glove_shapes=[
+            [[(66,97),(68,95),(71,96),(73,98),(72,102),(69,103),(66,101)]],
+            [[(61,100),(64,99),(67,101),(70,104),(68,108),(65,110),(62,107),(60,103)]],
+            [[(45,100),(49,100),(51,103),(52,106),(50,110),(46,111),(43,108),(43,104)],[(83,99),(87,98),(90,101),(92,105),(89,108),(86,108),(83,105)]],
+            [[(44,96),(48,98),(50,101),(47,106),(44,107),(40,104),(41,100)],[(83,93),(86,92),(90,94),(92,98),(90,102),(87,103),(83,99)]],
+            [[(47,100),(51,100),(54,103),(55,106),(52,110),(49,111),(45,107),(45,103)],[(83,93),(86,92),(90,94),(92,98),(90,102),(87,103),(83,99)]],
+            [[(62,99),(65,98),(68,100),(71,103),(70,107),(66,110),(63,107),(61,103)],[(47,97),(50,97),(53,100),(54,103),(51,107),(48,108),(45,104)]]]
+        boot_centers=[[[51,122],[77,123]],[[52,119],[76,124]],[[55,123],[79,120]],[[51,122],[77,123]],[[50,115],[77,125]],[[56,125],[81,120]]]
+        near_boot_index=[0,0,1,1,1,0]
+        hands=[[[70,100],None],[[66,105],None],[[48,108],[88,104]],[[45,102],[88,98]],[[50,105],[88,98]],[[67,104],[50,103]]]
+        ownership=[]
+        for k,phase in enumerate(phases):
+            # These adopted native bodies lock the user's accepted limb motion.
+            body=load(f'source/animation/contour/walk-{k}-body.png');bob=phase['bob']
+            h=move(self.motion_head_base,0,bob);e=move(self.parts['eyes'],0,bob);m=move(self.parts['mouth'],0,bob)
+            upper=body.copy();lower=body.copy()
+            for yy in range(160):
+                for xx in range(128):(lower if yy<97 else upper).putpixel((xx,yy),(0,0,0,0))
+            parts={'lower':lower,'upper':upper,'head':h,'eyes':e,'mouth':m}
+            gear={n:move(im,0,bob) for n,im in self.gear.items() if n not in ['gloves','boot-fur-cuffs']}
+            near_arm=region(body,near_shapes[k]);far_arm=region(body,far_shape)
+            # Retain every sleeve fold, dark contour and skin pixel within the traced arm.
+            front=near_arm.copy()
+            if k in (2,3,4):front.alpha_composite(far_arm)
+            parts['hands-front']=front
+            before_gloves=compose([({**parts,**gear})[n] for n in self.order if n in parts or n in gear])
+            gloves=blank();glove_mask=blank();d=ImageDraw.Draw(glove_mask)
+            for polygon in glove_shapes[k]:d.polygon(polygon,fill=(255,255,255,255))
+            for yy in range(90,114):
+                for xx in range(38,98):
+                    q=body.getpixel((xx,yy))
+                    if glove_mask.getpixel((xx,yy))[3] and skin(q) and before_gloves.getpixel((xx,yy))==q:
+                        material=self.c((128,73,44) if q[1]>155 else (98,53,35) if q[1]>115 else (64,36,30))
+                        gloves.putpixel((xx,yy),material)
+            # A curved wrist seam follows the material mask, not the edge of a rectangle.
+            leather=gloves.copy()
+            for yy in range(90,114):
+                for xx in range(38,98):
+                    if leather.getpixel((xx,yy))[3] and any(skin(body.getpixel((xx+dx,yy+dy))) and not leather.getpixel((xx+dx,yy+dy))[3] for dx,dy in [(1,0),(-1,0),(0,1),(0,-1)]):
+                        gloves.putpixel((xx,yy),self.c((64,36,30)))
+            gear['gloves']=gloves
+            cuffs=blank();texture=self.gear['boot-fur-cuffs']
+            for cx,cy in boot_centers[k]:
+                for xx in range(cx-6,cx+7):
+                    top=next((yy for yy in range(cy-4,cy+6) if (q:=body.getpixel((xx,yy)))[3] and q[0]>q[1]*1.25 and q[0]>55 and q[1]<150),None)
+                    if top is None:continue
+                    for yy in range(top,top+4):
+                        q=body.getpixel((xx,yy))
+                        if q[3] and q[0]>q[1]*1.2 and q[1]<150:
+                            tex=texture.getpixel((46+(xx-cx+6)%14,118+(yy-top)%4))
+                            if not tex[3]:tex=texture.getpixel((52,119+(yy-top)%2))
+                            if tex[3]:cuffs.putpixel((xx,yy),tex)
+            gear['boot-fur-cuffs']=cuffs
+            entry={**phase,'source':f'contour/walk-{k}-body.png','generated_source':f'repair/walk-{k}-candidate.png','arm_source_key':arm_sources[k],'hands_measured_screen_rois':hands[k],'boots_measured_screen_rois':boot_centers[k],'source_head_discarded':True,'near_boot_screen_index':near_boot_index[k]}
+            self.add(f'walk-{k}',parts,gear,front,{'gait':entry,'head_translation':[0,bob],'source_head':'locked neutral; no rescaling'})
+            self.recipes[f'walk-{k}']['sockets_px'].update(right_hand=hands[k][0],left_hand=hands[k][1])
+            entry['anatomical_contacts']={'right_hand':hands[k][0],'left_hand':hands[k][1],'right_boot':boot_centers[k][near_boot_index[k]],'left_boot':boot_centers[k][1-near_boot_index[k]]}
+            self.gait.append(entry)
+            self.registration[f'walk-{k}']={'source':entry['source'],'near_arm_ownership_polygon':near_shapes[k],'far_arm_ownership_polygon':far_shape,'glove_ownership_polygons':glove_shapes[k],'motion_locked':True}
+            for n,im in [('near-arm',near_arm),('far-arm',far_arm),('glove-region',glove_mask)]:save(im,f'source/animation/contour/walk-{k}-{n}.png')
+            ownership.append(self.registration[f'walk-{k}'])
+        write('source/animation/walk-phases.json',self.gait)
+        write('source/animation/contour/walk-ownership.json',ownership)
+

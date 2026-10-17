@@ -1,0 +1,17 @@
+{
+  "neutral.png": "ab5191c43c941bb42932ed6a59c7940441c78d4f6aa18315e5aedb7851ac8dac",
+  "base-neutral.png": "09bc6213aaa4bdb1a882405a48484722f5d6cb6ec9568f53f2ecc604b2d8a442",
+  "head-base.png": "8cc97facdd4141dbb3e81f3e18110e65a39f3ecece9713fc4c55146b1259caa9",
+  "body/upper-base.png": "3a32fc85d367c29dd6141fadc67fead64cd629ac5abb960109b9b5f9a6de2fe7",
+  "body/lower-base.png": "20155eb5ddc7eaf9f23558622dc2f3dee68c11b1e007c8d1f8aa3f5878041144",
+  "body/hands-front.png": "01512f9343fa443e05e2a2350c9c2ee34aa8a93c876cd4115ba3706be2a5c5fa",
+  "eyes/open.png": "744758f90c224282f765ef903775f2f406d950f84adb75fcc85225a92d0d0ccd",
+  "mouth/rest.png": "2a0749f1838c44b63fd5c89ff5205ec8df820e7c5067ade18a5d4f904cfb5c9d",
+  "equipment/bow.png": "640535b3b7c7ec3aba6e1d216b81fc0ee463c92f3035c39559a2327580081c20",
+  "equipment/boot-fur-cuffs.png": "28e21b44f09dbc53231ad9d876144ea598234d2a7c7cd9175032539fe5ab08d9",
+  "equipment/cloak.png": "d8e69d5c8d3dfa5a0c63a0e32abf2c5a63ca94874192984f160ae93148ccdc83",
+  "equipment/quiver-and-arrows.png": "20a325f34b98a2cca1c0458bd342cbc2d6d525b348d630189a65152ed8d54a9d",
+  "equipment/leather-outfit.png": "7d67f0afad86920fbda2fd0c5f569487e8fe5e4353809dfef36a987a7d483696",
+  "equipment/fur-hat.png": "4b7637e2347e5c38afc798cab5978111e4fb3e46dd2cd4fedbbe440d1bb2299d",
+  "equipment/gloves.png": "53c5b2b727d7e7d58ca6eb736c308fbc1eeb2247635f2b305fe44f5f4a5257e1"
+}

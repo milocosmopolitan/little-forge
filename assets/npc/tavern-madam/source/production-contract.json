@@ -1,0 +1,48 @@
+{
+  "id": "tavern-madam",
+  "scope": "neutral pose only, no new expressions or animation clips",
+  "authoring_canvas": [
+    96,
+    128
+  ],
+  "pose_canvas": [
+    128,
+    160
+  ],
+  "base_offset": [
+    16,
+    16
+  ],
+  "foot_anchor": [
+    64,
+    140
+  ],
+  "shared_palette_max": 64,
+  "alpha": [
+    0,
+    255
+  ],
+  "identity": "auburn pinned-up curls, brown eyes, smiling mouth, warm peach skin, substantial curvy build",
+  "equipment": [
+    "hair-ribbon",
+    "earrings",
+    "shawl",
+    "apron",
+    "belt-accessories",
+    "tankard",
+    "towel"
+  ],
+  "foundation_clothes": "cream puff-sleeve blouse, dark lace-up bodice, dark skirt with tan hem, original boots",
+  "restoration": "complete garment and empty supporting hand under removable gear; hair/ear behind accessories",
+  "registration_candidate": {
+    "source_step": 11.2,
+    "source_origin": [
+      33.6,
+      83.2
+    ]
+  },
+  "status": "neutral_complete",
+  "actual_shared_palette_colors": 62,
+  "verification": "qa/validation.json",
+  "preview": "previews/index.html"
+}

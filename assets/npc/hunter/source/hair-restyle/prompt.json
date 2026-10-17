@@ -1,0 +1,25 @@
+{
+  "mode": "built-in image_gen",
+  "prompt": "Use case: precise-object-edit. This is a close-up edit of the SAME pixel-art hunter's head, on a transparent background. The native crop is 62 pixels wide and 50 pixels tall, enlarged 16x. Keep the full crop framing, ears, face, eyebrows, eyes, nose, mouth, stubble and neck EXACTLY in place.\nREPLACE the hair design above the forehead with a NEW attractive natural hairstyle. Remove ALL THREE upright crown spikes and their angular roots. They are specifically rejected. Give him a rounded short-to-medium haircut with a gentle side part high on the character's left/screen-right, broad locks swept smoothly down toward screen-left, a full rounded crown and tidy tapered sides. Think practical youthful hunter with softly tousled side-swept hair, not anime spikes. The top silhouette must be a gently curved CONTINUOUS ARC. No upward horns, no pointed crown tufts, no tall pompadour, no large black zigzag at the part. The top should look round and complete, never flat or hollow. Create several broad coherent lock shapes with restrained warm highlights, keep the existing dark warm brown colors. Maintain enough volume above the large original eyes and the same head size. Preserve the hairline immediately touching the existing face, and keep ears, jaw, beard and neck unchanged.\nStyle: clean low-resolution pixel art with a native ONE PIXEL dark outline, crisp stepped curves, limited earthy palette, no blur, no smooth airbrush shading, no stray pixels. This is a replacement hairstyle, not an upward stretching of the current spikes. No hat, no added object, no text. Actual transparent background. Same exact crop alignment and face scale.",
+  "inputs": [
+    "source/hair-restyle/head-target.png"
+  ],
+  "output": "source/hair-restyle/candidate.png",
+  "registration": {
+    "crop": [
+      34,
+      16,
+      96,
+      66
+    ],
+    "native_size": [
+      62,
+      50
+    ],
+    "translation": [
+      34,
+      16
+    ],
+    "stretch": false
+  }
+}

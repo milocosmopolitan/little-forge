@@ -1,0 +1,10 @@
+{
+  "status": "pass",
+  "revision": "research-finish-v12",
+  "research_variants": 24,
+  "approved_face_layers_preserved": 72,
+  "non_research_frames_preserved": 216,
+  "male_towel_in_front_pass": 0,
+  "resting_finger_landmarks_preserved": true,
+  "visual_acceptance": "Requires visual review; these checks cover the reported pixel regressions"
+}

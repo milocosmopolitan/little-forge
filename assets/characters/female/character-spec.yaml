@@ -165,14 +165,14 @@
   ],
   "pose_overrides": {},
   "production_plan": {
-    "status": "neutral_base_pose_generated",
-    "current_scope": "One right-facing neutral pose per sex; bare, equipped and optional hammer variants"
+    "status": "layered_animation_set_generated",
+    "current_scope": "8 expressions, common gestures and six-key walk, front/rear baselines and five six-key blacksmith actions; authoring export only"
   },
   "animation": {
-    "frame_order": [
-      "neutral"
-    ],
-    "looping": false
+    "manifest": "animation.json",
+    "atlas_manifest": "atlas-manifest.json",
+    "frames": "frames/",
+    "poses": "poses/"
   },
   "runtime_export": {
     "status": "not_integrated",
@@ -198,5 +198,42 @@
   "base_offset_px": [
     16,
     16
-  ]
+  ],
+  "role": "player_blacksmith",
+  "pose_canvas": {
+    "native_px": [
+      128,
+      160
+    ],
+    "foot_anchor_px": [
+      64,
+      140
+    ]
+  },
+  "action_set": {
+    "common": [
+      "neutral",
+      "blink",
+      "talk",
+      "happy",
+      "surprised",
+      "relaxed",
+      "nod",
+      "shake_head",
+      "give",
+      "walk"
+    ],
+    "player": [
+      "hammering",
+      "quenching",
+      "forging",
+      "researching",
+      "salvaging"
+    ]
+  },
+  "direction_baselines": {
+    "right_3_4": "neutral",
+    "front": "front-neutral",
+    "back": "back-neutral"
+  }
 }

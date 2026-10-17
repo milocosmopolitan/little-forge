@@ -1,0 +1,14 @@
+{
+  "status": "reviewed_native_and_nearest_previews",
+  "reviewed": [
+    "reference comparison, matching visible height and foot anchor",
+    "face: reference interior graft, complete hair and ear without gear",
+    "empty hip hand and raised grip; tankard fingers through front gaps",
+    "light and dark background, base and equipped, face/hand crops"
+  ],
+  "equipment_subsets_checked": 128,
+  "html_script_syntax": "pass",
+  "live_browser_controls": "not_automated",
+  "scope": "neutral only",
+  "runtime": "not_integrated"
+}

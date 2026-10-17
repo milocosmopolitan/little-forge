@@ -170,6 +170,7 @@ for(const[id,c]of Object.entries(configs)){
  fs.writeFileSync(file('source/ownership.json'),JSON.stringify(c,null,2)+'\n');
  const recipe={canvas:[W,H],pivot:[48,124],sampler:'nearest',mipmaps:false,base:['body/lower-base.png','body/upper-base.png','head-base.png','eyes/open.png','mouth/rest.png'],equipped:order,optional_prop:'props/hammer.png',states:{base:'base-neutral.png',neutral:'neutral.png',with_hammer:'neutral-with-hammer.png'},animation:{frames:['neutral'],loop:false},runtime_integration:false};
  recipe.canvas=CANVAS;recipe.pivot=FOOT;recipe.authoring_canvas=[96,128];recipe.base_offset_px=OFFSET;
+ if(fs.existsSync(file('animation.json')))recipe.animation_manifest='animation.json';
  fs.writeFileSync(file('character.json'),JSON.stringify(recipe,null,2)+'\n');
  const span=(b,y,x0,x1)=>{const xs=[];for(let x=x0;x<x1;x++)if(b[(y*W+x)*4+3])xs.push(x);return xs.length?Math.max(...xs)-Math.min(...xs)+1:0;};
  const size=b=>{const[a,c,d,e]=bounds(b).bbox;return[d-a,e-c];};
@@ -198,6 +199,7 @@ for(const[id,c]of Object.entries(configs)){
  spec.generation.head_revision_prompts='../source/revision-3/prompts.json';
  spec.generation.glove_registration='source/glove-registration.json';
  spec.generation.revision_prompts='../source/revision-1/prompts.json';
+ if(fs.existsSync(file('animation.json'))){spec.role='player_blacksmith';spec.pose_canvas={native_px:[128,160],foot_anchor_px:[64,140]};spec.animation={manifest:'animation.json',atlas_manifest:'atlas-manifest.json',frames:'frames/',poses:'poses/'};spec.action_set={common:['neutral','blink','talk','happy','surprised','relaxed','nod','shake_head','give','walk'],player:['hammering','quenching','forging','researching','salvaging']};spec.direction_baselines={right_3_4:'neutral',front:'front-neutral',back:'back-neutral'};spec.production_plan={status:'layered_animation_set_generated',current_scope:'8 expressions, common gestures and six-key walk, front/rear baselines and five six-key blacksmith actions; authoring export only'};}
  fs.writeFileSync(file('character-spec.yaml'),JSON.stringify(spec,null,2)+'\n');
  fs.mkdirSync(file('previews'),{recursive:true});
  for(const n of ['base-neutral','neutral','neutral-with-hammer'])run([file(n+'.png'),'-filter','point','-resize','400%','-strip',file(`previews/${n}-4x.png`)]);

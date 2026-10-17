@@ -1,0 +1,395 @@
+{
+  "status": "pass",
+  "variants_checked": 48,
+  "missing_required_body_before": 895,
+  "unexpected_body_hole_pixels_before": 544,
+  "unexpected_body_hole_pixels_after": 0,
+  "unrelated_frames_preserved": 168,
+  "intentional_back_hair_cutouts": "root coordinates (44,57), (44,58), (45,59), (45,60)",
+  "results": [
+    {
+      "pose": "hammering-0",
+      "variant": "base",
+      "missing_body_before": 4,
+      "added_body_pixels": 4,
+      "unexpected_holes_before": 1,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "hammering-0",
+      "variant": "equipped",
+      "missing_body_before": 3,
+      "added_body_pixels": 3,
+      "unexpected_holes_before": 1,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "hammering-1",
+      "variant": "base",
+      "missing_body_before": 4,
+      "added_body_pixels": 4,
+      "unexpected_holes_before": 1,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "hammering-1",
+      "variant": "equipped",
+      "missing_body_before": 4,
+      "added_body_pixels": 4,
+      "unexpected_holes_before": 2,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "hammering-2",
+      "variant": "base",
+      "missing_body_before": 0,
+      "added_body_pixels": 0,
+      "unexpected_holes_before": 0,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "hammering-2",
+      "variant": "equipped",
+      "missing_body_before": 0,
+      "added_body_pixels": 0,
+      "unexpected_holes_before": 0,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "hammering-3",
+      "variant": "base",
+      "missing_body_before": 4,
+      "added_body_pixels": 4,
+      "unexpected_holes_before": 1,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "hammering-3",
+      "variant": "equipped",
+      "missing_body_before": 9,
+      "added_body_pixels": 9,
+      "unexpected_holes_before": 6,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "hammering-4",
+      "variant": "base",
+      "missing_body_before": 4,
+      "added_body_pixels": 4,
+      "unexpected_holes_before": 3,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "hammering-4",
+      "variant": "equipped",
+      "missing_body_before": 7,
+      "added_body_pixels": 7,
+      "unexpected_holes_before": 4,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "hammering-5",
+      "variant": "base",
+      "missing_body_before": 4,
+      "added_body_pixels": 4,
+      "unexpected_holes_before": 1,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "hammering-5",
+      "variant": "equipped",
+      "missing_body_before": 3,
+      "added_body_pixels": 3,
+      "unexpected_holes_before": 1,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "quenching-0",
+      "variant": "base",
+      "missing_body_before": 29,
+      "added_body_pixels": 29,
+      "unexpected_holes_before": 6,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "quenching-0",
+      "variant": "equipped",
+      "missing_body_before": 9,
+      "added_body_pixels": 9,
+      "unexpected_holes_before": 7,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "quenching-1",
+      "variant": "base",
+      "missing_body_before": 32,
+      "added_body_pixels": 32,
+      "unexpected_holes_before": 17,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "quenching-1",
+      "variant": "equipped",
+      "missing_body_before": 21,
+      "added_body_pixels": 21,
+      "unexpected_holes_before": 6,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "quenching-2",
+      "variant": "base",
+      "missing_body_before": 14,
+      "added_body_pixels": 14,
+      "unexpected_holes_before": 10,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "quenching-2",
+      "variant": "equipped",
+      "missing_body_before": 22,
+      "added_body_pixels": 22,
+      "unexpected_holes_before": 19,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "quenching-3",
+      "variant": "base",
+      "missing_body_before": 14,
+      "added_body_pixels": 14,
+      "unexpected_holes_before": 10,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "quenching-3",
+      "variant": "equipped",
+      "missing_body_before": 22,
+      "added_body_pixels": 22,
+      "unexpected_holes_before": 19,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "quenching-4",
+      "variant": "base",
+      "missing_body_before": 12,
+      "added_body_pixels": 12,
+      "unexpected_holes_before": 3,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "quenching-4",
+      "variant": "equipped",
+      "missing_body_before": 4,
+      "added_body_pixels": 4,
+      "unexpected_holes_before": 0,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "quenching-5",
+      "variant": "base",
+      "missing_body_before": 29,
+      "added_body_pixels": 29,
+      "unexpected_holes_before": 6,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "quenching-5",
+      "variant": "equipped",
+      "missing_body_before": 9,
+      "added_body_pixels": 9,
+      "unexpected_holes_before": 7,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "forging-0",
+      "variant": "base",
+      "missing_body_before": 18,
+      "added_body_pixels": 18,
+      "unexpected_holes_before": 2,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "forging-0",
+      "variant": "equipped",
+      "missing_body_before": 19,
+      "added_body_pixels": 19,
+      "unexpected_holes_before": 12,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "forging-1",
+      "variant": "base",
+      "missing_body_before": 17,
+      "added_body_pixels": 17,
+      "unexpected_holes_before": 13,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "forging-1",
+      "variant": "equipped",
+      "missing_body_before": 0,
+      "added_body_pixels": 0,
+      "unexpected_holes_before": 0,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "forging-2",
+      "variant": "base",
+      "missing_body_before": 19,
+      "added_body_pixels": 19,
+      "unexpected_holes_before": 14,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "forging-2",
+      "variant": "equipped",
+      "missing_body_before": 14,
+      "added_body_pixels": 14,
+      "unexpected_holes_before": 12,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "forging-3",
+      "variant": "base",
+      "missing_body_before": 19,
+      "added_body_pixels": 19,
+      "unexpected_holes_before": 14,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "forging-3",
+      "variant": "equipped",
+      "missing_body_before": 14,
+      "added_body_pixels": 14,
+      "unexpected_holes_before": 12,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "forging-4",
+      "variant": "base",
+      "missing_body_before": 4,
+      "added_body_pixels": 4,
+      "unexpected_holes_before": 3,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "forging-4",
+      "variant": "equipped",
+      "missing_body_before": 24,
+      "added_body_pixels": 24,
+      "unexpected_holes_before": 13,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "forging-5",
+      "variant": "base",
+      "missing_body_before": 18,
+      "added_body_pixels": 18,
+      "unexpected_holes_before": 2,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "forging-5",
+      "variant": "equipped",
+      "missing_body_before": 19,
+      "added_body_pixels": 19,
+      "unexpected_holes_before": 12,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "researching-0",
+      "variant": "base",
+      "missing_body_before": 16,
+      "added_body_pixels": 16,
+      "unexpected_holes_before": 11,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "researching-0",
+      "variant": "equipped",
+      "missing_body_before": 39,
+      "added_body_pixels": 39,
+      "unexpected_holes_before": 31,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "researching-1",
+      "variant": "base",
+      "missing_body_before": 34,
+      "added_body_pixels": 34,
+      "unexpected_holes_before": 6,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "researching-1",
+      "variant": "equipped",
+      "missing_body_before": 70,
+      "added_body_pixels": 70,
+      "unexpected_holes_before": 64,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "researching-2",
+      "variant": "base",
+      "missing_body_before": 52,
+      "added_body_pixels": 52,
+      "unexpected_holes_before": 17,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "researching-2",
+      "variant": "equipped",
+      "missing_body_before": 40,
+      "added_body_pixels": 40,
+      "unexpected_holes_before": 37,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "researching-3",
+      "variant": "base",
+      "missing_body_before": 34,
+      "added_body_pixels": 34,
+      "unexpected_holes_before": 6,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "researching-3",
+      "variant": "equipped",
+      "missing_body_before": 70,
+      "added_body_pixels": 70,
+      "unexpected_holes_before": 64,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "researching-4",
+      "variant": "base",
+      "missing_body_before": 17,
+      "added_body_pixels": 17,
+      "unexpected_holes_before": 13,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "researching-4",
+      "variant": "equipped",
+      "missing_body_before": 20,
+      "added_body_pixels": 20,
+      "unexpected_holes_before": 13,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "researching-5",
+      "variant": "base",
+      "missing_body_before": 16,
+      "added_body_pixels": 16,
+      "unexpected_holes_before": 11,
+      "unexpected_holes_after": 0
+    },
+    {
+      "pose": "researching-5",
+      "variant": "equipped",
+      "missing_body_before": 39,
+      "added_body_pixels": 39,
+      "unexpected_holes_before": 31,
+      "unexpected_holes_after": 0
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "status": "pass",
+  "neck_holes_before": {
+    "nod-down": 1,
+    "turn-left": 3,
+    "turn-right": 6
+  },
+  "neck_holes_after": {
+    "nod-down": 0,
+    "turn-left": 0,
+    "turn-right": 0
+  },
+  "complete_neck_coverage": true,
+  "accepted_walk_base_frames_unchanged": 6,
+  "outer_arm_contours_preserved": true,
+  "visible_forearm_skin_pixels_checked": 845,
+  "visible_forearm_skin_pixels_cropped": 0,
+  "gloves_confined_to_hand_silhouettes": true,
+  "surprise_uses_separate_open_mouth": true,
+  "speech_round_mouth_preserved": true,
+  "nod_head_lowered_px": 1
+}

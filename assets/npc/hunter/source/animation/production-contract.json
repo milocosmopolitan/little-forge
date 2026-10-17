@@ -1,0 +1,83 @@
+{
+  "scope": [
+    "8 expressions",
+    "independent eyes and mouth",
+    "nod",
+    "shake_head",
+    "give",
+    "walk6"
+  ],
+  "canvas": [
+    128,
+    160
+  ],
+  "pivot": [
+    64,
+    140
+  ],
+  "palette": {
+    "max": 64,
+    "existing": "source/palette.png"
+  },
+  "identity": "locked neutral; retain approved round side-part, face, stubble and short neck",
+  "near_side": "anatomical right, screen left",
+  "far_side": "anatomical left, screen right",
+  "give": {
+    "hand": "left",
+    "item": "none; open-palm handover gesture",
+    "transfer_key": 3
+  },
+  "walk": {
+    "keys": [
+      {
+        "id": 0,
+        "left_leg": "front",
+        "right_leg": "back",
+        "left_arm": "back",
+        "right_arm": "front",
+        "bob": 0
+      },
+      {
+        "id": 1,
+        "left_leg": "support",
+        "right_leg": "recover",
+        "left_arm": "recover",
+        "right_arm": "passing",
+        "bob": 1
+      },
+      {
+        "id": 2,
+        "left_leg": "support",
+        "right_leg": "pass",
+        "left_arm": "front-transition",
+        "right_arm": "back-transition",
+        "bob": 0
+      },
+      {
+        "id": 3,
+        "left_leg": "back",
+        "right_leg": "front",
+        "left_arm": "front",
+        "right_arm": "back",
+        "bob": 0
+      },
+      {
+        "id": 4,
+        "left_leg": "recover",
+        "right_leg": "support",
+        "left_arm": "passing",
+        "right_arm": "recover",
+        "bob": 1
+      },
+      {
+        "id": 5,
+        "left_leg": "pass",
+        "right_leg": "support",
+        "left_arm": "back-transition",
+        "right_arm": "front-transition",
+        "bob": 0
+      }
+    ]
+  },
+  "runtime": "authoring only"
+}

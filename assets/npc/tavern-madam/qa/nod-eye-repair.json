@@ -1,0 +1,14 @@
+{
+  "status": "pass",
+  "clip": "nod",
+  "key_zero_based": 2,
+  "key_one_based": 3,
+  "frame": "nod-down",
+  "changed_native_pixels": 54,
+  "both_eyes_changed": true,
+  "outside_eye_nose_mask": "identical",
+  "other_frames": "42 identical files; registered happy repair excluded",
+  "baseline_neutral": "unchanged",
+  "prompt": "source/animation/nod-eye-repair/prompt.json",
+  "comparison": "previews/nod-eyes-before-after.png"
+}

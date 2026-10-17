@@ -1,0 +1,95 @@
+{
+  "revision": "collar-v7",
+  "status": "user_rejected_superseded_by_head_ownership_v8",
+  "user_accepted": false,
+  "supersedes": "approved-face-v5 rejected neck and shoulder assembly",
+  "root_causes": [
+    "Horizontal head partition removed raised shoulders",
+    "Jaw tip was used as the head-to-body anchor instead of shirt collar contact",
+    "Old source jaw outline remained across the replacement neck",
+    "Async preview renders could draw obsolete and current actors onto the same visible canvas"
+  ],
+  "changes": [
+    "Preserve source shirt and shoulder pixels in the body layer",
+    "Measure real skin/fabric contact for both posed body variants and approved root",
+    "Use unchanged approved neck skin beneath unchanged approved head, eyes and mouth",
+    "Exclude all head pixels from research front-arm layers",
+    "Commit completed offscreen female/male renders together; discard obsolete render versions"
+  ],
+  "checks": {
+    "neck_variants": 96,
+    "source_fabric_loss": 0,
+    "old_contour_over_neck": 0,
+    "research_front_arm_pixels_preserved": 9765,
+    "research_head_pixels_not_overpainted": 18318,
+    "unrelated_base_frames_preserved": 28,
+    "approved_root_head_and_features": "pass for all 48 visible-face keys in both variants",
+    "atlas_roundtrip_and_gutters": "pass",
+    "byte_identical_rebuild_files": 2768,
+    "preview_race": "pass, intentionally reordered load promises"
+  },
+  "visual_review": {
+    "all_work_keys": 60,
+    "visible_head_neck_keys": 48,
+    "scales": [
+      1,
+      4
+    ],
+    "backgrounds": [
+      "light",
+      "dark"
+    ],
+    "marked_cases": [
+      "researching-0",
+      "forging-0",
+      "quenching-0",
+      "quenching-1",
+      "hammering-0"
+    ],
+    "artifacts": [
+      "qa/neck-before-after.png",
+      "qa/neck-all-48-dark.png",
+      "qa/neck-all-48-light.png",
+      "female/previews/work-all-30-native.png",
+      "male/previews/work-all-30-native.png"
+    ]
+  },
+  "browser": {
+    "status": "complete",
+    "app": "Safari",
+    "url": "http://127.0.0.1:8773/assets/characters/previews/animation.html?qa=work&revision=collar-v7",
+    "manual_researching_0_and_forging_0_and_quenching_1_observed": true,
+    "completion_text_observed": "PLAYBACK QA COMPLETE: 40 scenarios, both characters.",
+    "scenarios": 40,
+    "speeds": [
+      1,
+      0.5
+    ],
+    "equipment": [
+      true,
+      false
+    ],
+    "background": [
+      "light",
+      "dark"
+    ],
+    "workstation": true
+  },
+  "limitations": {
+    "user_visual_acceptance": "not established by automated checks",
+    "runtime_integration": false,
+    "research_head": "approved right_3_4 on front torso",
+    "workwear_tools": "baked coherent pose variants, not interchangeable gear"
+  },
+  "artifact_hashes": {
+    "qa/neck-before-after.png": "af137f316f7be790687102cadf3445221573c76bad1b5afa1ab8380765d74df5",
+    "qa/neck-all-48-dark.png": "0024a9a3865b091599e353ab7909ea6284136ebc8429b826d7f3632a7983d242",
+    "qa/neck-all-48-light.png": "b4dbe1b8cb8bc4428565a3d68e2366ab021e155a3d1a10b4fea1c4765d85aadb",
+    "previews/animation.html": "c001c04f43be6dbaa7bbe9824219487d6c2001346f28b5a726be0c532dfba68d",
+    "female/atlas.png": "eac157f5b7554028fbc5bdebb401a479b95213b3f5c5610c1f02589d270a3283",
+    "male/atlas.png": "cc7d71722289ae843f8f578e84b55d69b0958d956c4234937153b38707ec9b02",
+    "female/animation.json": "25f1672948fbf4f728bc7a16df493c2be7951f3744392b35bdfb99c187db3136",
+    "male/animation.json": "97eddc6aa6710f7506445330338a463efdb14657c51082ed6ddf40b59010f9e4"
+  },
+  "superseded_by": "head-ownership-review.json"
+}

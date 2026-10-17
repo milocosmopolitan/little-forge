@@ -1,0 +1,65 @@
+<!doctype html><meta charset="utf-8"><title>Little Forge · Player animation review</title>
+<style>body{margin:24px;background:#22232a;color:#f2e8cf;font:15px system-ui}h1{font-size:20px}button,select,input{font:inherit}label{display:inline-flex;gap:7px;align-items:center;margin:6px 10px 6px 0}.controls{position:sticky;top:0;background:#22232a;padding:8px 0;z-index:2}canvas{display:block;image-rendering:pixelated;background:#eee5cd;width:512px;height:384px}main{display:flex;flex-wrap:wrap;gap:20px}main>section{width:512px}h2{font-size:16px}#events{min-height:24px;color:#ffd579}a{color:#e9b57f}.note{color:#b7b1a5;font-size:13px}</style>
+<h1>Player expressions & actions</h1><p id="asset-version" class="note"></p><div class="controls"><label>Clip <select id="clip"></select></label><button id="play">Pause</button><button id="restart">Restart</button><label>Speed <select id="speed"><option value="1">1×</option><option value="0.5">0.5×</option><option value="0.25">0.25×</option></select></label><label>Scale <select id="scale"><option value="1">1×</option><option value="2" selected>2×</option><option value="4">4×</option></select></label><label><input id="gear" type="checkbox" checked>Equipment</label><label><input id="stations" type="checkbox" checked>Workstation</label><label><input id="dark" type="checkbox">Dark background</label><label>Frame <input id="seek" type="range" min="0" max="0" value="0"><span id="frame">0</span></label><div id="events"></div></div>
+<main><section><h2>Female</h2><canvas id="female" width="256" height="192"></canvas><a href="../female/previews/expressions-8.png">8 expressions</a> · <a href="../female/previews/walk-6-base.png">Walk keys</a></section><section><h2>Male</h2><canvas id="male" width="256" height="192"></canvas><a href="../male/previews/expressions-8.png">8 expressions</a> · <a href="../male/previews/walk-6-base.png">Walk keys</a></section></main>
+<p class="note">Authoring review, 128×160 character frames, foot pivot (64,140). Stations are separate. Workwear and held tools are baked into coherent pose variants. Events are preview markers only. Game integration and GPU performance have not been measured.</p>
+<script type="module">
+const $=id=>document.getElementById(id),sexes=['female','male'],data={},images=new Map();let playing=true,frame=0,elapsed=0,last=0,loop=0,entered=new Set(),ready=false,eventLog=[];
+const assetSession=Date.now();
+const image=p=>{if(!images.has(p)){const im=new Image,url=new URL(p,location.href);url.searchParams.set('review',assetSession);im.src=url.href;images.set(p,new Promise((ok,no)=>{im.onload=()=>ok(im);im.onerror=no}));}return images.get(p)};
+for(const s of sexes)data[s]=await fetch('../'+s+'/animation.json',{cache:'no-store'}).then(r=>r.json());const stationData=await fetch('../stations/catalog.json',{cache:'no-store'}).then(r=>r.json());
+$('asset-version').textContent='Loaded assets: '+(data.female.poses['researching-0'].layer_finish||data.female.poses['forging-0'].neck_assembly?.body_owned_mount?.revision||'previous assembly');
+const names=[...Object.keys(data.female.clips),...Object.keys(data.female.expression_recipes).filter(n=>!data.female.clips[n])];for(const n of names){const o=new Option(n,n);$('clip').add(o)}
+function clip(s='female'){const id=$('clip').value;return data[s].clips[id]||{loop:false,frames:[{sprite:id,duration_ms:1000}]}}
+function emit(){const id=$('clip').value,c=clip(),key=loop+':'+frame;if(entered.has(key))return;entered.add(key);const e=(c.events||[]).filter(e=>e.frame===frame);if(e.length)eventLog.push(...e.map(e=>({clip:id,frame,event:e.event})));if(e.length)$('events').textContent=e.map(e=>e.event+' · frame '+frame).join(', ')}
+function reset(){frame=0;elapsed=0;loop=0;entered.clear();$('events').textContent='';$('seek').max=clip().frames.length-1;emit();render()}
+let renderVersion=0;
+async function render(){
+ const version=++renderVersion,id=$('clip').value,key=frame,gear=$('gear').checked,dark=$('dark').checked,stations=$('stations').checked;
+ const finished=await Promise.all(sexes.map(async s=>{
+  const a=data[s],c=a.clips[id]||{frames:[{sprite:id,duration_ms:1000}]},fr=c.frames[Math.min(key,c.frames.length-1)],pose=a.poses[fr.sprite];
+  // Loading an older frame must never paint into a newer frame's visible canvas.
+  const buffer=document.createElement('canvas');buffer.width=256;buffer.height=192;
+  const ctx=buffer.getContext('2d');ctx.imageSmoothingEnabled=false;ctx.fillStyle=dark?'#24232a':'#eee5cd';ctx.fillRect(0,0,256,192);
+  const work=a.workshop.stations[id],useStation=stations&&work,xy=useStation?a.workshop.character_origin:[64,16];
+  const mode=gear?'':'base/',sceneMode=useStation&&id==='quenching'?('scene-'+mode):mode,actor=await image('../'+s+'/frames/'+sceneMode+fr.sprite+'.png');
+  const draw=async(p,x,y)=>ctx.drawImage(await image('../'+p),x,y);
+  if(useStation){
+   const st=stationData.stations[work.station_id],p=work.origin;
+   if(id==='researching'){
+    ctx.drawImage(actor,...xy);await draw(st.path,...p);
+    const fronts=pose.front_layers?.[gear?'equipped':'base'];
+    if(fronts){for(const layer of fronts)await draw(s+'/'+layer,...xy)}
+    else{await draw(s+'/poses/'+fr.sprite+'/body/arms-front.png',...xy);if(gear)await draw(s+'/poses/'+fr.sprite+'/equipment/gloves.png',...xy)}
+   }else if(id==='salvaging'||id==='forging'){await draw(st.path,...p);ctx.drawImage(actor,...xy)}
+   else{await draw(st.back,...p);await draw(st.water,...p);await draw(st.fire,...p);ctx.drawImage(actor,...xy);await draw(st.front,...p)}
+  }else ctx.drawImage(actor,...xy);
+  return [s,buffer];
+ }));
+ if(version!==renderVersion)return false;
+ for(const [s,buffer]of finished){const ctx=$(s).getContext('2d');ctx.imageSmoothingEnabled=false;ctx.drawImage(buffer,0,0)}
+ $('seek').value=key;$('frame').textContent=key+' / '+(clip().frames.length-1);window.reviewState={clip:id,frame:key,playing,loop,events:[...entered],ready:true,renderVersion:version};
+ return true;
+}
+$('play').onclick=()=>{playing=!playing;$('play').textContent=playing?'Pause':'Play';render()};$('restart').onclick=()=>{reset();playing=true;$('play').textContent='Pause'};$('clip').onchange=reset;
+$('seek').oninput=()=>{playing=false;$('play').textContent='Play';frame=+$('seek').value;elapsed=0;render()};for(const id of ['gear','stations','dark'])$(id).onchange=render;
+$('scale').onchange=()=>{for(const s of sexes){$(s).style.width=256*+$('scale').value+'px';$(s).parentElement.style.width=$(s).style.width;$(s).style.height=192*+$('scale').value+'px'}};
+function tick(now){if(playing&&ready){elapsed+=(now-last)*+$('speed').value;const c=clip();if(elapsed>=c.frames[frame].duration_ms){elapsed-=c.frames[frame].duration_ms;if(frame+1<c.frames.length){frame++;emit()}else if(c.loop){frame=c.loop_range?c.loop_range[0]:0;loop++;emit()}else{playing=false;$('play').textContent='Play'}render()}}last=now;requestAnimationFrame(tick)}
+await Promise.all(sexes.flatMap(s=>Object.keys(data[s].poses).flatMap(id=>['../'+s+'/frames/'+id+'.png','../'+s+'/frames/base/'+id+'.png']).map(image)));const requestedClip=new URLSearchParams(location.search).get('clip');if(names.includes(requestedClip))$('clip').value=requestedClip;ready=true;reset();requestAnimationFrame(tick);
+window.setReview=(id,index=0)=>{if(!names.includes(id))throw Error('Unknown clip');$('clip').value=id;reset();frame=index;playing=false;$('play').textContent='Play';return render()};
+const reviewQuery=new URLSearchParams(location.search);
+if(reviewQuery.has('frame')&&!reviewQuery.has('qa')){const key=Number(reviewQuery.get('frame'));window.setReview(names.includes(requestedClip)?requestedClip:'idle',Math.max(0,Math.min(clip().frames.length-1,Number.isFinite(key)?Math.trunc(key):0)))}
+if(new URLSearchParams(location.search).has('qa')){
+ playing=false;$('play').textContent='Play';const status=document.createElement('pre');status.id='qa-status';status.style.cssText='white-space:pre-wrap;max-height:100px;overflow:auto';document.body.prepend(status);
+ const workOnly=new URLSearchParams(location.search).get('qa')==='work';
+ const qaClips=workOnly?['hammering','quenching','forging','researching','salvaging']:Object.keys(data.female.clips);
+ const modes=workOnly?[{gear:true,dark:false},{gear:false,dark:false},{gear:true,dark:true},{gear:false,dark:true}]:[{gear:true,dark:false}];
+ const results=[];try{for(const mode of modes)for(const speed of [1,.5])for(const id of qaClips){
+  $('gear').checked=mode.gear;$('dark').checked=mode.dark;
+  $('clip').value=id;$('speed').value=String(speed);reset();const start=eventLog.length,c=clip();
+  for(let k=0;k<c.frames.length;k++){frame=k;emit();await render();status.textContent='Playback QA: '+id+' at '+speed+'×, frame '+k;await new Promise(r=>setTimeout(r,c.frames[k].duration_ms/speed));}
+  results.push({clip:id,speed,...mode,frames:c.frames.length,events:eventLog.slice(start).map(e=>e.event)});
+ }status.textContent='PLAYBACK QA COMPLETE: '+results.length+' scenarios, both characters.\n'+JSON.stringify(results);}
+ catch(e){status.textContent='PLAYBACK QA FAILED: '+String(e)}
+}
+</script>

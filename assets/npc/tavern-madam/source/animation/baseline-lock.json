@@ -1,0 +1,16 @@
+{
+  "head-base.png": "aad42f05afeb74c86176302c47332b0fe5120831ad31a445dc39fbead0e3f471",
+  "body/upper-base.png": "85b511f47a3e6c706dfeccc190307fb4c8aa236c692b1a97719f45408bc1481d",
+  "body/lower-base.png": "701f131afd9db071a9d0d6dc3ed14ca6438fa5543862d4b54c930e24e28d25a0",
+  "eyes/open.png": "cc23ae6c6b10bda249d1a588dd125364ccad25b9fbe4855c0a62fc48199fd848",
+  "mouth/rest.png": "7bfc19347a83ff541ee5bd9df1aa245c53203c0314f277b4085a31aaf7fa4efa",
+  "base-neutral.png": "275886c4ca2d2272f787d2f7629079b5017af13cdf8a6720e924a93b5ae525ac",
+  "neutral.png": "acfa84c65c315460964ad6cfc2d3ac624950b86d5b6e3ff00a169c2634a4628a",
+  "equipment/apron.png": "019792967a0fab30c9357aea8fd5ce2cb3c51dbf8b72b806a70afd9f8875ae5b",
+  "equipment/belt-accessories.png": "ca83c5e634b654ac7ad5ec3fe4e8067050529bc11f2bb9cf5b01b944dc2bdd1b",
+  "equipment/earrings.png": "4891790fdfb250254f34ef40dc9dd281c7165e165b5285f9d1d8c1f47e6842b4",
+  "equipment/hair-ribbon.png": "0fc2ab72880c47e228796b648fd8d9bb092451da131aee27db853475f4818767",
+  "equipment/shawl.png": "ff01bfe381c5a041501e31d6be4d6816cc5e0cbde5f207041009491e541c172a",
+  "equipment/tankard.png": "4d7d117df1e58914116a684c888cf422625aebcfba8d66af58626f611bd165fb",
+  "equipment/towel.png": "751068993f1a912f3874bcf98ea533969d2add7943eb33934bfb4faa8d049a82"
+}

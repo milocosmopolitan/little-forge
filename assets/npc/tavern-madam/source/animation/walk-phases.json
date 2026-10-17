@@ -1,0 +1,371 @@
+[
+  {
+    "id": 0,
+    "phase": "left contact",
+    "near_arm": "forward",
+    "near_leg": "back",
+    "far_arm": "back",
+    "far_leg": "forward",
+    "bob_y": 0,
+    "source_ground_translation_y": 0,
+    "refinements": [],
+    "source": "source/animation/candidates/walk-0.png",
+    "measured_native": {
+      "near_hand": [
+        44.59,
+        82.18
+      ],
+      "far_hand": [
+        65.2,
+        80.3
+      ],
+      "near_boot": {
+        "centroid": [
+          29.83,
+          114.59
+        ],
+        "leather_bbox": [
+          22,
+          108,
+          40,
+          123
+        ]
+      },
+      "far_boot": {
+        "centroid": [
+          62.95,
+          116.17
+        ],
+        "leather_bbox": [
+          54,
+          108,
+          75,
+          124
+        ]
+      },
+      "foot_rois": [
+        [
+          18,
+          108,
+          40,
+          124
+        ],
+        [
+          54,
+          108,
+          76,
+          124
+        ]
+      ]
+    }
+  },
+  {
+    "id": 1,
+    "phase": "left support",
+    "near_arm": "recovering",
+    "near_leg": "recovering",
+    "far_arm": "recovering",
+    "far_leg": "support",
+    "bob_y": 1,
+    "source_ground_translation_y": 0,
+    "refinements": [],
+    "source": "source/animation/candidates/walk-1.png",
+    "measured_native": {
+      "near_hand": [
+        35.21,
+        79.05
+      ],
+      "far_hand": [
+        66.27,
+        80.27
+      ],
+      "near_boot": {
+        "centroid": [
+          31.26,
+          114.3
+        ],
+        "leather_bbox": [
+          24,
+          108,
+          39,
+          122
+        ]
+      },
+      "far_boot": {
+        "centroid": [
+          58.24,
+          116.11
+        ],
+        "leather_bbox": [
+          50,
+          108,
+          69,
+          124
+        ]
+      },
+      "foot_rois": [
+        [
+          20,
+          108,
+          42,
+          124
+        ],
+        [
+          50,
+          108,
+          76,
+          124
+        ]
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "phase": "right passing",
+    "near_arm": "passes down",
+    "near_leg": "raised passing",
+    "far_arm": "passes down",
+    "far_leg": "support",
+    "bob_y": -1,
+    "source_ground_translation_y": -2,
+    "refinements": [
+      "source/animation/candidates/walk-2-lower.png"
+    ],
+    "source": "source/animation/candidates/walk-2.png",
+    "measured_native": {
+      "near_hand": [
+        23.6,
+        80.2
+      ],
+      "far_hand": [
+        70.67,
+        78.44
+      ],
+      "near_boot": {
+        "centroid": [
+          42.36,
+          109.2
+        ],
+        "leather_bbox": [
+          35,
+          103,
+          50,
+          118
+        ]
+      },
+      "far_boot": {
+        "centroid": [
+          58.51,
+          116.82
+        ],
+        "leather_bbox": [
+          52,
+          108,
+          69,
+          124
+        ]
+      },
+      "foot_rois": [
+        [
+          32,
+          103,
+          50,
+          121
+        ],
+        [
+          52,
+          108,
+          78,
+          124
+        ]
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "phase": "right contact",
+    "near_arm": "back",
+    "near_leg": "forward",
+    "far_arm": "forward",
+    "far_leg": "back",
+    "bob_y": 0,
+    "source_ground_translation_y": -1,
+    "refinements": [
+      "source/animation/candidates/walk-3-arm.png"
+    ],
+    "source": "source/animation/candidates/walk-3.png",
+    "measured_native": {
+      "near_hand": [
+        17.31,
+        84.0
+      ],
+      "far_hand": [
+        73.0,
+        78.25
+      ],
+      "near_boot": {
+        "centroid": [
+          62.15,
+          115.6
+        ],
+        "leather_bbox": [
+          54,
+          106,
+          74,
+          124
+        ]
+      },
+      "far_boot": {
+        "centroid": [
+          30.09,
+          113.09
+        ],
+        "leather_bbox": [
+          20,
+          106,
+          44,
+          122
+        ]
+      },
+      "foot_rois": [
+        [
+          54,
+          106,
+          80,
+          124
+        ],
+        [
+          20,
+          106,
+          44,
+          124
+        ]
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "phase": "right support",
+    "near_arm": "recovering",
+    "near_leg": "support",
+    "far_arm": "recovering",
+    "far_leg": "recovering",
+    "bob_y": 1,
+    "source_ground_translation_y": -1,
+    "refinements": [
+      "source/animation/candidates/walk-4-lower.png"
+    ],
+    "source": "source/animation/candidates/walk-4.png",
+    "measured_native": {
+      "near_hand": [
+        22.64,
+        81.18
+      ],
+      "far_hand": [
+        70.78,
+        79.33
+      ],
+      "near_boot": {
+        "centroid": [
+          59.96,
+          116.32
+        ],
+        "leather_bbox": [
+          52,
+          108,
+          70,
+          124
+        ]
+      },
+      "far_boot": {
+        "centroid": [
+          34.15,
+          112.55
+        ],
+        "leather_bbox": [
+          27,
+          106,
+          44,
+          122
+        ]
+      },
+      "foot_rois": [
+        [
+          52,
+          108,
+          72,
+          124
+        ],
+        [
+          27,
+          106,
+          44,
+          122
+        ]
+      ]
+    }
+  },
+  {
+    "id": 5,
+    "phase": "left passing",
+    "near_arm": "passes down",
+    "near_leg": "support",
+    "far_arm": "passes down",
+    "far_leg": "raised passing",
+    "bob_y": -1,
+    "source_ground_translation_y": 0,
+    "refinements": [
+      "source/animation/candidates/walk-5-arm.png",
+      "source/animation/candidates/walk-5-lower.png"
+    ],
+    "source": "source/animation/candidates/walk-5.png",
+    "measured_native": {
+      "near_hand": [
+        26.18,
+        88.0
+      ],
+      "far_hand": [
+        70.0,
+        82.33
+      ],
+      "near_boot": {
+        "centroid": [
+          43.11,
+          115.85
+        ],
+        "leather_bbox": [
+          36,
+          108,
+          52,
+          124
+        ]
+      },
+      "far_boot": {
+        "centroid": [
+          52.37,
+          114.19
+        ],
+        "leather_bbox": [
+          48,
+          106,
+          60,
+          123
+        ]
+      },
+      "foot_rois": [
+        [
+          36,
+          108,
+          52,
+          124
+        ],
+        [
+          48,
+          106,
+          65,
+          123
+        ]
+      ]
+    }
+  }
+]

@@ -1,0 +1,92 @@
+{
+  "revision": "neck-cloth-v9",
+  "status": "internal_review_complete_user_acceptance_pending",
+  "user_accepted": null,
+  "supersedes": "head-ownership-v8 user rejection",
+  "user_issues": [
+    "Female quenching neck/shoulder seam messy",
+    "Female recovery shows skin where garment should remain",
+    "Female forging collar and head height unnatural",
+    "Research head/neck/torso misregistered",
+    "Both quenching tools disappear over rear water too early"
+  ],
+  "changes": [
+    "Female heat actions and both research sets use only exact source-coordinate neck skin; no nearest-skin filling or skin over dark garment",
+    "Drop isolated original ear/face flecks not connected to garment",
+    "Recorded per-key head/eyes/mouth integer adjustments shorten exposed neck and follow bent torso",
+    "Render water before actor; existing submerged-tool boundary at station y18 remains",
+    "Remove mandatory exposed-neck pixel minimum; a bent head can cover the neck"
+  ],
+  "source_neck_validation": {
+    "status": "pass",
+    "source_neck_variants": 48,
+    "neck_pixels_equal_to_same_source_coordinate": 1498,
+    "garment_pixels_repainted_as_skin": 0,
+    "tool_pixels_visible_over_back_water": 294,
+    "submerged_tool_pixels_masked": 432,
+    "water_interface_station_y": 18,
+    "scope": "Female heat actions and both research sets; both sexes tool occlusion"
+  },
+  "checks": {
+    "approved_retained_head_eyes_mouth": "animation-validation.json",
+    "garment_preservation_and_neck_composition": "neck-assembly-validation.json",
+    "head_ownership_and_thinking_hand": "head-ownership-validation.json",
+    "research_scene_layer_preservation": "work-style-validation.json",
+    "unrelated_base_frames": 28,
+    "deterministic_rebuild": {
+      "status": "pass",
+      "files": 2888,
+      "byte_identical": true
+    }
+  },
+  "visual_review": {
+    "female_heat_keys": 12,
+    "research_keys": 12,
+    "base_and_equipped": true,
+    "nearest_scales": [
+      1,
+      4
+    ],
+    "backgrounds": [
+      "light",
+      "dark"
+    ],
+    "manual_browser_cases": [
+      "quenching-2",
+      "researching-2"
+    ],
+    "comparison": "neck-cloth-v9-before-after.png",
+    "water_comparison": "quenching-water-before-after.png"
+  },
+  "browser": {
+    "app": "Safari",
+    "status": "complete",
+    "url": "http://127.0.0.1:8773/assets/characters/previews/animation.html?qa=work&revision=neck-cloth-v9",
+    "completion_text_observed": "PLAYBACK QA COMPLETE: 40 scenarios, both characters.",
+    "scenarios": 40,
+    "speeds": [
+      1,
+      0.5
+    ],
+    "equipment": [
+      true,
+      false
+    ],
+    "backgrounds": [
+      "light",
+      "dark"
+    ],
+    "workstation": true
+  },
+  "artifact_hashes": {
+    "qa/neck-cloth-v9-before-after.png": "7ac97d063c2268c24810621ab2730d6bc79e10e281953366d4255c4fe9538728",
+    "qa/quenching-water-before-after.png": "86ce39fdb2f5ee0772f73743fb440dd28b8cf6a84b4f64539e7b83ed540a2134",
+    "female/atlas.png": "cde0710c269dac2562127ccc73107599cd733233105bf9b92eb76ba0d190c78e",
+    "male/atlas.png": "2cb10b1472cffa00c3f518070cd7ab9d3e7038866718d83695221528bd70dfa8",
+    "female/animation.json": "90191778d88ad552cfad13644cb11b0006c4bedf5b70c50aae1a51c50e6a97f3",
+    "male/animation.json": "e7f4c56a9deb915a40dc0432ea87e707d5bd656e82e7df4e5f3e036bcb59bf08",
+    "previews/animation.html": "f494ccc8a84108a2e8077a69f7cba1304be34ebf9047349aacc7354c70e649bb"
+  },
+  "runtime_integration": false,
+  "structural_checks_do_not_establish_visual_acceptance": true
+}

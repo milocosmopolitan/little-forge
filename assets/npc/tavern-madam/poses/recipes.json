@@ -1,0 +1,1809 @@
+{
+  "version": 2,
+  "canvas": [
+    128,
+    160
+  ],
+  "foot_anchor_px": [
+    64,
+    140
+  ],
+  "side_convention": "anatomical; near=right, far=left",
+  "poses": {
+    "neutral": {
+      "layers": {
+        "lower": "poses/neutral/layers/lower.png",
+        "upper": "poses/neutral/layers/upper.png",
+        "head": "poses/neutral/layers/head.png",
+        "eyes": "poses/neutral/layers/eyes.png",
+        "mouth": "poses/neutral/layers/mouth.png"
+      },
+      "equipment": {
+        "apron": "poses/neutral/equipment/apron.png",
+        "belt-accessories": "poses/neutral/equipment/belt-accessories.png",
+        "earrings": "poses/neutral/equipment/earrings.png",
+        "hair-ribbon": "poses/neutral/equipment/hair-ribbon.png",
+        "shawl": "poses/neutral/equipment/shawl.png",
+        "tankard": "poses/neutral/equipment/tankard.png",
+        "towel": "poses/neutral/equipment/towel.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "hair-ribbon",
+        "earrings",
+        "shawl",
+        "apron",
+        "belt-accessories",
+        "towel",
+        "tankard"
+      ],
+      "sockets_px": {
+        "neck": [
+          62,
+          59
+        ],
+        "waist": [
+          62,
+          86
+        ],
+        "right_hand": [
+          49,
+          83
+        ],
+        "left_hand": [
+          84,
+          66
+        ]
+      }
+    },
+    "talk-small": {
+      "layers": {
+        "lower": "poses/talk-small/layers/lower.png",
+        "upper": "poses/talk-small/layers/upper.png",
+        "head": "poses/talk-small/layers/head.png",
+        "eyes": "poses/talk-small/layers/eyes.png",
+        "mouth": "poses/talk-small/layers/mouth.png"
+      },
+      "equipment": {
+        "apron": "poses/talk-small/equipment/apron.png",
+        "belt-accessories": "poses/talk-small/equipment/belt-accessories.png",
+        "earrings": "poses/talk-small/equipment/earrings.png",
+        "hair-ribbon": "poses/talk-small/equipment/hair-ribbon.png",
+        "shawl": "poses/talk-small/equipment/shawl.png",
+        "tankard": "poses/talk-small/equipment/tankard.png",
+        "towel": "poses/talk-small/equipment/towel.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "hair-ribbon",
+        "earrings",
+        "shawl",
+        "apron",
+        "belt-accessories",
+        "towel",
+        "tankard"
+      ],
+      "sockets_px": {
+        "neck": [
+          62,
+          59
+        ],
+        "waist": [
+          62,
+          86
+        ],
+        "right_hand": [
+          49,
+          83
+        ],
+        "left_hand": [
+          84,
+          66
+        ]
+      }
+    },
+    "talk-wide": {
+      "layers": {
+        "lower": "poses/talk-wide/layers/lower.png",
+        "upper": "poses/talk-wide/layers/upper.png",
+        "head": "poses/talk-wide/layers/head.png",
+        "eyes": "poses/talk-wide/layers/eyes.png",
+        "mouth": "poses/talk-wide/layers/mouth.png"
+      },
+      "equipment": {
+        "apron": "poses/talk-wide/equipment/apron.png",
+        "belt-accessories": "poses/talk-wide/equipment/belt-accessories.png",
+        "earrings": "poses/talk-wide/equipment/earrings.png",
+        "hair-ribbon": "poses/talk-wide/equipment/hair-ribbon.png",
+        "shawl": "poses/talk-wide/equipment/shawl.png",
+        "tankard": "poses/talk-wide/equipment/tankard.png",
+        "towel": "poses/talk-wide/equipment/towel.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "hair-ribbon",
+        "earrings",
+        "shawl",
+        "apron",
+        "belt-accessories",
+        "towel",
+        "tankard"
+      ],
+      "sockets_px": {
+        "neck": [
+          62,
+          59
+        ],
+        "waist": [
+          62,
+          86
+        ],
+        "right_hand": [
+          49,
+          83
+        ],
+        "left_hand": [
+          84,
+          66
+        ]
+      }
+    },
+    "talk-round": {
+      "layers": {
+        "lower": "poses/talk-round/layers/lower.png",
+        "upper": "poses/talk-round/layers/upper.png",
+        "head": "poses/talk-round/layers/head.png",
+        "eyes": "poses/talk-round/layers/eyes.png",
+        "mouth": "poses/talk-round/layers/mouth.png"
+      },
+      "equipment": {
+        "apron": "poses/talk-round/equipment/apron.png",
+        "belt-accessories": "poses/talk-round/equipment/belt-accessories.png",
+        "earrings": "poses/talk-round/equipment/earrings.png",
+        "hair-ribbon": "poses/talk-round/equipment/hair-ribbon.png",
+        "shawl": "poses/talk-round/equipment/shawl.png",
+        "tankard": "poses/talk-round/equipment/tankard.png",
+        "towel": "poses/talk-round/equipment/towel.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "hair-ribbon",
+        "earrings",
+        "shawl",
+        "apron",
+        "belt-accessories",
+        "towel",
+        "tankard"
+      ],
+      "sockets_px": {
+        "neck": [
+          62,
+          59
+        ],
+        "waist": [
+          62,
+          86
+        ],
+        "right_hand": [
+          49,
+          83
+        ],
+        "left_hand": [
+          84,
+          66
+        ]
+      }
+    },
+    "blink": {
+      "layers": {
+        "lower": "poses/blink/layers/lower.png",
+        "upper": "poses/blink/layers/upper.png",
+        "head": "poses/blink/layers/head.png",
+        "eyes": "poses/blink/layers/eyes.png",
+        "mouth": "poses/blink/layers/mouth.png"
+      },
+      "equipment": {
+        "apron": "poses/blink/equipment/apron.png",
+        "belt-accessories": "poses/blink/equipment/belt-accessories.png",
+        "earrings": "poses/blink/equipment/earrings.png",
+        "hair-ribbon": "poses/blink/equipment/hair-ribbon.png",
+        "shawl": "poses/blink/equipment/shawl.png",
+        "tankard": "poses/blink/equipment/tankard.png",
+        "towel": "poses/blink/equipment/towel.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "hair-ribbon",
+        "earrings",
+        "shawl",
+        "apron",
+        "belt-accessories",
+        "towel",
+        "tankard"
+      ],
+      "sockets_px": {
+        "neck": [
+          62,
+          59
+        ],
+        "waist": [
+          62,
+          86
+        ],
+        "right_hand": [
+          49,
+          83
+        ],
+        "left_hand": [
+          84,
+          66
+        ]
+      }
+    },
+    "happy": {
+      "layers": {
+        "lower": "poses/happy/layers/lower.png",
+        "upper": "poses/happy/layers/upper.png",
+        "head": "poses/happy/layers/head.png",
+        "eyes": "poses/happy/layers/eyes.png",
+        "mouth": "poses/happy/layers/mouth.png"
+      },
+      "equipment": {
+        "apron": "poses/happy/equipment/apron.png",
+        "belt-accessories": "poses/happy/equipment/belt-accessories.png",
+        "earrings": "poses/happy/equipment/earrings.png",
+        "hair-ribbon": "poses/happy/equipment/hair-ribbon.png",
+        "shawl": "poses/happy/equipment/shawl.png",
+        "tankard": "poses/happy/equipment/tankard.png",
+        "towel": "poses/happy/equipment/towel.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "hair-ribbon",
+        "earrings",
+        "shawl",
+        "apron",
+        "belt-accessories",
+        "towel",
+        "tankard"
+      ],
+      "sockets_px": {
+        "neck": [
+          62,
+          59
+        ],
+        "waist": [
+          62,
+          86
+        ],
+        "right_hand": [
+          49,
+          83
+        ],
+        "left_hand": [
+          84,
+          66
+        ]
+      }
+    },
+    "surprised": {
+      "layers": {
+        "lower": "poses/surprised/layers/lower.png",
+        "upper": "poses/surprised/layers/upper.png",
+        "head": "poses/surprised/layers/head.png",
+        "eyes": "poses/surprised/layers/eyes.png",
+        "mouth": "poses/surprised/layers/mouth.png"
+      },
+      "equipment": {
+        "apron": "poses/surprised/equipment/apron.png",
+        "belt-accessories": "poses/surprised/equipment/belt-accessories.png",
+        "earrings": "poses/surprised/equipment/earrings.png",
+        "hair-ribbon": "poses/surprised/equipment/hair-ribbon.png",
+        "shawl": "poses/surprised/equipment/shawl.png",
+        "tankard": "poses/surprised/equipment/tankard.png",
+        "towel": "poses/surprised/equipment/towel.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "hair-ribbon",
+        "earrings",
+        "shawl",
+        "apron",
+        "belt-accessories",
+        "towel",
+        "tankard"
+      ],
+      "sockets_px": {
+        "neck": [
+          62,
+          59
+        ],
+        "waist": [
+          62,
+          86
+        ],
+        "right_hand": [
+          49,
+          83
+        ],
+        "left_hand": [
+          84,
+          66
+        ]
+      }
+    },
+    "relaxed": {
+      "layers": {
+        "lower": "poses/relaxed/layers/lower.png",
+        "upper": "poses/relaxed/layers/upper.png",
+        "head": "poses/relaxed/layers/head.png",
+        "eyes": "poses/relaxed/layers/eyes.png",
+        "mouth": "poses/relaxed/layers/mouth.png"
+      },
+      "equipment": {
+        "apron": "poses/relaxed/equipment/apron.png",
+        "belt-accessories": "poses/relaxed/equipment/belt-accessories.png",
+        "earrings": "poses/relaxed/equipment/earrings.png",
+        "hair-ribbon": "poses/relaxed/equipment/hair-ribbon.png",
+        "shawl": "poses/relaxed/equipment/shawl.png",
+        "tankard": "poses/relaxed/equipment/tankard.png",
+        "towel": "poses/relaxed/equipment/towel.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "hair-ribbon",
+        "earrings",
+        "shawl",
+        "apron",
+        "belt-accessories",
+        "towel",
+        "tankard"
+      ],
+      "sockets_px": {
+        "neck": [
+          62,
+          59
+        ],
+        "waist": [
+          62,
+          86
+        ],
+        "right_hand": [
+          49,
+          83
+        ],
+        "left_hand": [
+          84,
+          66
+        ]
+      }
+    },
+    "nod-mid": {
+      "layers": {
+        "lower": "poses/nod-mid/layers/lower.png",
+        "neck": "poses/nod-mid/layers/neck.png",
+        "upper": "poses/nod-mid/layers/upper.png",
+        "head": "poses/nod-mid/layers/head.png",
+        "eyes": "poses/nod-mid/layers/eyes.png",
+        "mouth": "poses/nod-mid/layers/mouth.png"
+      },
+      "equipment": {
+        "apron": "poses/nod-mid/equipment/apron.png",
+        "belt-accessories": "poses/nod-mid/equipment/belt-accessories.png",
+        "earrings": "poses/nod-mid/equipment/earrings.png",
+        "hair-ribbon": "poses/nod-mid/equipment/hair-ribbon.png",
+        "shawl": "poses/nod-mid/equipment/shawl.png",
+        "tankard": "poses/nod-mid/equipment/tankard.png",
+        "towel": "poses/nod-mid/equipment/towel.png"
+      },
+      "base_order": [
+        "lower",
+        "neck",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "lower",
+        "neck",
+        "upper",
+        "shawl",
+        "apron",
+        "belt-accessories",
+        "towel",
+        "head",
+        "eyes",
+        "mouth",
+        "hair-ribbon",
+        "earrings",
+        "tankard"
+      ],
+      "sockets_px": {},
+      "head_translation": [
+        0,
+        1
+      ],
+      "face_source": "approved neutral; no feature rescaling",
+      "head_in_front_of_body_gear": true
+    },
+    "nod-down": {
+      "layers": {
+        "lower": "poses/nod-down/layers/lower.png",
+        "neck": "poses/nod-down/layers/neck.png",
+        "upper": "poses/nod-down/layers/upper.png",
+        "head": "poses/nod-down/layers/head.png",
+        "eyes": "poses/nod-down/layers/eyes.png",
+        "mouth": "poses/nod-down/layers/mouth.png"
+      },
+      "equipment": {
+        "apron": "poses/nod-down/equipment/apron.png",
+        "belt-accessories": "poses/nod-down/equipment/belt-accessories.png",
+        "earrings": "poses/nod-down/equipment/earrings.png",
+        "hair-ribbon": "poses/nod-down/equipment/hair-ribbon.png",
+        "shawl": "poses/nod-down/equipment/shawl.png",
+        "tankard": "poses/nod-down/equipment/tankard.png",
+        "towel": "poses/nod-down/equipment/towel.png"
+      },
+      "base_order": [
+        "lower",
+        "neck",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "lower",
+        "neck",
+        "upper",
+        "shawl",
+        "apron",
+        "belt-accessories",
+        "towel",
+        "head",
+        "eyes",
+        "mouth",
+        "hair-ribbon",
+        "earrings",
+        "tankard"
+      ],
+      "sockets_px": {},
+      "face_source": "source/animation/candidates/nod-down.png",
+      "feature_boxes": [
+        [
+          37,
+          33,
+          49,
+          39
+        ],
+        [
+          52,
+          34,
+          58,
+          39
+        ],
+        [
+          39,
+          29,
+          48,
+          33
+        ]
+      ],
+      "mouth_box": [
+        44,
+        41,
+        52,
+        44
+      ],
+      "mole_px": [
+        57,
+        55
+      ],
+      "head_in_front_of_body_gear": true
+    },
+    "turn-left": {
+      "layers": {
+        "lower": "poses/turn-left/layers/lower.png",
+        "neck": "poses/turn-left/layers/neck.png",
+        "upper": "poses/turn-left/layers/upper.png",
+        "head": "poses/turn-left/layers/head.png",
+        "eyes": "poses/turn-left/layers/eyes.png",
+        "mouth": "poses/turn-left/layers/mouth.png"
+      },
+      "equipment": {
+        "apron": "poses/turn-left/equipment/apron.png",
+        "belt-accessories": "poses/turn-left/equipment/belt-accessories.png",
+        "earrings": "poses/turn-left/equipment/earrings.png",
+        "hair-ribbon": "poses/turn-left/equipment/hair-ribbon.png",
+        "shawl": "poses/turn-left/equipment/shawl.png",
+        "tankard": "poses/turn-left/equipment/tankard.png",
+        "towel": "poses/turn-left/equipment/towel.png"
+      },
+      "base_order": [
+        "lower",
+        "neck",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "lower",
+        "neck",
+        "upper",
+        "shawl",
+        "apron",
+        "belt-accessories",
+        "towel",
+        "head",
+        "eyes",
+        "mouth",
+        "hair-ribbon",
+        "earrings",
+        "tankard"
+      ],
+      "sockets_px": {},
+      "face_source": "source/animation/candidates/turn-left.png",
+      "feature_boxes": [
+        [
+          38,
+          28,
+          48,
+          34
+        ],
+        [
+          51,
+          28,
+          57,
+          35
+        ],
+        [
+          42,
+          25,
+          49,
+          28
+        ],
+        [
+          52,
+          25,
+          57,
+          28
+        ]
+      ],
+      "mouth_box": [
+        44,
+        36,
+        51,
+        39
+      ],
+      "mole_px": [
+        56,
+        51
+      ],
+      "head_in_front_of_body_gear": true
+    },
+    "turn-right": {
+      "layers": {
+        "lower": "poses/turn-right/layers/lower.png",
+        "neck": "poses/turn-right/layers/neck.png",
+        "upper": "poses/turn-right/layers/upper.png",
+        "head": "poses/turn-right/layers/head.png",
+        "eyes": "poses/turn-right/layers/eyes.png",
+        "mouth": "poses/turn-right/layers/mouth.png"
+      },
+      "equipment": {
+        "apron": "poses/turn-right/equipment/apron.png",
+        "belt-accessories": "poses/turn-right/equipment/belt-accessories.png",
+        "earrings": "poses/turn-right/equipment/earrings.png",
+        "hair-ribbon": "poses/turn-right/equipment/hair-ribbon.png",
+        "shawl": "poses/turn-right/equipment/shawl.png",
+        "tankard": "poses/turn-right/equipment/tankard.png",
+        "towel": "poses/turn-right/equipment/towel.png"
+      },
+      "base_order": [
+        "lower",
+        "neck",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "lower",
+        "neck",
+        "upper",
+        "shawl",
+        "apron",
+        "belt-accessories",
+        "towel",
+        "head",
+        "eyes",
+        "mouth",
+        "hair-ribbon",
+        "earrings",
+        "tankard"
+      ],
+      "sockets_px": {},
+      "face_source": "source/animation/candidates/turn-right.png",
+      "feature_boxes": [
+        [
+          41,
+          29,
+          51,
+          35
+        ],
+        [
+          56,
+          29,
+          60,
+          36
+        ],
+        [
+          43,
+          26,
+          52,
+          29
+        ],
+        [
+          57,
+          27,
+          60,
+          29
+        ]
+      ],
+      "mouth_box": [
+        48,
+        37,
+        55,
+        40
+      ],
+      "mole_px": [
+        57,
+        51
+      ],
+      "head_in_front_of_body_gear": true
+    },
+    "give-mid": {
+      "layers": {
+        "lower": "poses/give-mid/layers/lower.png",
+        "upper": "poses/give-mid/layers/upper.png",
+        "head": "poses/give-mid/layers/head.png",
+        "eyes": "poses/give-mid/layers/eyes.png",
+        "mouth": "poses/give-mid/layers/mouth.png"
+      },
+      "equipment": {
+        "apron": "poses/give-mid/equipment/apron.png",
+        "belt-accessories": "poses/give-mid/equipment/belt-accessories.png",
+        "earrings": "poses/give-mid/equipment/earrings.png",
+        "hair-ribbon": "poses/give-mid/equipment/hair-ribbon.png",
+        "shawl": "poses/give-mid/equipment/shawl.png",
+        "tankard": "poses/give-mid/equipment/tankard.png",
+        "towel": "poses/give-mid/equipment/towel.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "hair-ribbon",
+        "earrings",
+        "shawl",
+        "apron",
+        "belt-accessories",
+        "towel",
+        "tankard"
+      ],
+      "sockets_px": {
+        "left_hand": [
+          94,
+          77
+        ],
+        "right_hand": [
+          49,
+          83
+        ]
+      },
+      "arm_source": "source/animation/candidates/give-mid.png",
+      "grip_translation": [
+        10,
+        11
+      ],
+      "towel_translation": [
+        4,
+        6
+      ],
+      "candidate_fingers_adopted": false
+    },
+    "give-retract": {
+      "layers": {
+        "lower": "poses/give-retract/layers/lower.png",
+        "upper": "poses/give-retract/layers/upper.png",
+        "head": "poses/give-retract/layers/head.png",
+        "eyes": "poses/give-retract/layers/eyes.png",
+        "mouth": "poses/give-retract/layers/mouth.png"
+      },
+      "equipment": {
+        "apron": "poses/give-retract/equipment/apron.png",
+        "belt-accessories": "poses/give-retract/equipment/belt-accessories.png",
+        "earrings": "poses/give-retract/equipment/earrings.png",
+        "hair-ribbon": "poses/give-retract/equipment/hair-ribbon.png",
+        "shawl": "poses/give-retract/equipment/shawl.png",
+        "towel": "poses/give-retract/equipment/towel.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "hair-ribbon",
+        "earrings",
+        "shawl",
+        "apron",
+        "belt-accessories",
+        "towel"
+      ],
+      "sockets_px": {
+        "left_hand": [
+          94,
+          77
+        ],
+        "right_hand": [
+          49,
+          83
+        ]
+      },
+      "arm_source": "source/animation/candidates/give-mid.png",
+      "grip_translation": [
+        10,
+        11
+      ],
+      "towel_translation": [
+        4,
+        6
+      ],
+      "candidate_fingers_adopted": false
+    },
+    "give-full": {
+      "layers": {
+        "lower": "poses/give-full/layers/lower.png",
+        "upper": "poses/give-full/layers/upper.png",
+        "head": "poses/give-full/layers/head.png",
+        "eyes": "poses/give-full/layers/eyes.png",
+        "mouth": "poses/give-full/layers/mouth.png"
+      },
+      "equipment": {
+        "apron": "poses/give-full/equipment/apron.png",
+        "belt-accessories": "poses/give-full/equipment/belt-accessories.png",
+        "earrings": "poses/give-full/equipment/earrings.png",
+        "hair-ribbon": "poses/give-full/equipment/hair-ribbon.png",
+        "shawl": "poses/give-full/equipment/shawl.png",
+        "tankard": "poses/give-full/equipment/tankard.png",
+        "towel": "poses/give-full/equipment/towel.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "hair-ribbon",
+        "earrings",
+        "shawl",
+        "apron",
+        "belt-accessories",
+        "towel",
+        "tankard"
+      ],
+      "sockets_px": {
+        "left_hand": [
+          96,
+          87
+        ],
+        "right_hand": [
+          49,
+          83
+        ]
+      },
+      "arm_source": "source/animation/candidates/give-full.png",
+      "grip_translation": [
+        12,
+        21
+      ],
+      "towel_translation": [
+        6,
+        12
+      ],
+      "candidate_fingers_adopted": false
+    },
+    "give-empty": {
+      "layers": {
+        "lower": "poses/give-empty/layers/lower.png",
+        "upper": "poses/give-empty/layers/upper.png",
+        "head": "poses/give-empty/layers/head.png",
+        "eyes": "poses/give-empty/layers/eyes.png",
+        "mouth": "poses/give-empty/layers/mouth.png"
+      },
+      "equipment": {
+        "apron": "poses/give-empty/equipment/apron.png",
+        "belt-accessories": "poses/give-empty/equipment/belt-accessories.png",
+        "earrings": "poses/give-empty/equipment/earrings.png",
+        "hair-ribbon": "poses/give-empty/equipment/hair-ribbon.png",
+        "shawl": "poses/give-empty/equipment/shawl.png",
+        "towel": "poses/give-empty/equipment/towel.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "hair-ribbon",
+        "earrings",
+        "shawl",
+        "apron",
+        "belt-accessories",
+        "towel"
+      ],
+      "sockets_px": {
+        "left_hand": [
+          96,
+          87
+        ],
+        "right_hand": [
+          49,
+          83
+        ]
+      },
+      "arm_source": "source/animation/candidates/give-full.png",
+      "grip_translation": [
+        12,
+        21
+      ],
+      "towel_translation": [
+        6,
+        12
+      ],
+      "candidate_fingers_adopted": false
+    },
+    "neutral-empty": {
+      "layers": {
+        "lower": "poses/neutral-empty/layers/lower.png",
+        "upper": "poses/neutral-empty/layers/upper.png",
+        "head": "poses/neutral-empty/layers/head.png",
+        "eyes": "poses/neutral-empty/layers/eyes.png",
+        "mouth": "poses/neutral-empty/layers/mouth.png"
+      },
+      "equipment": {
+        "apron": "poses/neutral-empty/equipment/apron.png",
+        "belt-accessories": "poses/neutral-empty/equipment/belt-accessories.png",
+        "earrings": "poses/neutral-empty/equipment/earrings.png",
+        "hair-ribbon": "poses/neutral-empty/equipment/hair-ribbon.png",
+        "shawl": "poses/neutral-empty/equipment/shawl.png",
+        "towel": "poses/neutral-empty/equipment/towel.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth"
+      ],
+      "composition_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "hair-ribbon",
+        "earrings",
+        "shawl",
+        "apron",
+        "belt-accessories",
+        "towel"
+      ],
+      "sockets_px": {}
+    },
+    "walk-0": {
+      "layers": {
+        "lower": "poses/walk-0/layers/lower.png",
+        "upper": "poses/walk-0/layers/upper.png",
+        "head": "poses/walk-0/layers/head.png",
+        "eyes": "poses/walk-0/layers/eyes.png",
+        "mouth": "poses/walk-0/layers/mouth.png",
+        "arms_front": "poses/walk-0/layers/arms_front.png"
+      },
+      "equipment": {
+        "apron": "poses/walk-0/equipment/apron.png",
+        "belt-accessories": "poses/walk-0/equipment/belt-accessories.png",
+        "earrings": "poses/walk-0/equipment/earrings.png",
+        "hair-ribbon": "poses/walk-0/equipment/hair-ribbon.png",
+        "shawl": "poses/walk-0/equipment/shawl.png",
+        "shawl-underhem": "poses/walk-0/equipment/shawl-underhem.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "arms_front"
+      ],
+      "composition_order": [
+        "shawl-underhem",
+        "lower",
+        "upper",
+        "shawl",
+        "apron",
+        "belt-accessories",
+        "head",
+        "eyes",
+        "mouth",
+        "hair-ribbon",
+        "earrings",
+        "arms_front"
+      ],
+      "sockets_px": {
+        "neck": [
+          62,
+          59
+        ],
+        "waist": [
+          62,
+          86
+        ],
+        "right_hand": [
+          61,
+          98
+        ],
+        "left_hand": [
+          81,
+          96
+        ]
+      },
+      "gait": {
+        "id": 0,
+        "phase": "left contact",
+        "near_arm": "forward",
+        "near_leg": "back",
+        "far_arm": "back",
+        "far_leg": "forward",
+        "bob_y": 0,
+        "source_ground_translation_y": 0,
+        "refinements": [],
+        "source": "source/animation/candidates/walk-0.png",
+        "measured_native": {
+          "near_hand": [
+            44.59,
+            82.18
+          ],
+          "far_hand": [
+            65.2,
+            80.3
+          ],
+          "near_boot": {
+            "centroid": [
+              29.83,
+              114.59
+            ],
+            "leather_bbox": [
+              22,
+              108,
+              40,
+              123
+            ]
+          },
+          "far_boot": {
+            "centroid": [
+              62.95,
+              116.17
+            ],
+            "leather_bbox": [
+              54,
+              108,
+              75,
+              124
+            ]
+          },
+          "foot_rois": [
+            [
+              18,
+              108,
+              40,
+              124
+            ],
+            [
+              54,
+              108,
+              76,
+              124
+            ]
+          ]
+        }
+      },
+      "held_props": false,
+      "head_translation": [
+        0,
+        0
+      ],
+      "head_in_front_of_body_gear": true,
+      "front_arm_occlusion": "near forearm and fingers above apron/belt",
+      "back_equipment": [
+        "shawl-underhem"
+      ],
+      "underhem_registration": "median-5 column hem offset, drawn behind legs"
+    },
+    "walk-1": {
+      "layers": {
+        "lower": "poses/walk-1/layers/lower.png",
+        "upper": "poses/walk-1/layers/upper.png",
+        "head": "poses/walk-1/layers/head.png",
+        "eyes": "poses/walk-1/layers/eyes.png",
+        "mouth": "poses/walk-1/layers/mouth.png",
+        "arms_front": "poses/walk-1/layers/arms_front.png"
+      },
+      "equipment": {
+        "apron": "poses/walk-1/equipment/apron.png",
+        "belt-accessories": "poses/walk-1/equipment/belt-accessories.png",
+        "earrings": "poses/walk-1/equipment/earrings.png",
+        "hair-ribbon": "poses/walk-1/equipment/hair-ribbon.png",
+        "shawl": "poses/walk-1/equipment/shawl.png",
+        "shawl-underhem": "poses/walk-1/equipment/shawl-underhem.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "arms_front"
+      ],
+      "composition_order": [
+        "shawl-underhem",
+        "lower",
+        "upper",
+        "shawl",
+        "apron",
+        "belt-accessories",
+        "head",
+        "eyes",
+        "mouth",
+        "hair-ribbon",
+        "earrings",
+        "arms_front"
+      ],
+      "sockets_px": {
+        "neck": [
+          62,
+          60
+        ],
+        "waist": [
+          62,
+          87
+        ],
+        "right_hand": [
+          51,
+          95
+        ],
+        "left_hand": [
+          82,
+          96
+        ]
+      },
+      "gait": {
+        "id": 1,
+        "phase": "left support",
+        "near_arm": "recovering",
+        "near_leg": "recovering",
+        "far_arm": "recovering",
+        "far_leg": "support",
+        "bob_y": 1,
+        "source_ground_translation_y": 0,
+        "refinements": [],
+        "source": "source/animation/candidates/walk-1.png",
+        "measured_native": {
+          "near_hand": [
+            35.21,
+            79.05
+          ],
+          "far_hand": [
+            66.27,
+            80.27
+          ],
+          "near_boot": {
+            "centroid": [
+              31.26,
+              114.3
+            ],
+            "leather_bbox": [
+              24,
+              108,
+              39,
+              122
+            ]
+          },
+          "far_boot": {
+            "centroid": [
+              58.24,
+              116.11
+            ],
+            "leather_bbox": [
+              50,
+              108,
+              69,
+              124
+            ]
+          },
+          "foot_rois": [
+            [
+              20,
+              108,
+              42,
+              124
+            ],
+            [
+              50,
+              108,
+              76,
+              124
+            ]
+          ]
+        }
+      },
+      "held_props": false,
+      "head_translation": [
+        0,
+        1
+      ],
+      "head_in_front_of_body_gear": true,
+      "front_arm_occlusion": "near forearm and fingers above apron/belt",
+      "back_equipment": [
+        "shawl-underhem"
+      ],
+      "underhem_registration": "median-5 column hem offset, drawn behind legs"
+    },
+    "walk-2": {
+      "layers": {
+        "lower": "poses/walk-2/layers/lower.png",
+        "upper": "poses/walk-2/layers/upper.png",
+        "head": "poses/walk-2/layers/head.png",
+        "eyes": "poses/walk-2/layers/eyes.png",
+        "mouth": "poses/walk-2/layers/mouth.png",
+        "arms_front": "poses/walk-2/layers/arms_front.png"
+      },
+      "equipment": {
+        "apron": "poses/walk-2/equipment/apron.png",
+        "belt-accessories": "poses/walk-2/equipment/belt-accessories.png",
+        "earrings": "poses/walk-2/equipment/earrings.png",
+        "hair-ribbon": "poses/walk-2/equipment/hair-ribbon.png",
+        "shawl": "poses/walk-2/equipment/shawl.png",
+        "shawl-underhem": "poses/walk-2/equipment/shawl-underhem.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "arms_front"
+      ],
+      "composition_order": [
+        "shawl-underhem",
+        "lower",
+        "upper",
+        "shawl",
+        "apron",
+        "belt-accessories",
+        "head",
+        "eyes",
+        "mouth",
+        "hair-ribbon",
+        "earrings",
+        "arms_front"
+      ],
+      "sockets_px": {
+        "neck": [
+          62,
+          58
+        ],
+        "waist": [
+          62,
+          85
+        ],
+        "right_hand": [
+          40,
+          96
+        ],
+        "left_hand": [
+          87,
+          94
+        ]
+      },
+      "gait": {
+        "id": 2,
+        "phase": "right passing",
+        "near_arm": "passes down",
+        "near_leg": "raised passing",
+        "far_arm": "passes down",
+        "far_leg": "support",
+        "bob_y": -1,
+        "source_ground_translation_y": -2,
+        "refinements": [
+          "source/animation/candidates/walk-2-lower.png"
+        ],
+        "source": "source/animation/candidates/walk-2.png",
+        "measured_native": {
+          "near_hand": [
+            23.6,
+            80.2
+          ],
+          "far_hand": [
+            70.67,
+            78.44
+          ],
+          "near_boot": {
+            "centroid": [
+              42.36,
+              109.2
+            ],
+            "leather_bbox": [
+              35,
+              103,
+              50,
+              118
+            ]
+          },
+          "far_boot": {
+            "centroid": [
+              58.51,
+              116.82
+            ],
+            "leather_bbox": [
+              52,
+              108,
+              69,
+              124
+            ]
+          },
+          "foot_rois": [
+            [
+              32,
+              103,
+              50,
+              121
+            ],
+            [
+              52,
+              108,
+              78,
+              124
+            ]
+          ]
+        }
+      },
+      "held_props": false,
+      "head_translation": [
+        0,
+        -1
+      ],
+      "head_in_front_of_body_gear": true,
+      "front_arm_occlusion": "near forearm and fingers above apron/belt",
+      "back_equipment": [
+        "shawl-underhem"
+      ],
+      "underhem_registration": "median-5 column hem offset, drawn behind legs"
+    },
+    "walk-3": {
+      "layers": {
+        "lower": "poses/walk-3/layers/lower.png",
+        "upper": "poses/walk-3/layers/upper.png",
+        "head": "poses/walk-3/layers/head.png",
+        "eyes": "poses/walk-3/layers/eyes.png",
+        "mouth": "poses/walk-3/layers/mouth.png",
+        "arms_front": "poses/walk-3/layers/arms_front.png"
+      },
+      "equipment": {
+        "apron": "poses/walk-3/equipment/apron.png",
+        "belt-accessories": "poses/walk-3/equipment/belt-accessories.png",
+        "earrings": "poses/walk-3/equipment/earrings.png",
+        "hair-ribbon": "poses/walk-3/equipment/hair-ribbon.png",
+        "shawl": "poses/walk-3/equipment/shawl.png",
+        "shawl-underhem": "poses/walk-3/equipment/shawl-underhem.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "arms_front"
+      ],
+      "composition_order": [
+        "shawl-underhem",
+        "lower",
+        "upper",
+        "shawl",
+        "apron",
+        "belt-accessories",
+        "head",
+        "eyes",
+        "mouth",
+        "hair-ribbon",
+        "earrings",
+        "arms_front"
+      ],
+      "sockets_px": {
+        "neck": [
+          62,
+          59
+        ],
+        "waist": [
+          62,
+          86
+        ],
+        "right_hand": [
+          33,
+          100
+        ],
+        "left_hand": [
+          89,
+          94
+        ]
+      },
+      "gait": {
+        "id": 3,
+        "phase": "right contact",
+        "near_arm": "back",
+        "near_leg": "forward",
+        "far_arm": "forward",
+        "far_leg": "back",
+        "bob_y": 0,
+        "source_ground_translation_y": -1,
+        "refinements": [
+          "source/animation/candidates/walk-3-arm.png"
+        ],
+        "source": "source/animation/candidates/walk-3.png",
+        "measured_native": {
+          "near_hand": [
+            17.31,
+            84.0
+          ],
+          "far_hand": [
+            73.0,
+            78.25
+          ],
+          "near_boot": {
+            "centroid": [
+              62.15,
+              115.6
+            ],
+            "leather_bbox": [
+              54,
+              106,
+              74,
+              124
+            ]
+          },
+          "far_boot": {
+            "centroid": [
+              30.09,
+              113.09
+            ],
+            "leather_bbox": [
+              20,
+              106,
+              44,
+              122
+            ]
+          },
+          "foot_rois": [
+            [
+              54,
+              106,
+              80,
+              124
+            ],
+            [
+              20,
+              106,
+              44,
+              124
+            ]
+          ]
+        }
+      },
+      "held_props": false,
+      "head_translation": [
+        0,
+        0
+      ],
+      "head_in_front_of_body_gear": true,
+      "front_arm_occlusion": "near forearm and fingers above apron/belt",
+      "back_equipment": [
+        "shawl-underhem"
+      ],
+      "underhem_registration": "median-5 column hem offset, drawn behind legs"
+    },
+    "walk-4": {
+      "layers": {
+        "lower": "poses/walk-4/layers/lower.png",
+        "upper": "poses/walk-4/layers/upper.png",
+        "head": "poses/walk-4/layers/head.png",
+        "eyes": "poses/walk-4/layers/eyes.png",
+        "mouth": "poses/walk-4/layers/mouth.png",
+        "arms_front": "poses/walk-4/layers/arms_front.png"
+      },
+      "equipment": {
+        "apron": "poses/walk-4/equipment/apron.png",
+        "belt-accessories": "poses/walk-4/equipment/belt-accessories.png",
+        "earrings": "poses/walk-4/equipment/earrings.png",
+        "hair-ribbon": "poses/walk-4/equipment/hair-ribbon.png",
+        "shawl": "poses/walk-4/equipment/shawl.png",
+        "shawl-underhem": "poses/walk-4/equipment/shawl-underhem.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "arms_front"
+      ],
+      "composition_order": [
+        "shawl-underhem",
+        "lower",
+        "upper",
+        "shawl",
+        "apron",
+        "belt-accessories",
+        "head",
+        "eyes",
+        "mouth",
+        "hair-ribbon",
+        "earrings",
+        "arms_front"
+      ],
+      "sockets_px": {
+        "neck": [
+          62,
+          60
+        ],
+        "waist": [
+          62,
+          87
+        ],
+        "right_hand": [
+          39,
+          97
+        ],
+        "left_hand": [
+          87,
+          95
+        ]
+      },
+      "gait": {
+        "id": 4,
+        "phase": "right support",
+        "near_arm": "recovering",
+        "near_leg": "support",
+        "far_arm": "recovering",
+        "far_leg": "recovering",
+        "bob_y": 1,
+        "source_ground_translation_y": -1,
+        "refinements": [
+          "source/animation/candidates/walk-4-lower.png"
+        ],
+        "source": "source/animation/candidates/walk-4.png",
+        "measured_native": {
+          "near_hand": [
+            22.64,
+            81.18
+          ],
+          "far_hand": [
+            70.78,
+            79.33
+          ],
+          "near_boot": {
+            "centroid": [
+              59.96,
+              116.32
+            ],
+            "leather_bbox": [
+              52,
+              108,
+              70,
+              124
+            ]
+          },
+          "far_boot": {
+            "centroid": [
+              34.15,
+              112.55
+            ],
+            "leather_bbox": [
+              27,
+              106,
+              44,
+              122
+            ]
+          },
+          "foot_rois": [
+            [
+              52,
+              108,
+              72,
+              124
+            ],
+            [
+              27,
+              106,
+              44,
+              122
+            ]
+          ]
+        }
+      },
+      "held_props": false,
+      "head_translation": [
+        0,
+        1
+      ],
+      "head_in_front_of_body_gear": true,
+      "front_arm_occlusion": "near forearm and fingers above apron/belt",
+      "back_equipment": [
+        "shawl-underhem"
+      ],
+      "underhem_registration": "median-5 column hem offset, drawn behind legs"
+    },
+    "walk-5": {
+      "layers": {
+        "lower": "poses/walk-5/layers/lower.png",
+        "upper": "poses/walk-5/layers/upper.png",
+        "head": "poses/walk-5/layers/head.png",
+        "eyes": "poses/walk-5/layers/eyes.png",
+        "mouth": "poses/walk-5/layers/mouth.png",
+        "arms_front": "poses/walk-5/layers/arms_front.png"
+      },
+      "equipment": {
+        "apron": "poses/walk-5/equipment/apron.png",
+        "belt-accessories": "poses/walk-5/equipment/belt-accessories.png",
+        "earrings": "poses/walk-5/equipment/earrings.png",
+        "hair-ribbon": "poses/walk-5/equipment/hair-ribbon.png",
+        "shawl": "poses/walk-5/equipment/shawl.png",
+        "shawl-underhem": "poses/walk-5/equipment/shawl-underhem.png"
+      },
+      "base_order": [
+        "lower",
+        "upper",
+        "head",
+        "eyes",
+        "mouth",
+        "arms_front"
+      ],
+      "composition_order": [
+        "shawl-underhem",
+        "lower",
+        "upper",
+        "shawl",
+        "apron",
+        "belt-accessories",
+        "head",
+        "eyes",
+        "mouth",
+        "hair-ribbon",
+        "earrings",
+        "arms_front"
+      ],
+      "sockets_px": {
+        "neck": [
+          62,
+          58
+        ],
+        "waist": [
+          62,
+          85
+        ],
+        "right_hand": [
+          42,
+          104
+        ],
+        "left_hand": [
+          86,
+          98
+        ]
+      },
+      "gait": {
+        "id": 5,
+        "phase": "left passing",
+        "near_arm": "passes down",
+        "near_leg": "support",
+        "far_arm": "passes down",
+        "far_leg": "raised passing",
+        "bob_y": -1,
+        "source_ground_translation_y": 0,
+        "refinements": [
+          "source/animation/candidates/walk-5-arm.png",
+          "source/animation/candidates/walk-5-lower.png"
+        ],
+        "source": "source/animation/candidates/walk-5.png",
+        "measured_native": {
+          "near_hand": [
+            26.18,
+            88.0
+          ],
+          "far_hand": [
+            70.0,
+            82.33
+          ],
+          "near_boot": {
+            "centroid": [
+              43.11,
+              115.85
+            ],
+            "leather_bbox": [
+              36,
+              108,
+              52,
+              124
+            ]
+          },
+          "far_boot": {
+            "centroid": [
+              52.37,
+              114.19
+            ],
+            "leather_bbox": [
+              48,
+              106,
+              60,
+              123
+            ]
+          },
+          "foot_rois": [
+            [
+              36,
+              108,
+              52,
+              124
+            ],
+            [
+              48,
+              106,
+              65,
+              123
+            ]
+          ]
+        }
+      },
+      "held_props": false,
+      "head_translation": [
+        0,
+        -1
+      ],
+      "head_in_front_of_body_gear": true,
+      "front_arm_occlusion": "near forearm and fingers above apron/belt",
+      "back_equipment": [
+        "shawl-underhem"
+      ],
+      "underhem_registration": "median-5 column hem offset, drawn behind legs"
+    }
+  }
+}

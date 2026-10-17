@@ -1,0 +1,1109 @@
+{
+  "status": "pass",
+  "canvas": [
+    128,
+    160
+  ],
+  "foot_anchor_px": [
+    64,
+    140
+  ],
+  "opaque_colors": 63,
+  "binary_alpha": true,
+  "exact_base_layer_roundtrip": true,
+  "all_equipment_combinations": 128,
+  "underlayer_pixels_lost": 0,
+  "exact_nearest_previews": true,
+  "atlas_roundtrip_and_extrusion": true,
+  "deterministic_rebuild": true,
+  "scope": "neutral only; no game runtime integration",
+  "combinations": [
+    {
+      "enabled": [],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "gloves"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "fur-hat"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "fur-hat",
+        "gloves"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "leather-outfit"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "gloves",
+        "leather-outfit"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "fur-hat",
+        "leather-outfit"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "fur-hat",
+        "gloves",
+        "leather-outfit"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "gloves",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "fur-hat",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "fur-hat",
+        "gloves",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "leather-outfit",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "gloves",
+        "leather-outfit",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "fur-hat",
+        "leather-outfit",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "fur-hat",
+        "gloves",
+        "leather-outfit",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "cloak"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "cloak",
+        "gloves"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "cloak",
+        "fur-hat"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "cloak",
+        "fur-hat",
+        "gloves"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "cloak",
+        "leather-outfit"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "cloak",
+        "gloves",
+        "leather-outfit"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "cloak",
+        "fur-hat",
+        "leather-outfit"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "cloak",
+        "fur-hat",
+        "gloves",
+        "leather-outfit"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "cloak",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "cloak",
+        "gloves",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "cloak",
+        "fur-hat",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "cloak",
+        "fur-hat",
+        "gloves",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "cloak",
+        "leather-outfit",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "cloak",
+        "gloves",
+        "leather-outfit",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "cloak",
+        "fur-hat",
+        "leather-outfit",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "cloak",
+        "fur-hat",
+        "gloves",
+        "leather-outfit",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "gloves"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "fur-hat"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "fur-hat",
+        "gloves"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "leather-outfit"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "gloves",
+        "leather-outfit"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "fur-hat",
+        "leather-outfit"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "fur-hat",
+        "gloves",
+        "leather-outfit"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "gloves",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "fur-hat",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "fur-hat",
+        "gloves",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "leather-outfit",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "gloves",
+        "leather-outfit",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "fur-hat",
+        "leather-outfit",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "fur-hat",
+        "gloves",
+        "leather-outfit",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "cloak"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "cloak",
+        "gloves"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "cloak",
+        "fur-hat"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "cloak",
+        "fur-hat",
+        "gloves"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "cloak",
+        "leather-outfit"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "cloak",
+        "gloves",
+        "leather-outfit"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "cloak",
+        "fur-hat",
+        "leather-outfit"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "cloak",
+        "fur-hat",
+        "gloves",
+        "leather-outfit"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "cloak",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "cloak",
+        "gloves",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "cloak",
+        "fur-hat",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "cloak",
+        "fur-hat",
+        "gloves",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "cloak",
+        "leather-outfit",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "cloak",
+        "gloves",
+        "leather-outfit",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "cloak",
+        "fur-hat",
+        "leather-outfit",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "cloak",
+        "fur-hat",
+        "gloves",
+        "leather-outfit",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "bow"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "bow",
+        "gloves"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "bow",
+        "fur-hat"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "bow",
+        "fur-hat",
+        "gloves"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "bow",
+        "leather-outfit"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "bow",
+        "gloves",
+        "leather-outfit"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "bow",
+        "fur-hat",
+        "leather-outfit"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "bow",
+        "fur-hat",
+        "gloves",
+        "leather-outfit"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "bow",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "bow",
+        "gloves",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "bow",
+        "fur-hat",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "bow",
+        "fur-hat",
+        "gloves",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "bow",
+        "leather-outfit",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "bow",
+        "gloves",
+        "leather-outfit",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "bow",
+        "fur-hat",
+        "leather-outfit",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "bow",
+        "fur-hat",
+        "gloves",
+        "leather-outfit",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "bow",
+        "cloak"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "bow",
+        "cloak",
+        "gloves"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "bow",
+        "cloak",
+        "fur-hat"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "bow",
+        "cloak",
+        "fur-hat",
+        "gloves"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "bow",
+        "cloak",
+        "leather-outfit"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "bow",
+        "cloak",
+        "gloves",
+        "leather-outfit"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "bow",
+        "cloak",
+        "fur-hat",
+        "leather-outfit"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "bow",
+        "cloak",
+        "fur-hat",
+        "gloves",
+        "leather-outfit"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "bow",
+        "cloak",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "bow",
+        "cloak",
+        "gloves",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "bow",
+        "cloak",
+        "fur-hat",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "bow",
+        "cloak",
+        "fur-hat",
+        "gloves",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "bow",
+        "cloak",
+        "leather-outfit",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "bow",
+        "cloak",
+        "gloves",
+        "leather-outfit",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "bow",
+        "cloak",
+        "fur-hat",
+        "leather-outfit",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "bow",
+        "cloak",
+        "fur-hat",
+        "gloves",
+        "leather-outfit",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "bow"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "bow",
+        "gloves"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "bow",
+        "fur-hat"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "bow",
+        "fur-hat",
+        "gloves"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "bow",
+        "leather-outfit"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "bow",
+        "gloves",
+        "leather-outfit"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "bow",
+        "fur-hat",
+        "leather-outfit"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "bow",
+        "fur-hat",
+        "gloves",
+        "leather-outfit"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "bow",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "bow",
+        "gloves",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "bow",
+        "fur-hat",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "bow",
+        "fur-hat",
+        "gloves",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "bow",
+        "leather-outfit",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "bow",
+        "gloves",
+        "leather-outfit",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "bow",
+        "fur-hat",
+        "leather-outfit",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "bow",
+        "fur-hat",
+        "gloves",
+        "leather-outfit",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "bow",
+        "cloak"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "bow",
+        "cloak",
+        "gloves"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "bow",
+        "cloak",
+        "fur-hat"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "bow",
+        "cloak",
+        "fur-hat",
+        "gloves"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "bow",
+        "cloak",
+        "leather-outfit"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "bow",
+        "cloak",
+        "gloves",
+        "leather-outfit"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "bow",
+        "cloak",
+        "fur-hat",
+        "leather-outfit"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "bow",
+        "cloak",
+        "fur-hat",
+        "gloves",
+        "leather-outfit"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "bow",
+        "cloak",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "bow",
+        "cloak",
+        "gloves",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "bow",
+        "cloak",
+        "fur-hat",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "bow",
+        "cloak",
+        "fur-hat",
+        "gloves",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "bow",
+        "cloak",
+        "leather-outfit",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "bow",
+        "cloak",
+        "gloves",
+        "leather-outfit",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "bow",
+        "cloak",
+        "fur-hat",
+        "leather-outfit",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    },
+    {
+      "enabled": [
+        "boot-fur-cuffs",
+        "bow",
+        "cloak",
+        "fur-hat",
+        "gloves",
+        "leather-outfit",
+        "quiver-and-arrows"
+      ],
+      "underlayer_pixels_lost": 0
+    }
+  ]
+}

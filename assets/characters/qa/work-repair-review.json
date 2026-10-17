@@ -1,0 +1,71 @@
+{
+  "revision": "hip-pivot-v2",
+  "status": "rebuilt_and_internally_reviewed",
+  "user_visual_acceptance": "pending",
+  "supersedes": "rejected head-pinned work repair",
+  "characters": 2,
+  "actions": [
+    "hammering",
+    "quenching",
+    "forging",
+    "researching",
+    "salvaging"
+  ],
+  "keys_per_action": 6,
+  "source_masters": 18,
+  "browser": {
+    "application": "Safari",
+    "url": "http://127.0.0.1:8773/assets/characters/previews/animation.html?qa=work&revision=hip-pivot-v2",
+    "completion_text_observed": "PLAYBACK QA COMPLETE: 40 scenarios, both characters.",
+    "scenarios": 40,
+    "speeds": [
+      1,
+      0.5
+    ],
+    "equipment": [
+      true,
+      false
+    ],
+    "backgrounds": [
+      "light",
+      "dark"
+    ],
+    "workstation": true,
+    "manual_checks": [
+      "scale 1x and 4x",
+      "workstation hidden",
+      "frame scrubbing",
+      "restart",
+      "slow hammering loop and contact marker"
+    ]
+  },
+  "static_checks": {
+    "native_and_layers": "pass",
+    "separate_source_variant_roundtrip": "pass",
+    "neck_connection": "pass",
+    "head_moves_with_bend": "pass",
+    "canvas_clipping": "pass",
+    "atlas_roundtrip_and_gutters": "pass",
+    "deterministic_rebuild_files": 2418,
+    "unrelated_base_frames_unchanged": 28,
+    "sprite_audit": "structural_pass_runtime_unmeasured"
+  },
+  "visual_inspection": {
+    "all_60_work_keys": "reviewed in light sheets",
+    "station_scenes": "reviewed for both characters",
+    "user_reported_faults": "replaced head-pinned assembly with complete connected pose sources",
+    "not_a_user_acceptance_or_runtime_qualification": true
+  },
+  "representation_limit": "Workwear and tools are baked into per-pose rendered variants, not interchangeable independent equipment layers. Bare underlayers are complete separate source variants.",
+  "runtime_integration": false,
+  "artifacts": {
+    "female/animation.json": "561ff87fdb22ccef66784696e6496fdb39bedb29690f281c70017c5df140c00b",
+    "female/atlas.png": "3881ed9cb9284f6244245bb08ad3600c562ca4dc65400f04c973af0d7585dc8a",
+    "female/previews/work-all-30.png": "5ec1c281c35c0b862273ced206d86507602d87c366723111ab1e22382426ba26",
+    "female/previews/work-actions-review.png": "5ed7761b93880254edd5f2cebbf1470f5bf55c2faf9d4739a8d0e9517d80467a",
+    "male/animation.json": "717ae5fb14e013f8cf88673e777678af45cd7228ce10fa47696ed319eee7d291",
+    "male/atlas.png": "d31e36d81882a06b79ee437bb0d66241ebb3a12d13080746978d711846b1dfda",
+    "male/previews/work-all-30.png": "9c1d0b1e9e305cd970464d4062709dcacb5f0510df3b924b0e75baaad780e9b3",
+    "male/previews/work-actions-review.png": "d1cb9a79a05d5138b733f9bfa4ddf1afe2f4bd6e6fc5c1c181f5da38ac015edf"
+  }
+}

@@ -1,0 +1,450 @@
+version: 1
+id: hunter
+role: npc
+action_set: human_common
+grid: B
+grid_unit_px:
+- 16
+- 16
+canvas_cells:
+- 8
+- 10
+native_canvas_px:
+- 128
+- 160
+origin_px:
+- 0
+- 0
+foot_anchor_px:
+- 64
+- 140
+preview_scale: 4
+pose_canvas:
+  grid: B
+  canvas_cells:
+  - 8
+  - 10
+  native_canvas_px:
+  - 128
+  - 160
+  base_offset_px:
+  - 0
+  - 0
+  foot_anchor_px:
+  - 64
+  - 140
+reference_roles:
+  identity: source/reference.png
+  style: source/reference.png
+reconstructed_occluded_regions:
+- complete hair under fur hat
+- cream shirt under cloak and leather outfit
+- bare hands under fingerless gloves
+- plain boot shafts under fur cuffs
+baseline:
+  complete_underlayer: base-neutral.png
+  foundation: source/complete-underlayer-native.png
+  builder: source/build-character.py
+  coverage_report: qa/validation.json
+palette:
+  max_opaque_colors: 64
+  reason: preserve mottled fur, warm face/beard, green cloth, leather and gold buckle
+    clusters
+  source: source/palette.png
+  alpha_values:
+  - 0
+  - 255
+identity:
+  head_bbox_px:
+  - 44
+  - 24
+  - 88
+  - 65
+  head_size_without_hat_px:
+  - 44
+  - 41
+  face_bbox_px:
+  - 59
+  - 42
+  - 82
+  - 57
+  eye_bbox_with_brows_px:
+    near:
+    - 61
+    - 42
+    - 69
+    - 52
+    far:
+    - 76
+    - 42
+    - 81
+    - 54
+  eye_white_iris_design: large brown pupils with cream highlights; reference facial
+    pixels retained
+  hair_color: warm dark brown; rounded crown and broad side-swept locks, no upright
+    crown spikes
+  beard: subtle warm jaw stubble retained from reference
+  body_build: youthful stocky hunter, original large head and short sturdy legs
+  outline_rule: native dark contour; separate fur/leather shading
+  eye_size_with_brows_px:
+    near:
+    - 8
+    - 10
+    far:
+    - 5
+    - 12
+  eye_gap_px: 7
+  neck_visible_skin_rows_px:
+  - 60
+  - 68
+  neck_reconstruction: generated coherent jaw, warm stubble, neck and cream collar;
+    source cloak excluded
+  leg_span_to_sole_px:
+  - 97
+  - 140
+  visible_cross_sections:
+    neck:
+      y: 63
+      x_interval:
+      - 60
+      - 73
+      width_px: 13
+    shoulders:
+      y: 70
+      x_interval:
+      - 47
+      - 81
+      width_px: 34
+    chest:
+      y: 78
+      x_interval:
+      - 50
+      - 82
+      width_px: 32
+    waist:
+      y: 95
+      x_interval:
+      - 50
+      - 80
+      width_px: 30
+    near_thigh:
+      y: 108
+      x_interval:
+      - 52
+      - 64
+      width_px: 12
+    far_thigh:
+      y: 108
+      x_interval:
+      - 66
+      - 82
+      width_px: 16
+    near_arm:
+      y: 84
+      x_interval:
+      - 38
+      - 50
+      width_px: 12
+sockets_px:
+  neck:
+  - 68
+  - 62
+  waist:
+  - 65
+  - 91
+  right_hand:
+  - 53
+  - 93
+  left_hand:
+  - 86
+  - 104
+  head:
+  - 67
+  - 44
+limb_identity:
+  side_convention: character_anatomical
+  near_side: right
+  far_side: left
+layers:
+  head_base: head-base.png
+  upper_base: body/upper-base.png
+  lower_base: body/lower-base.png
+  hands_front: body/hands-front.png
+  eyes:
+    open: eyes/animation-open.png
+    half: eyes/half.png
+    closed: eyes/closed.png
+    happy-closed: eyes/happy-closed.png
+    wide: eyes/wide.png
+  mouth:
+    rest: mouth/rest.png
+    small-open: mouth/small-open.png
+    wide-open: mouth/wide-open.png
+    round: mouth/round.png
+  equipment:
+  - equipment/bow.png
+  - equipment/quiver-and-arrows.png
+  - equipment/fur-hat.png
+  - equipment/cloak.png
+  - equipment/leather-outfit.png
+  - equipment/gloves.png
+  - equipment/boot-fur-cuffs.png
+eyebrow_owner: eyes
+composition_order:
+- bow
+- quiver-and-arrows
+- lower
+- upper
+- head
+- eyes
+- mouth
+- fur-hat
+- cloak
+- leather-outfit
+- boot-fur-cuffs
+- hands-front
+- gloves
+expression_recipes:
+  neutral:
+    eyes: open
+    mouth: rest
+  talk-small:
+    eyes: open
+    mouth: small-open
+  talk-wide:
+    eyes: open
+    mouth: wide-open
+  talk-round:
+    eyes: open
+    mouth: round
+  blink:
+    eyes: closed
+    mouth: rest
+  happy:
+    eyes: happy-closed
+    mouth: wide-open
+  surprised:
+    eyes: wide
+    mouth: round
+  relaxed:
+    eyes: half
+    mouth: rest
+production_plan:
+  status: generated
+  completed:
+  - neutral
+  - 8 expressions
+  - nod
+  - shake_head
+  - give
+  - walk6
+  not_generated: []
+animation:
+  version: 2
+  id: hunter
+  canvas:
+  - 128
+  - 160
+  foot_anchor_px:
+  - 64
+  - 140
+  frames:
+  - neutral
+  - talk-small
+  - talk-wide
+  - talk-round
+  - blink
+  - happy
+  - surprised
+  - relaxed
+  - nod-down
+  - turn-left
+  - turn-right
+  - nod-mid
+  - give-mid
+  - give-full
+  - give-empty
+  - give-retract
+  - walk-0
+  - walk-1
+  - walk-2
+  - walk-3
+  - walk-4
+  - walk-5
+  clips:
+    idle:
+      frames:
+      - neutral
+      - relaxed
+      - blink
+      - relaxed
+      - neutral
+      durations_ms:
+      - 1400
+      - 40
+      - 80
+      - 40
+      - 1600
+      loop: true
+      events: []
+    blink:
+      frames:
+      - neutral
+      - relaxed
+      - blink
+      - relaxed
+      - neutral
+      durations_ms:
+      - 120
+      - 40
+      - 80
+      - 40
+      - 120
+      loop: false
+      events: []
+    talk:
+      frames:
+      - neutral
+      - talk-small
+      - talk-wide
+      - talk-small
+      - talk-round
+      - neutral
+      durations_ms:
+      - 120
+      - 100
+      - 120
+      - 100
+      - 100
+      - 140
+      loop: true
+      events: []
+    happy:
+      frames:
+      - neutral
+      - happy
+      - neutral
+      durations_ms:
+      - 160
+      - 700
+      - 160
+      loop: false
+      events: []
+    surprised:
+      frames:
+      - neutral
+      - surprised
+      - neutral
+      durations_ms:
+      - 160
+      - 600
+      - 180
+      loop: false
+      events: []
+    relaxed:
+      frames:
+      - neutral
+      - relaxed
+      - neutral
+      durations_ms:
+      - 160
+      - 600
+      - 180
+      loop: false
+      events: []
+    nod:
+      frames:
+      - neutral
+      - nod-mid
+      - nod-down
+      - nod-mid
+      - neutral
+      durations_ms:
+      - 120
+      - 100
+      - 140
+      - 100
+      - 120
+      loop: false
+      events: []
+    shake_head:
+      frames:
+      - neutral
+      - turn-left
+      - neutral
+      - turn-right
+      - neutral
+      durations_ms:
+      - 100
+      - 140
+      - 100
+      - 140
+      - 100
+      loop: false
+      events: []
+    give:
+      frames:
+      - neutral
+      - give-mid
+      - give-full
+      - give-empty
+      - give-retract
+      - neutral
+      durations_ms:
+      - 120
+      - 120
+      - 180
+      - 120
+      - 120
+      - 120
+      loop: false
+      events:
+      - key: 3
+        name: transfer
+        hand: left
+        item: null
+        fires: once_on_entry
+    walk:
+      frames:
+      - walk-0
+      - walk-1
+      - walk-2
+      - walk-3
+      - walk-4
+      - walk-5
+      durations_ms:
+      - 120
+      - 120
+      - 120
+      - 120
+      - 120
+      - 120
+      loop: true
+      events: []
+  recipes: poses/recipes.json
+  channels: expressions/recipes.json
+  scope: authoring only; not game integration
+runtime_export:
+  status: not_integrated
+  mode: baked
+  manifest: atlas-manifest.json
+  sampler: nearest
+  mipmaps: false
+  extrude_px: 1
+  gutter_px: 1
+  rotate_packing: false
+generation:
+  tool: built-in image_gen
+  final_prompts: source/generation-prompts.json
+  registration: source/registration.json
+  native_contour_repairs: source/animation/contour/contract.json
+  animation_repairs: source/animation/repair/prompts.json
+  animation_prompts: source/animation/generation-prompts.json
+  animation_registration: source/animation/registration.json
+animation_builder: source/build-animation.py
+expression_overrides:
+  surprised:
+    mouth: mouth/surprised-open.png
+expression_channels:
+  eyes: independent blink; wide locked during surprise
+  mouth: independent speech; no jaw/beard replacement

@@ -1,0 +1,5959 @@
+{
+  "images": [
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/atlas.png",
+      "disk_bytes": 221067,
+      "size": [
+        1024,
+        768
+      ],
+      "alpha_bbox_xyxy": [
+        1,
+        1,
+        1008,
+        753
+      ],
+      "visible_pixels": 383269,
+      "transparent_fraction": 0.5126482645670574,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 85,
+      "trim_rect_area_fraction": 0.9629109700520834,
+      "visible_rgba_sha256": "25bb47db942b4551a3a3a6220b25ee0b4c5f478b2124d01473b4bf8ea0f1c34d",
+      "rgba8_base_bytes": 3145728,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 3145728,
+      "selected_format_full_mip_chain_bytes": 4194300
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/neutral.png",
+      "disk_bytes": 4815,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        30,
+        24,
+        87,
+        141
+      ],
+      "visible_pixels": 4226,
+      "transparent_fraction": 0.79365234375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 0.325634765625,
+      "visible_rgba_sha256": "83f8538d95ae564ad98da1b96246baf9004cadfb0762dafc75d3c562414744a1",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/talk-small.png",
+      "disk_bytes": 4823,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        30,
+        24,
+        87,
+        141
+      ],
+      "visible_pixels": 4226,
+      "transparent_fraction": 0.79365234375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 0.325634765625,
+      "visible_rgba_sha256": "7dd86cecf01da2726a614c040e5d619dace17f94e51238c6185639dec2b850db",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/talk-wide.png",
+      "disk_bytes": 4851,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        30,
+        24,
+        87,
+        141
+      ],
+      "visible_pixels": 4226,
+      "transparent_fraction": 0.79365234375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 0.325634765625,
+      "visible_rgba_sha256": "93d081b1104ba3e33fd842194efc6ab145dcaeff45ca856607912556e7599fe4",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/talk-round.png",
+      "disk_bytes": 4827,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        30,
+        24,
+        87,
+        141
+      ],
+      "visible_pixels": 4226,
+      "transparent_fraction": 0.79365234375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 0.325634765625,
+      "visible_rgba_sha256": "316e052514fe7cef9b46f63be0c42a4d4a1eec9608046a08e15b146439a75d65",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/blink.png",
+      "disk_bytes": 4787,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        30,
+        24,
+        87,
+        141
+      ],
+      "visible_pixels": 4226,
+      "transparent_fraction": 0.79365234375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.325634765625,
+      "visible_rgba_sha256": "0744b2931e2bc550b5e94cee0576059d164574e575b87fc683796cc0688fcb40",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/happy.png",
+      "disk_bytes": 4811,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        30,
+        24,
+        87,
+        141
+      ],
+      "visible_pixels": 4226,
+      "transparent_fraction": 0.79365234375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 0.325634765625,
+      "visible_rgba_sha256": "57f2ab489963365813cd9eb6bed0da26343792cbe6c45771a1d43543d779c3a3",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/surprised.png",
+      "disk_bytes": 4864,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        30,
+        24,
+        87,
+        141
+      ],
+      "visible_pixels": 4226,
+      "transparent_fraction": 0.79365234375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 0.325634765625,
+      "visible_rgba_sha256": "9e987623a98d7b7855aec52039080dd5db7a566b29724e376708226244e4c9df",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/relaxed.png",
+      "disk_bytes": 4817,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        30,
+        24,
+        87,
+        141
+      ],
+      "visible_pixels": 4226,
+      "transparent_fraction": 0.79365234375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 0.325634765625,
+      "visible_rgba_sha256": "d751b16865367bb00797180c70d0b96d9807a5cd449a6a69bf8e57977dd0ef62",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/nod-down.png",
+      "disk_bytes": 5236,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        30,
+        24,
+        87,
+        141
+      ],
+      "visible_pixels": 4200,
+      "transparent_fraction": 0.794921875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 0.325634765625,
+      "visible_rgba_sha256": "de3070f983c957fae8c207346cd2962fdebf74e0061b71b7fc31515a3451397f",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/turn-toward.png",
+      "disk_bytes": 5280,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        30,
+        23,
+        87,
+        141
+      ],
+      "visible_pixels": 4189,
+      "transparent_fraction": 0.795458984375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 0.32841796875,
+      "visible_rgba_sha256": "5f902665724221b78bb531a84bfe91ed0ce8e53c80922cb966c271088615a542",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/turn-away.png",
+      "disk_bytes": 5207,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        30,
+        23,
+        87,
+        141
+      ],
+      "visible_pixels": 4167,
+      "transparent_fraction": 0.796533203125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 0.32841796875,
+      "visible_rgba_sha256": "12f37bd3e876ba150468bbae605a60186ebe6a26d2d419a9fe6584fa5f8e4885",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/nod-mid.png",
+      "disk_bytes": 4802,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        30,
+        25,
+        87,
+        141
+      ],
+      "visible_pixels": 4207,
+      "transparent_fraction": 0.794580078125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 0.3228515625,
+      "visible_rgba_sha256": "c1f22b947aa91ff76acf8c1e4cbbdf72da54b749323e4ebf11804d59bca1a490",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/give-half.png",
+      "disk_bytes": 4535,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        36,
+        24,
+        89,
+        140
+      ],
+      "visible_pixels": 3912,
+      "transparent_fraction": 0.808984375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 0.3001953125,
+      "visible_rgba_sha256": "ce86c5ecf93f60b467075ab08306f63f365cd73a79ecc5e4f2e40c3eb307e78e",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/give-full.png",
+      "disk_bytes": 4692,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        36,
+        24,
+        104,
+        140
+      ],
+      "visible_pixels": 4047,
+      "transparent_fraction": 0.802392578125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.38515625,
+      "visible_rgba_sha256": "288aa6f3f6e2313bff5919ad4e62aefcbc2288aaf6f1105ddd417987ddc736bd",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/give-release.png",
+      "disk_bytes": 4708,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        36,
+        24,
+        100,
+        140
+      ],
+      "visible_pixels": 4005,
+      "transparent_fraction": 0.804443359375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 0.3625,
+      "visible_rgba_sha256": "cc07327885623feb63fe50aa1932927f94fe524309af5927ef85bb02234b2a2a",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/walk-0.png",
+      "disk_bytes": 5018,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        24,
+        24,
+        100,
+        141
+      ],
+      "visible_pixels": 4254,
+      "transparent_fraction": 0.79228515625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 0.4341796875,
+      "visible_rgba_sha256": "9fee57bedd7ee5782ddd431b7b01e0498af8fab3de38a2c9e992aaeec90ba9c3",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/walk-1.png",
+      "disk_bytes": 5093,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        30,
+        25,
+        97,
+        141
+      ],
+      "visible_pixels": 4325,
+      "transparent_fraction": 0.788818359375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.3794921875,
+      "visible_rgba_sha256": "0ad8c45f323599205eb733ae987a9d2d8a77260ad51ef4aeaa037ebabf9fdbb3",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/walk-2.png",
+      "disk_bytes": 5031,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        36,
+        24,
+        94,
+        141
+      ],
+      "visible_pixels": 4214,
+      "transparent_fraction": 0.79423828125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 0.33134765625,
+      "visible_rgba_sha256": "3cfd0be4a8efb3b984f793fde244ebc3058d8d3a0ec7221a8f1596350893728c",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/walk-3.png",
+      "disk_bytes": 5040,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        30,
+        24,
+        91,
+        141
+      ],
+      "visible_pixels": 4248,
+      "transparent_fraction": 0.792578125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 0.348486328125,
+      "visible_rgba_sha256": "7a54510928e9f6791de3ecaaeed4bac946a77c796f6eb28c14f05590dec2aea4",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/walk-4.png",
+      "disk_bytes": 4920,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        36,
+        25,
+        99,
+        141
+      ],
+      "visible_pixels": 4264,
+      "transparent_fraction": 0.791796875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 0.3568359375,
+      "visible_rgba_sha256": "780f2f4788a971299045bac9f015cdb50c2489c7dc72f51cbdb944bd0294d372",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/walk-5.png",
+      "disk_bytes": 4938,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        31,
+        24,
+        107,
+        141
+      ],
+      "visible_pixels": 4154,
+      "transparent_fraction": 0.79716796875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.4341796875,
+      "visible_rgba_sha256": "03e4038ce5093dfad0d76372f786e57cd651820f4b361bb1353f41d46d4bfb81",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/front-neutral.png",
+      "disk_bytes": 5204,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        36,
+        24,
+        91,
+        141
+      ],
+      "visible_pixels": 4301,
+      "transparent_fraction": 0.789990234375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.314208984375,
+      "visible_rgba_sha256": "091bf53a082d2f182a0e369fe09b5c883e06d83f259e1a4e8975a48006b09f18",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/back-neutral.png",
+      "disk_bytes": 4617,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        37,
+        25,
+        91,
+        141
+      ],
+      "visible_pixels": 4219,
+      "transparent_fraction": 0.793994140625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 66,
+      "trim_rect_area_fraction": 0.305859375,
+      "visible_rgba_sha256": "57ffd97db5635bc8e74cb987460fdc149511778cddc98d19b5740cc06675440c",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/front-blink.png",
+      "disk_bytes": 5138,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        36,
+        24,
+        91,
+        141
+      ],
+      "visible_pixels": 4301,
+      "transparent_fraction": 0.789990234375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 0.314208984375,
+      "visible_rgba_sha256": "9f8e4ea12f1493049ec248bd35d49943e3c047c7fefefdd4a2fee94e955ac396",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/hammering-0.png",
+      "disk_bytes": 5259,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        33,
+        21,
+        116,
+        141
+      ],
+      "visible_pixels": 4670,
+      "transparent_fraction": 0.77197265625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 84,
+      "trim_rect_area_fraction": 0.486328125,
+      "visible_rgba_sha256": "6457d619e83a8374c39ae70da4ad8724b9eb525c2e87c8711ebf84fc41ae77af",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/hammering-1.png",
+      "disk_bytes": 5832,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        15,
+        13,
+        113,
+        141
+      ],
+      "visible_pixels": 5092,
+      "transparent_fraction": 0.7513671875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 85,
+      "trim_rect_area_fraction": 0.6125,
+      "visible_rgba_sha256": "5249c2eccc92fbbeae26798d163d7541f24307b4b9fda9a8681b105fd86d1a74",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/hammering-2.png",
+      "disk_bytes": 5032,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        40,
+        28,
+        120,
+        141
+      ],
+      "visible_pixels": 4532,
+      "transparent_fraction": 0.7787109375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 84,
+      "trim_rect_area_fraction": 0.44140625,
+      "visible_rgba_sha256": "a55fe1acf3ebc066f51ca389e5f5230330c0d4d0a556567d1aedaca14f09384b",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/hammering-3.png",
+      "disk_bytes": 4656,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        40,
+        39,
+        121,
+        141
+      ],
+      "visible_pixels": 4096,
+      "transparent_fraction": 0.8,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 85,
+      "trim_rect_area_fraction": 0.40341796875,
+      "visible_rgba_sha256": "30968050568cd18e38a65e2702a98e76dab2a26c5f5ea47ccd46f5057ecfb4bc",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/hammering-4.png",
+      "disk_bytes": 5008,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        40,
+        25,
+        117,
+        141
+      ],
+      "visible_pixels": 4449,
+      "transparent_fraction": 0.782763671875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 84,
+      "trim_rect_area_fraction": 0.4361328125,
+      "visible_rgba_sha256": "20f8ff4c7d9c65cc0a2627ef7878eca8d229dcec1d7a26b3b9b2e982692c594e",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/hammering-5.png",
+      "disk_bytes": 5259,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        33,
+        21,
+        116,
+        141
+      ],
+      "visible_pixels": 4670,
+      "transparent_fraction": 0.77197265625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 84,
+      "trim_rect_area_fraction": 0.486328125,
+      "visible_rgba_sha256": "6457d619e83a8374c39ae70da4ad8724b9eb525c2e87c8711ebf84fc41ae77af",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/quenching-0.png",
+      "disk_bytes": 4898,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        37,
+        22,
+        107,
+        141
+      ],
+      "visible_pixels": 4290,
+      "transparent_fraction": 0.79052734375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 83,
+      "trim_rect_area_fraction": 0.40673828125,
+      "visible_rgba_sha256": "4bce39fb80dc0e4442e06c8d684a2b79e76e6420268fd39292a1f856e088620f",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/quenching-1.png",
+      "disk_bytes": 4889,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        41,
+        28,
+        111,
+        141
+      ],
+      "visible_pixels": 4232,
+      "transparent_fraction": 0.793359375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 82,
+      "trim_rect_area_fraction": 0.38623046875,
+      "visible_rgba_sha256": "a1776128684d1fc5ed169c5bba60877d0e590ed4013c98391f77ae129ec35c56",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/quenching-2.png",
+      "disk_bytes": 4743,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        40,
+        32,
+        105,
+        141
+      ],
+      "visible_pixels": 4079,
+      "transparent_fraction": 0.800830078125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 80,
+      "trim_rect_area_fraction": 0.345947265625,
+      "visible_rgba_sha256": "b752aa8446ba3b7456db88690a3d2c1a76ffe1c61504126f3f43f1e69428aa7c",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/quenching-3.png",
+      "disk_bytes": 4743,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        40,
+        32,
+        105,
+        141
+      ],
+      "visible_pixels": 4079,
+      "transparent_fraction": 0.800830078125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 80,
+      "trim_rect_area_fraction": 0.345947265625,
+      "visible_rgba_sha256": "b752aa8446ba3b7456db88690a3d2c1a76ffe1c61504126f3f43f1e69428aa7c",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/quenching-4.png",
+      "disk_bytes": 4923,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        37,
+        23,
+        102,
+        141
+      ],
+      "visible_pixels": 4251,
+      "transparent_fraction": 0.792431640625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 83,
+      "trim_rect_area_fraction": 0.37451171875,
+      "visible_rgba_sha256": "f548b02bb32aeea961111aa5798db2d51ffb09719682daf0593951c43a35b6e2",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/quenching-5.png",
+      "disk_bytes": 4898,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        37,
+        22,
+        107,
+        141
+      ],
+      "visible_pixels": 4290,
+      "transparent_fraction": 0.79052734375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 83,
+      "trim_rect_area_fraction": 0.40673828125,
+      "visible_rgba_sha256": "4bce39fb80dc0e4442e06c8d684a2b79e76e6420268fd39292a1f856e088620f",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/forging-0.png",
+      "disk_bytes": 4856,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        38,
+        24,
+        108,
+        141
+      ],
+      "visible_pixels": 4280,
+      "transparent_fraction": 0.791015625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 82,
+      "trim_rect_area_fraction": 0.39990234375,
+      "visible_rgba_sha256": "e658eb36ea49d477712185ed7e2424a825f1cb050d1e9d0c2632bd535666bdc6",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/forging-1.png",
+      "disk_bytes": 4600,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        40,
+        31,
+        126,
+        141
+      ],
+      "visible_pixels": 4168,
+      "transparent_fraction": 0.796484375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 83,
+      "trim_rect_area_fraction": 0.4619140625,
+      "visible_rgba_sha256": "80387c0cdbf411965a64421f8c5138ecce6771170cf1b2fa1447d56f0ad62db3",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/forging-2.png",
+      "disk_bytes": 4554,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        40,
+        36,
+        125,
+        141
+      ],
+      "visible_pixels": 4075,
+      "transparent_fraction": 0.801025390625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 82,
+      "trim_rect_area_fraction": 0.435791015625,
+      "visible_rgba_sha256": "8540f4810f5ecf4b728394d70ddbb0b56c20945776852fa94d2de5fd37c36d90",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/forging-3.png",
+      "disk_bytes": 4554,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        40,
+        36,
+        125,
+        141
+      ],
+      "visible_pixels": 4075,
+      "transparent_fraction": 0.801025390625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 82,
+      "trim_rect_area_fraction": 0.435791015625,
+      "visible_rgba_sha256": "8540f4810f5ecf4b728394d70ddbb0b56c20945776852fa94d2de5fd37c36d90",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/forging-4.png",
+      "disk_bytes": 4761,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        37,
+        23,
+        101,
+        141
+      ],
+      "visible_pixels": 4222,
+      "transparent_fraction": 0.79384765625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 81,
+      "trim_rect_area_fraction": 0.36875,
+      "visible_rgba_sha256": "b9eba24cd470f6d2c5a85730353a2ea6b2c37be8a6cac44f1b07d38e5e5f5165",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/forging-5.png",
+      "disk_bytes": 4856,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        38,
+        24,
+        108,
+        141
+      ],
+      "visible_pixels": 4280,
+      "transparent_fraction": 0.791015625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 82,
+      "trim_rect_area_fraction": 0.39990234375,
+      "visible_rgba_sha256": "e658eb36ea49d477712185ed7e2424a825f1cb050d1e9d0c2632bd535666bdc6",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/researching-0.png",
+      "disk_bytes": 5098,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        36,
+        23,
+        93,
+        141
+      ],
+      "visible_pixels": 4681,
+      "transparent_fraction": 0.771435546875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 74,
+      "trim_rect_area_fraction": 0.32841796875,
+      "visible_rgba_sha256": "0ef672cd122deb11b60e6c5a29a519fcc28168828aedc402c4f1eb9fa2cf0a5a",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/researching-1.png",
+      "disk_bytes": 5156,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        24,
+        93,
+        141
+      ],
+      "visible_pixels": 4696,
+      "transparent_fraction": 0.770703125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 0.33134765625,
+      "visible_rgba_sha256": "1c988caee0e09d7fbec2d1ef68423aeb52b7df6bfb26c68858c6097924ee6c99",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/researching-2.png",
+      "disk_bytes": 5071,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        26,
+        94,
+        141
+      ],
+      "visible_pixels": 4684,
+      "transparent_fraction": 0.7712890625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.331298828125,
+      "visible_rgba_sha256": "6710d27d39beda98bda1ae77b3edb1f274b1d8f88921dcdf3947c623b37c6160",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/researching-3.png",
+      "disk_bytes": 5156,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        24,
+        93,
+        141
+      ],
+      "visible_pixels": 4696,
+      "transparent_fraction": 0.770703125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 0.33134765625,
+      "visible_rgba_sha256": "1c988caee0e09d7fbec2d1ef68423aeb52b7df6bfb26c68858c6097924ee6c99",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/researching-4.png",
+      "disk_bytes": 4908,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        37,
+        25,
+        93,
+        141
+      ],
+      "visible_pixels": 4561,
+      "transparent_fraction": 0.777294921875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 80,
+      "trim_rect_area_fraction": 0.3171875,
+      "visible_rgba_sha256": "e0ecc93c22aeaa18de772448f8fc58136865b43b29499a9799f6f7afbf77cf7d",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/researching-5.png",
+      "disk_bytes": 5098,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        36,
+        23,
+        93,
+        141
+      ],
+      "visible_pixels": 4681,
+      "transparent_fraction": 0.771435546875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 74,
+      "trim_rect_area_fraction": 0.32841796875,
+      "visible_rgba_sha256": "0ef672cd122deb11b60e6c5a29a519fcc28168828aedc402c4f1eb9fa2cf0a5a",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/salvaging-0.png",
+      "disk_bytes": 4762,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        36,
+        26,
+        92,
+        141
+      ],
+      "visible_pixels": 4572,
+      "transparent_fraction": 0.7767578125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 68,
+      "trim_rect_area_fraction": 0.314453125,
+      "visible_rgba_sha256": "030710452cf759f42e50bde0b1dc1b82acd1f62e7db0757a3bbc8f6e327ce670",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/salvaging-1.png",
+      "disk_bytes": 4687,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        30,
+        93,
+        141
+      ],
+      "visible_pixels": 4506,
+      "transparent_fraction": 0.77998046875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 71,
+      "trim_rect_area_fraction": 0.31435546875,
+      "visible_rgba_sha256": "1fe98f0b80bdf79e65d279f3fcbcd2c3204672fded461098a85e7d76e5c4d6f5",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/salvaging-2.png",
+      "disk_bytes": 4682,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        32,
+        93,
+        141
+      ],
+      "visible_pixels": 4522,
+      "transparent_fraction": 0.77919921875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 68,
+      "trim_rect_area_fraction": 0.30869140625,
+      "visible_rgba_sha256": "ac9c12d64eafc6ef2722bd3ce8d035c0d191590136234fd8d6a0b7adc58faab5",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/salvaging-3.png",
+      "disk_bytes": 4687,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        30,
+        93,
+        141
+      ],
+      "visible_pixels": 4506,
+      "transparent_fraction": 0.77998046875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 71,
+      "trim_rect_area_fraction": 0.31435546875,
+      "visible_rgba_sha256": "1fe98f0b80bdf79e65d279f3fcbcd2c3204672fded461098a85e7d76e5c4d6f5",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/salvaging-4.png",
+      "disk_bytes": 4805,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        36,
+        27,
+        101,
+        141
+      ],
+      "visible_pixels": 4613,
+      "transparent_fraction": 0.774755859375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 67,
+      "trim_rect_area_fraction": 0.36181640625,
+      "visible_rgba_sha256": "b29d806f4ba3befde96efe5c53fecaed2a3f6437431c4d7ff07d84e5e3bdc190",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/salvaging-5.png",
+      "disk_bytes": 4762,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        36,
+        26,
+        92,
+        141
+      ],
+      "visible_pixels": 4572,
+      "transparent_fraction": 0.7767578125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 68,
+      "trim_rect_area_fraction": 0.314453125,
+      "visible_rgba_sha256": "030710452cf759f42e50bde0b1dc1b82acd1f62e7db0757a3bbc8f6e327ce670",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/neutral.png",
+      "disk_bytes": 4149,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        30,
+        24,
+        86,
+        141
+      ],
+      "visible_pixels": 4085,
+      "transparent_fraction": 0.800537109375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 0.319921875,
+      "visible_rgba_sha256": "90afcad9c2a4ba961a17f9406ae68f413759522c822948d2e9bbe64aa3c3d075",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/talk-small.png",
+      "disk_bytes": 4156,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        30,
+        24,
+        86,
+        141
+      ],
+      "visible_pixels": 4085,
+      "transparent_fraction": 0.800537109375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 0.319921875,
+      "visible_rgba_sha256": "2da6d4fe924b4d9e68746f402cca66298589593ec61ee52c93dbbb088c02e00a",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/talk-wide.png",
+      "disk_bytes": 4191,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        30,
+        24,
+        86,
+        141
+      ],
+      "visible_pixels": 4085,
+      "transparent_fraction": 0.800537109375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 0.319921875,
+      "visible_rgba_sha256": "e86f4fc89bbb8f31d87c29577ddecb603bde7639c8ccd2cdeaf884313dee0312",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/talk-round.png",
+      "disk_bytes": 4163,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        30,
+        24,
+        86,
+        141
+      ],
+      "visible_pixels": 4085,
+      "transparent_fraction": 0.800537109375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.319921875,
+      "visible_rgba_sha256": "ad2c0a7bcb92e945c767ef7135c7c6e15d538488949be0b27f95d7296dd3011b",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/blink.png",
+      "disk_bytes": 4118,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        30,
+        24,
+        86,
+        141
+      ],
+      "visible_pixels": 4085,
+      "transparent_fraction": 0.800537109375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 0.319921875,
+      "visible_rgba_sha256": "72e4b254794b932e8e176eaebe1df5b9d87b3386e62c59ec99a35197c44bbf0b",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/happy.png",
+      "disk_bytes": 4148,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        30,
+        24,
+        86,
+        141
+      ],
+      "visible_pixels": 4085,
+      "transparent_fraction": 0.800537109375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 0.319921875,
+      "visible_rgba_sha256": "0dde568cfaaba5d0449d8867d27b7173744b3459d9136d3fc3a010ffe0768aab",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/surprised.png",
+      "disk_bytes": 4200,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        30,
+        24,
+        86,
+        141
+      ],
+      "visible_pixels": 4085,
+      "transparent_fraction": 0.800537109375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.319921875,
+      "visible_rgba_sha256": "816e6b4243fc523c253be1cf16017543bc62eb98478382109cbedbcbfca23756",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/relaxed.png",
+      "disk_bytes": 4144,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        30,
+        24,
+        86,
+        141
+      ],
+      "visible_pixels": 4085,
+      "transparent_fraction": 0.800537109375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 0.319921875,
+      "visible_rgba_sha256": "6fe8677495e21a6c0d35d19953fc8521e6d08f65a0df8534afeabcfecec7eee7",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/nod-down.png",
+      "disk_bytes": 4589,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        30,
+        24,
+        86,
+        141
+      ],
+      "visible_pixels": 4039,
+      "transparent_fraction": 0.802783203125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 0.319921875,
+      "visible_rgba_sha256": "e0613de02e62a622672ee51d4c3d3d20af1604fe9b699de8854fc91113ffa20d",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/turn-toward.png",
+      "disk_bytes": 4669,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        30,
+        23,
+        86,
+        141
+      ],
+      "visible_pixels": 4048,
+      "transparent_fraction": 0.80234375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 0.32265625,
+      "visible_rgba_sha256": "0c17af662030c206788bdae38d135a28425cffcb498299732f7494c9ba3ec649",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/turn-away.png",
+      "disk_bytes": 4573,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        30,
+        23,
+        86,
+        141
+      ],
+      "visible_pixels": 4024,
+      "transparent_fraction": 0.803515625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 0.32265625,
+      "visible_rgba_sha256": "4fa425e7ea7a35c9be0eabb669cf3b6c265f6443819c278e2a0b6b3c20a4e2fd",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/nod-mid.png",
+      "disk_bytes": 4129,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        30,
+        25,
+        86,
+        141
+      ],
+      "visible_pixels": 4066,
+      "transparent_fraction": 0.80146484375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 0.3171875,
+      "visible_rgba_sha256": "cb873441df41499617bd6fcc0924963f18cd262b0802ca294aed96ea09512057",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/give-half.png",
+      "disk_bytes": 4049,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        38,
+        24,
+        89,
+        140
+      ],
+      "visible_pixels": 3785,
+      "transparent_fraction": 0.815185546875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 0.2888671875,
+      "visible_rgba_sha256": "c7f946e8a5cc57098c1ffd151e86554ddd6470c82de5bd7e67af92bf3dfc5138",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/give-full.png",
+      "disk_bytes": 4033,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        38,
+        24,
+        104,
+        140
+      ],
+      "visible_pixels": 3859,
+      "transparent_fraction": 0.811572265625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 0.373828125,
+      "visible_rgba_sha256": "4be37e2dededffd5b57375a6713a6b70140105b6d9320c33ceb594cd359ff762",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/give-release.png",
+      "disk_bytes": 4147,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        38,
+        24,
+        100,
+        140
+      ],
+      "visible_pixels": 3870,
+      "transparent_fraction": 0.81103515625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 74,
+      "trim_rect_area_fraction": 0.351171875,
+      "visible_rgba_sha256": "6a8386f8e0bc163513aec79d533b19373ef94a5aed7b7cee82095562f08ba4e0",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/walk-0.png",
+      "disk_bytes": 4437,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        24,
+        24,
+        100,
+        141
+      ],
+      "visible_pixels": 4011,
+      "transparent_fraction": 0.804150390625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 0.4341796875,
+      "visible_rgba_sha256": "e9e7168387b2e4e09effb94ddc37e8ce501fa58e4100c4c2acd664e03618c975",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/walk-1.png",
+      "disk_bytes": 4407,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        30,
+        25,
+        97,
+        141
+      ],
+      "visible_pixels": 3999,
+      "transparent_fraction": 0.804736328125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 0.3794921875,
+      "visible_rgba_sha256": "3733dc78c33dcb27bc228aabd27ed44a09d3bb5d295d99150f016d920c9ff8e7",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/walk-2.png",
+      "disk_bytes": 4368,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        38,
+        24,
+        94,
+        141
+      ],
+      "visible_pixels": 3821,
+      "transparent_fraction": 0.813427734375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 0.319921875,
+      "visible_rgba_sha256": "77f2dd41405441ed1bf0adb597e354e8d6c7fb6c9f0e580103ef1657f43a0075",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/walk-3.png",
+      "disk_bytes": 4354,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        30,
+        24,
+        91,
+        141
+      ],
+      "visible_pixels": 3872,
+      "transparent_fraction": 0.8109375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 0.348486328125,
+      "visible_rgba_sha256": "d31b1d8c84b4fb60416c1053fcaf0ff0eaac728a9c5ee1fc8e7088d418764f48",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/walk-4.png",
+      "disk_bytes": 4202,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        38,
+        25,
+        99,
+        141
+      ],
+      "visible_pixels": 3805,
+      "transparent_fraction": 0.814208984375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.3455078125,
+      "visible_rgba_sha256": "0c3f5a9cc270c1659ac0b6f0af95a957ffddaead8d966211e6923982409b7173",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/walk-5.png",
+      "disk_bytes": 4329,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        31,
+        24,
+        107,
+        141
+      ],
+      "visible_pixels": 3860,
+      "transparent_fraction": 0.8115234375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 72,
+      "trim_rect_area_fraction": 0.4341796875,
+      "visible_rgba_sha256": "987a0e817eae72d44b3b48292989a4d9e001ed39d74764a7a3ea39293df40e30",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/front-neutral.png",
+      "disk_bytes": 4727,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        36,
+        24,
+        91,
+        141
+      ],
+      "visible_pixels": 4149,
+      "transparent_fraction": 0.797412109375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 0.314208984375,
+      "visible_rgba_sha256": "bf990ade04adaf926a26a6b6aac9d2e68f76ddd64a57ff6c6f65f0c0106e990c",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/back-neutral.png",
+      "disk_bytes": 4118,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        37,
+        25,
+        91,
+        141
+      ],
+      "visible_pixels": 4136,
+      "transparent_fraction": 0.798046875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 64,
+      "trim_rect_area_fraction": 0.305859375,
+      "visible_rgba_sha256": "c802c27d38deda19940937abbd9c2d57d341333fddbe64a2da46b8d5313265e9",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/front-blink.png",
+      "disk_bytes": 4667,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        36,
+        24,
+        91,
+        141
+      ],
+      "visible_pixels": 4149,
+      "transparent_fraction": 0.797412109375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 0.314208984375,
+      "visible_rgba_sha256": "04b29186623df0d06d00276fe495fc58a4dc0bb41f6f4f1eb61cfbe196039556",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/hammering-0.png",
+      "disk_bytes": 4456,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        32,
+        20,
+        94,
+        141
+      ],
+      "visible_pixels": 4321,
+      "transparent_fraction": 0.789013671875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 0.36630859375,
+      "visible_rgba_sha256": "56625a30442a4976adaffc1ad840338a3cb44ff3e7934a9a24bcd01a3a6a4a43",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/hammering-1.png",
+      "disk_bytes": 4842,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        23,
+        17,
+        94,
+        141
+      ],
+      "visible_pixels": 4610,
+      "transparent_fraction": 0.77490234375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.4298828125,
+      "visible_rgba_sha256": "6416f81b77ae3e2696e477b4b88d8d04e1bc73e5e3c1e6d68330fe76f84202be",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/hammering-2.png",
+      "disk_bytes": 4200,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        40,
+        27,
+        103,
+        141
+      ],
+      "visible_pixels": 3986,
+      "transparent_fraction": 0.80537109375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 0.35068359375,
+      "visible_rgba_sha256": "fe2215762cf093a6004e9ea42c8812d8cfdddcd2a1579d67f1c1c9a6cc84df71",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/hammering-3.png",
+      "disk_bytes": 3958,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        40,
+        38,
+        105,
+        141
+      ],
+      "visible_pixels": 3815,
+      "transparent_fraction": 0.813720703125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.326904296875,
+      "visible_rgba_sha256": "908b22d3ce57d6dc9e77e22a698b407cd802dc73ff5189000192a24c5ba67684",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/hammering-4.png",
+      "disk_bytes": 4275,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        39,
+        26,
+        98,
+        141
+      ],
+      "visible_pixels": 4122,
+      "transparent_fraction": 0.79873046875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.331298828125,
+      "visible_rgba_sha256": "bd05414b8efb2cced46ee2e890bc8a9c8c2c39c8952818a522de796ec8d19dc4",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/hammering-5.png",
+      "disk_bytes": 4456,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        32,
+        20,
+        94,
+        141
+      ],
+      "visible_pixels": 4321,
+      "transparent_fraction": 0.789013671875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 0.36630859375,
+      "visible_rgba_sha256": "56625a30442a4976adaffc1ad840338a3cb44ff3e7934a9a24bcd01a3a6a4a43",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/quenching-0.png",
+      "disk_bytes": 4510,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        37,
+        18,
+        90,
+        141
+      ],
+      "visible_pixels": 4225,
+      "transparent_fraction": 0.793701171875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.318310546875,
+      "visible_rgba_sha256": "6764686a92f9b48f8929cd3148c010cbd65d044f27384571a8c88d75339725b6",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/quenching-1.png",
+      "disk_bytes": 4466,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        40,
+        24,
+        97,
+        141
+      ],
+      "visible_pixels": 4212,
+      "transparent_fraction": 0.7943359375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 0.325634765625,
+      "visible_rgba_sha256": "f0fc43f10636bb8c0000b595429ed421a265d9a33f6919def18aca63df4bed1b",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/quenching-2.png",
+      "disk_bytes": 4335,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        40,
+        30,
+        95,
+        141
+      ],
+      "visible_pixels": 4070,
+      "transparent_fraction": 0.80126953125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.298095703125,
+      "visible_rgba_sha256": "29dfc9277331975482251e28968b5549559763c586004618b61d7f7d69a89dcc",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/quenching-3.png",
+      "disk_bytes": 4335,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        40,
+        30,
+        95,
+        141
+      ],
+      "visible_pixels": 4070,
+      "transparent_fraction": 0.80126953125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.298095703125,
+      "visible_rgba_sha256": "29dfc9277331975482251e28968b5549559763c586004618b61d7f7d69a89dcc",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/quenching-4.png",
+      "disk_bytes": 4337,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        36,
+        22,
+        88,
+        141
+      ],
+      "visible_pixels": 4141,
+      "transparent_fraction": 0.797802734375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 0.3021484375,
+      "visible_rgba_sha256": "53adeb35df7ef627f88681d9a2500c47dc79ce76afd135408ec8f288f95ebc82",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/quenching-5.png",
+      "disk_bytes": 4510,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        37,
+        18,
+        90,
+        141
+      ],
+      "visible_pixels": 4225,
+      "transparent_fraction": 0.793701171875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.318310546875,
+      "visible_rgba_sha256": "6764686a92f9b48f8929cd3148c010cbd65d044f27384571a8c88d75339725b6",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/forging-0.png",
+      "disk_bytes": 4261,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        37,
+        24,
+        90,
+        141
+      ],
+      "visible_pixels": 4084,
+      "transparent_fraction": 0.8005859375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.302783203125,
+      "visible_rgba_sha256": "1936dd659c430d0e6f966e4bf0a8d0f7bfa3785a43b5bbb72b05b684607e576d",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/forging-1.png",
+      "disk_bytes": 4201,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        39,
+        26,
+        107,
+        141
+      ],
+      "visible_pixels": 4135,
+      "transparent_fraction": 0.798095703125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.3818359375,
+      "visible_rgba_sha256": "eed3fb364999ecea4c8178bea0e27875b24491f06ce4ad9a5139b3d50be185ed",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/forging-2.png",
+      "disk_bytes": 4191,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        39,
+        33,
+        113,
+        141
+      ],
+      "visible_pixels": 4066,
+      "transparent_fraction": 0.80146484375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.390234375,
+      "visible_rgba_sha256": "81959558234942e1a3a874718c838a88b76b3e1facb9f2d4a92498b0f9ed1c6f",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/forging-3.png",
+      "disk_bytes": 4191,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        39,
+        33,
+        113,
+        141
+      ],
+      "visible_pixels": 4066,
+      "transparent_fraction": 0.80146484375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.390234375,
+      "visible_rgba_sha256": "81959558234942e1a3a874718c838a88b76b3e1facb9f2d4a92498b0f9ed1c6f",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/forging-4.png",
+      "disk_bytes": 4267,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        36,
+        23,
+        88,
+        141
+      ],
+      "visible_pixels": 4144,
+      "transparent_fraction": 0.79765625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 74,
+      "trim_rect_area_fraction": 0.299609375,
+      "visible_rgba_sha256": "2b77b52fa6ca2d473eed11c8df578dc26381dd421afb79471e03914bebdc4dd4",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/forging-5.png",
+      "disk_bytes": 4261,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        37,
+        24,
+        90,
+        141
+      ],
+      "visible_pixels": 4084,
+      "transparent_fraction": 0.8005859375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.302783203125,
+      "visible_rgba_sha256": "1936dd659c430d0e6f966e4bf0a8d0f7bfa3785a43b5bbb72b05b684607e576d",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/researching-0.png",
+      "disk_bytes": 4295,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        23,
+        93,
+        141
+      ],
+      "visible_pixels": 4518,
+      "transparent_fraction": 0.77939453125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 74,
+      "trim_rect_area_fraction": 0.3341796875,
+      "visible_rgba_sha256": "627a33bd3520f9a768bc8f4100beedf5c253b63abcb4425f9d771a3a98de955e",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/researching-1.png",
+      "disk_bytes": 4379,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        34,
+        25,
+        94,
+        141
+      ],
+      "visible_pixels": 4562,
+      "transparent_fraction": 0.77724609375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 0.33984375,
+      "visible_rgba_sha256": "8755a220b4189b1458ef6ac6d2732aeb207592d85f161638d9337f368bf8648c",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/researching-2.png",
+      "disk_bytes": 4378,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        27,
+        94,
+        141
+      ],
+      "visible_pixels": 4497,
+      "transparent_fraction": 0.780419921875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 0.32841796875,
+      "visible_rgba_sha256": "d34c9c9518ec64cb0ed7348b631904ef071ef6a323f09d4597e60f04eefab676",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/researching-3.png",
+      "disk_bytes": 4379,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        34,
+        25,
+        94,
+        141
+      ],
+      "visible_pixels": 4562,
+      "transparent_fraction": 0.77724609375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 0.33984375,
+      "visible_rgba_sha256": "8755a220b4189b1458ef6ac6d2732aeb207592d85f161638d9337f368bf8648c",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/researching-4.png",
+      "disk_bytes": 4253,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        37,
+        26,
+        93,
+        141
+      ],
+      "visible_pixels": 4360,
+      "transparent_fraction": 0.787109375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 0.314453125,
+      "visible_rgba_sha256": "a03a87c1e89324c8173019f38674eb91bbcbce8ca331ccc218fdca36052477e7",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/researching-5.png",
+      "disk_bytes": 4295,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        23,
+        93,
+        141
+      ],
+      "visible_pixels": 4518,
+      "transparent_fraction": 0.77939453125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 74,
+      "trim_rect_area_fraction": 0.3341796875,
+      "visible_rgba_sha256": "627a33bd3520f9a768bc8f4100beedf5c253b63abcb4425f9d771a3a98de955e",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/salvaging-0.png",
+      "disk_bytes": 4092,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        36,
+        27,
+        93,
+        141
+      ],
+      "visible_pixels": 4467,
+      "transparent_fraction": 0.781884765625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 65,
+      "trim_rect_area_fraction": 0.31728515625,
+      "visible_rgba_sha256": "eda2fcdb0ebcee3d8e2c4e659082a8043e8d80d450fc192a794ab2226ea42c64",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/salvaging-1.png",
+      "disk_bytes": 4055,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        28,
+        93,
+        141
+      ],
+      "visible_pixels": 4492,
+      "transparent_fraction": 0.7806640625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 64,
+      "trim_rect_area_fraction": 0.32001953125,
+      "visible_rgba_sha256": "b35f37fcb5f84198a85da5efdab09a7b5f7ae15039e410fb95a6b46563a38ab4",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/salvaging-2.png",
+      "disk_bytes": 4003,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        34,
+        30,
+        93,
+        141
+      ],
+      "visible_pixels": 4473,
+      "transparent_fraction": 0.781591796875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 65,
+      "trim_rect_area_fraction": 0.319775390625,
+      "visible_rgba_sha256": "7133ff2e34f95941bde9085b4dda1211df5fd4031cffa7f379bb5d0d9b343925",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/salvaging-3.png",
+      "disk_bytes": 4055,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        28,
+        93,
+        141
+      ],
+      "visible_pixels": 4492,
+      "transparent_fraction": 0.7806640625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 64,
+      "trim_rect_area_fraction": 0.32001953125,
+      "visible_rgba_sha256": "b35f37fcb5f84198a85da5efdab09a7b5f7ae15039e410fb95a6b46563a38ab4",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/salvaging-4.png",
+      "disk_bytes": 4211,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        26,
+        100,
+        141
+      ],
+      "visible_pixels": 4565,
+      "transparent_fraction": 0.777099609375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 69,
+      "trim_rect_area_fraction": 0.364990234375,
+      "visible_rgba_sha256": "10b0f4305686adab52d1d10e0ec184ad9670272caca17740e335c8d244fcead5",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/salvaging-5.png",
+      "disk_bytes": 4092,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        36,
+        27,
+        93,
+        141
+      ],
+      "visible_pixels": 4467,
+      "transparent_fraction": 0.781884765625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 65,
+      "trim_rect_area_fraction": 0.31728515625,
+      "visible_rgba_sha256": "eda2fcdb0ebcee3d8e2c4e659082a8043e8d80d450fc192a794ab2226ea42c64",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    }
+  ],
+  "sprites": [
+    {
+      "id": "neutral",
+      "page": "player",
+      "rect": [
+        2,
+        2,
+        57,
+        117
+      ],
+      "size": [
+        57,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        57,
+        117
+      ],
+      "visible_pixels": 4226,
+      "transparent_fraction": 0.366321787374419,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "ea35e9236cdede2d1aed4e178460d69cf9b0d8e17fac28d019909b28dbd5a46d",
+      "trimmed_pivot": [
+        34,
+        116
+      ]
+    },
+    {
+      "id": "talk-small",
+      "page": "player",
+      "rect": [
+        63,
+        2,
+        57,
+        117
+      ],
+      "size": [
+        57,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        57,
+        117
+      ],
+      "visible_pixels": 4226,
+      "transparent_fraction": 0.366321787374419,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "cd0eccae506a49bff2d90b66d71afa1a09be667e537e978385b9decc0962667b",
+      "trimmed_pivot": [
+        34,
+        116
+      ]
+    },
+    {
+      "id": "talk-wide",
+      "page": "player",
+      "rect": [
+        124,
+        2,
+        57,
+        117
+      ],
+      "size": [
+        57,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        57,
+        117
+      ],
+      "visible_pixels": 4226,
+      "transparent_fraction": 0.366321787374419,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "8fff063bb3f68835c0f324717420d223b583d635b28bc7083197a66e4ec84f3c",
+      "trimmed_pivot": [
+        34,
+        116
+      ]
+    },
+    {
+      "id": "talk-round",
+      "page": "player",
+      "rect": [
+        185,
+        2,
+        57,
+        117
+      ],
+      "size": [
+        57,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        57,
+        117
+      ],
+      "visible_pixels": 4226,
+      "transparent_fraction": 0.366321787374419,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "2d23c2749136686e04ea04d9bc332f8361c4104537b717f2cb6afe803999b5a3",
+      "trimmed_pivot": [
+        34,
+        116
+      ]
+    },
+    {
+      "id": "blink",
+      "page": "player",
+      "rect": [
+        246,
+        2,
+        57,
+        117
+      ],
+      "size": [
+        57,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        57,
+        117
+      ],
+      "visible_pixels": 4226,
+      "transparent_fraction": 0.366321787374419,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "b7b732b91cbc769b8ac15fa2945d3bd84a3527fe9b7e1996ad6e3aaf27c96f68",
+      "trimmed_pivot": [
+        34,
+        116
+      ]
+    },
+    {
+      "id": "happy",
+      "page": "player",
+      "rect": [
+        307,
+        2,
+        57,
+        117
+      ],
+      "size": [
+        57,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        57,
+        117
+      ],
+      "visible_pixels": 4226,
+      "transparent_fraction": 0.366321787374419,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "0513f67ffb245ad86b1514b97ced67093505d76d8d7851a385965470de58cf56",
+      "trimmed_pivot": [
+        34,
+        116
+      ]
+    },
+    {
+      "id": "surprised",
+      "page": "player",
+      "rect": [
+        368,
+        2,
+        57,
+        117
+      ],
+      "size": [
+        57,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        57,
+        117
+      ],
+      "visible_pixels": 4226,
+      "transparent_fraction": 0.366321787374419,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "344a3f55566d30c96a99a08a2b914e550950f8d52e1ba0518e4ab18793f6871c",
+      "trimmed_pivot": [
+        34,
+        116
+      ]
+    },
+    {
+      "id": "relaxed",
+      "page": "player",
+      "rect": [
+        429,
+        2,
+        57,
+        117
+      ],
+      "size": [
+        57,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        57,
+        117
+      ],
+      "visible_pixels": 4226,
+      "transparent_fraction": 0.366321787374419,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "7308355e02775ef1875b3dfc90abab74460389ea6ae95c0a7804ed431703d261",
+      "trimmed_pivot": [
+        34,
+        116
+      ]
+    },
+    {
+      "id": "nod-down",
+      "page": "player",
+      "rect": [
+        490,
+        2,
+        57,
+        117
+      ],
+      "size": [
+        57,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        57,
+        117
+      ],
+      "visible_pixels": 4200,
+      "transparent_fraction": 0.37022042285200185,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "a722c439134d54e79104ebfc4e629b4fa457d9fa08048f45b54466de28cd1db2",
+      "trimmed_pivot": [
+        34,
+        116
+      ]
+    },
+    {
+      "id": "turn-toward",
+      "page": "player",
+      "rect": [
+        551,
+        2,
+        57,
+        118
+      ],
+      "size": [
+        57,
+        118
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        57,
+        118
+      ],
+      "visible_pixels": 4189,
+      "transparent_fraction": 0.3771929824561403,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "a201e6e13c3f9fc7004aca2918effb0fcce456a009b61c425bd1cc7b8a211fe9",
+      "trimmed_pivot": [
+        34,
+        117
+      ]
+    },
+    {
+      "id": "turn-away",
+      "page": "player",
+      "rect": [
+        612,
+        2,
+        57,
+        118
+      ],
+      "size": [
+        57,
+        118
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        57,
+        118
+      ],
+      "visible_pixels": 4167,
+      "transparent_fraction": 0.3804638715432649,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "4d34fca4d50fd99795edee78bad942c0aa1002bf55452c669b70d8bd6c461aad",
+      "trimmed_pivot": [
+        34,
+        117
+      ]
+    },
+    {
+      "id": "nod-mid",
+      "page": "player",
+      "rect": [
+        673,
+        2,
+        57,
+        116
+      ],
+      "size": [
+        57,
+        116
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        57,
+        116
+      ],
+      "visible_pixels": 4207,
+      "transparent_fraction": 0.36373260738052027,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "3fa4fb97c6cab5a62b09d9e3571b20a853a396e890d60be69684988b6f2a8049",
+      "trimmed_pivot": [
+        34,
+        115
+      ]
+    },
+    {
+      "id": "give-half",
+      "page": "player",
+      "rect": [
+        734,
+        2,
+        53,
+        116
+      ],
+      "size": [
+        53,
+        116
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        53,
+        116
+      ],
+      "visible_pixels": 3912,
+      "transparent_fraction": 0.36369551073519846,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "0bf7846157c72ea469e2d54ae60a7fb689f722973fa6012a0b94963205b24b08",
+      "trimmed_pivot": [
+        28,
+        116
+      ]
+    },
+    {
+      "id": "give-full",
+      "page": "player",
+      "rect": [
+        791,
+        2,
+        68,
+        116
+      ],
+      "size": [
+        68,
+        116
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        68,
+        116
+      ],
+      "visible_pixels": 4047,
+      "transparent_fraction": 0.48694219066937117,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "a521de99aae4c1483c56d30e40d71f82b5637d1cffbe81a122b6a769d99a68a8",
+      "trimmed_pivot": [
+        28,
+        116
+      ]
+    },
+    {
+      "id": "give-release",
+      "page": "player",
+      "rect": [
+        863,
+        2,
+        64,
+        116
+      ],
+      "size": [
+        64,
+        116
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        64,
+        116
+      ],
+      "visible_pixels": 4005,
+      "transparent_fraction": 0.4605334051724138,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "4eac508f6bef75b0842684507e4e202e660b171887545a21d5530b97dce40dba",
+      "trimmed_pivot": [
+        28,
+        116
+      ]
+    },
+    {
+      "id": "walk-0",
+      "page": "player",
+      "rect": [
+        931,
+        2,
+        76,
+        117
+      ],
+      "size": [
+        76,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        76,
+        117
+      ],
+      "visible_pixels": 4254,
+      "transparent_fraction": 0.5215924426450742,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "9a9e03f84852f01ce7ce8be2453d09f25877afedb6f6bf905928acb6244ee231",
+      "trimmed_pivot": [
+        40,
+        116
+      ]
+    },
+    {
+      "id": "walk-1",
+      "page": "player",
+      "rect": [
+        2,
+        124,
+        67,
+        116
+      ],
+      "size": [
+        67,
+        116
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        67,
+        116
+      ],
+      "visible_pixels": 4325,
+      "transparent_fraction": 0.44351518270715384,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "70cba6ce55eb8b355973e5c2ca1e10f39464922d26ba90bde1050309fa3a21e7",
+      "trimmed_pivot": [
+        34,
+        115
+      ]
+    },
+    {
+      "id": "walk-2",
+      "page": "player",
+      "rect": [
+        73,
+        124,
+        58,
+        117
+      ],
+      "size": [
+        58,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        58,
+        117
+      ],
+      "visible_pixels": 4214,
+      "transparent_fraction": 0.37901562039493075,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "6e8848232b5c3bf0ae56e2abaa2352c8912249f8604ca391355583b4ee10f89b",
+      "trimmed_pivot": [
+        28,
+        116
+      ]
+    },
+    {
+      "id": "walk-3",
+      "page": "player",
+      "rect": [
+        135,
+        124,
+        61,
+        117
+      ],
+      "size": [
+        61,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        61,
+        117
+      ],
+      "visible_pixels": 4248,
+      "transparent_fraction": 0.4047919293820933,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "171b105b31c3cf920214cab5537641faf168733d1a87f788ca7cf29514bfe813",
+      "trimmed_pivot": [
+        34,
+        116
+      ]
+    },
+    {
+      "id": "walk-4",
+      "page": "player",
+      "rect": [
+        200,
+        124,
+        63,
+        116
+      ],
+      "size": [
+        63,
+        116
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        63,
+        116
+      ],
+      "visible_pixels": 4264,
+      "transparent_fraction": 0.4165298303229338,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "36ed3caba9cadd922adc715b32229af2e9fbce3e11993199ab36e6e92d5d0c1c",
+      "trimmed_pivot": [
+        28,
+        115
+      ]
+    },
+    {
+      "id": "walk-5",
+      "page": "player",
+      "rect": [
+        267,
+        124,
+        76,
+        117
+      ],
+      "size": [
+        76,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        76,
+        117
+      ],
+      "visible_pixels": 4154,
+      "transparent_fraction": 0.532838506522717,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "f8376861eda926bf9080585d29964e26f97e1440583a5bd5910540eb5faecd46",
+      "trimmed_pivot": [
+        33,
+        116
+      ]
+    },
+    {
+      "id": "front-neutral",
+      "page": "player",
+      "rect": [
+        347,
+        124,
+        55,
+        117
+      ],
+      "size": [
+        55,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        55,
+        117
+      ],
+      "visible_pixels": 4301,
+      "transparent_fraction": 0.33162393162393167,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "b286906ce69dda0a3fe660e9b334bd2901f9df1671b51709d9f86359e73b55a8",
+      "trimmed_pivot": [
+        28,
+        116
+      ]
+    },
+    {
+      "id": "back-neutral",
+      "page": "player",
+      "rect": [
+        406,
+        124,
+        54,
+        116
+      ],
+      "size": [
+        54,
+        116
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        54,
+        116
+      ],
+      "visible_pixels": 4219,
+      "transparent_fraction": 0.3264687100893997,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 66,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "9977364969678ceb07e02d33aaf45907ded5dbfd0632264cb7468713d5c61e69",
+      "trimmed_pivot": [
+        27,
+        115
+      ]
+    },
+    {
+      "id": "front-blink",
+      "page": "player",
+      "rect": [
+        464,
+        124,
+        55,
+        117
+      ],
+      "size": [
+        55,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        55,
+        117
+      ],
+      "visible_pixels": 4301,
+      "transparent_fraction": 0.33162393162393167,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "2f5f487064811722f80a87b58b9f840bb96c05cc2f3c11fb3359990a52efceba",
+      "trimmed_pivot": [
+        28,
+        116
+      ]
+    },
+    {
+      "id": "hammering-0",
+      "page": "player",
+      "rect": [
+        523,
+        124,
+        83,
+        120
+      ],
+      "size": [
+        83,
+        120
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        83,
+        120
+      ],
+      "visible_pixels": 4670,
+      "transparent_fraction": 0.5311244979919678,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 84,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "0eebd57686ca933e195a30dccc0270ce4a58ccc383de8bb07c2941adfc03473f",
+      "trimmed_pivot": [
+        31,
+        119
+      ]
+    },
+    {
+      "id": "hammering-1",
+      "page": "player",
+      "rect": [
+        610,
+        124,
+        98,
+        128
+      ],
+      "size": [
+        98,
+        128
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        98,
+        128
+      ],
+      "visible_pixels": 5092,
+      "transparent_fraction": 0.5940688775510203,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 85,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "f70baf506e7adc22055847c01dcca45936bdac68e56c211347a42a5433d55cb1",
+      "trimmed_pivot": [
+        49,
+        127
+      ]
+    },
+    {
+      "id": "hammering-2",
+      "page": "player",
+      "rect": [
+        712,
+        124,
+        80,
+        113
+      ],
+      "size": [
+        80,
+        113
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        80,
+        113
+      ],
+      "visible_pixels": 4532,
+      "transparent_fraction": 0.49867256637168145,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 84,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "1ed777f36a621be8c10f892bf3410394d7eb4a28c54f68eaf28083ebc011738d",
+      "trimmed_pivot": [
+        24,
+        112
+      ]
+    },
+    {
+      "id": "hammering-3",
+      "page": "player",
+      "rect": [
+        796,
+        124,
+        81,
+        102
+      ],
+      "size": [
+        81,
+        102
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        81,
+        102
+      ],
+      "visible_pixels": 4096,
+      "transparent_fraction": 0.5042362624061971,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 85,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "a4784ea7e76ce37d58fc0b0571daaffc4aa0f3ed6166a0c5a7a8c58a0e4c68f4",
+      "trimmed_pivot": [
+        24,
+        101
+      ]
+    },
+    {
+      "id": "hammering-4",
+      "page": "player",
+      "rect": [
+        881,
+        124,
+        77,
+        116
+      ],
+      "size": [
+        77,
+        116
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        77,
+        116
+      ],
+      "visible_pixels": 4449,
+      "transparent_fraction": 0.5019032691446484,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 84,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "96b3a83729fa755d001a7c1e7a692871b0f80300c0eaa37af5611594ca2b99ee",
+      "trimmed_pivot": [
+        24,
+        115
+      ]
+    },
+    {
+      "id": "hammering-5",
+      "page": "player",
+      "rect": [
+        523,
+        124,
+        83,
+        120
+      ],
+      "size": [
+        83,
+        120
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        83,
+        120
+      ],
+      "visible_pixels": 4670,
+      "transparent_fraction": 0.5311244979919678,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 84,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "0eebd57686ca933e195a30dccc0270ce4a58ccc383de8bb07c2941adfc03473f",
+      "trimmed_pivot": [
+        31,
+        119
+      ]
+    },
+    {
+      "id": "quenching-0",
+      "page": "player",
+      "rect": [
+        2,
+        256,
+        70,
+        119
+      ],
+      "size": [
+        70,
+        119
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        70,
+        119
+      ],
+      "visible_pixels": 4290,
+      "transparent_fraction": 0.4849939975990396,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 83,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "4d5260e32b983655e7c27a367ac57b83cd19768f8a3a1cb2690f5f77880dfec8",
+      "trimmed_pivot": [
+        27,
+        118
+      ]
+    },
+    {
+      "id": "quenching-1",
+      "page": "player",
+      "rect": [
+        76,
+        256,
+        70,
+        113
+      ],
+      "size": [
+        70,
+        113
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        70,
+        113
+      ],
+      "visible_pixels": 4232,
+      "transparent_fraction": 0.4649810366624526,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 82,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "823f156de0810e379e67fea89da01711e07557f92c83c3c0e2a1bc1a932200df",
+      "trimmed_pivot": [
+        23,
+        112
+      ]
+    },
+    {
+      "id": "quenching-2",
+      "page": "player",
+      "rect": [
+        150,
+        256,
+        65,
+        109
+      ],
+      "size": [
+        65,
+        109
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        65,
+        109
+      ],
+      "visible_pixels": 4079,
+      "transparent_fraction": 0.4242766407904023,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 80,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "1a8a325c8f53b12442a21526dbc735c3995aa67cdd24b1b4b44aad1ab2e22baf",
+      "trimmed_pivot": [
+        24,
+        108
+      ]
+    },
+    {
+      "id": "quenching-3",
+      "page": "player",
+      "rect": [
+        150,
+        256,
+        65,
+        109
+      ],
+      "size": [
+        65,
+        109
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        65,
+        109
+      ],
+      "visible_pixels": 4079,
+      "transparent_fraction": 0.4242766407904023,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 80,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "1a8a325c8f53b12442a21526dbc735c3995aa67cdd24b1b4b44aad1ab2e22baf",
+      "trimmed_pivot": [
+        24,
+        108
+      ]
+    },
+    {
+      "id": "quenching-4",
+      "page": "player",
+      "rect": [
+        219,
+        256,
+        65,
+        118
+      ],
+      "size": [
+        65,
+        118
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        65,
+        118
+      ],
+      "visible_pixels": 4251,
+      "transparent_fraction": 0.44576271186440675,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 83,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "24060dbf3540ccfac26b13cb46950c6889a0660abd259a70dc17fb5317a01442",
+      "trimmed_pivot": [
+        27,
+        117
+      ]
+    },
+    {
+      "id": "quenching-5",
+      "page": "player",
+      "rect": [
+        2,
+        256,
+        70,
+        119
+      ],
+      "size": [
+        70,
+        119
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        70,
+        119
+      ],
+      "visible_pixels": 4290,
+      "transparent_fraction": 0.4849939975990396,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 83,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "4d5260e32b983655e7c27a367ac57b83cd19768f8a3a1cb2690f5f77880dfec8",
+      "trimmed_pivot": [
+        27,
+        118
+      ]
+    },
+    {
+      "id": "forging-0",
+      "page": "player",
+      "rect": [
+        288,
+        256,
+        70,
+        117
+      ],
+      "size": [
+        70,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        70,
+        117
+      ],
+      "visible_pixels": 4280,
+      "transparent_fraction": 0.4774114774114774,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 82,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "a60507abd42775ee0b7e57194cdfd3c201647a5055c634574afbbab0c0013f4e",
+      "trimmed_pivot": [
+        26,
+        116
+      ]
+    },
+    {
+      "id": "forging-1",
+      "page": "player",
+      "rect": [
+        362,
+        256,
+        86,
+        110
+      ],
+      "size": [
+        86,
+        110
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        86,
+        110
+      ],
+      "visible_pixels": 4168,
+      "transparent_fraction": 0.5594080338266385,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 83,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "21d5b946cd593d701336d23039af2544212e528e7148d64e2fa0800d99d4639b",
+      "trimmed_pivot": [
+        24,
+        109
+      ]
+    },
+    {
+      "id": "forging-2",
+      "page": "player",
+      "rect": [
+        452,
+        256,
+        85,
+        105
+      ],
+      "size": [
+        85,
+        105
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        85,
+        105
+      ],
+      "visible_pixels": 4075,
+      "transparent_fraction": 0.5434173669467788,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 82,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "9de41cfe565b419e8a4778c7d5a921651af628a14761b9597e33256e587c959a",
+      "trimmed_pivot": [
+        24,
+        104
+      ]
+    },
+    {
+      "id": "forging-3",
+      "page": "player",
+      "rect": [
+        452,
+        256,
+        85,
+        105
+      ],
+      "size": [
+        85,
+        105
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        85,
+        105
+      ],
+      "visible_pixels": 4075,
+      "transparent_fraction": 0.5434173669467788,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 82,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "9de41cfe565b419e8a4778c7d5a921651af628a14761b9597e33256e587c959a",
+      "trimmed_pivot": [
+        24,
+        104
+      ]
+    },
+    {
+      "id": "forging-4",
+      "page": "player",
+      "rect": [
+        541,
+        256,
+        64,
+        118
+      ],
+      "size": [
+        64,
+        118
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        64,
+        118
+      ],
+      "visible_pixels": 4222,
+      "transparent_fraction": 0.44094279661016944,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 81,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "4287e0bb8e4b630c709b4f3adbcab622f069db7bb39f8cc95a05c32d042fa511",
+      "trimmed_pivot": [
+        27,
+        117
+      ]
+    },
+    {
+      "id": "forging-5",
+      "page": "player",
+      "rect": [
+        288,
+        256,
+        70,
+        117
+      ],
+      "size": [
+        70,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        70,
+        117
+      ],
+      "visible_pixels": 4280,
+      "transparent_fraction": 0.4774114774114774,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 82,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "a60507abd42775ee0b7e57194cdfd3c201647a5055c634574afbbab0c0013f4e",
+      "trimmed_pivot": [
+        26,
+        116
+      ]
+    },
+    {
+      "id": "researching-0",
+      "page": "player",
+      "rect": [
+        609,
+        256,
+        57,
+        118
+      ],
+      "size": [
+        57,
+        118
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        57,
+        118
+      ],
+      "visible_pixels": 4681,
+      "transparent_fraction": 0.3040440083258995,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 74,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "5f61efbc156d67e5ff0bfc6a2a639337ecff0041350ac4a9240b7a375c9d4eb4",
+      "trimmed_pivot": [
+        28,
+        117
+      ]
+    },
+    {
+      "id": "researching-1",
+      "page": "player",
+      "rect": [
+        670,
+        256,
+        58,
+        117
+      ],
+      "size": [
+        58,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        58,
+        117
+      ],
+      "visible_pixels": 4696,
+      "transparent_fraction": 0.30798703212496314,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "36ca74f010f8251b6fce1fca02f7c29afcab27dc81d7911eda479ef368d89cac",
+      "trimmed_pivot": [
+        29,
+        116
+      ]
+    },
+    {
+      "id": "researching-2",
+      "page": "player",
+      "rect": [
+        732,
+        256,
+        59,
+        115
+      ],
+      "size": [
+        59,
+        115
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        59,
+        115
+      ],
+      "visible_pixels": 4684,
+      "transparent_fraction": 0.309653647752395,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "e2ed366919f7785c19f2f67f0b2f3bb1df8999d8e8ad25545612e9d6e0e4e172",
+      "trimmed_pivot": [
+        29,
+        114
+      ]
+    },
+    {
+      "id": "researching-3",
+      "page": "player",
+      "rect": [
+        670,
+        256,
+        58,
+        117
+      ],
+      "size": [
+        58,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        58,
+        117
+      ],
+      "visible_pixels": 4696,
+      "transparent_fraction": 0.30798703212496314,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "36ca74f010f8251b6fce1fca02f7c29afcab27dc81d7911eda479ef368d89cac",
+      "trimmed_pivot": [
+        29,
+        116
+      ]
+    },
+    {
+      "id": "researching-4",
+      "page": "player",
+      "rect": [
+        795,
+        256,
+        56,
+        116
+      ],
+      "size": [
+        56,
+        116
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        56,
+        116
+      ],
+      "visible_pixels": 4561,
+      "transparent_fraction": 0.2978756157635468,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 80,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "64d5105cb218199dbe798403db1d86a85aa16abe2376dc78524148d036931ad3",
+      "trimmed_pivot": [
+        27,
+        115
+      ]
+    },
+    {
+      "id": "researching-5",
+      "page": "player",
+      "rect": [
+        609,
+        256,
+        57,
+        118
+      ],
+      "size": [
+        57,
+        118
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        57,
+        118
+      ],
+      "visible_pixels": 4681,
+      "transparent_fraction": 0.3040440083258995,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 74,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "5f61efbc156d67e5ff0bfc6a2a639337ecff0041350ac4a9240b7a375c9d4eb4",
+      "trimmed_pivot": [
+        28,
+        117
+      ]
+    },
+    {
+      "id": "salvaging-0",
+      "page": "player",
+      "rect": [
+        855,
+        256,
+        56,
+        115
+      ],
+      "size": [
+        56,
+        115
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        56,
+        115
+      ],
+      "visible_pixels": 4572,
+      "transparent_fraction": 0.2900621118012422,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 68,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "4c20c151f5eab48fea15716390e2f2362cc21165125d750618bb369e60496068",
+      "trimmed_pivot": [
+        28,
+        114
+      ]
+    },
+    {
+      "id": "salvaging-1",
+      "page": "player",
+      "rect": [
+        915,
+        256,
+        58,
+        111
+      ],
+      "size": [
+        58,
+        111
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        58,
+        111
+      ],
+      "visible_pixels": 4506,
+      "transparent_fraction": 0.30009319664492073,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 71,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "9b41ab7972b0f36e74888dd62c4e9a8f3b37f8d70ece1eded9649cd0f8379ead",
+      "trimmed_pivot": [
+        29,
+        110
+      ]
+    },
+    {
+      "id": "salvaging-2",
+      "page": "player",
+      "rect": [
+        2,
+        379,
+        58,
+        109
+      ],
+      "size": [
+        58,
+        109
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        58,
+        109
+      ],
+      "visible_pixels": 4522,
+      "transparent_fraction": 0.28472002530844664,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 68,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "887cf6776f39675a2d90641965cf755ac64ca9176dacbb87ded9fc45d43429c2",
+      "trimmed_pivot": [
+        29,
+        108
+      ]
+    },
+    {
+      "id": "salvaging-3",
+      "page": "player",
+      "rect": [
+        915,
+        256,
+        58,
+        111
+      ],
+      "size": [
+        58,
+        111
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        58,
+        111
+      ],
+      "visible_pixels": 4506,
+      "transparent_fraction": 0.30009319664492073,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 71,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "9b41ab7972b0f36e74888dd62c4e9a8f3b37f8d70ece1eded9649cd0f8379ead",
+      "trimmed_pivot": [
+        29,
+        110
+      ]
+    },
+    {
+      "id": "salvaging-4",
+      "page": "player",
+      "rect": [
+        64,
+        379,
+        65,
+        114
+      ],
+      "size": [
+        65,
+        114
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        65,
+        114
+      ],
+      "visible_pixels": 4613,
+      "transparent_fraction": 0.3774628879892038,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 67,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "dddfef40514808bfda55d2cbe54ceedcd6144bb6824b3c30f14b09918754970d",
+      "trimmed_pivot": [
+        28,
+        113
+      ]
+    },
+    {
+      "id": "salvaging-5",
+      "page": "player",
+      "rect": [
+        855,
+        256,
+        56,
+        115
+      ],
+      "size": [
+        56,
+        115
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        56,
+        115
+      ],
+      "visible_pixels": 4572,
+      "transparent_fraction": 0.2900621118012422,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 68,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "4c20c151f5eab48fea15716390e2f2362cc21165125d750618bb369e60496068",
+      "trimmed_pivot": [
+        28,
+        114
+      ]
+    },
+    {
+      "id": "base/neutral",
+      "page": "player",
+      "rect": [
+        133,
+        379,
+        56,
+        117
+      ],
+      "size": [
+        56,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        56,
+        117
+      ],
+      "visible_pixels": 4085,
+      "transparent_fraction": 0.3765262515262515,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "d4ae467263119465c028ff8e0afc71100ae31add5af7aa7aba53cc553df28479",
+      "trimmed_pivot": [
+        34,
+        116
+      ]
+    },
+    {
+      "id": "base/talk-small",
+      "page": "player",
+      "rect": [
+        193,
+        379,
+        56,
+        117
+      ],
+      "size": [
+        56,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        56,
+        117
+      ],
+      "visible_pixels": 4085,
+      "transparent_fraction": 0.3765262515262515,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "686ee5db25d96546b1bba0f839c20b894958cac4a227682f01116b413196f064",
+      "trimmed_pivot": [
+        34,
+        116
+      ]
+    },
+    {
+      "id": "base/talk-wide",
+      "page": "player",
+      "rect": [
+        253,
+        379,
+        56,
+        117
+      ],
+      "size": [
+        56,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        56,
+        117
+      ],
+      "visible_pixels": 4085,
+      "transparent_fraction": 0.3765262515262515,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "a22a68ffc5cfbcb94290ec29834e83be2617783ac8c96f740eda2664cc6471db",
+      "trimmed_pivot": [
+        34,
+        116
+      ]
+    },
+    {
+      "id": "base/talk-round",
+      "page": "player",
+      "rect": [
+        313,
+        379,
+        56,
+        117
+      ],
+      "size": [
+        56,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        56,
+        117
+      ],
+      "visible_pixels": 4085,
+      "transparent_fraction": 0.3765262515262515,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "809bf3f429a33360cf9746ad74091eca25f7308075506f0cc848c6e8be99a469",
+      "trimmed_pivot": [
+        34,
+        116
+      ]
+    },
+    {
+      "id": "base/blink",
+      "page": "player",
+      "rect": [
+        373,
+        379,
+        56,
+        117
+      ],
+      "size": [
+        56,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        56,
+        117
+      ],
+      "visible_pixels": 4085,
+      "transparent_fraction": 0.3765262515262515,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "5e218339ba525931aae4473d4e822cae8cea34b9746f339a38d3c038faf301d9",
+      "trimmed_pivot": [
+        34,
+        116
+      ]
+    },
+    {
+      "id": "base/happy",
+      "page": "player",
+      "rect": [
+        433,
+        379,
+        56,
+        117
+      ],
+      "size": [
+        56,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        56,
+        117
+      ],
+      "visible_pixels": 4085,
+      "transparent_fraction": 0.3765262515262515,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "8faa831a8287150b8ec2f2240855e96077608c623b6647802bd4a972928ccc8c",
+      "trimmed_pivot": [
+        34,
+        116
+      ]
+    },
+    {
+      "id": "base/surprised",
+      "page": "player",
+      "rect": [
+        493,
+        379,
+        56,
+        117
+      ],
+      "size": [
+        56,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        56,
+        117
+      ],
+      "visible_pixels": 4085,
+      "transparent_fraction": 0.3765262515262515,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "eaf3777a9d44591910a2ffc1d6dea11b111bc9e89629ebfd22cb2ceb9ed6caab",
+      "trimmed_pivot": [
+        34,
+        116
+      ]
+    },
+    {
+      "id": "base/relaxed",
+      "page": "player",
+      "rect": [
+        553,
+        379,
+        56,
+        117
+      ],
+      "size": [
+        56,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        56,
+        117
+      ],
+      "visible_pixels": 4085,
+      "transparent_fraction": 0.3765262515262515,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "907274647413b19fe7ca6f62b02903fc7cefd17907574cb28a8745158b8836c8",
+      "trimmed_pivot": [
+        34,
+        116
+      ]
+    },
+    {
+      "id": "base/nod-down",
+      "page": "player",
+      "rect": [
+        613,
+        379,
+        56,
+        117
+      ],
+      "size": [
+        56,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        56,
+        117
+      ],
+      "visible_pixels": 4039,
+      "transparent_fraction": 0.3835470085470085,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "dd4b7f470388fdebc9fd459ea58eadd24abaf839f92d3e40533a0e8f710b05ef",
+      "trimmed_pivot": [
+        34,
+        116
+      ]
+    },
+    {
+      "id": "base/turn-toward",
+      "page": "player",
+      "rect": [
+        673,
+        379,
+        56,
+        118
+      ],
+      "size": [
+        56,
+        118
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        56,
+        118
+      ],
+      "visible_pixels": 4048,
+      "transparent_fraction": 0.38740920096852305,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "4a0b5ec3f0e91fcc1765549d0b1f44b6895132d7057668d1ce6d5e0d080fe473",
+      "trimmed_pivot": [
+        34,
+        117
+      ]
+    },
+    {
+      "id": "base/turn-away",
+      "page": "player",
+      "rect": [
+        733,
+        379,
+        56,
+        118
+      ],
+      "size": [
+        56,
+        118
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        56,
+        118
+      ],
+      "visible_pixels": 4024,
+      "transparent_fraction": 0.3910411622276029,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "09b13f23e21c820db76e68300b11cf80f57151960a5cd2594c4a9ce47abfc964",
+      "trimmed_pivot": [
+        34,
+        117
+      ]
+    },
+    {
+      "id": "base/nod-mid",
+      "page": "player",
+      "rect": [
+        793,
+        379,
+        56,
+        116
+      ],
+      "size": [
+        56,
+        116
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        56,
+        116
+      ],
+      "visible_pixels": 4066,
+      "transparent_fraction": 0.37407635467980294,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "07ba3e65b204fda633cc410d5557de41b37f914242419bb91725067ebab49028",
+      "trimmed_pivot": [
+        34,
+        115
+      ]
+    },
+    {
+      "id": "base/give-half",
+      "page": "player",
+      "rect": [
+        853,
+        379,
+        51,
+        116
+      ],
+      "size": [
+        51,
+        116
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        51,
+        116
+      ],
+      "visible_pixels": 3785,
+      "transparent_fraction": 0.360209601081812,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "eac72fcf6fb338f82c1018d0f9810159e49364abecfbfe0cb608b1e77628a68d",
+      "trimmed_pivot": [
+        26,
+        116
+      ]
+    },
+    {
+      "id": "base/give-full",
+      "page": "player",
+      "rect": [
+        908,
+        379,
+        66,
+        116
+      ],
+      "size": [
+        66,
+        116
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        66,
+        116
+      ],
+      "visible_pixels": 3859,
+      "transparent_fraction": 0.4959508881922675,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "7a2f16926830019be614296564d9a72c479328189dce231018b91581175f46e5",
+      "trimmed_pivot": [
+        26,
+        116
+      ]
+    },
+    {
+      "id": "base/give-release",
+      "page": "player",
+      "rect": [
+        2,
+        501,
+        62,
+        116
+      ],
+      "size": [
+        62,
+        116
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        62,
+        116
+      ],
+      "visible_pixels": 3870,
+      "transparent_fraction": 0.46190211345939935,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 74,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "e901472a53527d377eb42977864ccef61821319646dd43f60ff0c7f19a410ae0",
+      "trimmed_pivot": [
+        26,
+        116
+      ]
+    },
+    {
+      "id": "base/walk-0",
+      "page": "player",
+      "rect": [
+        68,
+        501,
+        76,
+        117
+      ],
+      "size": [
+        76,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        76,
+        117
+      ],
+      "visible_pixels": 4011,
+      "transparent_fraction": 0.5489203778677463,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "539a0adb48952d20b1746a614ca3362f8ac76114db594ad1abbc5fd5b15e1e19",
+      "trimmed_pivot": [
+        40,
+        116
+      ]
+    },
+    {
+      "id": "base/walk-1",
+      "page": "player",
+      "rect": [
+        148,
+        501,
+        67,
+        116
+      ],
+      "size": [
+        67,
+        116
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        67,
+        116
+      ],
+      "visible_pixels": 3999,
+      "transparent_fraction": 0.48546062789500777,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "a111244310f4fe218dc11f6afad4f7767cd26de626e6c3cb8e28df5cc1e58b93",
+      "trimmed_pivot": [
+        34,
+        115
+      ]
+    },
+    {
+      "id": "base/walk-2",
+      "page": "player",
+      "rect": [
+        219,
+        501,
+        56,
+        117
+      ],
+      "size": [
+        56,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        56,
+        117
+      ],
+      "visible_pixels": 3821,
+      "transparent_fraction": 0.4168192918192918,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "e4b79b4e33d36fa26a11a74062db55db25e8a79bfc3c7f0736f5947fef7876ab",
+      "trimmed_pivot": [
+        26,
+        116
+      ]
+    },
+    {
+      "id": "base/walk-3",
+      "page": "player",
+      "rect": [
+        279,
+        501,
+        61,
+        117
+      ],
+      "size": [
+        61,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        61,
+        117
+      ],
+      "visible_pixels": 3872,
+      "transparent_fraction": 0.4574751296062771,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "cf8b5a60ca03edde406c15858d99a203a3e3502d2dc5ac1e63e884a9bce955c1",
+      "trimmed_pivot": [
+        34,
+        116
+      ]
+    },
+    {
+      "id": "base/walk-4",
+      "page": "player",
+      "rect": [
+        344,
+        501,
+        61,
+        116
+      ],
+      "size": [
+        61,
+        116
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        61,
+        116
+      ],
+      "visible_pixels": 3805,
+      "transparent_fraction": 0.46226681741096665,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "2883a355e3b69ff38ecbe174abe033bd6436b788d7eee7117392eb2ebed5ff3b",
+      "trimmed_pivot": [
+        26,
+        115
+      ]
+    },
+    {
+      "id": "base/walk-5",
+      "page": "player",
+      "rect": [
+        409,
+        501,
+        76,
+        117
+      ],
+      "size": [
+        76,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        76,
+        117
+      ],
+      "visible_pixels": 3860,
+      "transparent_fraction": 0.565901934322987,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 72,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "96409da0c1ed14f6bb343623b4e8ff80ff3129a1967d2b23957667e9f052f590",
+      "trimmed_pivot": [
+        33,
+        116
+      ]
+    },
+    {
+      "id": "base/front-neutral",
+      "page": "player",
+      "rect": [
+        489,
+        501,
+        55,
+        117
+      ],
+      "size": [
+        55,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        55,
+        117
+      ],
+      "visible_pixels": 4149,
+      "transparent_fraction": 0.3552447552447553,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "1c970bd722d434cf49ee5f3eabdfd6d5a8f503dd7c836c2666a46dd59045f3c7",
+      "trimmed_pivot": [
+        28,
+        116
+      ]
+    },
+    {
+      "id": "base/back-neutral",
+      "page": "player",
+      "rect": [
+        548,
+        501,
+        54,
+        116
+      ],
+      "size": [
+        54,
+        116
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        54,
+        116
+      ],
+      "visible_pixels": 4136,
+      "transparent_fraction": 0.33971902937420184,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 64,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "25acc75917cc03b18b392e81dddf6781e1dff7b35acb721500fcc2684cb1b942",
+      "trimmed_pivot": [
+        27,
+        115
+      ]
+    },
+    {
+      "id": "base/front-blink",
+      "page": "player",
+      "rect": [
+        606,
+        501,
+        55,
+        117
+      ],
+      "size": [
+        55,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        55,
+        117
+      ],
+      "visible_pixels": 4149,
+      "transparent_fraction": 0.3552447552447553,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "9f51d0a6469fa43f35f0190ec8dbac93d69344134fcabc3e5fafc8b85576db69",
+      "trimmed_pivot": [
+        28,
+        116
+      ]
+    },
+    {
+      "id": "base/hammering-0",
+      "page": "player",
+      "rect": [
+        665,
+        501,
+        62,
+        121
+      ],
+      "size": [
+        62,
+        121
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        62,
+        121
+      ],
+      "visible_pixels": 4321,
+      "transparent_fraction": 0.424020261263663,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "f8f5b6292dc550ff1fc6d14ea0425855b4c2481f863130f80725fed53865c2bb",
+      "trimmed_pivot": [
+        32,
+        120
+      ]
+    },
+    {
+      "id": "base/hammering-1",
+      "page": "player",
+      "rect": [
+        731,
+        501,
+        71,
+        124
+      ],
+      "size": [
+        71,
+        124
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        71,
+        124
+      ],
+      "visible_pixels": 4610,
+      "transparent_fraction": 0.47637437528396187,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "b037400d905aee3da337b69b48a69fe587ce1dc06b679d317dc56f1ca3a3b965",
+      "trimmed_pivot": [
+        41,
+        123
+      ]
+    },
+    {
+      "id": "base/hammering-2",
+      "page": "player",
+      "rect": [
+        806,
+        501,
+        63,
+        114
+      ],
+      "size": [
+        63,
+        114
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        63,
+        114
+      ],
+      "visible_pixels": 3986,
+      "transparent_fraction": 0.4450013923698134,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "fcfbfc1bd49220925b72ec16bd29576a75128f0a12a397acce3e5298ef4c5752",
+      "trimmed_pivot": [
+        24,
+        113
+      ]
+    },
+    {
+      "id": "base/hammering-3",
+      "page": "player",
+      "rect": [
+        873,
+        501,
+        65,
+        103
+      ],
+      "size": [
+        65,
+        103
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        65,
+        103
+      ],
+      "visible_pixels": 3815,
+      "transparent_fraction": 0.4301717699775952,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "23f62f5f6850cc366e8532f160e1b6dac13b169c0d24bb58c804f1ebc22b78bb",
+      "trimmed_pivot": [
+        24,
+        102
+      ]
+    },
+    {
+      "id": "base/hammering-4",
+      "page": "player",
+      "rect": [
+        942,
+        501,
+        59,
+        115
+      ],
+      "size": [
+        59,
+        115
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        59,
+        115
+      ],
+      "visible_pixels": 4122,
+      "transparent_fraction": 0.39248341930729547,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "30240852167a793eac11dca8708d4a9944b0a30db4eb25a86ba06f97df953b1b",
+      "trimmed_pivot": [
+        25,
+        114
+      ]
+    },
+    {
+      "id": "base/hammering-5",
+      "page": "player",
+      "rect": [
+        665,
+        501,
+        62,
+        121
+      ],
+      "size": [
+        62,
+        121
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        62,
+        121
+      ],
+      "visible_pixels": 4321,
+      "transparent_fraction": 0.424020261263663,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "f8f5b6292dc550ff1fc6d14ea0425855b4c2481f863130f80725fed53865c2bb",
+      "trimmed_pivot": [
+        32,
+        120
+      ]
+    },
+    {
+      "id": "base/quenching-0",
+      "page": "player",
+      "rect": [
+        2,
+        629,
+        53,
+        123
+      ],
+      "size": [
+        53,
+        123
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        53,
+        123
+      ],
+      "visible_pixels": 4225,
+      "transparent_fraction": 0.35189446234084987,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "3cd0610da4f41917b3bdb23f82c20e5858779319e33412b8d09311aea7789f51",
+      "trimmed_pivot": [
+        27,
+        122
+      ]
+    },
+    {
+      "id": "base/quenching-1",
+      "page": "player",
+      "rect": [
+        59,
+        629,
+        57,
+        117
+      ],
+      "size": [
+        57,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        57,
+        117
+      ],
+      "visible_pixels": 4212,
+      "transparent_fraction": 0.368421052631579,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "0f5708e4d6f3923b7e924f0ec1cf6211206c9ada6dd88bc28a8cf3c2689fa804",
+      "trimmed_pivot": [
+        24,
+        116
+      ]
+    },
+    {
+      "id": "base/quenching-2",
+      "page": "player",
+      "rect": [
+        120,
+        629,
+        55,
+        111
+      ],
+      "size": [
+        55,
+        111
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        55,
+        111
+      ],
+      "visible_pixels": 4070,
+      "transparent_fraction": 0.33333333333333337,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "cacc76c823febaed1addb9d8091fc5a3afe38990cc52d60b3e21153427dc7314",
+      "trimmed_pivot": [
+        24,
+        110
+      ]
+    },
+    {
+      "id": "base/quenching-3",
+      "page": "player",
+      "rect": [
+        120,
+        629,
+        55,
+        111
+      ],
+      "size": [
+        55,
+        111
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        55,
+        111
+      ],
+      "visible_pixels": 4070,
+      "transparent_fraction": 0.33333333333333337,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "cacc76c823febaed1addb9d8091fc5a3afe38990cc52d60b3e21153427dc7314",
+      "trimmed_pivot": [
+        24,
+        110
+      ]
+    },
+    {
+      "id": "base/quenching-4",
+      "page": "player",
+      "rect": [
+        179,
+        629,
+        52,
+        119
+      ],
+      "size": [
+        52,
+        119
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        52,
+        119
+      ],
+      "visible_pixels": 4141,
+      "transparent_fraction": 0.33080155138978673,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "43a2f18d8b1630f4266d8c8af448fc83f76e412cfda42f2c2204dc3980b8f85c",
+      "trimmed_pivot": [
+        28,
+        118
+      ]
+    },
+    {
+      "id": "base/quenching-5",
+      "page": "player",
+      "rect": [
+        2,
+        629,
+        53,
+        123
+      ],
+      "size": [
+        53,
+        123
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        53,
+        123
+      ],
+      "visible_pixels": 4225,
+      "transparent_fraction": 0.35189446234084987,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "3cd0610da4f41917b3bdb23f82c20e5858779319e33412b8d09311aea7789f51",
+      "trimmed_pivot": [
+        27,
+        122
+      ]
+    },
+    {
+      "id": "base/forging-0",
+      "page": "player",
+      "rect": [
+        235,
+        629,
+        53,
+        117
+      ],
+      "size": [
+        53,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        53,
+        117
+      ],
+      "visible_pixels": 4084,
+      "transparent_fraction": 0.34139654894371874,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "42e867eb352d27cd8befc559d988400aff391aa6c04c446275874aeaa8cdda7b",
+      "trimmed_pivot": [
+        27,
+        116
+      ]
+    },
+    {
+      "id": "base/forging-1",
+      "page": "player",
+      "rect": [
+        292,
+        629,
+        68,
+        115
+      ],
+      "size": [
+        68,
+        115
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        68,
+        115
+      ],
+      "visible_pixels": 4135,
+      "transparent_fraction": 0.47122762148337594,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "85b405f74c796a32f2a8e609db2174b1510b642936784be7859ef6ac580d8f53",
+      "trimmed_pivot": [
+        25,
+        114
+      ]
+    },
+    {
+      "id": "base/forging-2",
+      "page": "player",
+      "rect": [
+        364,
+        629,
+        74,
+        108
+      ],
+      "size": [
+        74,
+        108
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        74,
+        108
+      ],
+      "visible_pixels": 4066,
+      "transparent_fraction": 0.49124124124124124,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "9e4d0cd58a42f168e4d7ce62b2b682ae39c35caed332cbbca2edadb5acf1a075",
+      "trimmed_pivot": [
+        25,
+        107
+      ]
+    },
+    {
+      "id": "base/forging-3",
+      "page": "player",
+      "rect": [
+        364,
+        629,
+        74,
+        108
+      ],
+      "size": [
+        74,
+        108
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        74,
+        108
+      ],
+      "visible_pixels": 4066,
+      "transparent_fraction": 0.49124124124124124,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "9e4d0cd58a42f168e4d7ce62b2b682ae39c35caed332cbbca2edadb5acf1a075",
+      "trimmed_pivot": [
+        25,
+        107
+      ]
+    },
+    {
+      "id": "base/forging-4",
+      "page": "player",
+      "rect": [
+        442,
+        629,
+        52,
+        118
+      ],
+      "size": [
+        52,
+        118
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        52,
+        118
+      ],
+      "visible_pixels": 4144,
+      "transparent_fraction": 0.32464146023468055,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 74,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "70ce0faa2af90e82f87dd68a4184abdf7c214ee86cd3598fd75050a7c3b56f4e",
+      "trimmed_pivot": [
+        28,
+        117
+      ]
+    },
+    {
+      "id": "base/forging-5",
+      "page": "player",
+      "rect": [
+        235,
+        629,
+        53,
+        117
+      ],
+      "size": [
+        53,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        53,
+        117
+      ],
+      "visible_pixels": 4084,
+      "transparent_fraction": 0.34139654894371874,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "42e867eb352d27cd8befc559d988400aff391aa6c04c446275874aeaa8cdda7b",
+      "trimmed_pivot": [
+        27,
+        116
+      ]
+    },
+    {
+      "id": "base/researching-0",
+      "page": "player",
+      "rect": [
+        498,
+        629,
+        58,
+        118
+      ],
+      "size": [
+        58,
+        118
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        58,
+        118
+      ],
+      "visible_pixels": 4518,
+      "transparent_fraction": 0.33985973115137347,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 74,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "49387cf927f1eea28f589cb8dd368d6069f453e2257c05c171d5538edac580ee",
+      "trimmed_pivot": [
+        29,
+        117
+      ]
+    },
+    {
+      "id": "base/researching-1",
+      "page": "player",
+      "rect": [
+        560,
+        629,
+        60,
+        116
+      ],
+      "size": [
+        60,
+        116
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        60,
+        116
+      ],
+      "visible_pixels": 4562,
+      "transparent_fraction": 0.3445402298850575,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "ac95dfa4824a8a7793d93df90b0baba7f30a4bc205f314505b76b28cfbaf1973",
+      "trimmed_pivot": [
+        30,
+        115
+      ]
+    },
+    {
+      "id": "base/researching-2",
+      "page": "player",
+      "rect": [
+        624,
+        629,
+        59,
+        114
+      ],
+      "size": [
+        59,
+        114
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        59,
+        114
+      ],
+      "visible_pixels": 4497,
+      "transparent_fraction": 0.3314005352363961,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "9c8f97a3f596d0f76e50fa4241fadb827c2df2f41d86cc96c3c21f8d4afca55a",
+      "trimmed_pivot": [
+        29,
+        113
+      ]
+    },
+    {
+      "id": "base/researching-3",
+      "page": "player",
+      "rect": [
+        560,
+        629,
+        60,
+        116
+      ],
+      "size": [
+        60,
+        116
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        60,
+        116
+      ],
+      "visible_pixels": 4562,
+      "transparent_fraction": 0.3445402298850575,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "ac95dfa4824a8a7793d93df90b0baba7f30a4bc205f314505b76b28cfbaf1973",
+      "trimmed_pivot": [
+        30,
+        115
+      ]
+    },
+    {
+      "id": "base/researching-4",
+      "page": "player",
+      "rect": [
+        687,
+        629,
+        56,
+        115
+      ],
+      "size": [
+        56,
+        115
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        56,
+        115
+      ],
+      "visible_pixels": 4360,
+      "transparent_fraction": 0.3229813664596274,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "4320355fecce290640fb24ed4dfc0e3531faa3e4f7b615df7d4d604d50cb5fd6",
+      "trimmed_pivot": [
+        27,
+        114
+      ]
+    },
+    {
+      "id": "base/researching-5",
+      "page": "player",
+      "rect": [
+        498,
+        629,
+        58,
+        118
+      ],
+      "size": [
+        58,
+        118
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        58,
+        118
+      ],
+      "visible_pixels": 4518,
+      "transparent_fraction": 0.33985973115137347,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 74,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "49387cf927f1eea28f589cb8dd368d6069f453e2257c05c171d5538edac580ee",
+      "trimmed_pivot": [
+        29,
+        117
+      ]
+    },
+    {
+      "id": "base/salvaging-0",
+      "page": "player",
+      "rect": [
+        747,
+        629,
+        57,
+        114
+      ],
+      "size": [
+        57,
+        114
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        57,
+        114
+      ],
+      "visible_pixels": 4467,
+      "transparent_fraction": 0.3125577100646353,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 65,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "d08f55a23ca5b7f0dfa5bc1c0dbc02b40a6d6eb3e3b0d35d0903a545a5cc526c",
+      "trimmed_pivot": [
+        28,
+        113
+      ]
+    },
+    {
+      "id": "base/salvaging-1",
+      "page": "player",
+      "rect": [
+        808,
+        629,
+        58,
+        113
+      ],
+      "size": [
+        58,
+        113
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        58,
+        113
+      ],
+      "visible_pixels": 4492,
+      "transparent_fraction": 0.3146170277693012,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 64,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "754a400accc27b5e07ef5a53f8ff468af016011dd84ce9164c6dbd8fe0ea95ca",
+      "trimmed_pivot": [
+        29,
+        112
+      ]
+    },
+    {
+      "id": "base/salvaging-2",
+      "page": "player",
+      "rect": [
+        870,
+        629,
+        59,
+        111
+      ],
+      "size": [
+        59,
+        111
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        59,
+        111
+      ],
+      "visible_pixels": 4473,
+      "transparent_fraction": 0.3169949610627577,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 65,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "8029b00fc8e0ebf4aa03edc52f360b088b6de42100e774de14bdd1eaab50ad2e",
+      "trimmed_pivot": [
+        30,
+        110
+      ]
+    },
+    {
+      "id": "base/salvaging-3",
+      "page": "player",
+      "rect": [
+        808,
+        629,
+        58,
+        113
+      ],
+      "size": [
+        58,
+        113
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        58,
+        113
+      ],
+      "visible_pixels": 4492,
+      "transparent_fraction": 0.3146170277693012,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 64,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "754a400accc27b5e07ef5a53f8ff468af016011dd84ce9164c6dbd8fe0ea95ca",
+      "trimmed_pivot": [
+        29,
+        112
+      ]
+    },
+    {
+      "id": "base/salvaging-4",
+      "page": "player",
+      "rect": [
+        933,
+        629,
+        65,
+        115
+      ],
+      "size": [
+        65,
+        115
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        65,
+        115
+      ],
+      "visible_pixels": 4565,
+      "transparent_fraction": 0.38929765886287626,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 69,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "d043854005d1a7aa2f9776856bfc75b6860bda0dd6aee943077de7f694b67848",
+      "trimmed_pivot": [
+        29,
+        114
+      ]
+    },
+    {
+      "id": "base/salvaging-5",
+      "page": "player",
+      "rect": [
+        747,
+        629,
+        57,
+        114
+      ],
+      "size": [
+        57,
+        114
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        57,
+        114
+      ],
+      "visible_pixels": 4467,
+      "transparent_fraction": 0.3125577100646353,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 65,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "d08f55a23ca5b7f0dfa5bc1c0dbc02b40a6d6eb3e3b0d35d0903a545a5cc526c",
+      "trimmed_pivot": [
+        28,
+        113
+      ]
+    }
+  ],
+  "errors": [],
+  "warnings": [
+    "Extrude/gutter pixel contents, runtime sampling and performance were not measured"
+  ],
+  "runtime": {
+    "draw_calls": "not_measured",
+    "overdraw": "not_measured",
+    "gpu_format_support": "not_checked"
+  },
+  "memory_note": "Format arithmetic only; excludes CPU copies, staging, alignment and driver overhead.",
+  "pages": [
+    {
+      "id": "player",
+      "size": [
+        1024,
+        768
+      ],
+      "unique_rect_area_fraction": 0.8192342122395834,
+      "estimated_texture_bytes": 3145728
+    }
+  ],
+  "declared_page_texture_bytes": 3145728,
+  "duplicate_image_groups": [
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/hammering-0.png",
+      "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/hammering-5.png"
+    ],
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/quenching-0.png",
+      "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/quenching-5.png"
+    ],
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/quenching-2.png",
+      "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/quenching-3.png"
+    ],
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/forging-0.png",
+      "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/forging-5.png"
+    ],
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/forging-2.png",
+      "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/forging-3.png"
+    ],
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/researching-0.png",
+      "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/researching-5.png"
+    ],
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/researching-1.png",
+      "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/researching-3.png"
+    ],
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/salvaging-0.png",
+      "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/salvaging-5.png"
+    ],
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/salvaging-1.png",
+      "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/salvaging-3.png"
+    ],
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/hammering-0.png",
+      "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/hammering-5.png"
+    ],
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/quenching-0.png",
+      "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/quenching-5.png"
+    ],
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/quenching-2.png",
+      "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/quenching-3.png"
+    ],
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/forging-0.png",
+      "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/forging-5.png"
+    ],
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/forging-2.png",
+      "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/forging-3.png"
+    ],
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/researching-0.png",
+      "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/researching-5.png"
+    ],
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/researching-1.png",
+      "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/researching-3.png"
+    ],
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/salvaging-0.png",
+      "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/salvaging-5.png"
+    ],
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/salvaging-1.png",
+      "/Users/minhokang/Work/games/little-forge/assets/characters/male/frames/base/salvaging-3.png"
+    ]
+  ],
+  "status": "structural_pass_runtime_unmeasured"
+}

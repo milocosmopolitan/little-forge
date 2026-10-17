@@ -1,0 +1,79 @@
+{
+  "revision": "solid-underlap-v10",
+  "status": "internal_review_complete_user_acceptance_pending",
+  "user_accepted": null,
+  "rejected_baseline": "neck-cloth-v9",
+  "root_cause": "Original face removal deleted opaque neck and shirt coverage; prior tests only checked retained pixel colors.",
+  "repair": "Add complete source-colored garment and declared neck underlap beneath unchanged moving approved head.",
+  "scope": {
+    "sex": "female",
+    "actions": [
+      "hammering",
+      "quenching",
+      "forging",
+      "researching"
+    ],
+    "keys": 24,
+    "variants": 48
+  },
+  "checks": {
+    "missing_required_body_before": 895,
+    "unexpected_body_hole_pixels_before": 544,
+    "unexpected_body_hole_pixels_after": 0,
+    "unrelated_frames_preserved": 168
+  },
+  "preserved": "Existing opaque upper-body pixels, approved head/eye/mouth identity and transforms, common and male frames.",
+  "negative_space": "Approved back-hair cutouts and genuine arm gaps retained.",
+  "static_validation": [
+    "solid-underlap-v10-validation.json",
+    "animation-validation.json",
+    "head-ownership-validation.json",
+    "neck-assembly-validation.json",
+    "neck-material-water-validation.json"
+  ],
+  "legacy_skin_check_scope": "neck-material-water checks legacy neck-skin layers; new body-underlap coverage is checked separately.",
+  "rebuild": {
+    "status": "pass",
+    "native_png_and_json_files": 3128,
+    "byte_identical": true,
+    "command": "node assets/characters/source/animation/build.mjs --no-previews",
+    "excluded": "QA JSON reports, which are independent check outputs"
+  },
+  "visual_review": {
+    "background": "cyan, light and dark",
+    "all_variants_inspected": 48,
+    "body_only_inspected": true,
+    "artifacts": [
+      "solid-underlap-v10-before-after.png",
+      "solid-underlap-v10-all-48.png",
+      "solid-underlap-v10-body-layers.png"
+    ]
+  },
+  "browser_review": {
+    "browser": "Safari",
+    "url": "http://127.0.0.1:8773/assets/characters/previews/animation.html?qa=work&revision=solid-underlap-v10",
+    "completion_text_observed": "PLAYBACK QA COMPLETE: 40 scenarios, both characters.",
+    "speeds": [
+      1,
+      0.5
+    ],
+    "gear": [
+      true,
+      false
+    ],
+    "dark": [
+      false,
+      true
+    ],
+    "workstation": true,
+    "manual_quenching_key_2_observed": true,
+    "manual_forging_key_2_observed": true
+  },
+  "runtime_integration": false,
+  "artifact_sha256": {
+    "female/animation.json": "746f9efd36c0a8b7f2d1ce3e6eeca420675f1b26d3bd4f1cb5fe3b779d8161d9",
+    "female/atlas.png": "76825e14ddc252abb598bb9c13360f08945651e9cae0da5c3cb3e06f0823a6e2",
+    "female/frames/quenching-2.png": "bc3be15253e33d9036c2272c33e6bff81ff12f6e41640bd6ccd9e3ad66256bc5",
+    "female/frames/forging-2.png": "edaece158bb26de21e88da1f634768930bd59583a2b6bbfa0d4257ce4db5d503"
+  }
+}

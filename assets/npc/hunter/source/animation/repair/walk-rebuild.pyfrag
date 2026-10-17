@@ -1,0 +1,69 @@
+    def walk(self):
+        phases=json.loads((ROOT/'source/animation/production-contract.json').read_text())['walk']['keys'];self.gait=[]
+        sources=[]
+        # One common anatomical registration, not a per-key fit or independent head scaling.
+        for k in range(6):
+            raw=load(f'source/animation/repair/walk-{k}-candidate.png')
+            sample=self.native(raw.resize(SIZE,Image.Resampling.NEAREST));body=blank()
+            body.paste(sample.crop((0,0,128,64)),(0,0))
+            body.paste(sample.crop((0,64,128,92)).resize((128,33),Image.Resampling.NEAREST),(0,64))
+            body.paste(sample.crop((0,92,128,140)).resize((128,43),Image.Resampling.NEAREST),(0,97))
+            sources.append(body)
+        arm_sources=[0,4,2,3,1,5]
+        near_polygons=[
+            [(49,70),(59,70),(61,86),(67,93),(75,95),(76,104),(67,106),(54,100),(48,91)],
+            [(46,70),(59,70),(60,79),(56,92),(56,112),(43,112),(42,91)],
+            [(45,70),(59,70),(59,83),(54,94),(54,113),(42,113),(42,91)],
+            [(44,70),(60,70),(60,80),(55,91),(52,108),(40,111),(39,97)],
+            [(49,70),(60,70),(62,88),(70,98),(72,110),(62,112),(53,103),(47,91)],
+            [(50,70),(61,70),(63,90),(71,98),(72,110),(62,112),(54,103),(48,90)]]
+        far_polygon=[(77,78),(83,78),(85,88),(95,92),(96,109),(84,112),(77,102)]
+        hand_rois=[[(67,95,75,105)],[(46,100,56,112),(83,92,94,105)],[(44,101,55,113),(83,99,94,110)],[(40,97,53,111),(83,92,94,105)],[(62,99,73,112)],[(62,98,73,112),(46,96,55,109)]]
+        boot_centers=[[[51,122],[77,123]],[[52,119],[76,124]],[[55,123],[79,120]],[[51,122],[77,123]],[[50,115],[77,125]],[[56,125],[81,120]]]
+        near_boot_index=[0,0,1,1,1,0]
+        near_hands=[[70,100],[50,105],[48,108],[45,102],[66,105],[67,104]]
+        far_hands=[None,[88,98],[88,104],[88,98],None,[50,103]]
+        for k,phase in enumerate(phases):
+            arm_key=arm_sources[k];body=sources[arm_key].copy()
+            # Keep each authored contact/recovery leg. Arms progress through intermediate swings.
+            body.paste(sources[k].crop((0,112,128,160)),(0,112))
+            dy=140-body.getbbox()[3];body=move(body,0,dy)
+            bob=phase['bob'];neck=move(self.fixed_body,0,bob)
+            for yy in range(66+bob):
+                for xx in range(128):body.putpixel((xx,yy),neck.getpixel((xx,yy)))
+            h=move(self.motion_head_base,0,bob);e=move(self.parts['eyes'],0,bob);m=move(self.parts['mouth'],0,bob)
+            upper=body.copy();lower=body.copy()
+            for yy in range(160):
+                for xx in range(128):(lower if yy<97 else upper).putpixel((xx,yy),(0,0,0,0))
+            parts={'lower':lower,'upper':upper,'head':h,'eyes':e,'mouth':m}
+            gear={n:move(im,0,bob) for n,im in self.gear.items() if n not in ['gloves','boot-fur-cuffs']}
+            # Complete sleeves, wrists and hands share one ownership mask above the coat.
+            front=move(region(sources[arm_key],near_polygons[arm_key]),0,dy)
+            if arm_key in (1,2,3):front.alpha_composite(move(region(sources[arm_key],far_polygon),0,dy))
+            gloves=blank()
+            for left,top,right,bottom in hand_rois[arm_key]:
+                for yy in range(top,bottom):
+                    for xx in range(left,right):
+                        q=body.getpixel((xx,yy+dy))
+                        if skin(q) and yy<bottom-2:
+                            material=self.c((128,73,44) if q[1]>155 else (98,53,35) if q[1]>115 else (64,36,30))
+                            gloves.putpixel((xx,yy+dy),material)
+            gear['gloves']=gloves
+            # Sample the approved fur material into the actual boot-top silhouettes.
+            cuffs=blank();texture=self.gear['boot-fur-cuffs']
+            for i,(cx,cy) in enumerate(boot_centers[k]):
+                for yy in range(cy,cy+4):
+                    for xx in range(cx-7,cx+7):
+                        q=body.getpixel((xx,yy+dy))
+                        if q[3] and q[0]>q[1]*1.2 and q[0]>45 and q[1]<150:
+                            tex=texture.getpixel((46+(xx-cx+7)%14,118+(yy-cy)%4))
+                            if tex[3]:cuffs.putpixel((xx,yy+dy),tex)
+            gear['boot-fur-cuffs']=cuffs
+            hands=[near_hands[arm_key],far_hands[arm_key]];boots=boot_centers[k]
+            entry={**phase,'source':f'repair/walk-{k}-candidate.png','arm_source_key':arm_key,'hands_measured_screen_rois':hands,'boots_measured_screen_rois':boots,'source_head_discarded':True,'near_boot_screen_index':near_boot_index[k]}
+            self.add(f'walk-{k}',parts,gear,front,{'gait':entry,'head_translation':[0,bob],'source_head':'locked neutral; no rescaling'})
+            self.recipes[f'walk-{k}']['sockets_px'].update(right_hand=hands[0],left_hand=hands[1])
+            entry['anatomical_contacts']={'right_hand':hands[0],'left_hand':hands[1],'right_boot':boots[near_boot_index[k]],'left_boot':boots[1-near_boot_index[k]]}
+            self.gait.append(entry)
+            save(body,f'source/animation/repair/walk-{k}-body.png')
+        write('source/animation/walk-phases.json',self.gait)

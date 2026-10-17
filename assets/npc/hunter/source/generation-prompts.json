@@ -1,0 +1,60 @@
+[
+  {
+    "mode": "built-in image_gen",
+    "prompt": "Use case: identity-preserve. Asset: complete gear-free underlayer for a pixel-art HUNTER NPC. Input 1 is the registered 128x160 native sprite enlarged exactly8x to1024x1280; input2 is the original identity/style reference. EDIT input1: remove ALL removable equipment: fur hat including its long tail, green cloak/collar, bow and quiver/arrows, chest strap, long brown leather over-tunic/coat, belt/buckle, bags/pouches, knife/sheath, both leather fingerless gloves, and the fur cuffs around the boots. Reconstruct what was hidden as one complete believable body: short tousled dark-brown hair with full crown and sides, original warm peach face with subtle jaw stubble, original big brown eyes looking screen-right and quiet small smile, a simple cream shirt with rolled sleeves, plain muted olive-green trousers, brown lace-up boots with plain leather shafts where fur cuffs were removed. NO added belt, apron, tool or jewelry. Keep exact 3/4 screen-right pose, original stocky but youthful proportions, same broad head size, shoulder width, torso and leg length, and same feet: soles fixed at native y140/display1120, foot center native64/display512. Near/anatomical RIGHT arm is bent with bare hand resting on hip; far/anatomical LEFT arm hangs down, bare hand fully visible, both hands naturally complete with a clear thumb and softly grouped fingers, clean wrist join, no holes or residual glove shapes. Preserve original nose, eye spacing, mouth and beard impression; do not turn him into a clean-shaven child. Hair must fit naturally UNDER the original hat when it is toggled back on, not extend beyond its silhouette. Keep the 128x160 canvas and original alignment, no centering/cropping/rescaling of the character. Crisp native pixel clusters, dark1px contour, shared earthy64-color palette, no blur/antialiasing, binary alpha and truly transparent background. Return only the single complete gear-free character, no sheet, labels, shadows or scenery.",
+    "output": "underlayer-candidate.png",
+    "inputs": [
+      {
+        "path": "equipped-target.png",
+        "role": "registered edit target"
+      },
+      {
+        "path": "reference.png",
+        "role": "identity/style reference"
+      }
+    ]
+  },
+  {
+    "mode": "built-in image_gen",
+    "use_case": "precise-object-edit",
+    "prompt": "Use case: precise-object-edit.\nAsset: 128x160 native pixel-art hunter NPC, transparent background, shown enlarged 8x in image 1.\nImage 1 EDIT TARGET: gear-free hunter. Image 2 IDENTITY REFERENCE: original hunter wearing a fur hat and cloak.\nRepair ONLY the lower jaw stubble, neck anatomy, and cream shirt collar in image 1. The present neck is an ugly long diagonal ribbon with a cut-out jaw and harsh stripe. Reconstruct these three areas as ONE anatomically coherent connection: a short sturdy neck planted vertically into the shoulders, emerging naturally from beneath the jaw, with a small warm shadow beneath the chin. Restore the original light brown jaw stubble seen in image 2. Keep a full, rounded original hunter jaw, no clipped-off beard, no duplicated jaw or second mouth. Raise the cream shirt collar slightly so the exposed neck is compact. Preserve the original green cloak-free cream shirt, no added gear.\nInvariants: Keep eyes, eyebrows, nose, smile, full brown hair, overall head position, shoulder positions, body, hands, trousers, boots and foot placement exactly as image 1. Keep youthful chibi proportions and 3/4 view. Do not extend the neck sideways or shift the head. Do not add a beard bib or thick black stripe.\nPixel style: native 1px dark outlines, warm peach skin and subtle brown stubble, 64-color earthy palette, crisp connected clusters. No smoothing or gradients. Output the full sprite on the same 128:160 canvas and at the same scale and coordinates, with actual transparency. No crop, no text, no extra character.",
+    "inputs": [
+      "source/neck-edit-target.png",
+      "source/reference.png"
+    ],
+    "output": "source/neck-repair/candidate.png"
+  },
+  {
+    "mode": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. Edit target: the attached transparent hunter sprite, enlarged from a native 128x160 grid.\nChange ONLY the top and upper-left crown of his dark brown hair. The crown is currently flattened and hollow-looking under where the hat used to be. Restore a complete rounded, fuller youthful head of hair, adding roughly 3 to 4 native pixels of natural volume above the current crown, particularly across the upper-left arc. Connect the large locks coherently, with a gentle stair-step contour and a few restrained tufts; no thin isolated spike, no helmet, no hair gaps, no bald indentation at the crown. Use exactly the existing warm dark-brown hair shades and 1 native pixel dark outline.\nKeep the fringe/hairline against the face, eyes, eyebrows, nose, smile, beard, repaired neck, cream shirt collar, arms, hands, clothes, legs, boots, pose, head origin and body proportions unchanged. Do not move the face or enlarge its features. No hat, no equipment, no text, no background. Same full 128:160 canvas framing and same sprite registration. Transparent background. Crisp connected pixel clusters; no antialiasing, gradients or smooth painting.",
+    "inputs": [
+      "source/hair-hand-repair/edit-target.png"
+    ],
+    "output": "source/hair-hand-repair/hair-candidate.png"
+  },
+  {
+    "mode": "built-in image_gen",
+    "prompt": "Use case: precise-object-edit. This is a close-up edit of the SAME pixel-art hunter's head, on a transparent background. The native crop is 62 pixels wide and 50 pixels tall, enlarged 16x. Keep the full crop framing, ears, face, eyebrows, eyes, nose, mouth, stubble and neck EXACTLY in place.\nREPLACE the hair design above the forehead with a NEW attractive natural hairstyle. Remove ALL THREE upright crown spikes and their angular roots. They are specifically rejected. Give him a rounded short-to-medium haircut with a gentle side part high on the character's left/screen-right, broad locks swept smoothly down toward screen-left, a full rounded crown and tidy tapered sides. Think practical youthful hunter with softly tousled side-swept hair, not anime spikes. The top silhouette must be a gently curved CONTINUOUS ARC. No upward horns, no pointed crown tufts, no tall pompadour, no large black zigzag at the part. The top should look round and complete, never flat or hollow. Create several broad coherent lock shapes with restrained warm highlights, keep the existing dark warm brown colors. Maintain enough volume above the large original eyes and the same head size. Preserve the hairline immediately touching the existing face, and keep ears, jaw, beard and neck unchanged.\nStyle: clean low-resolution pixel art with a native ONE PIXEL dark outline, crisp stepped curves, limited earthy palette, no blur, no smooth airbrush shading, no stray pixels. This is a replacement hairstyle, not an upward stretching of the current spikes. No hat, no added object, no text. Actual transparent background. Same exact crop alignment and face scale.",
+    "inputs": [
+      "source/hair-restyle/head-target.png"
+    ],
+    "output": "source/hair-restyle/candidate.png",
+    "registration": {
+      "crop": [
+        34,
+        16,
+        96,
+        66
+      ],
+      "native_size": [
+        62,
+        50
+      ],
+      "translation": [
+        34,
+        16
+      ],
+      "stretch": false
+    }
+  }
+]

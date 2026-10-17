@@ -1,0 +1,63 @@
+{
+  "status": "pass",
+  "changed_native_points": {
+    "base-neutral.png": [
+      [
+        42,
+        34
+      ],
+      [
+        67,
+        45
+      ],
+      [
+        68,
+        45
+      ],
+      [
+        69,
+        45
+      ],
+      [
+        70,
+        45
+      ]
+    ],
+    "neutral.png": [
+      [
+        42,
+        34
+      ],
+      [
+        67,
+        45
+      ]
+    ],
+    "head-base.png": [
+      [
+        42,
+        34
+      ]
+    ],
+    "body/upper-base.png": [
+      [
+        67,
+        45
+      ],
+      [
+        68,
+        45
+      ],
+      [
+        69,
+        45
+      ],
+      [
+        70,
+        45
+      ]
+    ]
+  },
+  "scope": "one-pixel grip top outline and cheek beauty mark only",
+  "palette_and_alpha": "pass"
+}

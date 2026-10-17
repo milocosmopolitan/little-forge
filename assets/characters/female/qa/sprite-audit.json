@@ -1,0 +1,5959 @@
+{
+  "images": [
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/atlas.png",
+      "disk_bytes": 210536,
+      "size": [
+        1024,
+        752
+      ],
+      "alpha_bbox_xyxy": [
+        1,
+        1,
+        1020,
+        751
+      ],
+      "visible_pixels": 376032,
+      "transparent_fraction": 0.5116771941489362,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 85,
+      "trim_rect_area_fraction": 0.9924705992353723,
+      "visible_rgba_sha256": "4e87b0270cc34022aaaca9764fe65be53965a78415bfc791dbbef98210fe7a2f",
+      "rgba8_base_bytes": 3080192,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 3080192,
+      "selected_format_full_mip_chain_bytes": 4106764
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/neutral.png",
+      "disk_bytes": 4744,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        24,
+        88,
+        141
+      ],
+      "visible_pixels": 4136,
+      "transparent_fraction": 0.798046875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.302783203125,
+      "visible_rgba_sha256": "b94f765cb96761aaa94ac52acf63d949f12eb4148ac2d5c0619b3e50a133669f",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/talk-small.png",
+      "disk_bytes": 4755,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        24,
+        88,
+        141
+      ],
+      "visible_pixels": 4136,
+      "transparent_fraction": 0.798046875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.302783203125,
+      "visible_rgba_sha256": "35ab39cb1d5211aebcc7fa1058ef0ba2250a97d0ad45898a4a8a51992955453a",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/talk-wide.png",
+      "disk_bytes": 4766,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        24,
+        88,
+        141
+      ],
+      "visible_pixels": 4136,
+      "transparent_fraction": 0.798046875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.302783203125,
+      "visible_rgba_sha256": "826fd29a5d95e5f063570cc38b65c0ea512156760abff6e0abfc44b7eff30b5e",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/talk-round.png",
+      "disk_bytes": 4749,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        24,
+        88,
+        141
+      ],
+      "visible_pixels": 4136,
+      "transparent_fraction": 0.798046875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.302783203125,
+      "visible_rgba_sha256": "a326e92c4bc3f2ef019bebe1cba66c294158e8958cc42fee4891c6c3b9c20ba1",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/blink.png",
+      "disk_bytes": 4674,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        24,
+        88,
+        141
+      ],
+      "visible_pixels": 4136,
+      "transparent_fraction": 0.798046875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 72,
+      "trim_rect_area_fraction": 0.302783203125,
+      "visible_rgba_sha256": "29e6e00b71748edd4dc54d0eba82f8c188aadad10913039fb214a976bc7c85a7",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/happy.png",
+      "disk_bytes": 4666,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        24,
+        88,
+        141
+      ],
+      "visible_pixels": 4136,
+      "transparent_fraction": 0.798046875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 72,
+      "trim_rect_area_fraction": 0.302783203125,
+      "visible_rgba_sha256": "1f7f10ff7f2d9f9415743460caea7b61f3436fc6e6c22924008a6b26636f35de",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/surprised.png",
+      "disk_bytes": 4743,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        24,
+        88,
+        141
+      ],
+      "visible_pixels": 4136,
+      "transparent_fraction": 0.798046875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 0.302783203125,
+      "visible_rgba_sha256": "4b5956e66e9c2c34f7f8a739f7597bcb892664018a9829723a10731624448e5a",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/relaxed.png",
+      "disk_bytes": 4711,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        24,
+        88,
+        141
+      ],
+      "visible_pixels": 4136,
+      "transparent_fraction": 0.798046875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 0.302783203125,
+      "visible_rgba_sha256": "f0d6d021360fdfd12d66f7f3ee2f14c0c324c12aaef6bed8211052732b7d2ae3",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/nod-down.png",
+      "disk_bytes": 4967,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        36,
+        24,
+        88,
+        141
+      ],
+      "visible_pixels": 4087,
+      "transparent_fraction": 0.800439453125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 69,
+      "trim_rect_area_fraction": 0.2970703125,
+      "visible_rgba_sha256": "5c0ba89a69217b00aad099e068bccdb32031509884556178179bc1ac3ebda9be",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/turn-toward.png",
+      "disk_bytes": 5046,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        24,
+        88,
+        141
+      ],
+      "visible_pixels": 4068,
+      "transparent_fraction": 0.8013671875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.302783203125,
+      "visible_rgba_sha256": "56750ca534f9fa88b539fa3224715ce18f1ce592f9ecaf097f8cb103e26c2c50",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/turn-away.png",
+      "disk_bytes": 5070,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        32,
+        24,
+        88,
+        141
+      ],
+      "visible_pixels": 4077,
+      "transparent_fraction": 0.800927734375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 0.319921875,
+      "visible_rgba_sha256": "26d0e52dc4c8fc50216cccf09a17f525de5ebb4ea4b066d286ce593d23745ffd",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/nod-mid.png",
+      "disk_bytes": 4732,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        25,
+        88,
+        141
+      ],
+      "visible_pixels": 4123,
+      "transparent_fraction": 0.798681640625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.3001953125,
+      "visible_rgba_sha256": "d6eee19991ff7d08de608ad8f7b7930e676861d3040fd3344c56333e43405961",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/give-half.png",
+      "disk_bytes": 4763,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        24,
+        88,
+        137
+      ],
+      "visible_pixels": 3964,
+      "transparent_fraction": 0.8064453125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 0.292431640625,
+      "visible_rgba_sha256": "ea2f8046a882c034a00571eafc39b27d4c6570e35bb04dbc291c9261be05fbfd",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/give-full.png",
+      "disk_bytes": 4896,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        24,
+        104,
+        137
+      ],
+      "visible_pixels": 4099,
+      "transparent_fraction": 0.799853515625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 0.380712890625,
+      "visible_rgba_sha256": "b957bb23032bd01485c4173e5ba7815a3028f88a9155bed22de1db8485bde54f",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/give-release.png",
+      "disk_bytes": 4861,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        24,
+        98,
+        137
+      ],
+      "visible_pixels": 4093,
+      "transparent_fraction": 0.800146484375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 0.347607421875,
+      "visible_rgba_sha256": "48b2f4eab2c81aca42905449f0e49728d3342e2dc6401a0856c709872b918fc3",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/walk-0.png",
+      "disk_bytes": 4966,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        27,
+        24,
+        96,
+        141
+      ],
+      "visible_pixels": 4251,
+      "transparent_fraction": 0.792431640625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 0.394189453125,
+      "visible_rgba_sha256": "349c5ef2edb3b326f75f77a147d57e2dc23153970731491c3304e34c47919856",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/walk-1.png",
+      "disk_bytes": 4941,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        27,
+        25,
+        88,
+        141
+      ],
+      "visible_pixels": 4277,
+      "transparent_fraction": 0.791162109375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.3455078125,
+      "visible_rgba_sha256": "5cad649e9d3627782195060f8739bba1c945ce7b60d570fd05be3f36ffc34c5b",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/walk-2.png",
+      "disk_bytes": 4972,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        34,
+        24,
+        96,
+        141
+      ],
+      "visible_pixels": 4249,
+      "transparent_fraction": 0.792529296875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 0.35419921875,
+      "visible_rgba_sha256": "765f68a42e6ecc95dc49eed6d55fc43f95f8f5d33c5876cbdcc7955897993efa",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/walk-3.png",
+      "disk_bytes": 5086,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        33,
+        24,
+        97,
+        141
+      ],
+      "visible_pixels": 4303,
+      "transparent_fraction": 0.789892578125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 0.365625,
+      "visible_rgba_sha256": "2ce1e90079f1ae80f9e902ff44637c5c85ec59fa06de8ef71b8c99900ac598c8",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/walk-4.png",
+      "disk_bytes": 4810,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        25,
+        95,
+        141
+      ],
+      "visible_pixels": 4088,
+      "transparent_fraction": 0.800390625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 0.33984375,
+      "visible_rgba_sha256": "97126a8ceddf541b4aa70b4726cef013ad6d3cf4860642bc5ff3d75745a5f102",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/walk-5.png",
+      "disk_bytes": 4883,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        24,
+        99,
+        141
+      ],
+      "visible_pixels": 4069,
+      "transparent_fraction": 0.801318359375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 0.365625,
+      "visible_rgba_sha256": "a2fe2dec2bfb04ddec143b2be48417b20b7472cea6bad1447c533ab348b0c47c",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/front-neutral.png",
+      "disk_bytes": 4416,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        43,
+        24,
+        86,
+        141
+      ],
+      "visible_pixels": 3608,
+      "transparent_fraction": 0.823828125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 0.245654296875,
+      "visible_rgba_sha256": "3a94a57f18f01b4a904ce1b4461ee1dc589f4cf17fa70a9b1c2cb6a3bd5d4292",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/back-neutral.png",
+      "disk_bytes": 4177,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        41,
+        24,
+        87,
+        141
+      ],
+      "visible_pixels": 3765,
+      "transparent_fraction": 0.816162109375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 69,
+      "trim_rect_area_fraction": 0.26279296875,
+      "visible_rgba_sha256": "e2bc70fb6329bbd9be31161a5de2aa700b457b4372b2676bc38423186e8fba19",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/front-blink.png",
+      "disk_bytes": 4357,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        43,
+        24,
+        86,
+        141
+      ],
+      "visible_pixels": 3608,
+      "transparent_fraction": 0.823828125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 72,
+      "trim_rect_area_fraction": 0.245654296875,
+      "visible_rgba_sha256": "df86f655d91cdf85bdf6991b14ccf791e9cb2cdf3128446bd6cd18a80205498a",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/hammering-0.png",
+      "disk_bytes": 5257,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        37,
+        23,
+        113,
+        141
+      ],
+      "visible_pixels": 4729,
+      "transparent_fraction": 0.769091796875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 83,
+      "trim_rect_area_fraction": 0.437890625,
+      "visible_rgba_sha256": "f0cb326d6fe183a762d88366a7f2fe599d8f8667822e067a015f8cba8e3e0de8",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/hammering-1.png",
+      "disk_bytes": 5658,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        22,
+        11,
+        112,
+        141
+      ],
+      "visible_pixels": 5096,
+      "transparent_fraction": 0.751171875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 80,
+      "trim_rect_area_fraction": 0.5712890625,
+      "visible_rgba_sha256": "580a6776db74beebdaa70515021b7c27dc07b8df5af737c0bca57968b5b3aaba",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/hammering-2.png",
+      "disk_bytes": 5052,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        41,
+        25,
+        112,
+        141
+      ],
+      "visible_pixels": 4629,
+      "transparent_fraction": 0.773974609375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 80,
+      "trim_rect_area_fraction": 0.4021484375,
+      "visible_rgba_sha256": "b8854974ff15e23e5057dc7540364f810914782946dcd36741db8f1907f1a074",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/hammering-3.png",
+      "disk_bytes": 5023,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        40,
+        29,
+        118,
+        141
+      ],
+      "visible_pixels": 4499,
+      "transparent_fraction": 0.780322265625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 82,
+      "trim_rect_area_fraction": 0.4265625,
+      "visible_rgba_sha256": "e26bdecaf0cf64bc3138c86a9afbb59801a691948c98bcd82f11c9381af51862",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/hammering-4.png",
+      "disk_bytes": 5305,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        39,
+        21,
+        114,
+        141
+      ],
+      "visible_pixels": 4763,
+      "transparent_fraction": 0.767431640625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 82,
+      "trim_rect_area_fraction": 0.439453125,
+      "visible_rgba_sha256": "718d0fdab91bdb7db10f0254d9a357bd131ba504a06ddad6973b8b87375cb5c5",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/hammering-5.png",
+      "disk_bytes": 5257,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        37,
+        23,
+        113,
+        141
+      ],
+      "visible_pixels": 4729,
+      "transparent_fraction": 0.769091796875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 83,
+      "trim_rect_area_fraction": 0.437890625,
+      "visible_rgba_sha256": "f0cb326d6fe183a762d88366a7f2fe599d8f8667822e067a015f8cba8e3e0de8",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/quenching-0.png",
+      "disk_bytes": 5015,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        36,
+        21,
+        106,
+        141
+      ],
+      "visible_pixels": 4466,
+      "transparent_fraction": 0.78193359375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 83,
+      "trim_rect_area_fraction": 0.41015625,
+      "visible_rgba_sha256": "31c14bf340bbfd1f2cf89c568606a108b652ad8794c96b5295c89302e86b555a",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/quenching-1.png",
+      "disk_bytes": 5091,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        42,
+        27,
+        112,
+        141
+      ],
+      "visible_pixels": 4391,
+      "transparent_fraction": 0.785595703125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 82,
+      "trim_rect_area_fraction": 0.3896484375,
+      "visible_rgba_sha256": "b99c20d04506d7cb4252a44c387c54896cad23b1baa8f2f93f44fbe4bb562dfe",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/quenching-2.png",
+      "disk_bytes": 5087,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        42,
+        34,
+        112,
+        141
+      ],
+      "visible_pixels": 4370,
+      "transparent_fraction": 0.78662109375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 84,
+      "trim_rect_area_fraction": 0.36572265625,
+      "visible_rgba_sha256": "91a154497683b35a5678fa2836819f017a77062341923a85faea8a109479d74c",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/quenching-3.png",
+      "disk_bytes": 5087,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        42,
+        34,
+        112,
+        141
+      ],
+      "visible_pixels": 4370,
+      "transparent_fraction": 0.78662109375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 84,
+      "trim_rect_area_fraction": 0.36572265625,
+      "visible_rgba_sha256": "91a154497683b35a5678fa2836819f017a77062341923a85faea8a109479d74c",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/quenching-4.png",
+      "disk_bytes": 5042,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        36,
+        21,
+        108,
+        141
+      ],
+      "visible_pixels": 4456,
+      "transparent_fraction": 0.782421875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 80,
+      "trim_rect_area_fraction": 0.421875,
+      "visible_rgba_sha256": "0088717ee0b963d24b51dc290e73f73aa7ab67c9bb0cd787ed472e55419f5675",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/quenching-5.png",
+      "disk_bytes": 5015,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        36,
+        21,
+        106,
+        141
+      ],
+      "visible_pixels": 4466,
+      "transparent_fraction": 0.78193359375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 83,
+      "trim_rect_area_fraction": 0.41015625,
+      "visible_rgba_sha256": "31c14bf340bbfd1f2cf89c568606a108b652ad8794c96b5295c89302e86b555a",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/forging-0.png",
+      "disk_bytes": 5000,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        36,
+        22,
+        108,
+        141
+      ],
+      "visible_pixels": 4430,
+      "transparent_fraction": 0.78369140625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 83,
+      "trim_rect_area_fraction": 0.418359375,
+      "visible_rgba_sha256": "6bb483045b56c3437f92b7f3fc36cca8cfb268da6ae6195fdd056a31f7556e16",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/forging-1.png",
+      "disk_bytes": 4828,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        42,
+        28,
+        118,
+        141
+      ],
+      "visible_pixels": 4295,
+      "transparent_fraction": 0.790283203125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 81,
+      "trim_rect_area_fraction": 0.4193359375,
+      "visible_rgba_sha256": "c6a5b255d33702b357f8fec8f6716ed963bd403f70000a32bc91664957679c39",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/forging-2.png",
+      "disk_bytes": 4797,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        42,
+        33,
+        125,
+        141
+      ],
+      "visible_pixels": 4237,
+      "transparent_fraction": 0.793115234375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 83,
+      "trim_rect_area_fraction": 0.4376953125,
+      "visible_rgba_sha256": "6004707255089c8c4835185b3713ca9130def458155c8be4775a74da7a75d3c3",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/forging-3.png",
+      "disk_bytes": 4797,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        42,
+        33,
+        125,
+        141
+      ],
+      "visible_pixels": 4237,
+      "transparent_fraction": 0.793115234375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 83,
+      "trim_rect_area_fraction": 0.4376953125,
+      "visible_rgba_sha256": "6004707255089c8c4835185b3713ca9130def458155c8be4775a74da7a75d3c3",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/forging-4.png",
+      "disk_bytes": 5000,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        37,
+        20,
+        109,
+        141
+      ],
+      "visible_pixels": 4448,
+      "transparent_fraction": 0.7828125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 81,
+      "trim_rect_area_fraction": 0.425390625,
+      "visible_rgba_sha256": "10e1af15b909462e2227c1fc3602700181f1e2790852147551a5e6fab5cebd1f",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/forging-5.png",
+      "disk_bytes": 5000,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        36,
+        22,
+        108,
+        141
+      ],
+      "visible_pixels": 4430,
+      "transparent_fraction": 0.78369140625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 83,
+      "trim_rect_area_fraction": 0.418359375,
+      "visible_rgba_sha256": "6bb483045b56c3437f92b7f3fc36cca8cfb268da6ae6195fdd056a31f7556e16",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/researching-0.png",
+      "disk_bytes": 4783,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        36,
+        24,
+        88,
+        141
+      ],
+      "visible_pixels": 4299,
+      "transparent_fraction": 0.790087890625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 81,
+      "trim_rect_area_fraction": 0.2970703125,
+      "visible_rgba_sha256": "c12b8d202db28f1d06cb3919ca5a7071deccc8ce0ea265ed50ae03598020c632",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/researching-1.png",
+      "disk_bytes": 4885,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        24,
+        88,
+        141
+      ],
+      "visible_pixels": 4325,
+      "transparent_fraction": 0.788818359375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 81,
+      "trim_rect_area_fraction": 0.302783203125,
+      "visible_rgba_sha256": "248fb954fc9b775038d8b9cf422098ccf6a5c5c01a0b4019c45cd781bcb0e720",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/researching-2.png",
+      "disk_bytes": 4738,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        37,
+        29,
+        89,
+        141
+      ],
+      "visible_pixels": 4227,
+      "transparent_fraction": 0.793603515625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 0.284375,
+      "visible_rgba_sha256": "fd9330a7a190013c5d2c33ceeda0cd2c0ed732757aa46a399fc5f29c3348589d",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/researching-3.png",
+      "disk_bytes": 4885,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        24,
+        88,
+        141
+      ],
+      "visible_pixels": 4325,
+      "transparent_fraction": 0.788818359375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 81,
+      "trim_rect_area_fraction": 0.302783203125,
+      "visible_rgba_sha256": "248fb954fc9b775038d8b9cf422098ccf6a5c5c01a0b4019c45cd781bcb0e720",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/researching-4.png",
+      "disk_bytes": 4806,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        38,
+        21,
+        90,
+        141
+      ],
+      "visible_pixels": 4314,
+      "transparent_fraction": 0.78935546875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 80,
+      "trim_rect_area_fraction": 0.3046875,
+      "visible_rgba_sha256": "1aee634ab3eef002735bf7a3ba7e674e1a4214c43d868fc85a0e69ef85540536",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/researching-5.png",
+      "disk_bytes": 4783,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        36,
+        24,
+        88,
+        141
+      ],
+      "visible_pixels": 4299,
+      "transparent_fraction": 0.790087890625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 81,
+      "trim_rect_area_fraction": 0.2970703125,
+      "visible_rgba_sha256": "c12b8d202db28f1d06cb3919ca5a7071deccc8ce0ea265ed50ae03598020c632",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/salvaging-0.png",
+      "disk_bytes": 4432,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        40,
+        27,
+        88,
+        141
+      ],
+      "visible_pixels": 3879,
+      "transparent_fraction": 0.810595703125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 0.2671875,
+      "visible_rgba_sha256": "00ab4df1d7d3f5c06eb6a8209ff362bdfac85c342bc6565738b15bbe05893e27",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/salvaging-1.png",
+      "disk_bytes": 4244,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        40,
+        33,
+        88,
+        141
+      ],
+      "visible_pixels": 3659,
+      "transparent_fraction": 0.821337890625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 0.253125,
+      "visible_rgba_sha256": "168f5b7f2d4720a04393e93fad9ebee0bd7502d0f4e37926790e4c1027b6d229",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/salvaging-2.png",
+      "disk_bytes": 4281,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        40,
+        35,
+        89,
+        141
+      ],
+      "visible_pixels": 3669,
+      "transparent_fraction": 0.820849609375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 0.25361328125,
+      "visible_rgba_sha256": "599db71f255b6f8cf6cca018b65bd338eada327d060197245a2843444633c451",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/salvaging-3.png",
+      "disk_bytes": 4244,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        40,
+        33,
+        88,
+        141
+      ],
+      "visible_pixels": 3659,
+      "transparent_fraction": 0.821337890625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 0.253125,
+      "visible_rgba_sha256": "168f5b7f2d4720a04393e93fad9ebee0bd7502d0f4e37926790e4c1027b6d229",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/salvaging-4.png",
+      "disk_bytes": 4317,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        40,
+        35,
+        106,
+        141
+      ],
+      "visible_pixels": 3760,
+      "transparent_fraction": 0.81640625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 0.3416015625,
+      "visible_rgba_sha256": "d093b5d0c440d4efab416c933f249c79403f25e2629bc64fb1f1c01415b6c3e8",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/salvaging-5.png",
+      "disk_bytes": 4432,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        40,
+        27,
+        88,
+        141
+      ],
+      "visible_pixels": 3879,
+      "transparent_fraction": 0.810595703125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 0.2671875,
+      "visible_rgba_sha256": "00ab4df1d7d3f5c06eb6a8209ff362bdfac85c342bc6565738b15bbe05893e27",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/neutral.png",
+      "disk_bytes": 4267,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        24,
+        88,
+        141
+      ],
+      "visible_pixels": 4074,
+      "transparent_fraction": 0.80107421875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 0.302783203125,
+      "visible_rgba_sha256": "3e2d954b3a4a0fa0866c7e7db629dbb754f755a2e9fb6632f396eeb4dab9b145",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/talk-small.png",
+      "disk_bytes": 4280,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        24,
+        88,
+        141
+      ],
+      "visible_pixels": 4074,
+      "transparent_fraction": 0.80107421875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 74,
+      "trim_rect_area_fraction": 0.302783203125,
+      "visible_rgba_sha256": "727d5518bc7e9482991843020bde5f74ffd83508e44ff49bd1c94c19dcb317c7",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/talk-wide.png",
+      "disk_bytes": 4288,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        24,
+        88,
+        141
+      ],
+      "visible_pixels": 4074,
+      "transparent_fraction": 0.80107421875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 74,
+      "trim_rect_area_fraction": 0.302783203125,
+      "visible_rgba_sha256": "f93d0c5f9fce6873dade9fbffc7ec6f8467965863003801f247e1cc62094a56f",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/talk-round.png",
+      "disk_bytes": 4270,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        24,
+        88,
+        141
+      ],
+      "visible_pixels": 4074,
+      "transparent_fraction": 0.80107421875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 0.302783203125,
+      "visible_rgba_sha256": "93032b6d9841b99dbb1a9671ffa67b38f4d4c6a615698d0b6fcaea76681783e5",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/blink.png",
+      "disk_bytes": 4199,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        24,
+        88,
+        141
+      ],
+      "visible_pixels": 4074,
+      "transparent_fraction": 0.80107421875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 71,
+      "trim_rect_area_fraction": 0.302783203125,
+      "visible_rgba_sha256": "ce63f5353cd1a5de7a09adce329c13133b384b3fc35ffb7c02daba94c0553ade",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/happy.png",
+      "disk_bytes": 4191,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        24,
+        88,
+        141
+      ],
+      "visible_pixels": 4074,
+      "transparent_fraction": 0.80107421875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 71,
+      "trim_rect_area_fraction": 0.302783203125,
+      "visible_rgba_sha256": "e6abcddc5a429bfff7738c79009d4be55ecf04415b05f80e392722878b54e28b",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/surprised.png",
+      "disk_bytes": 4268,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        24,
+        88,
+        141
+      ],
+      "visible_pixels": 4074,
+      "transparent_fraction": 0.80107421875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 0.302783203125,
+      "visible_rgba_sha256": "6ccc641a099f278361552253e2114511fbf88938b523ff2717b16e9d472c49e2",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/relaxed.png",
+      "disk_bytes": 4239,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        24,
+        88,
+        141
+      ],
+      "visible_pixels": 4074,
+      "transparent_fraction": 0.80107421875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 72,
+      "trim_rect_area_fraction": 0.302783203125,
+      "visible_rgba_sha256": "c078384cfd0958f94b3ed3191620f59b11fdd246d852bf5ec0fb0f2226143b80",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/nod-down.png",
+      "disk_bytes": 4493,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        36,
+        24,
+        88,
+        141
+      ],
+      "visible_pixels": 4025,
+      "transparent_fraction": 0.803466796875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 70,
+      "trim_rect_area_fraction": 0.2970703125,
+      "visible_rgba_sha256": "4f638eec6e98573390575ca526baac5e4e689b4268be64e074cab4edb4d29393",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/turn-toward.png",
+      "disk_bytes": 4593,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        24,
+        88,
+        141
+      ],
+      "visible_pixels": 4006,
+      "transparent_fraction": 0.80439453125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 0.302783203125,
+      "visible_rgba_sha256": "b1db31eeb75da3e20813b8049234dd09b2dd14b68738205740119f60d62e9e76",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/turn-away.png",
+      "disk_bytes": 4620,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        32,
+        24,
+        88,
+        141
+      ],
+      "visible_pixels": 4015,
+      "transparent_fraction": 0.803955078125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 74,
+      "trim_rect_area_fraction": 0.319921875,
+      "visible_rgba_sha256": "edd6ef54eb3ff3733d48e68900549b2ce4b943d21031fef54692cc9512a79ef1",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/nod-mid.png",
+      "disk_bytes": 4253,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        25,
+        88,
+        141
+      ],
+      "visible_pixels": 4061,
+      "transparent_fraction": 0.801708984375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 0.3001953125,
+      "visible_rgba_sha256": "684b9ed6f447f102662335a2a51d4fc8c900ef02901721680a9f29355aa77c5e",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/give-half.png",
+      "disk_bytes": 4445,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        24,
+        88,
+        137
+      ],
+      "visible_pixels": 3863,
+      "transparent_fraction": 0.811376953125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 0.292431640625,
+      "visible_rgba_sha256": "f7ed1b80ae7930bed7e4bf3b84a965d1f80f2da8a83bd341e842e612f943ac69",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/give-full.png",
+      "disk_bytes": 4453,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        24,
+        104,
+        137
+      ],
+      "visible_pixels": 3943,
+      "transparent_fraction": 0.807470703125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 0.380712890625,
+      "visible_rgba_sha256": "caf61a16ede880b69f61d6afb7c21c5bfe5ea5ade807cc1263e7ba90bb17b25c",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/give-release.png",
+      "disk_bytes": 4513,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        24,
+        98,
+        137
+      ],
+      "visible_pixels": 4002,
+      "transparent_fraction": 0.80458984375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 74,
+      "trim_rect_area_fraction": 0.347607421875,
+      "visible_rgba_sha256": "c9b6e6f9627c23b41eee9e46592d835834cbc9abe1d29043193d7a8916f6cd4f",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/walk-0.png",
+      "disk_bytes": 4408,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        27,
+        24,
+        96,
+        141
+      ],
+      "visible_pixels": 4082,
+      "transparent_fraction": 0.80068359375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.394189453125,
+      "visible_rgba_sha256": "4edaa89fdcbb34be892280292601f5d82f193039d333036248cccb727ef0ec83",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/walk-1.png",
+      "disk_bytes": 4321,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        27,
+        25,
+        88,
+        141
+      ],
+      "visible_pixels": 3954,
+      "transparent_fraction": 0.80693359375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 0.3455078125,
+      "visible_rgba_sha256": "17378882ec1ee47d59d0aa5339a32fb66fc31038f1141b8cd1191ba5c2d18f5c",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/walk-2.png",
+      "disk_bytes": 4429,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        34,
+        24,
+        96,
+        141
+      ],
+      "visible_pixels": 4075,
+      "transparent_fraction": 0.801025390625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.35419921875,
+      "visible_rgba_sha256": "894742107064a952cf26b471ffe4628c29883b4e6fdfaef9fced8b043e40d993",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/walk-3.png",
+      "disk_bytes": 4527,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        33,
+        24,
+        97,
+        141
+      ],
+      "visible_pixels": 4104,
+      "transparent_fraction": 0.799609375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 74,
+      "trim_rect_area_fraction": 0.365625,
+      "visible_rgba_sha256": "558379dbad3ed14a0ee6f1d43db6c03f052f39d3531d6f3c3e9f23c79c0775e3",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/walk-4.png",
+      "disk_bytes": 4295,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        25,
+        95,
+        141
+      ],
+      "visible_pixels": 3901,
+      "transparent_fraction": 0.809521484375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 0.33984375,
+      "visible_rgba_sha256": "7ac87fe221d4bdc5bf7e1ab1ae07a232a82c540097f2afb921403836ac740386",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/walk-5.png",
+      "disk_bytes": 4316,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        24,
+        99,
+        141
+      ],
+      "visible_pixels": 3882,
+      "transparent_fraction": 0.81044921875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 0.365625,
+      "visible_rgba_sha256": "384676c4a5373ad6255f539959f5d3b8a78112f5aa4219a52cb83a447f3bf32a",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/front-neutral.png",
+      "disk_bytes": 4043,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        43,
+        24,
+        86,
+        141
+      ],
+      "visible_pixels": 3545,
+      "transparent_fraction": 0.826904296875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 74,
+      "trim_rect_area_fraction": 0.245654296875,
+      "visible_rgba_sha256": "7849fc6c3df248e7fc10d6fdc9dcd60fbc98947353cba1dabc0244352e1b3c19",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/back-neutral.png",
+      "disk_bytes": 3782,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        41,
+        24,
+        87,
+        141
+      ],
+      "visible_pixels": 3713,
+      "transparent_fraction": 0.818701171875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 69,
+      "trim_rect_area_fraction": 0.26279296875,
+      "visible_rgba_sha256": "daccdd82ca9ad6d9ae37e68e04845867d2be6635595a8ef8aada496a3d09f8e3",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/front-blink.png",
+      "disk_bytes": 3981,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        43,
+        24,
+        86,
+        141
+      ],
+      "visible_pixels": 3545,
+      "transparent_fraction": 0.826904296875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 0.245654296875,
+      "visible_rgba_sha256": "b8fb2a771eb076d3cd5bce2013de768afdbde3fc698a07409d11f061878965d3",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/hammering-0.png",
+      "disk_bytes": 4555,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        37,
+        22,
+        97,
+        141
+      ],
+      "visible_pixels": 4378,
+      "transparent_fraction": 0.78623046875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.3486328125,
+      "visible_rgba_sha256": "a0fb825271ac1e005e9631ce135ce2ff7785d252141ac264a7ab9987f081390e",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/hammering-1.png",
+      "disk_bytes": 4706,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        27,
+        19,
+        95,
+        141
+      ],
+      "visible_pixels": 4545,
+      "transparent_fraction": 0.778076171875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.405078125,
+      "visible_rgba_sha256": "af68a8240d1605a193db409766352febab3009485818a71df3c498b26a978adf",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/hammering-2.png",
+      "disk_bytes": 4331,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        41,
+        27,
+        96,
+        141
+      ],
+      "visible_pixels": 4105,
+      "transparent_fraction": 0.799560546875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.30615234375,
+      "visible_rgba_sha256": "dd07269169a19d0b702cc1611661261cf5e044489576d44b64f939310782a1d3",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/hammering-3.png",
+      "disk_bytes": 4404,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        40,
+        31,
+        102,
+        141
+      ],
+      "visible_pixels": 4146,
+      "transparent_fraction": 0.79755859375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 0.3330078125,
+      "visible_rgba_sha256": "b0331be8ead757940cb66b207806dd711719522bd27bf2e3662316e11d4c0daa",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/hammering-4.png",
+      "disk_bytes": 4563,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        39,
+        23,
+        97,
+        141
+      ],
+      "visible_pixels": 4407,
+      "transparent_fraction": 0.784814453125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 0.3341796875,
+      "visible_rgba_sha256": "ed2ed2cdb5718c5db99aaa74c35e238791c3c162e062fd58a441c85370eacfe0",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/hammering-5.png",
+      "disk_bytes": 4555,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        37,
+        22,
+        97,
+        141
+      ],
+      "visible_pixels": 4378,
+      "transparent_fraction": 0.78623046875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.3486328125,
+      "visible_rgba_sha256": "a0fb825271ac1e005e9631ce135ce2ff7785d252141ac264a7ab9987f081390e",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/quenching-0.png",
+      "disk_bytes": 4495,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        34,
+        20,
+        92,
+        141
+      ],
+      "visible_pixels": 4367,
+      "transparent_fraction": 0.786767578125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 0.34267578125,
+      "visible_rgba_sha256": "871fe38f755a90d918c2ef9106762fbb846571e08e0badd87dd2854382577a51",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/quenching-1.png",
+      "disk_bytes": 4481,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        41,
+        24,
+        99,
+        141
+      ],
+      "visible_pixels": 4346,
+      "transparent_fraction": 0.78779296875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.33134765625,
+      "visible_rgba_sha256": "228ebfbfbe58ec4c2342b18a29efdb96e815fe89ea97ede53858bd2324898a6c",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/quenching-2.png",
+      "disk_bytes": 4378,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        41,
+        34,
+        101,
+        141
+      ],
+      "visible_pixels": 4177,
+      "transparent_fraction": 0.796044921875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 72,
+      "trim_rect_area_fraction": 0.3134765625,
+      "visible_rgba_sha256": "0d5663499b17201b4506ac30115118e70c26bdd045eb189934c9fe74879dab40",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/quenching-3.png",
+      "disk_bytes": 4378,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        41,
+        34,
+        101,
+        141
+      ],
+      "visible_pixels": 4177,
+      "transparent_fraction": 0.796044921875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 72,
+      "trim_rect_area_fraction": 0.3134765625,
+      "visible_rgba_sha256": "0d5663499b17201b4506ac30115118e70c26bdd045eb189934c9fe74879dab40",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/quenching-4.png",
+      "disk_bytes": 4514,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        34,
+        20,
+        92,
+        141
+      ],
+      "visible_pixels": 4380,
+      "transparent_fraction": 0.7861328125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 74,
+      "trim_rect_area_fraction": 0.34267578125,
+      "visible_rgba_sha256": "c3acdbbfd546105de91c06697b53efc823f48c2b1ebc2b1f821b7b7bc0d5afd7",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/quenching-5.png",
+      "disk_bytes": 4495,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        34,
+        20,
+        92,
+        141
+      ],
+      "visible_pixels": 4367,
+      "transparent_fraction": 0.786767578125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 0.34267578125,
+      "visible_rgba_sha256": "871fe38f755a90d918c2ef9106762fbb846571e08e0badd87dd2854382577a51",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/forging-0.png",
+      "disk_bytes": 4461,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        20,
+        90,
+        141
+      ],
+      "visible_pixels": 4374,
+      "transparent_fraction": 0.78642578125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 0.324951171875,
+      "visible_rgba_sha256": "4534d75f04a3ec69d59a96235c772bbdd71986ee7580aa06b67438b7de44157c",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/forging-1.png",
+      "disk_bytes": 4378,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        41,
+        24,
+        100,
+        141
+      ],
+      "visible_pixels": 4313,
+      "transparent_fraction": 0.789404296875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 0.337060546875,
+      "visible_rgba_sha256": "eff208fd0e4df62244611931cecafc4bdd39d14844dfa5f0aa96c6f862a5e5b7",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/forging-2.png",
+      "disk_bytes": 4262,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        40,
+        32,
+        107,
+        141
+      ],
+      "visible_pixels": 4202,
+      "transparent_fraction": 0.79482421875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 0.356591796875,
+      "visible_rgba_sha256": "aadbd8156e49fc7afe3b288c217e53624ca38b77d40d7a1cf24c99fae539d0a7",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/forging-3.png",
+      "disk_bytes": 4262,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        40,
+        32,
+        107,
+        141
+      ],
+      "visible_pixels": 4202,
+      "transparent_fraction": 0.79482421875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 0.356591796875,
+      "visible_rgba_sha256": "aadbd8156e49fc7afe3b288c217e53624ca38b77d40d7a1cf24c99fae539d0a7",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/forging-4.png",
+      "disk_bytes": 4469,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        36,
+        21,
+        91,
+        141
+      ],
+      "visible_pixels": 4376,
+      "transparent_fraction": 0.786328125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 0.322265625,
+      "visible_rgba_sha256": "3c53b648a535994039f25c3723dcb2a205eec82665fd1cb04a8c403e65127657",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/forging-5.png",
+      "disk_bytes": 4461,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        35,
+        20,
+        90,
+        141
+      ],
+      "visible_pixels": 4374,
+      "transparent_fraction": 0.78642578125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 0.324951171875,
+      "visible_rgba_sha256": "4534d75f04a3ec69d59a96235c772bbdd71986ee7580aa06b67438b7de44157c",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/researching-0.png",
+      "disk_bytes": 4250,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        37,
+        24,
+        89,
+        141
+      ],
+      "visible_pixels": 4251,
+      "transparent_fraction": 0.792431640625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 0.2970703125,
+      "visible_rgba_sha256": "aad4de50339a4ac750848e46a9bfc55b3a21d450ad173e7b9f04bf7626da6a42",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/researching-1.png",
+      "disk_bytes": 4335,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        36,
+        25,
+        88,
+        141
+      ],
+      "visible_pixels": 4302,
+      "transparent_fraction": 0.78994140625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.29453125,
+      "visible_rgba_sha256": "c654a3d4c58c75c5f204c8983c838f8b61656914346e1084218566debd969b51",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/researching-2.png",
+      "disk_bytes": 4239,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        36,
+        29,
+        88,
+        141
+      ],
+      "visible_pixels": 4197,
+      "transparent_fraction": 0.795068359375,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.284375,
+      "visible_rgba_sha256": "e17c1b568afdf45a4eba888903685e73da265c434bd255a40ff1e7c6510d7774",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/researching-3.png",
+      "disk_bytes": 4335,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        36,
+        25,
+        88,
+        141
+      ],
+      "visible_pixels": 4302,
+      "transparent_fraction": 0.78994140625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.29453125,
+      "visible_rgba_sha256": "c654a3d4c58c75c5f204c8983c838f8b61656914346e1084218566debd969b51",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/researching-4.png",
+      "disk_bytes": 4308,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        38,
+        22,
+        90,
+        141
+      ],
+      "visible_pixels": 4220,
+      "transparent_fraction": 0.7939453125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.3021484375,
+      "visible_rgba_sha256": "0754f511ee4fa44cb360c621ecef74ae308db0e29d74012ec3e8b2b32daa4d35",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/researching-5.png",
+      "disk_bytes": 4250,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        37,
+        24,
+        89,
+        141
+      ],
+      "visible_pixels": 4251,
+      "transparent_fraction": 0.792431640625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 0.2970703125,
+      "visible_rgba_sha256": "aad4de50339a4ac750848e46a9bfc55b3a21d450ad173e7b9f04bf7626da6a42",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/salvaging-0.png",
+      "disk_bytes": 3917,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        40,
+        26,
+        88,
+        141
+      ],
+      "visible_pixels": 3841,
+      "transparent_fraction": 0.812451171875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 0.26953125,
+      "visible_rgba_sha256": "5f97fa922b547c5feda85ea607ea35780122639a91449d775d6376367be81abd",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/salvaging-1.png",
+      "disk_bytes": 3781,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        39,
+        33,
+        89,
+        141
+      ],
+      "visible_pixels": 3640,
+      "transparent_fraction": 0.822265625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.263671875,
+      "visible_rgba_sha256": "43a882d04f0aee6d7f40bcb2ee8d8a4b675ab2e7a594af2b4587a4e09129de5f",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/salvaging-2.png",
+      "disk_bytes": 3708,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        39,
+        34,
+        89,
+        141
+      ],
+      "visible_pixels": 3654,
+      "transparent_fraction": 0.82158203125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 0.26123046875,
+      "visible_rgba_sha256": "bdd689df7da0465b253d3c24c0442a7265c0f62bee5b160e2278bfd17ac36244",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/salvaging-3.png",
+      "disk_bytes": 3781,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        39,
+        33,
+        89,
+        141
+      ],
+      "visible_pixels": 3640,
+      "transparent_fraction": 0.822265625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 0.263671875,
+      "visible_rgba_sha256": "43a882d04f0aee6d7f40bcb2ee8d8a4b675ab2e7a594af2b4587a4e09129de5f",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/salvaging-4.png",
+      "disk_bytes": 3809,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        40,
+        35,
+        106,
+        141
+      ],
+      "visible_pixels": 3691,
+      "transparent_fraction": 0.819775390625,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 74,
+      "trim_rect_area_fraction": 0.3416015625,
+      "visible_rgba_sha256": "779f96efcfe7d266f9192ba3143fd63d19bf699869d8bd73295370357d6e8c44",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    },
+    {
+      "path": "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/salvaging-5.png",
+      "disk_bytes": 3917,
+      "size": [
+        128,
+        160
+      ],
+      "alpha_bbox_xyxy": [
+        40,
+        26,
+        88,
+        141
+      ],
+      "visible_pixels": 3841,
+      "transparent_fraction": 0.812451171875,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 0.26953125,
+      "visible_rgba_sha256": "5f97fa922b547c5feda85ea607ea35780122639a91449d775d6376367be81abd",
+      "rgba8_base_bytes": 81920,
+      "selected_format": "rgba8",
+      "selected_format_base_bytes": 81920,
+      "selected_format_full_mip_chain_bytes": 109220
+    }
+  ],
+  "sprites": [
+    {
+      "id": "neutral",
+      "page": "player",
+      "rect": [
+        2,
+        2,
+        53,
+        117
+      ],
+      "size": [
+        53,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        53,
+        117
+      ],
+      "visible_pixels": 4136,
+      "transparent_fraction": 0.33301080470891786,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "2f4b8f0d040f2b90e3eef57c00b1b17b761af6f1a8805744b7d1cdb49cc860c1",
+      "trimmed_pivot": [
+        29,
+        116
+      ]
+    },
+    {
+      "id": "talk-small",
+      "page": "player",
+      "rect": [
+        59,
+        2,
+        53,
+        117
+      ],
+      "size": [
+        53,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        53,
+        117
+      ],
+      "visible_pixels": 4136,
+      "transparent_fraction": 0.33301080470891786,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "6c597211b8e355523d7a97c5ffeede9ef406b5743834c79015d4d3f580ded85e",
+      "trimmed_pivot": [
+        29,
+        116
+      ]
+    },
+    {
+      "id": "talk-wide",
+      "page": "player",
+      "rect": [
+        116,
+        2,
+        53,
+        117
+      ],
+      "size": [
+        53,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        53,
+        117
+      ],
+      "visible_pixels": 4136,
+      "transparent_fraction": 0.33301080470891786,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "ac8f9c476a0d383583841a5e3ad0981029ed2ed0e79013a4a40ead894a13562a",
+      "trimmed_pivot": [
+        29,
+        116
+      ]
+    },
+    {
+      "id": "talk-round",
+      "page": "player",
+      "rect": [
+        173,
+        2,
+        53,
+        117
+      ],
+      "size": [
+        53,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        53,
+        117
+      ],
+      "visible_pixels": 4136,
+      "transparent_fraction": 0.33301080470891786,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "57076bf6090a9a01f7cad523e33ffd533b32a0170d13b0ffa0e3ac35e010d0c2",
+      "trimmed_pivot": [
+        29,
+        116
+      ]
+    },
+    {
+      "id": "blink",
+      "page": "player",
+      "rect": [
+        230,
+        2,
+        53,
+        117
+      ],
+      "size": [
+        53,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        53,
+        117
+      ],
+      "visible_pixels": 4136,
+      "transparent_fraction": 0.33301080470891786,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 72,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "44a74c36a2869dd01387bb76e0046a3af8998989c89009de0b5eef7fdf068d86",
+      "trimmed_pivot": [
+        29,
+        116
+      ]
+    },
+    {
+      "id": "happy",
+      "page": "player",
+      "rect": [
+        287,
+        2,
+        53,
+        117
+      ],
+      "size": [
+        53,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        53,
+        117
+      ],
+      "visible_pixels": 4136,
+      "transparent_fraction": 0.33301080470891786,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 72,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "1355bcd38e74583293dc5381584f0c980009d3d8f442ac0b10da0a35662697d5",
+      "trimmed_pivot": [
+        29,
+        116
+      ]
+    },
+    {
+      "id": "surprised",
+      "page": "player",
+      "rect": [
+        344,
+        2,
+        53,
+        117
+      ],
+      "size": [
+        53,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        53,
+        117
+      ],
+      "visible_pixels": 4136,
+      "transparent_fraction": 0.33301080470891786,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "c37bdd580932c82fca9c4942c1cf192588efa0203e4bcca34f5110d87a0b2cad",
+      "trimmed_pivot": [
+        29,
+        116
+      ]
+    },
+    {
+      "id": "relaxed",
+      "page": "player",
+      "rect": [
+        401,
+        2,
+        53,
+        117
+      ],
+      "size": [
+        53,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        53,
+        117
+      ],
+      "visible_pixels": 4136,
+      "transparent_fraction": 0.33301080470891786,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "eca20ff6060b6cea0816407e1f8290ce97d3c92706c750dcbbcdd7829fae39f5",
+      "trimmed_pivot": [
+        29,
+        116
+      ]
+    },
+    {
+      "id": "nod-down",
+      "page": "player",
+      "rect": [
+        458,
+        2,
+        52,
+        117
+      ],
+      "size": [
+        52,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        52,
+        117
+      ],
+      "visible_pixels": 4087,
+      "transparent_fraction": 0.3282380013149244,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 69,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "abdc4d788ee4b6ee6f840dfd7107757badf621f859c26169a3a8b4ab77d93f2a",
+      "trimmed_pivot": [
+        28,
+        116
+      ]
+    },
+    {
+      "id": "turn-toward",
+      "page": "player",
+      "rect": [
+        514,
+        2,
+        53,
+        117
+      ],
+      "size": [
+        53,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        53,
+        117
+      ],
+      "visible_pixels": 4068,
+      "transparent_fraction": 0.34397677793904213,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "73562a7ce697a229b6baaf7930befac63120901f263af14df935c681c164c98b",
+      "trimmed_pivot": [
+        29,
+        116
+      ]
+    },
+    {
+      "id": "turn-away",
+      "page": "player",
+      "rect": [
+        571,
+        2,
+        56,
+        117
+      ],
+      "size": [
+        56,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        56,
+        117
+      ],
+      "visible_pixels": 4077,
+      "transparent_fraction": 0.37774725274725274,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "7c7b99d9b83c4408aee273a1d5371ef1023dc6c937edd46573faed12be537349",
+      "trimmed_pivot": [
+        32,
+        116
+      ]
+    },
+    {
+      "id": "nod-mid",
+      "page": "player",
+      "rect": [
+        631,
+        2,
+        53,
+        116
+      ],
+      "size": [
+        53,
+        116
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        53,
+        116
+      ],
+      "visible_pixels": 4123,
+      "transparent_fraction": 0.3293754066363045,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "93536f49def0b3167b3445cc0c2f0c4cd4b1e361047e013365e3ea9f157a95d2",
+      "trimmed_pivot": [
+        29,
+        115
+      ]
+    },
+    {
+      "id": "give-half",
+      "page": "player",
+      "rect": [
+        688,
+        2,
+        53,
+        113
+      ],
+      "size": [
+        53,
+        113
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        53,
+        113
+      ],
+      "visible_pixels": 3964,
+      "transparent_fraction": 0.3381198864585072,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "fda3f56ce91fba8f3b7be01b3c21711fe093c7f27f7277810578b95813ef1e5d",
+      "trimmed_pivot": [
+        29,
+        116
+      ]
+    },
+    {
+      "id": "give-full",
+      "page": "player",
+      "rect": [
+        745,
+        2,
+        69,
+        113
+      ],
+      "size": [
+        69,
+        113
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        69,
+        113
+      ],
+      "visible_pixels": 4099,
+      "transparent_fraction": 0.4742849814031037,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "6a9b8ef3b8411c8ae953e608ff0a630e047c2cd61c0b220bb1218329a6e2436b",
+      "trimmed_pivot": [
+        29,
+        116
+      ]
+    },
+    {
+      "id": "give-release",
+      "page": "player",
+      "rect": [
+        818,
+        2,
+        63,
+        113
+      ],
+      "size": [
+        63,
+        113
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        63,
+        113
+      ],
+      "visible_pixels": 4093,
+      "transparent_fraction": 0.42505969939598254,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "d7eefaec8aab8f69336ac9ac21e1c3159f83ef2c8f844b9f088d5ce181d4d8f7",
+      "trimmed_pivot": [
+        29,
+        116
+      ]
+    },
+    {
+      "id": "walk-0",
+      "page": "player",
+      "rect": [
+        885,
+        2,
+        69,
+        117
+      ],
+      "size": [
+        69,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        69,
+        117
+      ],
+      "visible_pixels": 4251,
+      "transparent_fraction": 0.47342995169082125,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "3498c3219a12e5c9ad3799054c1769e9454211f148f794c387be2d4e57f63790",
+      "trimmed_pivot": [
+        37,
+        116
+      ]
+    },
+    {
+      "id": "walk-1",
+      "page": "player",
+      "rect": [
+        958,
+        2,
+        61,
+        116
+      ],
+      "size": [
+        61,
+        116
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        61,
+        116
+      ],
+      "visible_pixels": 4277,
+      "transparent_fraction": 0.39556246466930467,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "4ceeeee5b55af0b9d2d09ba2f80a90cc4d7cb08c4bfbc2f9990e888bd8862961",
+      "trimmed_pivot": [
+        37,
+        115
+      ]
+    },
+    {
+      "id": "walk-2",
+      "page": "player",
+      "rect": [
+        2,
+        123,
+        62,
+        117
+      ],
+      "size": [
+        62,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        62,
+        117
+      ],
+      "visible_pixels": 4249,
+      "transparent_fraction": 0.4142542045767852,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "84b36283af7ecb8e99e967268318f3ccbf0ac823fc24e286957d92eaf97cef6b",
+      "trimmed_pivot": [
+        30,
+        116
+      ]
+    },
+    {
+      "id": "walk-3",
+      "page": "player",
+      "rect": [
+        68,
+        123,
+        64,
+        117
+      ],
+      "size": [
+        64,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        64,
+        117
+      ],
+      "visible_pixels": 4303,
+      "transparent_fraction": 0.4253472222222222,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "d719aeabe06f117b95a1d0c3d150816927ddcf1b49aeb52535026314c2cf98f2",
+      "trimmed_pivot": [
+        31,
+        116
+      ]
+    },
+    {
+      "id": "walk-4",
+      "page": "player",
+      "rect": [
+        136,
+        123,
+        60,
+        116
+      ],
+      "size": [
+        60,
+        116
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        60,
+        116
+      ],
+      "visible_pixels": 4088,
+      "transparent_fraction": 0.4126436781609195,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "d8dfef584ba15929b4d3879d80a511e19c517eaf630291f45d0bd6e7558cb65f",
+      "trimmed_pivot": [
+        29,
+        115
+      ]
+    },
+    {
+      "id": "walk-5",
+      "page": "player",
+      "rect": [
+        200,
+        123,
+        64,
+        117
+      ],
+      "size": [
+        64,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        64,
+        117
+      ],
+      "visible_pixels": 4069,
+      "transparent_fraction": 0.4565972222222222,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "865af85c613b21e5fbdbdcabdff0071f5f5f674f42081b99753374ae28ea6cd1",
+      "trimmed_pivot": [
+        29,
+        116
+      ]
+    },
+    {
+      "id": "front-neutral",
+      "page": "player",
+      "rect": [
+        268,
+        123,
+        43,
+        117
+      ],
+      "size": [
+        43,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        43,
+        117
+      ],
+      "visible_pixels": 3608,
+      "transparent_fraction": 0.2828463526137944,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "305ce47f35a0ed0198ef964131f24dacc0c8802b084c8a96f846a103290627b1",
+      "trimmed_pivot": [
+        21,
+        116
+      ]
+    },
+    {
+      "id": "back-neutral",
+      "page": "player",
+      "rect": [
+        315,
+        123,
+        46,
+        117
+      ],
+      "size": [
+        46,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        46,
+        117
+      ],
+      "visible_pixels": 3765,
+      "transparent_fraction": 0.3004459308807135,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 69,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "971864fba14bda43a3c07bd5071af736544c3997f09318f3f8d4b975d3729816",
+      "trimmed_pivot": [
+        23,
+        116
+      ]
+    },
+    {
+      "id": "front-blink",
+      "page": "player",
+      "rect": [
+        365,
+        123,
+        43,
+        117
+      ],
+      "size": [
+        43,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        43,
+        117
+      ],
+      "visible_pixels": 3608,
+      "transparent_fraction": 0.2828463526137944,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 72,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "de79319496d162b208d8bce7253d2b993cfcc6bd18d9853d3c96b6eb95eaccec",
+      "trimmed_pivot": [
+        21,
+        116
+      ]
+    },
+    {
+      "id": "hammering-0",
+      "page": "player",
+      "rect": [
+        412,
+        123,
+        76,
+        118
+      ],
+      "size": [
+        76,
+        118
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        76,
+        118
+      ],
+      "visible_pixels": 4729,
+      "transparent_fraction": 0.47268064228367535,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 83,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "b7afd0998ef1fa190b4ede16f500fda561327c3cf408d1464b663bad3faf111c",
+      "trimmed_pivot": [
+        27,
+        117
+      ]
+    },
+    {
+      "id": "hammering-1",
+      "page": "player",
+      "rect": [
+        492,
+        123,
+        90,
+        130
+      ],
+      "size": [
+        90,
+        130
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        90,
+        130
+      ],
+      "visible_pixels": 5096,
+      "transparent_fraction": 0.5644444444444445,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 80,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "5b6a77d08a3d4b2d6c4d2ea15abc1c353212b95cadb8b1726d5e1beae5d57cc6",
+      "trimmed_pivot": [
+        42,
+        129
+      ]
+    },
+    {
+      "id": "hammering-2",
+      "page": "player",
+      "rect": [
+        586,
+        123,
+        71,
+        116
+      ],
+      "size": [
+        71,
+        116
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        71,
+        116
+      ],
+      "visible_pixels": 4629,
+      "transparent_fraction": 0.4379553181155901,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 80,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "6f21350367fab7d39ddafef1b7dc6181a957b22b70c096a3a4f401851804c77b",
+      "trimmed_pivot": [
+        23,
+        115
+      ]
+    },
+    {
+      "id": "hammering-3",
+      "page": "player",
+      "rect": [
+        661,
+        123,
+        78,
+        112
+      ],
+      "size": [
+        78,
+        112
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        78,
+        112
+      ],
+      "visible_pixels": 4499,
+      "transparent_fraction": 0.4850045787545788,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 82,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "0d1226e504888d70684870012799f4e79b4d1138e2ae125d0aec0fa1ed32231e",
+      "trimmed_pivot": [
+        24,
+        111
+      ]
+    },
+    {
+      "id": "hammering-4",
+      "page": "player",
+      "rect": [
+        743,
+        123,
+        75,
+        120
+      ],
+      "size": [
+        75,
+        120
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        75,
+        120
+      ],
+      "visible_pixels": 4763,
+      "transparent_fraction": 0.47077777777777774,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 82,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "ecccad9eee3bdd51581045a32c1111d8dd911909911f798613945c528acff415",
+      "trimmed_pivot": [
+        25,
+        119
+      ]
+    },
+    {
+      "id": "hammering-5",
+      "page": "player",
+      "rect": [
+        412,
+        123,
+        76,
+        118
+      ],
+      "size": [
+        76,
+        118
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        76,
+        118
+      ],
+      "visible_pixels": 4729,
+      "transparent_fraction": 0.47268064228367535,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 83,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "b7afd0998ef1fa190b4ede16f500fda561327c3cf408d1464b663bad3faf111c",
+      "trimmed_pivot": [
+        27,
+        117
+      ]
+    },
+    {
+      "id": "quenching-0",
+      "page": "player",
+      "rect": [
+        822,
+        123,
+        70,
+        120
+      ],
+      "size": [
+        70,
+        120
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        70,
+        120
+      ],
+      "visible_pixels": 4466,
+      "transparent_fraction": 0.4683333333333334,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 83,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "e858b1c8783bf6a9a74476119bd920ab94428b323d84b4ed569358732b892c7d",
+      "trimmed_pivot": [
+        28,
+        119
+      ]
+    },
+    {
+      "id": "quenching-1",
+      "page": "player",
+      "rect": [
+        896,
+        123,
+        70,
+        114
+      ],
+      "size": [
+        70,
+        114
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        70,
+        114
+      ],
+      "visible_pixels": 4391,
+      "transparent_fraction": 0.449749373433584,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 82,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "b5fbb957fbcd561990cae859ef09e1826bc7c2c9d0b179e7974968e107e72a24",
+      "trimmed_pivot": [
+        22,
+        113
+      ]
+    },
+    {
+      "id": "quenching-2",
+      "page": "player",
+      "rect": [
+        2,
+        257,
+        70,
+        107
+      ],
+      "size": [
+        70,
+        107
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        70,
+        107
+      ],
+      "visible_pixels": 4370,
+      "transparent_fraction": 0.4165554072096128,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 84,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "8b8081d38ee531b5f036d8b4804c97dabedf34df283f5ee1c792549db95f1cbc",
+      "trimmed_pivot": [
+        22,
+        106
+      ]
+    },
+    {
+      "id": "quenching-3",
+      "page": "player",
+      "rect": [
+        2,
+        257,
+        70,
+        107
+      ],
+      "size": [
+        70,
+        107
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        70,
+        107
+      ],
+      "visible_pixels": 4370,
+      "transparent_fraction": 0.4165554072096128,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 84,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "8b8081d38ee531b5f036d8b4804c97dabedf34df283f5ee1c792549db95f1cbc",
+      "trimmed_pivot": [
+        22,
+        106
+      ]
+    },
+    {
+      "id": "quenching-4",
+      "page": "player",
+      "rect": [
+        76,
+        257,
+        72,
+        120
+      ],
+      "size": [
+        72,
+        120
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        72,
+        120
+      ],
+      "visible_pixels": 4456,
+      "transparent_fraction": 0.4842592592592593,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 80,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "1859be5ec73bc8b9e812a9cc19ed6d540a63601d96b2db02aa3fb855456b9716",
+      "trimmed_pivot": [
+        28,
+        119
+      ]
+    },
+    {
+      "id": "quenching-5",
+      "page": "player",
+      "rect": [
+        822,
+        123,
+        70,
+        120
+      ],
+      "size": [
+        70,
+        120
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        70,
+        120
+      ],
+      "visible_pixels": 4466,
+      "transparent_fraction": 0.4683333333333334,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 83,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "e858b1c8783bf6a9a74476119bd920ab94428b323d84b4ed569358732b892c7d",
+      "trimmed_pivot": [
+        28,
+        119
+      ]
+    },
+    {
+      "id": "forging-0",
+      "page": "player",
+      "rect": [
+        152,
+        257,
+        72,
+        119
+      ],
+      "size": [
+        72,
+        119
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        72,
+        119
+      ],
+      "visible_pixels": 4430,
+      "transparent_fraction": 0.4829598506069094,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 83,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "86518b362f04c6460628d0dc5f7f099f0ef6f371f43293a12fb3e804cbea09e2",
+      "trimmed_pivot": [
+        28,
+        118
+      ]
+    },
+    {
+      "id": "forging-1",
+      "page": "player",
+      "rect": [
+        228,
+        257,
+        76,
+        113
+      ],
+      "size": [
+        76,
+        113
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        76,
+        113
+      ],
+      "visible_pixels": 4295,
+      "transparent_fraction": 0.4998835584536563,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 81,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "58175ff198ec12e4b5514f95c15b15a4b0534412805b84e1615a7d4241286aae",
+      "trimmed_pivot": [
+        22,
+        112
+      ]
+    },
+    {
+      "id": "forging-2",
+      "page": "player",
+      "rect": [
+        308,
+        257,
+        83,
+        108
+      ],
+      "size": [
+        83,
+        108
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        83,
+        108
+      ],
+      "visible_pixels": 4237,
+      "transparent_fraction": 0.5273315484158858,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 83,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "bfdfa9782152b17970282b9bde4b50caa19e76dee6dd2f72d2558435831408ad",
+      "trimmed_pivot": [
+        22,
+        107
+      ]
+    },
+    {
+      "id": "forging-3",
+      "page": "player",
+      "rect": [
+        308,
+        257,
+        83,
+        108
+      ],
+      "size": [
+        83,
+        108
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        83,
+        108
+      ],
+      "visible_pixels": 4237,
+      "transparent_fraction": 0.5273315484158858,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 83,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "bfdfa9782152b17970282b9bde4b50caa19e76dee6dd2f72d2558435831408ad",
+      "trimmed_pivot": [
+        22,
+        107
+      ]
+    },
+    {
+      "id": "forging-4",
+      "page": "player",
+      "rect": [
+        395,
+        257,
+        72,
+        121
+      ],
+      "size": [
+        72,
+        121
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        72,
+        121
+      ],
+      "visible_pixels": 4448,
+      "transparent_fraction": 0.48943985307621674,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 81,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "9a7e240181cab68369402a80de714f5aa50c560297dbe850d0a2a9da2bba10ef",
+      "trimmed_pivot": [
+        27,
+        120
+      ]
+    },
+    {
+      "id": "forging-5",
+      "page": "player",
+      "rect": [
+        152,
+        257,
+        72,
+        119
+      ],
+      "size": [
+        72,
+        119
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        72,
+        119
+      ],
+      "visible_pixels": 4430,
+      "transparent_fraction": 0.4829598506069094,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 83,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "86518b362f04c6460628d0dc5f7f099f0ef6f371f43293a12fb3e804cbea09e2",
+      "trimmed_pivot": [
+        28,
+        118
+      ]
+    },
+    {
+      "id": "researching-0",
+      "page": "player",
+      "rect": [
+        471,
+        257,
+        52,
+        117
+      ],
+      "size": [
+        52,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        52,
+        117
+      ],
+      "visible_pixels": 4299,
+      "transparent_fraction": 0.29339250493096647,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 81,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "9d8db717da36d365f17ae35ad72f397af52af060f03cb070b4de43ea419bd7bd",
+      "trimmed_pivot": [
+        28,
+        116
+      ]
+    },
+    {
+      "id": "researching-1",
+      "page": "player",
+      "rect": [
+        527,
+        257,
+        53,
+        117
+      ],
+      "size": [
+        53,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        53,
+        117
+      ],
+      "visible_pixels": 4325,
+      "transparent_fraction": 0.302531849701661,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 81,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "589f86b695738ff00a44857ce454ab0dc2ea8cdcca39f411ea69265375627d89",
+      "trimmed_pivot": [
+        29,
+        116
+      ]
+    },
+    {
+      "id": "researching-2",
+      "page": "player",
+      "rect": [
+        584,
+        257,
+        52,
+        112
+      ],
+      "size": [
+        52,
+        112
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        52,
+        112
+      ],
+      "visible_pixels": 4227,
+      "transparent_fraction": 0.2742101648351648,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 79,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "034a6306343b612972972f6e189fdd7323964cbf3339ca34098414fbe3cc4330",
+      "trimmed_pivot": [
+        27,
+        111
+      ]
+    },
+    {
+      "id": "researching-3",
+      "page": "player",
+      "rect": [
+        527,
+        257,
+        53,
+        117
+      ],
+      "size": [
+        53,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        53,
+        117
+      ],
+      "visible_pixels": 4325,
+      "transparent_fraction": 0.302531849701661,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 81,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "589f86b695738ff00a44857ce454ab0dc2ea8cdcca39f411ea69265375627d89",
+      "trimmed_pivot": [
+        29,
+        116
+      ]
+    },
+    {
+      "id": "researching-4",
+      "page": "player",
+      "rect": [
+        640,
+        257,
+        52,
+        120
+      ],
+      "size": [
+        52,
+        120
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        52,
+        120
+      ],
+      "visible_pixels": 4314,
+      "transparent_fraction": 0.30865384615384617,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 80,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "0fad316cb14b5bf8ebe15251c90a4b72138f2941b0cf252d69c3ae78ecd11e2f",
+      "trimmed_pivot": [
+        26,
+        119
+      ]
+    },
+    {
+      "id": "researching-5",
+      "page": "player",
+      "rect": [
+        471,
+        257,
+        52,
+        117
+      ],
+      "size": [
+        52,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        52,
+        117
+      ],
+      "visible_pixels": 4299,
+      "transparent_fraction": 0.29339250493096647,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 81,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "9d8db717da36d365f17ae35ad72f397af52af060f03cb070b4de43ea419bd7bd",
+      "trimmed_pivot": [
+        28,
+        116
+      ]
+    },
+    {
+      "id": "salvaging-0",
+      "page": "player",
+      "rect": [
+        696,
+        257,
+        48,
+        114
+      ],
+      "size": [
+        48,
+        114
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        48,
+        114
+      ],
+      "visible_pixels": 3879,
+      "transparent_fraction": 0.2911184210526315,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "9a0abe21c256a88b229df970ad788e8a53955e781d9543948b39d2c923c92cc6",
+      "trimmed_pivot": [
+        24,
+        113
+      ]
+    },
+    {
+      "id": "salvaging-1",
+      "page": "player",
+      "rect": [
+        748,
+        257,
+        48,
+        108
+      ],
+      "size": [
+        48,
+        108
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        48,
+        108
+      ],
+      "visible_pixels": 3659,
+      "transparent_fraction": 0.29417438271604934,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "29acb8b53383762c4c3acbc8b740c30f6a2a73bcd96d3720b164c1688ef1528a",
+      "trimmed_pivot": [
+        24,
+        107
+      ]
+    },
+    {
+      "id": "salvaging-2",
+      "page": "player",
+      "rect": [
+        800,
+        257,
+        49,
+        106
+      ],
+      "size": [
+        49,
+        106
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        49,
+        106
+      ],
+      "visible_pixels": 3669,
+      "transparent_fraction": 0.2936080092414324,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "38e34343b9bca473b8ec1058039464185e92164381eeb12616fa70df99bc0728",
+      "trimmed_pivot": [
+        24,
+        105
+      ]
+    },
+    {
+      "id": "salvaging-3",
+      "page": "player",
+      "rect": [
+        748,
+        257,
+        48,
+        108
+      ],
+      "size": [
+        48,
+        108
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        48,
+        108
+      ],
+      "visible_pixels": 3659,
+      "transparent_fraction": 0.29417438271604934,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "29acb8b53383762c4c3acbc8b740c30f6a2a73bcd96d3720b164c1688ef1528a",
+      "trimmed_pivot": [
+        24,
+        107
+      ]
+    },
+    {
+      "id": "salvaging-4",
+      "page": "player",
+      "rect": [
+        853,
+        257,
+        66,
+        106
+      ],
+      "size": [
+        66,
+        106
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        66,
+        106
+      ],
+      "visible_pixels": 3760,
+      "transparent_fraction": 0.4625500285877644,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "95f66b46450d93eefc9b6fddf3ca9e7f7237bf536389304a0e4569034d0f27e8",
+      "trimmed_pivot": [
+        24,
+        105
+      ]
+    },
+    {
+      "id": "salvaging-5",
+      "page": "player",
+      "rect": [
+        696,
+        257,
+        48,
+        114
+      ],
+      "size": [
+        48,
+        114
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        48,
+        114
+      ],
+      "visible_pixels": 3879,
+      "transparent_fraction": 0.2911184210526315,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "9a0abe21c256a88b229df970ad788e8a53955e781d9543948b39d2c923c92cc6",
+      "trimmed_pivot": [
+        24,
+        113
+      ]
+    },
+    {
+      "id": "base/neutral",
+      "page": "player",
+      "rect": [
+        923,
+        257,
+        53,
+        117
+      ],
+      "size": [
+        53,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        53,
+        117
+      ],
+      "visible_pixels": 4074,
+      "transparent_fraction": 0.34300919206579583,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "805f46d6adb0e20a88a379972656eb45a74ea94e8a913d003442a38a9926d07d",
+      "trimmed_pivot": [
+        29,
+        116
+      ]
+    },
+    {
+      "id": "base/talk-small",
+      "page": "player",
+      "rect": [
+        2,
+        382,
+        53,
+        117
+      ],
+      "size": [
+        53,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        53,
+        117
+      ],
+      "visible_pixels": 4074,
+      "transparent_fraction": 0.34300919206579583,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 74,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "f129040fe9c745e04771848cffae322799b8d00c1f6baaa37baa2a0400637c54",
+      "trimmed_pivot": [
+        29,
+        116
+      ]
+    },
+    {
+      "id": "base/talk-wide",
+      "page": "player",
+      "rect": [
+        59,
+        382,
+        53,
+        117
+      ],
+      "size": [
+        53,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        53,
+        117
+      ],
+      "visible_pixels": 4074,
+      "transparent_fraction": 0.34300919206579583,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 74,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "f7534079f28fd17a2dfa1ed47baf08bdc5c12f733951bc899b8adff9703072ae",
+      "trimmed_pivot": [
+        29,
+        116
+      ]
+    },
+    {
+      "id": "base/talk-round",
+      "page": "player",
+      "rect": [
+        116,
+        382,
+        53,
+        117
+      ],
+      "size": [
+        53,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        53,
+        117
+      ],
+      "visible_pixels": 4074,
+      "transparent_fraction": 0.34300919206579583,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "9d1b3da6a5179476c5190e4148e4f2b7448e46da4e623d31fa392f3518bd124c",
+      "trimmed_pivot": [
+        29,
+        116
+      ]
+    },
+    {
+      "id": "base/blink",
+      "page": "player",
+      "rect": [
+        173,
+        382,
+        53,
+        117
+      ],
+      "size": [
+        53,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        53,
+        117
+      ],
+      "visible_pixels": 4074,
+      "transparent_fraction": 0.34300919206579583,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 71,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "2799d2a7c4b7b41d751bf0215e250776647cada66dcc1d6c3ad669269b73c327",
+      "trimmed_pivot": [
+        29,
+        116
+      ]
+    },
+    {
+      "id": "base/happy",
+      "page": "player",
+      "rect": [
+        230,
+        382,
+        53,
+        117
+      ],
+      "size": [
+        53,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        53,
+        117
+      ],
+      "visible_pixels": 4074,
+      "transparent_fraction": 0.34300919206579583,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 71,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "30bf2cdffd47ae1a066b14623612322e95805558b87a87e60c6a8b9660c23698",
+      "trimmed_pivot": [
+        29,
+        116
+      ]
+    },
+    {
+      "id": "base/surprised",
+      "page": "player",
+      "rect": [
+        287,
+        382,
+        53,
+        117
+      ],
+      "size": [
+        53,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        53,
+        117
+      ],
+      "visible_pixels": 4074,
+      "transparent_fraction": 0.34300919206579583,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "d58ca9784860a6cff997294fdbe19e2add5acd91ac274cac254f96569f7a307c",
+      "trimmed_pivot": [
+        29,
+        116
+      ]
+    },
+    {
+      "id": "base/relaxed",
+      "page": "player",
+      "rect": [
+        344,
+        382,
+        53,
+        117
+      ],
+      "size": [
+        53,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        53,
+        117
+      ],
+      "visible_pixels": 4074,
+      "transparent_fraction": 0.34300919206579583,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 72,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "59af8b7d86a89d39e8d161355de3acd25afd73ef3476b5ee0bfd992c6c222095",
+      "trimmed_pivot": [
+        29,
+        116
+      ]
+    },
+    {
+      "id": "base/nod-down",
+      "page": "player",
+      "rect": [
+        401,
+        382,
+        52,
+        117
+      ],
+      "size": [
+        52,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        52,
+        117
+      ],
+      "visible_pixels": 4025,
+      "transparent_fraction": 0.3384286653517423,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 70,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "c435ff384cdc6b81b331158fb97743c6de2384b6811751b3abd14838110c92a4",
+      "trimmed_pivot": [
+        28,
+        116
+      ]
+    },
+    {
+      "id": "base/turn-toward",
+      "page": "player",
+      "rect": [
+        457,
+        382,
+        53,
+        117
+      ],
+      "size": [
+        53,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        53,
+        117
+      ],
+      "visible_pixels": 4006,
+      "transparent_fraction": 0.35397516529592,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "f12b5115b0eba6f27fc48bcd3baf571d1cc890cedc877952804d3e9b7dc1f69e",
+      "trimmed_pivot": [
+        29,
+        116
+      ]
+    },
+    {
+      "id": "base/turn-away",
+      "page": "player",
+      "rect": [
+        514,
+        382,
+        56,
+        117
+      ],
+      "size": [
+        56,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        56,
+        117
+      ],
+      "visible_pixels": 4015,
+      "transparent_fraction": 0.38721001221001217,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 74,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "74331a50290bc23ab82a7a3c6170ba2fc9828113fa754799ccbe7bcf4e59a1d4",
+      "trimmed_pivot": [
+        32,
+        116
+      ]
+    },
+    {
+      "id": "base/nod-mid",
+      "page": "player",
+      "rect": [
+        574,
+        382,
+        53,
+        116
+      ],
+      "size": [
+        53,
+        116
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        53,
+        116
+      ],
+      "visible_pixels": 4061,
+      "transparent_fraction": 0.33945998698763824,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "000b4cb33aab2f7b1b83c0dbfa32100b80bd87036f96d4fab5c5882d88bc6554",
+      "trimmed_pivot": [
+        29,
+        115
+      ]
+    },
+    {
+      "id": "base/give-half",
+      "page": "player",
+      "rect": [
+        631,
+        382,
+        53,
+        113
+      ],
+      "size": [
+        53,
+        113
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        53,
+        113
+      ],
+      "visible_pixels": 3863,
+      "transparent_fraction": 0.35498413758557357,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "bad7851f5d803c0274a32dbf9913233a4d5b0287b0ef6a396c220cc050a8af6c",
+      "trimmed_pivot": [
+        29,
+        116
+      ]
+    },
+    {
+      "id": "base/give-full",
+      "page": "player",
+      "rect": [
+        688,
+        382,
+        69,
+        113
+      ],
+      "size": [
+        69,
+        113
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        69,
+        113
+      ],
+      "visible_pixels": 3943,
+      "transparent_fraction": 0.49429267667051435,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "604b1cc87bbebecb7656b6536be833900f828a1357f5146c3af144cd4d5d5e14",
+      "trimmed_pivot": [
+        29,
+        116
+      ]
+    },
+    {
+      "id": "base/give-release",
+      "page": "player",
+      "rect": [
+        761,
+        382,
+        63,
+        113
+      ],
+      "size": [
+        63,
+        113
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        63,
+        113
+      ],
+      "visible_pixels": 4002,
+      "transparent_fraction": 0.43784239359460597,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 74,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "8d2fd3c248ea56e039831eb368d624599e46119d0483d8e4fbc6906c56a5c5b5",
+      "trimmed_pivot": [
+        29,
+        116
+      ]
+    },
+    {
+      "id": "base/walk-0",
+      "page": "player",
+      "rect": [
+        828,
+        382,
+        69,
+        117
+      ],
+      "size": [
+        69,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        69,
+        117
+      ],
+      "visible_pixels": 4082,
+      "transparent_fraction": 0.4943639291465378,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "96870da42fe1220f8263b3511106f5efd89f534887d1abb40185dc85dce7aa6b",
+      "trimmed_pivot": [
+        37,
+        116
+      ]
+    },
+    {
+      "id": "base/walk-1",
+      "page": "player",
+      "rect": [
+        901,
+        382,
+        61,
+        116
+      ],
+      "size": [
+        61,
+        116
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        61,
+        116
+      ],
+      "visible_pixels": 3954,
+      "transparent_fraction": 0.44120972300734873,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "5eca4b000ade74ed73e23e8652fca4dc1d8b589c983aa8ff28876e325c47d562",
+      "trimmed_pivot": [
+        37,
+        115
+      ]
+    },
+    {
+      "id": "base/walk-2",
+      "page": "player",
+      "rect": [
+        2,
+        503,
+        62,
+        117
+      ],
+      "size": [
+        62,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        62,
+        117
+      ],
+      "visible_pixels": 4075,
+      "transparent_fraction": 0.438240970499035,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "026268ea7472b3a0a6068acd2207b85d3706610d601f17fbe441210adac12aa4",
+      "trimmed_pivot": [
+        30,
+        116
+      ]
+    },
+    {
+      "id": "base/walk-3",
+      "page": "player",
+      "rect": [
+        68,
+        503,
+        64,
+        117
+      ],
+      "size": [
+        64,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        64,
+        117
+      ],
+      "visible_pixels": 4104,
+      "transparent_fraction": 0.45192307692307687,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 74,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "a0b5c767ae647d1cbf527348e07957a17a554d36c61853dd1ba32435c8f46f80",
+      "trimmed_pivot": [
+        31,
+        116
+      ]
+    },
+    {
+      "id": "base/walk-4",
+      "page": "player",
+      "rect": [
+        136,
+        503,
+        60,
+        116
+      ],
+      "size": [
+        60,
+        116
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        60,
+        116
+      ],
+      "visible_pixels": 3901,
+      "transparent_fraction": 0.4395114942528736,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "2ea93a63cdd5b1fe5c679c1d2585d313351beefd2271b5360cdbc1e867f02511",
+      "trimmed_pivot": [
+        29,
+        115
+      ]
+    },
+    {
+      "id": "base/walk-5",
+      "page": "player",
+      "rect": [
+        200,
+        503,
+        64,
+        117
+      ],
+      "size": [
+        64,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        64,
+        117
+      ],
+      "visible_pixels": 3882,
+      "transparent_fraction": 0.4815705128205128,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "ce8d5c255130b1c7775e31c0499f30d85bc5eb991a7c46b0c4c6980a4ca02f29",
+      "trimmed_pivot": [
+        29,
+        116
+      ]
+    },
+    {
+      "id": "base/front-neutral",
+      "page": "player",
+      "rect": [
+        268,
+        503,
+        43,
+        117
+      ],
+      "size": [
+        43,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        43,
+        117
+      ],
+      "visible_pixels": 3545,
+      "transparent_fraction": 0.29536871397336517,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 74,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "d545d5c0d37158949e6839471d593a3d4efee71e6b016e1b7b72acc550b477f0",
+      "trimmed_pivot": [
+        21,
+        116
+      ]
+    },
+    {
+      "id": "base/back-neutral",
+      "page": "player",
+      "rect": [
+        315,
+        503,
+        46,
+        117
+      ],
+      "size": [
+        46,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        46,
+        117
+      ],
+      "visible_pixels": 3713,
+      "transparent_fraction": 0.3101077666295058,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 69,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "58082652b48391c96823ebe48219f678c8d00e54b665cdd24a4705bafa68e47d",
+      "trimmed_pivot": [
+        23,
+        116
+      ]
+    },
+    {
+      "id": "base/front-blink",
+      "page": "player",
+      "rect": [
+        365,
+        503,
+        43,
+        117
+      ],
+      "size": [
+        43,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        43,
+        117
+      ],
+      "visible_pixels": 3545,
+      "transparent_fraction": 0.29536871397336517,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "53d40a7bd0fcbc52ca8541b5b1ef6efb52c914ef0b3f422acd5aa2ac82fe4bb9",
+      "trimmed_pivot": [
+        21,
+        116
+      ]
+    },
+    {
+      "id": "base/hammering-0",
+      "page": "player",
+      "rect": [
+        412,
+        503,
+        60,
+        119
+      ],
+      "size": [
+        60,
+        119
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        60,
+        119
+      ],
+      "visible_pixels": 4378,
+      "transparent_fraction": 0.3868347338935574,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "04d9ff2511b0f433c7237807d057a015f74656f37c51834510a5340724721101",
+      "trimmed_pivot": [
+        27,
+        118
+      ]
+    },
+    {
+      "id": "base/hammering-1",
+      "page": "player",
+      "rect": [
+        476,
+        503,
+        68,
+        122
+      ],
+      "size": [
+        68,
+        122
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        68,
+        122
+      ],
+      "visible_pixels": 4545,
+      "transparent_fraction": 0.452145612343298,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "f88279009adb623859d38a1e169b849babc3a1f4a1fbe0db449d6914d2f93a75",
+      "trimmed_pivot": [
+        37,
+        121
+      ]
+    },
+    {
+      "id": "base/hammering-2",
+      "page": "player",
+      "rect": [
+        548,
+        503,
+        55,
+        114
+      ],
+      "size": [
+        55,
+        114
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        55,
+        114
+      ],
+      "visible_pixels": 4105,
+      "transparent_fraction": 0.34529505582137165,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "d47986d769f68244572a0770523e898957578b9b0e4bb16a1173d5c55688d483",
+      "trimmed_pivot": [
+        23,
+        113
+      ]
+    },
+    {
+      "id": "base/hammering-3",
+      "page": "player",
+      "rect": [
+        607,
+        503,
+        62,
+        110
+      ],
+      "size": [
+        62,
+        110
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        62,
+        110
+      ],
+      "visible_pixels": 4146,
+      "transparent_fraction": 0.39208211143695015,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "ee9c327bd24141744d4e6858a0968f5097a22f18c0dacaed4355c8b54c33a0ae",
+      "trimmed_pivot": [
+        24,
+        109
+      ]
+    },
+    {
+      "id": "base/hammering-4",
+      "page": "player",
+      "rect": [
+        673,
+        503,
+        58,
+        118
+      ],
+      "size": [
+        58,
+        118
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        58,
+        118
+      ],
+      "visible_pixels": 4407,
+      "transparent_fraction": 0.3560783167738165,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "e81ae416d83167e737ea974d5f26572ada12abe9847d6f0d0259c18deba34b2b",
+      "trimmed_pivot": [
+        25,
+        117
+      ]
+    },
+    {
+      "id": "base/hammering-5",
+      "page": "player",
+      "rect": [
+        412,
+        503,
+        60,
+        119
+      ],
+      "size": [
+        60,
+        119
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        60,
+        119
+      ],
+      "visible_pixels": 4378,
+      "transparent_fraction": 0.3868347338935574,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "04d9ff2511b0f433c7237807d057a015f74656f37c51834510a5340724721101",
+      "trimmed_pivot": [
+        27,
+        118
+      ]
+    },
+    {
+      "id": "base/quenching-0",
+      "page": "player",
+      "rect": [
+        735,
+        503,
+        58,
+        121
+      ],
+      "size": [
+        58,
+        121
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        58,
+        121
+      ],
+      "visible_pixels": 4367,
+      "transparent_fraction": 0.377742946708464,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "c17023487db677d0e6829968268e933bf90b040f2d3470d9655dcf75d0c0d7d6",
+      "trimmed_pivot": [
+        30,
+        120
+      ]
+    },
+    {
+      "id": "base/quenching-1",
+      "page": "player",
+      "rect": [
+        797,
+        503,
+        58,
+        117
+      ],
+      "size": [
+        58,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        58,
+        117
+      ],
+      "visible_pixels": 4346,
+      "transparent_fraction": 0.3595638078396699,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "38497f82de65a6b3a08bd892424bf2515405acacddda7571b2f01a518e2bfa7b",
+      "trimmed_pivot": [
+        23,
+        116
+      ]
+    },
+    {
+      "id": "base/quenching-2",
+      "page": "player",
+      "rect": [
+        859,
+        503,
+        60,
+        107
+      ],
+      "size": [
+        60,
+        107
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        60,
+        107
+      ],
+      "visible_pixels": 4177,
+      "transparent_fraction": 0.3493769470404985,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 72,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "e7223ee76b4dbb13a9a47ef5508d5f069de25ae2cb0b84247d91f78f094843a1",
+      "trimmed_pivot": [
+        23,
+        106
+      ]
+    },
+    {
+      "id": "base/quenching-3",
+      "page": "player",
+      "rect": [
+        859,
+        503,
+        60,
+        107
+      ],
+      "size": [
+        60,
+        107
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        60,
+        107
+      ],
+      "visible_pixels": 4177,
+      "transparent_fraction": 0.3493769470404985,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 72,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "e7223ee76b4dbb13a9a47ef5508d5f069de25ae2cb0b84247d91f78f094843a1",
+      "trimmed_pivot": [
+        23,
+        106
+      ]
+    },
+    {
+      "id": "base/quenching-4",
+      "page": "player",
+      "rect": [
+        923,
+        503,
+        58,
+        121
+      ],
+      "size": [
+        58,
+        121
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        58,
+        121
+      ],
+      "visible_pixels": 4380,
+      "transparent_fraction": 0.3758905671131376,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 74,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "fcd1f41892ac0bc71d90a8f7f7c38d5dc5020d9d64de159719899f886ca00e56",
+      "trimmed_pivot": [
+        30,
+        120
+      ]
+    },
+    {
+      "id": "base/quenching-5",
+      "page": "player",
+      "rect": [
+        735,
+        503,
+        58,
+        121
+      ],
+      "size": [
+        58,
+        121
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        58,
+        121
+      ],
+      "visible_pixels": 4367,
+      "transparent_fraction": 0.377742946708464,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "c17023487db677d0e6829968268e933bf90b040f2d3470d9655dcf75d0c0d7d6",
+      "trimmed_pivot": [
+        30,
+        120
+      ]
+    },
+    {
+      "id": "base/forging-0",
+      "page": "player",
+      "rect": [
+        2,
+        629,
+        55,
+        121
+      ],
+      "size": [
+        55,
+        121
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        55,
+        121
+      ],
+      "visible_pixels": 4374,
+      "transparent_fraction": 0.34274981217129974,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "62fcb1f6ca3ef133c3061ed8e95fc5220270a3408ba3938202bf99170b31d8a2",
+      "trimmed_pivot": [
+        29,
+        120
+      ]
+    },
+    {
+      "id": "base/forging-1",
+      "page": "player",
+      "rect": [
+        61,
+        629,
+        59,
+        117
+      ],
+      "size": [
+        59,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        59,
+        117
+      ],
+      "visible_pixels": 4313,
+      "transparent_fraction": 0.37519918875851077,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 77,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "c10de44db3181f15526fc2c3faf44086feca14519035c2af4d6046c9f8b814cd",
+      "trimmed_pivot": [
+        23,
+        116
+      ]
+    },
+    {
+      "id": "base/forging-2",
+      "page": "player",
+      "rect": [
+        124,
+        629,
+        67,
+        109
+      ],
+      "size": [
+        67,
+        109
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        67,
+        109
+      ],
+      "visible_pixels": 4202,
+      "transparent_fraction": 0.424620019170204,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "07778867c452ba60417e9182fc2af691130a4e5140e7a8c02a4689c94dd4dfc4",
+      "trimmed_pivot": [
+        24,
+        108
+      ]
+    },
+    {
+      "id": "base/forging-3",
+      "page": "player",
+      "rect": [
+        124,
+        629,
+        67,
+        109
+      ],
+      "size": [
+        67,
+        109
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        67,
+        109
+      ],
+      "visible_pixels": 4202,
+      "transparent_fraction": 0.424620019170204,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "07778867c452ba60417e9182fc2af691130a4e5140e7a8c02a4689c94dd4dfc4",
+      "trimmed_pivot": [
+        24,
+        108
+      ]
+    },
+    {
+      "id": "base/forging-4",
+      "page": "player",
+      "rect": [
+        195,
+        629,
+        55,
+        120
+      ],
+      "size": [
+        55,
+        120
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        55,
+        120
+      ],
+      "visible_pixels": 4376,
+      "transparent_fraction": 0.3369696969696969,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "54e30f99c1f29e5d931829e1a090739fb62a62486b0f6a4b4eaec0e24ea6e42f",
+      "trimmed_pivot": [
+        28,
+        119
+      ]
+    },
+    {
+      "id": "base/forging-5",
+      "page": "player",
+      "rect": [
+        2,
+        629,
+        55,
+        121
+      ],
+      "size": [
+        55,
+        121
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        55,
+        121
+      ],
+      "visible_pixels": 4374,
+      "transparent_fraction": 0.34274981217129974,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "62fcb1f6ca3ef133c3061ed8e95fc5220270a3408ba3938202bf99170b31d8a2",
+      "trimmed_pivot": [
+        29,
+        120
+      ]
+    },
+    {
+      "id": "base/researching-0",
+      "page": "player",
+      "rect": [
+        254,
+        629,
+        52,
+        117
+      ],
+      "size": [
+        52,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        52,
+        117
+      ],
+      "visible_pixels": 4251,
+      "transparent_fraction": 0.3012820512820513,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "6a124a602717125c486970d90c14cbb001f07f1371416702ca560b46f67afef4",
+      "trimmed_pivot": [
+        27,
+        116
+      ]
+    },
+    {
+      "id": "base/researching-1",
+      "page": "player",
+      "rect": [
+        310,
+        629,
+        52,
+        116
+      ],
+      "size": [
+        52,
+        116
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        52,
+        116
+      ],
+      "visible_pixels": 4302,
+      "transparent_fraction": 0.2868037135278515,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "7cba4703ab037082d1a26cdaae6bc194d1082f4eaabf8d9af82dab6ff00e133a",
+      "trimmed_pivot": [
+        28,
+        115
+      ]
+    },
+    {
+      "id": "base/researching-2",
+      "page": "player",
+      "rect": [
+        366,
+        629,
+        52,
+        112
+      ],
+      "size": [
+        52,
+        112
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        52,
+        112
+      ],
+      "visible_pixels": 4197,
+      "transparent_fraction": 0.2793612637362637,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "25d61f147bb2304026749d915da365b523aa4027b4f54b01322b4934b0e3e021",
+      "trimmed_pivot": [
+        28,
+        111
+      ]
+    },
+    {
+      "id": "base/researching-3",
+      "page": "player",
+      "rect": [
+        310,
+        629,
+        52,
+        116
+      ],
+      "size": [
+        52,
+        116
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        52,
+        116
+      ],
+      "visible_pixels": 4302,
+      "transparent_fraction": 0.2868037135278515,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "7cba4703ab037082d1a26cdaae6bc194d1082f4eaabf8d9af82dab6ff00e133a",
+      "trimmed_pivot": [
+        28,
+        115
+      ]
+    },
+    {
+      "id": "base/researching-4",
+      "page": "player",
+      "rect": [
+        422,
+        629,
+        52,
+        119
+      ],
+      "size": [
+        52,
+        119
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        52,
+        119
+      ],
+      "visible_pixels": 4220,
+      "transparent_fraction": 0.31803490627020037,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "a8441159f66349dd7aa65fcb60b619a0e3bca0c284ed5539b8a4ce713c813bbe",
+      "trimmed_pivot": [
+        26,
+        118
+      ]
+    },
+    {
+      "id": "base/researching-5",
+      "page": "player",
+      "rect": [
+        254,
+        629,
+        52,
+        117
+      ],
+      "size": [
+        52,
+        117
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        52,
+        117
+      ],
+      "visible_pixels": 4251,
+      "transparent_fraction": 0.3012820512820513,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 78,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "6a124a602717125c486970d90c14cbb001f07f1371416702ca560b46f67afef4",
+      "trimmed_pivot": [
+        27,
+        116
+      ]
+    },
+    {
+      "id": "base/salvaging-0",
+      "page": "player",
+      "rect": [
+        478,
+        629,
+        48,
+        115
+      ],
+      "size": [
+        48,
+        115
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        48,
+        115
+      ],
+      "visible_pixels": 3841,
+      "transparent_fraction": 0.3041666666666667,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "f43bc525e31f38ee878bb9ae14945531736f0f313e0ee47c55292403b3b2fde3",
+      "trimmed_pivot": [
+        24,
+        114
+      ]
+    },
+    {
+      "id": "base/salvaging-1",
+      "page": "player",
+      "rect": [
+        530,
+        629,
+        50,
+        108
+      ],
+      "size": [
+        50,
+        108
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        50,
+        108
+      ],
+      "visible_pixels": 3640,
+      "transparent_fraction": 0.32592592592592595,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "eea7ed242f13dc88b6c0d62d57e9ce35e661e4a02d845a4ed21ae1a949739600",
+      "trimmed_pivot": [
+        25,
+        107
+      ]
+    },
+    {
+      "id": "base/salvaging-2",
+      "page": "player",
+      "rect": [
+        584,
+        629,
+        50,
+        107
+      ],
+      "size": [
+        50,
+        107
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        50,
+        107
+      ],
+      "visible_pixels": 3654,
+      "transparent_fraction": 0.31700934579439255,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 75,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "6f2ab3bd47c791ba79d149e222c2e9d8dbff5a8437ad3c9b234f2be87acb43a3",
+      "trimmed_pivot": [
+        25,
+        106
+      ]
+    },
+    {
+      "id": "base/salvaging-3",
+      "page": "player",
+      "rect": [
+        530,
+        629,
+        50,
+        108
+      ],
+      "size": [
+        50,
+        108
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        50,
+        108
+      ],
+      "visible_pixels": 3640,
+      "transparent_fraction": 0.32592592592592595,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 76,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "eea7ed242f13dc88b6c0d62d57e9ce35e661e4a02d845a4ed21ae1a949739600",
+      "trimmed_pivot": [
+        25,
+        107
+      ]
+    },
+    {
+      "id": "base/salvaging-4",
+      "page": "player",
+      "rect": [
+        638,
+        629,
+        66,
+        106
+      ],
+      "size": [
+        66,
+        106
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        66,
+        106
+      ],
+      "visible_pixels": 3691,
+      "transparent_fraction": 0.4724128073184677,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 74,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "7df43fbff474ca3ab7c3d19580404c2ca0a9e67a6195bda4a8ea6f52396e8779",
+      "trimmed_pivot": [
+        24,
+        105
+      ]
+    },
+    {
+      "id": "base/salvaging-5",
+      "page": "player",
+      "rect": [
+        478,
+        629,
+        48,
+        115
+      ],
+      "size": [
+        48,
+        115
+      ],
+      "alpha_bbox_xyxy": [
+        0,
+        0,
+        48,
+        115
+      ],
+      "visible_pixels": 3841,
+      "transparent_fraction": 0.3041666666666667,
+      "partial_alpha_pixels": 0,
+      "visible_rgb_colors": 73,
+      "trim_rect_area_fraction": 1.0,
+      "visible_rgba_sha256": "f43bc525e31f38ee878bb9ae14945531736f0f313e0ee47c55292403b3b2fde3",
+      "trimmed_pivot": [
+        24,
+        114
+      ]
+    }
+  ],
+  "errors": [],
+  "warnings": [
+    "Extrude/gutter pixel contents, runtime sampling and performance were not measured"
+  ],
+  "runtime": {
+    "draw_calls": "not_measured",
+    "overdraw": "not_measured",
+    "gpu_format_support": "not_checked"
+  },
+  "memory_note": "Format arithmetic only; excludes CPU copies, staging, alignment and driver overhead.",
+  "pages": [
+    {
+      "id": "player",
+      "size": [
+        1024,
+        752
+      ],
+      "unique_rect_area_fraction": 0.791127306349734,
+      "estimated_texture_bytes": 3080192
+    }
+  ],
+  "declared_page_texture_bytes": 3080192,
+  "duplicate_image_groups": [
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/hammering-0.png",
+      "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/hammering-5.png"
+    ],
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/quenching-0.png",
+      "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/quenching-5.png"
+    ],
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/quenching-2.png",
+      "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/quenching-3.png"
+    ],
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/forging-0.png",
+      "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/forging-5.png"
+    ],
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/forging-2.png",
+      "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/forging-3.png"
+    ],
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/researching-0.png",
+      "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/researching-5.png"
+    ],
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/researching-1.png",
+      "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/researching-3.png"
+    ],
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/salvaging-0.png",
+      "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/salvaging-5.png"
+    ],
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/salvaging-1.png",
+      "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/salvaging-3.png"
+    ],
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/hammering-0.png",
+      "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/hammering-5.png"
+    ],
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/quenching-0.png",
+      "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/quenching-5.png"
+    ],
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/quenching-2.png",
+      "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/quenching-3.png"
+    ],
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/forging-0.png",
+      "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/forging-5.png"
+    ],
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/forging-2.png",
+      "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/forging-3.png"
+    ],
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/researching-0.png",
+      "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/researching-5.png"
+    ],
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/researching-1.png",
+      "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/researching-3.png"
+    ],
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/salvaging-0.png",
+      "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/salvaging-5.png"
+    ],
+    [
+      "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/salvaging-1.png",
+      "/Users/minhokang/Work/games/little-forge/assets/characters/female/frames/base/salvaging-3.png"
+    ]
+  ],
+  "status": "structural_pass_runtime_unmeasured"
+}
