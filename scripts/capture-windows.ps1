@@ -16,7 +16,9 @@ function Capture-Scene([string]$Scene, [bool]$Control) {
   if (!$p.WaitForExit(90000)) { $p.Kill(); throw "Capture timeout: $name" }
   if (!(Test-Path $png)) { throw "Missing capture: $name" }
   if (Select-String -Path "$OutputDirectory/$name.stderr.log" -Pattern 'panicked|\bERROR\b') { throw "Renderer error: $name" }
-  python scripts/compare-images.py "docs/qa/golden/linux-llvmpipe/$Scene.png" $png --diff "$OutputDirectory/$name-diff.png" > "$OutputDirectory/$name-comparison.json"
+  # DX12 vs llvmpipe antialiasing differs slightly on the denser expanded overlay.
+  $maxRatio = if ($Scene -eq 'expanded') { '0.01' } else { '0.005' }
+  python scripts/compare-images.py "docs/qa/golden/linux-llvmpipe/$Scene.png" $png --max-changed-ratio $maxRatio --diff "$OutputDirectory/$name-diff.png" > "$OutputDirectory/$name-comparison.json"
   $comparisonExit = $LASTEXITCODE
   Get-Content "$OutputDirectory/$name-comparison.json"
   if ($Control) {
