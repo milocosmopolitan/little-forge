@@ -93,3 +93,18 @@ Shared-component preview fixtures:
 ![Missing optional art](evidence/missing-art.png)
 
 ![Actual map at 200% X11 DPI](evidence/game-dpi-200.png)
+
+## Update 2026-10-18: independent runtime exports
+
+`forge-ui` no longer samples source-sheet rectangles. 47 independent files
+(19 controls, 24 icons, 4 headers) live in `assets/ui/runtime/` with a registered
+manifest; `validate-ui.py` verifies them. Actual captures with these files:
+
+![Forge materials](evidence/runtime-exports-home.png)
+![Farm](evidence/runtime-exports-farm.png)
+![Export review on light/dark checkerboards](evidence/runtime-assets-review.png)
+
+#59 (inventory, insets, provenance, font) and the export half of #60/#61 are now
+done. Still open: owner native-size approval, art for focus ring/separators,
+components for tabs/slots/scrollbar from the exported art, and the pixel-grid
+issue noted in `assets/ui/README.md`. No issue is closed by this change.

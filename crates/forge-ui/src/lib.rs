@@ -237,16 +237,8 @@ pub const ICONS: [&str; 24] = [
     "queue",
 ];
 pub fn icon(parent: &mut ChildSpawnerCommands, server: &AssetServer, name: &str, size: f32) {
-    let i = ICONS.iter().position(|n| *n == name).unwrap_or(14);
-    let x = (i % 6) as f32 * 256.;
-    let y = (i / 6) as f32 * 256.;
-    parent.spawn(image(
-        server,
-        "ui/source/icons-v1.png",
-        Some(Rect::new(x, y, x + 256., y + 256.)),
-        size,
-        size,
-    ));
+    let name = if ICONS.contains(&name) { name } else { "warning" };
+    parent.spawn(image(server, &format!("ui/runtime/icons/{name}.png"), None, size, size));
 }
 pub fn item_card(
     parent: &mut ChildSpawnerCommands,
@@ -349,13 +341,12 @@ pub fn merchant_header(
     title: &str,
     line: &str,
 ) {
-    let index = match id {
-        "carpenter" => 0,
-        "leatherworker" => 1,
-        "farmer" => 2,
-        _ => 3,
+    let header = match id {
+        "carpenter" => "carpenter",
+        "leatherworker" => "leatherworker",
+        "farmer" => "farm",
+        _ => "tavern",
     };
-    let y = [0., 226., 446., 666.][index];
     parent
         .spawn((
             Node {
@@ -369,8 +360,7 @@ pub fn merchant_header(
             BackgroundColor(SURFACE),
         ))
         .with_children(|p| {
-            let mut bg = ImageNode::new(server.load("ui/source/merchant-headers-v1.png"));
-            bg.rect = Some(Rect::new(0., y, 1250., y + 200.));
+            let mut bg = ImageNode::new(server.load(format!("ui/runtime/headers/{header}.png")));
             bg.image_mode = NodeImageMode::Stretch;
             p.spawn((
                 bg,
@@ -411,11 +401,10 @@ pub fn merchant_header(
 
 fn skin(mut commands: Commands, server: Res<AssetServer>, panels: Query<Entity, Added<SkinPanel>>) {
     for entity in &panels {
-        let mut image = ImageNode::new(server.load("ui/source/controls-v1.png"));
-        image.rect = Some(Rect::new(1174., 734., 1400., 838.));
+        let mut image = ImageNode::new(server.load("ui/runtime/controls/inset.png"));
         image.visual_box = bevy::ui::VisualBox::BorderBox;
         image.image_mode = NodeImageMode::Sliced(TextureSlicer {
-            border: BorderRect::all(14.),
+            border: BorderRect::all(18.),
             max_corner_scale: 1.,
             ..default()
         });
@@ -451,28 +440,27 @@ fn decorate_buttons(
     mut c: Commands,
 ) {
     for (e, hover, pressed, selected, disabled, image) in &mut q {
-        let x = if disabled {
-            934.
+        let path = if disabled {
+            "ui/runtime/controls/button-disabled.png"
         } else if selected {
-            1240.
+            "ui/runtime/controls/button-selected.png"
         } else if pressed {
-            628.
+            "ui/runtime/controls/button-pressed.png"
         } else if hover.get() {
-            322.
+            "ui/runtime/controls/button-hover.png"
         } else {
-            16.
+            "ui/runtime/controls/button-normal.png"
         };
-        let rect = Some(Rect::new(x, 500., x + 280., 578.));
+        let handle: Handle<Image> = server.load(path);
         if let Some(mut image) = image {
-            if image.rect != rect {
-                image.rect = rect;
+            if image.image != handle {
+                image.image = handle;
             }
         } else {
-            let mut image = ImageNode::new(server.load("ui/source/controls-v1.png"));
-            image.rect = rect;
+            let mut image = ImageNode::new(handle);
             image.visual_box = bevy::ui::VisualBox::BorderBox;
             image.image_mode = NodeImageMode::Sliced(TextureSlicer {
-                border: BorderRect::all(16.),
+                border: BorderRect::all(20.),
                 max_corner_scale: 0.5,
                 ..default()
             });
@@ -482,13 +470,12 @@ fn decorate_buttons(
 }
 fn windows(mut c: Commands, server: Res<AssetServer>, q: Query<Entity, Added<WindowSkin>>) {
     for e in &q {
-        let mut image = ImageNode::new(server.load("ui/source/controls-v1.png"));
-        image.rect = Some(Rect::new(16., 80., 1024., 454.));
+        let mut image = ImageNode::new(server.load("ui/runtime/controls/window.png"));
         image.visual_box = bevy::ui::VisualBox::BorderBox;
         image.image_mode = NodeImageMode::Sliced(TextureSlicer {
             border: BorderRect {
-                min_inset: Vec2::new(52., 86.),
-                max_inset: Vec2::new(52., 36.),
+                min_inset: Vec2::new(53., 88.),
+                max_inset: Vec2::new(54., 38.),
             },
             max_corner_scale: 0.35,
             ..default()

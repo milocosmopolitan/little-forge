@@ -1,0 +1,975 @@
+{
+  "schema": 2,
+  "epic": 58,
+  "tasks": [
+    59,
+    60,
+    61
+  ],
+  "runtime_ready": false,
+  "status": "exported-pending-visual-approval",
+  "alpha_cut": 96,
+  "icon_canvas": 256,
+  "notes": "Independent exports from generated source sheets; not yet native-grid pixel art. Focus ring and separators are drawn by Bevy nodes; no art exists for them.",
+  "assets": [
+    {
+      "path": "assets/ui/runtime/controls/window.png",
+      "kind": "window",
+      "width": 1011,
+      "height": 378,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        15,
+        78,
+        1026,
+        456
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "b52479aa361179aa423eba90edf524f316d6557e6aacb661be503d48a47c2dc3",
+      "insets_ltrb": [
+        53,
+        88,
+        54,
+        38
+      ]
+    },
+    {
+      "path": "assets/ui/runtime/controls/modal.png",
+      "kind": "modal",
+      "width": 469,
+      "height": 294,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        1052,
+        121,
+        1521,
+        415
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "a8eb1e765eb32419c158cfdc8b113cc03378a2b4666446dc321555be70086d11",
+      "insets_ltrb": [
+        40,
+        60,
+        40,
+        40
+      ]
+    },
+    {
+      "path": "assets/ui/runtime/controls/button-normal.png",
+      "kind": "button",
+      "width": 288,
+      "height": 85,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        15,
+        497,
+        301,
+        580
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "c7e129c8352f29f890006eb35a5c6dc51dc091cf77a0f54b6e04ee61c7a4a25e",
+      "insets_ltrb": [
+        20,
+        20,
+        20,
+        20
+      ]
+    },
+    {
+      "path": "assets/ui/runtime/controls/button-hover.png",
+      "kind": "button",
+      "width": 288,
+      "height": 85,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        319,
+        497,
+        607,
+        580
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "9c84a8224e2037aaf9c288585f9d22488d30cde85fcac804ed693e9bb1dd34d1",
+      "insets_ltrb": [
+        20,
+        20,
+        20,
+        20
+      ]
+    },
+    {
+      "path": "assets/ui/runtime/controls/button-pressed.png",
+      "kind": "button",
+      "width": 288,
+      "height": 85,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        625,
+        497,
+        912,
+        581
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "4fe7253503bb62ed985d21bf725af2fefa441088a1e4e620518656224001baac",
+      "insets_ltrb": [
+        20,
+        20,
+        20,
+        20
+      ]
+    },
+    {
+      "path": "assets/ui/runtime/controls/button-disabled.png",
+      "kind": "button",
+      "width": 288,
+      "height": 85,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        930,
+        496,
+        1218,
+        580
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "64cba652db99631632d1b74a2e43bc1521b4a682041aaf6908b1bde224cb619a",
+      "insets_ltrb": [
+        20,
+        20,
+        20,
+        20
+      ]
+    },
+    {
+      "path": "assets/ui/runtime/controls/button-selected.png",
+      "kind": "button",
+      "width": 288,
+      "height": 85,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        1237,
+        496,
+        1521,
+        581
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "ce3e297b1b2a2b2e11ea93ff8c4ca99c8d6d0b72ff327f51c53a664802f254b9",
+      "insets_ltrb": [
+        20,
+        20,
+        20,
+        20
+      ]
+    },
+    {
+      "path": "assets/ui/runtime/controls/tab-normal.png",
+      "kind": "tab",
+      "width": 400,
+      "height": 68,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        22,
+        617,
+        422,
+        685
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "cae8b776e278bbd190103b41e860aaced0951893208f2ae77ebc49a130af2ca5",
+      "insets_ltrb": [
+        22,
+        22,
+        22,
+        22
+      ]
+    },
+    {
+      "path": "assets/ui/runtime/controls/tab-selected.png",
+      "kind": "tab",
+      "width": 400,
+      "height": 68,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        441,
+        617,
+        832,
+        685
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "c0779e1fc7459df279da180e379f35c0906e44ed4e2651b89769b6428e9523e6",
+      "insets_ltrb": [
+        22,
+        22,
+        22,
+        22
+      ]
+    },
+    {
+      "path": "assets/ui/runtime/controls/slot-normal.png",
+      "kind": "slot",
+      "width": 172,
+      "height": 170,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        23,
+        736,
+        195,
+        906
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "cf9c457b67ce3fc7cb530495d2328488dc1674ff54334be683fd5d0c2fa5f834",
+      "insets_ltrb": [
+        24,
+        24,
+        24,
+        24
+      ]
+    },
+    {
+      "path": "assets/ui/runtime/controls/slot-selected.png",
+      "kind": "slot",
+      "width": 172,
+      "height": 170,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        215,
+        736,
+        387,
+        906
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "5dd3c2499ca7b69d4c73a7ddd6525e77ea67c89b4dd07ecf9d28f8415252be30",
+      "insets_ltrb": [
+        24,
+        24,
+        24,
+        24
+      ]
+    },
+    {
+      "path": "assets/ui/runtime/controls/slot-locked.png",
+      "kind": "slot",
+      "width": 172,
+      "height": 170,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        407,
+        736,
+        579,
+        906
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "80c80535caf74aad97aaf081bd535cf4372e1620aefe316ed1217d1c99af3b70",
+      "insets_ltrb": [
+        24,
+        24,
+        24,
+        24
+      ]
+    },
+    {
+      "path": "assets/ui/runtime/controls/progress-track.png",
+      "kind": "progress",
+      "width": 523,
+      "height": 47,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        623,
+        725,
+        1146,
+        772
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "a4d42c065655d8e3faf2df0ead31af5a034401262ec9666ea371ebbd4a938aca"
+    },
+    {
+      "path": "assets/ui/runtime/controls/inset.png",
+      "kind": "inset",
+      "width": 232,
+      "height": 112,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        1170,
+        729,
+        1402,
+        841
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "71a74474a9cdb31f04de5b4eb621f0b8d5a09d986b06fa91a2e6c44ab4b8ab04",
+      "insets_ltrb": [
+        18,
+        18,
+        18,
+        18
+      ]
+    },
+    {
+      "path": "assets/ui/runtime/controls/scrollbar-track.png",
+      "kind": "scrollbar",
+      "width": 39,
+      "height": 265,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        1425,
+        692,
+        1464,
+        957
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "c408ae99a134ba85b10b7a839af7153cb6c243a556152af007792b92e5cedc9c"
+    },
+    {
+      "path": "assets/ui/runtime/controls/scrollbar-thumb.png",
+      "kind": "scrollbar",
+      "width": 38,
+      "height": 98,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        1479,
+        735,
+        1517,
+        833
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "c58fef707a5d2f414f03b3f79d0cbaa080e94f6c4be9f4219f78e8cfa6ef310e"
+    },
+    {
+      "path": "assets/ui/runtime/controls/progress-track-alt.png",
+      "kind": "progress",
+      "width": 523,
+      "height": 46,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        623,
+        782,
+        1146,
+        828
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "c18f46031a64f2ea5ce3b3cca6f6eff70e3dde9c8f8c8b1bdd509168400c0c01"
+    },
+    {
+      "path": "assets/ui/runtime/controls/progress-fill-amber.png",
+      "kind": "progress",
+      "width": 523,
+      "height": 39,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        623,
+        843,
+        1146,
+        882
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "136ac8f4b297c7a03e668eaebc963023fe8a8154d4690a1155c118927d12f621"
+    },
+    {
+      "path": "assets/ui/runtime/controls/progress-fill-blue.png",
+      "kind": "progress",
+      "width": 523,
+      "height": 39,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        623,
+        895,
+        1146,
+        934
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "b3c70182f5fd1603609651eea117064476ae05e79be62f01f6e1b8da090066d0"
+    },
+    {
+      "path": "assets/ui/runtime/icons/craft.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        58,
+        78,
+        262,
+        273
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "28691330f58adadf8de088008536a480b262e5c467f5c181b03cc77b726b2990"
+    },
+    {
+      "path": "assets/ui/runtime/icons/materials.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        305,
+        87,
+        514,
+        272
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "414c2e843e1b922a58dd131c22138ea560be22a538970bb18e76b562d0f53112"
+    },
+    {
+      "path": "assets/ui/runtime/icons/provisions.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        553,
+        82,
+        747,
+        271
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "0004905543b239294bbedc17e5d7e01e59e41d28c3abf9e377175d3e3121c233"
+    },
+    {
+      "path": "assets/ui/runtime/icons/map.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        792,
+        97,
+        1003,
+        271
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "a2acf55b141aa32324f3ab30a213f106dc829d2512a5e9a14b515c50cfd9888e"
+    },
+    {
+      "path": "assets/ui/runtime/icons/commissions.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        1051,
+        76,
+        1236,
+        288
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "395e508168e68eea06fe4f90db83c7e91ecc707b669c4a2453665c89302e8a8a"
+    },
+    {
+      "path": "assets/ui/runtime/icons/research.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        1319,
+        69,
+        1467,
+        286
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "e185a65fd9bcf0c8e618f20fd1c0179970ce1c63806e446042653e65df31a6b2"
+    },
+    {
+      "path": "assets/ui/runtime/icons/codex.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        48,
+        334,
+        287,
+        506
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "5cbdb7b9e8d7b6c9f59f626dca7d589bb6183c22a9c7a7bcf5f61f33e8daedaf"
+    },
+    {
+      "path": "assets/ui/runtime/icons/settings.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        330,
+        329,
+        505,
+        506
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "1614292e63eeb54b6fd44b3cbd84920be4e9d687f10b90e42b77e4cc6ca0452c"
+    },
+    {
+      "path": "assets/ui/runtime/icons/close.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        584,
+        342,
+        729,
+        490
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "924b287b2096175a902a25b1cc7b35ceafc75a8a4613d04708016524a01347af"
+    },
+    {
+      "path": "assets/ui/runtime/icons/back.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        815,
+        338,
+        979,
+        486
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "0f6293a7b118c13771187d99aa5274c117951422af2341218b1eca9b0b6084ea"
+    },
+    {
+      "path": "assets/ui/runtime/icons/plus.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        1067,
+        334,
+        1223,
+        493
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "7b03fbd904b8f60c73664c9a8857bba549372236164a505151bfbb68144de2a2"
+    },
+    {
+      "path": "assets/ui/runtime/icons/minus.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        1314,
+        382,
+        1470,
+        444
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "8c532fd267a7dce1fbb62eca1099eec2a319cf73f72329e354c37157b5149990"
+    },
+    {
+      "path": "assets/ui/runtime/icons/coin.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        78,
+        561,
+        239,
+        727
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "18acd7314be59e415fa52bcddb25964be5d4a34f238827dd8713715b8161f12e"
+    },
+    {
+      "path": "assets/ui/runtime/icons/lock.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        337,
+        544,
+        481,
+        728
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "cebce1020d62fb4bc7c58a4660473b8de9386bdb980e66ef6adc8995fc0ad0c1"
+    },
+    {
+      "path": "assets/ui/runtime/icons/warning.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        563,
+        551,
+        744,
+        717
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "59f4d4b52cdb01dfdc06585daceeaf70ad05d3c10404203eec00c875d0b769b6"
+    },
+    {
+      "path": "assets/ui/runtime/icons/ore.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        805,
+        557,
+        994,
+        729
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "d05bbdc26a1d6d02b7230d5bf44517c5c94273aa1523a73727b0f33e7b366563"
+    },
+    {
+      "path": "assets/ui/runtime/icons/dagger.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        1047,
+        539,
+        1249,
+        738
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "c27f22b72dc3c63ff41dae67405e1eb38c1437f4b1f93cf2fbcf974a6a04ccc8"
+    },
+    {
+      "path": "assets/ui/runtime/icons/timber.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        1294,
+        549,
+        1503,
+        729
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "1910e675ce5f8d6691eed3c1d302a16decc73d7c75fad2f866cd055bee3cd15c"
+    },
+    {
+      "path": "assets/ui/runtime/icons/leather.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        50,
+        780,
+        272,
+        955
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "71b884bf02a842bfe9644feeea7c4842be7b678d2335fd2adf8c08231e6733fc"
+    },
+    {
+      "path": "assets/ui/runtime/icons/staples.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        303,
+        763,
+        510,
+        960
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "ba7b98d50dd381886f873346ee34e101ca205b3cf7ae4647c42c871275629277"
+    },
+    {
+      "path": "assets/ui/runtime/icons/meal.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        548,
+        780,
+        757,
+        954
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "569ea41e2aed3cab7f31500a4f5497fe966b9d278881ed2da772e38cc5ba7559"
+    },
+    {
+      "path": "assets/ui/runtime/icons/water.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        816,
+        772,
+        999,
+        960
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "926b406f0b8d658b836c01c63829e5ecc7ada7c8ce6b8c5d5373947480cd8dfc"
+    },
+    {
+      "path": "assets/ui/runtime/icons/rest.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        1033,
+        772,
+        1278,
+        971
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "bdb5b4e3361e2618ae6272265b99b1af14335ddbfc91a2887883cb16620f2b4d"
+    },
+    {
+      "path": "assets/ui/runtime/icons/queue.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        1333,
+        759,
+        1470,
+        966
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "16544328d1170a3e7bc65fbff37b099973cbf57c55a021d1c33d278e051bcd9f"
+    },
+    {
+      "path": "assets/ui/runtime/headers/carpenter.png",
+      "kind": "header",
+      "width": 1250,
+      "height": 200,
+      "mode": "RGB",
+      "source": "source/merchant-headers-v1.png",
+      "source_box": [
+        0,
+        0,
+        1250,
+        200
+      ],
+      "alpha_extrema": null,
+      "sha256": "b0be977596b3e6efd5caeb2bb9ab9b2040960b9c3eb7af17fbc419d7367e8e1a"
+    },
+    {
+      "path": "assets/ui/runtime/headers/leatherworker.png",
+      "kind": "header",
+      "width": 1250,
+      "height": 200,
+      "mode": "RGB",
+      "source": "source/merchant-headers-v1.png",
+      "source_box": [
+        0,
+        226,
+        1250,
+        426
+      ],
+      "alpha_extrema": null,
+      "sha256": "9688606c9d572a48130b2f9aec80e3e2f93658c172fdeaee28209b90c064a782"
+    },
+    {
+      "path": "assets/ui/runtime/headers/farm.png",
+      "kind": "header",
+      "width": 1250,
+      "height": 200,
+      "mode": "RGB",
+      "source": "source/merchant-headers-v1.png",
+      "source_box": [
+        0,
+        446,
+        1250,
+        646
+      ],
+      "alpha_extrema": null,
+      "sha256": "3cfb051936cc28f36f3669b6fad57fffb51a777cc232412d9ea58f3cebd7bfe4"
+    },
+    {
+      "path": "assets/ui/runtime/headers/tavern.png",
+      "kind": "header",
+      "width": 1250,
+      "height": 200,
+      "mode": "RGB",
+      "source": "source/merchant-headers-v1.png",
+      "source_box": [
+        0,
+        666,
+        1250,
+        866
+      ],
+      "alpha_extrema": null,
+      "sha256": "58a4e00926b76b98d4cba26cc2f864e699683320b98ea72f4847fbc0b60dd510"
+    }
+  ]
+}

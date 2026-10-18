@@ -1,6 +1,6 @@
 # Little Forge UI art preparation
 
-Epic #58; asset tasks #59–#61. These files prepare the requested visual direction. **Source sheets are not validated runtime atlases.** The draft integration samples them using explicit UV rectangles to review real Bevy composition; that does not pass the art-first acceptance gate.
+Epic #58; asset tasks #59–#61. These files prepare the requested visual direction. **Source sheets are not runtime atlases.** The game loads the independent exports in `runtime/` (see below); visual approval is still pending.
 
 ## Sources
 
@@ -55,23 +55,37 @@ Opaque charcoal/brown panel interiors; transparent desktop outside. Cream text i
 
 The exact generated files are retained unmodified. Generation requested transparent controls/icons; final export QA must verify compositing rather than trust the request.
 
-## Draft integration rectangles (source pixels)
+## Runtime exports (#59–#61)
 
-These are temporary source crops, not a native atlas contract. Rectangles use
-exclusive right/bottom bounds. There is no atlas extrusion. All live labels,
-counts, focus rings and progress fills remain Bevy nodes.
+`python scripts/export-ui-assets.py` regenerates `assets/ui/runtime/` from the
+source sheets; it never edits the sources. Components come from alpha
+connectivity (`scripts/ui_components.py`), not equal division. Alpha is
+binarised at 96 to drop generator halos, state variants share one canvas, icons
+sit centred on a 256×256 canvas, and every file is registered with size, alpha
+bounds, source box and slice insets in `runtime/manifest.json`.
 
-| Component | Rectangle | Slice insets L/T/R/B |
+| Group | Files | Slice insets L/T/R/B |
 | --- | --- | --- |
-| Window | 16,80 → 1024,454 | 52/86/52/36; corner scale 0.35 |
-| Inset | 1174,734 → 1400,838 | 14 each |
-| Button states | x=16/322/628/934/1240, y=500; 280×78 | 16 each; corner scale 0.5 |
-| Icons | 6×4 grid of 256×256 crops, named order above | none |
-| Header | x=0..1250; y=0/226/446/666; height=200 | none; fill header region |
+| Window | `controls/window.png` (1011×378) | 53/88/54/38, corner scale 0.35 |
+| Modal / tooltip frame | `controls/modal.png` | 40/60/40/40 (not yet used) |
+| Inset panel | `controls/inset.png` | 18 each |
+| Buttons | `button-normal/hover/pressed/disabled/selected` (288×85) | 20 each, corner scale 0.5 |
+| Tabs, slots | `tab-*`, `slot-*` | exported, not yet used by components |
+| Progress, scrollbar | `progress-track(-alt)`, `progress-fill-amber/blue`, `scrollbar-*` | none |
+| Icons | `icons/<name>.png`, 24 files | none |
+| Headers | `headers/{carpenter,leatherworker,farm,tavern}.png` (1250×200) | none |
 
-Button order: normal, hover, pressed, disabled, selected. Focus is an independent
-cream border. Temporary noninteger scaling is **not** pixel-grid acceptance.
-The native export contract above remains the target and must replace these crops.
+`scripts/review-ui-assets.py` renders every export on light and dark
+checkerboards (`docs/ui/evidence/runtime-assets-review.png`); no halos or seams
+were seen at that size. `scripts/validate-ui.py` checks hashes, hard alpha,
+identical state dimensions, icon names against `forge-ui::ICONS` and that every
+`ui/runtime/...` path referenced by `forge-ui` is registered.
+
+Known limits: sources are generated upscaled art, not native-grid pixel art, so
+exports are not integer-scale clean; focus ring and separators have no art (Bevy
+borders); tab/slot/modal/scrollbar/progress exports are registered but components
+still draw slots and bars with Bevy nodes. `runtime_ready` stays `false` until
+the owner approves native-size review.
 
 ## Font provenance
 
