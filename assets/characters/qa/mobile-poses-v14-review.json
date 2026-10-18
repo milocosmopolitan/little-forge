@@ -1,0 +1,39 @@
+{
+  "revision": "mobile-poses-v14",
+  "source": "agent_static_review",
+  "scope": "Female and male walk/give, 18 distinct poses and 36 base/equipped variants",
+  "user_accepted": null,
+  "report": "mobile-poses-v14-review.json",
+  "structural_checks_do_not_establish_visual_acceptance": true,
+  "playback_verified": false,
+  "fixes": [
+    "Complete source shoulders and body-owned neck; generated ear and jaw fragments removed",
+    "Approved facial and hair pixels translated together; head ornaments follow",
+    "Pelvis-centered walk registration instead of supporting-foot bbox centering",
+    "Pose-specific apron/belt anchoring and source hand contours for gloves",
+    "Approved neutral legs/boots retained across give poses"
+  ],
+  "static_inspection": [
+    "All 36 variants on light and dark sheets",
+    "Before/after equipped sheets",
+    "Enlarged native neck and hand layers"
+  ],
+  "structural_report": "mobile-poses-validation.json",
+  "unrelated_frame_pngs_preserved": 204,
+  "atlas_rebuilt": true,
+  "gifs_regenerated": true,
+  "browser_review": {
+    "status": "unavailable",
+    "revision": "mobile-poses-v14",
+    "reason": "Sky Computer Use native pipe startup failed; browser inventory empty",
+    "page": "http://127.0.0.1:8773/assets/characters/previews/animation.html?clip=walk&review=mobile-v14"
+  },
+  "runtime_integration": false,
+  "deterministic_rebuild": {
+    "status": "pass",
+    "native_png_and_json_files": 3266,
+    "byte_identical": true,
+    "command": "node assets/characters/source/animation/build.mjs --no-previews",
+    "excluded": "QA JSON reports, which are independent check outputs"
+  }
+}

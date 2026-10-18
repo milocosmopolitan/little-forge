@@ -309,7 +309,7 @@
       "rect": [
         734,
         2,
-        53,
+        51,
         116
       ],
       "source_size": [
@@ -317,8 +317,8 @@
         160
       ],
       "trim_offset": [
-        36,
-        24
+        39,
+        25
       ],
       "pivot": [
         64,
@@ -331,9 +331,9 @@
       "id": "give-full",
       "page": "player",
       "rect": [
-        791,
+        789,
         2,
-        68,
+        67,
         116
       ],
       "source_size": [
@@ -341,8 +341,8 @@
         160
       ],
       "trim_offset": [
-        36,
-        24
+        39,
+        25
       ],
       "pivot": [
         64,
@@ -355,9 +355,9 @@
       "id": "give-release",
       "page": "player",
       "rect": [
-        863,
+        860,
         2,
-        64,
+        63,
         116
       ],
       "source_size": [
@@ -365,8 +365,8 @@
         160
       ],
       "trim_offset": [
-        36,
-        24
+        40,
+        25
       ],
       "pivot": [
         64,
@@ -379,18 +379,18 @@
       "id": "walk-0",
       "page": "player",
       "rect": [
-        931,
+        927,
         2,
         76,
-        117
+        116
       ],
       "source_size": [
         128,
         160
       ],
       "trim_offset": [
-        24,
-        24
+        25,
+        25
       ],
       "pivot": [
         64,
@@ -406,7 +406,7 @@
         2,
         124,
         67,
-        116
+        113
       ],
       "source_size": [
         128,
@@ -414,7 +414,7 @@
       ],
       "trim_offset": [
         30,
-        25
+        28
       ],
       "pivot": [
         64,
@@ -429,16 +429,16 @@
       "rect": [
         73,
         124,
-        58,
-        117
+        56,
+        113
       ],
       "source_size": [
         128,
         160
       ],
       "trim_offset": [
-        36,
-        24
+        38,
+        28
       ],
       "pivot": [
         64,
@@ -451,18 +451,18 @@
       "id": "walk-3",
       "page": "player",
       "rect": [
-        135,
+        133,
         124,
         61,
-        117
+        114
       ],
       "source_size": [
         128,
         160
       ],
       "trim_offset": [
-        30,
-        24
+        34,
+        27
       ],
       "pivot": [
         64,
@@ -475,10 +475,10 @@
       "id": "walk-4",
       "page": "player",
       "rect": [
-        200,
+        198,
         124,
-        63,
-        116
+        55,
+        112
       ],
       "source_size": [
         128,
@@ -486,7 +486,7 @@
       ],
       "trim_offset": [
         36,
-        25
+        29
       ],
       "pivot": [
         64,
@@ -499,18 +499,18 @@
       "id": "walk-5",
       "page": "player",
       "rect": [
-        267,
+        257,
         124,
         76,
-        117
+        116
       ],
       "source_size": [
         128,
         160
       ],
       "trim_offset": [
-        31,
-        24
+        30,
+        25
       ],
       "pivot": [
         64,
@@ -523,7 +523,7 @@
       "id": "front-neutral",
       "page": "player",
       "rect": [
-        347,
+        337,
         124,
         55,
         117
@@ -547,7 +547,7 @@
       "id": "back-neutral",
       "page": "player",
       "rect": [
-        406,
+        396,
         124,
         54,
         116
@@ -571,7 +571,7 @@
       "id": "front-blink",
       "page": "player",
       "rect": [
-        464,
+        454,
         124,
         55,
         117
@@ -595,7 +595,7 @@
       "id": "hammering-0",
       "page": "player",
       "rect": [
-        523,
+        513,
         124,
         83,
         117
@@ -619,7 +619,7 @@
       "id": "hammering-1",
       "page": "player",
       "rect": [
-        610,
+        600,
         124,
         98,
         128
@@ -643,7 +643,7 @@
       "id": "hammering-2",
       "page": "player",
       "rect": [
-        712,
+        702,
         124,
         80,
         110
@@ -667,7 +667,7 @@
       "id": "hammering-3",
       "page": "player",
       "rect": [
-        796,
+        786,
         124,
         81,
         99
@@ -691,7 +691,7 @@
       "id": "hammering-4",
       "page": "player",
       "rect": [
-        881,
+        871,
         124,
         77,
         113
@@ -715,7 +715,7 @@
       "id": "hammering-5",
       "page": "player",
       "rect": [
-        523,
+        513,
         124,
         83,
         117
@@ -739,8 +739,8 @@
       "id": "quenching-0",
       "page": "player",
       "rect": [
-        2,
-        256,
+        952,
+        124,
         70,
         116
       ],
@@ -763,7 +763,7 @@
       "id": "quenching-1",
       "page": "player",
       "rect": [
-        76,
+        2,
         256,
         70,
         110
@@ -787,7 +787,7 @@
       "id": "quenching-2",
       "page": "player",
       "rect": [
-        150,
+        76,
         256,
         65,
         106
@@ -811,7 +811,7 @@
       "id": "quenching-3",
       "page": "player",
       "rect": [
-        150,
+        76,
         256,
         65,
         106
@@ -835,7 +835,7 @@
       "id": "quenching-4",
       "page": "player",
       "rect": [
-        219,
+        145,
         256,
         65,
         115
@@ -859,8 +859,8 @@
       "id": "quenching-5",
       "page": "player",
       "rect": [
-        2,
-        256,
+        952,
+        124,
         70,
         116
       ],
@@ -883,7 +883,7 @@
       "id": "forging-0",
       "page": "player",
       "rect": [
-        288,
+        214,
         256,
         70,
         114
@@ -907,7 +907,7 @@
       "id": "forging-1",
       "page": "player",
       "rect": [
-        362,
+        288,
         256,
         86,
         107
@@ -931,7 +931,7 @@
       "id": "forging-2",
       "page": "player",
       "rect": [
-        452,
+        378,
         256,
         85,
         102
@@ -955,7 +955,7 @@
       "id": "forging-3",
       "page": "player",
       "rect": [
-        452,
+        378,
         256,
         85,
         102
@@ -979,7 +979,7 @@
       "id": "forging-4",
       "page": "player",
       "rect": [
-        541,
+        467,
         256,
         64,
         115
@@ -1003,7 +1003,7 @@
       "id": "forging-5",
       "page": "player",
       "rect": [
-        288,
+        214,
         256,
         70,
         114
@@ -1027,7 +1027,7 @@
       "id": "researching-0",
       "page": "player",
       "rect": [
-        609,
+        535,
         256,
         57,
         115
@@ -1051,7 +1051,7 @@
       "id": "researching-1",
       "page": "player",
       "rect": [
-        670,
+        596,
         256,
         58,
         114
@@ -1075,7 +1075,7 @@
       "id": "researching-2",
       "page": "player",
       "rect": [
-        732,
+        658,
         256,
         59,
         112
@@ -1099,7 +1099,7 @@
       "id": "researching-3",
       "page": "player",
       "rect": [
-        670,
+        596,
         256,
         58,
         114
@@ -1123,7 +1123,7 @@
       "id": "researching-4",
       "page": "player",
       "rect": [
-        795,
+        721,
         256,
         56,
         113
@@ -1147,7 +1147,7 @@
       "id": "researching-5",
       "page": "player",
       "rect": [
-        609,
+        535,
         256,
         57,
         115
@@ -1171,7 +1171,7 @@
       "id": "salvaging-0",
       "page": "player",
       "rect": [
-        855,
+        781,
         256,
         56,
         115
@@ -1195,7 +1195,7 @@
       "id": "salvaging-1",
       "page": "player",
       "rect": [
-        915,
+        841,
         256,
         58,
         111
@@ -1219,8 +1219,8 @@
       "id": "salvaging-2",
       "page": "player",
       "rect": [
-        2,
-        376,
+        903,
+        256,
         58,
         109
       ],
@@ -1243,7 +1243,7 @@
       "id": "salvaging-3",
       "page": "player",
       "rect": [
-        915,
+        841,
         256,
         58,
         111
@@ -1267,8 +1267,8 @@
       "id": "salvaging-4",
       "page": "player",
       "rect": [
-        64,
-        376,
+        2,
+        375,
         65,
         114
       ],
@@ -1291,7 +1291,7 @@
       "id": "salvaging-5",
       "page": "player",
       "rect": [
-        855,
+        781,
         256,
         56,
         115
@@ -1315,8 +1315,8 @@
       "id": "base/neutral",
       "page": "player",
       "rect": [
-        133,
-        376,
+        71,
+        375,
         56,
         117
       ],
@@ -1339,8 +1339,8 @@
       "id": "base/talk-small",
       "page": "player",
       "rect": [
-        193,
-        376,
+        131,
+        375,
         56,
         117
       ],
@@ -1363,8 +1363,8 @@
       "id": "base/talk-wide",
       "page": "player",
       "rect": [
-        253,
-        376,
+        191,
+        375,
         56,
         117
       ],
@@ -1387,8 +1387,8 @@
       "id": "base/talk-round",
       "page": "player",
       "rect": [
-        313,
-        376,
+        251,
+        375,
         56,
         117
       ],
@@ -1411,8 +1411,8 @@
       "id": "base/blink",
       "page": "player",
       "rect": [
-        373,
-        376,
+        311,
+        375,
         56,
         117
       ],
@@ -1435,8 +1435,8 @@
       "id": "base/happy",
       "page": "player",
       "rect": [
-        433,
-        376,
+        371,
+        375,
         56,
         117
       ],
@@ -1459,8 +1459,8 @@
       "id": "base/surprised",
       "page": "player",
       "rect": [
-        493,
-        376,
+        431,
+        375,
         56,
         117
       ],
@@ -1483,8 +1483,8 @@
       "id": "base/relaxed",
       "page": "player",
       "rect": [
-        553,
-        376,
+        491,
+        375,
         56,
         117
       ],
@@ -1507,8 +1507,8 @@
       "id": "base/nod-down",
       "page": "player",
       "rect": [
-        613,
-        376,
+        551,
+        375,
         56,
         117
       ],
@@ -1531,8 +1531,8 @@
       "id": "base/turn-toward",
       "page": "player",
       "rect": [
-        673,
-        376,
+        611,
+        375,
         56,
         118
       ],
@@ -1555,8 +1555,8 @@
       "id": "base/turn-away",
       "page": "player",
       "rect": [
-        733,
-        376,
+        671,
+        375,
         56,
         118
       ],
@@ -1579,8 +1579,8 @@
       "id": "base/nod-mid",
       "page": "player",
       "rect": [
-        793,
-        376,
+        731,
+        375,
         56,
         116
       ],
@@ -1603,9 +1603,9 @@
       "id": "base/give-half",
       "page": "player",
       "rect": [
-        853,
-        376,
-        51,
+        791,
+        375,
+        49,
         116
       ],
       "source_size": [
@@ -1613,8 +1613,8 @@
         160
       ],
       "trim_offset": [
-        38,
-        24
+        41,
+        25
       ],
       "pivot": [
         64,
@@ -1627,9 +1627,9 @@
       "id": "base/give-full",
       "page": "player",
       "rect": [
-        908,
-        376,
-        66,
+        844,
+        375,
+        65,
         116
       ],
       "source_size": [
@@ -1637,8 +1637,8 @@
         160
       ],
       "trim_offset": [
-        38,
-        24
+        41,
+        25
       ],
       "pivot": [
         64,
@@ -1651,9 +1651,9 @@
       "id": "base/give-release",
       "page": "player",
       "rect": [
-        2,
-        498,
-        62,
+        913,
+        375,
+        61,
         116
       ],
       "source_size": [
@@ -1661,8 +1661,8 @@
         160
       ],
       "trim_offset": [
-        38,
-        24
+        42,
+        25
       ],
       "pivot": [
         64,
@@ -1675,18 +1675,18 @@
       "id": "base/walk-0",
       "page": "player",
       "rect": [
-        68,
-        498,
+        2,
+        497,
         76,
-        117
+        116
       ],
       "source_size": [
         128,
         160
       ],
       "trim_offset": [
-        24,
-        24
+        25,
+        25
       ],
       "pivot": [
         64,
@@ -1699,10 +1699,10 @@
       "id": "base/walk-1",
       "page": "player",
       "rect": [
-        148,
-        498,
+        82,
+        497,
         67,
-        116
+        113
       ],
       "source_size": [
         128,
@@ -1710,7 +1710,7 @@
       ],
       "trim_offset": [
         30,
-        25
+        28
       ],
       "pivot": [
         64,
@@ -1723,10 +1723,10 @@
       "id": "base/walk-2",
       "page": "player",
       "rect": [
-        219,
-        498,
+        153,
+        497,
         56,
-        117
+        113
       ],
       "source_size": [
         128,
@@ -1734,7 +1734,7 @@
       ],
       "trim_offset": [
         38,
-        24
+        28
       ],
       "pivot": [
         64,
@@ -1747,18 +1747,18 @@
       "id": "base/walk-3",
       "page": "player",
       "rect": [
-        279,
-        498,
+        213,
+        497,
         61,
-        117
+        114
       ],
       "source_size": [
         128,
         160
       ],
       "trim_offset": [
-        30,
-        24
+        34,
+        27
       ],
       "pivot": [
         64,
@@ -1771,18 +1771,18 @@
       "id": "base/walk-4",
       "page": "player",
       "rect": [
-        344,
-        498,
-        61,
-        116
+        278,
+        497,
+        55,
+        112
       ],
       "source_size": [
         128,
         160
       ],
       "trim_offset": [
-        38,
-        25
+        36,
+        29
       ],
       "pivot": [
         64,
@@ -1795,18 +1795,18 @@
       "id": "base/walk-5",
       "page": "player",
       "rect": [
-        409,
-        498,
+        337,
+        497,
         76,
-        117
+        116
       ],
       "source_size": [
         128,
         160
       ],
       "trim_offset": [
-        31,
-        24
+        30,
+        25
       ],
       "pivot": [
         64,
@@ -1819,8 +1819,8 @@
       "id": "base/front-neutral",
       "page": "player",
       "rect": [
-        489,
-        498,
+        417,
+        497,
         55,
         117
       ],
@@ -1843,8 +1843,8 @@
       "id": "base/back-neutral",
       "page": "player",
       "rect": [
-        548,
-        498,
+        476,
+        497,
         54,
         116
       ],
@@ -1867,8 +1867,8 @@
       "id": "base/front-blink",
       "page": "player",
       "rect": [
-        606,
-        498,
+        534,
+        497,
         55,
         117
       ],
@@ -1891,8 +1891,8 @@
       "id": "base/hammering-0",
       "page": "player",
       "rect": [
-        665,
-        498,
+        593,
+        497,
         62,
         118
       ],
@@ -1915,8 +1915,8 @@
       "id": "base/hammering-1",
       "page": "player",
       "rect": [
-        731,
-        498,
+        659,
+        497,
         71,
         121
       ],
@@ -1939,8 +1939,8 @@
       "id": "base/hammering-2",
       "page": "player",
       "rect": [
-        806,
-        498,
+        734,
+        497,
         63,
         111
       ],
@@ -1963,8 +1963,8 @@
       "id": "base/hammering-3",
       "page": "player",
       "rect": [
-        873,
-        498,
+        801,
+        497,
         65,
         100
       ],
@@ -1987,8 +1987,8 @@
       "id": "base/hammering-4",
       "page": "player",
       "rect": [
-        942,
-        498,
+        870,
+        497,
         59,
         112
       ],
@@ -2011,8 +2011,8 @@
       "id": "base/hammering-5",
       "page": "player",
       "rect": [
-        665,
-        498,
+        593,
+        497,
         62,
         118
       ],
@@ -2035,8 +2035,8 @@
       "id": "base/quenching-0",
       "page": "player",
       "rect": [
-        2,
-        623,
+        933,
+        497,
         53,
         120
       ],
@@ -2059,8 +2059,8 @@
       "id": "base/quenching-1",
       "page": "player",
       "rect": [
-        59,
-        623,
+        2,
+        622,
         57,
         114
       ],
@@ -2083,8 +2083,8 @@
       "id": "base/quenching-2",
       "page": "player",
       "rect": [
-        120,
-        623,
+        63,
+        622,
         55,
         108
       ],
@@ -2107,8 +2107,8 @@
       "id": "base/quenching-3",
       "page": "player",
       "rect": [
-        120,
-        623,
+        63,
+        622,
         55,
         108
       ],
@@ -2131,8 +2131,8 @@
       "id": "base/quenching-4",
       "page": "player",
       "rect": [
-        179,
-        623,
+        122,
+        622,
         52,
         116
       ],
@@ -2155,8 +2155,8 @@
       "id": "base/quenching-5",
       "page": "player",
       "rect": [
-        2,
-        623,
+        933,
+        497,
         53,
         120
       ],
@@ -2179,8 +2179,8 @@
       "id": "base/forging-0",
       "page": "player",
       "rect": [
-        235,
-        623,
+        178,
+        622,
         53,
         114
       ],
@@ -2203,8 +2203,8 @@
       "id": "base/forging-1",
       "page": "player",
       "rect": [
-        292,
-        623,
+        235,
+        622,
         68,
         112
       ],
@@ -2227,8 +2227,8 @@
       "id": "base/forging-2",
       "page": "player",
       "rect": [
-        364,
-        623,
+        307,
+        622,
         74,
         105
       ],
@@ -2251,8 +2251,8 @@
       "id": "base/forging-3",
       "page": "player",
       "rect": [
-        364,
-        623,
+        307,
+        622,
         74,
         105
       ],
@@ -2275,8 +2275,8 @@
       "id": "base/forging-4",
       "page": "player",
       "rect": [
-        442,
-        623,
+        385,
+        622,
         52,
         115
       ],
@@ -2299,8 +2299,8 @@
       "id": "base/forging-5",
       "page": "player",
       "rect": [
-        235,
-        623,
+        178,
+        622,
         53,
         114
       ],
@@ -2323,8 +2323,8 @@
       "id": "base/researching-0",
       "page": "player",
       "rect": [
-        498,
-        623,
+        441,
+        622,
         58,
         115
       ],
@@ -2347,8 +2347,8 @@
       "id": "base/researching-1",
       "page": "player",
       "rect": [
-        560,
-        623,
+        503,
+        622,
         60,
         113
       ],
@@ -2371,8 +2371,8 @@
       "id": "base/researching-2",
       "page": "player",
       "rect": [
-        624,
-        623,
+        567,
+        622,
         59,
         111
       ],
@@ -2395,8 +2395,8 @@
       "id": "base/researching-3",
       "page": "player",
       "rect": [
-        560,
-        623,
+        503,
+        622,
         60,
         113
       ],
@@ -2419,8 +2419,8 @@
       "id": "base/researching-4",
       "page": "player",
       "rect": [
-        687,
-        623,
+        630,
+        622,
         56,
         112
       ],
@@ -2443,8 +2443,8 @@
       "id": "base/researching-5",
       "page": "player",
       "rect": [
-        498,
-        623,
+        441,
+        622,
         58,
         115
       ],
@@ -2467,8 +2467,8 @@
       "id": "base/salvaging-0",
       "page": "player",
       "rect": [
-        747,
-        623,
+        690,
+        622,
         57,
         114
       ],
@@ -2491,8 +2491,8 @@
       "id": "base/salvaging-1",
       "page": "player",
       "rect": [
-        808,
-        623,
+        751,
+        622,
         58,
         113
       ],
@@ -2515,8 +2515,8 @@
       "id": "base/salvaging-2",
       "page": "player",
       "rect": [
-        870,
-        623,
+        813,
+        622,
         59,
         111
       ],
@@ -2539,8 +2539,8 @@
       "id": "base/salvaging-3",
       "page": "player",
       "rect": [
-        808,
-        623,
+        751,
+        622,
         58,
         113
       ],
@@ -2563,8 +2563,8 @@
       "id": "base/salvaging-4",
       "page": "player",
       "rect": [
-        933,
-        623,
+        876,
+        622,
         65,
         115
       ],
@@ -2587,8 +2587,8 @@
       "id": "base/salvaging-5",
       "page": "player",
       "rect": [
-        747,
-        623,
+        690,
+        622,
         57,
         114
       ],

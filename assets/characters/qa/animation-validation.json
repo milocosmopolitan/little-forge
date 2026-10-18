@@ -4,7 +4,7 @@
     {
       "id": "female",
       "status": "pass",
-      "native_pose_layers": 1266,
+      "native_pose_layers": 1338,
       "frames": 54,
       "clips": 17,
       "animation_colors_including_hot_metal": 86,
@@ -27,7 +27,7 @@
     {
       "id": "male",
       "status": "pass",
-      "native_pose_layers": 1272,
+      "native_pose_layers": 1344,
       "frames": 54,
       "clips": 17,
       "animation_colors_including_hot_metal": 86,

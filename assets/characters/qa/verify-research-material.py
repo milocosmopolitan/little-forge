@@ -1,3 +1,4 @@
+from retained_scope import current_retained
 """Regression checks for missing leather straps and retained source-head seams."""
 import hashlib,json
 from pathlib import Path
@@ -40,6 +41,7 @@ for k in range(6):
  for name in ['head-base.png','eyes/open.png','mouth/rest.png','rendered/head-base.png','rendered/eyes/open.png','rendered/mouth/rest.png','base.png','body/lower-base.png','rendered/body/lower.png']:
   assert (p/name).read_bytes()==(old/name).read_bytes(),('unrelated female pixels changed',k,name)
 keep=json.loads((SOURCE/'retained-frames.json').read_text())
+keep,superseded=current_retained(ROOT,keep)
 for relative,digest in keep.items():assert hashlib.sha256((ROOT/relative).read_bytes()).hexdigest()==digest,('unrelated frame changed',relative)
-report=dict(status='pass',revision='research-material-v13',unique_material_straps=7,rejected_v12_strap_gap_rows=rejected_gaps,old_hair_seam_pixels=0,female_face_layers_preserved=36,other_frames_preserved=len(keep),source_buckle_and_leather_pigments_preserved=True,visual_acceptance='Not established by pixel assertions')
+report=dict(status='pass',revision='research-material-v13',unique_material_straps=7,rejected_v12_strap_gap_rows=rejected_gaps,old_hair_seam_pixels=0,female_face_layers_preserved=36,other_frames_preserved=len(keep),authorized_mobile_frames_superseded=len(superseded),source_buckle_and_leather_pigments_preserved=True,visual_acceptance='Not established by pixel assertions')
 (ROOT/'qa/research-material-validation.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report))

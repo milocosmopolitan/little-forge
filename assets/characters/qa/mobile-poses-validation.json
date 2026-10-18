@@ -1,0 +1,247 @@
+{
+  "status": "pass",
+  "revision": "collar-v15",
+  "unique_poses_checked": 18,
+  "variants_checked": 36,
+  "unrelated_frames_preserved": 204,
+  "old_missing_coverage_pixels_detected": 1793,
+  "approved_identity_preserved": true,
+  "source_hand_contours_preserved": true,
+  "give_feet_planted": true,
+  "checks": [
+    {
+      "sex": "female",
+      "pose": "walk-0",
+      "hand_pixels": 117,
+      "neck": [
+        68,
+        69
+      ],
+      "waist": [
+        64,
+        92
+      ]
+    },
+    {
+      "sex": "female",
+      "pose": "walk-1",
+      "hand_pixels": 91,
+      "neck": [
+        69,
+        69
+      ],
+      "waist": [
+        64,
+        91
+      ]
+    },
+    {
+      "sex": "female",
+      "pose": "walk-2",
+      "hand_pixels": 96,
+      "neck": [
+        67,
+        66
+      ],
+      "waist": [
+        64,
+        88
+      ]
+    },
+    {
+      "sex": "female",
+      "pose": "walk-3",
+      "hand_pixels": 108,
+      "neck": [
+        69,
+        66
+      ],
+      "waist": [
+        64,
+        88
+      ]
+    },
+    {
+      "sex": "female",
+      "pose": "walk-4",
+      "hand_pixels": 98,
+      "neck": [
+        67,
+        66
+      ],
+      "waist": [
+        64,
+        88
+      ]
+    },
+    {
+      "sex": "female",
+      "pose": "walk-5",
+      "hand_pixels": 113,
+      "neck": [
+        67,
+        69
+      ],
+      "waist": [
+        64,
+        92
+      ]
+    },
+    {
+      "sex": "female",
+      "pose": "give-half",
+      "hand_pixels": 70,
+      "neck": [
+        63,
+        68
+      ],
+      "waist": [
+        64,
+        90
+      ]
+    },
+    {
+      "sex": "female",
+      "pose": "give-full",
+      "hand_pixels": 131,
+      "neck": [
+        67,
+        70
+      ],
+      "waist": [
+        64,
+        90
+      ]
+    },
+    {
+      "sex": "female",
+      "pose": "give-release",
+      "hand_pixels": 129,
+      "neck": [
+        68,
+        70
+      ],
+      "waist": [
+        64,
+        90
+      ]
+    },
+    {
+      "sex": "male",
+      "pose": "walk-0",
+      "hand_pixels": 126,
+      "neck": [
+        61,
+        65
+      ],
+      "waist": [
+        62,
+        92
+      ]
+    },
+    {
+      "sex": "male",
+      "pose": "walk-1",
+      "hand_pixels": 106,
+      "neck": [
+        62,
+        68
+      ],
+      "waist": [
+        62,
+        92
+      ]
+    },
+    {
+      "sex": "male",
+      "pose": "walk-2",
+      "hand_pixels": 96,
+      "neck": [
+        63,
+        68
+      ],
+      "waist": [
+        62,
+        95
+      ]
+    },
+    {
+      "sex": "male",
+      "pose": "walk-3",
+      "hand_pixels": 110,
+      "neck": [
+        62,
+        67
+      ],
+      "waist": [
+        62,
+        95
+      ]
+    },
+    {
+      "sex": "male",
+      "pose": "walk-4",
+      "hand_pixels": 101,
+      "neck": [
+        61,
+        69
+      ],
+      "waist": [
+        62,
+        95
+      ]
+    },
+    {
+      "sex": "male",
+      "pose": "walk-5",
+      "hand_pixels": 119,
+      "neck": [
+        62,
+        65
+      ],
+      "waist": [
+        62,
+        92
+      ]
+    },
+    {
+      "sex": "male",
+      "pose": "give-half",
+      "hand_pixels": 106,
+      "neck": [
+        60,
+        65
+      ],
+      "waist": [
+        62,
+        92
+      ]
+    },
+    {
+      "sex": "male",
+      "pose": "give-full",
+      "hand_pixels": 115,
+      "neck": [
+        60,
+        65
+      ],
+      "waist": [
+        62,
+        92
+      ]
+    },
+    {
+      "sex": "male",
+      "pose": "give-release",
+      "hand_pixels": 118,
+      "neck": [
+        61,
+        65
+      ],
+      "waist": [
+        62,
+        92
+      ]
+    }
+  ]
+}

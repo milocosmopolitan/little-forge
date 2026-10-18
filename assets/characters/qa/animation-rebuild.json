@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "native_png_and_json_files": 3122,
+  "native_png_and_json_files": 3266,
   "byte_identical": true,
   "command": "node assets/characters/source/animation/build.mjs --no-previews",
   "excluded": "QA JSON reports, which are independent check outputs"

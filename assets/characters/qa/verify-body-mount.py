@@ -1,3 +1,4 @@
+from retained_scope import current_retained
 """Check complete body-owned shoulders and one attachment, without hiding gaps with a head."""
 import hashlib,json
 from pathlib import Path
@@ -49,7 +50,8 @@ for sex,mount in [('female',[62,66]),('male',[57,64])]:
      if source_cloth.getpixel((x,y))[3]:assert upper.getpixel((x,y))==raw.getpixel((x,y)),(sex,id,equipped,'source garment altered',x,y)
    results.append(dict(sex=sex,pose=id,equipped=equipped,required_body_pixels=points,missing_required_body_pixels=0))
 retained=json.loads((SOURCE/'retained-frames.json').read_text())
+retained,superseded=current_retained(ROOT,retained)
 for relative,digest in retained.items():assert hashlib.sha256((ROOT/relative).read_bytes()).hexdigest()==digest,('unrelated frame changed',relative)
 assert len(results)==96 and rejected_binding_failures>0
-report=dict(status='pass',revision='joint-rebuild-v11',variants_checked=96,missing_body_coverage_pixels=0,nonuniform_head_bindings=0,rejected_v10_binding_failures=rejected_binding_failures,unrelated_frames_preserved=len(retained),coverage_scope='Body-owned neck and shoulder plate, checked without the head; source garment colors checked separately',visual_acceptance='Not established by pixel assertions',variants=results)
+report=dict(status='pass',revision='joint-rebuild-v11',variants_checked=96,missing_body_coverage_pixels=0,nonuniform_head_bindings=0,rejected_v10_binding_failures=rejected_binding_failures,unrelated_frames_preserved=len(retained),authorized_mobile_frames_superseded=len(superseded),coverage_scope='Body-owned neck and shoulder plate, checked without the head; source garment colors checked separately',visual_acceptance='Not established by pixel assertions',variants=results)
 (ROOT/'qa/body-mount-validation.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps({k:v for k,v in report.items() if k!='variants'}))

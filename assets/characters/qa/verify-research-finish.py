@@ -1,3 +1,4 @@
+from retained_scope import current_retained
 """Guard the reported research defects, approved faces and unrelated action frames."""
 import hashlib,json
 from pathlib import Path
@@ -36,6 +37,7 @@ for sex in ['female','male']:
       assert donor.getpixel(xy)[3] and upper.getpixel(xy)==donor.getpixel(xy) and front.getpixel(xy)==donor.getpixel(xy),('lost resting finger',equipped,xy)
    checks.append([sex,k,equipped])
 retained=json.loads((SOURCE/'retained-frames.json').read_text())
+retained,superseded=current_retained(ROOT,retained)
 for relative,digest in retained.items():assert hashlib.sha256((ROOT/relative).read_bytes()).hexdigest()==digest,('unrelated frame changed',relative)
-report=dict(status='pass',revision='research-finish-v12',research_variants=len(checks),approved_face_layers_preserved=72,non_research_frames_preserved=len(retained),male_towel_in_front_pass=0,resting_finger_landmarks_preserved=True,visual_acceptance='Requires visual review; these checks cover the reported pixel regressions')
+report=dict(status='pass',revision='research-finish-v12',research_variants=len(checks),approved_face_layers_preserved=72,non_research_frames_preserved=len(retained),authorized_mobile_frames_superseded=len(superseded),male_towel_in_front_pass=0,resting_finger_landmarks_preserved=True,visual_acceptance='Requires visual review; these checks cover the reported pixel regressions')
 (ROOT/'qa/research-finish-validation.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report))

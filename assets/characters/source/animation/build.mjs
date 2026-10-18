@@ -1,3 +1,4 @@
+import {motionFactory,writeMotion} from './mobile-poses-v14/motion.mjs';
 import {pack} from './pack.mjs';
 import {benchPoses} from './work-poses.mjs';
 import {coherentWork} from './work-coherent.mjs';
@@ -90,10 +91,11 @@ for(const sex of ['female','male']){
  }
  storePose('nod-mid',{...fixed,head:move(head,0,1),eyes:move(originalEyes,0,1),mouth:move(originalMouth,0,1)},{gear:{...originalGear,[sex==='female'?'equipment/hair-tie.png':'equipment/headband.png']:move(originalGear[sex==='female'?'equipment/hair-tie.png':'equipment/headband.png'],0,1)}});
  clip('nod',['neutral','nod-mid','nod-down','nod-mid','neutral'],[120,100,140,100,120]);clip('shake_head',['neutral','turn-toward','neutral','turn-away','neutral'],[100,140,100,140,100]);
- for(const[k,id]of [[3,'give-half'],[4,'give-full'],[5,'give-release']]){const raw=sourcePose('gestures',k),g=gearFor(raw,{kind:'give'});storePose(id,split(raw),{...g,source:'source/animation/'+sex+'-gestures.png'});}
+ const mobileMotion=motionFactory({dir,sex,source:SRC,colors});
+ for(const[k,id]of [[3,'give-half'],[4,'give-full'],[5,'give-release']]){const raw=sourcePose('gestures',k);poses[id]=writeMotion(dir,id,mobileMotion(raw,id,'source/animation/'+sex+'-gestures.png'));}
  clip('give',['neutral','give-half','give-full','give-release','give-half','neutral'],[120,120,180,120,120,120],false,{events:[{frame:3,event:'transfer'}]});
  const walkKeys=[['walk-opposite',0],['walk-opposite',1],['walk',2],['walk',0],['walk',1],['walk-opposite',2]];
- for(let k=0;k<6;k++){const[j,n]=walkKeys[k],raw=sourcePose(j,n),parts=split(raw),g=gearFor(raw);if(k===1||k===4){parts.head=move(head,0,1);parts.eyes=move(originalEyes,0,1);parts.mouth=move(originalMouth,0,1);}storePose('walk-'+k,parts,{...g,source:'source/animation/'+sex+'-'+j+'.png'});}
+ for(let k=0;k<6;k++){const[j,n]=walkKeys[k],raw=sourcePose(j,n),id='walk-'+k;poses[id]=writeMotion(dir,id,mobileMotion(raw,id,'source/animation/'+sex+'-'+j+'.png'));}
  clip('walk',Array.from({length:6},(_,k)=>'walk-'+k),[120],true);
  // New directions use their own coherent heads and never receive 3/4 eyes.
  const dhead=k=>native(register(tile(path.join(SRC,'direction-heads.png'),2,2,k),{height:41,foot:65,head:true}).image);
@@ -119,7 +121,7 @@ for(const sex of ['female','male']){
  clip('salvaging',Array.from({length:6},(_,k)=>'salvaging-'+k),[160,160,180,180,200,160],false,{station_id:'salvage-table',facing:'back',loop_range:[2,3],events:[{frame:4,event:'parts_place'}]});
  const coherentWorkPoses=coherentWork({dir,sex,source:SRC,colors});
  Object.assign(poses,coherentWorkPoses);
- const animation={version:1,role:'player_blacksmith',canvas:[W,H],pivot:[64,140],sampler:'nearest',mipmaps:false,expression_recipes:states,eye_states:eyeKinds,mouth_states:mouthKinds,channels:{blink:'eyes',talk:'mouth',surprised_suspends_blink:true},direction_baselines:{right_3_4:'neutral',front:'front-neutral',back:'back-neutral'},poses,clips,registrations,walking:{near_side:'anatomical_right',far_side:'anatomical_left',keys:[{left_leg:'front',right_arm:'front',right_leg:'back',left_arm:'back'},{support:'left',arms:'transition'},{passing:'right',arms:'transition_toward_left_forward'},{right_leg:'front',left_arm:'front',left_leg:'back',right_arm:'back'},{support:'right',arms:'transition'},{passing:'left',arms:'transition_toward_right_forward'}]},runtime_integration:false,generator:'built-in image_gen',source_prompts:'../source/animation/prompts.json',work_source_prompts:'../source/animation/hip-pivot/prompts.json'};
+ const animation={version:1,common_motion_revision:'collar-v15',role:'player_blacksmith',canvas:[W,H],pivot:[64,140],sampler:'nearest',mipmaps:false,expression_recipes:states,eye_states:eyeKinds,mouth_states:mouthKinds,channels:{blink:'eyes',talk:'mouth',surprised_suspends_blink:true},direction_baselines:{right_3_4:'neutral',front:'front-neutral',back:'back-neutral'},poses,clips,registrations,walking:{near_side:'anatomical_right',far_side:'anatomical_left',keys:[{left_leg:'front',right_arm:'front',right_leg:'back',left_arm:'back'},{support:'left',arms:'transition'},{passing:'right',arms:'transition_toward_left_forward'},{right_leg:'front',left_arm:'front',left_leg:'back',right_arm:'back'},{support:'right',arms:'transition'},{passing:'left',arms:'transition_toward_right_forward'}]},runtime_integration:false,generator:'built-in image_gen',source_prompts:'../source/animation/prompts.json',work_source_prompts:'../source/animation/hip-pivot/prompts.json'};
  const stationGeometry={anvil:[18,8],'quenching-tub':[29,18],forge:[48,76],'research-table':[64,26],'salvage-table':[64,39]};
  animation.head_ownership={scope:'visible-face work poses only; approved neutral unchanged',removed_neck_collar_rows:neckRows[sex],coordinates:'root native 128x160 before head translation',eyes_mouth:'unchanged approved root pixels'};
  animation.workshop={world_canvas:[256,192],character_origin:[32,16],stations:{}};

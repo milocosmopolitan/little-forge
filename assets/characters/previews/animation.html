@@ -8,7 +8,7 @@ const $=id=>document.getElementById(id),sexes=['female','male'],data={},images=n
 const assetSession=Date.now();
 const image=p=>{if(!images.has(p)){const im=new Image,url=new URL(p,location.href);url.searchParams.set('review',assetSession);im.src=url.href;images.set(p,new Promise((ok,no)=>{im.onload=()=>ok(im);im.onerror=no}));}return images.get(p)};
 for(const s of sexes)data[s]=await fetch('../'+s+'/animation.json',{cache:'no-store'}).then(r=>r.json());const stationData=await fetch('../stations/catalog.json',{cache:'no-store'}).then(r=>r.json());
-$('asset-version').textContent='Loaded assets: '+(data.female.poses['researching-0'].layer_finish||data.female.poses['forging-0'].neck_assembly?.body_owned_mount?.revision||'previous assembly');
+$('asset-version').textContent='Loaded assets: '+(data.female.common_motion_revision?data.female.common_motion_revision+' · ':'')+(data.female.poses['researching-0'].layer_finish||data.female.poses['forging-0'].neck_assembly?.body_owned_mount?.revision||'previous assembly');
 const names=[...Object.keys(data.female.clips),...Object.keys(data.female.expression_recipes).filter(n=>!data.female.clips[n])];for(const n of names){const o=new Option(n,n);$('clip').add(o)}
 function clip(s='female'){const id=$('clip').value;return data[s].clips[id]||{loop:false,frames:[{sprite:id,duration_ms:1000}]}}
 function emit(){const id=$('clip').value,c=clip(),key=loop+':'+frame;if(entered.has(key))return;entered.add(key);const e=(c.events||[]).filter(e=>e.frame===frame);if(e.length)eventLog.push(...e.map(e=>({clip:id,frame,event:e.event})));if(e.length)$('events').textContent=e.map(e=>e.event+' · frame '+frame).join(', ')}

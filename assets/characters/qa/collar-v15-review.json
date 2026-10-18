@@ -1,0 +1,34 @@
+{
+  "revision": "collar-v15",
+  "source": "agent_static_layer_review",
+  "scope": "Both sexes walk and give, 18 poses, base and equipped",
+  "user_accepted": null,
+  "report": "collar-v15-review.json",
+  "structural_checks_do_not_establish_visual_acceptance": true,
+  "playback_verified": false,
+  "cause": "Averaged fabric-near-skin anchor could lie above the shirt; synthetic rectangular neck and global 3px head offset hid rather than repaired the joint",
+  "replacement": "Native source neck and shirt contours retained; approved head seats at the traced source jaw exit",
+  "visual_inspection": [
+    "Independent body, head, and equipped composite on cyan/dark backgrounds",
+    "Female and male enlarged before/after neck sheets",
+    "All nine distinct keys per sex"
+  ],
+  "browser_review": {
+    "status": "unavailable",
+    "revision": "collar-v15",
+    "reason": "Sky Computer Use native pipe startup failed",
+    "page": "http://127.0.0.1:8773/assets/characters/previews/animation.html?clip=walk&review=collar-v15"
+  },
+  "validation": "source-collar-validation.json",
+  "related_validation": "mobile-poses-validation.json",
+  "unrelated_frame_pngs_preserved": 204,
+  "new_image_generation": false,
+  "deterministic_rebuild": {
+    "status": "pass",
+    "native_png_and_json_files": 3266,
+    "byte_identical": true,
+    "command": "node assets/characters/source/animation/build.mjs --no-previews",
+    "excluded": "QA JSON reports, which are independent check outputs"
+  },
+  "focused_comparison": "collar-v15-female-focus.png"
+}

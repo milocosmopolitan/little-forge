@@ -5,7 +5,8 @@
   "rejected_v12_strap_gap_rows": 18,
   "old_hair_seam_pixels": 0,
   "female_face_layers_preserved": 36,
-  "other_frames_preserved": 228,
+  "other_frames_preserved": 192,
+  "authorized_mobile_frames_superseded": 36,
   "source_buckle_and_leather_pigments_preserved": true,
   "visual_acceptance": "Not established by pixel assertions"
 }

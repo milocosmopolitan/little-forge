@@ -1,26 +1,10 @@
 {
-  "status": "internal_review_recorded_user_acceptance_pending",
+  "status": "static_layer_review_recorded_playback_unverified",
   "browser_review": {
-    "app": "Safari",
-    "version_label": "research-material-v13",
-    "manual_keys": [
-      0,
-      1,
-      2,
-      4
-    ],
-    "equipment": true,
-    "workstation": true,
-    "backgrounds": [
-      "light",
-      "dark"
-    ],
-    "playback_speeds": [
-      1,
-      0.5
-    ],
-    "scope": "Female equipped research; source-layer and native close-up sheets reviewed separately",
-    "page": "http://127.0.0.1:8773/assets/characters/previews/animation.html?clip=researching&frame=4&review=material-v13-final4"
+    "status": "unavailable",
+    "revision": "collar-v15",
+    "reason": "Sky Computer Use native pipe startup failed",
+    "page": "http://127.0.0.1:8773/assets/characters/previews/animation.html?clip=walk&review=collar-v15"
   },
   "visual_artifacts": {
     "expressions": "Each sex: previews/expressions-8.png",
@@ -47,6 +31,26 @@
     "research_material_v13": [
       "research-material-v13-before-after.png",
       "research-material-v13-all-keys.png"
+    ],
+    "mobile_poses_v14": [
+      "mobile-poses-v14-female-base-before-after.png",
+      "mobile-poses-v14-female-composed-before-after.png",
+      "mobile-poses-v14-female-dark.png",
+      "mobile-poses-v14-female-light.png",
+      "mobile-poses-v14-male-base-before-after.png",
+      "mobile-poses-v14-male-composed-before-after.png",
+      "mobile-poses-v14-male-dark.png",
+      "mobile-poses-v14-male-light.png"
+    ],
+    "collar_v15": [
+      "collar-v15-female-before-after.png",
+      "collar-v15-female-cyan.png",
+      "collar-v15-female-dark.png",
+      "collar-v15-female-light.png",
+      "collar-v15-male-before-after.png",
+      "collar-v15-male-cyan.png",
+      "collar-v15-male-dark.png",
+      "collar-v15-male-light.png"
     ]
   },
   "runtime_integration": false,
@@ -63,12 +67,13 @@
     "structural_checks_do_not_establish_visual_acceptance": true
   },
   "current_visual_verdict": {
-    "revision": "research-material-v13",
-    "source": "agent_internal_review",
+    "revision": "collar-v15",
+    "source": "agent_static_layer_review",
+    "scope": "Both sexes walk and give, 18 poses, base and equipped",
     "user_accepted": null,
-    "report": "research-material-v13-review.json",
-    "scope": "Female equipped research only",
-    "structural_checks_do_not_establish_visual_acceptance": true
+    "report": "collar-v15-review.json",
+    "structural_checks_do_not_establish_visual_acceptance": true,
+    "playback_verified": false
   },
   "previous_revisions": [
     {
@@ -230,9 +235,37 @@
         "Dirty neck/collar connection",
         "One-pixel horizontal source-hair seam at thinking shoulder"
       ]
+    },
+    {
+      "revision": "research-material-v13",
+      "source": "agent_internal_review",
+      "user_accepted": null,
+      "report": "research-material-v13-review.json",
+      "scope": "Female equipped research only",
+      "structural_checks_do_not_establish_visual_acceptance": true
+    },
+    {
+      "revision": "mobile-poses-v14",
+      "source": "user_review",
+      "scope": "Female and male walk/give, 18 distinct poses and 36 base/equipped variants",
+      "user_accepted": false,
+      "report": "mobile-poses-v14-review.json",
+      "structural_checks_do_not_establish_visual_acceptance": true,
+      "playback_verified": false,
+      "user_reported_issues": [
+        "Female walk keys 0,1,5 have broken necks",
+        "Female give neck drops and remains malformed",
+        "Male give neck remains disconnected"
+      ]
     }
   ],
   "current_browser_review": {
+    "status": "unavailable",
+    "revision": "collar-v15",
+    "reason": "Sky Computer Use native pipe startup failed",
+    "page": "http://127.0.0.1:8773/assets/characters/previews/animation.html?clip=walk&review=collar-v15"
+  },
+  "previous_browser_review": {
     "app": "Safari",
     "version_label": "research-material-v13",
     "manual_keys": [

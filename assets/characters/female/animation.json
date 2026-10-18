@@ -1,5 +1,6 @@
 {
   "version": 1,
+  "common_motion_revision": "collar-v15",
   "role": "player_blacksmith",
   "canvas": [
     128,
@@ -416,51 +417,475 @@
       ],
       "facing": "right_3_4",
       "source": "source/animation/female-gestures.png",
+      "layer_finish": "collar-v15",
+      "layers": [
+        "poses/give-half/body/lower-base.png",
+        "poses/give-half/body/upper-base.png",
+        "poses/give-half/head-base.png",
+        "poses/give-half/eyes/open.png",
+        "poses/give-half/mouth/rest.png"
+      ],
+      "rendered_variant_layers": [
+        "poses/give-half/rendered/body/lower.png",
+        "poses/give-half/rendered/body/upper.png",
+        "poses/give-half/rendered/head-base.png",
+        "poses/give-half/rendered/eyes/open.png",
+        "poses/give-half/rendered/mouth/rest.png"
+      ],
+      "base": "frames/base/give-half.png",
+      "composed": "frames/give-half.png",
       "sockets": {
+        "neck": [
+          63,
+          68
+        ],
+        "waist": [
+          64,
+          90
+        ],
         "hands": [
           {
-            "side": "right",
+            "side": "anatomical_left",
+            "horizontal": false,
             "point": [
-              74,
-              81
+              84,
+              106
             ],
-            "rect": [
-              69,
+            "cuff": [
               79,
-              76,
-              85
+              86
+            ],
+            "skin_pixels": 106,
+            "glove_pixels": 41,
+            "hand_pixels": [
+              [
+                81,
+                97
+              ],
+              [
+                82,
+                97
+              ],
+              [
+                83,
+                97
+              ],
+              [
+                84,
+                97
+              ],
+              [
+                85,
+                97
+              ],
+              [
+                86,
+                97
+              ],
+              [
+                81,
+                98
+              ],
+              [
+                82,
+                98
+              ],
+              [
+                83,
+                98
+              ],
+              [
+                84,
+                98
+              ],
+              [
+                85,
+                98
+              ],
+              [
+                86,
+                98
+              ],
+              [
+                81,
+                99
+              ],
+              [
+                82,
+                99
+              ],
+              [
+                83,
+                99
+              ],
+              [
+                84,
+                99
+              ],
+              [
+                85,
+                99
+              ],
+              [
+                86,
+                99
+              ],
+              [
+                82,
+                100
+              ],
+              [
+                83,
+                100
+              ],
+              [
+                85,
+                100
+              ],
+              [
+                86,
+                100
+              ],
+              [
+                82,
+                101
+              ],
+              [
+                83,
+                101
+              ],
+              [
+                86,
+                101
+              ],
+              [
+                83,
+                102
+              ],
+              [
+                86,
+                102
+              ],
+              [
+                87,
+                102
+              ],
+              [
+                83,
+                103
+              ],
+              [
+                86,
+                103
+              ],
+              [
+                85,
+                103
+              ],
+              [
+                87,
+                103
+              ],
+              [
+                82,
+                104
+              ],
+              [
+                84,
+                104
+              ],
+              [
+                86,
+                104
+              ],
+              [
+                85,
+                104
+              ],
+              [
+                83,
+                105
+              ],
+              [
+                84,
+                105
+              ],
+              [
+                85,
+                105
+              ],
+              [
+                83,
+                106
+              ],
+              [
+                84,
+                106
+              ]
             ]
           },
           {
-            "side": "left",
+            "side": "anatomical_right",
+            "horizontal": true,
             "point": [
-              83,
-              102
+              75,
+              85
             ],
-            "rect": [
-              81,
-              97,
-              88,
-              104
+            "cuff": [
+              53,
+              83
+            ],
+            "skin_pixels": 100,
+            "glove_pixels": 29,
+            "hand_pixels": [
+              [
+                65,
+                85
+              ],
+              [
+                65,
+                86
+              ],
+              [
+                65,
+                87
+              ],
+              [
+                65,
+                88
+              ],
+              [
+                66,
+                85
+              ],
+              [
+                66,
+                86
+              ],
+              [
+                66,
+                88
+              ],
+              [
+                66,
+                89
+              ],
+              [
+                67,
+                86
+              ],
+              [
+                67,
+                88
+              ],
+              [
+                67,
+                89
+              ],
+              [
+                68,
+                87
+              ],
+              [
+                68,
+                88
+              ],
+              [
+                69,
+                87
+              ],
+              [
+                69,
+                88
+              ],
+              [
+                70,
+                87
+              ],
+              [
+                70,
+                86
+              ],
+              [
+                70,
+                88
+              ],
+              [
+                71,
+                86
+              ],
+              [
+                71,
+                85
+              ],
+              [
+                72,
+                86
+              ],
+              [
+                72,
+                85
+              ],
+              [
+                72,
+                87
+              ],
+              [
+                73,
+                86
+              ],
+              [
+                73,
+                85
+              ],
+              [
+                73,
+                84
+              ],
+              [
+                74,
+                85
+              ],
+              [
+                74,
+                84
+              ],
+              [
+                75,
+                85
+              ]
             ]
           }
+        ],
+        "foot": [
+          64,
+          140
         ]
       },
-      "layers": [
-        "poses/give-half/head-base.png",
-        "poses/give-half/eyes/open.png",
-        "poses/give-half/mouth/rest.png",
-        "poses/give-half/body/upper-base.png",
-        "poses/give-half/body/lower-base.png",
-        "poses/give-half/body/arms-front.png",
-        "poses/give-half/props/held.png",
-        "poses/give-half/equipment/apron.png",
-        "poses/give-half/equipment/belt-tools.png",
-        "poses/give-half/equipment/gloves.png",
-        "poses/give-half/equipment/hair-tie.png"
-      ],
-      "base": "frames/base/give-half.png",
-      "composed": "frames/give-half.png"
+      "motion_head_identity": {
+        "source": "approved root head and features",
+        "shift": [
+          1,
+          2
+        ],
+        "root_pixels_unchanged": true,
+        "attachment_policy": "Source jaw exit traced above the original shirt opening; no fabricated neck pixels",
+        "anatomical_head_adjustment": [
+          0,
+          0
+        ],
+        "head_translation_adjustment": [
+          0,
+          0
+        ],
+        "root_collar": [
+          62,
+          66
+        ],
+        "source_collar": [
+          63,
+          68
+        ]
+      },
+      "motion_equipped_head_identity": {
+        "source": "approved root head and features",
+        "shift": [
+          1,
+          2
+        ],
+        "root_pixels_unchanged": true,
+        "attachment_policy": "Source jaw exit traced above the original shirt opening; no fabricated neck pixels",
+        "anatomical_head_adjustment": [
+          0,
+          0
+        ],
+        "head_translation_adjustment": [
+          0,
+          0
+        ],
+        "root_collar": [
+          62,
+          66
+        ],
+        "source_collar": [
+          63,
+          68
+        ]
+      },
+      "motion_assembly": {
+        "revision": "collar-v15",
+        "source_collar": {
+          "jaw_exit": 65,
+          "collar_end": 71,
+          "neck_rows": {
+            "65": [
+              59,
+              65
+            ],
+            "66": [
+              58,
+              67
+            ],
+            "67": [
+              58,
+              68
+            ],
+            "68": [
+              59,
+              69
+            ],
+            "69": [
+              60,
+              70
+            ],
+            "70": [
+              62,
+              71
+            ],
+            "71": [
+              64,
+              70
+            ]
+          },
+          "root_exit": [
+            60.5,
+            63
+          ]
+        },
+        "source_face": [
+          57,
+          41,
+          78,
+          72
+        ],
+        "source_registration_delta": [
+          1,
+          4
+        ],
+        "neck": [
+          63,
+          68
+        ],
+        "waist": [
+          64,
+          90
+        ],
+        "root_neck": [
+          62,
+          66
+        ],
+        "root_waist": [
+          64,
+          90
+        ],
+        "hand_contours": "Source skin silhouettes recolored into existing leather palette; no fitted glove image",
+        "gear_registration": "Native inverse row mapping from neck and waist anchors",
+        "body_owned_neck": true
+      },
+      "source_partition_roundtrip": false,
+      "source_contract": "Approved head replaces generated head; give retains approved neutral legs",
+      "rendered_equipment_baked": true,
+      "pose_layers_interchangeable": false
     },
     "give-full": {
       "canvas": [
@@ -473,51 +898,711 @@
       ],
       "facing": "right_3_4",
       "source": "source/animation/female-gestures.png",
+      "layer_finish": "collar-v15",
+      "layers": [
+        "poses/give-full/body/lower-base.png",
+        "poses/give-full/body/upper-base.png",
+        "poses/give-full/head-base.png",
+        "poses/give-full/eyes/open.png",
+        "poses/give-full/mouth/rest.png"
+      ],
+      "rendered_variant_layers": [
+        "poses/give-full/rendered/body/lower.png",
+        "poses/give-full/rendered/body/upper.png",
+        "poses/give-full/rendered/head-base.png",
+        "poses/give-full/rendered/eyes/open.png",
+        "poses/give-full/rendered/mouth/rest.png"
+      ],
+      "base": "frames/base/give-full.png",
+      "composed": "frames/give-full.png",
       "sockets": {
+        "neck": [
+          67,
+          70
+        ],
+        "waist": [
+          64,
+          90
+        ],
         "hands": [
           {
-            "side": "right",
+            "side": "anatomical_right",
+            "horizontal": true,
             "point": [
-              86,
-              99
+              107,
+              77
             ],
-            "rect": [
-              81,
-              94,
-              88,
-              104
+            "cuff": [
+              73,
+              79
+            ],
+            "skin_pixels": 198,
+            "glove_pixels": 84,
+            "hand_pixels": [
+              [
+                94,
+                73
+              ],
+              [
+                95,
+                73
+              ],
+              [
+                94,
+                74
+              ],
+              [
+                93,
+                74
+              ],
+              [
+                95,
+                74
+              ],
+              [
+                96,
+                73
+              ],
+              [
+                96,
+                74
+              ],
+              [
+                94,
+                75
+              ],
+              [
+                93,
+                75
+              ],
+              [
+                95,
+                75
+              ],
+              [
+                92,
+                74
+              ],
+              [
+                92,
+                75
+              ],
+              [
+                97,
+                73
+              ],
+              [
+                97,
+                74
+              ],
+              [
+                94,
+                76
+              ],
+              [
+                93,
+                76
+              ],
+              [
+                92,
+                76
+              ],
+              [
+                98,
+                73
+              ],
+              [
+                94,
+                77
+              ],
+              [
+                93,
+                77
+              ],
+              [
+                95,
+                77
+              ],
+              [
+                92,
+                77
+              ],
+              [
+                91,
+                77
+              ],
+              [
+                94,
+                78
+              ],
+              [
+                93,
+                78
+              ],
+              [
+                95,
+                78
+              ],
+              [
+                92,
+                78
+              ],
+              [
+                96,
+                78
+              ],
+              [
+                94,
+                79
+              ],
+              [
+                93,
+                79
+              ],
+              [
+                95,
+                79
+              ],
+              [
+                92,
+                79
+              ],
+              [
+                96,
+                79
+              ],
+              [
+                97,
+                78
+              ],
+              [
+                97,
+                79
+              ],
+              [
+                94,
+                80
+              ],
+              [
+                93,
+                80
+              ],
+              [
+                95,
+                80
+              ],
+              [
+                92,
+                80
+              ],
+              [
+                96,
+                80
+              ],
+              [
+                97,
+                80
+              ],
+              [
+                98,
+                80
+              ],
+              [
+                94,
+                81
+              ],
+              [
+                93,
+                81
+              ],
+              [
+                95,
+                81
+              ],
+              [
+                96,
+                81
+              ],
+              [
+                97,
+                81
+              ],
+              [
+                98,
+                81
+              ],
+              [
+                99,
+                80
+              ],
+              [
+                99,
+                79
+              ],
+              [
+                99,
+                81
+              ],
+              [
+                95,
+                82
+              ],
+              [
+                96,
+                82
+              ],
+              [
+                97,
+                82
+              ],
+              [
+                98,
+                82
+              ],
+              [
+                99,
+                82
+              ],
+              [
+                100,
+                80
+              ],
+              [
+                100,
+                79
+              ],
+              [
+                100,
+                81
+              ],
+              [
+                100,
+                82
+              ],
+              [
+                101,
+                80
+              ],
+              [
+                101,
+                79
+              ],
+              [
+                101,
+                81
+              ],
+              [
+                101,
+                82
+              ],
+              [
+                102,
+                80
+              ],
+              [
+                102,
+                79
+              ],
+              [
+                102,
+                81
+              ],
+              [
+                103,
+                80
+              ],
+              [
+                103,
+                79
+              ],
+              [
+                103,
+                81
+              ],
+              [
+                103,
+                78
+              ],
+              [
+                104,
+                80
+              ],
+              [
+                104,
+                79
+              ],
+              [
+                104,
+                78
+              ],
+              [
+                105,
+                80
+              ],
+              [
+                105,
+                79
+              ],
+              [
+                105,
+                78
+              ],
+              [
+                105,
+                77
+              ],
+              [
+                106,
+                79
+              ],
+              [
+                106,
+                78
+              ],
+              [
+                106,
+                77
+              ],
+              [
+                107,
+                78
+              ],
+              [
+                107,
+                77
+              ],
+              [
+                97,
+                76
+              ]
             ]
           },
           {
-            "side": "left",
+            "side": "anatomical_left",
+            "horizontal": false,
             "point": [
-              102,
-              71
+              88,
+              108
             ],
-            "rect": [
-              97,
-              70,
-              104,
-              76
+            "cuff": [
+              83,
+              88
+            ],
+            "skin_pixels": 113,
+            "glove_pixels": 47,
+            "hand_pixels": [
+              [
+                85,
+                99
+              ],
+              [
+                86,
+                99
+              ],
+              [
+                87,
+                99
+              ],
+              [
+                88,
+                99
+              ],
+              [
+                89,
+                99
+              ],
+              [
+                85,
+                100
+              ],
+              [
+                86,
+                100
+              ],
+              [
+                87,
+                100
+              ],
+              [
+                88,
+                100
+              ],
+              [
+                89,
+                100
+              ],
+              [
+                85,
+                101
+              ],
+              [
+                86,
+                101
+              ],
+              [
+                87,
+                101
+              ],
+              [
+                88,
+                101
+              ],
+              [
+                89,
+                101
+              ],
+              [
+                90,
+                101
+              ],
+              [
+                86,
+                102
+              ],
+              [
+                87,
+                102
+              ],
+              [
+                88,
+                102
+              ],
+              [
+                89,
+                102
+              ],
+              [
+                90,
+                102
+              ],
+              [
+                91,
+                102
+              ],
+              [
+                86,
+                103
+              ],
+              [
+                87,
+                103
+              ],
+              [
+                89,
+                103
+              ],
+              [
+                90,
+                103
+              ],
+              [
+                91,
+                103
+              ],
+              [
+                87,
+                104
+              ],
+              [
+                89,
+                104
+              ],
+              [
+                90,
+                104
+              ],
+              [
+                91,
+                104
+              ],
+              [
+                87,
+                105
+              ],
+              [
+                89,
+                105
+              ],
+              [
+                90,
+                105
+              ],
+              [
+                91,
+                105
+              ],
+              [
+                86,
+                106
+              ],
+              [
+                88,
+                106
+              ],
+              [
+                89,
+                106
+              ],
+              [
+                90,
+                106
+              ],
+              [
+                85,
+                106
+              ],
+              [
+                86,
+                107
+              ],
+              [
+                85,
+                107
+              ],
+              [
+                87,
+                107
+              ],
+              [
+                88,
+                107
+              ],
+              [
+                89,
+                107
+              ],
+              [
+                87,
+                108
+              ],
+              [
+                88,
+                108
+              ]
             ]
           }
+        ],
+        "foot": [
+          64,
+          140
         ]
       },
-      "layers": [
-        "poses/give-full/head-base.png",
-        "poses/give-full/eyes/open.png",
-        "poses/give-full/mouth/rest.png",
-        "poses/give-full/body/upper-base.png",
-        "poses/give-full/body/lower-base.png",
-        "poses/give-full/body/arms-front.png",
-        "poses/give-full/props/held.png",
-        "poses/give-full/equipment/apron.png",
-        "poses/give-full/equipment/belt-tools.png",
-        "poses/give-full/equipment/gloves.png",
-        "poses/give-full/equipment/hair-tie.png"
-      ],
-      "base": "frames/base/give-full.png",
-      "composed": "frames/give-full.png"
+      "motion_head_identity": {
+        "source": "approved root head and features",
+        "shift": [
+          5,
+          4
+        ],
+        "root_pixels_unchanged": true,
+        "attachment_policy": "Source jaw exit traced above the original shirt opening; no fabricated neck pixels",
+        "anatomical_head_adjustment": [
+          0,
+          0
+        ],
+        "head_translation_adjustment": [
+          0,
+          0
+        ],
+        "root_collar": [
+          62,
+          66
+        ],
+        "source_collar": [
+          67,
+          70
+        ]
+      },
+      "motion_equipped_head_identity": {
+        "source": "approved root head and features",
+        "shift": [
+          5,
+          4
+        ],
+        "root_pixels_unchanged": true,
+        "attachment_policy": "Source jaw exit traced above the original shirt opening; no fabricated neck pixels",
+        "anatomical_head_adjustment": [
+          0,
+          0
+        ],
+        "head_translation_adjustment": [
+          0,
+          0
+        ],
+        "root_collar": [
+          62,
+          66
+        ],
+        "source_collar": [
+          67,
+          70
+        ]
+      },
+      "motion_assembly": {
+        "revision": "collar-v15",
+        "source_collar": {
+          "jaw_exit": 67,
+          "collar_end": 71,
+          "neck_rows": {
+            "67": [
+              63,
+              69
+            ],
+            "68": [
+              63,
+              71
+            ],
+            "69": [
+              64,
+              72
+            ],
+            "70": [
+              66,
+              73
+            ],
+            "71": [
+              68,
+              74
+            ]
+          },
+          "root_exit": [
+            60.5,
+            63
+          ]
+        },
+        "source_face": [
+          61,
+          43,
+          82,
+          72
+        ],
+        "source_registration_delta": [
+          5,
+          6
+        ],
+        "neck": [
+          67,
+          70
+        ],
+        "waist": [
+          64,
+          90
+        ],
+        "root_neck": [
+          62,
+          66
+        ],
+        "root_waist": [
+          64,
+          90
+        ],
+        "hand_contours": "Source skin silhouettes recolored into existing leather palette; no fitted glove image",
+        "gear_registration": "Native inverse row mapping from neck and waist anchors",
+        "body_owned_neck": true
+      },
+      "source_partition_roundtrip": false,
+      "source_contract": "Approved head replaces generated head; give retains approved neutral legs",
+      "rendered_equipment_baked": true,
+      "pose_layers_interchangeable": false
     },
     "give-release": {
       "canvas": [
@@ -530,51 +1615,707 @@
       ],
       "facing": "right_3_4",
       "source": "source/animation/female-gestures.png",
+      "layer_finish": "collar-v15",
+      "layers": [
+        "poses/give-release/body/lower-base.png",
+        "poses/give-release/body/upper-base.png",
+        "poses/give-release/head-base.png",
+        "poses/give-release/eyes/open.png",
+        "poses/give-release/mouth/rest.png"
+      ],
+      "rendered_variant_layers": [
+        "poses/give-release/rendered/body/lower.png",
+        "poses/give-release/rendered/body/upper.png",
+        "poses/give-release/rendered/head-base.png",
+        "poses/give-release/rendered/eyes/open.png",
+        "poses/give-release/rendered/mouth/rest.png"
+      ],
+      "base": "frames/base/give-release.png",
+      "composed": "frames/give-release.png",
       "sockets": {
+        "neck": [
+          68,
+          70
+        ],
+        "waist": [
+          64,
+          90
+        ],
         "hands": [
           {
-            "side": "right",
+            "side": "anatomical_right",
+            "horizontal": true,
             "point": [
-              86,
-              101
+              100,
+              87
             ],
-            "rect": [
-              81,
-              95,
-              89,
-              104
+            "cuff": [
+              73,
+              80
+            ],
+            "skin_pixels": 172,
+            "glove_pixels": 79,
+            "hand_pixels": [
+              [
+                88,
+                82
+              ],
+              [
+                88,
+                83
+              ],
+              [
+                88,
+                84
+              ],
+              [
+                89,
+                80
+              ],
+              [
+                89,
+                81
+              ],
+              [
+                89,
+                82
+              ],
+              [
+                89,
+                83
+              ],
+              [
+                89,
+                84
+              ],
+              [
+                89,
+                85
+              ],
+              [
+                90,
+                80
+              ],
+              [
+                90,
+                81
+              ],
+              [
+                90,
+                82
+              ],
+              [
+                90,
+                83
+              ],
+              [
+                90,
+                84
+              ],
+              [
+                90,
+                85
+              ],
+              [
+                90,
+                86
+              ],
+              [
+                91,
+                80
+              ],
+              [
+                91,
+                81
+              ],
+              [
+                91,
+                82
+              ],
+              [
+                91,
+                83
+              ],
+              [
+                91,
+                84
+              ],
+              [
+                91,
+                85
+              ],
+              [
+                91,
+                86
+              ],
+              [
+                92,
+                81
+              ],
+              [
+                92,
+                82
+              ],
+              [
+                92,
+                83
+              ],
+              [
+                92,
+                84
+              ],
+              [
+                92,
+                85
+              ],
+              [
+                92,
+                86
+              ],
+              [
+                92,
+                87
+              ],
+              [
+                93,
+                81
+              ],
+              [
+                93,
+                82
+              ],
+              [
+                93,
+                83
+              ],
+              [
+                93,
+                84
+              ],
+              [
+                93,
+                85
+              ],
+              [
+                93,
+                86
+              ],
+              [
+                93,
+                87
+              ],
+              [
+                92,
+                88
+              ],
+              [
+                93,
+                88
+              ],
+              [
+                94,
+                81
+              ],
+              [
+                94,
+                82
+              ],
+              [
+                94,
+                83
+              ],
+              [
+                94,
+                84
+              ],
+              [
+                94,
+                85
+              ],
+              [
+                94,
+                86
+              ],
+              [
+                93,
+                89
+              ],
+              [
+                94,
+                89
+              ],
+              [
+                95,
+                82
+              ],
+              [
+                95,
+                83
+              ],
+              [
+                95,
+                84
+              ],
+              [
+                95,
+                85
+              ],
+              [
+                95,
+                86
+              ],
+              [
+                95,
+                87
+              ],
+              [
+                93,
+                90
+              ],
+              [
+                94,
+                90
+              ],
+              [
+                96,
+                83
+              ],
+              [
+                96,
+                84
+              ],
+              [
+                96,
+                85
+              ],
+              [
+                96,
+                86
+              ],
+              [
+                96,
+                87
+              ],
+              [
+                96,
+                88
+              ],
+              [
+                94,
+                91
+              ],
+              [
+                97,
+                84
+              ],
+              [
+                97,
+                86
+              ],
+              [
+                97,
+                87
+              ],
+              [
+                97,
+                88
+              ],
+              [
+                96,
+                89
+              ],
+              [
+                97,
+                89
+              ],
+              [
+                98,
+                84
+              ],
+              [
+                98,
+                85
+              ],
+              [
+                98,
+                89
+              ],
+              [
+                97,
+                90
+              ],
+              [
+                98,
+                90
+              ],
+              [
+                99,
+                85
+              ],
+              [
+                99,
+                86
+              ],
+              [
+                97,
+                91
+              ],
+              [
+                98,
+                91
+              ],
+              [
+                100,
+                86
+              ],
+              [
+                100,
+                87
+              ]
             ]
           },
           {
-            "side": "left",
+            "side": "anatomical_left",
+            "horizontal": false,
             "point": [
-              94,
-              85
+              87,
+              108
             ],
-            "rect": [
-              89,
-              80,
-              98,
-              87
+            "cuff": [
+              83,
+              88
+            ],
+            "skin_pixels": 117,
+            "glove_pixels": 50,
+            "hand_pixels": [
+              [
+                85,
+                99
+              ],
+              [
+                86,
+                99
+              ],
+              [
+                87,
+                99
+              ],
+              [
+                88,
+                99
+              ],
+              [
+                89,
+                99
+              ],
+              [
+                90,
+                99
+              ],
+              [
+                85,
+                100
+              ],
+              [
+                86,
+                100
+              ],
+              [
+                87,
+                100
+              ],
+              [
+                88,
+                100
+              ],
+              [
+                89,
+                100
+              ],
+              [
+                90,
+                100
+              ],
+              [
+                85,
+                101
+              ],
+              [
+                86,
+                101
+              ],
+              [
+                87,
+                101
+              ],
+              [
+                88,
+                101
+              ],
+              [
+                89,
+                101
+              ],
+              [
+                90,
+                101
+              ],
+              [
+                91,
+                101
+              ],
+              [
+                86,
+                102
+              ],
+              [
+                87,
+                102
+              ],
+              [
+                88,
+                102
+              ],
+              [
+                89,
+                102
+              ],
+              [
+                90,
+                102
+              ],
+              [
+                91,
+                102
+              ],
+              [
+                86,
+                103
+              ],
+              [
+                87,
+                103
+              ],
+              [
+                89,
+                103
+              ],
+              [
+                90,
+                103
+              ],
+              [
+                91,
+                103
+              ],
+              [
+                86,
+                104
+              ],
+              [
+                87,
+                104
+              ],
+              [
+                90,
+                104
+              ],
+              [
+                91,
+                104
+              ],
+              [
+                86,
+                105
+              ],
+              [
+                87,
+                105
+              ],
+              [
+                90,
+                105
+              ],
+              [
+                89,
+                105
+              ],
+              [
+                91,
+                105
+              ],
+              [
+                85,
+                106
+              ],
+              [
+                88,
+                106
+              ],
+              [
+                90,
+                106
+              ],
+              [
+                89,
+                106
+              ],
+              [
+                85,
+                107
+              ],
+              [
+                88,
+                107
+              ],
+              [
+                87,
+                107
+              ],
+              [
+                89,
+                107
+              ],
+              [
+                90,
+                107
+              ],
+              [
+                88,
+                108
+              ],
+              [
+                87,
+                108
+              ]
             ]
           }
+        ],
+        "foot": [
+          64,
+          140
         ]
       },
-      "layers": [
-        "poses/give-release/head-base.png",
-        "poses/give-release/eyes/open.png",
-        "poses/give-release/mouth/rest.png",
-        "poses/give-release/body/upper-base.png",
-        "poses/give-release/body/lower-base.png",
-        "poses/give-release/body/arms-front.png",
-        "poses/give-release/props/held.png",
-        "poses/give-release/equipment/apron.png",
-        "poses/give-release/equipment/belt-tools.png",
-        "poses/give-release/equipment/gloves.png",
-        "poses/give-release/equipment/hair-tie.png"
-      ],
-      "base": "frames/base/give-release.png",
-      "composed": "frames/give-release.png"
+      "motion_head_identity": {
+        "source": "approved root head and features",
+        "shift": [
+          6,
+          4
+        ],
+        "root_pixels_unchanged": true,
+        "attachment_policy": "Source jaw exit traced above the original shirt opening; no fabricated neck pixels",
+        "anatomical_head_adjustment": [
+          0,
+          0
+        ],
+        "head_translation_adjustment": [
+          0,
+          0
+        ],
+        "root_collar": [
+          62,
+          66
+        ],
+        "source_collar": [
+          68,
+          70
+        ]
+      },
+      "motion_equipped_head_identity": {
+        "source": "approved root head and features",
+        "shift": [
+          6,
+          4
+        ],
+        "root_pixels_unchanged": true,
+        "attachment_policy": "Source jaw exit traced above the original shirt opening; no fabricated neck pixels",
+        "anatomical_head_adjustment": [
+          0,
+          0
+        ],
+        "head_translation_adjustment": [
+          0,
+          0
+        ],
+        "root_collar": [
+          62,
+          66
+        ],
+        "source_collar": [
+          68,
+          70
+        ]
+      },
+      "motion_assembly": {
+        "revision": "collar-v15",
+        "source_collar": {
+          "jaw_exit": 67,
+          "collar_end": 72,
+          "neck_rows": {
+            "67": [
+              63,
+              70
+            ],
+            "68": [
+              62,
+              72
+            ],
+            "69": [
+              63,
+              72
+            ],
+            "70": [
+              65,
+              73
+            ],
+            "71": [
+              67,
+              74
+            ],
+            "72": [
+              69,
+              75
+            ]
+          },
+          "root_exit": [
+            60.5,
+            63
+          ]
+        },
+        "source_face": [
+          61,
+          43,
+          82,
+          73
+        ],
+        "source_registration_delta": [
+          4,
+          6
+        ],
+        "neck": [
+          68,
+          70
+        ],
+        "waist": [
+          64,
+          90
+        ],
+        "root_neck": [
+          62,
+          66
+        ],
+        "root_waist": [
+          64,
+          90
+        ],
+        "hand_contours": "Source skin silhouettes recolored into existing leather palette; no fitted glove image",
+        "gear_registration": "Native inverse row mapping from neck and waist anchors",
+        "body_owned_neck": true
+      },
+      "source_partition_roundtrip": false,
+      "source_contract": "Approved head replaces generated head; give retains approved neutral legs",
+      "rendered_equipment_baked": true,
+      "pose_layers_interchangeable": false
     },
     "walk-0": {
       "canvas": [
@@ -587,51 +2328,667 @@
       ],
       "facing": "right_3_4",
       "source": "source/animation/female-walk-opposite.png",
+      "layer_finish": "collar-v15",
+      "layers": [
+        "poses/walk-0/body/lower-base.png",
+        "poses/walk-0/body/upper-base.png",
+        "poses/walk-0/head-base.png",
+        "poses/walk-0/eyes/open.png",
+        "poses/walk-0/mouth/rest.png"
+      ],
+      "rendered_variant_layers": [
+        "poses/walk-0/rendered/body/lower.png",
+        "poses/walk-0/rendered/body/upper.png",
+        "poses/walk-0/rendered/head-base.png",
+        "poses/walk-0/rendered/eyes/open.png",
+        "poses/walk-0/rendered/mouth/rest.png"
+      ],
+      "base": "frames/base/walk-0.png",
+      "composed": "frames/walk-0.png",
       "sockets": {
+        "neck": [
+          68,
+          69
+        ],
+        "waist": [
+          64,
+          92
+        ],
         "hands": [
           {
-            "side": "right",
+            "side": "anatomical_left",
+            "horizontal": true,
             "point": [
-              35,
-              97
+              86,
+              91
             ],
-            "rect": [
-              33,
-              91,
-              42,
-              100
+            "cuff": [
+              65,
+              87
+            ],
+            "skin_pixels": 149,
+            "glove_pixels": 73,
+            "hand_pixels": [
+              [
+                76,
+                89
+              ],
+              [
+                76,
+                90
+              ],
+              [
+                76,
+                91
+              ],
+              [
+                77,
+                87
+              ],
+              [
+                77,
+                88
+              ],
+              [
+                77,
+                89
+              ],
+              [
+                77,
+                90
+              ],
+              [
+                77,
+                91
+              ],
+              [
+                76,
+                92
+              ],
+              [
+                77,
+                92
+              ],
+              [
+                78,
+                88
+              ],
+              [
+                78,
+                89
+              ],
+              [
+                78,
+                90
+              ],
+              [
+                78,
+                91
+              ],
+              [
+                78,
+                92
+              ],
+              [
+                77,
+                93
+              ],
+              [
+                78,
+                93
+              ],
+              [
+                79,
+                88
+              ],
+              [
+                79,
+                89
+              ],
+              [
+                79,
+                90
+              ],
+              [
+                79,
+                91
+              ],
+              [
+                79,
+                92
+              ],
+              [
+                79,
+                93
+              ],
+              [
+                79,
+                94
+              ],
+              [
+                80,
+                88
+              ],
+              [
+                80,
+                89
+              ],
+              [
+                80,
+                90
+              ],
+              [
+                80,
+                91
+              ],
+              [
+                80,
+                92
+              ],
+              [
+                80,
+                93
+              ],
+              [
+                80,
+                94
+              ],
+              [
+                81,
+                88
+              ],
+              [
+                81,
+                89
+              ],
+              [
+                81,
+                90
+              ],
+              [
+                81,
+                91
+              ],
+              [
+                81,
+                92
+              ],
+              [
+                81,
+                93
+              ],
+              [
+                81,
+                94
+              ],
+              [
+                81,
+                95
+              ],
+              [
+                82,
+                88
+              ],
+              [
+                82,
+                89
+              ],
+              [
+                82,
+                90
+              ],
+              [
+                82,
+                91
+              ],
+              [
+                82,
+                92
+              ],
+              [
+                82,
+                93
+              ],
+              [
+                82,
+                94
+              ],
+              [
+                82,
+                95
+              ],
+              [
+                82,
+                96
+              ],
+              [
+                83,
+                88
+              ],
+              [
+                83,
+                89
+              ],
+              [
+                83,
+                90
+              ],
+              [
+                83,
+                91
+              ],
+              [
+                83,
+                92
+              ],
+              [
+                83,
+                93
+              ],
+              [
+                83,
+                94
+              ],
+              [
+                83,
+                95
+              ],
+              [
+                83,
+                96
+              ],
+              [
+                84,
+                88
+              ],
+              [
+                84,
+                89
+              ],
+              [
+                84,
+                90
+              ],
+              [
+                84,
+                91
+              ],
+              [
+                84,
+                92
+              ],
+              [
+                84,
+                93
+              ],
+              [
+                84,
+                94
+              ],
+              [
+                85,
+                89
+              ],
+              [
+                85,
+                90
+              ],
+              [
+                85,
+                91
+              ],
+              [
+                85,
+                92
+              ],
+              [
+                85,
+                93
+              ],
+              [
+                85,
+                94
+              ],
+              [
+                86,
+                90
+              ],
+              [
+                86,
+                91
+              ],
+              [
+                86,
+                92
+              ]
             ]
           },
           {
-            "side": "left",
+            "side": "anatomical_right",
+            "horizontal": false,
             "point": [
-              58,
-              87
+              44,
+              98
             ],
-            "rect": [
-              57,
-              83,
-              65,
-              92
+            "cuff": [
+              49,
+              84
+            ],
+            "skin_pixels": 92,
+            "glove_pixels": 44,
+            "hand_pixels": [
+              [
+                45,
+                91
+              ],
+              [
+                44,
+                91
+              ],
+              [
+                43,
+                91
+              ],
+              [
+                47,
+                92
+              ],
+              [
+                46,
+                92
+              ],
+              [
+                45,
+                92
+              ],
+              [
+                44,
+                92
+              ],
+              [
+                43,
+                92
+              ],
+              [
+                42,
+                92
+              ],
+              [
+                41,
+                92
+              ],
+              [
+                48,
+                93
+              ],
+              [
+                47,
+                93
+              ],
+              [
+                46,
+                93
+              ],
+              [
+                45,
+                93
+              ],
+              [
+                44,
+                93
+              ],
+              [
+                43,
+                93
+              ],
+              [
+                42,
+                93
+              ],
+              [
+                41,
+                93
+              ],
+              [
+                40,
+                93
+              ],
+              [
+                48,
+                94
+              ],
+              [
+                47,
+                94
+              ],
+              [
+                46,
+                94
+              ],
+              [
+                44,
+                94
+              ],
+              [
+                43,
+                94
+              ],
+              [
+                42,
+                94
+              ],
+              [
+                41,
+                94
+              ],
+              [
+                40,
+                94
+              ],
+              [
+                47,
+                95
+              ],
+              [
+                46,
+                95
+              ],
+              [
+                41,
+                95
+              ],
+              [
+                40,
+                95
+              ],
+              [
+                47,
+                96
+              ],
+              [
+                46,
+                96
+              ],
+              [
+                45,
+                96
+              ],
+              [
+                41,
+                96
+              ],
+              [
+                42,
+                96
+              ],
+              [
+                46,
+                97
+              ],
+              [
+                45,
+                97
+              ],
+              [
+                41,
+                97
+              ],
+              [
+                42,
+                97
+              ],
+              [
+                43,
+                96
+              ],
+              [
+                43,
+                97
+              ],
+              [
+                45,
+                98
+              ],
+              [
+                44,
+                98
+              ]
             ]
           }
+        ],
+        "foot": [
+          64,
+          140
         ]
       },
-      "layers": [
-        "poses/walk-0/head-base.png",
-        "poses/walk-0/eyes/open.png",
-        "poses/walk-0/mouth/rest.png",
-        "poses/walk-0/body/upper-base.png",
-        "poses/walk-0/body/lower-base.png",
-        "poses/walk-0/body/arms-front.png",
-        "poses/walk-0/props/held.png",
-        "poses/walk-0/equipment/apron.png",
-        "poses/walk-0/equipment/belt-tools.png",
-        "poses/walk-0/equipment/gloves.png",
-        "poses/walk-0/equipment/hair-tie.png"
-      ],
-      "base": "frames/base/walk-0.png",
-      "composed": "frames/walk-0.png"
+      "motion_head_identity": {
+        "source": "approved root head and features",
+        "shift": [
+          6,
+          3
+        ],
+        "root_pixels_unchanged": true,
+        "attachment_policy": "Source jaw exit traced above the original shirt opening; no fabricated neck pixels",
+        "anatomical_head_adjustment": [
+          0,
+          0
+        ],
+        "head_translation_adjustment": [
+          0,
+          0
+        ],
+        "root_collar": [
+          62,
+          66
+        ],
+        "source_collar": [
+          68,
+          69
+        ]
+      },
+      "motion_equipped_head_identity": {
+        "source": "approved root head and features",
+        "shift": [
+          6,
+          3
+        ],
+        "root_pixels_unchanged": true,
+        "attachment_policy": "Source jaw exit traced above the original shirt opening; no fabricated neck pixels",
+        "anatomical_head_adjustment": [
+          0,
+          0
+        ],
+        "head_translation_adjustment": [
+          0,
+          0
+        ],
+        "root_collar": [
+          62,
+          66
+        ],
+        "source_collar": [
+          68,
+          69
+        ]
+      },
+      "motion_assembly": {
+        "revision": "collar-v15",
+        "source_collar": {
+          "jaw_exit": 66,
+          "collar_end": 73,
+          "neck_rows": {
+            "66": [
+              65,
+              69
+            ],
+            "67": [
+              64,
+              72
+            ],
+            "68": [
+              64,
+              73
+            ],
+            "69": [
+              65,
+              73
+            ],
+            "70": [
+              66,
+              75
+            ],
+            "71": [
+              67,
+              76
+            ],
+            "72": [
+              68,
+              76
+            ],
+            "73": [
+              70,
+              75
+            ]
+          },
+          "root_exit": [
+            60.5,
+            63
+          ]
+        },
+        "source_face": [
+          62,
+          41,
+          84,
+          66
+        ],
+        "source_registration_delta": [
+          6,
+          0
+        ],
+        "neck": [
+          68,
+          69
+        ],
+        "waist": [
+          64,
+          92
+        ],
+        "root_neck": [
+          62,
+          66
+        ],
+        "root_waist": [
+          64,
+          90
+        ],
+        "hand_contours": "Source skin silhouettes recolored into existing leather palette; no fitted glove image",
+        "gear_registration": "Native inverse row mapping from neck and waist anchors",
+        "body_owned_neck": true
+      },
+      "source_partition_roundtrip": false,
+      "source_contract": "Approved head replaces generated head; give retains approved neutral legs",
+      "rendered_equipment_baked": true,
+      "pose_layers_interchangeable": false
     },
     "walk-1": {
       "canvas": [
@@ -644,51 +3001,563 @@
       ],
       "facing": "right_3_4",
       "source": "source/animation/female-walk-opposite.png",
+      "layer_finish": "collar-v15",
+      "layers": [
+        "poses/walk-1/body/lower-base.png",
+        "poses/walk-1/body/upper-base.png",
+        "poses/walk-1/head-base.png",
+        "poses/walk-1/eyes/open.png",
+        "poses/walk-1/mouth/rest.png"
+      ],
+      "rendered_variant_layers": [
+        "poses/walk-1/rendered/body/lower.png",
+        "poses/walk-1/rendered/body/upper.png",
+        "poses/walk-1/rendered/head-base.png",
+        "poses/walk-1/rendered/eyes/open.png",
+        "poses/walk-1/rendered/mouth/rest.png"
+      ],
+      "base": "frames/base/walk-1.png",
+      "composed": "frames/walk-1.png",
       "sockets": {
+        "neck": [
+          69,
+          69
+        ],
+        "waist": [
+          64,
+          91
+        ],
         "hands": [
           {
-            "side": "right",
+            "side": "anatomical_right",
+            "horizontal": false,
             "point": [
-              30,
-              99
+              44,
+              100
             ],
-            "rect": [
-              28,
-              93,
-              37,
-              102
+            "cuff": [
+              48,
+              84
+            ],
+            "skin_pixels": 110,
+            "glove_pixels": 53,
+            "hand_pixels": [
+              [
+                47,
+                93
+              ],
+              [
+                46,
+                93
+              ],
+              [
+                45,
+                93
+              ],
+              [
+                44,
+                93
+              ],
+              [
+                43,
+                93
+              ],
+              [
+                42,
+                93
+              ],
+              [
+                41,
+                93
+              ],
+              [
+                47,
+                94
+              ],
+              [
+                46,
+                94
+              ],
+              [
+                45,
+                94
+              ],
+              [
+                44,
+                94
+              ],
+              [
+                43,
+                94
+              ],
+              [
+                42,
+                94
+              ],
+              [
+                41,
+                94
+              ],
+              [
+                40,
+                94
+              ],
+              [
+                47,
+                95
+              ],
+              [
+                46,
+                95
+              ],
+              [
+                45,
+                95
+              ],
+              [
+                44,
+                95
+              ],
+              [
+                43,
+                95
+              ],
+              [
+                42,
+                95
+              ],
+              [
+                41,
+                95
+              ],
+              [
+                40,
+                95
+              ],
+              [
+                47,
+                96
+              ],
+              [
+                46,
+                96
+              ],
+              [
+                45,
+                96
+              ],
+              [
+                44,
+                96
+              ],
+              [
+                43,
+                96
+              ],
+              [
+                42,
+                96
+              ],
+              [
+                41,
+                96
+              ],
+              [
+                40,
+                96
+              ],
+              [
+                47,
+                97
+              ],
+              [
+                46,
+                97
+              ],
+              [
+                45,
+                97
+              ],
+              [
+                44,
+                97
+              ],
+              [
+                43,
+                97
+              ],
+              [
+                42,
+                97
+              ],
+              [
+                41,
+                97
+              ],
+              [
+                40,
+                97
+              ],
+              [
+                46,
+                98
+              ],
+              [
+                45,
+                98
+              ],
+              [
+                44,
+                98
+              ],
+              [
+                43,
+                98
+              ],
+              [
+                42,
+                98
+              ],
+              [
+                41,
+                98
+              ],
+              [
+                46,
+                99
+              ],
+              [
+                44,
+                99
+              ],
+              [
+                43,
+                99
+              ],
+              [
+                42,
+                99
+              ],
+              [
+                41,
+                99
+              ],
+              [
+                45,
+                100
+              ],
+              [
+                44,
+                100
+              ],
+              [
+                43,
+                100
+              ]
             ]
           },
           {
-            "side": "left",
+            "side": "anatomical_left",
+            "horizontal": false,
             "point": [
-              83,
+              94,
               100
             ],
-            "rect": [
-              78,
-              94,
+            "cuff": [
               87,
-              102
+              87
+            ],
+            "skin_pixels": 90,
+            "glove_pixels": 38,
+            "hand_pixels": [
+              [
+                93,
+                93
+              ],
+              [
+                91,
+                94
+              ],
+              [
+                92,
+                94
+              ],
+              [
+                93,
+                94
+              ],
+              [
+                94,
+                93
+              ],
+              [
+                94,
+                94
+              ],
+              [
+                89,
+                95
+              ],
+              [
+                90,
+                95
+              ],
+              [
+                91,
+                95
+              ],
+              [
+                92,
+                95
+              ],
+              [
+                94,
+                95
+              ],
+              [
+                95,
+                94
+              ],
+              [
+                95,
+                95
+              ],
+              [
+                90,
+                96
+              ],
+              [
+                91,
+                96
+              ],
+              [
+                92,
+                96
+              ],
+              [
+                95,
+                96
+              ],
+              [
+                96,
+                94
+              ],
+              [
+                96,
+                95
+              ],
+              [
+                96,
+                96
+              ],
+              [
+                90,
+                97
+              ],
+              [
+                91,
+                97
+              ],
+              [
+                92,
+                97
+              ],
+              [
+                95,
+                97
+              ],
+              [
+                94,
+                97
+              ],
+              [
+                96,
+                97
+              ],
+              [
+                91,
+                98
+              ],
+              [
+                92,
+                98
+              ],
+              [
+                95,
+                98
+              ],
+              [
+                94,
+                98
+              ],
+              [
+                96,
+                98
+              ],
+              [
+                91,
+                99
+              ],
+              [
+                92,
+                99
+              ],
+              [
+                95,
+                99
+              ],
+              [
+                94,
+                99
+              ],
+              [
+                96,
+                99
+              ],
+              [
+                93,
+                100
+              ],
+              [
+                94,
+                100
+              ]
             ]
           }
+        ],
+        "foot": [
+          64,
+          140
         ]
       },
-      "layers": [
-        "poses/walk-1/head-base.png",
-        "poses/walk-1/eyes/open.png",
-        "poses/walk-1/mouth/rest.png",
-        "poses/walk-1/body/upper-base.png",
-        "poses/walk-1/body/lower-base.png",
-        "poses/walk-1/body/arms-front.png",
-        "poses/walk-1/props/held.png",
-        "poses/walk-1/equipment/apron.png",
-        "poses/walk-1/equipment/belt-tools.png",
-        "poses/walk-1/equipment/gloves.png",
-        "poses/walk-1/equipment/hair-tie.png"
-      ],
-      "base": "frames/base/walk-1.png",
-      "composed": "frames/walk-1.png"
+      "motion_head_identity": {
+        "source": "approved root head and features",
+        "shift": [
+          7,
+          3
+        ],
+        "root_pixels_unchanged": true,
+        "attachment_policy": "Source jaw exit traced above the original shirt opening; no fabricated neck pixels",
+        "anatomical_head_adjustment": [
+          0,
+          0
+        ],
+        "head_translation_adjustment": [
+          0,
+          0
+        ],
+        "root_collar": [
+          62,
+          66
+        ],
+        "source_collar": [
+          69,
+          69
+        ]
+      },
+      "motion_equipped_head_identity": {
+        "source": "approved root head and features",
+        "shift": [
+          7,
+          3
+        ],
+        "root_pixels_unchanged": true,
+        "attachment_policy": "Source jaw exit traced above the original shirt opening; no fabricated neck pixels",
+        "anatomical_head_adjustment": [
+          0,
+          0
+        ],
+        "head_translation_adjustment": [
+          0,
+          0
+        ],
+        "root_collar": [
+          62,
+          66
+        ],
+        "source_collar": [
+          69,
+          69
+        ]
+      },
+      "motion_assembly": {
+        "revision": "collar-v15",
+        "source_collar": {
+          "jaw_exit": 66,
+          "collar_end": 73,
+          "neck_rows": {
+            "66": [
+              66,
+              70
+            ],
+            "67": [
+              65,
+              73
+            ],
+            "68": [
+              64,
+              74
+            ],
+            "69": [
+              65,
+              74
+            ],
+            "70": [
+              66,
+              76
+            ],
+            "71": [
+              67,
+              76
+            ],
+            "72": [
+              68,
+              77
+            ],
+            "73": [
+              70,
+              77
+            ]
+          },
+          "root_exit": [
+            60.5,
+            63
+          ]
+        },
+        "source_face": [
+          63,
+          41,
+          85,
+          66
+        ],
+        "source_registration_delta": [
+          11,
+          0
+        ],
+        "neck": [
+          69,
+          69
+        ],
+        "waist": [
+          64,
+          91
+        ],
+        "root_neck": [
+          62,
+          66
+        ],
+        "root_waist": [
+          64,
+          90
+        ],
+        "hand_contours": "Source skin silhouettes recolored into existing leather palette; no fitted glove image",
+        "gear_registration": "Native inverse row mapping from neck and waist anchors",
+        "body_owned_neck": true
+      },
+      "source_partition_roundtrip": false,
+      "source_contract": "Approved head replaces generated head; give retains approved neutral legs",
+      "rendered_equipment_baked": true,
+      "pose_layers_interchangeable": false
     },
     "walk-2": {
       "canvas": [
@@ -701,51 +3570,583 @@
       ],
       "facing": "right_3_4",
       "source": "source/animation/female-walk.png",
+      "layer_finish": "collar-v15",
+      "layers": [
+        "poses/walk-2/body/lower-base.png",
+        "poses/walk-2/body/upper-base.png",
+        "poses/walk-2/head-base.png",
+        "poses/walk-2/eyes/open.png",
+        "poses/walk-2/mouth/rest.png"
+      ],
+      "rendered_variant_layers": [
+        "poses/walk-2/rendered/body/lower.png",
+        "poses/walk-2/rendered/body/upper.png",
+        "poses/walk-2/rendered/head-base.png",
+        "poses/walk-2/rendered/eyes/open.png",
+        "poses/walk-2/rendered/mouth/rest.png"
+      ],
+      "base": "frames/base/walk-2.png",
+      "composed": "frames/walk-2.png",
       "sockets": {
+        "neck": [
+          67,
+          66
+        ],
+        "waist": [
+          64,
+          88
+        ],
         "hands": [
           {
-            "side": "right",
+            "side": "anatomical_right",
+            "horizontal": false,
             "point": [
-              36,
-              97
+              43,
+              98
             ],
-            "rect": [
-              34,
-              91,
-              42,
-              100
+            "cuff": [
+              43,
+              82
+            ],
+            "skin_pixels": 102,
+            "glove_pixels": 50,
+            "hand_pixels": [
+              [
+                42,
+                91
+              ],
+              [
+                41,
+                91
+              ],
+              [
+                43,
+                91
+              ],
+              [
+                40,
+                91
+              ],
+              [
+                44,
+                91
+              ],
+              [
+                45,
+                91
+              ],
+              [
+                42,
+                92
+              ],
+              [
+                41,
+                92
+              ],
+              [
+                43,
+                92
+              ],
+              [
+                40,
+                92
+              ],
+              [
+                44,
+                92
+              ],
+              [
+                39,
+                92
+              ],
+              [
+                45,
+                92
+              ],
+              [
+                42,
+                93
+              ],
+              [
+                41,
+                93
+              ],
+              [
+                43,
+                93
+              ],
+              [
+                40,
+                93
+              ],
+              [
+                44,
+                93
+              ],
+              [
+                39,
+                93
+              ],
+              [
+                45,
+                93
+              ],
+              [
+                38,
+                93
+              ],
+              [
+                46,
+                93
+              ],
+              [
+                42,
+                94
+              ],
+              [
+                41,
+                94
+              ],
+              [
+                43,
+                94
+              ],
+              [
+                40,
+                94
+              ],
+              [
+                44,
+                94
+              ],
+              [
+                39,
+                94
+              ],
+              [
+                45,
+                94
+              ],
+              [
+                38,
+                94
+              ],
+              [
+                46,
+                94
+              ],
+              [
+                42,
+                95
+              ],
+              [
+                41,
+                95
+              ],
+              [
+                43,
+                95
+              ],
+              [
+                40,
+                95
+              ],
+              [
+                39,
+                95
+              ],
+              [
+                38,
+                95
+              ],
+              [
+                42,
+                96
+              ],
+              [
+                41,
+                96
+              ],
+              [
+                43,
+                96
+              ],
+              [
+                40,
+                96
+              ],
+              [
+                39,
+                96
+              ],
+              [
+                38,
+                96
+              ],
+              [
+                42,
+                97
+              ],
+              [
+                41,
+                97
+              ],
+              [
+                43,
+                97
+              ],
+              [
+                40,
+                97
+              ],
+              [
+                39,
+                97
+              ],
+              [
+                42,
+                98
+              ],
+              [
+                43,
+                98
+              ]
             ]
           },
           {
-            "side": "left",
+            "side": "anatomical_left",
+            "horizontal": true,
             "point": [
-              91,
-              91
+              96,
+              87
             ],
-            "rect": [
-              86,
-              86,
-              95,
-              93
+            "cuff": [
+              81,
+              85
+            ],
+            "skin_pixels": 90,
+            "glove_pixels": 46,
+            "hand_pixels": [
+              [
+                89,
+                86
+              ],
+              [
+                89,
+                87
+              ],
+              [
+                89,
+                88
+              ],
+              [
+                90,
+                85
+              ],
+              [
+                90,
+                84
+              ],
+              [
+                90,
+                86
+              ],
+              [
+                90,
+                87
+              ],
+              [
+                90,
+                88
+              ],
+              [
+                90,
+                89
+              ],
+              [
+                91,
+                85
+              ],
+              [
+                91,
+                84
+              ],
+              [
+                91,
+                86
+              ],
+              [
+                91,
+                87
+              ],
+              [
+                92,
+                85
+              ],
+              [
+                92,
+                84
+              ],
+              [
+                92,
+                86
+              ],
+              [
+                92,
+                83
+              ],
+              [
+                92,
+                87
+              ],
+              [
+                93,
+                85
+              ],
+              [
+                93,
+                84
+              ],
+              [
+                93,
+                83
+              ],
+              [
+                94,
+                85
+              ],
+              [
+                94,
+                84
+              ],
+              [
+                94,
+                83
+              ],
+              [
+                95,
+                85
+              ],
+              [
+                95,
+                84
+              ],
+              [
+                95,
+                86
+              ],
+              [
+                95,
+                83
+              ],
+              [
+                96,
+                85
+              ],
+              [
+                96,
+                86
+              ],
+              [
+                95,
+                87
+              ],
+              [
+                96,
+                87
+              ],
+              [
+                95,
+                88
+              ],
+              [
+                96,
+                88
+              ],
+              [
+                95,
+                89
+              ],
+              [
+                94,
+                89
+              ],
+              [
+                96,
+                89
+              ],
+              [
+                95,
+                90
+              ],
+              [
+                94,
+                90
+              ],
+              [
+                93,
+                89
+              ],
+              [
+                93,
+                90
+              ],
+              [
+                94,
+                91
+              ],
+              [
+                93,
+                91
+              ],
+              [
+                92,
+                89
+              ],
+              [
+                92,
+                90
+              ],
+              [
+                92,
+                91
+              ]
             ]
           }
+        ],
+        "foot": [
+          64,
+          140
         ]
       },
-      "layers": [
-        "poses/walk-2/head-base.png",
-        "poses/walk-2/eyes/open.png",
-        "poses/walk-2/mouth/rest.png",
-        "poses/walk-2/body/upper-base.png",
-        "poses/walk-2/body/lower-base.png",
-        "poses/walk-2/body/arms-front.png",
-        "poses/walk-2/props/held.png",
-        "poses/walk-2/equipment/apron.png",
-        "poses/walk-2/equipment/belt-tools.png",
-        "poses/walk-2/equipment/gloves.png",
-        "poses/walk-2/equipment/hair-tie.png"
-      ],
-      "base": "frames/base/walk-2.png",
-      "composed": "frames/walk-2.png"
+      "motion_head_identity": {
+        "source": "approved root head and features",
+        "shift": [
+          5,
+          0
+        ],
+        "root_pixels_unchanged": true,
+        "attachment_policy": "Source jaw exit traced above the original shirt opening; no fabricated neck pixels",
+        "anatomical_head_adjustment": [
+          0,
+          0
+        ],
+        "head_translation_adjustment": [
+          0,
+          0
+        ],
+        "root_collar": [
+          62,
+          66
+        ],
+        "source_collar": [
+          67,
+          66
+        ]
+      },
+      "motion_equipped_head_identity": {
+        "source": "approved root head and features",
+        "shift": [
+          5,
+          0
+        ],
+        "root_pixels_unchanged": true,
+        "attachment_policy": "Source jaw exit traced above the original shirt opening; no fabricated neck pixels",
+        "anatomical_head_adjustment": [
+          0,
+          0
+        ],
+        "head_translation_adjustment": [
+          0,
+          0
+        ],
+        "root_collar": [
+          62,
+          66
+        ],
+        "source_collar": [
+          67,
+          66
+        ]
+      },
+      "motion_assembly": {
+        "revision": "collar-v15",
+        "source_collar": {
+          "jaw_exit": 63,
+          "collar_end": 70,
+          "neck_rows": {
+            "63": [
+              62,
+              69
+            ],
+            "64": [
+              62,
+              70
+            ],
+            "65": [
+              61,
+              70
+            ],
+            "66": [
+              62,
+              71
+            ],
+            "67": [
+              62,
+              73
+            ],
+            "68": [
+              63,
+              73
+            ],
+            "69": [
+              65,
+              74
+            ],
+            "70": [
+              67,
+              73
+            ]
+          },
+          "root_exit": [
+            60.5,
+            63
+          ]
+        },
+        "source_face": [
+          60,
+          40,
+          82,
+          71
+        ],
+        "source_registration_delta": [
+          3,
+          0
+        ],
+        "neck": [
+          67,
+          66
+        ],
+        "waist": [
+          64,
+          88
+        ],
+        "root_neck": [
+          62,
+          66
+        ],
+        "root_waist": [
+          64,
+          90
+        ],
+        "hand_contours": "Source skin silhouettes recolored into existing leather palette; no fitted glove image",
+        "gear_registration": "Native inverse row mapping from neck and waist anchors",
+        "body_owned_neck": true
+      },
+      "source_partition_roundtrip": false,
+      "source_contract": "Approved head replaces generated head; give retains approved neutral legs",
+      "rendered_equipment_baked": true,
+      "pose_layers_interchangeable": false
     },
     "walk-3": {
       "canvas": [
@@ -758,51 +4159,631 @@
       ],
       "facing": "right_3_4",
       "source": "source/animation/female-walk.png",
+      "layer_finish": "collar-v15",
+      "layers": [
+        "poses/walk-3/body/lower-base.png",
+        "poses/walk-3/body/upper-base.png",
+        "poses/walk-3/head-base.png",
+        "poses/walk-3/eyes/open.png",
+        "poses/walk-3/mouth/rest.png"
+      ],
+      "rendered_variant_layers": [
+        "poses/walk-3/rendered/body/lower.png",
+        "poses/walk-3/rendered/body/upper.png",
+        "poses/walk-3/rendered/head-base.png",
+        "poses/walk-3/rendered/eyes/open.png",
+        "poses/walk-3/rendered/mouth/rest.png"
+      ],
+      "base": "frames/base/walk-3.png",
+      "composed": "frames/walk-3.png",
       "sockets": {
+        "neck": [
+          69,
+          66
+        ],
+        "waist": [
+          64,
+          88
+        ],
         "hands": [
           {
-            "side": "right",
+            "side": "anatomical_right",
+            "horizontal": false,
             "point": [
-              37,
-              96
+              44,
+              97
             ],
-            "rect": [
-              35,
-              90,
-              43,
-              99
+            "cuff": [
+              47,
+              80
+            ],
+            "skin_pixels": 116,
+            "glove_pixels": 60,
+            "hand_pixels": [
+              [
+                45,
+                89
+              ],
+              [
+                44,
+                89
+              ],
+              [
+                46,
+                89
+              ],
+              [
+                43,
+                89
+              ],
+              [
+                42,
+                89
+              ],
+              [
+                45,
+                90
+              ],
+              [
+                44,
+                90
+              ],
+              [
+                46,
+                90
+              ],
+              [
+                43,
+                90
+              ],
+              [
+                47,
+                90
+              ],
+              [
+                42,
+                90
+              ],
+              [
+                41,
+                90
+              ],
+              [
+                45,
+                91
+              ],
+              [
+                44,
+                91
+              ],
+              [
+                46,
+                91
+              ],
+              [
+                43,
+                91
+              ],
+              [
+                47,
+                91
+              ],
+              [
+                42,
+                91
+              ],
+              [
+                48,
+                91
+              ],
+              [
+                41,
+                91
+              ],
+              [
+                45,
+                92
+              ],
+              [
+                44,
+                92
+              ],
+              [
+                46,
+                92
+              ],
+              [
+                43,
+                92
+              ],
+              [
+                47,
+                92
+              ],
+              [
+                42,
+                92
+              ],
+              [
+                48,
+                92
+              ],
+              [
+                41,
+                92
+              ],
+              [
+                40,
+                92
+              ],
+              [
+                45,
+                93
+              ],
+              [
+                44,
+                93
+              ],
+              [
+                46,
+                93
+              ],
+              [
+                43,
+                93
+              ],
+              [
+                47,
+                93
+              ],
+              [
+                42,
+                93
+              ],
+              [
+                48,
+                93
+              ],
+              [
+                41,
+                93
+              ],
+              [
+                40,
+                93
+              ],
+              [
+                45,
+                94
+              ],
+              [
+                44,
+                94
+              ],
+              [
+                43,
+                94
+              ],
+              [
+                47,
+                94
+              ],
+              [
+                42,
+                94
+              ],
+              [
+                48,
+                94
+              ],
+              [
+                41,
+                94
+              ],
+              [
+                40,
+                94
+              ],
+              [
+                45,
+                95
+              ],
+              [
+                44,
+                95
+              ],
+              [
+                43,
+                95
+              ],
+              [
+                42,
+                95
+              ],
+              [
+                47,
+                95
+              ],
+              [
+                41,
+                95
+              ],
+              [
+                40,
+                95
+              ],
+              [
+                45,
+                96
+              ],
+              [
+                44,
+                96
+              ],
+              [
+                43,
+                96
+              ],
+              [
+                42,
+                96
+              ],
+              [
+                41,
+                96
+              ],
+              [
+                45,
+                97
+              ],
+              [
+                44,
+                97
+              ]
             ]
           },
           {
-            "side": "left",
+            "side": "anatomical_left",
+            "horizontal": true,
             "point": [
-              93,
-              92
+              99,
+              88
             ],
-            "rect": [
-              89,
-              86,
-              97,
-              94
+            "cuff": [
+              83,
+              86
+            ],
+            "skin_pixels": 99,
+            "glove_pixels": 48,
+            "hand_pixels": [
+              [
+                92,
+                85
+              ],
+              [
+                92,
+                86
+              ],
+              [
+                92,
+                87
+              ],
+              [
+                92,
+                88
+              ],
+              [
+                92,
+                89
+              ],
+              [
+                93,
+                85
+              ],
+              [
+                93,
+                86
+              ],
+              [
+                93,
+                87
+              ],
+              [
+                93,
+                88
+              ],
+              [
+                92,
+                90
+              ],
+              [
+                94,
+                85
+              ],
+              [
+                94,
+                86
+              ],
+              [
+                94,
+                87
+              ],
+              [
+                94,
+                88
+              ],
+              [
+                95,
+                85
+              ],
+              [
+                95,
+                86
+              ],
+              [
+                95,
+                87
+              ],
+              [
+                95,
+                88
+              ],
+              [
+                96,
+                85
+              ],
+              [
+                96,
+                86
+              ],
+              [
+                96,
+                89
+              ],
+              [
+                97,
+                85
+              ],
+              [
+                97,
+                86
+              ],
+              [
+                97,
+                87
+              ],
+              [
+                97,
+                89
+              ],
+              [
+                96,
+                90
+              ],
+              [
+                97,
+                88
+              ],
+              [
+                95,
+                90
+              ],
+              [
+                97,
+                90
+              ],
+              [
+                98,
+                85
+              ],
+              [
+                98,
+                86
+              ],
+              [
+                98,
+                87
+              ],
+              [
+                98,
+                88
+              ],
+              [
+                98,
+                89
+              ],
+              [
+                98,
+                90
+              ],
+              [
+                96,
+                91
+              ],
+              [
+                95,
+                91
+              ],
+              [
+                97,
+                91
+              ],
+              [
+                94,
+                90
+              ],
+              [
+                94,
+                91
+              ],
+              [
+                98,
+                91
+              ],
+              [
+                99,
+                86
+              ],
+              [
+                99,
+                87
+              ],
+              [
+                99,
+                88
+              ],
+              [
+                99,
+                89
+              ],
+              [
+                96,
+                92
+              ],
+              [
+                95,
+                92
+              ],
+              [
+                97,
+                92
+              ]
             ]
           }
+        ],
+        "foot": [
+          64,
+          140
         ]
       },
-      "layers": [
-        "poses/walk-3/head-base.png",
-        "poses/walk-3/eyes/open.png",
-        "poses/walk-3/mouth/rest.png",
-        "poses/walk-3/body/upper-base.png",
-        "poses/walk-3/body/lower-base.png",
-        "poses/walk-3/body/arms-front.png",
-        "poses/walk-3/props/held.png",
-        "poses/walk-3/equipment/apron.png",
-        "poses/walk-3/equipment/belt-tools.png",
-        "poses/walk-3/equipment/gloves.png",
-        "poses/walk-3/equipment/hair-tie.png"
-      ],
-      "base": "frames/base/walk-3.png",
-      "composed": "frames/walk-3.png"
+      "motion_head_identity": {
+        "source": "approved root head and features",
+        "shift": [
+          7,
+          0
+        ],
+        "root_pixels_unchanged": true,
+        "attachment_policy": "Source jaw exit traced above the original shirt opening; no fabricated neck pixels",
+        "anatomical_head_adjustment": [
+          0,
+          0
+        ],
+        "head_translation_adjustment": [
+          0,
+          0
+        ],
+        "root_collar": [
+          62,
+          66
+        ],
+        "source_collar": [
+          69,
+          66
+        ]
+      },
+      "motion_equipped_head_identity": {
+        "source": "approved root head and features",
+        "shift": [
+          7,
+          0
+        ],
+        "root_pixels_unchanged": true,
+        "attachment_policy": "Source jaw exit traced above the original shirt opening; no fabricated neck pixels",
+        "anatomical_head_adjustment": [
+          0,
+          0
+        ],
+        "head_translation_adjustment": [
+          0,
+          0
+        ],
+        "root_collar": [
+          62,
+          66
+        ],
+        "source_collar": [
+          69,
+          66
+        ]
+      },
+      "motion_assembly": {
+        "revision": "collar-v15",
+        "source_collar": {
+          "jaw_exit": 63,
+          "collar_end": 70,
+          "neck_rows": {
+            "63": [
+              64,
+              71
+            ],
+            "64": [
+              63,
+              73
+            ],
+            "65": [
+              63,
+              73
+            ],
+            "66": [
+              64,
+              73
+            ],
+            "67": [
+              65,
+              77
+            ],
+            "68": [
+              65,
+              75
+            ],
+            "69": [
+              67,
+              76
+            ],
+            "70": [
+              69,
+              75
+            ]
+          },
+          "root_exit": [
+            60.5,
+            63
+          ]
+        },
+        "source_face": [
+          62,
+          40,
+          84,
+          71
+        ],
+        "source_registration_delta": [
+          4,
+          0
+        ],
+        "neck": [
+          69,
+          66
+        ],
+        "waist": [
+          64,
+          88
+        ],
+        "root_neck": [
+          62,
+          66
+        ],
+        "root_waist": [
+          64,
+          90
+        ],
+        "hand_contours": "Source skin silhouettes recolored into existing leather palette; no fitted glove image",
+        "gear_registration": "Native inverse row mapping from neck and waist anchors",
+        "body_owned_neck": true
+      },
+      "source_partition_roundtrip": false,
+      "source_contract": "Approved head replaces generated head; give retains approved neutral legs",
+      "rendered_equipment_baked": true,
+      "pose_layers_interchangeable": false
     },
     "walk-4": {
       "canvas": [
@@ -815,51 +4796,591 @@
       ],
       "facing": "right_3_4",
       "source": "source/animation/female-walk.png",
+      "layer_finish": "collar-v15",
+      "layers": [
+        "poses/walk-4/body/lower-base.png",
+        "poses/walk-4/body/upper-base.png",
+        "poses/walk-4/head-base.png",
+        "poses/walk-4/eyes/open.png",
+        "poses/walk-4/mouth/rest.png"
+      ],
+      "rendered_variant_layers": [
+        "poses/walk-4/rendered/body/lower.png",
+        "poses/walk-4/rendered/body/upper.png",
+        "poses/walk-4/rendered/head-base.png",
+        "poses/walk-4/rendered/eyes/open.png",
+        "poses/walk-4/rendered/mouth/rest.png"
+      ],
+      "base": "frames/base/walk-4.png",
+      "composed": "frames/walk-4.png",
       "sockets": {
+        "neck": [
+          67,
+          66
+        ],
+        "waist": [
+          64,
+          88
+        ],
         "hands": [
           {
-            "side": "right",
+            "side": "anatomical_right",
+            "horizontal": false,
             "point": [
-              51,
+              52,
               100
             ],
-            "rect": [
-              46,
-              94,
-              56,
-              102
+            "cuff": [
+              49,
+              83
+            ],
+            "skin_pixels": 117,
+            "glove_pixels": 62,
+            "hand_pixels": [
+              [
+                51,
+                92
+              ],
+              [
+                52,
+                92
+              ],
+              [
+                53,
+                92
+              ],
+              [
+                50,
+                93
+              ],
+              [
+                49,
+                93
+              ],
+              [
+                51,
+                93
+              ],
+              [
+                48,
+                93
+              ],
+              [
+                52,
+                93
+              ],
+              [
+                53,
+                93
+              ],
+              [
+                54,
+                93
+              ],
+              [
+                55,
+                93
+              ],
+              [
+                50,
+                94
+              ],
+              [
+                49,
+                94
+              ],
+              [
+                51,
+                94
+              ],
+              [
+                48,
+                94
+              ],
+              [
+                52,
+                94
+              ],
+              [
+                53,
+                94
+              ],
+              [
+                54,
+                94
+              ],
+              [
+                55,
+                94
+              ],
+              [
+                50,
+                95
+              ],
+              [
+                49,
+                95
+              ],
+              [
+                51,
+                95
+              ],
+              [
+                48,
+                95
+              ],
+              [
+                52,
+                95
+              ],
+              [
+                47,
+                95
+              ],
+              [
+                53,
+                95
+              ],
+              [
+                54,
+                95
+              ],
+              [
+                55,
+                95
+              ],
+              [
+                56,
+                95
+              ],
+              [
+                50,
+                96
+              ],
+              [
+                49,
+                96
+              ],
+              [
+                51,
+                96
+              ],
+              [
+                48,
+                96
+              ],
+              [
+                52,
+                96
+              ],
+              [
+                47,
+                96
+              ],
+              [
+                53,
+                96
+              ],
+              [
+                54,
+                96
+              ],
+              [
+                55,
+                96
+              ],
+              [
+                50,
+                97
+              ],
+              [
+                49,
+                97
+              ],
+              [
+                51,
+                97
+              ],
+              [
+                48,
+                97
+              ],
+              [
+                52,
+                97
+              ],
+              [
+                47,
+                97
+              ],
+              [
+                53,
+                97
+              ],
+              [
+                54,
+                97
+              ],
+              [
+                55,
+                97
+              ],
+              [
+                50,
+                98
+              ],
+              [
+                49,
+                98
+              ],
+              [
+                51,
+                98
+              ],
+              [
+                48,
+                98
+              ],
+              [
+                52,
+                98
+              ],
+              [
+                47,
+                98
+              ],
+              [
+                53,
+                98
+              ],
+              [
+                55,
+                98
+              ],
+              [
+                50,
+                99
+              ],
+              [
+                49,
+                99
+              ],
+              [
+                51,
+                99
+              ],
+              [
+                48,
+                99
+              ],
+              [
+                52,
+                99
+              ],
+              [
+                53,
+                99
+              ],
+              [
+                52,
+                100
+              ]
             ]
           },
           {
-            "side": "left",
+            "side": "anatomical_left",
+            "horizontal": false,
             "point": [
-              91,
+              92,
               99
             ],
-            "rect": [
-              87,
-              93,
-              95,
-              101
+            "cuff": [
+              83,
+              86
+            ],
+            "skin_pixels": 95,
+            "glove_pixels": 36,
+            "hand_pixels": [
+              [
+                89,
+                92
+              ],
+              [
+                90,
+                92
+              ],
+              [
+                88,
+                93
+              ],
+              [
+                89,
+                93
+              ],
+              [
+                90,
+                93
+              ],
+              [
+                91,
+                92
+              ],
+              [
+                91,
+                93
+              ],
+              [
+                87,
+                94
+              ],
+              [
+                88,
+                94
+              ],
+              [
+                89,
+                94
+              ],
+              [
+                90,
+                94
+              ],
+              [
+                91,
+                94
+              ],
+              [
+                92,
+                92
+              ],
+              [
+                92,
+                93
+              ],
+              [
+                92,
+                94
+              ],
+              [
+                89,
+                95
+              ],
+              [
+                90,
+                95
+              ],
+              [
+                92,
+                95
+              ],
+              [
+                93,
+                93
+              ],
+              [
+                93,
+                94
+              ],
+              [
+                93,
+                95
+              ],
+              [
+                89,
+                96
+              ],
+              [
+                90,
+                96
+              ],
+              [
+                93,
+                96
+              ],
+              [
+                94,
+                94
+              ],
+              [
+                94,
+                95
+              ],
+              [
+                94,
+                96
+              ],
+              [
+                90,
+                97
+              ],
+              [
+                93,
+                97
+              ],
+              [
+                92,
+                97
+              ],
+              [
+                94,
+                97
+              ],
+              [
+                91,
+                98
+              ],
+              [
+                93,
+                98
+              ],
+              [
+                92,
+                98
+              ],
+              [
+                91,
+                99
+              ],
+              [
+                92,
+                99
+              ]
             ]
           }
+        ],
+        "foot": [
+          64,
+          140
         ]
       },
-      "layers": [
-        "poses/walk-4/head-base.png",
-        "poses/walk-4/eyes/open.png",
-        "poses/walk-4/mouth/rest.png",
-        "poses/walk-4/body/upper-base.png",
-        "poses/walk-4/body/lower-base.png",
-        "poses/walk-4/body/arms-front.png",
-        "poses/walk-4/props/held.png",
-        "poses/walk-4/equipment/apron.png",
-        "poses/walk-4/equipment/belt-tools.png",
-        "poses/walk-4/equipment/gloves.png",
-        "poses/walk-4/equipment/hair-tie.png"
-      ],
-      "base": "frames/base/walk-4.png",
-      "composed": "frames/walk-4.png"
+      "motion_head_identity": {
+        "source": "approved root head and features",
+        "shift": [
+          5,
+          0
+        ],
+        "root_pixels_unchanged": true,
+        "attachment_policy": "Source jaw exit traced above the original shirt opening; no fabricated neck pixels",
+        "anatomical_head_adjustment": [
+          0,
+          0
+        ],
+        "head_translation_adjustment": [
+          0,
+          0
+        ],
+        "root_collar": [
+          62,
+          66
+        ],
+        "source_collar": [
+          67,
+          66
+        ]
+      },
+      "motion_equipped_head_identity": {
+        "source": "approved root head and features",
+        "shift": [
+          5,
+          0
+        ],
+        "root_pixels_unchanged": true,
+        "attachment_policy": "Source jaw exit traced above the original shirt opening; no fabricated neck pixels",
+        "anatomical_head_adjustment": [
+          0,
+          0
+        ],
+        "head_translation_adjustment": [
+          0,
+          0
+        ],
+        "root_collar": [
+          62,
+          66
+        ],
+        "source_collar": [
+          67,
+          66
+        ]
+      },
+      "motion_assembly": {
+        "revision": "collar-v15",
+        "source_collar": {
+          "jaw_exit": 63,
+          "collar_end": 70,
+          "neck_rows": {
+            "63": [
+              62,
+              69
+            ],
+            "64": [
+              62,
+              72
+            ],
+            "65": [
+              61,
+              71
+            ],
+            "66": [
+              62,
+              72
+            ],
+            "67": [
+              63,
+              74
+            ],
+            "68": [
+              64,
+              74
+            ],
+            "69": [
+              65,
+              75
+            ],
+            "70": [
+              67,
+              74
+            ]
+          },
+          "root_exit": [
+            60.5,
+            63
+          ]
+        },
+        "source_face": [
+          60,
+          40,
+          83,
+          71
+        ],
+        "source_registration_delta": [
+          1,
+          0
+        ],
+        "neck": [
+          67,
+          66
+        ],
+        "waist": [
+          64,
+          88
+        ],
+        "root_neck": [
+          62,
+          66
+        ],
+        "root_waist": [
+          64,
+          90
+        ],
+        "hand_contours": "Source skin silhouettes recolored into existing leather palette; no fitted glove image",
+        "gear_registration": "Native inverse row mapping from neck and waist anchors",
+        "body_owned_neck": true
+      },
+      "source_partition_roundtrip": false,
+      "source_contract": "Approved head replaces generated head; give retains approved neutral legs",
+      "rendered_equipment_baked": true,
+      "pose_layers_interchangeable": false
     },
     "walk-5": {
       "canvas": [
@@ -872,51 +5393,651 @@
       ],
       "facing": "right_3_4",
       "source": "source/animation/female-walk-opposite.png",
+      "layer_finish": "collar-v15",
+      "layers": [
+        "poses/walk-5/body/lower-base.png",
+        "poses/walk-5/body/upper-base.png",
+        "poses/walk-5/head-base.png",
+        "poses/walk-5/eyes/open.png",
+        "poses/walk-5/mouth/rest.png"
+      ],
+      "rendered_variant_layers": [
+        "poses/walk-5/rendered/body/lower.png",
+        "poses/walk-5/rendered/body/upper.png",
+        "poses/walk-5/rendered/head-base.png",
+        "poses/walk-5/rendered/eyes/open.png",
+        "poses/walk-5/rendered/mouth/rest.png"
+      ],
+      "base": "frames/base/walk-5.png",
+      "composed": "frames/walk-5.png",
       "sockets": {
+        "neck": [
+          67,
+          69
+        ],
+        "waist": [
+          64,
+          92
+        ],
         "hands": [
           {
-            "side": "right",
+            "side": "anatomical_left",
+            "horizontal": true,
             "point": [
-              49,
-              100
+              83,
+              89
             ],
-            "rect": [
-              44,
-              94,
-              53,
-              102
+            "cuff": [
+              62,
+              86
+            ],
+            "skin_pixels": 146,
+            "glove_pixels": 73,
+            "hand_pixels": [
+              [
+                73,
+                88
+              ],
+              [
+                73,
+                89
+              ],
+              [
+                73,
+                90
+              ],
+              [
+                74,
+                86
+              ],
+              [
+                74,
+                87
+              ],
+              [
+                74,
+                88
+              ],
+              [
+                74,
+                89
+              ],
+              [
+                74,
+                90
+              ],
+              [
+                74,
+                91
+              ],
+              [
+                75,
+                86
+              ],
+              [
+                75,
+                87
+              ],
+              [
+                75,
+                88
+              ],
+              [
+                75,
+                89
+              ],
+              [
+                75,
+                90
+              ],
+              [
+                75,
+                91
+              ],
+              [
+                75,
+                92
+              ],
+              [
+                76,
+                86
+              ],
+              [
+                76,
+                87
+              ],
+              [
+                76,
+                88
+              ],
+              [
+                76,
+                89
+              ],
+              [
+                76,
+                90
+              ],
+              [
+                76,
+                91
+              ],
+              [
+                76,
+                92
+              ],
+              [
+                77,
+                86
+              ],
+              [
+                77,
+                87
+              ],
+              [
+                77,
+                88
+              ],
+              [
+                77,
+                89
+              ],
+              [
+                77,
+                90
+              ],
+              [
+                77,
+                91
+              ],
+              [
+                77,
+                92
+              ],
+              [
+                78,
+                86
+              ],
+              [
+                78,
+                87
+              ],
+              [
+                78,
+                88
+              ],
+              [
+                78,
+                89
+              ],
+              [
+                78,
+                90
+              ],
+              [
+                78,
+                91
+              ],
+              [
+                78,
+                92
+              ],
+              [
+                78,
+                93
+              ],
+              [
+                79,
+                86
+              ],
+              [
+                79,
+                87
+              ],
+              [
+                79,
+                88
+              ],
+              [
+                79,
+                89
+              ],
+              [
+                79,
+                90
+              ],
+              [
+                79,
+                91
+              ],
+              [
+                79,
+                92
+              ],
+              [
+                79,
+                93
+              ],
+              [
+                79,
+                94
+              ],
+              [
+                80,
+                86
+              ],
+              [
+                80,
+                87
+              ],
+              [
+                80,
+                88
+              ],
+              [
+                80,
+                89
+              ],
+              [
+                80,
+                90
+              ],
+              [
+                80,
+                91
+              ],
+              [
+                80,
+                92
+              ],
+              [
+                80,
+                93
+              ],
+              [
+                80,
+                94
+              ],
+              [
+                81,
+                86
+              ],
+              [
+                81,
+                87
+              ],
+              [
+                81,
+                88
+              ],
+              [
+                81,
+                89
+              ],
+              [
+                81,
+                90
+              ],
+              [
+                81,
+                91
+              ],
+              [
+                81,
+                92
+              ],
+              [
+                81,
+                93
+              ],
+              [
+                82,
+                87
+              ],
+              [
+                82,
+                88
+              ],
+              [
+                82,
+                89
+              ],
+              [
+                82,
+                90
+              ],
+              [
+                82,
+                91
+              ],
+              [
+                82,
+                92
+              ],
+              [
+                83,
+                88
+              ],
+              [
+                83,
+                89
+              ],
+              [
+                83,
+                90
+              ]
             ]
           },
           {
-            "side": "left",
+            "side": "anatomical_right",
+            "horizontal": false,
             "point": [
-              61,
+              48,
+              100
+            ],
+            "cuff": [
+              51,
               87
             ],
-            "rect": [
-              60,
-              82,
-              68,
-              91
+            "skin_pixels": 73,
+            "glove_pixels": 40,
+            "hand_pixels": [
+              [
+                48,
+                93
+              ],
+              [
+                50,
+                94
+              ],
+              [
+                49,
+                94
+              ],
+              [
+                48,
+                94
+              ],
+              [
+                47,
+                94
+              ],
+              [
+                46,
+                94
+              ],
+              [
+                45,
+                94
+              ],
+              [
+                50,
+                95
+              ],
+              [
+                49,
+                95
+              ],
+              [
+                51,
+                95
+              ],
+              [
+                48,
+                95
+              ],
+              [
+                47,
+                95
+              ],
+              [
+                46,
+                95
+              ],
+              [
+                45,
+                95
+              ],
+              [
+                50,
+                96
+              ],
+              [
+                49,
+                96
+              ],
+              [
+                51,
+                96
+              ],
+              [
+                48,
+                96
+              ],
+              [
+                47,
+                96
+              ],
+              [
+                46,
+                96
+              ],
+              [
+                45,
+                96
+              ],
+              [
+                44,
+                96
+              ],
+              [
+                50,
+                97
+              ],
+              [
+                51,
+                97
+              ],
+              [
+                47,
+                97
+              ],
+              [
+                46,
+                97
+              ],
+              [
+                45,
+                97
+              ],
+              [
+                44,
+                97
+              ],
+              [
+                50,
+                98
+              ],
+              [
+                49,
+                98
+              ],
+              [
+                51,
+                98
+              ],
+              [
+                46,
+                98
+              ],
+              [
+                45,
+                98
+              ],
+              [
+                50,
+                99
+              ],
+              [
+                49,
+                99
+              ],
+              [
+                51,
+                99
+              ],
+              [
+                46,
+                99
+              ],
+              [
+                45,
+                99
+              ],
+              [
+                49,
+                100
+              ],
+              [
+                48,
+                100
+              ]
             ]
           }
+        ],
+        "foot": [
+          64,
+          140
         ]
       },
-      "layers": [
-        "poses/walk-5/head-base.png",
-        "poses/walk-5/eyes/open.png",
-        "poses/walk-5/mouth/rest.png",
-        "poses/walk-5/body/upper-base.png",
-        "poses/walk-5/body/lower-base.png",
-        "poses/walk-5/body/arms-front.png",
-        "poses/walk-5/props/held.png",
-        "poses/walk-5/equipment/apron.png",
-        "poses/walk-5/equipment/belt-tools.png",
-        "poses/walk-5/equipment/gloves.png",
-        "poses/walk-5/equipment/hair-tie.png"
-      ],
-      "base": "frames/base/walk-5.png",
-      "composed": "frames/walk-5.png"
+      "motion_head_identity": {
+        "source": "approved root head and features",
+        "shift": [
+          5,
+          3
+        ],
+        "root_pixels_unchanged": true,
+        "attachment_policy": "Source jaw exit traced above the original shirt opening; no fabricated neck pixels",
+        "anatomical_head_adjustment": [
+          0,
+          0
+        ],
+        "head_translation_adjustment": [
+          0,
+          0
+        ],
+        "root_collar": [
+          62,
+          66
+        ],
+        "source_collar": [
+          67,
+          69
+        ]
+      },
+      "motion_equipped_head_identity": {
+        "source": "approved root head and features",
+        "shift": [
+          5,
+          3
+        ],
+        "root_pixels_unchanged": true,
+        "attachment_policy": "Source jaw exit traced above the original shirt opening; no fabricated neck pixels",
+        "anatomical_head_adjustment": [
+          0,
+          0
+        ],
+        "head_translation_adjustment": [
+          0,
+          0
+        ],
+        "root_collar": [
+          62,
+          66
+        ],
+        "source_collar": [
+          67,
+          69
+        ]
+      },
+      "motion_assembly": {
+        "revision": "collar-v15",
+        "source_collar": {
+          "jaw_exit": 66,
+          "collar_end": 73,
+          "neck_rows": {
+            "66": [
+              64,
+              68
+            ],
+            "67": [
+              63,
+              71
+            ],
+            "68": [
+              63,
+              72
+            ],
+            "69": [
+              64,
+              72
+            ],
+            "70": [
+              64,
+              74
+            ],
+            "71": [
+              66,
+              74
+            ],
+            "72": [
+              66,
+              75
+            ],
+            "73": [
+              68,
+              74
+            ]
+          },
+          "root_exit": [
+            60.5,
+            63
+          ]
+        },
+        "source_face": [
+          61,
+          41,
+          83,
+          66
+        ],
+        "source_registration_delta": [
+          0,
+          0
+        ],
+        "neck": [
+          67,
+          69
+        ],
+        "waist": [
+          64,
+          92
+        ],
+        "root_neck": [
+          62,
+          66
+        ],
+        "root_waist": [
+          64,
+          90
+        ],
+        "hand_contours": "Source skin silhouettes recolored into existing leather palette; no fitted glove image",
+        "gear_registration": "Native inverse row mapping from neck and waist anchors",
+        "body_owned_neck": true
+      },
+      "source_partition_roundtrip": false,
+      "source_contract": "Approved head replaces generated head; give retains approved neutral legs",
+      "rendered_equipment_baked": true,
+      "pose_layers_interchangeable": false
     },
     "front-neutral": {
       "canvas": [

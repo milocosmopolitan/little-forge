@@ -5,7 +5,8 @@
   "missing_body_coverage_pixels": 0,
   "nonuniform_head_bindings": 0,
   "rejected_v10_binding_failures": 84,
-  "unrelated_frames_preserved": 120,
+  "unrelated_frames_preserved": 84,
+  "authorized_mobile_frames_superseded": 36,
   "coverage_scope": "Body-owned neck and shoulder plate, checked without the head; source garment colors checked separately",
   "visual_acceptance": "Not established by pixel assertions",
   "variants": [

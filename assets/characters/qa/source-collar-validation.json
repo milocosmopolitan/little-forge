@@ -1,0 +1,119 @@
+{
+  "status": "pass",
+  "revision": "collar-v15",
+  "poses_checked": 18,
+  "source_neck_and_garment_pixels_preserved": true,
+  "fabricated_neck_pixels": 0,
+  "v14_source_neck_mismatch_pixels": 154,
+  "unrelated_frame_pngs_preserved": 204,
+  "poses": [
+    {
+      "sex": "female",
+      "pose": "walk-0",
+      "source_neck_pixels": 68,
+      "v14_source_mismatches": 10
+    },
+    {
+      "sex": "female",
+      "pose": "walk-1",
+      "source_neck_pixels": 74,
+      "v14_source_mismatches": 9
+    },
+    {
+      "sex": "female",
+      "pose": "walk-2",
+      "source_neck_pixels": 77,
+      "v14_source_mismatches": 10
+    },
+    {
+      "sex": "female",
+      "pose": "walk-3",
+      "source_neck_pixels": 81,
+      "v14_source_mismatches": 9
+    },
+    {
+      "sex": "female",
+      "pose": "walk-4",
+      "source_neck_pixels": 82,
+      "v14_source_mismatches": 8
+    },
+    {
+      "sex": "female",
+      "pose": "walk-5",
+      "source_neck_pixels": 70,
+      "v14_source_mismatches": 10
+    },
+    {
+      "sex": "female",
+      "pose": "give-half",
+      "source_neck_pixels": 67,
+      "v14_source_mismatches": 14
+    },
+    {
+      "sex": "female",
+      "pose": "give-full",
+      "source_neck_pixels": 40,
+      "v14_source_mismatches": 16
+    },
+    {
+      "sex": "female",
+      "pose": "give-release",
+      "source_neck_pixels": 53,
+      "v14_source_mismatches": 18
+    },
+    {
+      "sex": "male",
+      "pose": "walk-0",
+      "source_neck_pixels": 79,
+      "v14_source_mismatches": 5
+    },
+    {
+      "sex": "male",
+      "pose": "walk-1",
+      "source_neck_pixels": 78,
+      "v14_source_mismatches": 2
+    },
+    {
+      "sex": "male",
+      "pose": "walk-2",
+      "source_neck_pixels": 83,
+      "v14_source_mismatches": 3
+    },
+    {
+      "sex": "male",
+      "pose": "walk-3",
+      "source_neck_pixels": 89,
+      "v14_source_mismatches": 3
+    },
+    {
+      "sex": "male",
+      "pose": "walk-4",
+      "source_neck_pixels": 79,
+      "v14_source_mismatches": 2
+    },
+    {
+      "sex": "male",
+      "pose": "walk-5",
+      "source_neck_pixels": 80,
+      "v14_source_mismatches": 6
+    },
+    {
+      "sex": "male",
+      "pose": "give-half",
+      "source_neck_pixels": 78,
+      "v14_source_mismatches": 3
+    },
+    {
+      "sex": "male",
+      "pose": "give-full",
+      "source_neck_pixels": 65,
+      "v14_source_mismatches": 5
+    },
+    {
+      "sex": "male",
+      "pose": "give-release",
+      "source_neck_pixels": 78,
+      "v14_source_mismatches": 21
+    }
+  ]
+}
