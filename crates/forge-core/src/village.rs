@@ -295,10 +295,11 @@ mod compatibility {
         std::fs::create_dir_all(&dir).unwrap();
         let mut value = serde_json::to_value(save::Save::new(State::new(2), 100)).unwrap();
         value["schema_version"] = 2.into();
+        value["state"]["life"]["queue"] = 0.into();
         value["state"].as_object_mut().unwrap().remove("commerce");
         std::fs::write(dir.join("save-0.json"), serde_json::to_vec(&value).unwrap()).unwrap();
         let mut saved = save::load(&dir).unwrap().unwrap();
-        assert_eq!(saved.schema_version, 3);
+        assert_eq!(saved.schema_version, 4);
         assert_eq!(saved.state.commerce, Commerce::default());
         saved.state.gold = 100;
         saved.state.life.hunger = 8000;

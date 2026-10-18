@@ -26,13 +26,13 @@ flowchart TD
 
 Integer seconds and absolute due times make time-step partitioning stable. Craft completion precedes a sale at equal timestamps. A seeded xorshift state and monotonic event/command IDs are persisted. Commands are applied to a candidate state and committed only on success; duplicate successful command IDs are rejected. Inventory and gold use checked arithmetic. Domain state can run without a window or renderer.
 
-Foundation includes one `iron_dagger`: 2 ore, 5 seconds, 12 gold sale, and a 4-gold purchase of 2 ore. Initial ore is 10. Visitor intervals of 18–30 seconds are **accelerated Foundation demonstration values**, not the 30–60-minute village request cadence. The first craft starts automatically; subsequent crafts are explicit C input. Full idle production queues and village requests belong to the content milestone.
+Foundation includes one `iron_dagger`: 2 ore, 5 seconds, 12 gold sale, and a 4-gold purchase of 2 ore. Initial ore is 10. Visitor intervals of 18–30 seconds are **accelerated Foundation demonstration values**, not the 30–60-minute village request cadence. The first craft starts automatically; subsequent crafts are explicit C input. Typed FIFO production and the first farmer repair now share the workbench. Recurring village requests remain a content milestone.
 
 Sale rewards are committed before presentation. ENTER → WALK → INSPECT → PURCHASE → EXIT_WITH_ITEM is a visual reenactment of an already committed event. A high-water event ID suppresses duplicate visual enqueues. The same dagger image is used on the display and at the visitor's hand. Offline events are not replayed as a burst of NPC animations.
 
 ## Persistence and time
 
-`Save` contains schema version 3 / content version 1, generation, wall-clock high-water timestamp, state, RNG and counters. Save directory is per-user through `directories`, with an OS file lock preventing simultaneous writers. Two independently valid slots alternate generations. Write temporary file → flush/sync → remove only the inactive destination slot → rename → sync directory on Unix. A crash leaves the previous valid slot. Load selects the highest valid generation; corrupt files are preserved. Both corrupt or future-format saves cause an explicit error instead of a reset. Schema 1 initializes healthy life state; schema 2 retains that state and adds default commerce when migrating to schema 3. Newer schemas are refused by older builds. See [Village UI](docs/qa/VILLAGE.md) for transaction and map boundaries.
+`Save` contains schema version 4 / content version 1, generation, wall-clock high-water timestamp, state, RNG and counters. Save directory is per-user through `directories`, with an OS file lock preventing simultaneous writers. Two independently valid slots alternate generations. Write temporary file → flush/sync → remove only the inactive destination slot → rename → sync directory on Unix. A crash leaves the previous valid slot. Load selects the highest valid generation; corrupt files are preserved. Both corrupt or future-format saves cause an explicit error instead of a reset. Schemas 1–3 migrate to schema 4: preserve paid dagger jobs, assign their work kinds, and initialize the first farmer order. Current-format missing order/work metadata is not reset. Newer schemas are refused by older builds. See [Village UI](docs/qa/VILLAGE.md) for transaction and map boundaries.
 
 Resume processes at most 8 hours; backwards clock movement contributes zero seconds. Normal runtime uses monotonic elapsed time, including capped suspend gaps. Every whole simulation second and accepted command is persisted. A write failure pauses simulation and shows a status error. A crash can lose less than one uncommitted second, not a previously saved reward. Window preferences are non-critical and stored separately.
 
@@ -52,7 +52,7 @@ Automatic tests cover deterministic replay, time partitioning, failed/duplicate 
 
 ## Deferred scope
 
-Village economy, 9 tool definitions, relations, feedback/research, map navigation, expeditions and cards remain governed by `docs/`. No durability physics, combat, multiplayer, 60-weapon catalog or asset generator is introduced. Steam SDK, signing, notarization and store release are later release tasks.
+Map navigation and basic commerce are implemented. The first farmer sickle repair uses a typed shared FIFO, entrusted-order state, and exactly-once delivery settlement. See `docs/qa/FIRST-REPAIR.md`. Recurring commissions, 9 tool definitions, broader relations, feedback/research, expeditions and cards remain governed by `docs/`. No durability physics, combat, multiplayer, 60-weapon catalog or asset generator is introduced. Steam SDK, signing, notarization and store release are later release tasks.
 
 
 ## Shared NPC presentation

@@ -31,7 +31,7 @@ fn live_text(s: &Session, kind: Live) -> String {
         Live::Action => format!("{:?}", l.action),
         Live::Queue => format!(
             "{} waiting · {}s remaining",
-            l.queue,
+            l.queue.len(),
             l.work.div_ceil(l.speed()) + l.remaining as u64
         ),
         Live::Status => s
@@ -141,6 +141,7 @@ pub fn setup(mut commands: Commands, opts: Res<Options>, mut home: ResMut<HomeUi
     home.tab = match opts.qa.as_deref() {
         Some("village-materials") => 1,
         Some("village-provisions") => 2,
+        Some(q) if q.starts_with("repair-") => 3,
         _ => 0,
     };
     commands.spawn((
@@ -186,6 +187,12 @@ pub fn draw(
         st.commerce.leather,
         home.selected,
     );
+    let key = format!(
+        "{key}:{}:{:?}:{}",
+        st.command_id,
+        st.farmer_order.phase,
+        if home.tab == 3 { st.tick } else { 0 }
+    );
     if *last == key {
         return;
     }
@@ -210,7 +217,7 @@ pub fn draw(
         p.spawn(forge_ui::text("LITTLE FORGE  /  A good day's work",23.));
         p.spawn(Node{flex_grow:1.,min_height:px(0),column_gap:px(12),..default()}).with_children(|row|{
             row.spawn(forge_ui::panel(percent(18))).with_children(|side|{
-                for (i,label) in ["Crafting","Materials","Provisions"].iter().enumerate(){let entity = forge_ui::button(side,*label,HomeTab(i)); if home.tab == i { side.commands().entity(entity).insert(forge_ui::Selected); }}
+                for (i,label) in ["Crafting","Materials","Provisions","Orders [O]"].iter().enumerate(){let entity = forge_ui::button(side,*label,HomeTab(i)); if home.tab == i { side.commands().entity(entity).insert(forge_ui::Selected); }}
                 side.spawn(forge_ui::text("Work continues while you browse.",12.));
                 forge_ui::button(side,"Rest [R]",Action(Command::Rest));
             });
@@ -231,6 +238,7 @@ pub fn draw(
                         });
                         body.spawn(forge_ui::text(["Iron ore · 2 required for an iron dagger.","Timber · Stored for future recipes.","Leather · Stored for future recipes.","Iron daggers · Finished goods are sold automatically."][home.selected.min(3)],16.));
                     },
+                    3 => draw_order(body, &s.save.state),
                     _=>{
                         body.spawn(forge_ui::text("Provisions",20.));
                         body.spawn(Node{flex_wrap:FlexWrap::Wrap,column_gap:px(5),row_gap:px(5),..default()}).with_children(|grid|{
@@ -264,12 +272,14 @@ pub fn buttons(
     actions: Query<&Action>,
     mut s: ResMut<Session>,
     opts: Res<Options>,
+    title: Res<crate::title::TitleScreen>,
     dialog: Option<Res<forge_ui::DialogState>>,
     desktop: Res<Desktop>,
     mut farmer: Option<ResMut<crate::npc::FarmerPresentation>>,
     village: Option<Res<crate::village::Village>>,
 ) {
-    if dialog.as_ref().is_some_and(|d| d.is_open())
+    if title.active
+        || dialog.as_ref().is_some_and(|d| d.is_open())
         || !desktop.shell.expanded
         || s.disabled
         || village
@@ -285,9 +295,9 @@ pub fn buttons(
                 if let Some(farmer) = farmer.as_mut() {
                     farmer.accepted(id, action.0);
                 }
-                format!("{:?} accepted", action.0)
+                command_status(action.0, &s.save.state)
             }
-            Err(e) => format!("{e:?}"),
+            Err(e) => command_error(e),
         };
         crate::persist(&mut s, &opts);
     }
@@ -304,10 +314,12 @@ pub fn update(
     mut ledger: Query<&mut Text, (With<Ledger>, Without<Needs>)>,
 ) {
     let visible = !title.as_ref().is_some_and(|t| t.active)
-        && opts
-            .qa
-            .as_deref()
-            .is_none_or(|q| q.starts_with("life-") || q.starts_with("village-") || q == "expanded");
+        && opts.qa.as_deref().is_none_or(|q| {
+            q.starts_with("life-")
+                || q.starts_with("village-")
+                || q == "expanded"
+                || q.starts_with("repair-")
+        });
     let l = &s.save.state.life;
     for mut v in &mut panel {
         *v = if visible
@@ -356,12 +368,139 @@ pub fn update(
             l.action,
             l.remaining,
             l.speed() / 10,
-            l.queue,
+            l.queue.len(),
             l.config.stack_limit,
             slots[..6].join("    "),
             slots[6..].join("    "),
             l.config.food_price
         );
+    }
+}
+
+fn draw_order(body: &mut ChildSpawnerCommands, s: &forge_core::State) {
+    use forge_core::commission::*;
+    let order = &s.farmer_order;
+    body.spawn(forge_ui::text("First commission / Farmer", 19.));
+    body.spawn(forge_ui::text("A worn sickle", 22.));
+    body.spawn(forge_ui::text(
+        "My sickle has lost its edge. Can you get it ready for the fields?",
+        14.,
+    ));
+    body.spawn(forge_ui::text(
+        format!(
+            "{} ore · {}s base work · {} gold + {} favor",
+            REPAIR_ORE, REPAIR_SECS, REWARD_GOLD, REWARD_FAVOR
+        ),
+        14.,
+    ));
+    let timing = match order.deadline_at {
+        None => "Due 2 hours after acceptance. Take your time deciding.".to_owned(),
+        Some(_) if order.completed_at.is_some() => {
+            if order.on_time() {
+                "Finished on time. Your full reward is safe.".into()
+            } else {
+                format!(
+                    "Finished late. {} gold, no favor. No further penalty.",
+                    LATE_REWARD_GOLD
+                )
+            }
+        }
+        Some(due) => {
+            let left = due.saturating_sub(s.tick);
+            if left == 0 {
+                format!(
+                    "Overdue. Finish and deliver for {} gold; no favor.",
+                    LATE_REWARD_GOLD
+                )
+            } else {
+                format!(
+                    "Due in {}m {:02}s. Late completion: {} gold, no favor.",
+                    left / 60,
+                    left % 60,
+                    LATE_REWARD_GOLD
+                )
+            }
+        }
+    };
+    body.spawn(forge_ui::text(timing, 13.));
+    body.spawn(forge_ui::text(order.phase.label(), 17.));
+    match order.phase {
+        OrderPhase::Offered => {
+            forge_ui::button(
+                body,
+                "Accept repair [A]",
+                Action(Command::AcceptFarmerRepair),
+            );
+        }
+        OrderPhase::Accepted => {
+            body.spawn(forge_ui::text(
+                format!("Available ore: {}. Materials are used when queued.", s.ore),
+                13.,
+            ));
+            forge_ui::button(body, "Queue repair [S]", Action(Command::QueueFarmerRepair));
+            forge_ui::button(body, "Buy 2 ore · 4 gold [B]", Action(Command::BuyOre));
+        }
+        OrderPhase::Queued => {
+            let ahead = s
+                .life
+                .queue
+                .iter()
+                .position(|&job| job == forge_core::life::WorkKind::FarmerSickleRepair)
+                .unwrap_or(0)
+                + usize::from(s.life.active_job.is_some());
+            body.spawn(forge_ui::text(
+                format!("{} job(s) ahead. Work starts automatically.", ahead),
+                14.,
+            ));
+        }
+        OrderPhase::Working => {
+            body.spawn(forge_ui::text(
+                "At the shared workbench. Resting pauses work, then it resumes.",
+                14.,
+            ));
+        }
+        OrderPhase::Ready => {
+            let (gold, favor) = order.reward();
+            forge_ui::button(
+                body,
+                format!("Deliver · {} gold + {} favor [L]", gold, favor),
+                Action(Command::DeliverFarmerRepair),
+            );
+        }
+        OrderPhase::Delivered => {
+            body.spawn(forge_ui::text(
+                format!(
+                    "Thank you! Earned {} gold · Farmer favor {}/100",
+                    order.settled_gold, order.favor
+                ),
+                16.,
+            ));
+        }
+    }
+}
+pub fn command_status(command: Command, s: &forge_core::State) -> String {
+    match command {
+        Command::AcceptFarmerRepair => "Farmer's repair accepted. Queue it in Orders [O].".into(),
+        Command::QueueFarmerRepair => {
+            "Sickle repair queued. 2 ore used; work begins in order.".into()
+        }
+        Command::DeliverFarmerRepair => format!(
+            "Sickle delivered! +{} gold, +{} farmer favor.",
+            s.farmer_order.settled_gold, s.farmer_order.favor
+        ),
+        _ => format!("{command:?} accepted"),
+    }
+}
+pub fn command_error(error: forge_core::Error) -> String {
+    match error {
+        forge_core::Error::InsufficientResources => {
+            "Not enough materials or gold. Check your supplies.".into()
+        }
+        forge_core::Error::InvalidOrderState => "Check Orders [O] for the next step.".into(),
+        forge_core::Error::Busy => {
+            "The workbench or queue is busy. Try again when space is free.".into()
+        }
+        _ => format!("{error:?}"),
     }
 }
 
@@ -397,6 +536,8 @@ mod tests {
             ..default()
         });
         app.insert_resource(Desktop::new(false, true));
+        app.init_resource::<crate::title::TitleScreen>();
+        app.init_resource::<crate::npc::FarmerPresentation>();
         app.add_observer(buttons);
         app.add_systems(Update, update);
         let action = app.world_mut().spawn(Action(Command::Drink)).id();
@@ -424,6 +565,59 @@ mod tests {
         assert_eq!(
             app.world().resource::<Session>().save.state.life.thirst,
             5000
+        );
+        // The real observer must guard hidden/title/disabled input and settle once.
+        app.world_mut().resource_mut::<Session>().save.state = forge_core::State::new(42);
+        let accept = app
+            .world_mut()
+            .spawn(Action(Command::AcceptFarmerRepair))
+            .id();
+        let enqueue = app
+            .world_mut()
+            .spawn(Action(Command::QueueFarmerRepair))
+            .id();
+        let deliver = app
+            .world_mut()
+            .spawn(Action(Command::DeliverFarmerRepair))
+            .id();
+        app.world_mut().trigger(Activate { entity: accept });
+        assert_eq!(app.world().resource::<Session>().save.state.command_id, 0);
+        app.world_mut().resource_mut::<Desktop>().shell.expanded = true;
+        app.world_mut()
+            .resource_mut::<crate::title::TitleScreen>()
+            .active = true;
+        app.world_mut().trigger(Activate { entity: accept });
+        assert_eq!(app.world().resource::<Session>().save.state.command_id, 0);
+        app.world_mut()
+            .resource_mut::<crate::title::TitleScreen>()
+            .active = false;
+        app.world_mut().resource_mut::<Session>().disabled = true;
+        app.world_mut().trigger(Activate { entity: accept });
+        assert_eq!(app.world().resource::<Session>().save.state.command_id, 0);
+        app.world_mut().resource_mut::<Session>().disabled = false;
+        app.world_mut().trigger(Activate { entity: accept });
+        app.world_mut().trigger(Activate { entity: accept });
+        assert_eq!(app.world().resource::<Session>().save.state.command_id, 1);
+        app.world_mut().trigger(Activate { entity: enqueue });
+        app.world_mut().trigger(Activate { entity: enqueue });
+        assert_eq!(app.world().resource::<Session>().save.state.ore, 8);
+        app.world_mut()
+            .resource_mut::<Session>()
+            .save
+            .state
+            .advance(20)
+            .unwrap();
+        app.world_mut().trigger(Activate { entity: deliver });
+        app.world_mut().trigger(Activate { entity: deliver });
+        let state = &app.world().resource::<Session>().save.state;
+        assert_eq!(state.gold, 24);
+        assert_eq!(state.farmer_order.favor, 5);
+        assert_eq!(state.command_id, 3);
+        assert_eq!(
+            app.world()
+                .resource::<crate::npc::FarmerPresentation>()
+                .reaction,
+            Some(Command::DeliverFarmerRepair)
         );
         drop(app);
         std::fs::remove_dir_all(dir).unwrap();

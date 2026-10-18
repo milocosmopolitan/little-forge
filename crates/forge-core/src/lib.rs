@@ -1,4 +1,5 @@
 //! Deterministic domain: no renderer, OS clock, or Bevy dependency.
+pub mod commission;
 pub mod life;
 pub mod save;
 pub mod shell;
@@ -27,12 +28,16 @@ pub struct State {
     pub life: life::Life,
     #[serde(default)]
     pub commerce: village::Commerce,
+    pub farmer_order: commission::FarmerOrder,
 }
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Command {
     Craft,
     BuyOre,
     QueueCraft,
+    AcceptFarmerRepair,
+    QueueFarmerRepair,
+    DeliverFarmerRepair,
     BuyFood,
     Eat,
     EatMeal,
@@ -47,6 +52,7 @@ pub enum Command {
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub enum EventKind {
     Crafted,
+    FarmerRepairReady,
     ActionChanged(life::SmithAction),
     Ate,
     Drank,
@@ -70,6 +76,7 @@ pub enum Error {
     PantryFull,
     InvalidPurchase,
     OutOfStock,
+    InvalidOrderState,
 }
 impl State {
     pub fn new(seed: u64) -> Self {
@@ -87,10 +94,12 @@ impl State {
             command_id: 0,
             life: life::Life::default(),
             commerce: village::Commerce::default(),
+            farmer_order: commission::FarmerOrder::default(),
         }
     }
     pub fn validate(&self) -> Result<(), Error> {
         self.life.validate()?;
+        self.validate_farmer_order()?;
         if self.rng == 0
             || self.next_visitor <= self.tick
             || self.job_due.is_some_and(|t| t <= self.tick)
@@ -109,13 +118,16 @@ impl State {
         }
         let mut next = self.clone();
         match command {
+            Command::AcceptFarmerRepair => next.accept_farmer_repair()?,
+            Command::QueueFarmerRepair => next.queue_farmer_repair()?,
+            Command::DeliverFarmerRepair => next.deliver_farmer_repair()?,
             Command::Purchase {
                 vendor,
                 item,
                 quantity,
             } => next.purchase(vendor, item, quantity)?,
             Command::Craft => {
-                if next.job_due.is_some() {
+                if next.job_due.is_some() || !next.life.queue.is_empty() {
                     return Err(Error::Busy);
                 }
                 if next.ore < 2 {
@@ -124,6 +136,7 @@ impl State {
                 next.job_due = Some(next.tick.checked_add(CRAFT_SECS).ok_or(Error::Overflow)?);
                 next.ore -= 2;
                 next.life.work = CRAFT_SECS * 1000;
+                next.life.active_job = Some(life::WorkKind::IronDagger);
                 if next.life.action == life::SmithAction::Idle {
                     next.life.action = life::SmithAction::Working;
                 }
@@ -132,11 +145,11 @@ impl State {
                 if next.ore < 2 {
                     return Err(Error::InsufficientResources);
                 }
-                if next.life.queue >= 32 {
+                if next.life.queue.len() >= 32 {
                     return Err(Error::Busy);
                 }
                 next.ore -= 2;
-                next.life.queue += 1;
+                next.life.queue.push_back(life::WorkKind::IronDagger);
             }
             Command::BuyFood => {
                 next.purchase(village::Location::Farm, village::Item::Staple, 1)?;
