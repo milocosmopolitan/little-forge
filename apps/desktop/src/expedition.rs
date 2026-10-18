@@ -243,6 +243,7 @@ fn animate(
     mut summary: Query<&mut Text, (With<Summary>, Without<Ledger>, Without<Status>)>,
     mut ledger: Query<&mut Text, (With<Ledger>, Without<Summary>, Without<Status>)>,
     mut status: Query<&mut Text, (With<Status>, Without<Summary>, Without<Ledger>)>,
+    mut action_clock: Local<(u64, u32, f32)>,
 ) {
     let st = &s.save.state;
     let b = st.expedition.active.as_ref();
@@ -252,6 +253,18 @@ fn animate(
         time.elapsed_secs()
     };
     let phase = (tm * 8.) as usize;
+    let event = b.map_or((0, 0), |b| (b.id, b.second));
+    if (action_clock.0, action_clock.1) != event {
+        *action_clock = (event.0, event.1, time.elapsed_secs());
+    }
+    // An action advances once, then holds. Global modulo time made draw/aim oscillate.
+    let action_age = if opts.qa.as_deref() == Some("expedition-release") {
+        0.1
+    } else if opts.qa.is_some() {
+        0.75
+    } else {
+        (time.elapsed_secs() - action_clock.2).clamp(0., 1.)
+    };
     let action = b.map_or(CombatAction::Entry, |b| b.last_action());
     let attack = b
         .and_then(|b| {
@@ -269,18 +282,8 @@ fn animate(
                 CombatAction::Victory => "victory".into(),
                 CombatAction::Hit => "hit".into(),
                 _ => match attack.unwrap_or(action) {
-                    CombatAction::BowDraw => if phase.is_multiple_of(2) {
-                        "bow-draw"
-                    } else {
-                        "bow-aim"
-                    }
-                    .into(),
-                    CombatAction::BowRelease => if phase.is_multiple_of(3) {
-                        "bow-release"
-                    } else {
-                        "bow-recovery"
-                    }
-                    .into(),
+                    CombatAction::BowDraw => bow_frame(false, action_age).into(),
+                    CombatAction::BowRelease => bow_frame(true, action_age).into(),
                     CombatAction::Slash => "dagger-slash".into(),
                     CombatAction::KnifeDraw => "dagger-draw".into(),
                     CombatAction::Walk => format!("walk-{}", phase % 6),
@@ -326,15 +329,21 @@ fn animate(
         image.image = server.load(format!("expedition/{kind}/frames/{frame}.png"));
     }
     for (mut n, mut v) in &mut arrow {
-        *v = if attack == Some(CombatAction::BowRelease) {
+        *v = if attack == Some(CombatAction::BowRelease) && action_age < 0.35 {
             Visibility::Visible
         } else {
             Visibility::Hidden
         };
-        n.left = px(340. + (tm.fract() * 200.).round());
+        let target = b.map_or(600., |b| 430. + f32::from(b.distance) * 55.);
+        n.left = px(340. + (target - 340.) * (action_age / 0.35).min(1.));
     }
     for (mut n, mut v) in &mut impact {
-        *v = if attack.is_some() && phase.is_multiple_of(2) {
+        let hit_age = if attack == Some(CombatAction::BowRelease) {
+            0.30
+        } else {
+            0.
+        };
+        *v = if attack.is_some() && (hit_age..hit_age + 0.2).contains(&action_age) {
             Visibility::Visible
         } else {
             Visibility::Hidden
@@ -397,6 +406,26 @@ fn animate(
     }
 }
 
+fn bow_frame(released: bool, age: f32) -> &'static str {
+    if released {
+        if age < 0.18 {
+            "bow-release"
+        } else if age < 0.65 {
+            "bow-recovery"
+        } else {
+            "bow-ready"
+        }
+    } else if age < 0.12 {
+        "bow-ready"
+    } else if age < 0.30 {
+        "bow-draw"
+    } else if age < 0.52 {
+        "bow-pull"
+    } else {
+        "bow-aim"
+    }
+}
+
 fn restore_loadout(s: Res<Session>, mut ui: ResMut<ExpeditionUi>) {
     if let Some(b) = &s.save.state.expedition.active {
         ui.loadout = b.loadout;
@@ -446,6 +475,24 @@ fn return_dialogue(
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn bow_draw_holds_aim_without_reversing_or_replaying_release() {
+        assert_eq!(
+            [0., 0.15, 0.35, 0.6, 0.9, 10.].map(|age| bow_frame(false, age)),
+            [
+                "bow-ready",
+                "bow-draw",
+                "bow-pull",
+                "bow-aim",
+                "bow-aim",
+                "bow-aim"
+            ]
+        );
+        assert_eq!(
+            [0., 0.2, 0.7, 10.].map(|age| bow_frame(true, age)),
+            ["bow-release", "bow-recovery", "bow-ready", "bow-ready"]
+        );
+    }
     #[test]
     fn actual_ui_observer_craft_fail_change_gear_retry_and_view_switch() {
         let dir = std::env::temp_dir().join(format!("expedition-ui-{}", std::process::id()));

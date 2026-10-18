@@ -34,3 +34,20 @@ Remaining art work: refined bow grip/near-arm anatomy and recovery, larger dagge
 convincing monster attack/defeat posing, polished independently authored distant/midground forest art.
 Distant, midground and foreground are disjoint static masks of the normalized plate;
 they recompose exactly and do not claim reconstructed hidden scenery or parallax support. All pending work remains in #101.
+
+## Bow revision after motion review
+
+The original flat polygon arms were rejected. `source/bow-motion-reference.png` preserves
+the supplied six-frame motion reference. `scripts/expedition-bow.py` masks only its sleeves,
+forearms and gloves at a common 4:1 source/native scale, registers them to canonical shoulders,
+and maps them to the approved Hunter palette. Canonical head, outfit, cloak, legs and boots
+remain the base. Small sleeve bridges reuse canonical fold texture. These derivatives are
+not independently interchangeable canonical NPC clothing layers.
+
+Six keys now cover ready, lift/draw, pull, aim, release follow-through and recovery.
+`hunter/bow-sockets.json` records the registration and weapon contacts. The source body/head
+is not adopted. The renderer advances the draw once and holds aim instead of alternating
+draw/aim from global modulo time.
+
+`hunter/bow-preview.html`, normal/slow GIFs and native/2x light/dark contact sheets expose
+every key for review. Palette/alpha/atlas/head tests do not constitute visual approval.

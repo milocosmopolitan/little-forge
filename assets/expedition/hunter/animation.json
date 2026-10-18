@@ -20,7 +20,9 @@
     "walk-3",
     "walk-4",
     "walk-5",
+    "bow-ready",
     "bow-draw",
+    "bow-pull",
     "bow-aim",
     "bow-release",
     "bow-recovery",
@@ -64,16 +66,20 @@
     },
     "bow": {
       "frames": [
+        "bow-ready",
         "bow-draw",
+        "bow-pull",
         "bow-aim",
         "bow-release",
         "bow-recovery"
       ],
       "durations_ms": [
-        150,
-        150,
-        150,
-        150
+        120,
+        180,
+        220,
+        480,
+        180,
+        470
       ],
       "loop": false
     },

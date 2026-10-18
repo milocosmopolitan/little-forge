@@ -303,6 +303,12 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
                 "entry" => b.second == 0,
                 "movement" => b.last_action() == Action::Walk,
                 "bow" => b.trace.last().is_some_and(|e| e.action == Action::BowDraw),
+                "release" => {
+                    b.enemy() == Enemy::Boar
+                        && b.trace
+                            .iter()
+                            .any(|e| e.second == b.second && e.action == Action::BowRelease)
+                }
                 "dagger" => b
                     .trace
                     .iter()

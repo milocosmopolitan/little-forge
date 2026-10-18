@@ -33,12 +33,12 @@ version 1 deliberately has no random combat rolls. Balancing remains a playtest 
 
 - `cargo fmt --all -- --check`
 - `cargo clippy --locked --workspace --all-targets -- -D warnings`
-- `cargo test --locked --workspace`: 78 tests passed locally, including actual Bevy Activate
+- `cargo test --locked --workspace`: 79 tests passed locally, including actual Bevy Activate
   observer crafting, failed launch, changing gear, retry, hidden-button guard and view switching.
 - Existing asset, village, UI and forge-space validators.
 - Canonical Hunter animation verifier: 22 frames, 10 clips, 286 native layers, 2,816 equipment
   combinations, no underlayer loss or expression drift, deterministic rebuild.
-- Expedition validator: 18 Hunter frames / 63 colors; 8 wolf frames / 43 colors;
+- Expedition validator: 20 Hunter frames / 64 colors; 8 wolf frames / 43 colors;
   8 boar frames / 45 colors, binary alpha, head preservation, atlas roundtrip, ground seam.
 - Schema-4 migration imports an empty expedition ledger without changing existing work.
   Schema-5 missing expedition state is rejected. Journal restart every combat second matches
@@ -55,7 +55,7 @@ Its journal and screenshots are retained; no real-time video is claimed.
 
 Run `cargo run --locked -p forge-qa -- expedition` for five scenario traces.
 Run `python scripts/capture-expedition.py target/debug/little-forge` for entry, movement,
-bow, dagger, wolf, boar, retreat and victory. Each uses an isolated QA save directory.
+bow, release, dagger, wolf, boar, retreat and victory. Each uses an isolated QA save directory.
 Committed review evidence is in `docs/qa/expedition/`; raw runtime logs remain in `qa-output/`.
 Run `python scripts/validate-expedition.py` independently from game captures.
 New sprites are candidates; see `assets/expedition/PROVENANCE.md` and native previews.
@@ -113,3 +113,24 @@ Combat captures and release builds now run before legacy golden comparisons so i
 evidence is collected while those gates still fail normally. No continue-on-error or
 threshold change is used. The local black-capture rerun remains unqualified, but native
 macOS CI successfully rendered the same combat scenes.
+
+## Bow motion revision
+
+The first polygon-arm candidate was rejected in review. The supplied six-frame reference
+now drives registered sleeve/glove poses over the unchanged canonical Hunter, with a
+reconstructed clothed flank under the raised arm. Six explicit keys replace the four flat
+arm overlays. The renderer progresses once from ready through aim and then release/recovery;
+it no longer oscillates between draw/aim with global modulo time. Projectile flight and
+impact likewise use event age. A regression test checks ordered draw and nonrepeating release.
+
+Normal and quarter-speed playback were opened in Chrome with simultaneous dark/light
+backgrounds. Sampled ready, draw and full-aim poses and the complete native/2x key sheets
+were visually reviewed. The white flank that resembled a leftover lowered sleeve was
+replaced with the canonical leather texture. This is a revised candidate, not user approval.
+`assets/expedition/hunter/bow-preview.html` and the two GIFs retain the review surface.
+The human-character-gen skill now routes expedition work to a focused motion/garment
+contract; its validator passed. Structural checks pass at 20 frames / 64 colors.
+
+The revised nine-scene native macOS capture suite passed, including an explicit release/
+projectile snapshot. Its PNGs and authoritative states replace the root review evidence;
+the separate manual playthrough remains historical evidence of the same unchanged combat rules.

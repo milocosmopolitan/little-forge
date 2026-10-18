@@ -34,7 +34,16 @@ def hunter():
    if k=='bow' or (combat and k in ['hands-front','gloves']):continue
    part=Image.open(NPC/layers[k]).convert('RGBA')
    if combat and k=='upper':
-    pd=ImageDraw.Draw(part);pd.polygon([(38,84),(45,83),(53,89),(61,91),(61,98),(48,98),(38,92)],fill=(0,0,0,0));pd.rectangle((82,86,94,114),fill=(0,0,0,0))
+    original=part.copy();vest=Image.open(NPC/layers['leather-outfit']).convert('RGBA');pd=ImageDraw.Draw(part)
+    pd.rectangle((30,77,57,99),fill=(0,0,0,0));pd.rectangle((80,77,96,114),fill=(0,0,0,0))
+    # The lowered arm hid this shirt flank. Reconstruct its clothed underlayer before lifting it.
+    flank=Image.new('L',SIZE);ImageDraw.Draw(flank).polygon([(49,76),(60,76),(63,96),(55,100),(47,94),(47,85)],fill=255)
+    for y in range(76,101):
+     for x in range(47,64):
+      if flank.getpixel((x,y)):
+       sample=(original if y<84 else vest).getpixel((min(75,x+12),min(92,y)))
+       part.putpixel((x,y),sample if sample[3] else c((60,46,31)))
+    pd.line([(49,77),(47,85),(47,94),(55,99)],fill=c((40,28,20)),width=1)
    out.alpha_composite(part)
   return out
  for n in ['neutral','blink','happy','surprised']+[f'walk-{i}' for i in range(6)]:frames[n]=pose(n)
@@ -42,28 +51,16 @@ def hunter():
  palette=Image.open(NPC/'source/palette.png').convert('RGB');colors=list(dict.fromkeys(palette.getdata()))
  def c(rgb):return min(colors,key=lambda p:sum((a-b)**2 for a,b in zip(p,rgb)))+(255,)
  dark=c((40,28,20));leather=c((101,62,35));light=c((187,146,89));cream=c((210,191,144));skin=c((250,178,118));metal=c((205,207,175))
- for name,pull in [('bow-draw',0),('bow-aim',8),('bow-release',6),('bow-recovery',2)]:
-  base=pose('neutral',combat=True);arm=blank();d=ImageDraw.Draw(arm)
-  # Far hand holds the bow; the near hand draws the string toward the cheek.
-  d.polygon([(80,76),(91,77),(103,74),(105,80),(91,86),(81,83)],fill=cream,outline=dark)
-  d.polygon([(99,74),(108,73),(110,77),(107,82),(101,81)],fill=leather,outline=dark)
-  d.line([(106,47),(113,55),(117,67),(118,78),(115,93),(108,106)],fill=dark,width=3)
-  d.line([(107,48),(113,58),(116,70),(116,82),(112,96),(108,104)],fill=light,width=1)
-  d.line([(106,47),(93-pull,77),(108,106)],fill=cream,width=1)
-  d.polygon([(46,79),(51,76),(65,79),(91-pull,73),(95-pull,79),(64,87),(49,87)],fill=dark)
-  d.polygon([(48,79),(52,78),(64,81),(65,85),(50,85)],fill=cream)
-  d.polygon([(65,81),(88-pull,75),(93-pull,75),(94-pull,79),(66,85)],fill=leather)
-  d.line([(68,81),(88-pull,76)],fill=light,width=1)
-  if name!='bow-release':d.line([(88-pull,77),(123,77)],fill=light,width=1);d.polygon([(123,75),(127,77),(123,79)],fill=metal)
-  base.alpha_composite(arm);frames[name]=base;save(arm,Path('hunter/layers')/(name+'.png'))
+ import runpy
+ frames.update(runpy.run_path(str(ROOT/"scripts/expedition-bow.py"))["build"](OUT,pose,palette,save))
  for name,up in [('dagger-draw',True),('dagger-slash',False)]:
   base=pose('give-mid' if up else 'give-full');layer=blank();d=ImageDraw.Draw(layer)
   if up:d.polygon([(101,85),(103,61),(107,57),(106,83)],fill=metal,outline=dark);d.line([(99,84),(109,84)],fill=light,width=2)
   else:d.polygon([(114,78),(127,67),(127,72),(118,82)],fill=metal,outline=dark)
   base.alpha_composite(layer);frames[name]=base;save(layer,Path('hunter/layers')/(name+'.png'))
  frames['hit']=pose('surprised');frames['victory']=pose('happy')
- clips={'combat-idle':['neutral','blink','neutral'],'walk':[f'walk-{i}' for i in range(6)],'bow':['bow-draw','bow-aim','bow-release','bow-recovery'],'dagger':['dagger-draw','dagger-slash','neutral'],'hit':['hit','neutral'],'retreat':[f'walk-{i}' for i in range(6)],'victory':['victory','neutral']}
- pack('hunter',frames,{k:{'frames':v,'durations_ms':[150]*len(v),'loop':k in ['walk','retreat','combat-idle']} for k,v in clips.items()},[64,140])
+ clips={'combat-idle':['neutral','blink','neutral'],'walk':[f'walk-{i}' for i in range(6)],'bow':['bow-ready','bow-draw','bow-pull','bow-aim','bow-release','bow-recovery'],'dagger':['dagger-draw','dagger-slash','neutral'],'hit':['hit','neutral'],'retreat':[f'walk-{i}' for i in range(6)],'victory':['victory','neutral']}
+ pack('hunter',frames,{k:{'frames':v,'durations_ms':([120,180,220,480,180,470] if k=='bow' else [150]*len(v)),'loop':k in ['walk','retreat','combat-idle']} for k,v in clips.items()},[64,140])
  # Reference comparison is at the same native scale, with light and dark mattes.
  comp=Image.new('RGBA',(128*5,320),(40,48,44,255))
  for i,n in enumerate(['neutral','bow-aim','bow-release','dagger-slash','hit']):

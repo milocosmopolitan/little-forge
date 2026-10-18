@@ -15,7 +15,8 @@ for name,size,foot in [('hunter',(128,160),[64,140]),('wolf',(128,96),[64,88]),(
   assert atlas.crop((x,y,x+size[0],y+size[1])).tobytes()==im.tobytes()
   if name=='hunter' and frame.startswith('bow-'):
    neutral=Image.open(BASE/name/'frames/neutral.png')
-   assert im.crop((36,16,89,65)).tobytes()==neutral.crop((36,16,89,65)).tobytes(),'head identity drift'
+   # Raised elbows may occupy formerly transparent space; canonical opaque head pixels stay exact.
+   assert all(im.getpixel((x,y))==neutral.getpixel((x,y)) for y in range(16,65) for x in range(36,89) if neutral.getpixel((x,y))[3]),'head identity drift'
  for clip in meta['clips'].values():assert len(clip['frames'])==len(clip['durations_ms']) and all(t>0 for t in clip['durations_ms']) and all(f in meta['frames'] for f in clip['frames'])
  assert len(colors)<=64,(name,len(colors))
  print(name, len(meta['frames']),'frames;',len(colors),'colors; atlas and alpha valid')
