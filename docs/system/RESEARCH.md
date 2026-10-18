@@ -30,3 +30,7 @@ Perk cards are ongoing effects; Enhance cards are per-craft consumption candidat
 ## 미지 무기 수리 연구 경로 (2026-10-15)
 
 [DISCOVERY_REPAIR](DISCOVERY_REPAIR.md)에서 처음 보는 무기의 수리를 연구 중심으로 수행하면 신규 구조·재료·제련 기술 단서를 발견할 수 있다. 납기 실패나 수리 실패여도 **분석한 지식은 보존**된다. 연구 단서는 즉시 제작법 해금과 다르며 연구 자격/완료가 따로 필요하다. 첫 발견 보상과 반복 학습 보상은 구별해 중복 파밍을 방지한다. Perk는 제작 경험/연구에서, Enhance는 퀘스트/수리/Salvaging에서 획득한다.
+
+## 노드맵과 기술 숙련 연동 — 다음 구현 규칙
+
+[PROGRESSION](PROGRESSION.md)이 최신 노드 XP/기술 Lv/단서 발견의 구체 계약이다. Research Tree는 선택 노드별 XP/요구 기술/선행조건을 표시한다. 단서는 Hidden 노드를 Discovered 상태로 만들 뿐 제작법 즉시 해금이 아니다. 일반 제작 XP, 기술 숙련 XP, 노드 XP, 도감 기록을 혼동하지 않는다. 높은 숙련 레벨의 연구 게이트는 순환 의존성이 없어야 한다.

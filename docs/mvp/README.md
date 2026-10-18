@@ -98,3 +98,7 @@
 - [허기·갈증·피로](../system/NEEDS.md): 자동 수면과 기상 후 음식 창고 자동 섭취, 무료 우물물. 파운데이션 창 기능의 필수 게이트로 확대하지 않는다.
 
 **기술 방향 최신 결정:** Bevy / Pure Rust, macOS 우선, Windows Shadow PC 수동 데스크톱 QA, 관리 패널은 창 위쪽으로 확장. [플랫폼 QA](../system/PLATFORMS.md), [결정 감사](../system/DECISION_AUDIT.md)를 우선한다. 이 문서의 기존 Godot/POC 표현은 레거시이며 Astra 진행 중인 스캐폴드 문서 정리와 함께 후속 갱신한다.
+
+## 다음 실제 플레이 목표 — The First Legacy
+
+[첫 장인의 유산](FIRST_LEGACY.md)에서 생활 도구 주문→기술 숙련→연구 노드→기본 무기→Hunter 첫 탐험→귀환 이야기→세계 변화를 수직 슬라이스로 정의한다. 관련 문서: [성장/경험 매핑](../system/PROGRESSION.md), [장인의 도감](../system/SMITHS_CODEX.md), [첫 탐험](../system/FIRST_EXPEDITION.md), [세계 진행](../system/WORLD_PROGRESSION.md). 기존 콘텐츠 MVP의 9종 주민 도구와 상점 해금 목표는 유지한다.
