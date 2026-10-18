@@ -25,7 +25,8 @@ with tempfile.TemporaryDirectory(prefix='forge-village-missing-') as temporary:
     stage = Path(temporary)
     binary = stage / Path(a.executable).name
     shutil.copy2(Path(a.executable).resolve(), binary)
-    for folder in ['forge', 'title']:
+    # Core smith/UI art is required; only village and NPC art are deliberately absent.
+    for folder in ['forge', 'title', 'characters', 'ui']:
         shutil.copytree(Path('assets')/folder, stage/'assets'/folder)
     png = out / 'missing-assets.png'
     with (out/'missing-assets.log').open('w') as log:

@@ -1,32 +1,31 @@
 # First Expedition — Hunter's Return
 
-[첫 유산](../mvp/FIRST_LEGACY.md) · [기존 탐험 규칙](EXPEDITION.md) · [도감](SMITHS_CODEX.md) · [세계 진행](WORLD_PROGRESSION.md)
+The first playable target is **forge → equip → watch → understand retreat → improve → retry**.
+The old timer-only result concept is superseded by [automatic combat](EXPEDITION.md).
+The canonical `assets/npc/hunter` character remains unchanged. Expedition derivatives live
+under `assets/expedition/hunter` and preserve the 128×160 canvas and (64,140) foot anchor.
 
-## 확정 사용자 경험
+## Play sequence
 
-외부 NPC **Hunter**는 먼저 Hunting Knife 또는 Bow & Arrows를 주문하고, 나중에 **첫 일회성 고용 탐험가**가 된다. 반복 등장하는 같은 NPC여도 고용은 매 파견별 단기 계약. 영구 육성·파티 직업 트리·직접 전투 조작은 없다.
+1. Sell ordinary daggers or complete the existing farmer repair to fund materials.
+2. Open Outside / Expeditions (X). Buy timber and food if needed.
+3. Queue a shortbow (1 ore, 2 timber), knife (2 ore), and arrows (1 ore, 1 timber per 12).
+   Every recipe takes 8 effective work seconds and respects smith fatigue, sleep and the queue.
+4. Cycle primary to the bow, leave secondary empty, pack five food and 24 arrows, launch.
+5. Bow-only clears two encounters, then retreats against the boar. Read the precise advice.
+6. Craft/replenish arrows, select the knife as secondary, pack five food and 24 arrows, retry.
+7. Combined equipment clears all five encounters, reopens the path and awards 8 timber once.
+   Spend it toward carpenter furniture; field records remain on the individual weapons.
 
-탐험가는 기본 장비를 지참하고, 플레이어는 제작 무기를 선택적으로 빌려줄 수 있다. 정상 귀환 시 대여 장비 반환, 전멸 등 손실 가능한 고위험 파견은 추후 단계로 제한. 초반 오래된 숲길에서는 **전멸 없음**을 우선 권장한다. 소유권은 명시적 계약 스냅샷으로 관리하고 대여 장비를 잘못 판매/Salvage하지 못하게 한다.
+The Hunter speaks in the forge management view after returning, with a shortcut back to
+loadout preparation. There is no death or lost weapon. No hire fee in this first playable
+slice; food and arrows supply the repeatable cost. A full Hunter order/research chain remains
+tracked by #80 and progression #72. This slice does not claim those prior requirements complete.
 
-## 핵심 결과 UX — 전투 리플레이가 아닌 귀환 대화
+## Evidence boundaries
 
-Hunter가 대장간으로 돌아와서 자신이 경험한 사건을 **직접 들려주는 것**을 메인 보상으로 한다. 보고서는 수치/재료 요약의 보조 화면이다.
-
-예: 균형 잡힌 작은 칼 덕분에 숲의 위협에 대응했거나, 무거운 도끼 때문에 좁은 길에서 불편했다는 평가. **실제 파견 시 스냅샷된 장비 특성·지역 사건·결과**를 사용한 조건부 대사 템플릿. 성과가 나쁜데 무조건 칭찬하는 대사, 실행 때마다 변경되는 LLM 대사, 보고서를 열 때 결과를 재추첨하는 동작은 없다.
-
-## 최소 시나리오
-
-1. Hunter가 Bow/Arrow 관련 요청, 필요한 제작/연구 조건 제시.
-2. 일회성 계약의 고용비, 보급, 지역, 대여 가능 무기를 명확히 보여준다.
-3. 플레이어가 파견 확정 → 비용·보급 예약/소비 및 대여 장비 잠금(한 번).
-4. 정해진 시각에 결과 확정. 오래된 숲길 1개 지역, 성공/부분 성공 등 소수 결과 유형부터.
-5. Hunter 귀환 시 대사 템플릿 + 실제 장비 기여/아쉬운 점 + 재료·미지 발견 보상, 무기 Codex 현장 평가.
-6. 별도 세계 마일스톤을 만족하면 숲길 상태가 변하고 새 제작 동기가 생긴다.
-
-## 위험·소유권
-
-고위험 지역 전멸 가능성/장비 회수 이벤트는 향후 확장. MVP 첫 지역에서는 전멸, 파티 전멸 보상 빈곤, 탐험가 사망 영구 기록을 구현하지 않는다. 고용비와 보급을 반복 소비처로 사용하되 경제 소프트락 없음. 장비의 파견·귀환/소실은 게임 코어에서만 처리한다.
-
-## 구현 계약 / QA
-
-`ExpeditionContractId`, `hunter_npc_id`, `region_id`, `gear_instance_ids`, `start/end`, `seed`, `result_snapshot`, `world_milestone_events`, `narrative_template_id`를 명시한다. 테스트는 파견 재실행/중복 귀환 정산, 대여 장비 이중소유, 저장 전후 결과 일치, 선택한 장비와 대사/성과의 일치, 전멸없는 초기 지역 안전성, 화면 닫아도 귀환 보상 지급 유지를 확인한다.
+Deterministic scenario coverage includes bow-only, knife-only, combined, empty food and empty
+quiver. Journal/offline tests compare the entire state. Actual Bevy captures show event
+boundaries. Asset structural validation, visual approval, automated UI activation, Windows
+CI and native Shadow PC acceptance are separate checks. Epic #73 stays open until the whole
+accepted player experience is verified.

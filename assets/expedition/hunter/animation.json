@@ -1,0 +1,142 @@
+{
+  "version": 1,
+  "canvas": [
+    128,
+    160
+  ],
+  "foot_anchor_px": [
+    64,
+    140
+  ],
+  "sampler": "nearest",
+  "frames": [
+    "neutral",
+    "blink",
+    "happy",
+    "surprised",
+    "walk-0",
+    "walk-1",
+    "walk-2",
+    "walk-3",
+    "walk-4",
+    "walk-5",
+    "bow-ready",
+    "bow-draw",
+    "bow-pull",
+    "bow-aim",
+    "bow-release",
+    "bow-recovery",
+    "dagger-draw",
+    "dagger-slash",
+    "hit",
+    "victory"
+  ],
+  "clips": {
+    "combat-idle": {
+      "frames": [
+        "neutral",
+        "blink",
+        "neutral"
+      ],
+      "durations_ms": [
+        150,
+        150,
+        150
+      ],
+      "loop": true
+    },
+    "walk": {
+      "frames": [
+        "walk-0",
+        "walk-1",
+        "walk-2",
+        "walk-3",
+        "walk-4",
+        "walk-5"
+      ],
+      "durations_ms": [
+        150,
+        150,
+        150,
+        150,
+        150,
+        150
+      ],
+      "loop": true
+    },
+    "bow": {
+      "frames": [
+        "bow-ready",
+        "bow-draw",
+        "bow-pull",
+        "bow-aim",
+        "bow-release",
+        "bow-recovery"
+      ],
+      "durations_ms": [
+        120,
+        180,
+        220,
+        480,
+        180,
+        470
+      ],
+      "loop": false
+    },
+    "dagger": {
+      "frames": [
+        "dagger-draw",
+        "dagger-slash",
+        "neutral"
+      ],
+      "durations_ms": [
+        150,
+        150,
+        150
+      ],
+      "loop": false
+    },
+    "hit": {
+      "frames": [
+        "hit",
+        "neutral"
+      ],
+      "durations_ms": [
+        150,
+        150
+      ],
+      "loop": false
+    },
+    "retreat": {
+      "frames": [
+        "walk-0",
+        "walk-1",
+        "walk-2",
+        "walk-3",
+        "walk-4",
+        "walk-5"
+      ],
+      "durations_ms": [
+        150,
+        150,
+        150,
+        150,
+        150,
+        150
+      ],
+      "loop": true
+    },
+    "victory": {
+      "frames": [
+        "victory",
+        "neutral"
+      ],
+      "durations_ms": [
+        150,
+        150
+      ],
+      "loop": false
+    }
+  },
+  "visual_approval": "pending"
+}

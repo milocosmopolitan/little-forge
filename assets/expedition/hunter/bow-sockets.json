@@ -1,0 +1,110 @@
+{
+  "bow-ready": {
+    "bow_grip": [
+      91,
+      88
+    ],
+    "drawing_hand": [
+      78,
+      84
+    ],
+    "source_origin": [
+      0,
+      0
+    ],
+    "registration_offset": [
+      0,
+      12
+    ]
+  },
+  "bow-draw": {
+    "bow_grip": [
+      102,
+      82
+    ],
+    "drawing_hand": [
+      80,
+      78
+    ],
+    "source_origin": [
+      512,
+      0
+    ],
+    "registration_offset": [
+      0,
+      14
+    ]
+  },
+  "bow-pull": {
+    "bow_grip": [
+      113,
+      79
+    ],
+    "drawing_hand": [
+      76,
+      74
+    ],
+    "source_origin": [
+      1024,
+      0
+    ],
+    "registration_offset": [
+      8,
+      16
+    ]
+  },
+  "bow-aim": {
+    "bow_grip": [
+      114,
+      72
+    ],
+    "drawing_hand": [
+      60,
+      65
+    ],
+    "source_origin": [
+      0,
+      512
+    ],
+    "registration_offset": [
+      8,
+      20
+    ]
+  },
+  "bow-release": {
+    "bow_grip": [
+      114,
+      72
+    ],
+    "drawing_hand": [
+      43,
+      70
+    ],
+    "source_origin": [
+      512,
+      512
+    ],
+    "registration_offset": [
+      8,
+      20
+    ]
+  },
+  "bow-recovery": {
+    "bow_grip": [
+      98,
+      89
+    ],
+    "drawing_hand": [
+      73,
+      88
+    ],
+    "source_origin": [
+      1024,
+      512
+    ],
+    "registration_offset": [
+      0,
+      12
+    ]
+  }
+}

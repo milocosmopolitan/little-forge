@@ -1,8 +1,16 @@
 //! Headless reproducible scenario and CPU simulation benchmark (not renderer performance).
+mod expedition;
 mod lifestyle;
 use forge_core::{Command, State, save::Save};
 use std::time::Instant;
 fn main() {
+    if std::env::args().any(|a| a == "expedition") {
+        println!(
+            "{}",
+            serde_json::to_string_pretty(&expedition::report()).unwrap()
+        );
+        return;
+    }
     if std::env::args().any(|a| a == "life-loop") {
         println!(
             "{}",

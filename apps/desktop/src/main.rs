@@ -1,3 +1,4 @@
+mod expedition;
 mod lifestyle;
 mod native;
 mod npc;
@@ -71,7 +72,11 @@ impl Options {
                     | "village-outside"
                     | "village-input"
             )
-        ) || self.qa.as_deref().is_some_and(|q| q.starts_with("repair-"))
+        ) || self
+            .qa
+            .as_deref()
+            .is_some_and(|q| q.starts_with("expedition-"))
+            || self.qa.as_deref().is_some_and(|q| q.starts_with("repair-"))
             || self.forge_scene().is_some_and(|(scene, _)| {
                 matches!(
                     scene,
@@ -138,7 +143,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             }
             "--help" => {
                 println!(
-                    "Little Forge\n--safe-window --save-dir PATH --qa ambient|sale|expanded|idle|life-loop|life-ambient|title --screenshot PATH\nO: orders, A: accept repair, S: queue repair, L: deliver, C: craft, Q: queue, B: buy ore, F: farmer food, E: eat, W: free water, R: rest, Tab: expand, F8: 10s click-through, Ctrl+Alt+F8: global recovery, Esc: recover, T: topmost, D: decorations, F12: diagnostics\nQA uses an isolated save directory and a fixed simulation clock."
+                    "Little Forge\n--safe-window --save-dir PATH --qa ambient|sale|expanded|idle|life-loop|life-ambient|title --screenshot PATH\nX: expedition, O: orders, A: accept repair, S: queue repair, L: deliver, C: craft, Q: queue, B: buy ore, F: farmer food, E: eat, W: free water, R: rest, Tab: expand, F8: 10s click-through, Ctrl+Alt+F8: global recovery, Esc: recover, T: topmost, D: decorations, F12: diagnostics\nQA uses an isolated save directory and a fixed simulation clock."
                 );
                 return Ok(());
             }
@@ -173,17 +178,18 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
                 | "village-guild"
                 | "village-outside"
                 | "village-input"
-        ) && !matches!(
-            Options {
-                qa: Some(s.clone()),
-                ..default()
-            }
-            .forge_scene(),
-            Some((
-                "exterior" | "workshop" | "showroom" | "full" | "select" | "input" | "interior",
-                _
-            ))
-        )
+        ) && !s.starts_with("expedition-")
+            && !matches!(
+                Options {
+                    qa: Some(s.clone()),
+                    ..default()
+                }
+                .forge_scene(),
+                Some((
+                    "exterior" | "workshop" | "showroom" | "full" | "select" | "input" | "interior",
+                    _
+                ))
+            )
     }) {
         return Err("unknown QA scenario".into());
     }
@@ -268,6 +274,55 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             }
             saved.state.crafted = target as u32;
             saved.state.daggers = target as u32;
+        }
+    }
+    if let Some(scene) = opts
+        .qa
+        .as_deref()
+        .and_then(|q| q.strip_prefix("expedition-"))
+    {
+        saved.state = forge_core::expedition::qa_fixture();
+        saved.state.smith = Some(forge_core::Smith::Male);
+        let loadout = forge_core::expedition::Loadout {
+            primary: Some(1),
+            secondary: if scene == "retreat" { None } else { Some(2) },
+            food: 5,
+            arrows: 24,
+        };
+        saved
+            .state
+            .command(
+                saved.state.command_id + 1,
+                Command::LaunchExpedition(loadout),
+            )
+            .expect("QA launch");
+        for _ in 0..600 {
+            let b = saved.state.expedition.active.as_ref().unwrap();
+            use forge_core::expedition::{Action, Enemy};
+            let matched = match scene {
+                "entry" => b.second == 0,
+                "movement" => b.last_action() == Action::Walk,
+                "bow" => b.trace.last().is_some_and(|e| e.action == Action::BowDraw),
+                "release" => {
+                    b.enemy() == Enemy::Boar
+                        && b.trace
+                            .iter()
+                            .any(|e| e.second == b.second && e.action == Action::BowRelease)
+                }
+                "dagger" => b
+                    .trace
+                    .iter()
+                    .any(|e| e.second == b.second && e.action == Action::Slash),
+                "wolf" => b.enemy() == Enemy::Wolf && b.second == 3,
+                "boar" => b.enemy() == Enemy::Boar && b.distance == 0,
+                "retreat" => b.done,
+                "victory" => b.done && b.cleared == 5,
+                _ => return Err("unknown expedition QA scenario".into()),
+            };
+            if matched {
+                break;
+            }
+            saved.state.advance(1).expect("QA combat tick");
         }
     }
     let elapsed = if qa { 0 } else { saved.catch_up(now())? };
@@ -421,6 +476,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     .add_plugins(forge_npc::player::PlayerPlugin)
     .add_plugins(forge_ui::ForgeUiPlugin)
     .add_plugins(spaces::plugin)
+    .add_plugins(expedition::plugin)
     .init_resource::<village::Village>()
     .add_observer(village::activate)
     .add_observer(lifestyle::buttons)
@@ -727,7 +783,14 @@ fn simulate(
     opts: Res<Options>,
     title: Res<title::TitleScreen>,
 ) {
-    if title.active || s.disabled || (opts.qa.is_some() && opts.frames == 0) {
+    if title.active
+        || s.disabled
+        || opts
+            .qa
+            .as_deref()
+            .is_some_and(|q| q.starts_with("expedition-"))
+        || (opts.qa.is_some() && opts.frames == 0)
+    {
         return;
     }
     let seconds = if opts.qa.as_deref().is_some_and(|q| q.starts_with("life-")) {
@@ -949,6 +1012,7 @@ fn qa_capture(
     mut opts: ResMut<Options>,
     server: Res<AssetServer>,
     art: Res<Art>,
+    combat_art: Res<expedition::ExpeditionArt>,
     mut desktop: ResMut<window::Desktop>,
     mut exit: MessageWriter<AppExit>,
     mut session: ResMut<Session>,
@@ -961,6 +1025,17 @@ fn qa_capture(
         .images
         .iter()
         .any(|h| !server.is_loaded_with_dependencies(h.id()))
+    {
+        return;
+    }
+    if opts
+        .qa
+        .as_deref()
+        .is_some_and(|q| q.starts_with("expedition-"))
+        && combat_art
+            .images
+            .iter()
+            .any(|h| !server.is_loaded_with_dependencies(h.id()))
     {
         return;
     }
@@ -1038,6 +1113,18 @@ fn qa_capture(
                 session.save.state.sold >= 2 && session.save.state.command_id == 3,
                 "life loop did not complete"
             );
+        }
+        if opts
+            .qa
+            .as_deref()
+            .is_some_and(|q| q.starts_with("expedition-"))
+            && let Some(path) = &opts.capture
+        {
+            std::fs::write(
+                format!("{path}.json"),
+                serde_json::to_vec_pretty(&session.save.state).expect("encode combat state"),
+            )
+            .expect("write combat evidence");
         }
         exit.write(AppExit::Success);
     }

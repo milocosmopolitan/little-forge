@@ -27,3 +27,8 @@ Chef Kitchen Knife → Dagger의 제작 이력부터 검증하고, Farmer Rake �
 ## QA / 경계
 
 보상 이벤트 중복·판매 후 기록 삭제·동일 아이템 재귀 등록·저장 복귀 누락 방지. Codex는 제작 가능 규칙의 출처가 아니다. 제작 자격은 연구와 기술 레벨이 담당하고 도감은 **이미 일어난 사실**을 기록한다.
+
+
+## Expedition combat slice (2026-10-18)
+
+The first expedition now uses deterministic five-wave automatic combat. See [combat rules](EXPEDITION.md) and the implementation boundary in [Hunter return](FIRST_EXPEDITION.md). Weapon IDs retain actual field-use and defeat counts; five-wave completion reopens the forest and awards eight timber once. Full research/technique progression and the broader Codex UI remain separate open work, not completion claims from this combat slice.

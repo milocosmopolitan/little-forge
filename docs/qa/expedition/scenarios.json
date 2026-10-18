@@ -1,0 +1,3517 @@
+{
+  "combat_version": 1,
+  "results": [
+    {
+      "battle": {
+        "arrows": 12,
+        "bow": 1,
+        "cause": "MissingKnife",
+        "cleared": 2,
+        "distance": 0,
+        "done": true,
+        "enemy_hp": 6,
+        "food": 2,
+        "health": 0,
+        "id": 1,
+        "knife": null,
+        "loadout": {
+          "arrows": 24,
+          "food": 5,
+          "primary": 1,
+          "secondary": null
+        },
+        "opponent": 0,
+        "pause": 0,
+        "second": 33,
+        "seed": 11532217803599905471,
+        "settled": true,
+        "trace": [
+          {
+            "action": "Entry",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 0,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 1,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 2,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 3,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "BowRelease",
+            "amount": 8,
+            "enemy": "Wolf",
+            "second": 4,
+            "wave": 0,
+            "weapon": 1
+          },
+          {
+            "action": "EnemyDefeat",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 4,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "WaveCleared",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 5,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "Eat",
+            "amount": 20,
+            "enemy": "Wolf",
+            "second": 5,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 5,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 6,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 7,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "BowRelease",
+            "amount": 8,
+            "enemy": "Wolf",
+            "second": 8,
+            "wave": 1,
+            "weapon": 1
+          },
+          {
+            "action": "EnemyDefeat",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 8,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 9,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 10,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 11,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "BowRelease",
+            "amount": 8,
+            "enemy": "Wolf",
+            "second": 12,
+            "wave": 1,
+            "weapon": 1
+          },
+          {
+            "action": "EnemyDefeat",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 12,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "WaveCleared",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 13,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Eat",
+            "amount": 20,
+            "enemy": "Boar",
+            "second": 13,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 13,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 14,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 15,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "BowRelease",
+            "amount": 2,
+            "enemy": "Boar",
+            "second": 16,
+            "wave": 2,
+            "weapon": 1
+          },
+          {
+            "action": "BowDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 17,
+            "wave": 2,
+            "weapon": 1
+          },
+          {
+            "action": "BowRelease",
+            "amount": 2,
+            "enemy": "Boar",
+            "second": 18,
+            "wave": 2,
+            "weapon": 1
+          },
+          {
+            "action": "BowDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 19,
+            "wave": 2,
+            "weapon": 1
+          },
+          {
+            "action": "BowRelease",
+            "amount": 2,
+            "enemy": "Boar",
+            "second": 20,
+            "wave": 2,
+            "weapon": 1
+          },
+          {
+            "action": "BowDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 21,
+            "wave": 2,
+            "weapon": 1
+          },
+          {
+            "action": "Hit",
+            "amount": 12,
+            "enemy": "Boar",
+            "second": 21,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "BowRelease",
+            "amount": 1,
+            "enemy": "Boar",
+            "second": 22,
+            "wave": 2,
+            "weapon": 1
+          },
+          {
+            "action": "BowDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 23,
+            "wave": 2,
+            "weapon": 1
+          },
+          {
+            "action": "BowRelease",
+            "amount": 1,
+            "enemy": "Boar",
+            "second": 24,
+            "wave": 2,
+            "weapon": 1
+          },
+          {
+            "action": "Hit",
+            "amount": 12,
+            "enemy": "Boar",
+            "second": 24,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "BowDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 25,
+            "wave": 2,
+            "weapon": 1
+          },
+          {
+            "action": "BowRelease",
+            "amount": 1,
+            "enemy": "Boar",
+            "second": 26,
+            "wave": 2,
+            "weapon": 1
+          },
+          {
+            "action": "BowDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 27,
+            "wave": 2,
+            "weapon": 1
+          },
+          {
+            "action": "Hit",
+            "amount": 12,
+            "enemy": "Boar",
+            "second": 27,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "BowRelease",
+            "amount": 1,
+            "enemy": "Boar",
+            "second": 28,
+            "wave": 2,
+            "weapon": 1
+          },
+          {
+            "action": "BowDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 29,
+            "wave": 2,
+            "weapon": 1
+          },
+          {
+            "action": "BowRelease",
+            "amount": 1,
+            "enemy": "Boar",
+            "second": 30,
+            "wave": 2,
+            "weapon": 1
+          },
+          {
+            "action": "Hit",
+            "amount": 12,
+            "enemy": "Boar",
+            "second": 30,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "BowDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 31,
+            "wave": 2,
+            "weapon": 1
+          },
+          {
+            "action": "BowRelease",
+            "amount": 1,
+            "enemy": "Boar",
+            "second": 32,
+            "wave": 2,
+            "weapon": 1
+          },
+          {
+            "action": "BowDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 33,
+            "wave": 2,
+            "weapon": 1
+          },
+          {
+            "action": "Hit",
+            "amount": 12,
+            "enemy": "Boar",
+            "second": 33,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "Retreat",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 33,
+            "wave": 2,
+            "weapon": null
+          }
+        ],
+        "version": 1,
+        "wave": 2
+      },
+      "path_reopened": false,
+      "scenario": "bow-only",
+      "weapons": [
+        {
+          "crafted_at": 8,
+          "field_uses": 1,
+          "id": 1,
+          "kills": 3,
+          "kind": "Shortbow"
+        },
+        {
+          "crafted_at": 16,
+          "field_uses": 0,
+          "id": 2,
+          "kills": 0,
+          "kind": "HuntingKnife"
+        }
+      ]
+    },
+    {
+      "battle": {
+        "arrows": 0,
+        "bow": null,
+        "cause": "MissingBow",
+        "cleared": 4,
+        "distance": 0,
+        "done": true,
+        "enemy_hp": 18,
+        "food": 0,
+        "health": 0,
+        "id": 1,
+        "knife": 2,
+        "loadout": {
+          "arrows": 0,
+          "food": 5,
+          "primary": 2,
+          "secondary": null
+        },
+        "opponent": 1,
+        "pause": 0,
+        "second": 90,
+        "seed": 11532217803599905471,
+        "settled": true,
+        "trace": [
+          {
+            "action": "Entry",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 0,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 1,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 2,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 3,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 4,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 5,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 6,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "Hit",
+            "amount": 12,
+            "enemy": "Wolf",
+            "second": 6,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 7,
+            "wave": 0,
+            "weapon": 2
+          },
+          {
+            "action": "Slash",
+            "amount": 4,
+            "enemy": "Wolf",
+            "second": 8,
+            "wave": 0,
+            "weapon": 2
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 9,
+            "wave": 0,
+            "weapon": 2
+          },
+          {
+            "action": "Hit",
+            "amount": 12,
+            "enemy": "Wolf",
+            "second": 9,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "Slash",
+            "amount": 4,
+            "enemy": "Wolf",
+            "second": 10,
+            "wave": 0,
+            "weapon": 2
+          },
+          {
+            "action": "EnemyDefeat",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 10,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "WaveCleared",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 11,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "Eat",
+            "amount": 20,
+            "enemy": "Wolf",
+            "second": 11,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 11,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 12,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 13,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 14,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 15,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 16,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 17,
+            "wave": 1,
+            "weapon": 2
+          },
+          {
+            "action": "Slash",
+            "amount": 4,
+            "enemy": "Wolf",
+            "second": 18,
+            "wave": 1,
+            "weapon": 2
+          },
+          {
+            "action": "Hit",
+            "amount": 12,
+            "enemy": "Wolf",
+            "second": 18,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 19,
+            "wave": 1,
+            "weapon": 2
+          },
+          {
+            "action": "Slash",
+            "amount": 4,
+            "enemy": "Wolf",
+            "second": 20,
+            "wave": 1,
+            "weapon": 2
+          },
+          {
+            "action": "EnemyDefeat",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 20,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 21,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 22,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 23,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 24,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 25,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 26,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 27,
+            "wave": 1,
+            "weapon": 2
+          },
+          {
+            "action": "Hit",
+            "amount": 12,
+            "enemy": "Wolf",
+            "second": 27,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Slash",
+            "amount": 4,
+            "enemy": "Wolf",
+            "second": 28,
+            "wave": 1,
+            "weapon": 2
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 29,
+            "wave": 1,
+            "weapon": 2
+          },
+          {
+            "action": "Slash",
+            "amount": 4,
+            "enemy": "Wolf",
+            "second": 30,
+            "wave": 1,
+            "weapon": 2
+          },
+          {
+            "action": "EnemyDefeat",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 30,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "WaveCleared",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 31,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Eat",
+            "amount": 20,
+            "enemy": "Boar",
+            "second": 31,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 31,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 32,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 33,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 34,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 35,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 36,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 37,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 38,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 39,
+            "wave": 2,
+            "weapon": 2
+          },
+          {
+            "action": "Hit",
+            "amount": 12,
+            "enemy": "Boar",
+            "second": 39,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "Slash",
+            "amount": 6,
+            "enemy": "Boar",
+            "second": 40,
+            "wave": 2,
+            "weapon": 2
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 41,
+            "wave": 2,
+            "weapon": 2
+          },
+          {
+            "action": "Slash",
+            "amount": 6,
+            "enemy": "Boar",
+            "second": 42,
+            "wave": 2,
+            "weapon": 2
+          },
+          {
+            "action": "Hit",
+            "amount": 12,
+            "enemy": "Boar",
+            "second": 42,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 43,
+            "wave": 2,
+            "weapon": 2
+          },
+          {
+            "action": "Slash",
+            "amount": 6,
+            "enemy": "Boar",
+            "second": 44,
+            "wave": 2,
+            "weapon": 2
+          },
+          {
+            "action": "EnemyDefeat",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 44,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "WaveCleared",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 45,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "Eat",
+            "amount": 20,
+            "enemy": "Wolf",
+            "second": 45,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 45,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 46,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 47,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 48,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 49,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 50,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 51,
+            "wave": 3,
+            "weapon": 2
+          },
+          {
+            "action": "Hit",
+            "amount": 12,
+            "enemy": "Wolf",
+            "second": 51,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Slash",
+            "amount": 4,
+            "enemy": "Wolf",
+            "second": 52,
+            "wave": 3,
+            "weapon": 2
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 53,
+            "wave": 3,
+            "weapon": 2
+          },
+          {
+            "action": "Slash",
+            "amount": 4,
+            "enemy": "Wolf",
+            "second": 54,
+            "wave": 3,
+            "weapon": 2
+          },
+          {
+            "action": "EnemyDefeat",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 54,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 55,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 56,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 57,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 58,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 59,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 60,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 61,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 62,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 63,
+            "wave": 3,
+            "weapon": 2
+          },
+          {
+            "action": "Hit",
+            "amount": 12,
+            "enemy": "Boar",
+            "second": 63,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Slash",
+            "amount": 6,
+            "enemy": "Boar",
+            "second": 64,
+            "wave": 3,
+            "weapon": 2
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 65,
+            "wave": 3,
+            "weapon": 2
+          },
+          {
+            "action": "Slash",
+            "amount": 6,
+            "enemy": "Boar",
+            "second": 66,
+            "wave": 3,
+            "weapon": 2
+          },
+          {
+            "action": "Hit",
+            "amount": 12,
+            "enemy": "Boar",
+            "second": 66,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 67,
+            "wave": 3,
+            "weapon": 2
+          },
+          {
+            "action": "Slash",
+            "amount": 6,
+            "enemy": "Boar",
+            "second": 68,
+            "wave": 3,
+            "weapon": 2
+          },
+          {
+            "action": "EnemyDefeat",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 68,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "WaveCleared",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 69,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Eat",
+            "amount": 20,
+            "enemy": "Boar",
+            "second": 69,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 69,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 70,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 71,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 72,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 73,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 74,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 75,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 76,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 77,
+            "wave": 4,
+            "weapon": 2
+          },
+          {
+            "action": "Slash",
+            "amount": 6,
+            "enemy": "Boar",
+            "second": 78,
+            "wave": 4,
+            "weapon": 2
+          },
+          {
+            "action": "Hit",
+            "amount": 12,
+            "enemy": "Boar",
+            "second": 78,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 79,
+            "wave": 4,
+            "weapon": 2
+          },
+          {
+            "action": "Slash",
+            "amount": 6,
+            "enemy": "Boar",
+            "second": 80,
+            "wave": 4,
+            "weapon": 2
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 81,
+            "wave": 4,
+            "weapon": 2
+          },
+          {
+            "action": "Hit",
+            "amount": 12,
+            "enemy": "Boar",
+            "second": 81,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Slash",
+            "amount": 6,
+            "enemy": "Boar",
+            "second": 82,
+            "wave": 4,
+            "weapon": 2
+          },
+          {
+            "action": "EnemyDefeat",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 82,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 83,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 84,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 85,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 86,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 87,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 88,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 89,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 90,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Hit",
+            "amount": 12,
+            "enemy": "Boar",
+            "second": 90,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Retreat",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 90,
+            "wave": 4,
+            "weapon": null
+          }
+        ],
+        "version": 1,
+        "wave": 4
+      },
+      "path_reopened": false,
+      "scenario": "knife-only",
+      "weapons": [
+        {
+          "crafted_at": 8,
+          "field_uses": 0,
+          "id": 1,
+          "kills": 0,
+          "kind": "Shortbow"
+        },
+        {
+          "crafted_at": 16,
+          "field_uses": 1,
+          "id": 2,
+          "kills": 7,
+          "kind": "HuntingKnife"
+        }
+      ]
+    },
+    {
+      "battle": {
+        "arrows": 8,
+        "bow": 1,
+        "cause": null,
+        "cleared": 5,
+        "distance": 0,
+        "done": true,
+        "enemy_hp": 0,
+        "food": 0,
+        "health": 8,
+        "id": 1,
+        "knife": 2,
+        "loadout": {
+          "arrows": 24,
+          "food": 5,
+          "primary": 1,
+          "secondary": 2
+        },
+        "opponent": 1,
+        "pause": 0,
+        "second": 65,
+        "seed": 11532217803599905471,
+        "settled": true,
+        "trace": [
+          {
+            "action": "Entry",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 0,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 1,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 2,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 3,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "BowRelease",
+            "amount": 8,
+            "enemy": "Wolf",
+            "second": 4,
+            "wave": 0,
+            "weapon": 1
+          },
+          {
+            "action": "EnemyDefeat",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 4,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "WaveCleared",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 5,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "Eat",
+            "amount": 20,
+            "enemy": "Wolf",
+            "second": 5,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 5,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 6,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 7,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "BowRelease",
+            "amount": 8,
+            "enemy": "Wolf",
+            "second": 8,
+            "wave": 1,
+            "weapon": 1
+          },
+          {
+            "action": "EnemyDefeat",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 8,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 9,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 10,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 11,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "BowRelease",
+            "amount": 8,
+            "enemy": "Wolf",
+            "second": 12,
+            "wave": 1,
+            "weapon": 1
+          },
+          {
+            "action": "EnemyDefeat",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 12,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "WaveCleared",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 13,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Eat",
+            "amount": 20,
+            "enemy": "Boar",
+            "second": 13,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 13,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 14,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 15,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "BowRelease",
+            "amount": 2,
+            "enemy": "Boar",
+            "second": 16,
+            "wave": 2,
+            "weapon": 1
+          },
+          {
+            "action": "BowDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 17,
+            "wave": 2,
+            "weapon": 1
+          },
+          {
+            "action": "BowRelease",
+            "amount": 2,
+            "enemy": "Boar",
+            "second": 18,
+            "wave": 2,
+            "weapon": 1
+          },
+          {
+            "action": "BowDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 19,
+            "wave": 2,
+            "weapon": 1
+          },
+          {
+            "action": "BowRelease",
+            "amount": 2,
+            "enemy": "Boar",
+            "second": 20,
+            "wave": 2,
+            "weapon": 1
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 21,
+            "wave": 2,
+            "weapon": 2
+          },
+          {
+            "action": "Hit",
+            "amount": 12,
+            "enemy": "Boar",
+            "second": 21,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "Slash",
+            "amount": 6,
+            "enemy": "Boar",
+            "second": 22,
+            "wave": 2,
+            "weapon": 2
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 23,
+            "wave": 2,
+            "weapon": 2
+          },
+          {
+            "action": "Slash",
+            "amount": 6,
+            "enemy": "Boar",
+            "second": 24,
+            "wave": 2,
+            "weapon": 2
+          },
+          {
+            "action": "EnemyDefeat",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 24,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "WaveCleared",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 25,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "Eat",
+            "amount": 20,
+            "enemy": "Wolf",
+            "second": 25,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 25,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 26,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 27,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "BowRelease",
+            "amount": 8,
+            "enemy": "Wolf",
+            "second": 28,
+            "wave": 3,
+            "weapon": 1
+          },
+          {
+            "action": "EnemyDefeat",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 28,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 29,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 30,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 31,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "BowRelease",
+            "amount": 2,
+            "enemy": "Boar",
+            "second": 32,
+            "wave": 3,
+            "weapon": 1
+          },
+          {
+            "action": "BowDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 33,
+            "wave": 3,
+            "weapon": 1
+          },
+          {
+            "action": "BowRelease",
+            "amount": 2,
+            "enemy": "Boar",
+            "second": 34,
+            "wave": 3,
+            "weapon": 1
+          },
+          {
+            "action": "BowDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 35,
+            "wave": 3,
+            "weapon": 1
+          },
+          {
+            "action": "BowRelease",
+            "amount": 2,
+            "enemy": "Boar",
+            "second": 36,
+            "wave": 3,
+            "weapon": 1
+          },
+          {
+            "action": "Hit",
+            "amount": 12,
+            "enemy": "Boar",
+            "second": 36,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 37,
+            "wave": 3,
+            "weapon": 2
+          },
+          {
+            "action": "Slash",
+            "amount": 6,
+            "enemy": "Boar",
+            "second": 38,
+            "wave": 3,
+            "weapon": 2
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 39,
+            "wave": 3,
+            "weapon": 2
+          },
+          {
+            "action": "Hit",
+            "amount": 12,
+            "enemy": "Boar",
+            "second": 39,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Slash",
+            "amount": 6,
+            "enemy": "Boar",
+            "second": 40,
+            "wave": 3,
+            "weapon": 2
+          },
+          {
+            "action": "EnemyDefeat",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 40,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "WaveCleared",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 41,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Eat",
+            "amount": 20,
+            "enemy": "Boar",
+            "second": 41,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 41,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 42,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 43,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "BowRelease",
+            "amount": 2,
+            "enemy": "Boar",
+            "second": 44,
+            "wave": 4,
+            "weapon": 1
+          },
+          {
+            "action": "BowDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 45,
+            "wave": 4,
+            "weapon": 1
+          },
+          {
+            "action": "BowRelease",
+            "amount": 2,
+            "enemy": "Boar",
+            "second": 46,
+            "wave": 4,
+            "weapon": 1
+          },
+          {
+            "action": "BowDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 47,
+            "wave": 4,
+            "weapon": 1
+          },
+          {
+            "action": "BowRelease",
+            "amount": 2,
+            "enemy": "Boar",
+            "second": 48,
+            "wave": 4,
+            "weapon": 1
+          },
+          {
+            "action": "Hit",
+            "amount": 12,
+            "enemy": "Boar",
+            "second": 48,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 49,
+            "wave": 4,
+            "weapon": 2
+          },
+          {
+            "action": "Slash",
+            "amount": 6,
+            "enemy": "Boar",
+            "second": 50,
+            "wave": 4,
+            "weapon": 2
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 51,
+            "wave": 4,
+            "weapon": 2
+          },
+          {
+            "action": "Hit",
+            "amount": 12,
+            "enemy": "Boar",
+            "second": 51,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Slash",
+            "amount": 6,
+            "enemy": "Boar",
+            "second": 52,
+            "wave": 4,
+            "weapon": 2
+          },
+          {
+            "action": "EnemyDefeat",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 52,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 53,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 54,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 55,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "BowRelease",
+            "amount": 2,
+            "enemy": "Boar",
+            "second": 56,
+            "wave": 4,
+            "weapon": 1
+          },
+          {
+            "action": "BowDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 57,
+            "wave": 4,
+            "weapon": 1
+          },
+          {
+            "action": "BowRelease",
+            "amount": 2,
+            "enemy": "Boar",
+            "second": 58,
+            "wave": 4,
+            "weapon": 1
+          },
+          {
+            "action": "BowDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 59,
+            "wave": 4,
+            "weapon": 1
+          },
+          {
+            "action": "BowRelease",
+            "amount": 2,
+            "enemy": "Boar",
+            "second": 60,
+            "wave": 4,
+            "weapon": 1
+          },
+          {
+            "action": "Hit",
+            "amount": 12,
+            "enemy": "Boar",
+            "second": 60,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 61,
+            "wave": 4,
+            "weapon": 2
+          },
+          {
+            "action": "Slash",
+            "amount": 6,
+            "enemy": "Boar",
+            "second": 62,
+            "wave": 4,
+            "weapon": 2
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 63,
+            "wave": 4,
+            "weapon": 2
+          },
+          {
+            "action": "Hit",
+            "amount": 12,
+            "enemy": "Boar",
+            "second": 63,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Slash",
+            "amount": 6,
+            "enemy": "Boar",
+            "second": 64,
+            "wave": 4,
+            "weapon": 2
+          },
+          {
+            "action": "EnemyDefeat",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 64,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "WaveCleared",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 65,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Victory",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 65,
+            "wave": 4,
+            "weapon": null
+          }
+        ],
+        "version": 1,
+        "wave": 4
+      },
+      "path_reopened": true,
+      "scenario": "combined",
+      "weapons": [
+        {
+          "crafted_at": 8,
+          "field_uses": 1,
+          "id": 1,
+          "kills": 4,
+          "kind": "Shortbow"
+        },
+        {
+          "crafted_at": 16,
+          "field_uses": 1,
+          "id": 2,
+          "kills": 4,
+          "kind": "HuntingKnife"
+        }
+      ]
+    },
+    {
+      "battle": {
+        "arrows": 18,
+        "bow": 1,
+        "cause": "NoFood",
+        "cleared": 3,
+        "distance": 0,
+        "done": true,
+        "enemy_hp": 0,
+        "food": 0,
+        "health": 0,
+        "id": 1,
+        "knife": 2,
+        "loadout": {
+          "arrows": 24,
+          "food": 0,
+          "primary": 1,
+          "secondary": 2
+        },
+        "opponent": 0,
+        "pause": 0,
+        "second": 25,
+        "seed": 11532217803599905471,
+        "settled": true,
+        "trace": [
+          {
+            "action": "Entry",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 0,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 1,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 2,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 3,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "BowRelease",
+            "amount": 8,
+            "enemy": "Wolf",
+            "second": 4,
+            "wave": 0,
+            "weapon": 1
+          },
+          {
+            "action": "EnemyDefeat",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 4,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "WaveCleared",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 5,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 5,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 6,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 7,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "BowRelease",
+            "amount": 8,
+            "enemy": "Wolf",
+            "second": 8,
+            "wave": 1,
+            "weapon": 1
+          },
+          {
+            "action": "EnemyDefeat",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 8,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 9,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 10,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 11,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "BowRelease",
+            "amount": 8,
+            "enemy": "Wolf",
+            "second": 12,
+            "wave": 1,
+            "weapon": 1
+          },
+          {
+            "action": "EnemyDefeat",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 12,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "WaveCleared",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 13,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 13,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 14,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 15,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "BowRelease",
+            "amount": 2,
+            "enemy": "Boar",
+            "second": 16,
+            "wave": 2,
+            "weapon": 1
+          },
+          {
+            "action": "BowDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 17,
+            "wave": 2,
+            "weapon": 1
+          },
+          {
+            "action": "BowRelease",
+            "amount": 2,
+            "enemy": "Boar",
+            "second": 18,
+            "wave": 2,
+            "weapon": 1
+          },
+          {
+            "action": "BowDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 19,
+            "wave": 2,
+            "weapon": 1
+          },
+          {
+            "action": "BowRelease",
+            "amount": 2,
+            "enemy": "Boar",
+            "second": 20,
+            "wave": 2,
+            "weapon": 1
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 21,
+            "wave": 2,
+            "weapon": 2
+          },
+          {
+            "action": "Hit",
+            "amount": 12,
+            "enemy": "Boar",
+            "second": 21,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "Slash",
+            "amount": 6,
+            "enemy": "Boar",
+            "second": 22,
+            "wave": 2,
+            "weapon": 2
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 23,
+            "wave": 2,
+            "weapon": 2
+          },
+          {
+            "action": "Slash",
+            "amount": 6,
+            "enemy": "Boar",
+            "second": 24,
+            "wave": 2,
+            "weapon": 2
+          },
+          {
+            "action": "EnemyDefeat",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 24,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "WaveCleared",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 25,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "Retreat",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 25,
+            "wave": 3,
+            "weapon": null
+          }
+        ],
+        "version": 1,
+        "wave": 3
+      },
+      "path_reopened": false,
+      "scenario": "no-food",
+      "weapons": [
+        {
+          "crafted_at": 8,
+          "field_uses": 1,
+          "id": 1,
+          "kills": 3,
+          "kind": "Shortbow"
+        },
+        {
+          "crafted_at": 16,
+          "field_uses": 1,
+          "id": 2,
+          "kills": 1,
+          "kind": "HuntingKnife"
+        }
+      ]
+    },
+    {
+      "battle": {
+        "arrows": 0,
+        "bow": 1,
+        "cause": "NoArrows",
+        "cleared": 4,
+        "distance": 0,
+        "done": true,
+        "enemy_hp": 18,
+        "food": 0,
+        "health": 0,
+        "id": 1,
+        "knife": 2,
+        "loadout": {
+          "arrows": 0,
+          "food": 5,
+          "primary": 1,
+          "secondary": 2
+        },
+        "opponent": 1,
+        "pause": 0,
+        "second": 90,
+        "seed": 11532217803599905471,
+        "settled": true,
+        "trace": [
+          {
+            "action": "Entry",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 0,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 1,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 2,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 3,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 4,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 5,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 6,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "Hit",
+            "amount": 12,
+            "enemy": "Wolf",
+            "second": 6,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 7,
+            "wave": 0,
+            "weapon": 2
+          },
+          {
+            "action": "Slash",
+            "amount": 4,
+            "enemy": "Wolf",
+            "second": 8,
+            "wave": 0,
+            "weapon": 2
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 9,
+            "wave": 0,
+            "weapon": 2
+          },
+          {
+            "action": "Hit",
+            "amount": 12,
+            "enemy": "Wolf",
+            "second": 9,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "Slash",
+            "amount": 4,
+            "enemy": "Wolf",
+            "second": 10,
+            "wave": 0,
+            "weapon": 2
+          },
+          {
+            "action": "EnemyDefeat",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 10,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "WaveCleared",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 11,
+            "wave": 0,
+            "weapon": null
+          },
+          {
+            "action": "Eat",
+            "amount": 20,
+            "enemy": "Wolf",
+            "second": 11,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 11,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 12,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 13,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 14,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 15,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 16,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 17,
+            "wave": 1,
+            "weapon": 2
+          },
+          {
+            "action": "Slash",
+            "amount": 4,
+            "enemy": "Wolf",
+            "second": 18,
+            "wave": 1,
+            "weapon": 2
+          },
+          {
+            "action": "Hit",
+            "amount": 12,
+            "enemy": "Wolf",
+            "second": 18,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 19,
+            "wave": 1,
+            "weapon": 2
+          },
+          {
+            "action": "Slash",
+            "amount": 4,
+            "enemy": "Wolf",
+            "second": 20,
+            "wave": 1,
+            "weapon": 2
+          },
+          {
+            "action": "EnemyDefeat",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 20,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 21,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 22,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 23,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 24,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 25,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 26,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 27,
+            "wave": 1,
+            "weapon": 2
+          },
+          {
+            "action": "Hit",
+            "amount": 12,
+            "enemy": "Wolf",
+            "second": 27,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Slash",
+            "amount": 4,
+            "enemy": "Wolf",
+            "second": 28,
+            "wave": 1,
+            "weapon": 2
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 29,
+            "wave": 1,
+            "weapon": 2
+          },
+          {
+            "action": "Slash",
+            "amount": 4,
+            "enemy": "Wolf",
+            "second": 30,
+            "wave": 1,
+            "weapon": 2
+          },
+          {
+            "action": "EnemyDefeat",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 30,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "WaveCleared",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 31,
+            "wave": 1,
+            "weapon": null
+          },
+          {
+            "action": "Eat",
+            "amount": 20,
+            "enemy": "Boar",
+            "second": 31,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 31,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 32,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 33,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 34,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 35,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 36,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 37,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 38,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 39,
+            "wave": 2,
+            "weapon": 2
+          },
+          {
+            "action": "Hit",
+            "amount": 12,
+            "enemy": "Boar",
+            "second": 39,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "Slash",
+            "amount": 6,
+            "enemy": "Boar",
+            "second": 40,
+            "wave": 2,
+            "weapon": 2
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 41,
+            "wave": 2,
+            "weapon": 2
+          },
+          {
+            "action": "Slash",
+            "amount": 6,
+            "enemy": "Boar",
+            "second": 42,
+            "wave": 2,
+            "weapon": 2
+          },
+          {
+            "action": "Hit",
+            "amount": 12,
+            "enemy": "Boar",
+            "second": 42,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 43,
+            "wave": 2,
+            "weapon": 2
+          },
+          {
+            "action": "Slash",
+            "amount": 6,
+            "enemy": "Boar",
+            "second": 44,
+            "wave": 2,
+            "weapon": 2
+          },
+          {
+            "action": "EnemyDefeat",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 44,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "WaveCleared",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 45,
+            "wave": 2,
+            "weapon": null
+          },
+          {
+            "action": "Eat",
+            "amount": 20,
+            "enemy": "Wolf",
+            "second": 45,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 45,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 46,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 47,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 48,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 49,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 50,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 51,
+            "wave": 3,
+            "weapon": 2
+          },
+          {
+            "action": "Hit",
+            "amount": 12,
+            "enemy": "Wolf",
+            "second": 51,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Slash",
+            "amount": 4,
+            "enemy": "Wolf",
+            "second": 52,
+            "wave": 3,
+            "weapon": 2
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 53,
+            "wave": 3,
+            "weapon": 2
+          },
+          {
+            "action": "Slash",
+            "amount": 4,
+            "enemy": "Wolf",
+            "second": 54,
+            "wave": 3,
+            "weapon": 2
+          },
+          {
+            "action": "EnemyDefeat",
+            "amount": 0,
+            "enemy": "Wolf",
+            "second": 54,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 55,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 56,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 57,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 58,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 59,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 60,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 61,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 62,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 63,
+            "wave": 3,
+            "weapon": 2
+          },
+          {
+            "action": "Hit",
+            "amount": 12,
+            "enemy": "Boar",
+            "second": 63,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Slash",
+            "amount": 6,
+            "enemy": "Boar",
+            "second": 64,
+            "wave": 3,
+            "weapon": 2
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 65,
+            "wave": 3,
+            "weapon": 2
+          },
+          {
+            "action": "Slash",
+            "amount": 6,
+            "enemy": "Boar",
+            "second": 66,
+            "wave": 3,
+            "weapon": 2
+          },
+          {
+            "action": "Hit",
+            "amount": 12,
+            "enemy": "Boar",
+            "second": 66,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 67,
+            "wave": 3,
+            "weapon": 2
+          },
+          {
+            "action": "Slash",
+            "amount": 6,
+            "enemy": "Boar",
+            "second": 68,
+            "wave": 3,
+            "weapon": 2
+          },
+          {
+            "action": "EnemyDefeat",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 68,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "WaveCleared",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 69,
+            "wave": 3,
+            "weapon": null
+          },
+          {
+            "action": "Eat",
+            "amount": 20,
+            "enemy": "Boar",
+            "second": 69,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 69,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 70,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 71,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 72,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 73,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 74,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 75,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 76,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 77,
+            "wave": 4,
+            "weapon": 2
+          },
+          {
+            "action": "Slash",
+            "amount": 6,
+            "enemy": "Boar",
+            "second": 78,
+            "wave": 4,
+            "weapon": 2
+          },
+          {
+            "action": "Hit",
+            "amount": 12,
+            "enemy": "Boar",
+            "second": 78,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 79,
+            "wave": 4,
+            "weapon": 2
+          },
+          {
+            "action": "Slash",
+            "amount": 6,
+            "enemy": "Boar",
+            "second": 80,
+            "wave": 4,
+            "weapon": 2
+          },
+          {
+            "action": "KnifeDraw",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 81,
+            "wave": 4,
+            "weapon": 2
+          },
+          {
+            "action": "Hit",
+            "amount": 12,
+            "enemy": "Boar",
+            "second": 81,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Slash",
+            "amount": 6,
+            "enemy": "Boar",
+            "second": 82,
+            "wave": 4,
+            "weapon": 2
+          },
+          {
+            "action": "EnemyDefeat",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 82,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 83,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 84,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 85,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 86,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 87,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 88,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 89,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Walk",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 90,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Hit",
+            "amount": 12,
+            "enemy": "Boar",
+            "second": 90,
+            "wave": 4,
+            "weapon": null
+          },
+          {
+            "action": "Retreat",
+            "amount": 0,
+            "enemy": "Boar",
+            "second": 90,
+            "wave": 4,
+            "weapon": null
+          }
+        ],
+        "version": 1,
+        "wave": 4
+      },
+      "path_reopened": false,
+      "scenario": "no-arrows",
+      "weapons": [
+        {
+          "crafted_at": 8,
+          "field_uses": 1,
+          "id": 1,
+          "kills": 0,
+          "kind": "Shortbow"
+        },
+        {
+          "crafted_at": 16,
+          "field_uses": 1,
+          "id": 2,
+          "kills": 7,
+          "kind": "HuntingKnife"
+        }
+      ]
+    }
+  ]
+}

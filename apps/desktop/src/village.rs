@@ -89,6 +89,13 @@ pub fn setup(
     opts: Res<Options>,
     mut v: ResMut<Village>,
 ) {
+    if opts
+        .qa
+        .as_deref()
+        .is_some_and(|q| q.starts_with("expedition-"))
+    {
+        v.nav.visit(Location::Outside);
+    }
     if let Some(q) = opts.qa.as_deref().and_then(|q| q.strip_prefix("village-")) {
         v.nav.map();
         if let Some(l) = match q {
@@ -467,6 +474,7 @@ pub fn draw(
     };
     commands.entity(root).despawn_children();
     let show = d.shell.expanded
+        && v.nav.screen != Screen::Destination(Location::Outside)
         && !title.active
         && opts.qa.as_deref().is_none_or(|q| {
             q.starts_with("village-")

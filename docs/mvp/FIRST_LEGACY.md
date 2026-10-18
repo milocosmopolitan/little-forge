@@ -43,3 +43,8 @@
 ## 제외
 
 카드 29종 전체 구현, 60무기 도감 채우기, 온라인 마켓/Steam Market, 탐험 전투 영상, 다중 파티/영구 고용, 도구 내구도 물리 시뮬레이션, 별도 3D 월드.
+
+
+## Expedition combat slice (2026-10-18)
+
+The first expedition now uses deterministic five-wave automatic combat. See [combat rules](../system/EXPEDITION.md) and the implementation boundary in [Hunter return](../system/FIRST_EXPEDITION.md). Weapon IDs retain actual field-use and defeat counts; five-wave completion reopens the forest and awards eight timber once. Full research/technique progression and the broader Codex UI remain separate open work, not completion claims from this combat slice.

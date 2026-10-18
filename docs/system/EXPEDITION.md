@@ -1,62 +1,51 @@
-# Expedition — 탐험
+# Expedition combat
 
-[홈](../../README.md) · [재료](../items/MATERIALS.md) · [소비품](../items/CONSUMEABLES.md)
+The approved milestone replaces timer-only dispatch with observable automatic combat.
+One Hunter, Old Forest Path, wolves and wild boars, five sequential encounters and three
+loadout slots. Direct attack controls, parties, procedural maps and permanent loss are excluded.
 
-## 역할과 결정 범위
+Open **Outside / Expeditions** from the map, or press **X**. Queue a shortbow, hunting knife
+and arrows using the existing smith work queue. Click primary and secondary to cycle owned
+instances, choose food (0–5) and arrows (0/12/24/36), then launch. Back to forge hides the
+view without pausing either simulation. The returning Hunter explains the actual result.
 
-탐험은 의뢰 사이에 재료를 확보하고 대장간 성장에 필요한 발견을 얻는 활동이다. 재료를 상점에서 바로 구매할지, 탐험으로 확보할지가 선택이 된다.
+## Rules, version 1
 
-주점은 음식과 탐험가 모집, 마을 밖은 탐험 UI로 분리하는 방향을 유지한다. 초기 구현은 탐험가 파견 중심의 **설계안**이다. 사용자 표현의 직접 재료 수집이 실시간 캐릭터 조작·전투까지 확정한다는 뜻은 아니다.
+The Rust core advances one integer second at a time. Wolves have 8 condition and close
+faster. Boars have 18 condition, telegraph their approach and charge the final gap.
+A ranged bow hit deals 8 to a wolf and 2 to a boar; at close range it deals 4 and 1.
+A knife deals 4 to a wolf and 6 to a boar. Hunter attacks alternate seconds; an enemy in
+range deals 12 every third second. No hit/reward random rolls occur. The recorded seed is
+reserved provenance; version 1 does not consume it. View time does not determine outcomes.
 
-직접 이동·전투·물리·완전한 던전 게임을 파운데이션 범위에 추가하지 않는다. 이후 직접 탐험을 확장할지는 별도 결정한다.
+Encounters: wolf; two wolves; boar; wolf then boar; two boars. Threats resolve sequentially,
+without physics or navigation. The Hunter starts with 60 condition when fed (48 without).
+One ration is consumed on departure, then one between each wave, restoring 20 condition.
+An empty ration allocation loses 12 condition between waves. Zero condition means safe retreat.
 
-## 파견 흐름 — 설계안
+These are playtest values, recorded in `assets/expedition/encounters.json` and versioned
+against the core's encounter contract. They are not a final balance qualification.
 
-1. 주점에서 탐험가 후보와 조건을 확인한다.
-2. 마을 밖 화면에서 지역·보상 후보·소요 시간을 확인한다.
-3. 필요한 장비·보급·골드와 현재 재고를 점검한다.
-4. 파견을 확정해 비용·보급을 한 번 소비한다.
-5. 진행 중에는 남은 시간·예상 귀환을 표시한다.
-6. 귀환 결과를 장부에 기록하고 정해진 방식으로 정산한다.
-7. 재료와 발견을 제작·연구로 연결한다.
+## Ownership, persistence and recovery
 
-모집이 곧 파견 비용 지불인지, 별도 고용인지, 탐험가가 영구 소유인지 모두 미정이다. 복잡한 탐험가 육성·클래스·전투 능력치를 자동 추가하지 않는다.
+Crafted expedition weapons have stable IDs and stay in a bounded 32-instance owned armory;
+they are separate from sale stock and cannot be sold or salvaged while lent. One concurrent
+contract locks its equipment snapshot. Arrows and food are debited atomically on launch.
+Unused arrows return once. Unused food is reimbursed at the current saved staple price,
+so a full pantry cannot block return. Each cleared wave pays 2 gold. A natural retreat pays
+at least 2 gold in trail salvage, allowing recovery even with no ammunition or provisions;
+voluntary recall only pays for cleared waves. First full completion grants 8 timber once.
 
-## 상태
+Schema 5 migrates journal schemas 1–4, retaining their prior migrations and adding an empty
+expedition ledger. Current saves require expedition state. Battle version, seed, loadout,
+condition, distance, progress, trace and settlement flag are persisted. Unsupported future
+versions are rejected. The existing eight-hour offline cap applies. No automatic relaunch.
+The latest 16 previous battles plus the active battle retain complete bounded event traces;
+per-weapon field-use/defeat counters survive history eviction. Viewing never settles rewards.
 
-| 상태 | 보유 정보 | 허용 행동 후보 |
-|---|---|---|
-| 준비 | 지역·탐험가·보급 선택 | 변경·취소·파견 |
-| 파견 중 | 시작/완료 시각·시드·적용 효과 | 진행 확인 |
-| 귀환·정산 대기 | 보상 결과·정산 ID | 결과 확인·정산 |
-| 정산 완료 | 획득 기록 | 다음 준비 |
+## Presentation and remaining acceptance
 
-보상 결과 확정 시점과 자동 정산 여부는 미정이다. 결과를 한 번 확정하면 저장·재접속으로 재추첨하지 않도록 시드 또는 결과를 저장한다.
-
-## 재료·장비·음식
-
-농장은 식량 꾸러미, 주점은 음식과 모집을 제공한다. 고급 식량 상품 해금은 더 나은 보급 선택으로 이어지는 후보다.
-
-음식 효과는 다음 탐험 시간·보상 보조 등으로 검토한다. 파견 시작 시 해당 효과를 고정하고 실제 소비와 함께 저장하는 설계안이다.
-
-대장장이가 만든 무기를 탐험가에게 제공하는 튜토리얼·서사 방향을 보존한다. 무기 지급 시 소유권 이전·회수·효과·손실 여부는 미정이다. 무기의 실제 내구도 시뮬레이션을 요구하지 않는다.
-
-## 시간과 오프라인
-
-[아키텍처](../../ARCHITECTURE.md)의 제한된 경과 시간 처리를 권장한다. 절전·종료 후 돌아오면 정한 상한 내에서 귀환을 처리한다. 상한 값은 미정이다.
-
-예약된 탐험을 무한 반복 파견하거나 오프라인 동안 모집·보급 구매까지 자동 수행하지 않는다. 한 번의 귀환을 여러 번 정산하지 않는다. 상한이 적용되면 실제 경과와 인정 진행의 차이를 설명한다.
-
-## 초기 범위
-
-최소 한 지역으로 파견→귀환→재료→제작 연결을 검증하는 설계안이다. 이전 제안에는 1개 또는 2개 지역이 있으므로 최종 지역 수는 확정하지 않는다. 지역 이름·소요 시간·동시 파견 수·실패·탐험가 손실·카드 보상·희귀 드롭 확률은 미정이다.
-
-필수 재료를 낮은 확률 드롭 하나에만 묶어 의뢰를 막지 않는다. 실패 보상·전멸·재료 손실 같은 처벌은 방치형 경험과 수리 경제를 확인한 뒤 결정한다.
-
-## 검증 기준
-
-파견 비용 중복 차감 방지, 예약된 보급의 중복 사용 방지, 파견 시 효과 고정, 저장/복귀 후 동일 결과, 보상 1회 지급, 오프라인 상한, 재료 구매와 파견의 선택 가치를 검증한다.
-
-## 첫 콘텐츠 확정 방향: Hunter와 귀환 대화
-
-[Hunter 첫 탐험](FIRST_EXPEDITION.md)과 [World Progression](WORLD_PROGRESSION.md)을 다음 구현의 기준으로 둔다. Hunter는 Bow/Arrows 등 주문을 받는 외부 NPC이자 첫 **일회성** 탐험가. 정상 귀환 시 빌린 제작 무기를 반환한다. 탐험 결과의 핵심 표현은 전투 리플레이가 아니라 **Hunter가 제작 무기의 실전 사용 경험을 들려주는 대화**이고 수치 보고서는 보조이다. 초기 숲길 지역 전멸 없음은 제안된 안전 범위이며 이후 고위험 지역은 별도 설계한다. 앞서 이 문서에 남아 있던 고용 방식의 '미정'은 첫 탐험 범위에 한해 일회성으로 결정되었다.
+Bevy renders authoritative event snapshots with independent cosmetic animation frames.
+The forest backdrop and continuous ground are static; two actors and light effects keep
+render cost small. New action/monster art is a visual candidate, not approved production art.
+See [combat QA](../qa/EXPEDITION-COMBAT.md) for actual checks and evidence boundaries.

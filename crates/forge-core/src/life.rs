@@ -5,18 +5,21 @@ use std::collections::VecDeque;
 
 #[derive(Debug, Clone, Copy, Serialize, Deserialize, PartialEq, Eq)]
 pub enum WorkKind {
+    ExpeditionGear(crate::expedition::Gear),
     IronDagger,
     FarmerSickleRepair,
 }
 impl WorkKind {
     pub fn seconds(self) -> u64 {
         match self {
+            Self::ExpeditionGear(_) => 8,
             Self::IronDagger => CRAFT_SECS,
             Self::FarmerSickleRepair => crate::commission::REPAIR_SECS,
         }
     }
     pub fn label(self) -> &'static str {
         match self {
+            Self::ExpeditionGear(g) => g.label(),
             Self::IronDagger => "Iron dagger",
             Self::FarmerSickleRepair => "Farmer's sickle repair",
         }
@@ -318,6 +321,7 @@ impl State {
                         l.fatigue = l.fatigue.saturating_add(gain).min(MAX_NEED);
                         if l.work == 0 {
                             match self.life.active_job.take().ok_or(Error::InvalidState)? {
+                                WorkKind::ExpeditionGear(g) => self.finish_expedition_gear(g)?,
                                 WorkKind::IronDagger => {
                                     self.showroom.place(self.current_good())?;
                                     self.crafted =

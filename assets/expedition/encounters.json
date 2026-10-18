@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "region": "old_forest_path",
+  "waves": [["Wolf"], ["Wolf", "Wolf"], ["Boar"], ["Wolf", "Boar"], ["Boar", "Boar"]],
+  "equipment": [
+    {"id":"shortbow","trait":"ranged_opening","ore":1,"timber":2,"seconds":8},
+    {"id":"hunting_knife","trait":"close_range_piercing","ore":2,"timber":0,"seconds":8},
+    {"id":"arrows","quantity":12,"ore":1,"timber":1,"seconds":8}
+  ],
+  "provisions": {"max_food":5,"max_arrows":36,"food_condition":20},
+  "rewards": {"gold_per_wave":2,"first_completion_timber":8},
+  "balance_status":"playtest candidate"
+}

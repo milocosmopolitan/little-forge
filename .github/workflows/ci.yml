@@ -40,14 +40,20 @@ jobs:
       - run: python scripts/validate-village.py
       - run: python scripts/validate-ui.py
       - run: python scripts/validate-spaces.py
+      - run: python scripts/validate-expedition.py
       - shell: bash
         run: |
           mkdir -p qa-output
           cargo run --locked --release -p forge-qa > qa-output/simulation.json
           cargo run --locked --release -p forge-qa -- life-loop > qa-output/life-multiday.json
+          cargo run --locked --release -p forge-qa -- expedition > qa-output/expedition.json
       - name: Build Windows diagnostic executable
         if: runner.os == 'Windows'
         run: cargo build --locked -p little-forge
+      - run: cargo build --locked --release -p little-forge -p npc-preview -p ui-preview
+      - name: Capture expedition combat on native desktops
+        if: runner.os != 'Linux'
+        run: python scripts/capture-expedition.py target/release/little-forge${{ runner.os == 'Windows' && '.exe' || '' }}
       - name: Compare Windows debug scenes
         if: runner.os == 'Windows'
         shell: pwsh
@@ -58,7 +64,6 @@ jobs:
           name: windows-debug-scenes
           path: qa-debug/
           retention-days: 14
-      - run: cargo build --locked --release -p little-forge -p npc-preview -p ui-preview
       - name: Compare Windows release scenes
         if: runner.os == 'Windows'
         shell: pwsh
@@ -97,6 +102,8 @@ jobs:
       - run: sudo apt-get update && sudo apt-get install -y libx11-dev libxkbcommon-dev libxkbcommon-x11-0 libudev-dev libasound2-dev libvulkan1 mesa-vulkan-drivers xvfb libxtst6
       - run: cargo build --locked -p little-forge -p npc-preview -p ui-preview
       - run: python -m pip install -r scripts/requirements-qa.txt
+      - name: Capture expedition combat in the actual game
+        run: xvfb-run -a -s '-screen 0 1280x800x24' python scripts/capture-expedition.py target/debug/little-forge
       - run: |
           mkdir -p qa-output
           for scene in ambient sale expanded; do
