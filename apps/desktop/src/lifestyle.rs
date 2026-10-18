@@ -34,7 +34,12 @@ fn live_text(s: &Session, kind: Live) -> String {
             l.queue,
             l.work.div_ceil(l.speed()) + l.remaining as u64
         ),
-        Live::Status => s.status.split(". C craft").next().unwrap_or(&s.status).to_string(),
+        Live::Status => s
+            .status
+            .split(". C craft")
+            .next()
+            .unwrap_or(&s.status)
+            .to_string(),
         Live::Fatigue => format!("Fatigue {}%", l.fatigue / 100),
         Live::Hunger => format!("Hunger {}%", l.hunger / 100),
         Live::Thirst => format!("Thirst {}%", l.thirst / 100),
@@ -79,7 +84,11 @@ fn meter(parent: &mut ChildSpawnerCommands, s: &Session, label: Option<Live>, ba
         });
 }
 /// Writes only on change so Bevy does not re-layout text or nodes every frame.
-pub fn live(s: Res<Session>, mut texts: Query<(&Live, &mut Text)>, mut bars: Query<(&Live, &mut Node)>) {
+pub fn live(
+    s: Res<Session>,
+    mut texts: Query<(&Live, &mut Text)>,
+    mut bars: Query<(&Live, &mut Node), Without<Text>>,
+) {
     for (kind, mut text) in &mut texts {
         let next = live_text(&s, *kind);
         if text.0 != next {

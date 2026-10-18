@@ -411,7 +411,11 @@ pub fn draw(
         title.active,
         if home { 0 } else { s.save.state.command_id },
         if home { 0 } else { s.save.state.gold },
-        if home { 0 } else { s.save.state.life.pantry.staples() },
+        if home {
+            0
+        } else {
+            s.save.state.life.pantry.staples()
+        },
     );
     if *last == Some(key) && !v.redraw {
         return;
