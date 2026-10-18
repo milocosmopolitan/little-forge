@@ -54,3 +54,7 @@
 ID, 도구/무기 계열, 레시피, 연구 조건, 제작 시간, 재료, 납품 가능 의뢰, 판매 가능 여부, 아트 참조를 기록한다. 품질·각인·티어가 도입되면 각각 별도 필드로 표현한다.
 
 NPC가 도구를 사용한다는 사실은 납품·피드백 이벤트로 나타낸다. 도구 내구도·매초 사용·파손률 계산은 구현하지 않는다.
+
+## 초기 생활 도구 → 무기 연구 매핑
+
+[성장 시스템](../system/PROGRESSION.md)에서 Chef Kitchen Knife/Cleaver, Farmer Rake/Sickle, Leatherworker Punch/Awl, Carpenter Hatchet/Saw, Hunter Hunting Knife/Bow/Arrows의 기술 XP 및 연구 연결을 정의한다. 이것은 테스트용 얇은 콘텐츠 우선순위이며 기존 마을 상점당 3가지 고유 도구 목표를 대체하지 않는다.
