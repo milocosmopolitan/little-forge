@@ -237,8 +237,18 @@ pub const ICONS: [&str; 24] = [
     "queue",
 ];
 pub fn icon(parent: &mut ChildSpawnerCommands, server: &AssetServer, name: &str, size: f32) {
-    let name = if ICONS.contains(&name) { name } else { "warning" };
-    parent.spawn(image(server, &format!("ui/runtime/icons/{name}.png"), None, size, size));
+    let name = if ICONS.contains(&name) {
+        name
+    } else {
+        "warning"
+    };
+    parent.spawn(image(
+        server,
+        &format!("ui/runtime/icons/{name}.png"),
+        None,
+        size,
+        size,
+    ));
 }
 pub fn item_card(
     parent: &mut ChildSpawnerCommands,
