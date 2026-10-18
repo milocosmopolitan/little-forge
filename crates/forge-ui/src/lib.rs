@@ -411,24 +411,20 @@ struct Stage {
     right: f32,
     /// Distance from the header's top to the sprite canvas' top.
     top: f32,
-    /// Foreground strip drawn above the NPC so the counter hides their legs.
-    counter: Option<(&'static str, f32, f32)>,
 }
 fn stage(header: &str) -> Stage {
     match header {
-        // The farmer stands behind the stall: waist at the counter top. Sprite scale 2 matches the
-        // 2x header art grid so both share one pixel size.
+        // The farmer stands on the ground in front of the stall, feet near the bottom edge.
+        // Full body must fit the 200px header, so the sprite is 1.5x.
         "farm" => Stage {
-            scale: 2.,
-            right: 6.,
-            top: -16.,
-            counter: Some(("ui/runtime/headers/farm-counter.png", 302., 42.)),
+            scale: 1.5,
+            right: 30.,
+            top: -18.,
         },
         _ => Stage {
             scale: 1.,
             right: 50.,
             top: 40.,
-            counter: None,
         },
     }
 }
@@ -500,19 +496,6 @@ pub fn merchant_header(
                     ..default()
                 },
             ));
-            if let Some((path, width, height)) = stage.counter {
-                p.spawn((
-                    ImageNode::new(server.load(path)),
-                    Node {
-                        position_type: PositionType::Absolute,
-                        right: px(0),
-                        bottom: px(0),
-                        width: px(width),
-                        height: px(height),
-                        ..default()
-                    },
-                ));
-            }
         });
 }
 

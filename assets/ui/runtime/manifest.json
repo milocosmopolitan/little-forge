@@ -1101,25 +1101,6 @@
       "native_height": 100
     },
     {
-      "path": "assets/ui/runtime/headers/farm-counter.png",
-      "kind": "header-foreground",
-      "width": 302,
-      "height": 42,
-      "mode": "RGB",
-      "source": "source/merchant-headers-v1.png",
-      "source_box": [
-        948,
-        604,
-        1250,
-        646
-      ],
-      "alpha_extrema": null,
-      "sha256": "4077b11ff51c94eab64d923670d9deb064853acd51ecf76ccd3db7c3ed147a06",
-      "grid": 2,
-      "native_width": 151,
-      "native_height": 21
-    },
-    {
       "path": "assets/ui/runtime/headers/tavern.png",
       "kind": "header",
       "width": 1250,

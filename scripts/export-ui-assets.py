@@ -47,8 +47,6 @@ ICON_NAMES = ['craft', 'materials', 'provisions', 'map', 'commissions', 'researc
               'leather', 'staples', 'meal', 'water', 'rest', 'queue']
 HEADERS = ['carpenter', 'leatherworker', 'farm', 'tavern']
 HEADER_ROWS = [0, 226, 446, 666]
-# Foreground strips composited above the NPC so a shopkeeper stands behind the counter.
-HEADER_FOREGROUND = {'farm': (948, 158, 1250, 200)}
 
 
 def clean(im):
@@ -139,11 +137,6 @@ def main():
     for name, (box, im) in head_native.items():
         full = scaled(snap(im, palette_for([im], PALETTE['headers'])), HEADER_GRID).convert('RGB')
         register(entries, full, OUT / 'headers' / f'{name}.png', 'source/merchant-headers-v1.png', box, 'header', None, HEADER_GRID)
-        if name in HEADER_FOREGROUND:
-            fb = HEADER_FOREGROUND[name]
-            assert all(v % HEADER_GRID == 0 for v in fb)
-            register(entries, full.crop(fb), OUT / 'headers' / f'{name}-counter.png', 'source/merchant-headers-v1.png',
-                     (fb[0], box[1] + fb[1], fb[2], box[1] + fb[3]), 'header-foreground', None, HEADER_GRID)
     manifest = {
         'schema': 3, 'epic': 58, 'tasks': [59, 60, 61], 'runtime_ready': False,
         'status': 'true-pixel-pending-visual-approval',

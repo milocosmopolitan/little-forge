@@ -97,11 +97,11 @@ Shared-component preview fixtures:
 ## Update 2026-10-18: true-pixel runtime exports
 
 `forge-ui` no longer samples source-sheet rectangles. 48 independent files
-(19 controls, 24 icons, 4 headers + farm counter) live in `assets/ui/runtime/`,
+(19 controls, 24 icons, 4 headers) live in `assets/ui/runtime/`,
 snapped to a real pixel grid (see `assets/ui/README.md`) and verified by
 `validate-ui.py`. Sidebar tabs, inventory slots and progress bars now use the
 exported art; the farm header is undistorted with the farmer enlarged and standing
-behind the counter.
+in front of the stall.
 
 ![Forge](evidence/runtime-exports-home.png)
 ![Provisions slots](evidence/runtime-exports-provisions.png)
