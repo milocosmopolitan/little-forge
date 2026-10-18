@@ -1,0 +1,101 @@
+{
+  "version": 2,
+  "status": "supplied reference art registered at native scene size; visual approval pending",
+  "generator": "scripts/build-space-assets.py (box reduce, frame crops, hard alpha; no new art painted)",
+  "sampler": "nearest",
+  "integer_scale_only": true,
+  "alpha_cut": 96,
+  "scene": {
+    "size": [
+      480,
+      270
+    ],
+    "floor_rows": [
+      160,
+      245
+    ]
+  },
+  "sources": {
+    "smithy-interior.png": {
+      "path": "forge/spaces/source/smithy-interior.png",
+      "sha256": "b4937b5460f43086db6227f171ce84a105c106a02d23c008835a623ddb5bf510",
+      "supplied_as": "Empty cozy pixel-art smithy interior.png"
+    },
+    "showroom-interior.png": {
+      "path": "forge/spaces/source/showroom-interior.png",
+      "sha256": "19335c269b1c3548448eff8a2fc8f1524d9e491cadafa78062d9195cb60a4970",
+      "supplied_as": "Warm Pixel-Art Showroom Interior.png"
+    },
+    "showroom-window.png": {
+      "path": "forge/spaces/source/showroom-window.png",
+      "sha256": "91ec8faa6e074e4060a9199e7d85526cad912a2c4a93363750cb9d24a1f08ab6",
+      "supplied_as": "Blank eight-slot showroom inventory window.png"
+    },
+    "detail-panel.png": {
+      "path": "forge/spaces/source/detail-panel.png",
+      "sha256": "ed50ecc3e32b6ebb35c84251b1d4fa9f15f45f61baffe54f9820c0b5f527d535",
+      "supplied_as": "Blank oak-framed pixel detail panel.png"
+    },
+    "showroom-draft.png": {
+      "path": "forge/spaces/source/showroom-draft.png",
+      "sha256": "a652b683921a04f6dfefbb2a3d96ccf2ff50a88d8c4e21d4e30ff88b87c2e8aa",
+      "supplied_as": "Cozy showroom inventory display.png"
+    }
+  },
+  "assets": {
+    "workshop-backdrop": {
+      "path": "forge/spaces/workshop-backdrop.png",
+      "width": 480,
+      "height": 270,
+      "mode": "RGBA",
+      "sha256": "7dcf86f135f2263c5f39bf9258e136bffc24d9f7fe70631aaf944093200a5422",
+      "source": "source/smithy-interior.png"
+    },
+    "showroom-backdrop": {
+      "path": "forge/spaces/showroom-backdrop.png",
+      "width": 480,
+      "height": 270,
+      "mode": "RGBA",
+      "sha256": "d3d2495fc1ce77b2c2dad8789214cfb15f0d21b65f0aad89d72a07d11de205f5",
+      "source": "source/showroom-interior.png"
+    },
+    "showroom-window": {
+      "path": "forge/spaces/showroom-window.png",
+      "width": 240,
+      "height": 240,
+      "mode": "RGBA",
+      "sha256": "d8a440f997ad38bded8fd85908a71e82f16e54a2f8e320d5ba36abfc128a5a4d",
+      "source": "source/showroom-window.png",
+      "insets_ltrb": [
+        80,
+        80,
+        80,
+        80
+      ],
+      "corner_scale": 0.5
+    },
+    "detail-panel": {
+      "path": "forge/spaces/detail-panel.png",
+      "width": 330,
+      "height": 330,
+      "mode": "RGBA",
+      "sha256": "a957dae24695809799eea37712dcb614c8ea6e0cb123d569731aa60e1269185b",
+      "source": "source/detail-panel.png",
+      "insets_ltrb": [
+        110,
+        110,
+        110,
+        110
+      ],
+      "corner_scale": 0.4
+    },
+    "window-glow": {
+      "path": "forge/spaces/window-glow.png",
+      "width": 24,
+      "height": 20,
+      "mode": "RGBA",
+      "sha256": "0b1b536661635c8d0c65b190cd268cfda5371ca4821500f23884980e14ccde4e",
+      "source": "procedural banded glow (no image model)"
+    }
+  }
+}

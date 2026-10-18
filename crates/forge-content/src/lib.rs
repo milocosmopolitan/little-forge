@@ -84,12 +84,28 @@ pub fn needs_config() -> Result<forge_core::life::NeedsConfig, String> {
     Ok(life.config)
 }
 
+/// Draft showroom furniture balance (#95): slot counts, installation limit and carpenter prices.
+/// Values are review candidates recorded as data, not confirmed balance.
+pub fn showroom_config() -> Result<forge_core::showroom::ShowroomConfig, String> {
+    let config: forge_core::showroom::ShowroomConfig =
+        serde_json::from_str(include_str!("../../../assets/showroom.json"))
+            .map_err(|e| format!("{e}"))?;
+    config.validate().map_err(|e| format!("{e:?}"))?;
+    Ok(config)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
     #[test]
     fn manifest_is_valid() {
         Manifest::bundled().unwrap();
+    }
+    #[test]
+    fn showroom_balance_is_valid_and_matches_core_defaults() {
+        let config = showroom_config().unwrap();
+        assert_eq!(config, forge_core::showroom::ShowroomConfig::default());
+        needs_config().unwrap();
     }
     #[test]
     fn duplicates_rejected() {

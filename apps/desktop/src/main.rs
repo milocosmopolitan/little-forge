@@ -3,6 +3,7 @@ mod native;
 mod npc;
 mod presentation;
 mod rendering;
+mod spaces;
 mod title;
 mod village;
 mod window;
@@ -41,12 +42,48 @@ struct Options {
     frames: u32,
     capture: Option<String>,
 }
+impl Options {
+    /// Forge-space scenarios: `forge-<scene>[-female]`. The suffix picks the fixture smith.
+    fn forge_scene(&self) -> Option<(&str, forge_core::Smith)> {
+        let q = self.qa.as_deref()?.strip_prefix("forge-")?;
+        Some(match q.strip_suffix("-female") {
+            Some(scene) => (scene, forge_core::Smith::Female),
+            None => (q, forge_core::Smith::Male),
+        })
+    }
+    /// Scenarios that start with the management overlay expanded.
+    fn qa_expanded(&self) -> bool {
+        matches!(
+            self.qa.as_deref(),
+            Some(
+                "expanded"
+                    | "life-loop"
+                    | "village-map"
+                    | "village-home"
+                    | "village-materials"
+                    | "village-provisions"
+                    | "village-carpenter"
+                    | "village-leatherworker"
+                    | "village-farm"
+                    | "village-tavern"
+                    | "village-chief"
+                    | "village-guild"
+                    | "village-outside"
+                    | "village-input"
+            )
+        ) || self
+            .forge_scene()
+            .is_some_and(|(scene, _)| matches!(scene, "workshop" | "showroom" | "full" | "input" | "interior"))
+    }
+}
 #[derive(Component)]
 struct Visitor;
 #[derive(Component)]
 struct Weapon;
 #[derive(Component)]
-struct Smith;
+struct Building;
+#[derive(Component)]
+struct DisplayGood;
 #[derive(Component)]
 struct Smoke;
 #[derive(Component)]
@@ -56,9 +93,10 @@ struct Panel;
 #[derive(Resource)]
 struct Art {
     images: Vec<Handle<Image>>,
-    smith_sizes: Vec<Vec2>,
     visitor_sizes: Vec<Vec2>,
     visitor_hands: Vec<Vec2>,
+    building_active: Handle<Image>,
+    building_idle: Handle<Image>,
 }
 fn now() -> u64 {
     SystemTime::now()
@@ -86,7 +124,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             "--qa" => {
                 opts.qa = Some(
                     args.next()
-                        .ok_or("--qa needs ambient, sale, expanded, or idle")?,
+                        .ok_or("--qa needs ambient, sale, expanded, idle, title, life-*, village-* or forge-*")?,
                 );
             }
             "--save-dir" => {
@@ -127,6 +165,13 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
                 | "village-guild"
                 | "village-outside"
                 | "village-input"
+        ) && !matches!(
+            Options {
+                qa: Some(s.clone()),
+                ..default()
+            }
+            .forge_scene(),
+            Some(("exterior" | "workshop" | "showroom" | "full" | "select" | "input" | "interior", _))
         )
     }) {
         return Err("unknown QA scenario".into());
@@ -170,12 +215,42 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     {
         saved.state.gold = 24;
     }
+    if let Some((scene, smith)) = opts.forge_scene() {
+        // Isolated fixtures for the forge spaces; never a user save.
+        if scene != "select" {
+            saved.state.smith = Some(smith);
+        }
+        saved.state.gold = 60;
+        saved.state.commerce.timber = 6;
+        if matches!(scene, "showroom" | "full") {
+            // Two finished goods on display, one kept; "full" fills every slot and queues two jobs.
+            let target = if scene == "full" { saved.state.showroom.capacity() } else { 3 };
+            for i in 0..target {
+                saved.state.showroom.reserve().map_err(|e| format!("{e:?}"))?;
+                saved.state.showroom.place(forge_core::craft::Good::IronDagger).map_err(|e| format!("{e:?}"))?;
+                if i == 1 {
+                    saved.state.showroom.set_for_sale(i, false).map_err(|e| format!("{e:?}"))?;
+                }
+            }
+            saved.state.crafted = target as u32;
+            saved.state.daggers = target as u32;
+        }
+    }
     let elapsed = if qa { 0 } else { saved.catch_up(now())? };
-    if saved.state.command_id == 0 {
+    if saved.state.command_id == 0 && saved.state.showroom.block_reason().is_none() {
         saved
             .state
             .command(1, Command::Craft)
             .map_err(|e| format!("{e:?}"))?;
+    }
+    if opts.forge_scene().is_some_and(|(scene, _)| scene == "full") {
+        for _ in 0..2 {
+            let id = saved.state.command_id + 1;
+            saved
+                .state
+                .command(id, Command::QueueCraft)
+                .map_err(|e| format!("{e:?}"))?;
+        }
     }
     if !qa && has_save {
         save::store(&dir, &mut saved)?;
@@ -190,7 +265,9 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         }
     }
     let mut app = App::new();
-    let title_active = !qa || opts.qa.as_deref() == Some("title");
+    let title_active = !qa
+        || opts.qa.as_deref() == Some("title")
+        || opts.forge_scene().is_some_and(|(scene, _)| scene == "select");
     let native = native::NativeRuntime::new();
     eprintln!("{}", native.status);
     app.insert_non_send(native);
@@ -246,29 +323,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         disabled: false,
         trace: vec![],
     })
-    .insert_resource(window::Desktop::new(
-        opts.safe,
-        title_active
-            || matches!(
-                opts.qa.as_deref(),
-                Some(
-                    "expanded"
-                        | "life-loop"
-                        | "village-map"
-                        | "village-home"
-                        | "village-materials"
-                        | "village-provisions"
-                        | "village-carpenter"
-                        | "village-leatherworker"
-                        | "village-farm"
-                        | "village-tavern"
-                        | "village-chief"
-                        | "village-guild"
-                        | "village-outside"
-                        | "village-input"
-                )
-            ),
-    ))
+    .insert_resource(window::Desktop::new(opts.safe, title_active || opts.qa_expanded()))
     .insert_resource(WinitSettings {
         focused_mode: UpdateMode::reactive_low_power(Duration::from_secs_f64(1. / 30.)),
         unfocused_mode: UpdateMode::reactive_low_power(Duration::from_secs_f64(1. / 15.)),
@@ -278,6 +333,11 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     .insert_resource(title::TitleScreen {
         active: title_active,
         has_save,
+        route: if opts.forge_scene().is_some_and(|(scene, _)| scene == "select") {
+            title::Route::Choose
+        } else {
+            title::Route::Title
+        },
         ..default()
     })
     .add_plugins(
@@ -294,7 +354,9 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             }),
     )
     .add_plugins(npc::FarmerPlugin)
+    .add_plugins(forge_npc::player::PlayerPlugin)
     .add_plugins(forge_ui::ForgeUiPlugin)
+    .add_plugins(spaces::plugin)
     .init_resource::<village::Village>()
     .add_observer(village::activate)
     .add_observer(lifestyle::buttons)
@@ -304,6 +366,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     .add_observer(title::activate)
     .add_observer(title::hover)
     .add_observer(title::unhover)
+    .add_systems(Update, title::portraits)
     .add_plugins(FrameTimeDiagnosticsPlugin::default())
     .insert_resource(opts)
     .add_systems(
@@ -357,6 +420,8 @@ fn setup(
             ..default()
         },
         Transform::from_xyz(-170., -3., 0.),
+        spaces::SceneOf(forge_core::spaces::Space::Exterior),
+        Building,
     ));
     commands.spawn((
         Sprite {
@@ -365,9 +430,9 @@ fn setup(
             ..default()
         },
         Transform::from_xyz(90., -27., 0.),
+        spaces::SceneOf(forge_core::spaces::Space::Exterior),
     ));
     let manifest = forge_content::Manifest::bundled().expect("validated bundled manifest");
-    let smith_meta = manifest.assets.iter().find(|a| a.id == "smith").unwrap();
     let visitor_meta = manifest.assets.iter().find(|a| a.id == "visitor").unwrap();
     let frame_layout = |asset: &forge_content::Asset| {
         let mut layout = TextureAtlasLayout::new_empty(UVec2::new(asset.width, asset.height));
@@ -383,7 +448,6 @@ fn setup(
             .map(|r| Vec2::new((r[2] - r[0]) as f32 / (r[3] - r[1]) as f32 * 75., 75.))
             .collect::<Vec<_>>()
     };
-    let smith_sizes = sizes(smith_meta);
     let visitor_sizes = sizes(visitor_meta);
     let visitor_hands = visitor_meta
         .walking_hand_points
@@ -398,22 +462,9 @@ fn setup(
             )
         })
         .collect();
-    let smith_layout = layouts.add(frame_layout(smith_meta));
     let visitor_layout = layouts.add(frame_layout(visitor_meta));
-    commands.spawn((
-        Sprite {
-            image: server.load("forge/smith.png"),
-            texture_atlas: Some(TextureAtlas {
-                layout: smith_layout,
-                index: 0,
-            }),
-            custom_size: Some(Vec2::splat(85.)),
-            ..default()
-        },
-        Transform::from_xyz(60., -85., 2.),
-        bevy::sprite::Anchor::BOTTOM_CENTER,
-        Smith,
-    ));
+    // The legacy smith sheet is no longer drawn: the chosen player character owns that role
+    // (spaces.rs). The visitor sheet stays a visitor and is never used for the player.
     commands.spawn((
         Sprite {
             image: server.load("forge/visitor.png"),
@@ -427,6 +478,7 @@ fn setup(
         Transform::from_xyz(-430., -85., 3.),
         bevy::sprite::Anchor::BOTTOM_CENTER,
         Visibility::Hidden,
+        spaces::SceneOf(forge_core::spaces::Space::Exterior),
         Visitor,
     ));
     let smoke = layouts.add(TextureAtlasLayout::from_grid(
@@ -447,6 +499,7 @@ fn setup(
             ..default()
         },
         Transform::from_xyz(-134., 47., 1.),
+        spaces::SceneOf(forge_core::spaces::Space::Exterior),
         Smoke,
     ));
     // One shared placeholder image is used for the display and the carried item.
@@ -454,23 +507,31 @@ fn setup(
     commands.spawn((
         Sprite::from_image(dagger.clone()),
         Transform::from_xyz(115., -8., 3.),
+        spaces::SceneOf(forge_core::spaces::Space::Exterior),
+        DisplayGood,
     ));
     commands.spawn((
         Sprite::from_image(dagger.clone()),
         Transform::from_xyz(0., 0., 4.),
         Visibility::Hidden,
+        spaces::SceneOf(forge_core::spaces::Space::Exterior),
         Weapon,
     ));
     commands.insert_resource(Art {
-        smith_sizes,
         visitor_sizes,
         visitor_hands,
+        building_active: server.load("forge/forge.png"),
+        building_idle: server.load("forge/forge_idle.png"),
         images: [
             "forge/forge.png",
+            "forge/forge_idle.png",
             "forge/workbench.png",
-            "forge/smith.png",
             "forge/visitor.png",
             "forge/smoke.png",
+            "forge/spaces/workshop-backdrop.png",
+            "forge/spaces/showroom-backdrop.png",
+            "characters/female/atlas.png",
+            "characters/male/atlas.png",
         ]
         .map(|path| server.load(path))
         .to_vec(),
@@ -502,7 +563,8 @@ fn input(
     opts: Res<Options>,
     title: Res<title::TitleScreen>,
     mut farmer: ResMut<npc::FarmerPresentation>,
-    village: Res<village::Village>,
+    mut village: ResMut<village::Village>,
+    mut spaces: ResMut<spaces::Spaces>,
     dialog: Res<forge_ui::DialogState>,
     mut commands: Commands,
 ) {
@@ -519,8 +581,14 @@ fn input(
         && !desktop.shell.expanded
         && village.nav.screen == forge_core::village::Screen::Home
     {
-        desktop.shell.recover();
-        desktop.shell.expanded = !desktop.shell.expanded;
+        spaces::apply(
+            spaces::Action::Enter,
+            &mut spaces,
+            &mut desktop,
+            &mut village,
+            &mut session,
+            &opts,
+        );
     }
     if keys.just_pressed(KeyCode::KeyT) {
         desktop.shell.always_on_top = !desktop.shell.always_on_top;
@@ -563,7 +631,7 @@ fn input(
     }
     if keys.just_pressed(KeyCode::F12) {
         let path = session.dir.join("diagnostics.json");
-        let data = serde_json::json!({"os":std::env::consts::OS,"arch":std::env::consts::ARCH,"version":env!("CARGO_PKG_VERSION"),"safe":opts.safe,"qa":opts.qa,"tick":session.save.state.tick,"life":session.save.state.life,"state":session.save.state,"village_screen":format!("{:?}",village.nav.screen),"shell":format!("{:?}",desktop.shell),"native_display":desktop.diagnostics,"fps":diagnostics.get(&FrameTimeDiagnosticsPlugin::FPS).and_then(|d|d.average()),"adapter":adapter.map(|a|format!("{} | {:?} | {} {}",a.name,a.backend,a.driver,a.driver_info)),"note":"Native transparency requires manual verification"});
+        let data = serde_json::json!({"os":std::env::consts::OS,"arch":std::env::consts::ARCH,"version":env!("CARGO_PKG_VERSION"),"safe":opts.safe,"qa":opts.qa,"tick":session.save.state.tick,"life":session.save.state.life,"state":session.save.state,"village_screen":format!("{:?}",village.nav.screen),"space":format!("{:?}",spaces.space),"station":format!("{:?}",spaces.station),"activity":format!("{:?}",session.save.state.activity()),"showroom":{"capacity":session.save.state.showroom.capacity(),"free":session.save.state.showroom.free(),"displayed":session.save.state.showroom.displayed(),"held":session.save.state.showroom.held(),"reserved":session.save.state.showroom.reserved(),"overflow":session.save.state.showroom.overflow,"racks":session.save.state.showroom.racks.len()},"shell":format!("{:?}",desktop.shell),"native_display":desktop.diagnostics,"fps":diagnostics.get(&FrameTimeDiagnosticsPlugin::FPS).and_then(|d|d.average()),"adapter":adapter.map(|a|format!("{} | {:?} | {} {}",a.name,a.backend,a.driver,a.driver_info)),"note":"Native transparency requires manual verification"});
         session.status = match std::fs::write(&path, serde_json::to_vec_pretty(&data).unwrap()) {
             Ok(_) => format!("Diagnostics: {}", path.display()),
             Err(e) => e.to_string(),
@@ -652,14 +720,19 @@ fn animate(
             &mut Sprite,
             Option<&Visitor>,
             Option<&Weapon>,
-            Option<&Smith>,
+            Option<&Building>,
             Option<&Smoke>,
+            Option<&DisplayGood>,
             &mut Visibility,
         ),
         (
             Without<forge_npc::Player>,
             Without<forge_npc::ItemAttachment>,
             Without<forge_npc::NpcVisual>,
+            Without<forge_npc::player::Actor>,
+            Without<spaces::WindowGlow>,
+            Without<spaces::Backdrop>,
+            Without<forge_npc::stations::StationLayer>,
         ),
     >,
 ) {
@@ -682,7 +755,16 @@ fn animate(
     } else {
         0
     };
-    for (mut t, mut sprite, visitor, weapon, smith, smoke, mut visibility) in &mut q {
+    let legacy_qa = opts
+        .qa
+        .as_deref()
+        .is_some_and(|q| !q.starts_with("life-") && !q.starts_with("village-") && !q.starts_with("forge-"));
+    let working = legacy_qa
+        || session.as_ref().is_some_and(|s| {
+            matches!(s.save.state.activity(), forge_core::spaces::Activity::Working { .. })
+        });
+    let sellable = legacy_qa || session.as_ref().is_some_and(|s| s.save.state.sellable() > 0);
+    for (mut t, mut sprite, visitor, weapon, building, smoke, display, mut visibility) in &mut q {
         if visitor.is_some() {
             t.translation = Vec3::new(p.x(), -85. + offset, 3.);
             *visibility = if p.active {
@@ -705,37 +787,26 @@ fn animate(
             } else {
                 Visibility::Hidden
             };
-        } else if smith.is_some() {
-            t.translation.y = -85. + offset;
-            if let Some(a) = &mut sprite.texture_atlas {
-                let legacy_qa = opts
-                    .qa
-                    .as_deref()
-                    .is_some_and(|q| !q.starts_with("life-") && !q.starts_with("village-"));
-                a.index = if legacy_qa
-                    || session.as_ref().is_some_and(|s| {
-                        s.save.state.life.action == forge_core::life::SmithAction::Working
-                    }) {
-                    8 + ((animation_time * 4.) as usize) % 4
-                } else {
-                    0
-                };
-                let index = a.index;
-                sprite.color = if !legacy_qa
-                    && session.as_ref().is_some_and(|s| {
-                        s.save.state.life.action == forge_core::life::SmithAction::Sleeping
-                    }) {
-                    Color::srgb(0.55, 0.65, 0.85)
-                } else {
-                    Color::WHITE
-                };
-                sprite.custom_size = Some(art.smith_sizes[index]);
+        } else if building.is_some() {
+            // The exterior plate shows a lit forge only while a job is actually running.
+            t.translation.y = -3. + offset;
+            let image = if working {
+                &art.building_active
+            } else {
+                &art.building_idle
+            };
+            if sprite.image != *image {
+                sprite.image = image.clone();
             }
         } else if smoke.is_some() {
             t.translation.y = 47. + offset;
             if let Some(a) = &mut sprite.texture_atlas {
                 a.index = ((animation_time * 5.) as usize) % 6;
             }
+            sprite.color = if working { Color::WHITE } else { Color::NONE };
+        } else if display.is_some() {
+            t.translation.y = -8. + offset;
+            sprite.color = if sellable { Color::WHITE } else { Color::NONE };
         } else {
             t.translation.y = if t.translation.x == -170. {
                 -3. + offset
@@ -761,8 +832,13 @@ fn hud(
             Visibility::Visible
         };
         **t = format!(
-            "LITTLE FORGE   Gold {}   Ore {}   Daggers {}   {:?}\n{}",
-            s.save.state.gold, s.save.state.ore, s.save.state.daggers, desktop.shell.mode, s.status
+            "LITTLE FORGE   Gold {}   Ore {}   Finished {}/{}   {:?}\n{}",
+            s.save.state.gold,
+            s.save.state.ore,
+            s.save.state.showroom.goods(),
+            s.save.state.showroom.capacity(),
+            desktop.shell.mode,
+            s.status
         );
     }
     for mut v in &mut panel {
@@ -838,6 +914,16 @@ fn qa_capture(
     if opts.frames == 1 && opts.qa.as_deref() == Some("idle") {
         desktop.shell.idle();
     }
+    if opts.forge_scene().is_some_and(|(scene, _)| scene == "workshop")
+        && [45, 100, 140].contains(&opts.frames)
+        && let Some(path) = &opts.capture
+    {
+        // Heating, hammering and quenching stages of the single 5-second job.
+        let extra = format!("{}-{:03}.png", path.trim_end_matches(".png"), opts.frames);
+        commands
+            .spawn(Screenshot::primary_window())
+            .observe(save_capture(extra));
+    }
     let life = opts.qa.as_deref().is_some_and(|q| q.starts_with("life-"));
     if life
         && [150, 330, 390, 1200].contains(&opts.frames)
@@ -848,25 +934,17 @@ fn qa_capture(
             .spawn(Screenshot::primary_window())
             .observe(save_capture(extra));
     }
-    if opts.frames
-        == if life || opts.qa.as_deref() == Some("village-input") {
-            1800
-        } else {
-            180
-        }
+    let long = life
+        || opts.qa.as_deref() == Some("village-input")
+        || opts.forge_scene().is_some_and(|(scene, _)| scene == "input");
+    if opts.frames == if long { 1800 } else { 180 }
         && let Some(path) = &opts.capture
     {
         commands
             .spawn(Screenshot::primary_window())
             .observe(save_capture(path.clone()));
     }
-    if opts.frames
-        == if life || opts.qa.as_deref() == Some("village-input") {
-            1830
-        } else {
-            210
-        }
-    {
+    if opts.frames == if long { 1830 } else { 210 } {
         if life && let Some(path) = &opts.capture {
             let report = serde_json::json!({"scenario":opts.qa,"clock":"QA scripted 1 eligible second per 30 rendered frames; production uses monotonic elapsed time", "state":session.save.state,"events":session.trace});
             std::fs::write(

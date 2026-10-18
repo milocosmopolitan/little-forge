@@ -197,7 +197,9 @@ impl State {
         self.emit(EventKind::ActionChanged(action), events)
     }
     fn resume(&mut self, events: &mut Vec<Event>) -> Result<(), Error> {
-        let action = if self.life.work > 0 || self.life.queue > 0 {
+        let action = if self.life.work > 0
+            || (self.life.queue > 0 && self.showroom.block_reason().is_none())
+        {
             SmithAction::Working
         } else {
             SmithAction::Idle
@@ -252,9 +254,23 @@ impl State {
             }
             _ => {
                 if l.work == 0 && l.queue > 0 {
-                    l.queue -= 1;
-                    l.work = CRAFT_SECS * 1000;
+                    // Materials were reserved on enqueue; only the result slot is claimed here.
+                    match self.showroom.reserve() {
+                        Ok(_) => {
+                            self.life.queue -= 1;
+                            self.life.work = CRAFT_SECS * 1000;
+                        }
+                        Err(Error::DisplayFull) => {
+                            if let Some(reason) = self.showroom.block_reason()
+                                && self.life.action != SmithAction::Idle
+                            {
+                                self.emit(EventKind::CraftBlocked(reason), events)?;
+                            }
+                        }
+                        Err(e) => return Err(e),
+                    }
                 }
+                let l = &mut self.life;
                 if l.work > 0 {
                     l.action = SmithAction::Working;
                     if l.fatigue >= l.config.sleep_threshold {
@@ -266,6 +282,7 @@ impl State {
                         let gain = gain * (MAX_NEED + l.thirst) / MAX_NEED;
                         l.fatigue = l.fatigue.saturating_add(gain).min(MAX_NEED);
                         if l.work == 0 {
+                            self.showroom.place(self.current_good())?;
                             self.crafted = self.crafted.checked_add(1).ok_or(Error::Overflow)?;
                             self.daggers = self.daggers.checked_add(1).ok_or(Error::Overflow)?;
                             self.emit(EventKind::Crafted, events)?;

@@ -78,6 +78,8 @@ impl Plugin for ForgeUiPlugin {
                     skin,
                     decorate_buttons,
                     windows,
+                    frames,
+                    decorate_slots,
                     animate_merchants,
                     tooltip,
                 ),
@@ -514,6 +516,141 @@ fn skin(mut commands: Commands, server: Res<AssetServer>, panels: Query<Entity, 
 
 #[derive(Component)]
 pub struct WindowSkin;
+/// Any registered nine-slice frame (e.g. the showroom window and detail panel in
+/// `assets/forge/spaces`). Insets are source pixels; `corner_scale` caps corner growth.
+#[derive(Component, Clone)]
+pub struct SkinFrame {
+    pub path: String,
+    pub inset: f32,
+    pub corner_scale: f32,
+}
+fn frames(mut c: Commands, server: Res<AssetServer>, q: Query<(Entity, &SkinFrame), Added<SkinFrame>>) {
+    for (e, frame) in &q {
+        let mut image = ImageNode::new(server.load(frame.path.clone()));
+        image.visual_box = bevy::ui::VisualBox::BorderBox;
+        image.image_mode = NodeImageMode::Sliced(TextureSlicer {
+            border: BorderRect::all(frame.inset),
+            max_corner_scale: frame.corner_scale,
+            ..default()
+        });
+        c.entity(e).insert(image);
+    }
+}
+/// Inventory slot skin (slot-normal / slot-selected / slot-locked runtime exports).
+#[derive(Component)]
+pub struct SkinSlot;
+#[allow(clippy::type_complexity)]
+fn decorate_slots(
+    server: Res<AssetServer>,
+    mut q: Query<
+        (
+            Entity,
+            Has<Selected>,
+            Has<bevy::ui::InteractionDisabled>,
+            Option<&mut ImageNode>,
+        ),
+        With<SkinSlot>,
+    >,
+    mut c: Commands,
+) {
+    for (e, selected, disabled, image) in &mut q {
+        let path = if disabled {
+            "ui/runtime/controls/slot-locked.png"
+        } else if selected {
+            "ui/runtime/controls/slot-selected.png"
+        } else {
+            "ui/runtime/controls/slot-normal.png"
+        };
+        let handle: Handle<Image> = server.load(path);
+        if let Some(mut image) = image {
+            if image.image != handle {
+                image.image = handle;
+            }
+        } else {
+            let mut image = ImageNode::new(handle);
+            image.visual_box = bevy::ui::VisualBox::BorderBox;
+            image.image_mode = NodeImageMode::Sliced(TextureSlicer {
+                border: BorderRect::all(24.),
+                max_corner_scale: 0.5,
+                ..default()
+            });
+            c.entity(e).insert(image);
+        }
+    }
+}
+/// Slot state badge colours shared by the showroom, crafting and later codex views.
+pub const BADGE_SALE: Color = Color::srgb(0.16, 0.42, 0.70);
+pub const BADGE_HOLD: Color = Color::srgb(0.18, 0.16, 0.14);
+pub const BADGE_RESERVED: Color = Color::srgb(0.80, 0.52, 0.12);
+/// Larger inventory slot with an optional state badge. One icon per item is reused everywhere;
+/// weapons of any shape share this component instead of bespoke display art.
+pub fn item_slot(
+    parent: &mut ChildSpawnerCommands,
+    server: &AssetServer,
+    icon_name: Option<&str>,
+    badge: Option<(&str, Color)>,
+    selected: bool,
+    action: impl Bundle,
+) -> Entity {
+    let mut slot = parent.spawn((
+        Button,
+        SkinSlot,
+        TabIndex(0),
+        Hovered::default(),
+        action,
+        Node {
+            width: px(74),
+            height: px(78),
+            flex_direction: FlexDirection::Column,
+            align_items: AlignItems::Center,
+            justify_content: JustifyContent::SpaceBetween,
+            padding: UiRect::all(px(4)),
+            border: UiRect::all(px(1)),
+            ..default()
+        },
+        BackgroundColor(Color::NONE),
+        BorderColor::all(Color::NONE),
+    ));
+    if selected {
+        slot.insert(Selected);
+    }
+    slot.with_children(|p| {
+        match icon_name {
+            Some(name) => icon(p, server, name, 40.),
+            None => {
+                p.spawn((
+                    text("+", 22.),
+                    TextColor(Color::srgb(0.45, 0.40, 0.34)),
+                    Node {
+                        height: px(40),
+                        align_items: AlignItems::Center,
+                        ..default()
+                    },
+                ));
+            }
+        }
+        if let Some((label, color)) = badge {
+            p.spawn((
+                Node {
+                    width: percent(100),
+                    padding: UiRect::axes(px(4), px(1)),
+                    justify_content: JustifyContent::Center,
+                    ..default()
+                },
+                BackgroundColor(color),
+            ))
+            .with_children(|b| {
+                b.spawn(text(label, 10.));
+            });
+        } else {
+            p.spawn(Node {
+                height: px(14),
+                ..default()
+            });
+        }
+    });
+    slot.id()
+}
 #[derive(Component)]
 pub struct MerchantActor(pub String);
 #[derive(Resource, Default)]

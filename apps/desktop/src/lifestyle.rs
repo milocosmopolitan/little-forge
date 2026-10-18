@@ -10,7 +10,7 @@ pub struct Needs;
 #[derive(Component)]
 pub struct Ledger;
 #[derive(Component)]
-pub struct Action(Command);
+pub struct Action(pub Command);
 /// Status-column nodes whose text or bar width follows the simulation without a rebuild.
 #[derive(Component, Clone, Copy, PartialEq)]
 pub enum Live {
@@ -200,7 +200,7 @@ pub fn draw(
         BorderColor::all(forge_ui::EDGE),
     ));
     commands.entity(root).with_children(|p|{
-        p.spawn(forge_ui::text("LITTLE FORGE  /  A good day's work",23.));
+        p.spawn(forge_ui::text("Workshop ledger",21.));
         p.spawn(Node{flex_grow:1.,min_height:px(0),column_gap:px(12),..default()}).with_children(|row|{
             row.spawn(forge_ui::panel(percent(18))).with_children(|side|{
                 for (i,label) in ["Crafting","Materials","Provisions"].iter().enumerate(){let entity = forge_ui::button(side,*label,HomeTab(i)); side.commands().entity(entity).insert(forge_ui::SkinKind::Tab); if home.tab == i { side.commands().entity(entity).insert(forge_ui::Selected); }}
@@ -213,7 +213,8 @@ pub fn draw(
                         body.spawn(forge_ui::text("Iron dagger",22.));
                         forge_ui::icon(body,&server,"dagger",80.);
                         body.spawn(forge_ui::text("A simple blade, carefully made.",14.));
-                        body.spawn(forge_ui::text(format!("Requires 2 ore · Available {}",s.save.state.ore),14.));
+                        body.spawn(forge_ui::text(format!("Requires 2 ore · Available {} · Result slots free {}",s.save.state.ore,st.showroom.free()),14.));
+                        if let Some(reason) = st.craft_block_reason() { body.spawn(forge_ui::text(reason.label(),13.)); }
                         forge_ui::button(body,"Add to queue [Q]",Action(Command::QueueCraft));
                         forge_ui::button(body,"Buy 2 ore · 4 gold [B]",Action(Command::BuyOre));
                     },
@@ -222,7 +223,7 @@ pub fn draw(
                         body.spawn(Node{flex_wrap:FlexWrap::Wrap,column_gap:px(8),row_gap:px(8),..default()}).with_children(|grid|{
                             for (i,(icon,count)) in [("ore",s.save.state.ore),("timber",s.save.state.commerce.timber),("leather",s.save.state.commerce.leather),("dagger",s.save.state.daggers)].into_iter().enumerate() {forge_ui::slot(grid,&server,icon,count,home.selected==i,(HomeItem(i),forge_ui::FocusKey(format!("home-slot:{i}"))));}
                         });
-                        body.spawn(forge_ui::text(["Iron ore · 2 required for an iron dagger.","Timber · Stored for future recipes.","Leather · Stored for future recipes.","Iron daggers · Finished goods are sold automatically."][home.selected.min(3)],16.));
+                        body.spawn(forge_ui::text(["Iron ore · 2 required for an iron dagger.","Timber · Stored for recipes and display racks.","Leather · Stored for future recipes.","Iron daggers · Finished goods live on the showroom racks; only displayed ones sell."][home.selected.min(3)],16.));
                     },
                     _=>{
                         body.spawn(forge_ui::text("Provisions",20.));
@@ -300,7 +301,12 @@ pub fn update(
         && opts
             .qa
             .as_deref()
-            .is_none_or(|q| q.starts_with("life-") || q.starts_with("village-") || q == "expanded");
+            .is_none_or(|q| {
+                q.starts_with("life-")
+                    || q.starts_with("village-")
+                    || q.starts_with("forge-")
+                    || q == "expanded"
+            });
     let l = &s.save.state.life;
     for mut v in &mut panel {
         *v = if visible

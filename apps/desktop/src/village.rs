@@ -17,7 +17,7 @@ pub struct Village {
     quantity: u32,
     category: usize,
     selected_item: Option<Item>,
-    redraw: bool,
+    pub redraw: bool,
     art_available: bool,
 }
 impl Default for Village {
@@ -246,6 +246,7 @@ pub fn input(
     title: Res<TitleScreen>,
     dialog: Option<Res<forge_ui::DialogState>>,
     mut farmer: Option<ResMut<crate::npc::FarmerPresentation>>,
+    mut spaces: Option<ResMut<crate::spaces::Spaces>>,
     surface: Query<(&RelativeCursorPosition, &ComputedNode), With<MapSurface>>,
 ) {
     if title.active || dialog.as_ref().is_some_and(|d| d.is_open()) {
@@ -268,6 +269,16 @@ pub fn input(
         return;
     }
     if keys.just_pressed(KeyCode::Escape) {
+        // A workshop drawer closes first; the overlay collapses on the next Escape.
+        if v.nav.screen == Screen::Home
+            && let Some(spaces) = spaces.as_deref_mut()
+            && crate::spaces::drawer_open(spaces)
+        {
+            spaces.station = None;
+            spaces.manage = false;
+            spaces.redraw = true;
+            return;
+        }
         let a = if v.nav.screen == Screen::Home {
             Action::Close
         } else {
@@ -398,13 +409,17 @@ pub fn draw(
     server: Res<AssetServer>,
     assets: Res<AssetRoot>,
     root: Query<Entity, With<Root>>,
-    mut last: Local<Option<(Screen, bool, bool, u64, u64, u32)>>,
+    mut last: Local<Option<(Screen, bool, bool, u64, u64, u32, forge_core::spaces::Space)>>,
     opts: Res<Options>,
     title: Res<TitleScreen>,
+    spaces: Option<Res<crate::spaces::Spaces>>,
 ) {
-    // Home content is owned by `lifestyle::draw`; its buttons issue commands on every click,
-    // so command/gold/pantry changes must not rebuild (and flash) the shell there.
+    // Home content is owned by `spaces::draw` / `lifestyle::draw`; their buttons issue commands
+    // on every click, so command/gold/pantry changes must not rebuild (and flash) the shell there.
     let home = v.nav.screen == Screen::Home;
+    let space = spaces
+        .as_ref()
+        .map_or(forge_core::spaces::Space::Exterior, |s| s.space);
     let key = (
         v.nav.screen,
         d.shell.expanded,
@@ -416,6 +431,7 @@ pub fn draw(
         } else {
             s.save.state.life.pantry.staples()
         },
+        space,
     );
     if *last == Some(key) && !v.redraw {
         return;
@@ -431,7 +447,12 @@ pub fn draw(
         && opts
             .qa
             .as_deref()
-            .is_none_or(|q| q.starts_with("village-") || q.starts_with("life-") || q == "expanded");
+            .is_none_or(|q| {
+                q.starts_with("village-")
+                    || q.starts_with("life-")
+                    || q.starts_with("forge-")
+                    || q == "expanded"
+            });
     commands.entity(root).insert((
         Node {
             display: if show { Display::Flex } else { Display::None },
@@ -460,18 +481,32 @@ pub fn draw(
             })
             .with_children(|row| {
                 button(row, "Village [M]", Action::Map);
-                button(row, "Forge", Action::Home);
+                if v.nav.screen == Screen::Home {
+                    for (i, candidate) in forge_core::spaces::Space::ALL.into_iter().enumerate() {
+                        let e = forge_ui::button(
+                            row,
+                            format!("{} [{}]", candidate.label(), i + 1),
+                            crate::spaces::Action::Go(candidate),
+                        );
+                        if candidate == space {
+                            row.commands().entity(e).insert(forge_ui::Selected);
+                        }
+                    }
+                } else {
+                    button(row, "Forge", Action::Home);
+                }
                 button(row, "Back [Esc]", Action::Back);
                 button(row, "Close", Action::Close);
                 row.spawn((text("", 13.), Wallet));
             });
         if v.nav.screen == Screen::Home {
             parent.spawn((
-                crate::lifestyle::Management,
+                crate::spaces::HomeRoot,
                 bevy::input_focus::tab_navigation::TabGroup::new(1),
                 Node {
                     flex_grow: 1.,
                     min_height: px(0),
+                    position_type: PositionType::Relative,
                     ..default()
                 },
             ));

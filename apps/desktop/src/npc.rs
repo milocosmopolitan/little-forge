@@ -141,9 +141,10 @@ mod tests {
             .insert_resource(crate::Options::default())
             .insert_resource(crate::Art {
                 images: vec![],
-                smith_sizes: vec![],
                 visitor_sizes: vec![],
                 visitor_hands: vec![],
+                building_active: Handle::default(),
+                building_idle: Handle::default(),
             })
             .insert_resource(crate::presentation::Presentation::default())
             .insert_resource(Desktop::new(false, false))

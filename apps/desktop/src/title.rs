@@ -9,6 +9,9 @@ pub enum Route {
     #[default]
     Title,
     New,
+    /// Pick the smith's appearance. Reached from New Game, or once from Continue when an
+    /// older save has no choice yet. Backing out writes nothing.
+    Choose,
     Load,
     Settings,
     InGame,
@@ -55,6 +58,7 @@ pub(crate) enum TitleAction {
     ConfirmQuit,
     Begin,
     Motion,
+    Pick(forge_core::Smith),
 }
 fn entries(route: Route) -> &'static [(&'static str, TitleAction)] {
     use TitleAction::*;
@@ -67,6 +71,11 @@ fn entries(route: Route) -> &'static [(&'static str, TitleAction)] {
             ("Quit", Quit),
         ],
         Route::New => &[("Start forging", Begin), ("Back", Back)],
+        Route::Choose => &[
+            ("Eira", Pick(forge_core::Smith::Female)),
+            ("Bram", Pick(forge_core::Smith::Male)),
+            ("Back", Back),
+        ],
         Route::Load => &[("Continue current journey", Continue), ("Back", Back)],
         Route::Settings => &[("Toggle animation", Motion), ("Back", Back)],
         Route::QuitConfirm => &[("Save and Quit", ConfirmQuit), ("Cancel", Back)],
@@ -79,7 +88,8 @@ fn transition(route: Route, action: TitleAction) -> Route {
     }
     match action {
         TitleAction::New => Route::New,
-        TitleAction::Continue | TitleAction::Begin => Route::InGame,
+        TitleAction::Begin => Route::Choose,
+        TitleAction::Continue | TitleAction::Pick(_) => Route::InGame,
         TitleAction::Load => Route::Load,
         TitleAction::Settings => Route::Settings,
         TitleAction::Quit => Route::QuitConfirm,
@@ -268,6 +278,9 @@ pub fn refresh(
                 Route::New => {
                     if title.has_save { "A journey already exists. Continue it from the title. Separate new journeys arrive with save slots." } else { "Light the forge and begin your journey?" }
                 }
+                Route::Choose => {
+                    if title.has_save { "Choose who tends this forge. Asked once; your progress is kept." } else { "Who tends the forge? Looks only; both smiths work alike." }
+                }
                 Route::Load => {
                     "Current recovery journal. Separate save slots are not available yet."
                 }
@@ -351,19 +364,19 @@ pub fn refresh(
         });
     }
 }
+/// Applies a title action; returns true when the app should exit.
 fn perform(
     action: TitleAction,
     title: &mut TitleScreen,
     desktop: &mut crate::window::Desktop,
     session: &mut crate::Session,
     opts: &crate::Options,
-    exit: &mut MessageWriter<bevy::app::AppExit>,
-) {
+) -> bool {
     if !title.active
         || !available(title, action)
         || !entries(title.route).iter().any(|(_, a)| *a == action)
     {
-        return;
+        return false;
     }
     title.error.clear();
     if action == TitleAction::ConfirmQuit {
@@ -372,23 +385,36 @@ fn perform(
         }
         if session.disabled {
             title.error = session.status.clone();
-            return;
+            return false;
         }
-        exit.write(bevy::app::AppExit::Success);
-        return;
+        return true;
     }
-    if action == TitleAction::Begin {
+    if let TitleAction::Pick(smith) = action {
+        // The only write on this screen: record the choice, then persist the journey once.
+        let id = session.save.state.command_id + 1;
+        if let Err(e) = session.save.state.command(id, forge_core::Command::ChooseSmith(smith)) {
+            title.error = format!("{e:?}");
+            return false;
+        }
         crate::persist(session, opts);
         if session.disabled {
             title.error = session.status.clone();
-            return;
+            return false;
         }
         title.has_save = true;
+        info!("Title smith: {:?}", smith);
+    }
+    if action == TitleAction::Continue && session.save.state.smith.is_none() {
+        // Older save without a choice: ask once, keep everything else.
+        title.route = Route::Choose;
+        title.selected = 0;
+        info!("Title route: Choose (existing save)");
+        return false;
     }
     if action == TitleAction::Motion {
         title.reduced_motion = !title.reduced_motion;
         info!("Title still effects: {}", title.reduced_motion);
-        return;
+        return false;
     }
     title.route = transition(title.route, action);
     info!("Title route: {:?}", title.route);
@@ -399,6 +425,7 @@ fn perform(
         desktop.shell.recover();
         session.last = std::time::Instant::now();
     }
+    false
 }
 pub fn activate(
     event: On<Activate>,
@@ -409,15 +436,10 @@ pub fn activate(
     opts: Res<crate::Options>,
     mut exit: MessageWriter<bevy::app::AppExit>,
 ) {
-    if let Ok(&action) = actions.get(event.entity) {
-        perform(
-            action,
-            &mut title,
-            &mut desktop,
-            &mut session,
-            &opts,
-            &mut exit,
-        );
+    if let Ok(&action) = actions.get(event.entity)
+        && perform(action, &mut title, &mut desktop, &mut session, &opts)
+    {
+        exit.write(bevy::app::AppExit::Success);
     }
 }
 pub fn keyboard(
@@ -449,22 +471,21 @@ pub fn keyboard(
         return;
     }
     let rows = entries(title.route);
-    if keys.just_pressed(KeyCode::ArrowDown) {
+    if keys.just_pressed(KeyCode::ArrowDown)
+        || (title.route == Route::Choose && keys.just_pressed(KeyCode::ArrowRight))
+    {
         title.selected = next_selection(&title, 1);
     }
-    if keys.just_pressed(KeyCode::ArrowUp) {
+    if keys.just_pressed(KeyCode::ArrowUp)
+        || (title.route == Route::Choose && keys.just_pressed(KeyCode::ArrowLeft))
+    {
         title.selected = next_selection(&title, -1);
     }
     if keys.just_pressed(KeyCode::Enter) || keys.just_pressed(KeyCode::Space) {
         let action = rows[title.selected].1;
-        perform(
-            action,
-            &mut title,
-            &mut desktop,
-            &mut session,
-            &opts,
-            &mut exit,
-        );
+        if perform(action, &mut title, &mut desktop, &mut session, &opts) {
+            exit.write(bevy::app::AppExit::Success);
+        }
     }
 }
 pub fn fit_stage(
@@ -487,6 +508,99 @@ fn available(title: &TitleScreen, action: TitleAction) -> bool {
         TitleAction::Continue | TitleAction::Load => title.has_save,
         TitleAction::Begin => !title.has_save,
         _ => true,
+    }
+}
+#[derive(Component)]
+pub(crate) struct Portrait(forge_core::Smith);
+/// Two same-size native portraits with idle blink beside the Choose menu. Built from the same
+/// atlas the game renders; integer 2x only.
+#[allow(clippy::too_many_arguments)]
+pub fn portraits(
+    mut commands: Commands,
+    title: Res<TitleScreen>,
+    opts: Res<crate::Options>,
+    time: Res<Time>,
+    catalogs: Option<Res<forge_npc::player::PlayerCatalogs>>,
+    stages: Query<Entity, With<Stage>>,
+    mut existing: Query<(Entity, &Portrait, &mut ImageNode, &mut BorderColor)>,
+) {
+    let Some(catalogs) = catalogs else {
+        return;
+    };
+    let show = title.active && title.route == Route::Choose;
+    if !show {
+        for (e, _, _, _) in &existing {
+            commands.entity(e).despawn();
+        }
+        return;
+    }
+    let seconds = if opts.qa.is_some() {
+        opts.frames as f32 / 30.
+    } else {
+        time.elapsed_secs()
+    };
+    if existing.is_empty() {
+        let Ok(stage) = stages.single() else {
+            return;
+        };
+        commands.entity(stage).with_children(|stage| {
+            for (i, smith) in forge_core::Smith::ALL.into_iter().enumerate() {
+                let Some(c) = catalogs.get(smith.id()) else {
+                    continue;
+                };
+                let Some(neutral) = c.sprite_index("neutral") else {
+                    continue;
+                };
+                let sprite = &c.sprites[neutral];
+                let mut image = ImageNode::new(catalogs.images[smith.id()].clone());
+                image.texture_atlas = Some(TextureAtlas {
+                    layout: catalogs.layouts[smith.id()].clone(),
+                    index: neutral,
+                });
+                stage.spawn((
+                    Portrait(smith),
+                    image,
+                    Node {
+                        position_type: PositionType::Absolute,
+                        left: px(300. + i as f32 * 200.),
+                        bottom: px(120),
+                        width: px(sprite.rect[2] as f32 * 2.),
+                        height: px(sprite.rect[3] as f32 * 2.),
+                        border: UiRect::all(px(2)),
+                        ..default()
+                    },
+                    BorderColor::all(Color::NONE),
+                ));
+            }
+        });
+        return;
+    }
+    let selected = entries(title.route)
+        .get(title.selected)
+        .and_then(|(_, a)| match a {
+            TitleAction::Pick(s) => Some(*s),
+            _ => None,
+        });
+    for (_, portrait, mut image, mut border) in &mut existing {
+        let Some(c) = catalogs.get(portrait.0.id()) else {
+            continue;
+        };
+        // 120 ms blink every 3.5 s, offset per smith so they do not blink in unison.
+        let phase = (seconds + if portrait.0 == forge_core::Smith::Male { 1.7 } else { 0. }) % 3.5;
+        let frame = if phase > 3.3 && phase < 3.42 { "blink" } else { "neutral" };
+        if let (Some(index), Some(atlas)) = (c.sprite_index(frame), image.texture_atlas.as_mut())
+            && atlas.index != index
+        {
+            atlas.index = index;
+        }
+        let next = BorderColor::all(if selected == Some(portrait.0) {
+            Color::srgb(1., 0.65, 0.26)
+        } else {
+            Color::NONE
+        });
+        if *border != next {
+            *border = next;
+        }
     }
 }
 
@@ -564,6 +678,65 @@ mod tests {
             Route::Settings
         );
         assert_eq!(transition(Route::InGame, TitleAction::New), Route::InGame);
+    }
+    #[test]
+    fn new_game_chooses_before_entering_and_choose_is_reversible() {
+        assert_eq!(transition(Route::New, TitleAction::Begin), Route::Choose);
+        assert_eq!(
+            transition(Route::Choose, TitleAction::Pick(forge_core::Smith::Female)),
+            Route::InGame
+        );
+        assert_eq!(transition(Route::Choose, TitleAction::Back), Route::Title);
+        assert_eq!(transition(Route::Title, TitleAction::Pick(forge_core::Smith::Male)), Route::Title);
+    }
+    #[test]
+    fn picking_records_the_smith_once_and_backing_out_writes_nothing() {
+        let dir = std::env::temp_dir().join(format!("forge-title-{}", std::process::id()));
+        let mut session = crate::Session {
+            save: forge_core::save::Save::new(forge_core::State::new(5), 100),
+            dir: dir.clone(),
+            _lock: forge_core::save::SaveLock::acquire(&dir).unwrap(),
+            last: std::time::Instant::now(),
+            fraction: 0.,
+            status: String::new(),
+            disabled: false,
+            trace: vec![],
+        };
+        let opts = crate::Options::default();
+        let mut desktop = crate::window::Desktop::new(false, true);
+        let mut title = TitleScreen {
+            active: true,
+            ..default()
+        };
+        let mut go = |a: TitleAction, title: &mut TitleScreen, session: &mut crate::Session| {
+            assert!(!perform(a, title, &mut desktop, session, &opts));
+        };
+        go(TitleAction::New, &mut title, &mut session);
+        go(TitleAction::Begin, &mut title, &mut session);
+        assert_eq!(title.route, Route::Choose);
+        go(TitleAction::Back, &mut title, &mut session);
+        assert_eq!(title.route, Route::Title);
+        assert!(!title.has_save);
+        assert!(std::fs::read_dir(&dir).unwrap().all(|e| !e.unwrap().file_name().to_string_lossy().starts_with("save-")));
+        go(TitleAction::New, &mut title, &mut session);
+        go(TitleAction::Begin, &mut title, &mut session);
+        go(TitleAction::Pick(forge_core::Smith::Female), &mut title, &mut session);
+        assert_eq!(title.route, Route::InGame);
+        assert!(title.has_save);
+        assert_eq!(session.save.state.smith, Some(forge_core::Smith::Female));
+        assert!(std::fs::read_dir(&dir).unwrap().any(|e| e.unwrap().file_name().to_string_lossy().starts_with("save-")));
+        // Continue with a chosen smith never asks again; an unchosen save asks once.
+        title.active = true;
+        title.route = Route::Title;
+        go(TitleAction::Continue, &mut title, &mut session);
+        assert_eq!(title.route, Route::InGame);
+        session.save.state.smith = None;
+        title.active = true;
+        title.route = Route::Title;
+        go(TitleAction::Continue, &mut title, &mut session);
+        assert_eq!(title.route, Route::Choose);
+        drop(session);
+        std::fs::remove_dir_all(dir).unwrap();
     }
     #[test]
     fn all_submenus_are_reversible() {
