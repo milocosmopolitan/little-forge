@@ -56,10 +56,7 @@ impl Spaces {
     }
     /// Window pixel rectangle of a station, for pointer hit areas (not for rendering).
     pub fn station_rect(&self, origin: Vec2, size: Vec2) -> (Vec2, Vec2) {
-        (
-            self.view_origin + origin * self.scale,
-            size * self.scale,
-        )
+        (self.view_origin + origin * self.scale, size * self.scale)
     }
 }
 #[derive(Component, Clone, Copy, PartialEq, Eq)]
@@ -139,12 +136,7 @@ pub fn setup(
         };
     }
     let stations = StationCatalog::bundled().expect("validated station catalog");
-    let character = s
-        .save
-        .state
-        .smith
-        .map_or("male", |c| c.id())
-        .to_string();
+    let character = s.save.state.smith.map_or("male", |c| c.id()).to_string();
     // Workshop: supplied interior, five authored stations, one smith.
     commands.spawn((
         Sprite {
@@ -276,7 +268,10 @@ pub fn route(
         Option<&Backdrop>,
         Option<&stations::StationLayer>,
     )>,
-    mut roots: Query<(&mut Visibility, Has<HitRoot>), (Without<SceneOf>, Or<(With<HitRoot>, With<AmbientRoot>)>)>,
+    mut roots: Query<
+        (&mut Visibility, Has<HitRoot>),
+        (Without<SceneOf>, Or<(With<HitRoot>, With<AmbientRoot>)>),
+    >,
     legacy: Query<Entity, Or<(With<crate::Visitor>, With<crate::Smoke>)>>,
 ) {
     let Ok(window) = windows.single() else {
@@ -335,9 +330,9 @@ pub fn route(
     let _ = legacy;
 }
 fn qa_allows(opts: &Options) -> bool {
-    opts.qa.as_deref().is_none_or(|q| {
-        !q.starts_with("village-") || q == "village-home" || q == "village-input"
-    })
+    opts.qa
+        .as_deref()
+        .is_none_or(|q| !q.starts_with("village-") || q == "village-home" || q == "village-input")
 }
 /// Keep the three actors on the chosen character; re-arm their clip after a swap.
 pub fn sync_character(
@@ -364,7 +359,16 @@ pub fn sync_character(
 pub fn drive_workshop(
     s: Res<Session>,
     spaces: Res<Spaces>,
-    mut q: Query<(&mut Actor, &mut Walker, &mut Transform, &mut Sprite, &CharacterId), With<WorkshopActor>>,
+    mut q: Query<
+        (
+            &mut Actor,
+            &mut Walker,
+            &mut Transform,
+            &mut Sprite,
+            &CharacterId,
+        ),
+        With<WorkshopActor>,
+    >,
     catalogs: Option<Res<PlayerCatalogs>>,
 ) {
     let Some(catalogs) = catalogs else {
@@ -381,10 +385,17 @@ pub fn drive_workshop(
                 true,
                 Color::WHITE,
             ),
-            Activity::Sleeping => (stations::REST_SPOT, "relaxed", true, Color::srgb(0.55, 0.65, 0.85)),
+            Activity::Sleeping => (
+                stations::REST_SPOT,
+                "relaxed",
+                true,
+                Color::srgb(0.55, 0.65, 0.85),
+            ),
             Activity::Eating => (stations::REST_SPOT, "happy", true, Color::WHITE),
             Activity::Drinking => (stations::REST_SPOT, "nod", true, Color::WHITE),
-            Activity::Idle | Activity::Waiting(_) => (stations::REST_SPOT, "idle", false, Color::WHITE),
+            Activity::Idle | Activity::Waiting(_) => {
+                (stations::REST_SPOT, "idle", false, Color::WHITE)
+            }
         };
         let wants = walker.target != spot.foot
             || (walker.arrived()
@@ -402,7 +413,12 @@ pub fn drive_workshop(
         let shown = stations::SCENE_SIZE * spaces.scale;
         transform.translation.x = -shown.x / 2. + walker.pos.x * spaces.scale;
         transform.translation.y = shown.y / 2. - walker.pos.y * spaces.scale;
-        transform.translation.z = stations::actor_z(if walker.pos.y < stations::FRONT_FLOOR - 20. { 0 } else { 1 });
+        transform.translation.z =
+            stations::actor_z(if walker.pos.y < stations::FRONT_FLOOR - 20. {
+                0
+            } else {
+                1
+            });
         if sprite.color != tint && sprite.color != Color::NONE {
             sprite.color = tint;
         }
@@ -453,7 +469,9 @@ pub fn drive_presence(
         } else if sprite.color == Color::NONE {
             sprite.color = Color::WHITE;
         }
-        if outside && actor.clip != clip && actor.clip != "blink"
+        if outside
+            && actor.clip != clip
+            && actor.clip != "blink"
             && let Some(c) = catalogs.get(&actor_character(&s))
         {
             actor.hold = clip != "idle";
@@ -478,7 +496,12 @@ fn status_line(s: &Session) -> String {
     let room = &st.showroom;
     let activity = match st.activity() {
         Activity::Working { station, progress } => {
-            format!("{} {} · {}%", station.label(), st.current_good().label().to_lowercase(), progress / 10)
+            format!(
+                "{} {} · {}%",
+                station.label(),
+                st.current_good().label().to_lowercase(),
+                progress / 10
+            )
         }
         Activity::Waiting(reason) => format!("Waiting · {}", reason.label()),
         Activity::Idle => "Idle".into(),
@@ -600,10 +623,8 @@ pub fn draw(
                         ) else {
                             continue;
                         };
-                        let (pos, size) = spaces.station_rect(
-                            origin,
-                            Vec2::new(art.width(), art.height()),
-                        );
+                        let (pos, size) =
+                            spaces.station_rect(origin, Vec2::new(art.width(), art.height()));
                         let Some(station) = Workstation::from_id(&placement.id) else {
                             continue;
                         };
@@ -615,7 +636,11 @@ pub fn draw(
                             forge_ui::Help(format!(
                                 "{} · {}",
                                 station.label(),
-                                if station.simulated() { "assign work" } else { "preview only; not simulated yet" }
+                                if station.simulated() {
+                                    "assign work"
+                                } else {
+                                    "preview only; not simulated yet"
+                                }
                             )),
                             bevy::picking::hover::Hovered::default(),
                             Node {
@@ -665,12 +690,7 @@ fn draw_exterior(p: &mut ChildSpawnerCommands, s: &Session) {
         forge_ui::button(row, "Showroom", Action::Go(Space::Showroom));
     });
 }
-fn draw_workshop(
-    p: &mut ChildSpawnerCommands,
-    s: &Session,
-    spaces: &Spaces,
-    server: &AssetServer,
-) {
+fn draw_workshop(p: &mut ChildSpawnerCommands, s: &Session, spaces: &Spaces, server: &AssetServer) {
     let st = &s.save.state;
     let open = spaces.station.is_some() || spaces.manage;
     if !open {
@@ -834,14 +854,22 @@ fn draw_showroom(
                 if i < room.racks.len() {
                     let e = forge_ui::button(
                         tabs,
-                        format!("Display {} · {} slots", (b'A' + i as u8) as char, room.rack_range(i).len()),
+                        format!(
+                            "Display {} · {} slots",
+                            (b'A' + i as u8) as char,
+                            room.rack_range(i).len()
+                        ),
                         Action::Rack(i),
                     );
                     if i == rack {
                         tabs.commands().entity(e).insert(forge_ui::Selected);
                     }
                 } else {
-                    let e = forge_ui::button(tabs, format!("Display {}", (b'A' + i as u8) as char), Action::Rack(i));
+                    let e = forge_ui::button(
+                        tabs,
+                        format!("Display {}", (b'A' + i as u8) as char),
+                        Action::Rack(i),
+                    );
                     tabs.commands().entity(e).insert((
                         bevy::ui::InteractionDisabled,
                         forge_ui::Unavailable(format!(
@@ -872,7 +900,10 @@ fn draw_showroom(
         })
         .with_children(|row| {
             row.spawn(forge_ui::text("Showroom", 20.));
-            row.spawn(forge_ui::text(format!("{used} / {} occupied", room.capacity()), 14.));
+            row.spawn(forge_ui::text(
+                format!("{used} / {} occupied", room.capacity()),
+                14.,
+            ));
         });
         win.spawn(Node {
             flex_wrap: FlexWrap::Wrap,
@@ -931,7 +962,9 @@ fn draw_showroom(
         let (title, line, icon) = match selected {
             Some((_, Slot::Displayed(g))) => (g.label(), "Ready for sale", Some(g.icon())),
             Some((_, Slot::Held(g))) => (g.label(), "Kept; visitors cannot buy it", Some(g.icon())),
-            Some((_, Slot::Reserved)) => ("Reserved", "Result of the job in progress", Some("queue")),
+            Some((_, Slot::Reserved)) => {
+                ("Reserved", "Result of the job in progress", Some("queue"))
+            }
             Some((_, Slot::Empty)) => ("Empty slot", "The next job can start here", None),
             None => ("Showroom", "Select a slot to inspect it", None),
         };
@@ -968,28 +1001,33 @@ fn draw_showroom(
         match selected {
             Some((i, Slot::Displayed(g) | Slot::Held(g))) => {
                 let held = matches!(selected, Some((_, Slot::Held(_))));
-                panel.spawn(Node {
-                    justify_content: JustifyContent::SpaceBetween,
-                    ..default()
-                })
-                .with_children(|row| {
-                    row.spawn(forge_ui::text("Sale price", 13.));
-                    row.spawn(forge_ui::text(format!("{} G", g.price()), 16.));
-                });
-                panel.spawn(Node {
-                    column_gap: px(8),
-                    ..default()
-                })
-                .with_children(|row| {
-                    let sale = forge_ui::button(row, "For sale", Action::ForSale(i, true));
-                    let hold = forge_ui::button(row, "Hold", Action::ForSale(i, false));
-                    row.commands()
-                        .entity(if held { hold } else { sale })
-                        .insert(forge_ui::Selected);
-                });
+                panel
+                    .spawn(Node {
+                        justify_content: JustifyContent::SpaceBetween,
+                        ..default()
+                    })
+                    .with_children(|row| {
+                        row.spawn(forge_ui::text("Sale price", 13.));
+                        row.spawn(forge_ui::text(format!("{} G", g.price()), 16.));
+                    });
+                panel
+                    .spawn(Node {
+                        column_gap: px(8),
+                        ..default()
+                    })
+                    .with_children(|row| {
+                        let sale = forge_ui::button(row, "For sale", Action::ForSale(i, true));
+                        let hold = forge_ui::button(row, "Hold", Action::ForSale(i, false));
+                        row.commands()
+                            .entity(if held { hold } else { sale })
+                            .insert(forge_ui::Selected);
+                    });
             }
             Some((_, Slot::Reserved)) => {
-                panel.spawn(forge_ui::text("Cannot be changed until the job completes.", 12.));
+                panel.spawn(forge_ui::text(
+                    "Cannot be changed until the job completes.",
+                    12.,
+                ));
             }
             _ => {}
         }
@@ -1008,7 +1046,11 @@ fn draw_showroom(
         forge_ui::button(panel, "Manage displays", Action::Carpenter);
         panel.spawn((
             forge_ui::text(
-                format!("Expand at Carpenter · {} / {} displays", room.racks.len(), room.config.max_racks),
+                format!(
+                    "Expand at Carpenter · {} / {} displays",
+                    room.racks.len(),
+                    room.config.max_racks
+                ),
                 11.,
             ),
             Node {
@@ -1061,7 +1103,14 @@ pub fn activate(
     let Ok(action) = actions.get(event.entity) else {
         return;
     };
-    apply(*action, &mut spaces, &mut desktop, &mut village, &mut s, &opts);
+    apply(
+        *action,
+        &mut spaces,
+        &mut desktop,
+        &mut village,
+        &mut s,
+        &opts,
+    );
 }
 pub fn apply(
     action: Action,
@@ -1101,7 +1150,11 @@ pub fn apply(
             spaces.manage = false;
         }
         Action::Slot(i) if desktop.shell.expanded && home => {
-            spaces.slot = if spaces.slot == Some(i) { None } else { Some(i) };
+            spaces.slot = if spaces.slot == Some(i) {
+                None
+            } else {
+                Some(i)
+            };
         }
         Action::Rack(i) if desktop.shell.expanded && home => {
             if i < s.save.state.showroom.racks.len() {
@@ -1114,8 +1167,18 @@ pub fn apply(
                 return;
             }
             let id = s.save.state.command_id + 1;
-            s.status = match s.save.state.command(id, Command::SetForSale { slot, for_sale }) {
-                Ok(()) => if for_sale { "Displayed for sale".into() } else { "Kept; visitors will not buy it".into() },
+            s.status = match s
+                .save
+                .state
+                .command(id, Command::SetForSale { slot, for_sale })
+            {
+                Ok(()) => {
+                    if for_sale {
+                        "Displayed for sale".into()
+                    } else {
+                        "Kept; visitors will not buy it".into()
+                    }
+                }
                 Err(e) => format!("{e:?}"),
             };
             crate::persist(s, opts);
@@ -1153,7 +1216,14 @@ pub fn input(
         (KeyCode::Digit3, Space::Showroom),
     ] {
         if keys.just_pressed(key) {
-            apply(Action::Go(space), &mut spaces, &mut desktop, &mut village, &mut s, &opts);
+            apply(
+                Action::Go(space),
+                &mut spaces,
+                &mut desktop,
+                &mut village,
+                &mut s,
+                &opts,
+            );
         }
     }
 }
@@ -1220,7 +1290,9 @@ mod tests {
     fn space_actions_need_an_expanded_home_and_toggle_cleanly() {
         let dir = std::env::temp_dir().join(format!("forge-spaces-{}", std::process::id()));
         let mut state = forge_core::State::new(9);
-        state.command(1, Command::ChooseSmith(forge_core::Smith::Female)).unwrap();
+        state
+            .command(1, Command::ChooseSmith(forge_core::Smith::Female))
+            .unwrap();
         state.command(2, Command::Craft).unwrap();
         state.advance(6).unwrap();
         let mut s = Session {
@@ -1241,22 +1313,71 @@ mod tests {
         let mut desktop = Desktop::new(false, false);
         let mut village = Village::default();
         // Collapsed: nothing but Enter does anything.
-        apply(Action::Go(Space::Showroom), &mut spaces, &mut desktop, &mut village, &mut s, &opts);
+        apply(
+            Action::Go(Space::Showroom),
+            &mut spaces,
+            &mut desktop,
+            &mut village,
+            &mut s,
+            &opts,
+        );
         assert_eq!(spaces.space, Space::Exterior);
-        apply(Action::Enter, &mut spaces, &mut desktop, &mut village, &mut s, &opts);
+        apply(
+            Action::Enter,
+            &mut spaces,
+            &mut desktop,
+            &mut village,
+            &mut s,
+            &opts,
+        );
         assert!(desktop.shell.expanded);
         assert_eq!(spaces.space, Space::Workshop);
-        apply(Action::Station(Workstation::Anvil), &mut spaces, &mut desktop, &mut village, &mut s, &opts);
+        apply(
+            Action::Station(Workstation::Anvil),
+            &mut spaces,
+            &mut desktop,
+            &mut village,
+            &mut s,
+            &opts,
+        );
         assert_eq!(spaces.station, Some(Workstation::Anvil));
         assert!(drawer_open(&spaces));
-        apply(Action::Station(Workstation::Anvil), &mut spaces, &mut desktop, &mut village, &mut s, &opts);
+        apply(
+            Action::Station(Workstation::Anvil),
+            &mut spaces,
+            &mut desktop,
+            &mut village,
+            &mut s,
+            &opts,
+        );
         assert_eq!(spaces.station, None);
-        apply(Action::Go(Space::Showroom), &mut spaces, &mut desktop, &mut village, &mut s, &opts);
-        apply(Action::Slot(0), &mut spaces, &mut desktop, &mut village, &mut s, &opts);
+        apply(
+            Action::Go(Space::Showroom),
+            &mut spaces,
+            &mut desktop,
+            &mut village,
+            &mut s,
+            &opts,
+        );
+        apply(
+            Action::Slot(0),
+            &mut spaces,
+            &mut desktop,
+            &mut village,
+            &mut s,
+            &opts,
+        );
         assert_eq!(spaces.slot, Some(0));
         // Keeping the finished dagger removes it from sale without touching gold or count.
         let gold = s.save.state.gold;
-        apply(Action::ForSale(0, false), &mut spaces, &mut desktop, &mut village, &mut s, &opts);
+        apply(
+            Action::ForSale(0, false),
+            &mut spaces,
+            &mut desktop,
+            &mut village,
+            &mut s,
+            &opts,
+        );
         assert_eq!(s.save.state.showroom.held(), 1);
         assert_eq!(s.save.state.sellable(), 0);
         assert_eq!(s.save.state.gold, gold);
@@ -1264,9 +1385,23 @@ mod tests {
         // A reserved slot cannot be changed; the state is untouched.
         s.save.state.command(4, Command::Craft).unwrap();
         let before = s.save.state.clone();
-        apply(Action::ForSale(1, false), &mut spaces, &mut desktop, &mut village, &mut s, &opts);
+        apply(
+            Action::ForSale(1, false),
+            &mut spaces,
+            &mut desktop,
+            &mut village,
+            &mut s,
+            &opts,
+        );
         assert_eq!(s.save.state, before);
-        apply(Action::Carpenter, &mut spaces, &mut desktop, &mut village, &mut s, &opts);
+        apply(
+            Action::Carpenter,
+            &mut spaces,
+            &mut desktop,
+            &mut village,
+            &mut s,
+            &opts,
+        );
         assert_eq!(
             village.nav.screen,
             Screen::Destination(forge_core::village::Location::Carpenter)

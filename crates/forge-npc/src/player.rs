@@ -220,10 +220,10 @@ impl PlayerCatalog {
         if page.path.contains("..") || page.path.starts_with('/') {
             return Err("invalid atlas path".into());
         }
+        // "base/" entries are the unequipped variants; they are kept for the preview's gear toggle.
         let mut sprites: Vec<PlayerSprite> = atlas
             .sprites
             .iter()
-            .filter(|s| !s.id.starts_with("base/"))
             .map(|s| PlayerSprite {
                 id: s.id.clone(),
                 rect: s.rect,
@@ -241,11 +241,11 @@ impl PlayerCatalog {
         let mut clips = BTreeMap::new();
         let find = |sprites: &[PlayerSprite], name: &str| sprites.iter().position(|s| s.id == name);
         for (name, raw) in &atlas.clips {
-            if name.starts_with("base/") {
-                continue;
-            }
             // animation.json is authoritative for station, facing, loop range and events.
-            let meta = anim.clips.get(name).unwrap_or(raw);
+            let meta = anim
+                .clips
+                .get(name.trim_start_matches("base/"))
+                .unwrap_or(raw);
             let mut frames = vec![];
             for f in &raw.frames {
                 let sprite = find(&sprites, &f.sprite)
@@ -294,41 +294,57 @@ impl PlayerCatalog {
             }
         }
         // Quenching in a scene uses the authored derivatives with submerged tool pixels clipped.
-        if let Some(q) = clips.get_mut("quenching") {
-            for (i, frame) in q.frames.iter_mut().enumerate() {
-                let base = sprites[frame.sprite].clone();
-                sprites.push(PlayerSprite {
-                    id: format!("scene-quenching-{i}"),
-                    rect: [0, 0, base.source_size[0], base.source_size[1]],
-                    trim: [0, 0],
-                    source_size: base.source_size,
-                    pivot: base.pivot,
-                    file: Some(format!("characters/{id}/frames/scene-quenching-{i}.png")),
-                });
-                frame.sprite = sprites.len() - 1;
+        for (clip, folder) in [
+            ("quenching", "frames"),
+            ("base/quenching", "frames/scene-base"),
+        ] {
+            if let Some(q) = clips.get_mut(clip) {
+                for (i, frame) in q.frames.iter_mut().enumerate() {
+                    let base = sprites[frame.sprite].clone();
+                    let file = if folder == "frames" {
+                        format!("characters/{id}/frames/scene-quenching-{i}.png")
+                    } else {
+                        format!("characters/{id}/{folder}/quenching-{i}.png")
+                    };
+                    sprites.push(PlayerSprite {
+                        id: format!("{clip}/scene-{i}"),
+                        rect: [0, 0, base.source_size[0], base.source_size[1]],
+                        trim: [0, 0],
+                        source_size: base.source_size,
+                        pivot: base.pivot,
+                        file: Some(file),
+                    });
+                    frame.sprite = sprites.len() - 1;
+                }
             }
         }
         // Synthetic rest clips for the front/back baselines so one-shot clips have somewhere to end.
-        for (clip, sprite) in [("front_idle", "front-neutral"), ("back_idle", "back-neutral")] {
-            let index = find(&sprites, sprite).ok_or_else(|| format!("missing {sprite}"))?;
-            clips.insert(
-                clip.into(),
-                PlayerClip {
-                    frames: vec![ClipFrame {
-                        sprite: index,
-                        duration: 1.,
-                    }],
-                    looping: true,
-                    loop_range: None,
-                    events: vec![],
-                    station: None,
-                    facing: if clip == "front_idle" {
-                        Facing::Front
-                    } else {
-                        Facing::Back
+        for prefix in ["", "base/"] {
+            for (clip, sprite) in [
+                ("front_idle", "front-neutral"),
+                ("back_idle", "back-neutral"),
+            ] {
+                let name = format!("{prefix}{sprite}");
+                let index = find(&sprites, &name).ok_or_else(|| format!("missing {name}"))?;
+                clips.insert(
+                    format!("{prefix}{clip}"),
+                    PlayerClip {
+                        frames: vec![ClipFrame {
+                            sprite: index,
+                            duration: 1.,
+                        }],
+                        looping: true,
+                        loop_range: None,
+                        events: vec![],
+                        station: None,
+                        facing: if clip == "front_idle" {
+                            Facing::Front
+                        } else {
+                            Facing::Back
+                        },
                     },
-                },
-            );
+                );
+            }
         }
         for s in &sprites {
             let [x, y, w, h] = s.rect;
@@ -415,6 +431,8 @@ pub struct Actor {
     /// Marker names crossed since the consumer last drained them.
     pub events: Vec<String>,
     pub rest: String,
+    /// Clip-name prefix for a variant set ("" equipped, "base/" unequipped).
+    pub prefix: String,
 }
 impl Default for Actor {
     fn default() -> Self {
@@ -432,29 +450,45 @@ impl Default for Actor {
             finished: false,
             events: vec![],
             rest: "idle".into(),
+            prefix: String::new(),
         }
     }
 }
 impl Actor {
-    pub fn play(&mut self, clip: &str, c: &PlayerCatalog) {
-        let name = if c.clips.contains_key(clip) {
-            clip
+    /// Resolve a clip name through the variant prefix, falling back to the plain name, then idle.
+    pub fn resolve(&self, clip: &str, c: &PlayerCatalog) -> String {
+        let prefixed = format!("{}{}", self.prefix, clip.trim_start_matches(&self.prefix));
+        if c.clips.contains_key(&prefixed) {
+            prefixed
+        } else if c.clips.contains_key(clip) {
+            clip.to_string()
         } else {
-            "idle"
-        };
-        let facing = c.clips[name].facing;
-        self.clip = name.into();
-        self.rest = facing.rest_clip().into();
+            self.resolve_or_idle(c)
+        }
+    }
+    fn resolve_or_idle(&self, c: &PlayerCatalog) -> String {
+        let prefixed = format!("{}idle", self.prefix);
+        if c.clips.contains_key(&prefixed) {
+            prefixed
+        } else {
+            "idle".into()
+        }
+    }
+    pub fn play(&mut self, clip: &str, c: &PlayerCatalog) {
+        let name = self.resolve(clip, c);
+        let facing = c.clips[&name].facing;
+        self.clip = name.clone();
+        self.rest = self.resolve(facing.rest_clip(), c);
         self.elapsed = 0.;
         self.released_at = None;
         self.finished = false;
         self.clip_frame = None;
-        self.frame = c.clips[name].frames[0].sprite;
+        self.frame = c.clips[&name].frames[0].sprite;
         self.sample(c);
     }
     /// Start a station clip and keep it looping until `release`.
     pub fn work(&mut self, clip: &str, c: &PlayerCatalog) {
-        if self.clip != clip || self.finished || !self.hold {
+        if self.clip != self.resolve(clip, c) || self.finished || !self.hold {
             self.hold = true;
             self.play(clip, c);
         }
@@ -507,7 +541,9 @@ impl Actor {
         };
         let n = clip.frames.len();
         let total = clip.total();
-        let Some([a, b]) = clip.loop_range.filter(|_| self.hold || self.released_at.is_some())
+        let Some([a, b]) = clip
+            .loop_range
+            .filter(|_| self.hold || self.released_at.is_some())
         else {
             if clip.looping {
                 return Some(at(0, n, self.elapsed % total));
@@ -539,6 +575,7 @@ impl Actor {
     }
     fn sample(&mut self, c: &PlayerCatalog) {
         let clip = c.clips.get(&self.clip).unwrap_or(&c.clips["idle"]);
+        // Clip frames reference the catalog; nothing here is mutated except the cursor.
         match self.position(clip) {
             Some(i) => {
                 if self.clip_frame != Some(i) {
@@ -570,7 +607,9 @@ impl Actor {
         &c.sprites[self.frame.min(c.sprites.len() - 1)]
     }
     pub fn facing(&self, c: &PlayerCatalog) -> Facing {
-        c.clips.get(&self.clip).map_or(Facing::Right34, |k| k.facing)
+        c.clips
+            .get(&self.clip)
+            .map_or(Facing::Right34, |k| k.facing)
     }
 }
 
@@ -695,7 +734,7 @@ pub fn walk_actors(
             if dx.abs() > 0.01 {
                 actor.facing_left = dx < 0.;
             }
-            if actor.clip != "walk" {
+            if actor.clip != actor.resolve("walk", c) {
                 actor.hold = false;
                 actor.play("walk", c);
             }
@@ -737,7 +776,7 @@ pub fn animate_actors(
         let facing = actor.facing(c);
         if actor.blink
             && !actor.paused
-            && actor.clip == facing.rest_clip()
+            && actor.clip == actor.resolve(facing.rest_clip(), c)
             && actor.elapsed >= 3.4
             && let Some(blink) = facing.blink_clip()
         {
@@ -829,6 +868,33 @@ mod tests {
             assert!(a.x.abs() <= 0.5 && a.y.abs() <= 0.5);
             assert_eq!(neutral.anchor(true), Vec2::new(-a.x, a.y));
         }
+    }
+    #[test]
+    fn base_variant_resolves_through_the_prefix_and_falls_back() {
+        let c = PlayerCatalog::bundled("female").unwrap();
+        let mut a = Actor {
+            prefix: "base/".into(),
+            ..default()
+        };
+        a.work("hammering", &c);
+        assert_eq!(a.clip, "base/hammering");
+        a.release();
+        a.advance(5., &c);
+        assert_eq!(a.clip, "base/idle");
+        a.play("quenching", &c);
+        assert!(
+            c.sprites[a.frame]
+                .file
+                .as_deref()
+                .unwrap()
+                .contains("scene-base")
+        );
+        a.play("researching", &c);
+        a.advance(10., &c);
+        assert_eq!(a.clip, "base/front_idle");
+        a.prefix.clear();
+        a.play("walk", &c);
+        assert_eq!(a.clip, "walk");
     }
     #[test]
     fn invalid_manifests_are_rejected() {

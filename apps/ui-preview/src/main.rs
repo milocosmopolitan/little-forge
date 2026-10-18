@@ -8,7 +8,7 @@ use forge_ui as ui;
 #[allow(dead_code)]
 #[path = "../../desktop/src/rendering.rs"]
 mod rendering;
-const STORIES: [&str; 11] = [
+const STORIES: [&str; 18] = [
     "farm",
     "chef",
     "carpenter",
@@ -20,7 +20,238 @@ const STORIES: [&str; 11] = [
     "long-label",
     "controls",
     "confirmation",
+    "showroom-empty",
+    "showroom-partial",
+    "showroom-full",
+    "showroom-reserved",
+    "showroom-held",
+    "showroom-upgraded",
+    "showroom-long",
 ];
+/// Showroom fixtures (#93): one slot per finished item, shared badges, frames from
+/// assets/forge/spaces. Values are sample data, never game state.
+#[derive(Clone, Copy, PartialEq)]
+enum FixtureSlot {
+    Empty,
+    Sale,
+    Hold,
+    Reserved,
+}
+fn showroom_fixture(name: &str) -> (Vec<FixtureSlot>, usize, Option<usize>) {
+    use FixtureSlot::*;
+    match name {
+        "showroom-empty" => (vec![Empty; 4], 1, None),
+        "showroom-partial" => (vec![Sale, Sale, Empty, Empty], 1, Some(0)),
+        "showroom-full" => (vec![Sale, Hold, Sale, Sale], 1, Some(1)),
+        "showroom-reserved" => (vec![Sale, Reserved, Empty, Empty], 1, Some(1)),
+        "showroom-held" => (vec![Hold, Hold, Sale, Empty], 1, Some(0)),
+        "showroom-upgraded" => (
+            vec![Sale, Sale, Hold, Reserved, Empty, Empty, Empty, Empty],
+            2,
+            Some(3),
+        ),
+        _ => (vec![Sale, Hold, Reserved, Empty], 1, Some(0)),
+    }
+}
+fn draw_showroom(p: &mut ChildSpawnerCommands, server: &AssetServer, name: &str) {
+    let (slots, racks, selected) = showroom_fixture(name);
+    let long = name == "showroom-long";
+    let used = slots.iter().filter(|s| **s != FixtureSlot::Empty).count();
+    p.spawn(Node {
+        flex_grow: 1.,
+        min_height: px(0),
+        column_gap: px(16),
+        ..default()
+    })
+    .with_children(|row| {
+        row.spawn((
+            ui::SkinFrame {
+                path: "forge/spaces/showroom-window.png".into(),
+                inset: 80.,
+                corner_scale: 0.5,
+            },
+            Node {
+                width: px(580),
+                padding: UiRect::new(px(26), px(26), px(22), px(18)),
+                flex_direction: FlexDirection::Column,
+                row_gap: px(8),
+                ..default()
+            },
+        ))
+        .with_children(|win| {
+            win.spawn(Node {
+                column_gap: px(8),
+                ..default()
+            })
+            .with_children(|tabs| {
+                for i in 0..3 {
+                    let label = if long {
+                        format!("진열대 {} · 아주 긴 한글 라벨 {} slots", i + 1, slots.len())
+                    } else {
+                        format!("Display {}", (b'A' + i as u8) as char)
+                    };
+                    if i == 0 {
+                        ui::button(tabs, label, ui::Selected);
+                    } else if i < racks {
+                        ui::button(tabs, label, ());
+                    } else {
+                        ui::button(
+                            tabs,
+                            label,
+                            (
+                                ui::Unavailable("Fixture: not installed".into()),
+                                bevy::ui::InteractionDisabled,
+                            ),
+                        );
+                    }
+                }
+                tabs.spawn(Node {
+                    flex_grow: 1.,
+                    ..default()
+                });
+                ui::button(
+                    tabs,
+                    if long {
+                        "진열대 관리 (목공소)"
+                    } else {
+                        "Manage displays"
+                    },
+                    (),
+                );
+            });
+            win.spawn((
+                Node {
+                    height: px(1),
+                    width: percent(100),
+                    ..default()
+                },
+                BackgroundColor(ui::EDGE),
+            ));
+            win.spawn(ui::text(
+                format!(
+                    "{} {used} / {} occupied",
+                    if long { "진열장" } else { "Showroom" },
+                    slots.len()
+                ),
+                18.,
+            ));
+            win.spawn(Node {
+                flex_wrap: FlexWrap::Wrap,
+                column_gap: px(8),
+                row_gap: px(8),
+                ..default()
+            })
+            .with_children(|grid| {
+                for (i, slot) in slots.iter().enumerate() {
+                    let (icon, badge) = match slot {
+                        FixtureSlot::Empty => (None, None),
+                        FixtureSlot::Sale => (
+                            Some("dagger"),
+                            Some((if long { "판매 중" } else { "FOR SALE" }, ui::BADGE_SALE)),
+                        ),
+                        FixtureSlot::Hold => (
+                            Some("dagger"),
+                            Some((if long { "보관" } else { "HOLD" }, ui::BADGE_HOLD)),
+                        ),
+                        FixtureSlot::Reserved => (
+                            Some("queue"),
+                            Some((
+                                if long { "제작 예약" } else { "RESERVED" },
+                                ui::BADGE_RESERVED,
+                            )),
+                        ),
+                    };
+                    ui::item_slot(
+                        grid,
+                        server,
+                        icon,
+                        badge,
+                        selected == Some(i),
+                        ui::Help(format!("fixture slot {i}")),
+                    );
+                }
+            });
+            win.spawn(ui::text(
+                "1 item = 1 slot  |  Capacity includes reserved items.  |  fixture only",
+                12.,
+            ));
+        });
+        row.spawn((
+            ui::SkinFrame {
+                path: "forge/spaces/detail-panel.png".into(),
+                inset: 110.,
+                corner_scale: 0.4,
+            },
+            Node {
+                width: px(240),
+                padding: UiRect::new(px(24), px(24), px(26), px(24)),
+                flex_direction: FlexDirection::Column,
+                row_gap: px(10),
+                ..default()
+            },
+        ))
+        .with_children(|panel| {
+            let state = selected.map(|i| slots[i]);
+            panel.spawn(ui::text(
+                if long {
+                    "철제 단검 · 매우 긴 아이템 이름 표시"
+                } else {
+                    "Iron dagger"
+                },
+                22.,
+            ));
+            panel.spawn(ui::text(
+                match state {
+                    Some(FixtureSlot::Sale) => "Ready for sale",
+                    Some(FixtureSlot::Hold) => "Kept; visitors cannot buy it",
+                    Some(FixtureSlot::Reserved) => "Result of the job in progress",
+                    _ => "Select a slot to inspect it",
+                },
+                13.,
+            ));
+            panel
+                .spawn((
+                    Node {
+                        width: px(112),
+                        height: px(112),
+                        align_self: AlignSelf::Center,
+                        align_items: AlignItems::Center,
+                        justify_content: JustifyContent::Center,
+                        border: UiRect::all(px(2)),
+                        ..default()
+                    },
+                    BackgroundColor(Color::srgb(0.08, 0.07, 0.06)),
+                    BorderColor::all(Color::srgb(0.42, 0.42, 0.46)),
+                ))
+                .with_children(|f| {
+                    if matches!(state, Some(FixtureSlot::Sale | FixtureSlot::Hold)) {
+                        ui::icon(f, server, "dagger", 72.);
+                    }
+                });
+            panel.spawn(ui::text("Sale price  12 G", 14.));
+            panel
+                .spawn(Node {
+                    column_gap: px(8),
+                    ..default()
+                })
+                .with_children(|r| {
+                    if state == Some(FixtureSlot::Hold) {
+                        ui::button(r, "For sale", ());
+                        ui::button(r, "Hold", ui::Selected);
+                    } else {
+                        ui::button(r, "For sale", ui::Selected);
+                        ui::button(r, "Hold", ());
+                    }
+                });
+            panel.spawn(Node {
+                flex_grow: 1.,
+                ..default()
+            });
+            ui::button(panel, "Manage displays", ());
+            panel.spawn(ui::text("Expand at Carpenter · fixture", 11.));
+        });
+    });
+}
 #[derive(Resource)]
 struct Story {
     name: String,
@@ -163,6 +394,10 @@ fn draw(
                 ui::button(p, *n, Choose(i));
             }
         });
+        if s.name.starts_with("showroom-") {
+            draw_showroom(p, &server, &s.name);
+            return;
+        }
         let id = match s.name.as_str() {
             "chef" => "chef",
             "carpenter" => "carpenter",

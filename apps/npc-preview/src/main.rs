@@ -3,6 +3,7 @@ use bevy::{
     prelude::*,
     render::view::screenshot::{Screenshot, save_to_disk},
 };
+mod player_mode;
 #[allow(dead_code)]
 #[path = "../../desktop/src/rendering.rs"]
 mod rendering;
@@ -46,7 +47,7 @@ fn main() {
     let story = value("--story").unwrap_or_else(|| "idle".into());
     if args.iter().any(|a| a == "--help") {
         println!(
-            "NPC Preview (no game/save IO)\n--story idle|talk|blink|surprised|nod|shake_head|walk|give --capture PATH\n1-8 story; Space pause; arrows frame step; R restart; F mirror; I item; B background; G guides; Z size; N test NPC; +/- speed; Esc quit"
+            "NPC Preview (no game/save IO)\n--story idle|talk|blink|surprised|nod|shake_head|walk|give --capture PATH\n1-8 story; Space pause; arrows frame step; R restart; F mirror; I item; B background; G guides; Z size; N test NPC; +/- speed; Esc quit\n\nPlayer smith: --character female|male --story <17 clips|walk-to-anvil> [--base] [--left] [--light] [--no-stations] [--at SECONDS] [--sequence] --capture PATH"
         );
         return;
     }
@@ -56,6 +57,10 @@ fn main() {
     let root = bundled
         .filter(|p| p.is_dir())
         .unwrap_or_else(|| std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../assets"));
+    if args.iter().any(|a| a == "--character") {
+        player_mode::run(root, &args);
+        return;
+    }
     let mut app = App::new();
     app.add_plugins(
         DefaultPlugins

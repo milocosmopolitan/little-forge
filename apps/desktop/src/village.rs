@@ -57,6 +57,8 @@ pub(crate) enum Action {
     SelectItem(Item),
     Quantity(i32),
     Buy(Item, u64),
+    /// Carpenter furniture: rack purchase/upgrade with the transaction ID rendered on the button.
+    Furniture(Command, u64),
 }
 fn text(s: impl Into<String>, size: f32) -> impl Bundle {
     forge_ui::text(s, size)
@@ -206,6 +208,28 @@ fn apply(
             }
         }
         Action::Quantity(delta) => v.quantity = (v.quantity as i32 + delta).clamp(1, 99) as u32,
+        Action::Furniture(command, id) => {
+            if s.disabled || v.nav.screen != Screen::Destination(Location::Carpenter) {
+                return;
+            }
+            if id > s.save.state.command_id && v.category == 1 {
+                s.status = match s.save.state.command(id, command) {
+                    Ok(()) => match command {
+                        Command::BuyRack => "Installed a new display rack.".into(),
+                        _ => "Display rack upgraded; more slots are available.".into(),
+                    },
+                    Err(forge_core::Error::InsufficientResources) => {
+                        "You need more gold or timber for this furniture.".into()
+                    }
+                    Err(forge_core::Error::RackLimit) => {
+                        "The showroom cannot hold more displays, or this rack is at its top tier."
+                            .into()
+                    }
+                    Err(e) => purchase_error(&e).to_owned(),
+                };
+                crate::persist(s, opts);
+            }
+        }
         Action::Buy(item, id) => {
             if s.disabled || v.nav.screen != Screen::Destination(item.vendor()) {
                 return;
@@ -444,15 +468,12 @@ pub fn draw(
     commands.entity(root).despawn_children();
     let show = d.shell.expanded
         && !title.active
-        && opts
-            .qa
-            .as_deref()
-            .is_none_or(|q| {
-                q.starts_with("village-")
-                    || q.starts_with("life-")
-                    || q.starts_with("forge-")
-                    || q == "expanded"
-            });
+        && opts.qa.as_deref().is_none_or(|q| {
+            q.starts_with("village-")
+                || q.starts_with("life-")
+                || q.starts_with("forge-")
+                || q == "expanded"
+        });
     commands.entity(root).insert((
         Node {
             display: if show { Display::Flex } else { Display::None },
@@ -602,7 +623,7 @@ fn destination_copy(location: Location) -> ([&'static str; 2], &'static str) {
     match location {
         Location::Carpenter => (
             ["Materials", "Furniture"],
-            "Furniture requires the carpenter's tool commission. Commissions are not available yet.",
+            "Display racks grow the showroom. Further furniture waits for the carpenter's tool commission.",
         ),
         Location::Leatherworker => (
             ["Materials", "Work gear"],
@@ -676,6 +697,10 @@ fn draw_destination(
                     }
                     side.spawn(text("Esc · Village", 12.));
                 });
+            if location == Location::Carpenter && village.category == 1 {
+                draw_furniture(row, state, server);
+                return;
+            }
             if village.category != 0 || items.is_empty() {
                 row.spawn(forge_ui::panel(percent(82))).with_children(|p| {
                     p.spawn(text("Not available yet", 20.));
@@ -773,6 +798,86 @@ fn draw_destination(
                 });
         });
 }
+/// Showroom furniture (#95): one more rack or a higher tier on an existing rack. Prices and
+/// slot counts come from the save's showroom config (seeded from assets/showroom.json).
+fn draw_furniture(row: &mut ChildSpawnerCommands, state: &forge_core::State, server: &AssetServer) {
+    let room = &state.showroom;
+    let next_id = state.command_id.saturating_add(1);
+    row.spawn(forge_ui::panel(percent(82))).with_children(|p| {
+        p.spawn(text("Display racks", 20.));
+        p.spawn(text(
+            format!(
+                "Finished goods share the showroom's {} slots. Each rack adds slots; upgrades add slots on the same floor space. Gold {} · Timber {}",
+                room.capacity(),
+                state.gold,
+                state.commerce.timber
+            ),
+            13.,
+        ));
+        for (i, rack) in room.racks.iter().enumerate() {
+            p.spawn(Node {
+                column_gap: px(12),
+                align_items: AlignItems::Center,
+                ..default()
+            })
+            .with_children(|line| {
+                forge_ui::icon(line, server, "craft", 28.);
+                line.spawn(text(
+                    format!(
+                        "Display {} · tier {} of {} · {} slots",
+                        (b'A' + i as u8) as char,
+                        rack.tier,
+                        room.config.max_tier(),
+                        room.rack_range(i).len()
+                    ),
+                    14.,
+                ));
+                match room.upgrade_cost(i) {
+                    Some((gold, timber)) => {
+                        let gain = room
+                            .config
+                            .rack_slots
+                            .get(rack.tier as usize)
+                            .copied()
+                            .unwrap_or(0)
+                            .saturating_sub(room.rack_range(i).len() as u32);
+                        button(
+                            line,
+                            format!("Upgrade · {gold} gold, {timber} timber · +{gain} slots"),
+                            Action::Furniture(Command::UpgradeRack { rack: i }, next_id),
+                        );
+                    }
+                    None => {
+                        line.spawn(text("Top tier", 13.));
+                    }
+                }
+            });
+        }
+        match room.rack_cost() {
+            Some((gold, timber)) => {
+                button(
+                    p,
+                    format!(
+                        "Buy display {} · {gold} gold, {timber} timber · +{} slots",
+                        (b'A' + room.racks.len() as u8) as char,
+                        room.config.rack_slots.first().copied().unwrap_or(0)
+                    ),
+                    Action::Furniture(Command::BuyRack, next_id),
+                );
+            }
+            None => {
+                p.spawn(text(
+                    format!("Installation limit reached ({} displays).", room.config.max_racks),
+                    13.,
+                ));
+            }
+        }
+        p.spawn(text(
+            "Prices and slot counts are draft balance values. Existing goods and reservations are never moved.",
+            12.,
+        ));
+    });
+}
 fn item_icon(item: Item) -> &'static str {
     match item {
         Item::Timber => "timber",
@@ -805,7 +910,12 @@ pub fn update(
         let selected = matches!(action,Action::Visit(l) if active.is_some_and(|i|v.registry.locations[i].id==*l))
             || matches!(action,Action::Category(i) if v.category==*i)
             || matches!(action,Action::SelectItem(item) if v.selected_item.or_else(|| Item::ALL.into_iter().find(|candidate| candidate.vendor() == item.vendor()))==Some(*item));
-        let disabled = matches!(action,Action::Buy(item,_) if s.disabled || s.save.state.quote(item.vendor(),*item,v.quantity).map_or(true,|p|p>s.save.state.gold));
+        let disabled = matches!(action,Action::Buy(item,_) if s.disabled || s.save.state.quote(item.vendor(),*item,v.quantity).map_or(true,|p|p>s.save.state.gold))
+            || matches!(action,Action::Furniture(command,_) if s.disabled || {
+                let room=&s.save.state.showroom;
+                let cost=match command{Command::BuyRack=>room.rack_cost(),Command::UpgradeRack{rack}=>room.upgrade_cost(*rack),_=>None};
+                cost.is_none_or(|(gold,timber)|gold>s.save.state.gold||timber>s.save.state.commerce.timber)
+            });
         if disabled != was_disabled {
             if disabled {
                 commands.entity(entity).insert((
@@ -1017,6 +1127,48 @@ mod tests {
                 .resource::<crate::npc::FarmerPresentation>()
                 .pending
         );
+        // Carpenter furniture: one rack per rendered ID; a replay cannot buy twice.
+        app.world_mut().resource_mut::<Session>().save.state.gold = 100;
+        app.world_mut()
+            .resource_mut::<Session>()
+            .save
+            .state
+            .commerce
+            .timber = 10;
+        app.world_mut().trigger(Activate { entity: shop });
+        app.world_mut().resource_mut::<Village>().category = 1;
+        let next = app.world().resource::<Session>().save.state.command_id + 1;
+        let rack = app
+            .world_mut()
+            .spawn(Action::Furniture(Command::BuyRack, next))
+            .id();
+        app.world_mut().trigger(Activate { entity: rack });
+        app.world_mut().trigger(Activate { entity: rack });
+        let st = &app.world().resource::<Session>().save.state;
+        assert_eq!(
+            (
+                st.showroom.racks.len(),
+                st.showroom.capacity(),
+                st.gold,
+                st.commerce.timber
+            ),
+            (2, 8, 70, 6)
+        );
+        let upgrade = app
+            .world_mut()
+            .spawn(Action::Furniture(
+                Command::UpgradeRack { rack: 0 },
+                next + 1,
+            ))
+            .id();
+        app.world_mut().trigger(Activate { entity: upgrade });
+        let st = &app.world().resource::<Session>().save.state;
+        assert_eq!(
+            (st.showroom.racks[0].tier, st.showroom.capacity(), st.gold),
+            (2, 10, 50)
+        );
+        app.world_mut().resource_mut::<Village>().category = 0;
+        app.world_mut().trigger(Activate { entity: back });
         app.world_mut().trigger(Activate { entity: close });
         assert!(!app.world().resource::<Desktop>().shell.expanded);
         let old = app.world().resource::<Session>().save.state.clone();

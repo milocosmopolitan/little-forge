@@ -298,15 +298,12 @@ pub fn update(
     mut ledger: Query<&mut Text, (With<Ledger>, Without<Needs>)>,
 ) {
     let visible = !title.as_ref().is_some_and(|t| t.active)
-        && opts
-            .qa
-            .as_deref()
-            .is_none_or(|q| {
-                q.starts_with("life-")
-                    || q.starts_with("village-")
-                    || q.starts_with("forge-")
-                    || q == "expanded"
-            });
+        && opts.qa.as_deref().is_none_or(|q| {
+            q.starts_with("life-")
+                || q.starts_with("village-")
+                || q.starts_with("forge-")
+                || q == "expanded"
+        });
     let l = &s.save.state.life;
     for mut v in &mut panel {
         *v = if visible

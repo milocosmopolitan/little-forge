@@ -74,6 +74,7 @@
 | [NPC 관계](docs/system/NPC_RELATIONSHIP.md) | 납기·호감도·가격·해금 |
 | [탐험](docs/system/EXPEDITION.md) | 모집·보급·재료 회수 |
 | [제작](docs/system/CRAFTING.md) | 제작·수리·납품 상태와 자원 처리 |
+| [대장간 공간](docs/system/FORGE_SPACES.md) | 캐릭터 선택, 외부/작업장/진열장, 유한 진열 용량과 예약, 목공소 진열대 |
 
 파일명 `CONSUMEABLES.md`, `EXPRIENCE.md`는 요청한 경로를 유지한다.
 
@@ -105,8 +106,9 @@ Linux 빌드 의존성: `libx11-dev libxkbcommon-dev libxkbcommon-x11-0 libudev-
 
 | 키 | 동작 |
 |---|---|
-| C / B | 단검 제작 / 광석 2개 구매 |
-| Tab / M | 관리 패널 확장·축소 / 마을 지도 |
+| C / B / Q | 단검 제작 / 광석 2개 구매 / 큐 등록 |
+| Tab / M | 작업장 진입(확장) / 마을 지도 |
+| 1 / 2 / 3 | 외부 / 작업장 / 진열장 (대장간 홈에서) |
 | 지도 방향키·Enter / 1–8 | 목적지 선택·방문 / 바로 방문 |
 | 상점 좌우 / -·= / Enter | 상품 분류 / 수량 / 구매 |
 | F8 / Esc | 10초 클릭 통과 / 포커스가 있을 때 즉시 해제 |
@@ -117,4 +119,4 @@ Linux 빌드 의존성: `libx11-dev libxkbcommon-dev libxkbcommon-x11-0 libudev-
 
 기본 저장은 OS 사용자 데이터 폴더다. `--save-dir PATH`로 분리 가능하며, 동일 저장 경로의 동시 실행은 거부한다. `--qa ambient|sale|expanded|idle`은 별도 `qa-output/session`을 사용한다. `--screenshot qa-output/sale.png`로 고정 프레임을 저장한다.
 
-[실기 검증 인계](docs/qa/HANDOFF.md) · [검증 증거](docs/qa/FOUNDATION.md) · [플랫폼 정책](docs/system/PLATFORMS.md)
+[실기 검증 인계](docs/qa/HANDOFF.md) · [검증 증거](docs/qa/FOUNDATION.md) · [플랫폼 정책](docs/system/PLATFORMS.md) · [대장간 공간 QA](docs/qa/FORGE_SPACES.md)

@@ -524,7 +524,11 @@ pub struct SkinFrame {
     pub inset: f32,
     pub corner_scale: f32,
 }
-fn frames(mut c: Commands, server: Res<AssetServer>, q: Query<(Entity, &SkinFrame), Added<SkinFrame>>) {
+fn frames(
+    mut c: Commands,
+    server: Res<AssetServer>,
+    q: Query<(Entity, &SkinFrame), Added<SkinFrame>>,
+) {
     for (e, frame) in &q {
         let mut image = ImageNode::new(server.load(frame.path.clone()));
         image.visual_box = bevy::ui::VisualBox::BorderBox;
@@ -619,8 +623,13 @@ pub fn item_slot(
             Some(name) => icon(p, server, name, 40.),
             None => {
                 p.spawn((
-                    text("+", 22.),
+                    Text::new("+"),
+                    TextFont {
+                        font_size: 22.0.into(),
+                        ..default()
+                    },
                     TextColor(Color::srgb(0.45, 0.40, 0.34)),
+                    UiFont,
                     Node {
                         height: px(40),
                         align_items: AlignItems::Center,

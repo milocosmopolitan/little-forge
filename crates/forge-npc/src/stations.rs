@@ -147,7 +147,11 @@ pub fn spawn_station(
             .iter()
             .position(|o| o == name || (name == "back" && o == "station"))
             .unwrap_or(0);
-        if i <= behind { 0.2 + i as f32 * 0.05 } else { 0.8 + i as f32 * 0.05 }
+        if i <= behind {
+            0.2 + i as f32 * 0.05
+        } else {
+            0.8 + i as f32 * 0.05
+        }
     };
     let layers: [(&'static str, &str, f32); 4] = [
         ("back", &s.back, order("station_back")),
@@ -199,7 +203,8 @@ mod tests {
                 let s = &art.stations[&p.id];
                 assert!(o.x >= 0. && o.y >= 0., "{} origin {o:?}", p.id);
                 assert!(
-                    o.x + s.size[0] as f32 <= SCENE_SIZE.x && o.y + s.size[1] as f32 <= SCENE_SIZE.y,
+                    o.x + s.size[0] as f32 <= SCENE_SIZE.x
+                        && o.y + s.size[1] as f32 <= SCENE_SIZE.y,
                     "{} overflows {o:?}",
                     p.id
                 );

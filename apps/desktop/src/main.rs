@@ -71,9 +71,12 @@ impl Options {
                     | "village-outside"
                     | "village-input"
             )
-        ) || self
-            .forge_scene()
-            .is_some_and(|(scene, _)| matches!(scene, "workshop" | "showroom" | "full" | "input" | "interior"))
+        ) || self.forge_scene().is_some_and(|(scene, _)| {
+            matches!(
+                scene,
+                "workshop" | "showroom" | "full" | "input" | "interior"
+            )
+        })
     }
 }
 #[derive(Component)]
@@ -122,10 +125,9 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         match a.as_str() {
             "--safe-window" => opts.safe = true,
             "--qa" => {
-                opts.qa = Some(
-                    args.next()
-                        .ok_or("--qa needs ambient, sale, expanded, idle, title, life-*, village-* or forge-*")?,
-                );
+                opts.qa = Some(args.next().ok_or(
+                    "--qa needs ambient, sale, expanded, idle, title, life-*, village-* or forge-*",
+                )?);
             }
             "--save-dir" => {
                 dir = Some(PathBuf::from(args.next().ok_or("--save-dir needs a path")?))
@@ -171,7 +173,10 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
                 ..default()
             }
             .forge_scene(),
-            Some(("exterior" | "workshop" | "showroom" | "full" | "select" | "input" | "interior", _))
+            Some((
+                "exterior" | "workshop" | "showroom" | "full" | "select" | "input" | "interior",
+                _
+            ))
         )
     }) {
         return Err("unknown QA scenario".into());
@@ -215,21 +220,44 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     {
         saved.state.gold = 24;
     }
-    if let Some((scene, smith)) = opts.forge_scene() {
-        // Isolated fixtures for the forge spaces; never a user save.
-        if scene != "select" {
-            saved.state.smith = Some(smith);
-        }
+    if qa
+        && opts
+            .forge_scene()
+            .is_none_or(|(scene, _)| scene != "select")
+    {
+        // Every isolated QA scene has a smith so the shared scenes render; never a user save.
+        saved.state.smith = Some(
+            opts.forge_scene()
+                .map_or(forge_core::Smith::Male, |(_, s)| s),
+        );
+    }
+    if let Some((scene, _)) = opts.forge_scene() {
         saved.state.gold = 60;
         saved.state.commerce.timber = 6;
         if matches!(scene, "showroom" | "full") {
             // Two finished goods on display, one kept; "full" fills every slot and queues two jobs.
-            let target = if scene == "full" { saved.state.showroom.capacity() } else { 3 };
+            let target = if scene == "full" {
+                saved.state.showroom.capacity()
+            } else {
+                3
+            };
             for i in 0..target {
-                saved.state.showroom.reserve().map_err(|e| format!("{e:?}"))?;
-                saved.state.showroom.place(forge_core::craft::Good::IronDagger).map_err(|e| format!("{e:?}"))?;
+                saved
+                    .state
+                    .showroom
+                    .reserve()
+                    .map_err(|e| format!("{e:?}"))?;
+                saved
+                    .state
+                    .showroom
+                    .place(forge_core::craft::Good::IronDagger)
+                    .map_err(|e| format!("{e:?}"))?;
                 if i == 1 {
-                    saved.state.showroom.set_for_sale(i, false).map_err(|e| format!("{e:?}"))?;
+                    saved
+                        .state
+                        .showroom
+                        .set_for_sale(i, false)
+                        .map_err(|e| format!("{e:?}"))?;
                 }
             }
             saved.state.crafted = target as u32;
@@ -267,7 +295,9 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     let mut app = App::new();
     let title_active = !qa
         || opts.qa.as_deref() == Some("title")
-        || opts.forge_scene().is_some_and(|(scene, _)| scene == "select");
+        || opts
+            .forge_scene()
+            .is_some_and(|(scene, _)| scene == "select");
     let native = native::NativeRuntime::new();
     eprintln!("{}", native.status);
     app.insert_non_send(native);
@@ -323,7 +353,10 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         disabled: false,
         trace: vec![],
     })
-    .insert_resource(window::Desktop::new(opts.safe, title_active || opts.qa_expanded()))
+    .insert_resource(window::Desktop::new(
+        opts.safe,
+        title_active || opts.qa_expanded(),
+    ))
     .insert_resource(WinitSettings {
         focused_mode: UpdateMode::reactive_low_power(Duration::from_secs_f64(1. / 30.)),
         unfocused_mode: UpdateMode::reactive_low_power(Duration::from_secs_f64(1. / 15.)),
@@ -333,7 +366,10 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     .insert_resource(title::TitleScreen {
         active: title_active,
         has_save,
-        route: if opts.forge_scene().is_some_and(|(scene, _)| scene == "select") {
+        route: if opts
+            .forge_scene()
+            .is_some_and(|(scene, _)| scene == "select")
+        {
             title::Route::Choose
         } else {
             title::Route::Title
@@ -755,15 +791,20 @@ fn animate(
     } else {
         0
     };
-    let legacy_qa = opts
-        .qa
-        .as_deref()
-        .is_some_and(|q| !q.starts_with("life-") && !q.starts_with("village-") && !q.starts_with("forge-"));
+    let legacy_qa = opts.qa.as_deref().is_some_and(|q| {
+        !q.starts_with("life-") && !q.starts_with("village-") && !q.starts_with("forge-")
+    });
     let working = legacy_qa
         || session.as_ref().is_some_and(|s| {
-            matches!(s.save.state.activity(), forge_core::spaces::Activity::Working { .. })
+            matches!(
+                s.save.state.activity(),
+                forge_core::spaces::Activity::Working { .. }
+            )
         });
-    let sellable = legacy_qa || session.as_ref().is_some_and(|s| s.save.state.sellable() > 0);
+    let sellable = legacy_qa
+        || session
+            .as_ref()
+            .is_some_and(|s| s.save.state.sellable() > 0);
     for (mut t, mut sprite, visitor, weapon, building, smoke, display, mut visibility) in &mut q {
         if visitor.is_some() {
             t.translation = Vec3::new(p.x(), -85. + offset, 3.);
@@ -914,7 +955,9 @@ fn qa_capture(
     if opts.frames == 1 && opts.qa.as_deref() == Some("idle") {
         desktop.shell.idle();
     }
-    if opts.forge_scene().is_some_and(|(scene, _)| scene == "workshop")
+    if opts
+        .forge_scene()
+        .is_some_and(|(scene, _)| scene == "workshop")
         && [45, 100, 140].contains(&opts.frames)
         && let Some(path) = &opts.capture
     {
@@ -936,7 +979,9 @@ fn qa_capture(
     }
     let long = life
         || opts.qa.as_deref() == Some("village-input")
-        || opts.forge_scene().is_some_and(|(scene, _)| scene == "input");
+        || opts
+            .forge_scene()
+            .is_some_and(|(scene, _)| scene == "input");
     if opts.frames == if long { 1800 } else { 180 }
         && let Some(path) = &opts.capture
     {

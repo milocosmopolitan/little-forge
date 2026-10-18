@@ -39,6 +39,7 @@ jobs:
       - run: python scripts/validate-assets.py
       - run: python scripts/validate-village.py
       - run: python scripts/validate-ui.py
+      - run: python scripts/validate-spaces.py
       - shell: bash
         run: |
           mkdir -p qa-output
@@ -68,6 +69,9 @@ jobs:
       - name: Capture village UI on native macOS and Windows
         if: runner.os != 'Linux'
         run: python scripts/capture-village.py target/release/little-forge${{ runner.os == 'Windows' && '.exe' || '' }}
+      - name: Capture forge spaces on native macOS and Windows
+        if: runner.os != 'Linux'
+        run: python scripts/capture-forge.py target/release/little-forge${{ runner.os == 'Windows' && '.exe' || '' }}
       - run: python scripts/package.py
       - uses: actions/upload-artifact@v4
         with:
@@ -105,6 +109,12 @@ jobs:
         run: xvfb-run -a -s '-screen 0 1280x800x24' python scripts/capture-ui.py target/debug/ui-preview
       - name: Capture independent NPC stories and missing-art fallback
         run: xvfb-run -a python scripts/capture-npc.py target/debug/npc-preview qa-output/npc
+      - name: Capture independent player smith stories (both characters, all clips)
+        run: xvfb-run -a -s '-screen 0 1280x900x24' python scripts/capture-player.py target/debug/npc-preview qa-output/player
+      - name: Capture forge spaces in the actual app
+        run: xvfb-run -a -s '-screen 0 1280x800x24' python scripts/capture-forge.py target/debug/little-forge
+      - name: Verify forge spaces with real X11 keyboard input
+        run: xvfb-run -a -s '-screen 0 1280x800x24' python scripts/test-forge-input.py target/debug/little-forge
       - name: Capture farmer purchase in the actual game
         run: |
           timeout 90s xvfb-run -a target/debug/little-forge --safe-window --qa npc --screenshot qa-output/npc-purchase.png > qa-output/npc-purchase.log 2>&1

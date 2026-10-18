@@ -392,7 +392,11 @@ fn perform(
     if let TitleAction::Pick(smith) = action {
         // The only write on this screen: record the choice, then persist the journey once.
         let id = session.save.state.command_id + 1;
-        if let Err(e) = session.save.state.command(id, forge_core::Command::ChooseSmith(smith)) {
+        if let Err(e) = session
+            .save
+            .state
+            .command(id, forge_core::Command::ChooseSmith(smith))
+        {
             title.error = format!("{e:?}");
             return false;
         }
@@ -586,8 +590,18 @@ pub fn portraits(
             continue;
         };
         // 120 ms blink every 3.5 s, offset per smith so they do not blink in unison.
-        let phase = (seconds + if portrait.0 == forge_core::Smith::Male { 1.7 } else { 0. }) % 3.5;
-        let frame = if phase > 3.3 && phase < 3.42 { "blink" } else { "neutral" };
+        let phase = (seconds
+            + if portrait.0 == forge_core::Smith::Male {
+                1.7
+            } else {
+                0.
+            })
+            % 3.5;
+        let frame = if phase > 3.3 && phase < 3.42 {
+            "blink"
+        } else {
+            "neutral"
+        };
         if let (Some(index), Some(atlas)) = (c.sprite_index(frame), image.texture_atlas.as_mut())
             && atlas.index != index
         {
@@ -687,7 +701,10 @@ mod tests {
             Route::InGame
         );
         assert_eq!(transition(Route::Choose, TitleAction::Back), Route::Title);
-        assert_eq!(transition(Route::Title, TitleAction::Pick(forge_core::Smith::Male)), Route::Title);
+        assert_eq!(
+            transition(Route::Title, TitleAction::Pick(forge_core::Smith::Male)),
+            Route::Title
+        );
     }
     #[test]
     fn picking_records_the_smith_once_and_backing_out_writes_nothing() {
@@ -717,14 +734,28 @@ mod tests {
         go(TitleAction::Back, &mut title, &mut session);
         assert_eq!(title.route, Route::Title);
         assert!(!title.has_save);
-        assert!(std::fs::read_dir(&dir).unwrap().all(|e| !e.unwrap().file_name().to_string_lossy().starts_with("save-")));
+        assert!(std::fs::read_dir(&dir).unwrap().all(|e| {
+            !e.unwrap()
+                .file_name()
+                .to_string_lossy()
+                .starts_with("save-")
+        }));
         go(TitleAction::New, &mut title, &mut session);
         go(TitleAction::Begin, &mut title, &mut session);
-        go(TitleAction::Pick(forge_core::Smith::Female), &mut title, &mut session);
+        go(
+            TitleAction::Pick(forge_core::Smith::Female),
+            &mut title,
+            &mut session,
+        );
         assert_eq!(title.route, Route::InGame);
         assert!(title.has_save);
         assert_eq!(session.save.state.smith, Some(forge_core::Smith::Female));
-        assert!(std::fs::read_dir(&dir).unwrap().any(|e| e.unwrap().file_name().to_string_lossy().starts_with("save-")));
+        assert!(std::fs::read_dir(&dir).unwrap().any(|e| {
+            e.unwrap()
+                .file_name()
+                .to_string_lossy()
+                .starts_with("save-")
+        }));
         // Continue with a chosen smith never asks again; an unchosen save asks once.
         title.active = true;
         title.route = Route::Title;
