@@ -732,6 +732,7 @@ fn draw_workshop(p: &mut ChildSpawnerCommands, s: &Session, spaces: &Spaces, ser
                 13.,
             ));
             forge_ui::button(row, "Manage", Action::Manage);
+            forge_ui::button(row, "Hunter expedition", crate::expedition::Action::Prepare);
             forge_ui::button(row, "Chef commission", crate::lifestyle::HomeTab(3));
             forge_ui::button(row, "Research", crate::lifestyle::HomeTab(4));
         });

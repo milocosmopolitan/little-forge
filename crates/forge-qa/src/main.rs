@@ -4,6 +4,13 @@ mod lifestyle;
 use forge_core::{Command, State, save::Save};
 use std::time::Instant;
 fn main() {
+    if std::env::args().any(|a| a == "crafting-combat") {
+        println!(
+            "{}",
+            serde_json::to_string_pretty(&expedition::crafting_report()).unwrap()
+        );
+        return;
+    }
     if std::env::args().any(|a| a == "expedition") {
         println!(
             "{}",

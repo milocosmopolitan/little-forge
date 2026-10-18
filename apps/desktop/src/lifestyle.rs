@@ -219,6 +219,7 @@ pub fn draw(
         p.spawn(Node{flex_grow:1.,min_height:px(0),column_gap:px(12),..default()}).with_children(|row|{
             row.spawn((forge_ui::SkinPanel, Node { width: percent(18), padding: UiRect::all(px(8)), flex_direction: FlexDirection::Column, row_gap: px(4), min_width: px(0), ..default() }, BackgroundColor(forge_ui::SURFACE))).with_children(|side|{
                 for (i,label) in ["Crafting","Materials","Provisions","Chef [O]","Research","Codex","Journal","Farmer"].iter().enumerate(){let entity = forge_ui::button(side,*label,HomeTab(i)); side.commands().entity(entity).insert((forge_ui::SkinKind::Tab, Node { min_height: px(26), height: px(26), padding: UiRect::axes(px(4), px(2)), align_items: AlignItems::Center, justify_content: JustifyContent::Center, ..default() })); if home.tab == i { side.commands().entity(entity).insert(forge_ui::Selected); }}
+                forge_ui::button(side,"Hunter",crate::expedition::Action::Prepare);
 
             });
             row.spawn(forge_ui::panel(percent(52))).with_children(|body|{

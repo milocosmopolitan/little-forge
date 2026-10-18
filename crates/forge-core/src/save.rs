@@ -7,10 +7,11 @@ use std::{
     io::{self, Write},
     path::Path,
 };
+/// Schema 7 adds crafted weapon properties and permanent instance history.
 /// Schema 6 adds progression, research and Codex; schema 5 added expedition contracts and field
 /// records. Schemas 1-5 import losslessly and keep their dagger recipe; newer schemas are refused
 /// rather than downgraded.
-pub const SCHEMA_VERSION: u32 = 6;
+pub const SCHEMA_VERSION: u32 = 7;
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
 pub struct Save {
     pub schema_version: u32,
@@ -143,6 +144,32 @@ pub fn load(dir: &Path) -> io::Result<Option<Save>> {
                                 ..Default::default()
                             })?;
                         value["schema_version"] = serde_json::json!(SCHEMA_VERSION);
+                    }
+                    if (1..=6).contains(&version) {
+                        value["schema_version"] = serde_json::json!(7);
+                        value["state"]["progression"]["weapons"] = serde_json::json!([]);
+                        let ex = &mut value["state"]["expedition"];
+                        if let Some(weapons) = ex["weapons"].as_array_mut() {
+                            for w in weapons {
+                                w["craftsmanship"] = serde_json::Value::Null;
+                                w["highest_wave"] = 0.into();
+                                w["completions"] = 0.into();
+                                w["first_breakthrough"] = serde_json::Value::Null;
+                            }
+                        }
+                        let migrate_battle = |b: &mut serde_json::Value| {
+                            if b.is_object() {
+                                b["weapon_snapshot"] = serde_json::json!([]);
+                                b["rules"] = serde_json::Value::Null;
+                                b["previous_best"] = 0.into();
+                            }
+                        };
+                        migrate_battle(&mut ex["active"]);
+                        if let Some(records) = ex["records"].as_array_mut() {
+                            for b in records {
+                                migrate_battle(b);
+                            }
+                        }
                     }
                     let Ok(mut s) = serde_json::from_value::<Save>(value) else {
                         continue;
@@ -279,7 +306,7 @@ mod tests {
         store(&d, &mut s).unwrap();
         fs::write(
             d.join("save-0.json"),
-            br#"{"schema_version":7,"content_version":1,"different_state":{}}"#,
+            br#"{"schema_version":8,"content_version":1,"different_state":{}}"#,
         )
         .unwrap();
         assert!(load(&d).is_err());

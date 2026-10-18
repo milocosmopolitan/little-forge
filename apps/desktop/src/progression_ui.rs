@@ -192,6 +192,11 @@ pub fn draw(
         }
         5 => {
             p.spawn(ui::text("Smith's Codex", 21.));
+            ui::button(
+                p,
+                "Crafted weapons / field records",
+                crate::expedition::Action::FieldCodex,
+            );
             for (i, r) in rules.recipes.iter().enumerate() {
                 ui::button(
                     p,

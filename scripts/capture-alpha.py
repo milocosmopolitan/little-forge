@@ -10,6 +10,7 @@ from PIL import Image
 
 parser = argparse.ArgumentParser()
 parser.add_argument("executable")
+parser.add_argument("--crafting", action="store_true")
 parser.add_argument("--output", default="qa-output/alpha")
 args = parser.parse_args()
 output = Path(args.output).resolve()
@@ -18,6 +19,20 @@ executable = str(Path(args.executable).resolve())
 scenes = ["title", "character-selection", "workshop", "chef-commission", "active-crafting",
           "chef-ready", "research-discovered", "research-ready", "research-completed",
           "codex", "journal", "workshop-return"]
+if args.crafting:
+    prefix = output / "crafting.png"
+    with (output / "crafting.log").open("w") as log:
+        subprocess.run([executable, "--safe-window", "--qa", "alpha-crafting", "--save-dir", str(output / "session-crafting"), "--screenshot", str(prefix)], stdout=log, stderr=subprocess.STDOUT, check=True, timeout=360)
+    report=json.loads(Path(f"{prefix}.json").read_text())
+    assert report["result"]=="passed" and report["save_reload"]=="equal"
+    assert report["state"]["expedition"]["records"][0]["cleared"]==2
+    assert report["state"]["expedition"]["active"]["cleared"]==5
+    for scene in ["common-crafting","first-wolves","wave-three-retreat","failure-feedback","masterwork-crafting","retry-boar","victory","breakthrough-codex"]:
+        with Image.open(output/f"crafting-{scene}.png") as image:
+            assert image.width/image.height==960/540
+            assert image.convert("RGB").getextrema()[0][1]>100
+    print("crafting: Chef -> research -> common knife -> Wave 3 retreat -> tailored knife -> five-wave completion -> Codex; reload equal")
+    raise SystemExit(0)
 reports = {}
 for character, scenario in [("male", "alpha"), ("female", "alpha-female")]:
     prefix = output / f"{character}.png"

@@ -29,3 +29,8 @@ quiver. Journal/offline tests compare the entire state. Actual Bevy captures sho
 boundaries. Asset structural validation, visual approval, automated UI activation, Windows
 CI and native Shadow PC acceptance are separate checks. Epic #73 stays open until the whole
 accepted player experience is verified.
+
+
+## Crafted-weapon gameplay follow-up
+
+The implemented knife material/technique/approach choices, research gates, permanent instance history, migration and Wave 3 retry are documented in [Crafting × Combat](../qa/CRAFTING-COMBAT.md). The broader systems above remain design targets where that report identifies gaps.

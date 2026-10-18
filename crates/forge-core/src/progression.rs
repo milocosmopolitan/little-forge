@@ -102,6 +102,7 @@ pub struct Milestone {
 }
 #[derive(Debug, Clone, Default, Serialize, Deserialize, PartialEq, Eq)]
 pub struct Progression {
+    pub weapons: Vec<crate::expedition::Weapon>,
     pub rules: Option<Rules>,
     pub legacy_dagger: bool,
     pub chef_phase: OrderPhase,
@@ -143,7 +144,7 @@ impl Progression {
     pub fn dagger_unlocked(&self) -> bool {
         self.legacy_dagger || self.research_completed
     }
-    fn note(&mut self, tick: u64, id: &str, text: String) {
+    pub(crate) fn note(&mut self, tick: u64, id: &str, text: String) {
         if !self.journal.iter().any(|m| m.id == id) {
             self.journal.push(Milestone {
                 id: id.into(),
@@ -304,6 +305,16 @@ impl State {
     }
     pub(crate) fn validate_progression(&self) -> Result<(), Error> {
         let p = &self.progression;
+        for (i, w) in p.weapons.iter().enumerate() {
+            crate::weapon::validate_record(w)?;
+            if w.craftsmanship.is_none()
+                || w.id == 0
+                || w.id > self.expedition.next_weapon
+                || p.weapons[..i].iter().any(|old| old.id == w.id)
+            {
+                return Err(Error::InvalidState);
+            }
+        }
         if let Some(rules) = &p.rules {
             rules.validate()?;
             if p.research_xp > rules.dagger.goal_xp
@@ -333,7 +344,7 @@ impl State {
                 .active_job
                 .is_some_and(|j| self.life.work > self.work_seconds(j) * 1000)
             || p.codex.iter().any(|(id, r)| {
-                !["kitchen_knife", "iron_dagger"].contains(&id.as_str())
+                !["kitchen_knife", "iron_dagger", "hunting_knife"].contains(&id.as_str())
                     || r.count == 0
                     || r.first_tick > self.tick
                     || r.first_item_id > p.next_item_id

@@ -157,6 +157,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             s.as_str(),
             "alpha"
                 | "alpha-female"
+                | "alpha-crafting"
                 | "ambient"
                 | "sale"
                 | "expanded"
@@ -212,6 +213,11 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     let loaded = if qa { None } else { save::load(&dir)? };
     let has_save = loaded.is_some();
     let mut saved = loaded.unwrap_or_else(|| Save::new(State::new(42), now()));
+    if opts.qa.as_deref() == Some("alpha-crafting") {
+        saved.state.ore = 40;
+        saved.state.gold = 80;
+        saved.state.commerce.timber = 8;
+    }
     if saved.state.progression.rules.is_none() {
         saved.state.progression.rules = Some(forge_content::progression_rules()?);
     }

@@ -101,6 +101,7 @@ mod tests {
     fn manifest_is_valid() {
         Manifest::bundled().unwrap();
         expedition_content().unwrap();
+        forge_core::weapon::Rules::bundled().validate().unwrap();
     }
     #[test]
     fn showroom_balance_is_valid_and_matches_core_defaults() {

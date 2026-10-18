@@ -9,6 +9,7 @@ pub mod shell;
 pub mod showroom;
 pub mod spaces;
 pub mod village;
+pub mod weapon;
 use serde::{Deserialize, Serialize};
 
 pub const CONTENT_VERSION: u32 = 1;
@@ -69,6 +70,8 @@ pub struct State {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Command {
     CraftExpeditionGear(expedition::Gear),
+    ForgeWeapon(weapon::Plan),
+    SellWeapon(u64),
     LaunchExpedition(expedition::Loadout),
     RecallExpedition,
     Craft,
@@ -211,6 +214,8 @@ impl State {
         }
         let mut next = self.clone();
         match command {
+            Command::ForgeWeapon(plan) => next.queue_weapon(plan)?,
+            Command::SellWeapon(id) => next.sell_weapon(id)?,
             Command::CraftExpeditionGear(g) => next.queue_expedition_gear(g)?,
             Command::LaunchExpedition(l) => next.launch_expedition(l)?,
             Command::RecallExpedition => next.recall_expedition()?,
