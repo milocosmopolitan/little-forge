@@ -45,7 +45,8 @@ for entry in runtime['assets']:
         assert small.resize(im.size, Image.NEAREST).tobytes() == im.tobytes(), f'{path}: not a true {g}px grid'
         if entry['kind'] != 'header-foreground':
             limit = manifest_limits[entry['kind'] if entry['kind'] in ('icon', 'header') else 'controls']
-            colours = {px[:3] for px in small.convert('RGBA').get_flattened_data() if px[3]}
+            raw = small.convert('RGBA').tobytes()
+            colours = {raw[i:i + 3] for i in range(0, len(raw), 4) if raw[i + 3]}
             assert len(colours) <= limit, f'{path}: {len(colours)} colours > {limit}'
         l, t, r, b = entry.get('insets_ltrb', (0, 0, 0, 0))
         assert l + r < entry['width'] and t + b < entry['height'], f'{path}: insets exceed size'

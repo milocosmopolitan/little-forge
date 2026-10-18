@@ -65,7 +65,10 @@ def to_native(im, grid):
 
 def palette_for(images, colors):
     """Median-cut palette from the opaque pixels of `images`."""
-    pixels = [p[:3] for im in images for p in im.get_flattened_data() if p[3]]
+    pixels = []
+    for im in images:
+        raw = im.convert('RGBA').tobytes()
+        pixels += [tuple(raw[i:i + 3]) for i in range(0, len(raw), 4) if raw[i + 3]]
     mosaic = Image.new('RGB', (len(pixels), 1))
     mosaic.putdata(pixels)
     return mosaic.quantize(colors=colors, method=Image.Quantize.MEDIANCUT, dither=Image.Dither.NONE)

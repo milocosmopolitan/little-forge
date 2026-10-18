@@ -100,8 +100,8 @@ Shared-component preview fixtures:
 (19 controls, 24 icons, 4 headers) live in `assets/ui/runtime/`,
 snapped to a real pixel grid (see `assets/ui/README.md`) and verified by
 `validate-ui.py`. Sidebar tabs, inventory slots and progress bars now use the
-exported art; the farm header is undistorted with the farmer enlarged and standing
-in front of the stall.
+exported art; the farm header is undistorted with the farmer enlarged and in front
+of the stall, cropped at the waist by the header edge.
 
 ![Forge](evidence/runtime-exports-home.png)
 ![Provisions slots](evidence/runtime-exports-provisions.png)

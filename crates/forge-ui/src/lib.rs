@@ -414,12 +414,12 @@ struct Stage {
 }
 fn stage(header: &str) -> Stage {
     match header {
-        // The farmer stands on the ground in front of the stall, feet near the bottom edge.
-        // Full body must fit the 200px header, so the sprite is 1.5x.
+        // The farmer is in front of the stall: 2x (the header art grid) with the waist near the
+        // counter top, legs running off the bottom edge so no feet float above the ground.
         "farm" => Stage {
-            scale: 1.5,
-            right: 30.,
-            top: -18.,
+            scale: 2.,
+            right: 6.,
+            top: -16.,
         },
         _ => Stage {
             scale: 1.,

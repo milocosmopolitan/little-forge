@@ -85,10 +85,11 @@ alpha bounds, insets and hashes.
 | Headers | `headers/{carpenter,leatherworker,farm,tavern}.png` (1250×200) | none |
 
 Header stage: art is 1250×200 and shown at that height with uniform scale,
-anchored right. The farmer sprite is drawn at 1.5× and stands on the ground in
-front of the stall with feet near the bottom edge, full body visible. A cut-out
-foreground counter was tried and dropped: the props and uneven counter top make a
-clean mask impractical. Other merchants keep their previous placement.
+anchored right. The farmer sprite is drawn at 2× (the header grid) in front of
+the stall, waist near the counter top, legs cropped by the header's bottom edge so
+nothing floats. A cut-out foreground counter and a full-body standing pose were
+tried and dropped (props make a clean mask impractical; full body floated above the
+ground). Other merchants keep their previous placement.
 
 Skinned controls draw no node background (art carries every state); the node
 border is the focus/hover ring.
