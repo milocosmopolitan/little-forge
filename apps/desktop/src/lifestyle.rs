@@ -168,9 +168,8 @@ pub fn draw(
     // rebuilding them every second made the whole panel flicker.
     let st = &s.save.state;
     let key = format!(
-        "{}:{}:{}:{}:{}:{}:{}:{}:{root:?}",
+        "{}:{}:{}:{}:{}:{}:{}:{root:?}",
         home.tab,
-        st.command_id,
         l.pantry.staples(),
         st.ore,
         st.daggers,
