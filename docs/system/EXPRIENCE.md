@@ -61,3 +61,7 @@
 분야별 XP/이해도, 해금된 연구, 연구 진행, 발견한 단서, 피드백 처리 ID, 튜토리얼 보장 상태를 저장한다.
 
 동일 납품의 보상 1회, 관련 없는 연구 오해금 방지, 3개 주문 후 Lv.1 보장, 연구 발견과 완료 구분, 저장 후 확률·보장 상태 복원을 검증한다. 레벨 곡선·XP 값은 조정 전이다.
+
+## 성장 시스템 최신 구체화
+
+[PROGRESSION](PROGRESSION.md)의 General Crafting XP, Technique Proficiency XP/Level, 적격 Research Node XP, Research Clue 및 [Smith's Codex](SMITHS_CODEX.md) 기록을 구별한다. 튜토리얼 3회 이내 Lv.1 보장은 유지한다. Kitchen Knife/Rake/Punch/Hatchet/Bow/Arrows의 첫 수치표는 **플레이테스트 가정**이며 확정 경제가 아니다.
