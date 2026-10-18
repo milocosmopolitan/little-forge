@@ -111,7 +111,7 @@ fn interaction(
     >,
 ) {
     for (entity, state, pressed, selected, disabled, mut bg, mut border) in &mut q {
-        bg.0 = if disabled.is_some() {
+        let next_bg = if disabled.is_some() {
             Color::srgb(0.14, 0.13, 0.12)
         } else if pressed {
             Color::srgb(0.10, 0.20, 0.27)
@@ -120,11 +120,17 @@ fn interaction(
         } else {
             Color::srgb(0.23, 0.17, 0.12)
         };
-        *border = BorderColor::all(if state.get() || focus.get() == Some(entity) {
+        if bg.0 != next_bg {
+            bg.0 = next_bg;
+        }
+        let next_border = BorderColor::all(if state.get() || focus.get() == Some(entity) {
             INK
         } else {
             EDGE
         });
+        if *border != next_border {
+            *border = next_border;
+        }
     }
 }
 pub fn text(s: impl Into<String>, size: f32) -> impl Bundle {
@@ -555,13 +561,18 @@ fn tooltip(
         }
     });
     for (mut t, mut v) in &mut tip {
-        *v = if value.is_some() {
+        let next = if value.is_some() {
             Visibility::Visible
         } else {
             Visibility::Hidden
         };
-        if let Some(s) = &value {
-            **t = s.clone();
+        if *v != next {
+            *v = next;
+        }
+        if let Some(s) = &value
+            && t.0 != *s
+        {
+            t.0.clone_from(s);
         }
     }
 }

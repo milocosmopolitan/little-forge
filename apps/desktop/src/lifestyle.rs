@@ -11,6 +11,88 @@ pub struct Needs;
 pub struct Ledger;
 #[derive(Component)]
 pub struct Action(Command);
+/// Status-column nodes whose text or bar width follows the simulation without a rebuild.
+#[derive(Component, Clone, Copy, PartialEq)]
+pub enum Live {
+    Action,
+    Queue,
+    Status,
+    Fatigue,
+    Hunger,
+    Thirst,
+    WorkBar,
+    FatigueBar,
+    HungerBar,
+    ThirstBar,
+}
+fn live_text(s: &Session, kind: Live) -> String {
+    let l = &s.save.state.life;
+    match kind {
+        Live::Action => format!("{:?}", l.action),
+        Live::Queue => format!(
+            "{} waiting · {}s remaining",
+            l.queue,
+            l.work.div_ceil(l.speed()) + l.remaining as u64
+        ),
+        Live::Status => s.status.split(". C craft").next().unwrap_or(&s.status).to_string(),
+        Live::Fatigue => format!("Fatigue {}%", l.fatigue / 100),
+        Live::Hunger => format!("Hunger {}%", l.hunger / 100),
+        Live::Thirst => format!("Thirst {}%", l.thirst / 100),
+        _ => String::new(),
+    }
+}
+fn live_fraction(s: &Session, kind: Live) -> f32 {
+    let l = &s.save.state.life;
+    match kind {
+        Live::WorkBar if l.work == 0 => 0.,
+        Live::WorkBar => 1. - l.work as f32 / (forge_core::CRAFT_SECS * 1000) as f32,
+        Live::FatigueBar => l.fatigue as f32 / 10000.,
+        Live::HungerBar => l.hunger as f32 / 10000.,
+        _ => l.thirst as f32 / 10000.,
+    }
+    .clamp(0., 1.)
+}
+fn meter(parent: &mut ChildSpawnerCommands, s: &Session, label: Option<Live>, bar: Live) {
+    match label {
+        Some(kind) => parent.spawn((forge_ui::text(live_text(s, kind), 13.), kind)),
+        None => parent.spawn(forge_ui::text("Current blade", 13.)),
+    };
+    parent
+        .spawn((
+            Node {
+                width: percent(100),
+                height: px(9),
+                ..default()
+            },
+            BackgroundColor(Color::srgb(0.06, 0.05, 0.04)),
+        ))
+        .with_children(|p| {
+            p.spawn((
+                Node {
+                    width: percent(live_fraction(s, bar) * 100.),
+                    height: percent(100),
+                    ..default()
+                },
+                BackgroundColor(Color::srgb(0.75, 0.43, 0.16)),
+                bar,
+            ));
+        });
+}
+/// Writes only on change so Bevy does not re-layout text or nodes every frame.
+pub fn live(s: Res<Session>, mut texts: Query<(&Live, &mut Text)>, mut bars: Query<(&Live, &mut Node)>) {
+    for (kind, mut text) in &mut texts {
+        let next = live_text(&s, *kind);
+        if text.0 != next {
+            text.0 = next;
+        }
+    }
+    for (kind, mut node) in &mut bars {
+        let next = percent(live_fraction(&s, *kind) * 100.);
+        if node.width != next {
+            node.width = next;
+        }
+    }
+}
 #[derive(Resource, Default)]
 pub struct HomeUi {
     pub tab: usize,
@@ -82,23 +164,18 @@ pub fn draw(
         return;
     };
     let l = &s.save.state.life;
+    // Fast-changing needs, timers and status text are patched in place by `live`;
+    // rebuilding them every second made the whole panel flicker.
+    let st = &s.save.state;
     let key = format!(
-        "{}:{}:{}:{}:{}:{}:{}:{}",
+        "{}:{}:{}:{}:{}:{}:{}:{root:?}",
         home.tab,
-        s.save.state.command_id,
-        l.action as u8,
-        l.remaining,
-        l.work / 1000,
-        l.queue,
-        l.fatigue / 100,
-        l.pantry.staples()
-    );
-    let key = format!(
-        "{key}:{root:?}:{}:{}:{}:{}",
+        l.pantry.staples(),
+        st.ore,
+        st.daggers,
+        st.commerce.timber,
+        st.commerce.leather,
         home.selected,
-        l.hunger / 100,
-        l.thirst / 100,
-        s.status
     );
     if *last == key {
         return;
@@ -160,15 +237,14 @@ pub fn draw(
             });
             row.spawn(forge_ui::panel(percent(34))).with_children(|queue|{
                 queue.spawn(forge_ui::text("At the workbench",20.));
-                queue.spawn(forge_ui::text(format!("{:?}",l.action),17.));
-                let remaining = l.work.div_ceil(l.speed()) + l.remaining as u64;
-                queue.spawn(forge_ui::text(format!("{} waiting · {}s remaining",l.queue,remaining),14.));
-                forge_ui::progress(queue, if l.work == 0 { 0. } else { 1. - l.work as f32 / (forge_core::CRAFT_SECS * 1000) as f32 }, "Current blade");
-                forge_ui::progress(queue,l.fatigue as f32/10000.,format!("Fatigue {}%",l.fatigue/100));
-                forge_ui::progress(queue,l.hunger as f32/10000.,format!("Hunger {}%",l.hunger/100));
-                forge_ui::progress(queue,l.thirst as f32/10000.,format!("Thirst {}%",l.thirst/100));
+                queue.spawn((forge_ui::text(live_text(&s, Live::Action), 17.), Live::Action));
+                queue.spawn((forge_ui::text(live_text(&s, Live::Queue), 14.), Live::Queue));
+                meter(queue, &s, None, Live::WorkBar);
+                meter(queue, &s, Some(Live::Fatigue), Live::FatigueBar);
+                meter(queue, &s, Some(Live::Hunger), Live::HungerBar);
+                meter(queue, &s, Some(Live::Thirst), Live::ThirstBar);
                 queue.spawn(forge_ui::text("Your smith rests, eats and resumes work automatically. Meals are used only when you choose.",13.));
-                queue.spawn(forge_ui::text(s.status.split(". C craft").next().unwrap_or(&s.status),13.));
+                queue.spawn((forge_ui::text(live_text(&s, Live::Status), 13.), Live::Status));
             });
         });
     });
