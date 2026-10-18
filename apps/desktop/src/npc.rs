@@ -102,6 +102,8 @@ fn update(
     session: Res<crate::Session>,
     title: Res<crate::title::TitleScreen>,
     village: Res<crate::village::Village>,
+    desktop: Res<crate::window::Desktop>,
+    spaces: Option<Res<crate::spaces::Spaces>>,
     mut state: ResMut<FarmerPresentation>,
     mut farmer: Query<
         (&mut Player, &mut Transform, &mut Visibility),
@@ -143,7 +145,13 @@ fn update(
     );
     let order_scene =
         opts.qa.is_none() || opts.qa.as_deref().is_some_and(|q| q.starts_with("repair-"));
+    // The farmer stands outside the forge; interior views (workshop, showroom) hide him.
+    let outside = !desktop.shell.expanded
+        || spaces
+            .as_ref()
+            .is_none_or(|s| s.space == forge_core::spaces::Space::Exterior);
     *v = if !title.active
+        && outside
         && (state.active
             || (order_scene && waiting && village.nav.screen == forge_core::village::Screen::Home))
     {

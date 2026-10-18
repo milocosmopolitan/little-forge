@@ -128,6 +128,11 @@ pub fn setup(
     mut spaces: ResMut<Spaces>,
 ) {
     // Isolated QA scenes start in the space they document; normal launches start outside.
+    if opts.qa.as_deref().is_some_and(|q| q.starts_with("repair-")) {
+        // The first-repair fixtures open the workshop ledger on its Orders tab.
+        spaces.space = Space::Workshop;
+        spaces.manage = true;
+    }
     if let Some((scene, _)) = opts.forge_scene() {
         spaces.space = match scene {
             "workshop" | "full" | "input" => Space::Workshop,
@@ -709,6 +714,9 @@ fn draw_workshop(p: &mut ChildSpawnerCommands, s: &Session, spaces: &Spaces, ser
         });
         return;
     }
+    // The ledger keeps its three-column layout, so the manage drawer is twice as wide as a
+    // station menu; the hot stations on the right stay visible either way.
+    let drawer_width = if spaces.manage { 660. } else { 330. };
     p.spawn((
         forge_ui::SkinPanel,
         Node {
@@ -716,7 +724,7 @@ fn draw_workshop(p: &mut ChildSpawnerCommands, s: &Session, spaces: &Spaces, ser
             left: px(0),
             top: px(0),
             bottom: px(0),
-            width: px(330),
+            width: px(drawer_width),
             padding: UiRect::all(px(14)),
             flex_direction: FlexDirection::Column,
             row_gap: px(8),

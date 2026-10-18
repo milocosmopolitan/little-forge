@@ -472,6 +472,7 @@ pub fn draw(
             q.starts_with("village-")
                 || q.starts_with("life-")
                 || q.starts_with("forge-")
+                || q.starts_with("repair-")
                 || q == "expanded"
         });
     commands.entity(root).insert((
