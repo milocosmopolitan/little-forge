@@ -1,0 +1,13 @@
+{
+  "scenes": [
+    "entry",
+    "movement",
+    "bow",
+    "dagger",
+    "wolf",
+    "boar",
+    "retreat",
+    "victory"
+  ],
+  "evidence": "actual Bevy desktop app, frozen authoritative event boundaries, animation frames advance; not an interactive-input acceptance run"
+}

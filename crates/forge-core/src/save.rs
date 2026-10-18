@@ -7,9 +7,9 @@ use std::{
     io::{self, Write},
     path::Path,
 };
-/// Schema 4 adds the chosen smith and the finite showroom (#86). Schema 3 saves import their
-/// dagger stock losslessly; newer schemas are refused rather than downgraded.
-pub const SCHEMA_VERSION: u32 = 4;
+/// Schema 5 adds expedition contracts and field records. Earlier showroom and work migrations
+/// remain lossless; newer schemas are refused rather than downgraded.
+pub const SCHEMA_VERSION: u32 = 5;
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
 pub struct Save {
     pub schema_version: u32,
@@ -85,7 +85,7 @@ pub fn load(dir: &Path) -> io::Result<Option<Save>> {
                     continue;
                 }
                 if let Ok(header) = serde_json::from_slice::<serde_json::Value>(&bytes)
-                    && header["schema_version"] == 4
+                    && header["schema_version"].as_u64().is_some_and(|v| v >= 4)
                     && (header["state"].get("showroom").is_none()
                         || header["state"]["life"].get("active_job").is_none())
                 {
@@ -129,6 +129,11 @@ pub fn load(dir: &Path) -> io::Result<Option<Save>> {
                         value["state"]["farmer_order"] =
                             serde_json::to_value(crate::commission::FarmerOrder::default())?;
                         value["schema_version"] = serde_json::json!(4);
+                    }
+                    if (1..=4).contains(&version) {
+                        value["state"]["expedition"] =
+                            serde_json::to_value(crate::expedition::Expedition::default())?;
+                        value["schema_version"] = serde_json::json!(5);
                     }
                     let Ok(mut s) = serde_json::from_value::<Save>(value) else {
                         continue;
@@ -265,7 +270,7 @@ mod tests {
         store(&d, &mut s).unwrap();
         fs::write(
             d.join("save-0.json"),
-            br#"{"schema_version":5,"content_version":1,"different_state":{}}"#,
+            br#"{"schema_version":6,"content_version":1,"different_state":{}}"#,
         )
         .unwrap();
         assert!(load(&d).is_err());
@@ -317,7 +322,7 @@ mod tests {
         st.remove("farmer_order");
         fs::write(d.join("save-0.json"), serde_json::to_vec(&value).unwrap()).unwrap();
         let mut s = load(&d).unwrap().unwrap();
-        assert_eq!(s.schema_version, 4);
+        assert_eq!(s.schema_version, SCHEMA_VERSION);
         assert_eq!(s.state.smith, None);
         assert_eq!(s.state.daggers, 7);
         assert_eq!(s.state.showroom.goods(), 7);
@@ -380,7 +385,7 @@ mod tests {
             .remove("farmer_order");
         fs::write(d.join("save-0.json"), serde_json::to_vec(&value).unwrap()).unwrap();
         let mut loaded = load(&d).unwrap().unwrap();
-        assert_eq!(loaded.schema_version, 4);
+        assert_eq!(loaded.schema_version, SCHEMA_VERSION);
         assert_eq!(loaded.state, state);
         loaded.catch_up(140).unwrap();
         assert_eq!(loaded.state.crafted, 2);
@@ -407,5 +412,24 @@ mod tests {
             assert!(load(&d).is_err());
             fs::remove_dir_all(d).unwrap();
         }
+    }
+    #[test]
+    fn schema_four_adds_empty_expedition_without_losing_prior_work() {
+        let d = dir();
+        fs::create_dir_all(&d).unwrap();
+        let mut state = State::new(42);
+        state.command(1, Command::Craft).unwrap();
+        state.advance(2).unwrap();
+        let mut value = serde_json::to_value(Save::new(state.clone(), 100)).unwrap();
+        value["schema_version"] = 4.into();
+        value["state"].as_object_mut().unwrap().remove("expedition");
+        fs::write(d.join("save-0.json"), serde_json::to_vec(&value).unwrap()).unwrap();
+        let loaded = load(&d).unwrap().unwrap();
+        assert_eq!(loaded.state, state);
+        assert_eq!(loaded.schema_version, SCHEMA_VERSION);
+        value["schema_version"] = 5.into();
+        fs::write(d.join("save-0.json"), serde_json::to_vec(&value).unwrap()).unwrap();
+        assert!(load(&d).is_err());
+        fs::remove_dir_all(d).unwrap();
     }
 }

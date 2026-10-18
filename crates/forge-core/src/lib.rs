@@ -1,6 +1,7 @@
 //! Deterministic domain: no renderer, OS clock, or Bevy dependency.
 pub mod commission;
 pub mod craft;
+pub mod expedition;
 pub mod life;
 pub mod save;
 pub mod shell;
@@ -39,6 +40,7 @@ impl Smith {
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
 pub struct State {
+    pub expedition: expedition::Expedition,
     pub tick: u64,
     pub gold: u64,
     pub ore: u32,
@@ -64,6 +66,9 @@ pub struct State {
 }
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Command {
+    CraftExpeditionGear(expedition::Gear),
+    LaunchExpedition(expedition::Loadout),
+    RecallExpedition,
     Craft,
     BuyOre,
     QueueCraft,
@@ -139,6 +144,7 @@ pub enum Error {
 impl State {
     pub fn new(seed: u64) -> Self {
         Self {
+            expedition: expedition::Expedition::default(),
             tick: 0,
             gold: 0,
             ore: 10,
@@ -159,6 +165,7 @@ impl State {
     }
     pub fn validate(&self) -> Result<(), Error> {
         self.life.validate()?;
+        self.expedition.validate()?;
         self.showroom.validate()?;
         self.validate_farmer_order()?;
         if self.rng == 0
@@ -186,6 +193,9 @@ impl State {
         }
         let mut next = self.clone();
         match command {
+            Command::CraftExpeditionGear(g) => next.queue_expedition_gear(g)?,
+            Command::LaunchExpedition(l) => next.launch_expedition(l)?,
+            Command::RecallExpedition => next.recall_expedition()?,
             Command::AcceptFarmerRepair => next.accept_farmer_repair()?,
             Command::QueueFarmerRepair => next.queue_farmer_repair()?,
             Command::DeliverFarmerRepair => next.deliver_farmer_repair()?,
@@ -311,6 +321,7 @@ impl State {
             next.tick += 1;
             let due = next.tick;
             next.life_step(&mut events)?;
+            next.expedition_step()?;
             if next.next_visitor == due {
                 if let Some(good) = next.showroom.sell() {
                     let price = good.price();

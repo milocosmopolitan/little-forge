@@ -1,0 +1,84 @@
+{
+  "version": 1,
+  "canvas": [
+    128,
+    96
+  ],
+  "foot_anchor_px": [
+    64,
+    88
+  ],
+  "sampler": "nearest",
+  "frames": [
+    "idle",
+    "run-0",
+    "run-1",
+    "run-2",
+    "run-3",
+    "attack",
+    "hit",
+    "defeat"
+  ],
+  "clips": {
+    "idle": {
+      "frames": [
+        "idle"
+      ],
+      "durations_ms": [
+        160
+      ],
+      "loop": true
+    },
+    "run": {
+      "frames": [
+        "run-0",
+        "run-1",
+        "run-2",
+        "run-3"
+      ],
+      "durations_ms": [
+        160,
+        160,
+        160,
+        160
+      ],
+      "loop": true
+    },
+    "attack": {
+      "frames": [
+        "idle",
+        "attack",
+        "idle"
+      ],
+      "durations_ms": [
+        160,
+        160,
+        160
+      ],
+      "loop": false
+    },
+    "hit": {
+      "frames": [
+        "hit",
+        "idle"
+      ],
+      "durations_ms": [
+        160,
+        160
+      ],
+      "loop": false
+    },
+    "defeat": {
+      "frames": [
+        "hit",
+        "defeat"
+      ],
+      "durations_ms": [
+        160,
+        160
+      ],
+      "loop": false
+    }
+  },
+  "visual_approval": "pending"
+}

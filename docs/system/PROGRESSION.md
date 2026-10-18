@@ -73,3 +73,8 @@
 ## QA
 
 이벤트별 보상 idempotency, 저장/로드·오프라인 동일 결과, 스텝 분할 불변성, 3회 튜토리얼 이해도 보장, 연구 DAG 유효성, 기술 게이트 순환 불가, 숨긴 노드의 정보 누출 방지, 품목 XP 누락 검증, 제작법을 발견만 했는데 사용 가능한 버그 방지.
+
+
+## Expedition combat slice (2026-10-18)
+
+The first expedition now uses deterministic five-wave automatic combat. See [combat rules](EXPEDITION.md) and the implementation boundary in [Hunter return](FIRST_EXPEDITION.md). Weapon IDs retain actual field-use and defeat counts; five-wave completion reopens the forest and awards eight timber once. Full research/technique progression and the broader Codex UI remain separate open work, not completion claims from this combat slice.

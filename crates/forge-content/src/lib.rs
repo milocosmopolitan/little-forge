@@ -100,6 +100,7 @@ mod tests {
     #[test]
     fn manifest_is_valid() {
         Manifest::bundled().unwrap();
+        expedition_content().unwrap();
     }
     #[test]
     fn showroom_balance_is_valid_and_matches_core_defaults() {
@@ -116,3 +117,18 @@ mod tests {
 }
 
 pub mod village;
+
+/// Versioned first-region contract, checked against the deterministic simulation rules.
+pub fn expedition_content() -> Result<serde_json::Value, String> {
+    let data: serde_json::Value =
+        serde_json::from_str(include_str!("../../../assets/expedition/encounters.json"))
+            .map_err(|e| e.to_string())?;
+    let waves: Vec<Vec<forge_core::expedition::Enemy>> =
+        serde_json::from_value(data["waves"].clone()).map_err(|e| e.to_string())?;
+    if data["version"] != forge_core::expedition::VERSION
+        || waves.iter().map(Vec::as_slice).collect::<Vec<_>>() != forge_core::expedition::WAVES
+    {
+        return Err("expedition content and simulation version differ".into());
+    }
+    Ok(data)
+}
