@@ -83,5 +83,14 @@ retains all combat handles, gates QA captures on their load completion and hides
 village root while the expedition view is active. A dark status plate improves readability.
 
 Existing local rendered regressions: all nine forge scenes (both smiths and work stages),
-life-loop and life-ambient completed. Village captures are also run without changing golden
-baselines. Windows/native Linux coverage remains tied to the PR workflow results.
+life-loop and life-ambient completed. All eight normal village scenes rendered on the initial
+pass. Its missing-art test exposed an outdated fixture that omitted required smith atlases;
+the fixture now copies characters/UI while still withholding village/NPC art. A final local
+rerun produced entirely black village and combat captures, and native UI inspection reported
+`cgWindowNotFound`. That rerun is failed, not accepted; no golden baselines were changed.
+The earlier retained combat evidence is visibly nonempty. Windows/native Linux coverage and
+the repaired missing-art fixture remain tied to PR #102 workflow results.
+
+The expedition asset pipeline was rebuilt and all output bytes matched. Capture scripts
+reject empty screenshots. [PR #102](https://github.com/milocosmopolitan/little-forge/pull/102)
+remains a draft pending CI and art acceptance.

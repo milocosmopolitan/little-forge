@@ -438,7 +438,7 @@ fn return_dialogue(
   picture(p,&server,"npc/hunter/frames/talk-small.png",node(12.,50.,128.,160.));
   p.spawn((forge_ui::text("HUNTER'S RETURN",23.),node(150.,18.,560.,36.)));
   p.spawn((forge_ui::text(b.story(),18.),node(150.,62.,560.,110.)));
-  p.spawn((forge_ui::text(format!("Equipment returned safely. {} gold from the trail. Field notes saved in the Codex.",b.cleared*2),14.),node(150.,162.,560.,48.)));
+  p.spawn((forge_ui::text(format!("Equipment returned safely. {} gold from the trail. Field notes saved in the Codex.",b.reward_gold()),14.),node(150.,162.,560.,48.)));
   p.spawn((node(150.,214.,550.,40.),)).with_children(|p|{forge_ui::button(p,"Change equipment and retry",Action::Prepare);forge_ui::button(p,"Back to work",Action::Dismiss);});
  });
 }
