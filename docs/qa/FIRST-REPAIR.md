@@ -5,7 +5,7 @@ single introductory order, not recurring requests or the three-order research tu
 
 ## Play
 
-Start or continue a game. Press **O**, or open management and choose **Orders**.
+Start or continue a game. Open **Manage → Farmer** (O opens Chef in Alpha 01).
 Accept the sickle repair (**A**), then queue it (**S**). Earlier dagger jobs finish
 first, followed by the repair and any later jobs in the same FIFO workbench.
 Sleep, fatigue and background progression use the existing simulation.
@@ -32,9 +32,10 @@ reordering are outside this change.
 
 ## Persistence and checks
 
-Save schema **4** stores typed FIFO jobs, active work kind, order phases, timestamps
-and settlement. Schemas 1–3 migrate without recharging existing queued daggers.
-Older binaries refuse schema 4; returning to an older build requires an older save.
+Save schema **5** retains typed FIFO jobs, active work kind, order phases, timestamps
+and settlement, and adds Alpha 01 progression. Schemas 1–4 migrate without recharging
+existing queued daggers. Older binaries refuse schema 5; returning to an older build
+requires an older save.
 Malformed current-format order/work metadata is rejected rather than reset.
 
 Core regressions cover mixed FIFO jobs, customer-item isolation, invalid/duplicate

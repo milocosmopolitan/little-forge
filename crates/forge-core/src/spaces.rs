@@ -159,7 +159,7 @@ mod tests {
     }
     #[test]
     fn activity_follows_authoritative_state_and_full_showroom_waits() {
-        let mut s = State::new(3);
+        let mut s = State::foundation(3);
         assert_eq!(s.activity(), Activity::Idle);
         s.command(1, Command::Craft).unwrap();
         assert!(matches!(

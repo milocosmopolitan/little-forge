@@ -49,10 +49,12 @@ pub enum Stage {
     Heating,
     Hammering,
     Quenching,
+    Researching,
 }
 impl Stage {
     pub fn station(self) -> Workstation {
         match self {
+            Self::Researching => Workstation::ResearchTable,
             Self::Heating => Workstation::Forge,
             Self::Hammering => Workstation::Anvil,
             Self::Quenching => Workstation::QuenchingTub,
@@ -60,6 +62,7 @@ impl Stage {
     }
     pub fn label(self) -> &'static str {
         match self {
+            Self::Researching => "Researching",
             Self::Heating => "Heating",
             Self::Hammering => "Hammering",
             Self::Quenching => "Quenching",
@@ -88,7 +91,11 @@ impl State {
         if self.life.work == 0 {
             None
         } else {
-            let total = self.life.active_job.map_or(CRAFT_SECS, |job| job.seconds()) * 1000;
+            let total = self
+                .life
+                .active_job
+                .map_or(CRAFT_SECS, |job| self.work_seconds(job))
+                * 1000;
             Some(((total - self.life.work.min(total)) * 1000 / total) as u32)
         }
     }
@@ -97,6 +104,7 @@ impl State {
         let progress = self.job_progress()?;
         Some(match self.life.active_job {
             Some(crate::life::WorkKind::FarmerSickleRepair) => Stage::Hammering,
+            Some(crate::life::WorkKind::DaggerStudy) => Stage::Researching,
             _ => stage_at(self.current_good(), progress),
         })
     }
@@ -117,7 +125,7 @@ mod tests {
     }
     #[test]
     fn stage_is_derived_from_authoritative_work_only() {
-        let mut s = State::new(1);
+        let mut s = State::foundation(1);
         assert_eq!(s.work_stage(), None);
         s.command(1, crate::Command::Craft).unwrap();
         assert_eq!(s.work_stage(), Some(Stage::Heating));

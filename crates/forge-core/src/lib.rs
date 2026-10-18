@@ -3,6 +3,7 @@ pub mod commission;
 pub mod craft;
 pub mod expedition;
 pub mod life;
+pub mod progression;
 pub mod save;
 pub mod shell;
 pub mod showroom;
@@ -41,6 +42,7 @@ impl Smith {
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
 pub struct State {
     pub expedition: expedition::Expedition,
+    pub progression: progression::Progression,
     pub tick: u64,
     pub gold: u64,
     pub ore: u32,
@@ -70,6 +72,11 @@ pub enum Command {
     LaunchExpedition(expedition::Loadout),
     RecallExpedition,
     Craft,
+    AcceptChef,
+    QueueChef,
+    DeliverChef,
+    StudyDagger,
+    CompleteDaggerResearch,
     BuyOre,
     QueueCraft,
     AcceptFarmerRepair,
@@ -102,6 +109,8 @@ pub enum Command {
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub enum EventKind {
     Crafted,
+    ProgressionChanged,
+    ChefReady,
     FarmerRepairReady,
     ActionChanged(life::SmithAction),
     Ate,
@@ -128,6 +137,7 @@ pub struct Event {
 #[derive(Debug, PartialEq, Eq)]
 pub enum Error {
     DuplicateCommand,
+    ResearchLocked,
     Busy,
     InsufficientResources,
     Overflow,
@@ -142,9 +152,16 @@ pub enum Error {
     InvalidOrderState,
 }
 impl State {
+    #[cfg(test)]
+    pub(crate) fn foundation(seed: u64) -> Self {
+        let mut state = Self::new(seed);
+        state.progression.legacy_dagger = true;
+        state
+    }
     pub fn new(seed: u64) -> Self {
         Self {
             expedition: expedition::Expedition::default(),
+            progression: progression::Progression::default(),
             tick: 0,
             gold: 0,
             ore: 10,
@@ -166,6 +183,7 @@ impl State {
     pub fn validate(&self) -> Result<(), Error> {
         self.life.validate()?;
         self.expedition.validate()?;
+        self.validate_progression()?;
         self.showroom.validate()?;
         self.validate_farmer_order()?;
         if self.rng == 0
@@ -196,6 +214,11 @@ impl State {
             Command::CraftExpeditionGear(g) => next.queue_expedition_gear(g)?,
             Command::LaunchExpedition(l) => next.launch_expedition(l)?,
             Command::RecallExpedition => next.recall_expedition()?,
+            Command::AcceptChef
+            | Command::QueueChef
+            | Command::DeliverChef
+            | Command::StudyDagger
+            | Command::CompleteDaggerResearch => next.progression_command(command)?,
             Command::AcceptFarmerRepair => next.accept_farmer_repair()?,
             Command::QueueFarmerRepair => next.queue_farmer_repair()?,
             Command::DeliverFarmerRepair => next.deliver_farmer_repair()?,
@@ -230,30 +253,40 @@ impl State {
                 next.commerce.timber -= timber;
             }
             Command::Craft => {
+                if !next.progression.dagger_unlocked() {
+                    return Err(Error::ResearchLocked);
+                }
                 if next.job_due.is_some() || !next.life.queue.is_empty() {
                     return Err(Error::Busy);
                 }
-                if next.ore < 2 {
+                if next.ore < next.dagger_ore() {
                     return Err(Error::InsufficientResources);
                 }
                 // Reserve the result slot before any material is consumed.
                 next.showroom.reserve()?;
-                next.job_due = Some(next.tick.checked_add(CRAFT_SECS).ok_or(Error::Overflow)?);
-                next.ore -= 2;
-                next.life.work = CRAFT_SECS * 1000;
+                next.job_due = Some(
+                    next.tick
+                        .checked_add(next.work_seconds(life::WorkKind::IronDagger))
+                        .ok_or(Error::Overflow)?,
+                );
+                next.ore -= next.dagger_ore();
+                next.life.work = next.work_seconds(life::WorkKind::IronDagger) * 1000;
                 next.life.active_job = Some(life::WorkKind::IronDagger);
                 if next.life.action == life::SmithAction::Idle {
                     next.life.action = life::SmithAction::Working;
                 }
             }
             Command::QueueCraft => {
-                if next.ore < 2 {
+                if !next.progression.dagger_unlocked() {
+                    return Err(Error::ResearchLocked);
+                }
+                if next.ore < next.dagger_ore() {
                     return Err(Error::InsufficientResources);
                 }
                 if next.life.queue.len() >= 32 {
                     return Err(Error::Busy);
                 }
-                next.ore -= 2;
+                next.ore -= next.dagger_ore();
                 next.life.queue.push_back(life::WorkKind::IronDagger);
             }
             Command::BuyFood => {
@@ -365,7 +398,7 @@ mod tests {
     #[test]
     fn partition_and_seed_replay() {
         for seed in 1..100 {
-            let mut a = State::new(seed);
+            let mut a = State::foundation(seed);
             a.command(1, Command::Craft).unwrap();
             let mut b = a.clone();
             let expected = a.advance(500).unwrap();
@@ -379,7 +412,7 @@ mod tests {
     }
     #[test]
     fn commands_are_atomic_and_idempotent() {
-        let mut s = State::new(1);
+        let mut s = State::foundation(1);
         let old = s.clone();
         assert_eq!(
             s.command(1, Command::BuyOre),
@@ -395,7 +428,7 @@ mod tests {
     }
     #[test]
     fn overflow_rolls_back() {
-        let mut s = State::new(1);
+        let mut s = State::foundation(1);
         s.command(1, Command::Craft).unwrap();
         s.advance(5).unwrap();
         s.gold = u64::MAX;

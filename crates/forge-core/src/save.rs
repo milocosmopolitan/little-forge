@@ -7,9 +7,10 @@ use std::{
     io::{self, Write},
     path::Path,
 };
-/// Schema 5 adds expedition contracts and field records. Earlier showroom and work migrations
-/// remain lossless; newer schemas are refused rather than downgraded.
-pub const SCHEMA_VERSION: u32 = 5;
+/// Schema 6 adds progression, research and Codex; schema 5 added expedition contracts and field
+/// records. Schemas 1-5 import losslessly and keep their dagger recipe; newer schemas are refused
+/// rather than downgraded.
+pub const SCHEMA_VERSION: u32 = 6;
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
 pub struct Save {
     pub schema_version: u32,
@@ -135,6 +136,14 @@ pub fn load(dir: &Path) -> io::Result<Option<Save>> {
                             serde_json::to_value(crate::expedition::Expedition::default())?;
                         value["schema_version"] = serde_json::json!(5);
                     }
+                    if (1..=5).contains(&version) {
+                        value["state"]["progression"] =
+                            serde_json::to_value(crate::progression::Progression {
+                                legacy_dagger: true,
+                                ..Default::default()
+                            })?;
+                        value["schema_version"] = serde_json::json!(SCHEMA_VERSION);
+                    }
                     let Ok(mut s) = serde_json::from_value::<Save>(value) else {
                         continue;
                     };
@@ -230,7 +239,7 @@ mod tests {
     #[test]
     fn restart_recovery_and_no_duplicate_rewards() {
         let d = dir();
-        let mut s = Save::new(State::new(42), 100);
+        let mut s = Save::new(State::foundation(42), 100);
         s.state.command(1, Command::Craft).unwrap();
         store(&d, &mut s).unwrap();
         s.catch_up(120).unwrap();
@@ -249,7 +258,7 @@ mod tests {
     }
     #[test]
     fn clock_cap_and_regression() {
-        let mut s = Save::new(State::new(2), 100);
+        let mut s = Save::new(State::foundation(2), 100);
         assert_eq!(s.catch_up(50).unwrap(), 0);
         assert_eq!(s.saved_at, 100);
         assert_eq!(s.catch_up(200_000).unwrap(), OFFLINE_CAP_SECS);
@@ -266,11 +275,11 @@ mod tests {
     #[test]
     fn future_schema_cannot_fall_back_to_older_generation() {
         let d = dir();
-        let mut s = Save::new(State::new(1), 100);
+        let mut s = Save::new(State::foundation(1), 100);
         store(&d, &mut s).unwrap();
         fs::write(
             d.join("save-0.json"),
-            br#"{"schema_version":6,"content_version":1,"different_state":{}}"#,
+            br#"{"schema_version":7,"content_version":1,"different_state":{}}"#,
         )
         .unwrap();
         assert!(load(&d).is_err());
@@ -280,7 +289,7 @@ mod tests {
     fn v1_migrates_inflight_job_without_losing_stock() {
         let d = dir();
         fs::create_dir_all(&d).unwrap();
-        let mut state = State::new(42);
+        let mut state = State::foundation(42);
         state.command(1, Command::Craft).unwrap();
         state.advance(2).unwrap();
         let mut value = serde_json::to_value(Save::new(state, 100)).unwrap();
@@ -303,7 +312,7 @@ mod tests {
     fn schema_three_stock_beyond_capacity_is_preserved_and_blocks_new_jobs() {
         let d = dir();
         fs::create_dir_all(&d).unwrap();
-        let mut state = State::new(42);
+        let mut state = State::foundation(42);
         state.command(1, Command::Craft).unwrap();
         state.advance(2).unwrap();
         // Hand-build a pre-showroom state: seven finished daggers plus the in-flight job.
@@ -358,7 +367,7 @@ mod tests {
     #[test]
     fn abandoned_temp_does_not_replace_committed_state() {
         let d = dir();
-        let mut s = Save::new(State::new(1), 100);
+        let mut s = Save::new(State::foundation(1), 100);
         store(&d, &mut s).unwrap();
         fs::write(d.join("save.tmp"), b"partial").unwrap();
         assert_eq!(load(&d).unwrap(), Some(s));
@@ -368,7 +377,7 @@ mod tests {
     fn schema_three_keeps_paid_queue_active_work_and_economy() {
         let d = dir();
         fs::create_dir_all(&d).unwrap();
-        let mut state = State::new(42);
+        let mut state = State::foundation(42);
         state.command(1, Command::Craft).unwrap();
         state.command(2, Command::QueueCraft).unwrap();
         state.advance(2).unwrap();
@@ -399,7 +408,7 @@ mod tests {
         for missing in ["farmer_order", "active_job"] {
             let d = dir();
             fs::create_dir_all(&d).unwrap();
-            let mut value = serde_json::to_value(Save::new(State::new(1), 100)).unwrap();
+            let mut value = serde_json::to_value(Save::new(State::foundation(1), 100)).unwrap();
             if missing == "farmer_order" {
                 value["state"].as_object_mut().unwrap().remove(missing);
             } else {
@@ -417,12 +426,14 @@ mod tests {
     fn schema_four_adds_empty_expedition_without_losing_prior_work() {
         let d = dir();
         fs::create_dir_all(&d).unwrap();
-        let mut state = State::new(42);
+        let mut state = State::foundation(42);
         state.command(1, Command::Craft).unwrap();
         state.advance(2).unwrap();
         let mut value = serde_json::to_value(Save::new(state.clone(), 100)).unwrap();
         value["schema_version"] = 4.into();
-        value["state"].as_object_mut().unwrap().remove("expedition");
+        let fields = value["state"].as_object_mut().unwrap();
+        fields.remove("expedition");
+        fields.remove("progression");
         fs::write(d.join("save-0.json"), serde_json::to_vec(&value).unwrap()).unwrap();
         let loaded = load(&d).unwrap().unwrap();
         assert_eq!(loaded.state, state);

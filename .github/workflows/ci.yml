@@ -77,6 +77,9 @@ jobs:
       - name: Capture forge spaces on native macOS and Windows
         if: runner.os != 'Linux'
         run: python scripts/capture-forge.py target/release/little-forge${{ runner.os == 'Windows' && '.exe' || '' }}
+      - name: Play Alpha 01 through production controls on native platforms
+        if: runner.os != 'Linux'
+        run: python scripts/capture-alpha.py target/release/little-forge${{ runner.os == 'Windows' && '.exe' || '' }}
       - run: python scripts/package.py
       - uses: actions/upload-artifact@v4
         with:
@@ -120,6 +123,8 @@ jobs:
         run: xvfb-run -a -s '-screen 0 1280x900x24' python scripts/capture-player.py target/debug/npc-preview qa-output/player
       - name: Capture forge spaces in the actual app
         run: xvfb-run -a -s '-screen 0 1280x800x24' python scripts/capture-forge.py target/debug/little-forge
+      - name: Play Alpha 01 through production controls
+        run: xvfb-run -a -s '-screen 0 1280x800x24' python scripts/capture-alpha.py target/debug/little-forge
       - name: Verify forge spaces with real X11 keyboard input
         run: xvfb-run -a -s '-screen 0 1280x800x24' python scripts/test-forge-input.py target/debug/little-forge
       - name: Capture farmer purchase in the actual game

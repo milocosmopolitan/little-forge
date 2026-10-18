@@ -23,6 +23,7 @@ fn main() {
     let mut checksum = 0;
     for seed in 1..=10_000 {
         let mut state = State::new(seed);
+        state.progression.legacy_dagger = true;
         state.command(1, Command::Craft).unwrap();
         state.advance(3600).unwrap();
         assert_eq!(state.gold, 12);
@@ -31,6 +32,7 @@ fn main() {
     }
     let elapsed = start.elapsed();
     let mut state = State::new(42);
+    state.progression.legacy_dagger = true;
     state.command(1, Command::Craft).unwrap();
     let events = state.advance(20).unwrap();
     let report = serde_json::json!({"scenario":"craft-and-sale","state":state,"events":events,"benchmark":{"kind":"simulation-only","runs":10000,"simulated_seconds_per_run":3600,"elapsed_ms":elapsed.as_secs_f64()*1000.,"event_checksum":checksum},"platform":{"os":std::env::consts::OS,"arch":std::env::consts::ARCH}});

@@ -132,3 +132,12 @@ pub fn expedition_content() -> Result<serde_json::Value, String> {
     }
     Ok(data)
 }
+
+/// Alpha tuning and stable content IDs; core validates reachability before a new game.
+pub fn progression_rules() -> Result<forge_core::progression::Rules, String> {
+    let rules: forge_core::progression::Rules =
+        serde_json::from_str(include_str!("../../../assets/progression.json"))
+            .map_err(|e| e.to_string())?;
+    rules.validate().map_err(|e| format!("{e:?}"))?;
+    Ok(rules)
+}

@@ -1,5 +1,10 @@
 # Progression — 제작 경험, 기술 숙련, 연구 노드
 
+> Alpha 01 구현: Chef Knife → Dagger 연구 → 첫 Dagger → Codex 경로가 연결됐다.
+> 일반 XP·기술 숙련·연구 XP·발견 단서·도감은 별도 상태이며, 단서는 레시피를 바로 해금하지 않는다.
+> 두 기술·두 레시피·한 루트 노드의 수치와 검증 범위는 [Playable Alpha 01](../qa/PLAYABLE_ALPHA_01.md)에 기록한다.
+> 아래 전체 설계의 완성이나 최종 밸런스 승인을 뜻하지 않는다.
+
 [첫 유산](../mvp/FIRST_LEGACY.md) · [연구](RESEARCH.md) · [경험](EXPRIENCE.md) · [제작](CRAFTING.md) · [도감](SMITHS_CODEX.md)
 
 ## 핵심 개념 분리
