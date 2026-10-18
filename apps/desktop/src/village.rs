@@ -402,13 +402,20 @@ pub fn draw(
     opts: Res<Options>,
     title: Res<TitleScreen>,
 ) {
+    // Home content is owned by `lifestyle::draw`; its buttons issue commands on every click,
+    // so command/gold/pantry changes must not rebuild (and flash) the shell there.
+    let home = v.nav.screen == Screen::Home;
     let key = (
         v.nav.screen,
         d.shell.expanded,
         title.active,
-        s.save.state.command_id,
-        s.save.state.gold,
-        s.save.state.life.pantry.staples(),
+        if home { 0 } else { s.save.state.command_id },
+        if home { 0 } else { s.save.state.gold },
+        if home {
+            0
+        } else {
+            s.save.state.life.pantry.staples()
+        },
     );
     if *last == Some(key) && !v.redraw {
         return;

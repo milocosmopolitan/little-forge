@@ -329,6 +329,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             village::input,
             village::draw,
             lifestyle::draw,
+            lifestyle::live,
             village::update,
         )
             .chain(),
