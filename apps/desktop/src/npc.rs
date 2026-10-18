@@ -8,11 +8,19 @@ pub struct FarmerPresentation {
     pub pending: bool,
     pub elapsed: f32,
     pub active: bool,
+    pub reaction: Option<forge_core::Command>,
 }
 impl FarmerPresentation {
     pub fn accepted(&mut self, id: u64, command: forge_core::Command) {
         if id > self.last {
             self.last = id;
+            if matches!(
+                command,
+                forge_core::Command::AcceptFarmerRepair | forge_core::Command::DeliverFarmerRepair
+            ) {
+                self.pending = true;
+                self.reaction = Some(command);
+            }
             if matches!(
                 command,
                 forge_core::Command::BuyFood
@@ -23,6 +31,7 @@ impl FarmerPresentation {
                     }
             ) {
                 self.pending = true;
+                self.reaction = Some(command);
             }
         }
     }
@@ -90,6 +99,9 @@ fn update(
     c: Res<Catalog>,
     opts: Res<Options>,
     mut clock: ResMut<forge_npc::PlaybackClock>,
+    session: Res<crate::Session>,
+    title: Res<crate::title::TitleScreen>,
+    village: Res<crate::village::Village>,
     mut state: ResMut<FarmerPresentation>,
     mut farmer: Query<
         (&mut Player, &mut Transform, &mut Visibility),
@@ -104,8 +116,13 @@ fn update(
         state.pending = false;
         state.active = true;
         state.elapsed = 0.;
-        p.play("give", &c);
-        p.item = true;
+        let action = match state.reaction {
+            Some(forge_core::Command::AcceptFarmerRepair) => "nod",
+            Some(forge_core::Command::DeliverFarmerRepair) => "happy",
+            _ => "give",
+        };
+        p.play(action, &c);
+        p.item = action == "give";
     }
     if state.active {
         state.elapsed += if opts.qa.is_some() {
@@ -115,10 +132,21 @@ fn update(
         };
         if state.elapsed > 2. {
             state.active = false;
+            p.play("idle", &c);
+            p.item = false;
         }
     }
     t.translation.y = -85.;
-    *v = if state.active {
+    let waiting = matches!(
+        session.save.state.farmer_order.phase,
+        forge_core::commission::OrderPhase::Offered | forge_core::commission::OrderPhase::Ready
+    );
+    let order_scene =
+        opts.qa.is_none() || opts.qa.as_deref().is_some_and(|q| q.starts_with("repair-"));
+    *v = if !title.active
+        && (state.active
+            || (order_scene && waiting && village.nav.screen == forge_core::village::Screen::Home))
+    {
         Visibility::Visible
     } else {
         Visibility::Hidden

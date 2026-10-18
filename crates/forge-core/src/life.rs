@@ -1,6 +1,27 @@
 //! Integer, one-second eligible clock. Balance values are provisional and persisted per save.
 use crate::{CRAFT_SECS, Error, Event, EventKind, State};
 use serde::{Deserialize, Serialize};
+use std::collections::VecDeque;
+
+#[derive(Debug, Clone, Copy, Serialize, Deserialize, PartialEq, Eq)]
+pub enum WorkKind {
+    IronDagger,
+    FarmerSickleRepair,
+}
+impl WorkKind {
+    pub fn seconds(self) -> u64 {
+        match self {
+            Self::IronDagger => CRAFT_SECS,
+            Self::FarmerSickleRepair => crate::commission::REPAIR_SECS,
+        }
+    }
+    pub fn label(self) -> &'static str {
+        match self {
+            Self::IronDagger => "Iron dagger",
+            Self::FarmerSickleRepair => "Farmer's sickle repair",
+        }
+    }
+}
 pub const MAX_NEED: u32 = 10_000;
 #[derive(Debug, Clone, Copy, Serialize, Deserialize, PartialEq, Eq, Default)]
 pub enum SmithAction {
@@ -132,7 +153,8 @@ pub struct Life {
     pub remaining: u32,
     /// Remaining work in thousandths of an effective second; ore reserved on enqueue.
     pub work: u64,
-    pub queue: u32,
+    pub queue: VecDeque<WorkKind>,
+    pub active_job: Option<WorkKind>,
     pub pantry: Pantry,
     pub config: NeedsConfig,
 }
@@ -166,8 +188,9 @@ impl Life {
             ]
             .iter()
             .any(|&v| v > MAX_NEED)
-            || self.queue > 32
-            || self.work > CRAFT_SECS * 1000
+            || self.queue.len() > 32
+            || (self.work > 0) != self.active_job.is_some()
+            || self.work > self.active_job.map_or(0, |job| job.seconds() * 1000)
             || self.pantry.slots.len() != 12
             || self
                 .pantry
@@ -196,10 +219,12 @@ impl State {
         self.life.remaining = seconds;
         self.emit(EventKind::ActionChanged(action), events)
     }
+    /// A queued job may start when its result has somewhere to go.
+    pub fn can_start(&self, job: WorkKind) -> bool {
+        job != WorkKind::IronDagger || self.showroom.block_reason().is_none()
+    }
     fn resume(&mut self, events: &mut Vec<Event>) -> Result<(), Error> {
-        let action = if self.life.work > 0
-            || (self.life.queue > 0 && self.showroom.block_reason().is_none())
-        {
+        let action = if self.life.work > 0 || self.life.queue.iter().any(|j| self.can_start(*j)) {
             SmithAction::Working
         } else {
             SmithAction::Idle
@@ -253,21 +278,31 @@ impl State {
                 }
             }
             _ => {
-                if l.work == 0 && l.queue > 0 {
-                    // Materials were reserved on enqueue; only the result slot is claimed here.
-                    match self.showroom.reserve() {
-                        Ok(_) => {
-                            self.life.queue -= 1;
-                            self.life.work = CRAFT_SECS * 1000;
+                if l.work == 0 {
+                    // Materials were reserved on enqueue. A dagger also claims its showroom slot
+                    // here; an entrusted repair never needs one, so it may start ahead of daggers
+                    // that are waiting for space. Daggers stay FIFO among themselves.
+                    let pick = self.life.queue.iter().position(|job| self.can_start(*job));
+                    match pick {
+                        Some(i) => {
+                            let job = self.life.queue.remove(i).ok_or(Error::InvalidState)?;
+                            if job == WorkKind::IronDagger {
+                                self.showroom.reserve()?;
+                            }
+                            self.life.active_job = Some(job);
+                            self.life.work = job.seconds() * 1000;
+                            if job == WorkKind::FarmerSickleRepair {
+                                self.farmer_order.phase = crate::commission::OrderPhase::Working;
+                            }
                         }
-                        Err(Error::DisplayFull) => {
+                        None if !self.life.queue.is_empty() => {
                             if let Some(reason) = self.showroom.block_reason()
                                 && self.life.action != SmithAction::Idle
                             {
                                 self.emit(EventKind::CraftBlocked(reason), events)?;
                             }
                         }
-                        Err(e) => return Err(e),
+                        None => {}
                     }
                 }
                 let l = &mut self.life;
@@ -282,10 +317,21 @@ impl State {
                         let gain = gain * (MAX_NEED + l.thirst) / MAX_NEED;
                         l.fatigue = l.fatigue.saturating_add(gain).min(MAX_NEED);
                         if l.work == 0 {
-                            self.showroom.place(self.current_good())?;
-                            self.crafted = self.crafted.checked_add(1).ok_or(Error::Overflow)?;
-                            self.daggers = self.daggers.checked_add(1).ok_or(Error::Overflow)?;
-                            self.emit(EventKind::Crafted, events)?;
+                            match self.life.active_job.take().ok_or(Error::InvalidState)? {
+                                WorkKind::IronDagger => {
+                                    self.showroom.place(self.current_good())?;
+                                    self.crafted =
+                                        self.crafted.checked_add(1).ok_or(Error::Overflow)?;
+                                    self.daggers =
+                                        self.daggers.checked_add(1).ok_or(Error::Overflow)?;
+                                    self.emit(EventKind::Crafted, events)?;
+                                }
+                                WorkKind::FarmerSickleRepair => {
+                                    self.farmer_order.phase = crate::commission::OrderPhase::Ready;
+                                    self.farmer_order.completed_at = Some(self.tick);
+                                    self.emit(EventKind::FarmerRepairReady, events)?;
+                                }
+                            }
                             self.resume(events)?;
                         }
                     }
@@ -412,7 +458,7 @@ mod tests {
         s.life.fatigue = 8999;
         s.advance(1).unwrap();
         assert_eq!(s.crafted, 1);
-        assert_eq!(s.life.queue, 0);
+        assert!(s.life.queue.is_empty());
         s.advance(1).unwrap();
         assert_eq!(s.life.action, SmithAction::Sleeping);
         s.advance(s.life.config.sleep_seconds as u64 + 10).unwrap();

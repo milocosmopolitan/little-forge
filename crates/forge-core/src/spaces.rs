@@ -129,7 +129,10 @@ impl State {
                         station: stage.station(),
                         progress,
                     },
-                    _ => match (self.life.queue > 0, self.craft_block_reason()) {
+                    _ => match (
+                        self.life.queue.iter().any(|j| !self.can_start(*j)),
+                        self.craft_block_reason(),
+                    ) {
                         (true, Some(reason)) => Activity::Waiting(reason),
                         _ => Activity::Idle,
                     },
@@ -174,7 +177,7 @@ mod tests {
         assert_eq!(s.ore, 0);
         s.advance(60).unwrap();
         assert_eq!(s.showroom.free(), 0);
-        assert_eq!(s.life.queue, 1);
+        assert_eq!(s.life.queue.len(), 1);
         assert_eq!(s.activity(), Activity::Waiting(BlockReason::ShowroomFull));
         assert_eq!(s.life.action, SmithAction::Idle);
     }

@@ -748,7 +748,7 @@ fn draw_workshop(p: &mut ChildSpawnerCommands, s: &Session, spaces: &Spaces, ser
                         format!(
                             "Ore {} · Queue {} · Result slots free {}",
                             st.ore,
-                            st.life.queue,
+                            st.life.queue.len(),
                             st.showroom.free()
                         ),
                         13.,
@@ -761,7 +761,7 @@ fn draw_workshop(p: &mut ChildSpawnerCommands, s: &Session, spaces: &Spaces, ser
                         "Queue iron dagger [Q]",
                         crate::lifestyle::Action(Command::QueueCraft),
                     );
-                    if st.ore < 2 || st.life.queue >= 32 {
+                    if st.ore < 2 || st.life.queue.len() >= 32 {
                         drawer.commands().entity(queue).insert((
                             bevy::ui::InteractionDisabled,
                             forge_ui::Unavailable("Not enough ore, or the queue is full.".into()),

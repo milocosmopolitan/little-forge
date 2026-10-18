@@ -86,37 +86,60 @@ pub fn load(dir: &Path) -> io::Result<Option<Save>> {
                 }
                 if let Ok(header) = serde_json::from_slice::<serde_json::Value>(&bytes)
                     && header["schema_version"] == 4
-                    && header["state"].get("showroom").is_none()
+                    && (header["state"].get("showroom").is_none()
+                        || header["state"]["life"].get("active_job").is_none())
                 {
                     continue;
                 }
-                if let Ok(mut s) = serde_json::from_slice::<Save>(&bytes) {
-                    // Future formats must not be silently downgraded through an older slot.
-                    if s.schema_version > SCHEMA_VERSION || s.content_version > CONTENT_VERSION {
-                        return Err(io::Error::new(
-                            io::ErrorKind::InvalidData,
-                            "newer save version",
-                        ));
-                    }
-                    if s.schema_version == 1 {
-                        s.schema_version = 3;
-                        s.state.life = crate::life::Life::default();
-                        if let Some(due) = s.state.job_due {
-                            s.state.life.work =
-                                due.saturating_sub(s.state.tick).min(crate::CRAFT_SECS) * 1000;
-                            s.state.life.action = crate::life::SmithAction::Working;
+                if let Ok(mut value) = serde_json::from_slice::<serde_json::Value>(&bytes) {
+                    let version = value["schema_version"].as_u64().unwrap_or(0);
+                    let legacy = (1..=3).contains(&version);
+                    if legacy {
+                        if version == 1 {
+                            let mut life = crate::life::Life::default();
+                            if let Some(due) = value["state"]["job_due"].as_u64() {
+                                let tick = value["state"]["tick"].as_u64().unwrap_or(0);
+                                life.work = due.saturating_sub(tick).min(crate::CRAFT_SECS) * 1000;
+                                if life.work > 0 {
+                                    life.active_job = Some(crate::life::WorkKind::IronDagger);
+                                    life.action = crate::life::SmithAction::Working;
+                                }
+                            }
+                            value["state"]["life"] = serde_json::to_value(life)?;
+                        } else {
+                            let Some(count) = value["state"]["life"]["queue"].as_u64() else {
+                                continue;
+                            };
+                            if count > 32 {
+                                continue;
+                            }
+                            value["state"]["life"]["queue"] = serde_json::json!(vec![
+                                    crate::life::WorkKind::IronDagger;
+                                    count as usize
+                                ]);
+                            value["state"]["life"]["active_job"] = if value["state"]["life"]["work"]
+                                .as_u64()
+                                .is_some_and(|w| w > 0)
+                            {
+                                serde_json::json!(crate::life::WorkKind::IronDagger)
+                            } else {
+                                serde_json::Value::Null
+                            };
                         }
+                        value["state"]["farmer_order"] =
+                            serde_json::to_value(crate::commission::FarmerOrder::default())?;
+                        value["schema_version"] = serde_json::json!(4);
                     }
-                    if s.schema_version == 2 {
-                        s.schema_version = 3;
-                    }
-                    if s.schema_version == 3 {
-                        // Pre-showroom stock: keep every dagger and the in-flight reservation.
+                    let Ok(mut s) = serde_json::from_value::<Save>(value) else {
+                        continue;
+                    };
+                    if legacy {
+                        // Pre-showroom stock: keep every dagger and the in-flight dagger's slot.
                         s.state.showroom = crate::showroom::Showroom::default();
-                        s.state
-                            .showroom
-                            .migrate_legacy(s.state.daggers, s.state.life.work > 0);
-                        s.schema_version = 4;
+                        s.state.showroom.migrate_legacy(
+                            s.state.daggers,
+                            s.state.life.active_job == Some(crate::life::WorkKind::IronDagger),
+                        );
                     }
                     if s.validate().is_ok() {
                         good.push(s);
@@ -283,9 +306,15 @@ mod tests {
         state.daggers += 7;
         let mut value = serde_json::to_value(Save::new(state, 100)).unwrap();
         value["schema_version"] = serde_json::json!(3);
+        value["state"]["life"]["queue"] = serde_json::json!(0);
+        value["state"]["life"]
+            .as_object_mut()
+            .unwrap()
+            .remove("active_job");
         let st = value["state"].as_object_mut().unwrap();
         st.remove("showroom");
         st.remove("smith");
+        st.remove("farmer_order");
         fs::write(d.join("save-0.json"), serde_json::to_vec(&value).unwrap()).unwrap();
         let mut s = load(&d).unwrap().unwrap();
         assert_eq!(s.schema_version, 4);
@@ -329,5 +358,54 @@ mod tests {
         fs::write(d.join("save.tmp"), b"partial").unwrap();
         assert_eq!(load(&d).unwrap(), Some(s));
         fs::remove_dir_all(d).unwrap();
+    }
+    #[test]
+    fn schema_three_keeps_paid_queue_active_work_and_economy() {
+        let d = dir();
+        fs::create_dir_all(&d).unwrap();
+        let mut state = State::new(42);
+        state.command(1, Command::Craft).unwrap();
+        state.command(2, Command::QueueCraft).unwrap();
+        state.advance(2).unwrap();
+        let mut value = serde_json::to_value(Save::new(state.clone(), 100)).unwrap();
+        value["schema_version"] = 3.into();
+        value["state"]["life"]["queue"] = 1.into();
+        value["state"]["life"]
+            .as_object_mut()
+            .unwrap()
+            .remove("active_job");
+        value["state"]
+            .as_object_mut()
+            .unwrap()
+            .remove("farmer_order");
+        fs::write(d.join("save-0.json"), serde_json::to_vec(&value).unwrap()).unwrap();
+        let mut loaded = load(&d).unwrap().unwrap();
+        assert_eq!(loaded.schema_version, 4);
+        assert_eq!(loaded.state, state);
+        loaded.catch_up(140).unwrap();
+        assert_eq!(loaded.state.crafted, 2);
+        assert_eq!(loaded.state.ore, 6);
+        store(&d, &mut loaded).unwrap();
+        assert_eq!(load(&d).unwrap().unwrap(), loaded);
+        fs::remove_dir_all(d).unwrap();
+    }
+    #[test]
+    fn current_schema_missing_order_or_work_metadata_is_not_reset() {
+        for missing in ["farmer_order", "active_job"] {
+            let d = dir();
+            fs::create_dir_all(&d).unwrap();
+            let mut value = serde_json::to_value(Save::new(State::new(1), 100)).unwrap();
+            if missing == "farmer_order" {
+                value["state"].as_object_mut().unwrap().remove(missing);
+            } else {
+                value["state"]["life"]
+                    .as_object_mut()
+                    .unwrap()
+                    .remove(missing);
+            }
+            fs::write(d.join("save-0.json"), serde_json::to_vec(&value).unwrap()).unwrap();
+            assert!(load(&d).is_err());
+            fs::remove_dir_all(d).unwrap();
+        }
     }
 }

@@ -32,7 +32,7 @@ try:
         if window and state and int(elapsed)%15==0:
             keys=['Tab']
             if state['ore']<2 and state['gold']>=4: keys.append('b')
-            if state['life']['queue']<2: keys.append('q')
+            if len(state['life']['queue'])<2: keys.append('q')
             if state['gold']>=2 and sum(s['count'] for s in state['life']['pantry']['slots'] if s and s['food']=='Staple')<3: keys.append('f')
             # Explicit player rest exercises the production sleep timer during the soak.
             if 300<=elapsed<301: keys.append('r')

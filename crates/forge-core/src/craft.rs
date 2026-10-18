@@ -88,13 +88,17 @@ impl State {
         if self.life.work == 0 {
             None
         } else {
-            let total = CRAFT_SECS * 1000;
+            let total = self.life.active_job.map_or(CRAFT_SECS, |job| job.seconds()) * 1000;
             Some(((total - self.life.work.min(total)) * 1000 / total) as u32)
         }
     }
+    /// Entrusted repairs are anvil work throughout; general crafting follows the recipe stages.
     pub fn work_stage(&self) -> Option<Stage> {
-        self.job_progress()
-            .map(|p| stage_at(self.current_good(), p))
+        let progress = self.job_progress()?;
+        Some(match self.life.active_job {
+            Some(crate::life::WorkKind::FarmerSickleRepair) => Stage::Hammering,
+            _ => stage_at(self.current_good(), progress),
+        })
     }
 }
 #[cfg(test)]

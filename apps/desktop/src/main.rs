@@ -71,12 +71,13 @@ impl Options {
                     | "village-outside"
                     | "village-input"
             )
-        ) || self.forge_scene().is_some_and(|(scene, _)| {
-            matches!(
-                scene,
-                "workshop" | "showroom" | "full" | "input" | "interior"
-            )
-        })
+        ) || self.qa.as_deref().is_some_and(|q| q.starts_with("repair-"))
+            || self.forge_scene().is_some_and(|(scene, _)| {
+                matches!(
+                    scene,
+                    "workshop" | "showroom" | "full" | "input" | "interior"
+                )
+            })
     }
 }
 #[derive(Component)]
@@ -137,7 +138,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             }
             "--help" => {
                 println!(
-                    "Little Forge\n--safe-window --save-dir PATH --qa ambient|sale|expanded|idle|life-loop|life-ambient|title --screenshot PATH\nC: craft, Q: queue, B: buy ore, F: farmer food, E: eat, W: free water, R: rest, Tab: expand, F8: 10s click-through, Ctrl+Alt+F8: global recovery, Esc: recover, T: topmost, D: decorations, F12: diagnostics\nQA uses an isolated save directory and a fixed simulation clock."
+                    "Little Forge\n--safe-window --save-dir PATH --qa ambient|sale|expanded|idle|life-loop|life-ambient|title --screenshot PATH\nO: orders, A: accept repair, S: queue repair, L: deliver, C: craft, Q: queue, B: buy ore, F: farmer food, E: eat, W: free water, R: rest, Tab: expand, F8: 10s click-through, Ctrl+Alt+F8: global recovery, Esc: recover, T: topmost, D: decorations, F12: diagnostics\nQA uses an isolated save directory and a fixed simulation clock."
                 );
                 return Ok(());
             }
@@ -155,6 +156,11 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
                 | "life-ambient"
                 | "title"
                 | "npc"
+                | "repair-offered"
+                | "repair-working"
+                | "repair-ready"
+                | "repair-delivered"
+                | "repair-input"
                 | "village-map"
                 | "village-home"
                 | "village-materials"
@@ -290,6 +296,28 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     if opts.qa.as_deref() == Some("sale") {
         for event in saved.state.advance(12).map_err(|e| format!("{e:?}"))? {
             presentation.accept(event);
+        }
+    }
+    if let Some(scene) = opts.qa.as_deref().and_then(|q| q.strip_prefix("repair-")) {
+        if matches!(scene, "working" | "ready" | "delivered") {
+            saved
+                .state
+                .command(saved.state.command_id + 1, Command::AcceptFarmerRepair)
+                .expect("QA accept");
+            saved
+                .state
+                .command(saved.state.command_id + 1, Command::QueueFarmerRepair)
+                .expect("QA enqueue");
+            saved
+                .state
+                .advance(if scene == "working" { 6 } else { 26 })
+                .expect("QA repair");
+        }
+        if scene == "delivered" {
+            saved
+                .state
+                .command(saved.state.command_id + 1, Command::DeliverFarmerRepair)
+                .expect("QA deliver");
         }
     }
     let mut app = App::new();
@@ -587,7 +615,7 @@ fn setup(
         },
         Hud,
     ));
-    commands.spawn((Text::new("FORGE LEDGER\n\nC   Craft iron dagger | 2 ore | 5 seconds\nB   Buy 2 ore | 4 gold\n\nTab   Return to the small forge\nF8    Click through for 10 seconds (automatic recovery)\nCtrl+Alt+F8   Global recovery\nEsc   Restore interaction\nT      Toggle always-on-top (off by default)\nD     Toggle window decorations / drag window\nF12  Write diagnostic report\n\nFoundation preview: village orders, research and expeditions follow later."),TextFont{font_size:18.0.into(),..default()},Node{position_type:PositionType::Absolute,top:px(60),left:px(30),..default()},Visibility::Hidden,Panel));
+    commands.spawn((Text::new("FORGE LEDGER\n\nC   Craft iron dagger | 2 ore | 5 seconds\nB   Buy 2 ore | 4 gold\n\nTab   Return to the small forge\nF8    Click through for 10 seconds (automatic recovery)\nCtrl+Alt+F8   Global recovery\nEsc   Restore interaction\nT      Toggle always-on-top (off by default)\nD     Toggle window decorations / drag window\nF12  Write diagnostic report\n\nFirst repair: O orders, A accept, S queue, L deliver. Research and expeditions follow later."),TextFont{font_size:18.0.into(),..default()},Node{position_type:PositionType::Absolute,top:px(60),left:px(30),..default()},Visibility::Hidden,Panel));
 }
 #[allow(clippy::too_many_arguments)]
 fn input(
@@ -601,6 +629,7 @@ fn input(
     mut farmer: ResMut<npc::FarmerPresentation>,
     mut village: ResMut<village::Village>,
     mut spaces: ResMut<spaces::Spaces>,
+    mut home: ResMut<lifestyle::HomeUi>,
     dialog: Res<forge_ui::DialogState>,
     mut commands: Commands,
 ) {
@@ -634,6 +663,11 @@ fn input(
         desktop.decorations = !desktop.decorations;
         desktop.dirty = true;
     }
+    if keys.just_pressed(KeyCode::KeyO) && village.nav.screen == forge_core::village::Screen::Home {
+        desktop.shell.recover();
+        desktop.shell.expanded = true;
+        home.tab = 3;
+    }
     for (key, cmd) in [
         (KeyCode::KeyC, Command::Craft),
         (KeyCode::KeyB, Command::BuyOre),
@@ -642,6 +676,9 @@ fn input(
         (KeyCode::KeyE, Command::Eat),
         (KeyCode::KeyW, Command::Drink),
         (KeyCode::KeyR, Command::Rest),
+        (KeyCode::KeyA, Command::AcceptFarmerRepair),
+        (KeyCode::KeyS, Command::QueueFarmerRepair),
+        (KeyCode::KeyL, Command::DeliverFarmerRepair),
     ] {
         if keys.just_pressed(key)
             && !session.disabled
@@ -651,9 +688,9 @@ fn input(
             session.status = match session.save.state.command(id, cmd) {
                 Ok(()) => {
                     farmer.accepted(id, cmd);
-                    format!("{cmd:?} accepted")
+                    lifestyle::command_status(cmd, &session.save.state)
                 }
-                Err(e) => format!("{e:?}"),
+                Err(e) => lifestyle::command_error(e),
             };
             persist(&mut session, &opts);
         }
@@ -717,6 +754,9 @@ fn simulate(
         match s.save.state.advance(whole) {
             Ok(events) => {
                 for e in events {
+                    if e.kind == forge_core::EventKind::FarmerRepairReady {
+                        s.status = "The farmer's sickle is ready. Orders [O] to deliver.".into();
+                    }
                     if opts.qa.as_deref().is_some_and(|q| q.starts_with("life-")) {
                         s.trace.push(e.clone());
                     }
@@ -869,12 +909,13 @@ fn hud(
             Visibility::Visible
         };
         **t = format!(
-            "LITTLE FORGE   Gold {}   Ore {}   Finished {}/{}   {:?}\n{}",
+            "LITTLE FORGE   Gold {}   Ore {}   Finished {}/{}   {:?}\n{} · Orders [O] | {}",
             s.save.state.gold,
             s.save.state.ore,
             s.save.state.showroom.goods(),
             s.save.state.showroom.capacity(),
             desktop.shell.mode,
+            s.save.state.farmer_order.phase.label(),
             s.status
         );
     }
@@ -974,7 +1015,7 @@ fn qa_capture(
             .observe(save_capture(extra));
     }
     let long = life
-        || opts.qa.as_deref() == Some("village-input")
+        || matches!(opts.qa.as_deref(), Some("village-input" | "repair-input"))
         || opts
             .forge_scene()
             .is_some_and(|(scene, _)| scene == "input");
