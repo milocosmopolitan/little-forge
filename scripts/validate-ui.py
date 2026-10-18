@@ -24,6 +24,7 @@ for entry in manifest['assets']:
             assert list(im.getextrema()[3]) == entry['alpha_extrema'], path
 runtime = json.loads(Path('assets/ui/runtime/manifest.json').read_text())
 by_path = {}
+manifest_limits = {'controls': runtime['palette_colors']['controls'], 'icon': runtime['palette_colors']['icons'], 'header': runtime['palette_colors']['headers']}
 for entry in runtime['assets']:
     path = Path(entry['path'])
     assert hashlib.sha256(path.read_bytes()).hexdigest() == entry['sha256'], path
@@ -37,6 +38,15 @@ for entry in runtime['assets']:
             assert hist[0] > 0 or entry['kind'] == 'window', path
             # An export must not be a cropped-away fragment: its edge rows carry art.
             assert im.getchannel('A').getbbox() is not None, path
+        # True pixel grid: every grid x grid block is one uniform colour.
+        g = entry['grid']
+        assert im.width % g == 0 and im.height % g == 0, path
+        small = im.resize((im.width // g, im.height // g), Image.NEAREST)
+        assert small.resize(im.size, Image.NEAREST).tobytes() == im.tobytes(), f'{path}: not a true {g}px grid'
+        if entry['kind'] != 'header-foreground':
+            limit = manifest_limits[entry['kind'] if entry['kind'] in ('icon', 'header') else 'controls']
+            colours = {px[:3] for px in small.convert('RGBA').get_flattened_data() if px[3]}
+            assert len(colours) <= limit, f'{path}: {len(colours)} colours > {limit}'
         l, t, r, b = entry.get('insets_ltrb', (0, 0, 0, 0))
         assert l + r < entry['width'] and t + b < entry['height'], f'{path}: insets exceed size'
     by_path[entry['path']] = entry
@@ -63,7 +73,7 @@ required = list(range(32, 127)) + list(range(0xAC00, 0xD7A4))
 assert all(point in cmap for point in required), 'ASCII / Hangul glyph missing'
 assert 'SIL OPEN FONT LICENSE' in Path('assets/ui/fonts/OFL.txt').read_text()
 print('Source hashes/dimensions and ASCII + 11,172 Hangul syllables verified.')
-print(f"Runtime exports verified: {len(runtime['assets'])} independent files, hard alpha, matching states/icons.")
+print(f"Runtime exports verified: {len(runtime['assets'])} independent files, true pixel grid, palette limits, hard alpha, matching states/icons.")
 print('Art gate: exports registered; runtime_ready stays false until visual approval.')
 if a.release:
     assert manifest['runtime_ready'], 'UI 02/03 asset gate is not complete'

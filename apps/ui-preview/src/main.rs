@@ -227,7 +227,7 @@ fn draw(
                 ui::icon(p, &server, "staples", 64.);
                 p.spawn(ui::text("Staple provisions", 21.));
                 p.spawn(ui::text("Everyday food for a busy smith.", 15.));
-                ui::progress(p, 0.6, "Capacity · 60%");
+                ui::progress(p, &server, 0.6, "Capacity · 60%");
                 let disabled = s.name == "insufficient" || s.name == "sold-out";
                 if disabled {
                     p.spawn(ui::text(
@@ -252,8 +252,8 @@ fn draw(
                 if s.name == "controls" {
                     ui::button(p, "Selected", ui::Selected);
                     ui::button(p, "Open confirmation", OpenDialog);
-                    ui::progress(p, 0., "Empty");
-                    ui::progress(p, 1., "Full");
+                    ui::progress(p, &server, 0., "Empty");
+                    ui::progress(p, &server, 1., "Full");
                     p.spawn(ui::text(
                         "Hover or press a control to inspect its state.",
                         14.,

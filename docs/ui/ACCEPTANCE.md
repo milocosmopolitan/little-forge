@@ -94,17 +94,21 @@ Shared-component preview fixtures:
 
 ![Actual map at 200% X11 DPI](evidence/game-dpi-200.png)
 
-## Update 2026-10-18: independent runtime exports
+## Update 2026-10-18: true-pixel runtime exports
 
-`forge-ui` no longer samples source-sheet rectangles. 47 independent files
-(19 controls, 24 icons, 4 headers) live in `assets/ui/runtime/` with a registered
-manifest; `validate-ui.py` verifies them. Actual captures with these files:
+`forge-ui` no longer samples source-sheet rectangles. 48 independent files
+(19 controls, 24 icons, 4 headers + farm counter) live in `assets/ui/runtime/`,
+snapped to a real pixel grid (see `assets/ui/README.md`) and verified by
+`validate-ui.py`. Sidebar tabs, inventory slots and progress bars now use the
+exported art; the farm header is undistorted with the farmer enlarged and standing
+behind the counter.
 
-![Forge materials](evidence/runtime-exports-home.png)
+![Forge](evidence/runtime-exports-home.png)
+![Provisions slots](evidence/runtime-exports-provisions.png)
 ![Farm](evidence/runtime-exports-farm.png)
 ![Export review on light/dark checkerboards](evidence/runtime-assets-review.png)
 
-#59 (inventory, insets, provenance, font) and the export half of #60/#61 are now
-done. Still open: owner native-size approval, art for focus ring/separators,
-components for tabs/slots/scrollbar from the exported art, and the pixel-grid
-issue noted in `assets/ui/README.md`. No issue is closed by this change.
+#59 (inventory, insets, provenance, font) and the export half of #60/#61 are done.
+Still open: owner native-size approval, art for focus ring/separators, modal and
+scrollbar components, restaging the other three merchants. No issue is closed by
+this change.

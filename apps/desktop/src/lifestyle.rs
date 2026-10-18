@@ -57,31 +57,24 @@ fn live_fraction(s: &Session, kind: Live) -> f32 {
     }
     .clamp(0., 1.)
 }
-fn meter(parent: &mut ChildSpawnerCommands, s: &Session, label: Option<Live>, bar: Live) {
+fn meter(
+    parent: &mut ChildSpawnerCommands,
+    server: &AssetServer,
+    s: &Session,
+    label: Option<Live>,
+    bar: Live,
+) {
     match label {
         Some(kind) => parent.spawn((forge_ui::text(live_text(s, kind), 13.), kind)),
         None => parent.spawn(forge_ui::text("Current blade", 13.)),
     };
-    parent
-        .spawn((
-            Node {
-                width: percent(100),
-                height: px(9),
-                ..default()
-            },
-            BackgroundColor(Color::srgb(0.06, 0.05, 0.04)),
-        ))
-        .with_children(|p| {
-            p.spawn((
-                Node {
-                    width: percent(live_fraction(s, bar) * 100.),
-                    height: percent(100),
-                    ..default()
-                },
-                BackgroundColor(Color::srgb(0.75, 0.43, 0.16)),
-                bar,
-            ));
-        });
+    let fill = if label.is_some() {
+        forge_ui::Fill::Amber
+    } else {
+        forge_ui::Fill::Blue
+    };
+    let id = forge_ui::progress_bar(parent, server, live_fraction(s, bar), fill);
+    parent.commands().entity(id).insert(bar);
 }
 /// Writes only on change so Bevy does not re-layout text or nodes every frame.
 pub fn live(
@@ -210,7 +203,7 @@ pub fn draw(
         p.spawn(forge_ui::text("LITTLE FORGE  /  A good day's work",23.));
         p.spawn(Node{flex_grow:1.,min_height:px(0),column_gap:px(12),..default()}).with_children(|row|{
             row.spawn(forge_ui::panel(percent(18))).with_children(|side|{
-                for (i,label) in ["Crafting","Materials","Provisions"].iter().enumerate(){let entity = forge_ui::button(side,*label,HomeTab(i)); if home.tab == i { side.commands().entity(entity).insert(forge_ui::Selected); }}
+                for (i,label) in ["Crafting","Materials","Provisions"].iter().enumerate(){let entity = forge_ui::button(side,*label,HomeTab(i)); side.commands().entity(entity).insert(forge_ui::SkinKind::Tab); if home.tab == i { side.commands().entity(entity).insert(forge_ui::Selected); }}
                 side.spawn(forge_ui::text("Work continues while you browse.",12.));
                 forge_ui::button(side,"Rest [R]",Action(Command::Rest));
             });
@@ -248,10 +241,10 @@ pub fn draw(
                 queue.spawn(forge_ui::text("At the workbench",20.));
                 queue.spawn((forge_ui::text(live_text(&s, Live::Action), 17.), Live::Action));
                 queue.spawn((forge_ui::text(live_text(&s, Live::Queue), 14.), Live::Queue));
-                meter(queue, &s, None, Live::WorkBar);
-                meter(queue, &s, Some(Live::Fatigue), Live::FatigueBar);
-                meter(queue, &s, Some(Live::Hunger), Live::HungerBar);
-                meter(queue, &s, Some(Live::Thirst), Live::ThirstBar);
+                meter(queue, &server, &s, None, Live::WorkBar);
+                meter(queue, &server, &s, Some(Live::Fatigue), Live::FatigueBar);
+                meter(queue, &server, &s, Some(Live::Hunger), Live::HungerBar);
+                meter(queue, &server, &s, Some(Live::Thirst), Live::ThirstBar);
                 queue.spawn(forge_ui::text("Your smith rests, eats and resumes work automatically. Meals are used only when you choose.",13.));
                 queue.spawn((forge_ui::text(live_text(&s, Live::Status), 13.), Live::Status));
             });

@@ -59,33 +59,47 @@ The exact generated files are retained unmodified. Generation requested transpar
 
 `python scripts/export-ui-assets.py` regenerates `assets/ui/runtime/` from the
 source sheets; it never edits the sources. Components come from alpha
-connectivity (`scripts/ui_components.py`), not equal division. Alpha is
-binarised at 96 to drop generator halos, state variants share one canvas, icons
-sit centred on a 256×256 canvas, and every file is registered with size, alpha
-bounds, source box and slice insets in `runtime/manifest.json`.
+connectivity (`scripts/ui_components.py`), not equal division.
 
-| Group | Files | Slice insets L/T/R/B |
+**True-pixel contract.** Each component is area-averaged to the art-pixel grid
+(controls/icons 4 source px per art pixel, headers 2), palette-limited per asset
+(controls 24, icons 32, headers 128 colours), given hard alpha, then scaled by
+that integer with nearest sampling. Every `grid × grid` block of a runtime file is
+therefore one colour; `validate-ui.py` verifies it. Shared palettes were tried and
+rejected: median cut over a whole sheet dropped blue selection, amber fill and the
+potion. State variants share one canvas; icons sit centred on 64×64 native
+(256×256 file); `runtime/manifest.json` records native size, grid, source box,
+alpha bounds, insets and hashes.
+
+| Group | Files | Slice insets L/T/R/B (multiples of the grid) |
 | --- | --- | --- |
-| Window | `controls/window.png` (1011×378) | 53/88/54/38, corner scale 0.35 |
+| Window | `controls/window.png` (1012×376) | 52/88/56/40, corner scale 0.35 |
 | Modal / tooltip frame | `controls/modal.png` | 40/60/40/40 (not yet used) |
-| Inset panel | `controls/inset.png` | 18 each |
-| Buttons | `button-normal/hover/pressed/disabled/selected` (288×85) | 20 each, corner scale 0.5 |
-| Tabs, slots | `tab-*`, `slot-*` | exported, not yet used by components |
-| Progress, scrollbar | `progress-track(-alt)`, `progress-fill-amber/blue`, `scrollbar-*` | none |
+| Inset panel | `controls/inset.png` | 20 each |
+| Buttons | `button-normal/hover/pressed/disabled/selected` (288×84) | 20 each, corner scale 0.5 |
+| Tabs | `tab-normal/selected` (sidebar tabs) | 24 each, corner scale 0.5 |
+| Slots | `slot-normal/selected/locked` (64×64 nodes; locked = empty slot) | 24 each, corner scale 0.4 |
+| Progress | `progress-track`, `progress-fill-amber/blue` (16px bars; blue = blade, amber = needs) | 12 each |
+| Scrollbar | `scrollbar-track/thumb`, `progress-track-alt` | exported, not yet used |
 | Icons | `icons/<name>.png`, 24 files | none |
-| Headers | `headers/{carpenter,leatherworker,farm,tavern}.png` (1250×200) | none |
+| Headers | `headers/{carpenter,leatherworker,farm,tavern}.png` (1250×200), `farm-counter.png` | none |
+
+Header stage: art is 1250×200 and shown at that height with uniform scale,
+anchored right. The farmer sprite is drawn at 2× (the header grid) behind
+`farm-counter.png`, so he stands at the stall instead of floating; other
+merchants keep their previous placement.
+
+Skinned controls draw no node background (art carries every state); the node
+border is the focus/hover ring.
 
 `scripts/review-ui-assets.py` renders every export on light and dark
-checkerboards (`docs/ui/evidence/runtime-assets-review.png`); no halos or seams
-were seen at that size. `scripts/validate-ui.py` checks hashes, hard alpha,
-identical state dimensions, icon names against `forge-ui::ICONS` and that every
-`ui/runtime/...` path referenced by `forge-ui` is registered.
+checkerboards (`docs/ui/evidence/runtime-assets-review.png`).
 
-Known limits: sources are generated upscaled art, not native-grid pixel art, so
-exports are not integer-scale clean; focus ring and separators have no art (Bevy
-borders); tab/slot/modal/scrollbar/progress exports are registered but components
-still draw slots and bars with Bevy nodes. `runtime_ready` stays `false` until
-the owner approves native-size review.
+Known limits: art is a faithful grid snap of generated sheets, not hand-drawn
+pixel art, so some fine detail is simplified; focus ring and separators have no
+art; modal, scrollbar and tooltip components are not built yet; non-farm headers
+are not restaged. `runtime_ready` stays `false` until the owner approves
+native-size review.
 
 ## Font provenance
 
