@@ -24,8 +24,10 @@ def capture(name, args):
     with (out / f'{name}.log').open('w') as log:
         subprocess.run([str(exe), *args, '--capture', str(png)], stdout=log, stderr=subprocess.STDOUT,
                        check=True, timeout=120)
-    with Image.open(png) as im:
-        im.verify()
+    produced = [out / f'{name}-{i}.png' for i in range(6)] if '--sequence' in args else [png]
+    for file in produced:
+        with Image.open(file) as im:
+            im.verify()
     assert 'panicked' not in (out / f'{name}.log').read_text(), name
 
 

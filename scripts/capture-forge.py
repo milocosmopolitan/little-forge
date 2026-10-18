@@ -34,7 +34,7 @@ def run(scene, name=None, env=None):
     print(f'{scene}: actual app rendered', flush=True)
 
 
-for scene in ['forge-exterior', 'forge-workshop', 'forge-showroom', 'forge-full', 'forge-select',
+for scene in ['forge-exterior', 'forge-interior', 'forge-workshop', 'forge-showroom', 'forge-full', 'forge-select',
               'forge-workshop-female', 'forge-showroom-female', 'forge-exterior-female']:
     run(scene)
 for stage in ['045', '100', '140']:

@@ -1,5 +1,5 @@
 //! Thin game adapter: only accepted live commands request presentation.
-use crate::{Options, window::Desktop};
+use crate::Options;
 use bevy::prelude::*;
 use forge_npc::{Catalog, NpcPlugin, Player};
 #[derive(Resource, Default)]
@@ -90,8 +90,6 @@ fn update(
     c: Res<Catalog>,
     opts: Res<Options>,
     mut clock: ResMut<forge_npc::PlaybackClock>,
-    desktop: Res<Desktop>,
-    windows: Query<&Window, With<bevy::window::PrimaryWindow>>,
     mut state: ResMut<FarmerPresentation>,
     mut farmer: Query<
         (&mut Player, &mut Transform, &mut Visibility),
@@ -119,12 +117,7 @@ fn update(
             state.active = false;
         }
     }
-    t.translation.y = -85.
-        - if desktop.shell.expanded {
-            (windows.single().map_or(540., |w| w.height()) - 180.) / 2.
-        } else {
-            0.
-        };
+    t.translation.y = -85.;
     *v = if state.active {
         Visibility::Visible
     } else {
@@ -147,7 +140,7 @@ mod tests {
                 building_idle: Handle::default(),
             })
             .insert_resource(crate::presentation::Presentation::default())
-            .insert_resource(Desktop::new(false, false))
+            .insert_resource(crate::window::Desktop::new(false, false))
             .add_systems(Update, crate::animate);
         let body = app
             .world_mut()

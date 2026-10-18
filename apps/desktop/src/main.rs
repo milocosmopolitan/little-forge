@@ -748,8 +748,6 @@ fn animate(
     time: Res<Time>,
     opts: Res<Options>,
     p: Res<Presentation>,
-    desktop: Res<window::Desktop>,
-    windows: Query<&Window, With<bevy::window::PrimaryWindow>>,
     mut q: Query<
         (
             &mut Transform,
@@ -777,11 +775,9 @@ fn animate(
     } else {
         time.elapsed_secs()
     };
-    let offset = if desktop.shell.expanded {
-        -(windows.single().map_or(540., |w| w.height()) - 180.) / 2.
-    } else {
-        0.
-    };
+    // The exterior keeps its ambient composition in every window mode; the expanded window
+    // shows it centred instead of pinned to the bottom under an opaque panel.
+    let offset = 0.;
     let walk_frame = ((p.elapsed * 6.) as usize) % 4;
     let visitor_frame = if matches!(
         p.phase,

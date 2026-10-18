@@ -130,7 +130,7 @@ pub fn setup(
     // Isolated QA scenes start in the space they document; normal launches start outside.
     if let Some((scene, _)) = opts.forge_scene() {
         spaces.space = match scene {
-            "workshop" | "full" | "input" | "interior" => Space::Workshop,
+            "workshop" | "full" | "input" => Space::Workshop,
             "showroom" => Space::Showroom,
             _ => Space::Exterior,
         };
@@ -430,8 +430,6 @@ pub fn drive_workshop(
 pub fn drive_presence(
     s: Res<Session>,
     spaces: Res<Spaces>,
-    desktop: Res<Desktop>,
-    windows: Query<&Window, With<bevy::window::PrimaryWindow>>,
     mut exterior: Query<(&mut Actor, &mut Transform, &mut Sprite), With<ExteriorActor>>,
     mut glow: Query<&mut Sprite, (With<WindowGlow>, Without<ExteriorActor>, Without<Actor>)>,
     time: Res<Time>,
@@ -443,11 +441,7 @@ pub fn drive_presence(
     };
     let activity = s.save.state.activity();
     let _ = &spaces;
-    let offset = if desktop.shell.expanded {
-        -(windows.single().map_or(540., |w| w.height()) - 180.) / 2.
-    } else {
-        0.
-    };
+    let offset = 0.;
     let seconds = if opts.qa.is_some() {
         opts.frames as f32 / 30.
     } else {
