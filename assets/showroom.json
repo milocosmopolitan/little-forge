@@ -1,0 +1,8 @@
+{
+  "rack_slots": [4, 6, 8],
+  "max_racks": 3,
+  "rack_gold": 30,
+  "rack_timber": 4,
+  "upgrade_gold": [20, 40],
+  "upgrade_timber": [2, 4]
+}

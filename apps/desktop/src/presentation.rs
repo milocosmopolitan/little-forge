@@ -127,9 +127,10 @@ mod tests {
             .insert_resource(Desktop::new(false, false))
             .insert_resource(crate::Art {
                 images: vec![],
-                smith_sizes: vec![Vec2::new(45., 75.); 12],
                 visitor_sizes: vec![Vec2::new(45., 75.); 12],
                 visitor_hands: vec![Vec2::new(-18., 30.); 4],
+                building_active: Handle::default(),
+                building_idle: Handle::default(),
             })
             .add_systems(Update, (tick, crate::animate).chain());
         let item = Handle::<Image>::default();

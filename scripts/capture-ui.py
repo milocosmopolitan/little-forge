@@ -15,7 +15,9 @@ exe = str(Path(a.executable).resolve())
 out = Path(a.output)
 out.mkdir(parents=True, exist_ok=True)
 scenes = ['farm', 'chef', 'carpenter', 'leatherworker', 'empty', 'full',
-          'insufficient', 'sold-out', 'long-label', 'controls', 'confirmation']
+          'insufficient', 'sold-out', 'long-label', 'controls', 'confirmation',
+          'showroom-empty', 'showroom-partial', 'showroom-full', 'showroom-reserved',
+          'showroom-held', 'showroom-upgraded', 'showroom-long']
 def capture(name, args, env=None):
     png = out / (name + '.png')
     with (out / (name + '.log')).open('w') as log:
@@ -27,6 +29,7 @@ def capture(name, args, env=None):
 for scene in scenes:
     capture(scene, ['--story', scene])
 capture('small', ['--story', 'long-label', '--width', '640', '--height', '480'])
+capture('showroom-small', ['--story', 'showroom-long', '--width', '640', '--height', '480'])
 capture('dpi-200', ['--story', 'farm'], {**os.environ, 'WINIT_X11_SCALE_FACTOR': '2'})
 with tempfile.TemporaryDirectory(prefix='forge-ui-missing-') as folder:
     # Keep the licensed font to capture a readable fallback without art.

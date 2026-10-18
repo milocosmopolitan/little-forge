@@ -1,0 +1,1123 @@
+{
+  "schema": 3,
+  "epic": 58,
+  "tasks": [
+    59,
+    60,
+    61
+  ],
+  "runtime_ready": false,
+  "status": "true-pixel-pending-visual-approval",
+  "alpha_cut": 96,
+  "icon_canvas": 256,
+  "grid": 4,
+  "header_grid": 2,
+  "palette_colors": {
+    "controls": 24,
+    "icons": 32,
+    "headers": 128
+  },
+  "notes": "Source sheets are area-averaged to the art-pixel grid, palette-limited with hard alpha, then scaled by an integer (nearest) so every art pixel is one uniform block. Focus ring and separators are drawn by Bevy nodes; no art exists for them.",
+  "assets": [
+    {
+      "path": "assets/ui/runtime/controls/window.png",
+      "kind": "window",
+      "width": 1012,
+      "height": 376,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        15,
+        78,
+        1026,
+        456
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "90b06bf30409ee28719da3711ff43f3ecde5e9f50a0a0b66407bdf58cc066d54",
+      "grid": 4,
+      "native_width": 253,
+      "native_height": 94,
+      "insets_ltrb": [
+        52,
+        88,
+        56,
+        40
+      ]
+    },
+    {
+      "path": "assets/ui/runtime/controls/modal.png",
+      "kind": "modal",
+      "width": 468,
+      "height": 296,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        1052,
+        121,
+        1521,
+        415
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "5892acf3431c57e31d1625918c7a2e5f94fe702eea73a1e9c8f8dd358b1f3cda",
+      "grid": 4,
+      "native_width": 117,
+      "native_height": 74,
+      "insets_ltrb": [
+        40,
+        60,
+        40,
+        40
+      ]
+    },
+    {
+      "path": "assets/ui/runtime/controls/button-normal.png",
+      "kind": "button",
+      "width": 288,
+      "height": 84,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        15,
+        497,
+        301,
+        580
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "910dc5ba20903574bd2243adb165ea91d506852e6c04c02eb47d14cd7db412be",
+      "grid": 4,
+      "native_width": 72,
+      "native_height": 21,
+      "insets_ltrb": [
+        20,
+        20,
+        20,
+        20
+      ]
+    },
+    {
+      "path": "assets/ui/runtime/controls/button-hover.png",
+      "kind": "button",
+      "width": 288,
+      "height": 84,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        319,
+        497,
+        607,
+        580
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "fa4816f5fa3c053a7b03687ddf6b871a07ade0e9eb0cde85e80944529f4b0513",
+      "grid": 4,
+      "native_width": 72,
+      "native_height": 21,
+      "insets_ltrb": [
+        20,
+        20,
+        20,
+        20
+      ]
+    },
+    {
+      "path": "assets/ui/runtime/controls/button-pressed.png",
+      "kind": "button",
+      "width": 288,
+      "height": 84,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        625,
+        497,
+        912,
+        581
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "9f45106df26d7a5a415ddeb75f1231190fb57dab42b0451d42e8daaf0c1af68d",
+      "grid": 4,
+      "native_width": 72,
+      "native_height": 21,
+      "insets_ltrb": [
+        20,
+        20,
+        20,
+        20
+      ]
+    },
+    {
+      "path": "assets/ui/runtime/controls/button-disabled.png",
+      "kind": "button",
+      "width": 288,
+      "height": 84,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        930,
+        496,
+        1218,
+        580
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "7d90ba666fc2f6a5aa3a0d0076a3e7b4dce6f5d69c99aade3126eb4255992e24",
+      "grid": 4,
+      "native_width": 72,
+      "native_height": 21,
+      "insets_ltrb": [
+        20,
+        20,
+        20,
+        20
+      ]
+    },
+    {
+      "path": "assets/ui/runtime/controls/button-selected.png",
+      "kind": "button",
+      "width": 288,
+      "height": 84,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        1237,
+        496,
+        1521,
+        581
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "fc9c53321f3e92b880b5e4b02bb628392de800ea54f3a81b938884c94c1dd9d4",
+      "grid": 4,
+      "native_width": 72,
+      "native_height": 21,
+      "insets_ltrb": [
+        20,
+        20,
+        20,
+        20
+      ]
+    },
+    {
+      "path": "assets/ui/runtime/controls/tab-normal.png",
+      "kind": "tab",
+      "width": 400,
+      "height": 68,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        22,
+        617,
+        422,
+        685
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "7717c71e34294e7fb82622cda4832ff2267bfa4cf866ab1c0bf94eecda21b218",
+      "grid": 4,
+      "native_width": 100,
+      "native_height": 17,
+      "insets_ltrb": [
+        24,
+        24,
+        24,
+        24
+      ]
+    },
+    {
+      "path": "assets/ui/runtime/controls/tab-selected.png",
+      "kind": "tab",
+      "width": 400,
+      "height": 68,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        441,
+        617,
+        832,
+        685
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "d33edf568a2dcbe5b976b7499440c33f2e7056427cc9afa7f1ba2872f31978ec",
+      "grid": 4,
+      "native_width": 100,
+      "native_height": 17,
+      "insets_ltrb": [
+        24,
+        24,
+        24,
+        24
+      ]
+    },
+    {
+      "path": "assets/ui/runtime/controls/slot-normal.png",
+      "kind": "slot",
+      "width": 172,
+      "height": 168,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        23,
+        736,
+        195,
+        906
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "c1c1880bbf86400190a9bd9869653ce83bfda4a28a0c236e8b7ccb4539301417",
+      "grid": 4,
+      "native_width": 43,
+      "native_height": 42,
+      "insets_ltrb": [
+        24,
+        24,
+        24,
+        24
+      ]
+    },
+    {
+      "path": "assets/ui/runtime/controls/slot-selected.png",
+      "kind": "slot",
+      "width": 172,
+      "height": 168,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        215,
+        736,
+        387,
+        906
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "15b3bc6fc0a064e7ecf344da941d9341313e27674cf827c8ad11e8e1759ea8fd",
+      "grid": 4,
+      "native_width": 43,
+      "native_height": 42,
+      "insets_ltrb": [
+        24,
+        24,
+        24,
+        24
+      ]
+    },
+    {
+      "path": "assets/ui/runtime/controls/slot-locked.png",
+      "kind": "slot",
+      "width": 172,
+      "height": 168,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        407,
+        736,
+        579,
+        906
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "cde4712ed36ecee63159838c2841c8744f603c88ebfd8a67101b505a07af3f27",
+      "grid": 4,
+      "native_width": 43,
+      "native_height": 42,
+      "insets_ltrb": [
+        24,
+        24,
+        24,
+        24
+      ]
+    },
+    {
+      "path": "assets/ui/runtime/controls/progress-track.png",
+      "kind": "progress",
+      "width": 524,
+      "height": 48,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        623,
+        725,
+        1146,
+        772
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "6abb5fac4157d610ae0f30d4083804ae622db15979673d5130c621b43c373911",
+      "grid": 4,
+      "native_width": 131,
+      "native_height": 12
+    },
+    {
+      "path": "assets/ui/runtime/controls/inset.png",
+      "kind": "inset",
+      "width": 232,
+      "height": 112,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        1170,
+        729,
+        1402,
+        841
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "a61bed52f72e788ac86c24fcc7c666aa97bece17fa4fb35db2dba1a9267d11f8",
+      "grid": 4,
+      "native_width": 58,
+      "native_height": 28,
+      "insets_ltrb": [
+        20,
+        20,
+        20,
+        20
+      ]
+    },
+    {
+      "path": "assets/ui/runtime/controls/scrollbar-track.png",
+      "kind": "scrollbar",
+      "width": 40,
+      "height": 264,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        1425,
+        692,
+        1464,
+        957
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "fdc754cfba9848e6cfd836e1b4a3cda941fc1c9704df93b12a6d6123e96fbc51",
+      "grid": 4,
+      "native_width": 10,
+      "native_height": 66
+    },
+    {
+      "path": "assets/ui/runtime/controls/scrollbar-thumb.png",
+      "kind": "scrollbar",
+      "width": 40,
+      "height": 96,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        1479,
+        735,
+        1517,
+        833
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "2c899a0fdc57ef74ce435d40d2cdd2f0bef193760fc63526d6db466757cd1ba9",
+      "grid": 4,
+      "native_width": 10,
+      "native_height": 24
+    },
+    {
+      "path": "assets/ui/runtime/controls/progress-track-alt.png",
+      "kind": "progress",
+      "width": 524,
+      "height": 48,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        623,
+        782,
+        1146,
+        828
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "64262c1782caa558ddfd35ea4c47e79e513ab570f12f393b2540b4b3691ce201",
+      "grid": 4,
+      "native_width": 131,
+      "native_height": 12
+    },
+    {
+      "path": "assets/ui/runtime/controls/progress-fill-amber.png",
+      "kind": "progress",
+      "width": 524,
+      "height": 40,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        623,
+        843,
+        1146,
+        882
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "231ec6e2602ecb1c7f2799edd136c77a0e3b4f8b558c32478ec7033be4e8af69",
+      "grid": 4,
+      "native_width": 131,
+      "native_height": 10
+    },
+    {
+      "path": "assets/ui/runtime/controls/progress-fill-blue.png",
+      "kind": "progress",
+      "width": 524,
+      "height": 40,
+      "mode": "RGBA",
+      "source": "source/controls-v1.png",
+      "source_box": [
+        623,
+        895,
+        1146,
+        934
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "70477dd6bf59b20cc722e65a8cbf83957f68d36fbc6980681fd5073c8380d0f2",
+      "grid": 4,
+      "native_width": 131,
+      "native_height": 10
+    },
+    {
+      "path": "assets/ui/runtime/icons/craft.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        58,
+        78,
+        262,
+        273
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "5dc3f903cfe4faec288bb0dd6f66b0e0dd870b787c73ef99d4f095d651c8a8fb",
+      "grid": 4,
+      "native_width": 64,
+      "native_height": 64
+    },
+    {
+      "path": "assets/ui/runtime/icons/materials.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        305,
+        87,
+        514,
+        272
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "612ce777bce476fbe3694848acc1598e5029eada153fd625679657a1158fbc32",
+      "grid": 4,
+      "native_width": 64,
+      "native_height": 64
+    },
+    {
+      "path": "assets/ui/runtime/icons/provisions.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        553,
+        82,
+        747,
+        271
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "1ee0643c1814eadca1d4c77bb6872be0d06fa60a487294070ab0179fffa12483",
+      "grid": 4,
+      "native_width": 64,
+      "native_height": 64
+    },
+    {
+      "path": "assets/ui/runtime/icons/map.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        792,
+        97,
+        1003,
+        271
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "e2910dfbc0265ae22095e5b7832d0c44378da0683ffb5a44bca691d1bc625adf",
+      "grid": 4,
+      "native_width": 64,
+      "native_height": 64
+    },
+    {
+      "path": "assets/ui/runtime/icons/commissions.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        1051,
+        76,
+        1236,
+        288
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "80c9c1c4735d1bb5b471b6d0bc3cc00313d6b2758aa440e8962b859cc3f0ecce",
+      "grid": 4,
+      "native_width": 64,
+      "native_height": 64
+    },
+    {
+      "path": "assets/ui/runtime/icons/research.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        1319,
+        69,
+        1467,
+        286
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "ec6f665548c9d7bee506ed38ac59687073c504525be1b196e1fc260febb63586",
+      "grid": 4,
+      "native_width": 64,
+      "native_height": 64
+    },
+    {
+      "path": "assets/ui/runtime/icons/codex.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        48,
+        334,
+        287,
+        506
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "f0987ef664f99eb1295b6897c2e1cc0f9ab54e0cc5b2a1c8b4d70393b01d24c1",
+      "grid": 4,
+      "native_width": 64,
+      "native_height": 64
+    },
+    {
+      "path": "assets/ui/runtime/icons/settings.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        330,
+        329,
+        505,
+        506
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "1a236ae9e41e736b3b41c45d8c2bfe316bf19820bb16ab84694bedeb544c2b4b",
+      "grid": 4,
+      "native_width": 64,
+      "native_height": 64
+    },
+    {
+      "path": "assets/ui/runtime/icons/close.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        584,
+        342,
+        729,
+        490
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "c34537337ad1a1d9766c326db94cdb1ee29d08c91500d17ac315d5e4acfacb28",
+      "grid": 4,
+      "native_width": 64,
+      "native_height": 64
+    },
+    {
+      "path": "assets/ui/runtime/icons/back.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        815,
+        338,
+        979,
+        486
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "324fe1de33441c5459233d1b8d19014484f04aa10de433bb88cdf768feeb5eaa",
+      "grid": 4,
+      "native_width": 64,
+      "native_height": 64
+    },
+    {
+      "path": "assets/ui/runtime/icons/plus.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        1067,
+        334,
+        1223,
+        493
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "55cf3d600743006f418aaf1b7cf49e8a2e579fd5f360a90ad919455584ac1199",
+      "grid": 4,
+      "native_width": 64,
+      "native_height": 64
+    },
+    {
+      "path": "assets/ui/runtime/icons/minus.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        1314,
+        382,
+        1470,
+        444
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "d24683a35d884498c96c02cd201946f0d8062560467e7f614e40097c7e587a53",
+      "grid": 4,
+      "native_width": 64,
+      "native_height": 64
+    },
+    {
+      "path": "assets/ui/runtime/icons/coin.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        78,
+        561,
+        239,
+        727
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "acd6310e0a8179bb8c9c3eb1f2022ea996e8ace1c4c7130225528e9ef48fd861",
+      "grid": 4,
+      "native_width": 64,
+      "native_height": 64
+    },
+    {
+      "path": "assets/ui/runtime/icons/lock.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        337,
+        544,
+        481,
+        728
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "73daca0e5f60cf2a9040bd8f56991c02a609ee511e23665b81d651f7acdae94c",
+      "grid": 4,
+      "native_width": 64,
+      "native_height": 64
+    },
+    {
+      "path": "assets/ui/runtime/icons/warning.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        563,
+        551,
+        744,
+        717
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "855924f5ab4f4b0d735a4b67bbae9b38307bb9b34b62525210672e03520f570b",
+      "grid": 4,
+      "native_width": 64,
+      "native_height": 64
+    },
+    {
+      "path": "assets/ui/runtime/icons/ore.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        805,
+        557,
+        994,
+        729
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "518a78471297b6386960fa1e8efa83fb66a8f10e9667be039b6148b8ea44b855",
+      "grid": 4,
+      "native_width": 64,
+      "native_height": 64
+    },
+    {
+      "path": "assets/ui/runtime/icons/dagger.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        1047,
+        539,
+        1249,
+        738
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "8d29f66f4bec011325c0910d2187d82d1945918b656da1112549c4c41df9b56c",
+      "grid": 4,
+      "native_width": 64,
+      "native_height": 64
+    },
+    {
+      "path": "assets/ui/runtime/icons/timber.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        1294,
+        549,
+        1503,
+        729
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "99b0ecfdaae1b0e17424ca5464c432f3c82ddb4695f1ed2e90592aa9bbbd9f7e",
+      "grid": 4,
+      "native_width": 64,
+      "native_height": 64
+    },
+    {
+      "path": "assets/ui/runtime/icons/leather.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        50,
+        780,
+        272,
+        955
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "64a0f1362751164abcd28f38dbb9ccc502c51aa8b35ff21097dfce85d8473c12",
+      "grid": 4,
+      "native_width": 64,
+      "native_height": 64
+    },
+    {
+      "path": "assets/ui/runtime/icons/staples.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        303,
+        763,
+        510,
+        960
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "cc786ee10df064bf9ad0a463be23949060093ee17dab1a65b12ba0c0fc561116",
+      "grid": 4,
+      "native_width": 64,
+      "native_height": 64
+    },
+    {
+      "path": "assets/ui/runtime/icons/meal.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        548,
+        780,
+        757,
+        954
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "fc374cebb370cca489dc6e0fc7fd76e383b4f36dcf3255734b916679d7990558",
+      "grid": 4,
+      "native_width": 64,
+      "native_height": 64
+    },
+    {
+      "path": "assets/ui/runtime/icons/water.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        816,
+        772,
+        999,
+        960
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "e7be4d1a4584a4db95f0ad5dc089327823d956770f2da8a502a5a8003cf5fffa",
+      "grid": 4,
+      "native_width": 64,
+      "native_height": 64
+    },
+    {
+      "path": "assets/ui/runtime/icons/rest.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        1033,
+        772,
+        1278,
+        971
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "29d6af9a888c410586705d095d8c37713e2f1f2f23d749ce77182662a3b0221e",
+      "grid": 4,
+      "native_width": 64,
+      "native_height": 64
+    },
+    {
+      "path": "assets/ui/runtime/icons/queue.png",
+      "kind": "icon",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "source": "source/icons-v1.png",
+      "source_box": [
+        1333,
+        759,
+        1470,
+        966
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "sha256": "b2c12b42b0bdccaf9cf92c6ccd59d531a6d40290c01de66fdd3fadfd23080d08",
+      "grid": 4,
+      "native_width": 64,
+      "native_height": 64
+    },
+    {
+      "path": "assets/ui/runtime/headers/carpenter.png",
+      "kind": "header",
+      "width": 1250,
+      "height": 200,
+      "mode": "RGB",
+      "source": "source/merchant-headers-v1.png",
+      "source_box": [
+        0,
+        0,
+        1250,
+        200
+      ],
+      "alpha_extrema": null,
+      "sha256": "e56d2d2b2f7040111addcf13cceebc95a9f76ef3ec3c2477c98f559b7746a70d",
+      "grid": 2,
+      "native_width": 625,
+      "native_height": 100
+    },
+    {
+      "path": "assets/ui/runtime/headers/leatherworker.png",
+      "kind": "header",
+      "width": 1250,
+      "height": 200,
+      "mode": "RGB",
+      "source": "source/merchant-headers-v1.png",
+      "source_box": [
+        0,
+        226,
+        1250,
+        426
+      ],
+      "alpha_extrema": null,
+      "sha256": "b9aafb9ff891e8cd2883303d8ef62436f68e8fdfc82bcaba2ac5d245f4ac2ee3",
+      "grid": 2,
+      "native_width": 625,
+      "native_height": 100
+    },
+    {
+      "path": "assets/ui/runtime/headers/farm.png",
+      "kind": "header",
+      "width": 1250,
+      "height": 200,
+      "mode": "RGB",
+      "source": "source/merchant-headers-v1.png",
+      "source_box": [
+        0,
+        446,
+        1250,
+        646
+      ],
+      "alpha_extrema": null,
+      "sha256": "d8ee24609cd794fb90456e98e45f911da7336172fb1e26a0fd239b6e2fbb5185",
+      "grid": 2,
+      "native_width": 625,
+      "native_height": 100
+    },
+    {
+      "path": "assets/ui/runtime/headers/tavern.png",
+      "kind": "header",
+      "width": 1250,
+      "height": 200,
+      "mode": "RGB",
+      "source": "source/merchant-headers-v1.png",
+      "source_box": [
+        0,
+        666,
+        1250,
+        866
+      ],
+      "alpha_extrema": null,
+      "sha256": "60fef6d57e49c031c57b1b95ffe624ee0470a1865c6418ef1779b3fa622dfda6",
+      "grid": 2,
+      "native_width": 625,
+      "native_height": 100
+    }
+  ]
+}

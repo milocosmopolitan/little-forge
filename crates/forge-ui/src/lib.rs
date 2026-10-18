@@ -16,6 +16,15 @@ pub const EDGE: Color = Color::srgb(0.38, 0.25, 0.15);
 pub const BLUE: Color = Color::srgb(0.14, 0.28, 0.36);
 #[derive(Component)]
 pub struct SkinButton;
+/// Which exported control art a `SkinButton` uses; absent means a plain button.
+#[derive(Component, Clone, Copy, PartialEq, Eq)]
+pub enum SkinKind {
+    Tab,
+    Slot,
+}
+/// Slot with nothing in it; draws the exported locked-slot art.
+#[derive(Component)]
+pub struct Locked;
 #[derive(Component)]
 pub struct FocusKey(pub String);
 #[derive(Resource, Default)]
@@ -69,6 +78,8 @@ impl Plugin for ForgeUiPlugin {
                     skin,
                     decorate_buttons,
                     windows,
+                    frames,
+                    decorate_slots,
                     animate_merchants,
                     tooltip,
                 ),
@@ -104,14 +115,19 @@ fn interaction(
             Has<Pressed>,
             Option<&Selected>,
             Option<&Unavailable>,
+            Has<ImageNode>,
             &mut BackgroundColor,
             &mut BorderColor,
         ),
         With<SkinButton>,
     >,
 ) {
-    for (entity, state, pressed, selected, disabled, mut bg, mut border) in &mut q {
-        let next_bg = if disabled.is_some() {
+    for (entity, state, pressed, selected, disabled, skinned, mut bg, mut border) in &mut q {
+        // Exported art carries every state itself; the node colour only backs unskinned
+        // (missing art) controls, so rounded art corners never sit on a square box.
+        let next_bg = if skinned {
+            Color::NONE
+        } else if disabled.is_some() {
             Color::srgb(0.14, 0.13, 0.12)
         } else if pressed {
             Color::srgb(0.10, 0.20, 0.27)
@@ -123,8 +139,12 @@ fn interaction(
         if bg.0 != next_bg {
             bg.0 = next_bg;
         }
-        let next_border = BorderColor::all(if state.get() || focus.get() == Some(entity) {
+        // Border doubles as the focus/hover ring and is invisible at rest on skinned art.
+        let ring = state.get() || focus.get() == Some(entity);
+        let next_border = BorderColor::all(if ring {
             INK
+        } else if skinned {
+            Color::NONE
         } else {
             EDGE
         });
@@ -237,13 +257,15 @@ pub const ICONS: [&str; 24] = [
     "queue",
 ];
 pub fn icon(parent: &mut ChildSpawnerCommands, server: &AssetServer, name: &str, size: f32) {
-    let i = ICONS.iter().position(|n| *n == name).unwrap_or(14);
-    let x = (i % 6) as f32 * 256.;
-    let y = (i / 6) as f32 * 256.;
+    let name = if ICONS.contains(&name) {
+        name
+    } else {
+        "warning"
+    };
     parent.spawn(image(
         server,
-        "ui/source/icons-v1.png",
-        Some(Rect::new(x, y, x + 256., y + 256.)),
+        &format!("ui/runtime/icons/{name}.png"),
+        None,
         size,
         size,
     ));
@@ -288,14 +310,16 @@ pub fn slot(
     let mut slot = parent.spawn((
         Button,
         SkinButton,
+        SkinKind::Slot,
         TabIndex(0),
         Hovered::default(),
         action,
         Node {
-            width: px(52),
+            width: px(64),
             height: px(64),
             flex_direction: FlexDirection::Column,
             align_items: AlignItems::Center,
+            justify_content: JustifyContent::Center,
             border: UiRect::all(px(1)),
             ..default()
         },
@@ -304,6 +328,9 @@ pub fn slot(
     ));
     if selected {
         slot.insert(Selected);
+    }
+    if count == 0 {
+        slot.insert(Locked);
     }
     slot.with_children(|p| {
         if count > 0 {
@@ -319,27 +346,89 @@ pub fn slot(
         ));
     });
 }
-pub fn progress(parent: &mut ChildSpawnerCommands, fraction: f32, label: impl Into<String>) {
-    parent.spawn(text(label, 13.));
+/// Fill colour of an exported progress bar.
+#[derive(Clone, Copy)]
+pub enum Fill {
+    Amber,
+    Blue,
+}
+fn capped(server: &AssetServer, path: &'static str) -> ImageNode {
+    let mut image = ImageNode::new(server.load(path));
+    image.image_mode = NodeImageMode::Sliced(TextureSlicer {
+        border: BorderRect::all(12.),
+        max_corner_scale: 1.,
+        ..default()
+    });
+    image
+}
+/// Exported track with a clip-driven fill. Returns the fill entity so callers can retarget it.
+pub fn progress_bar(
+    parent: &mut ChildSpawnerCommands,
+    server: &AssetServer,
+    fraction: f32,
+    fill: Fill,
+) -> Entity {
+    let fill_path = match fill {
+        Fill::Amber => "ui/runtime/controls/progress-fill-amber.png",
+        Fill::Blue => "ui/runtime/controls/progress-fill-blue.png",
+    };
+    let mut fill_id = Entity::PLACEHOLDER;
     parent
         .spawn((
+            capped(server, "ui/runtime/controls/progress-track.png"),
             Node {
                 width: percent(100),
-                height: px(9),
+                height: px(16),
                 ..default()
             },
-            BackgroundColor(Color::srgb(0.06, 0.05, 0.04)),
         ))
         .with_children(|p| {
-            p.spawn((
-                Node {
-                    width: percent(fraction.clamp(0., 1.) * 100.),
-                    height: percent(100),
-                    ..default()
-                },
-                BackgroundColor(Color::srgb(0.75, 0.43, 0.16)),
-            ));
+            fill_id = p
+                .spawn((
+                    capped(server, fill_path),
+                    Node {
+                        width: percent(fraction.clamp(0., 1.) * 100.),
+                        height: percent(100),
+                        ..default()
+                    },
+                ))
+                .id();
         });
+    fill_id
+}
+pub fn progress(
+    parent: &mut ChildSpawnerCommands,
+    server: &AssetServer,
+    fraction: f32,
+    label: impl Into<String>,
+) {
+    parent.spawn(text(label, 13.));
+    progress_bar(parent, server, fraction, Fill::Amber);
+}
+/// Placement of a shopkeeper in the 1250x200 header art, in header pixels.
+struct Stage {
+    /// Sprite scale relative to the 128x160 NPC canvas.
+    scale: f32,
+    /// Distance from the header's right edge to the sprite canvas' right edge.
+    right: f32,
+    /// Distance from the header's top to the sprite canvas' top.
+    top: f32,
+}
+fn stage(header: &str) -> Stage {
+    match header {
+        // The farmer is in front of the stall: 2x (the header art grid) with the waist near the
+        // counter top, legs running off the bottom edge so no feet float above the ground.
+        "farm" => Stage {
+            scale: 2.,
+            right: 6.,
+            top: -16.,
+        },
+        _ => Stage {
+            scale: 1.,
+            right: 50.,
+            top: 40.,
+        },
+    }
 }
 /// Shared shop stage, with separate original NPC and title layers.
 pub fn merchant_header(
@@ -349,19 +438,20 @@ pub fn merchant_header(
     title: &str,
     line: &str,
 ) {
-    let index = match id {
-        "carpenter" => 0,
-        "leatherworker" => 1,
-        "farmer" => 2,
-        _ => 3,
+    let header = match id {
+        "carpenter" => "carpenter",
+        "leatherworker" => "leatherworker",
+        "farmer" => "farm",
+        _ => "tavern",
     };
-    let y = [0., 226., 446., 666.][index];
+    let stage = stage(header);
     parent
         .spawn((
             Node {
                 width: percent(100),
-                height: px(160),
-                min_height: px(160),
+                // Header art is 1250x200; matching height keeps it undistorted.
+                height: px(200),
+                min_height: px(200),
                 position_type: PositionType::Relative,
                 overflow: Overflow::clip(),
                 ..default()
@@ -369,15 +459,17 @@ pub fn merchant_header(
             BackgroundColor(SURFACE),
         ))
         .with_children(|p| {
-            let mut bg = ImageNode::new(server.load("ui/source/merchant-headers-v1.png"));
-            bg.rect = Some(Rect::new(0., y, 1250., y + 200.));
+            let mut bg = ImageNode::new(server.load(format!("ui/runtime/headers/{header}.png")));
             bg.image_mode = NodeImageMode::Stretch;
+            // Uniform scale, anchored right (NPC side); narrow windows crop the title side.
             p.spawn((
                 bg,
                 Node {
                     position_type: PositionType::Absolute,
-                    width: percent(100),
+                    right: px(0),
+                    top: px(0),
                     height: percent(100),
+                    aspect_ratio: Some(1250. / 200.),
                     ..default()
                 },
             ));
@@ -396,13 +488,13 @@ pub fn merchant_header(
             });
             p.spawn((
                 MerchantActor(id.to_owned()),
-                ImageNode::new(server.load(format!("npc/{id}/neutral.png"))),
+                ImageNode::new(server.load(format!("npc/{id}/frames/neutral.png"))),
                 Node {
                     position_type: PositionType::Absolute,
-                    right: px(50),
-                    bottom: px(0),
-                    width: px(128),
-                    height: px(160),
+                    right: px(stage.right),
+                    top: px(stage.top),
+                    width: px(128. * stage.scale),
+                    height: px(160. * stage.scale),
                     ..default()
                 },
             ));
@@ -411,11 +503,10 @@ pub fn merchant_header(
 
 fn skin(mut commands: Commands, server: Res<AssetServer>, panels: Query<Entity, Added<SkinPanel>>) {
     for entity in &panels {
-        let mut image = ImageNode::new(server.load("ui/source/controls-v1.png"));
-        image.rect = Some(Rect::new(1174., 734., 1400., 838.));
+        let mut image = ImageNode::new(server.load("ui/runtime/controls/inset.png"));
         image.visual_box = bevy::ui::VisualBox::BorderBox;
         image.image_mode = NodeImageMode::Sliced(TextureSlicer {
-            border: BorderRect::all(14.),
+            border: BorderRect::all(20.),
             max_corner_scale: 1.,
             ..default()
         });
@@ -425,6 +516,150 @@ fn skin(mut commands: Commands, server: Res<AssetServer>, panels: Query<Entity, 
 
 #[derive(Component)]
 pub struct WindowSkin;
+/// Any registered nine-slice frame (e.g. the showroom window and detail panel in
+/// `assets/forge/spaces`). Insets are source pixels; `corner_scale` caps corner growth.
+#[derive(Component, Clone)]
+pub struct SkinFrame {
+    pub path: String,
+    pub inset: f32,
+    pub corner_scale: f32,
+}
+fn frames(
+    mut c: Commands,
+    server: Res<AssetServer>,
+    q: Query<(Entity, &SkinFrame), Added<SkinFrame>>,
+) {
+    for (e, frame) in &q {
+        let mut image = ImageNode::new(server.load(frame.path.clone()));
+        image.visual_box = bevy::ui::VisualBox::BorderBox;
+        image.image_mode = NodeImageMode::Sliced(TextureSlicer {
+            border: BorderRect::all(frame.inset),
+            max_corner_scale: frame.corner_scale,
+            ..default()
+        });
+        c.entity(e).insert(image);
+    }
+}
+/// Inventory slot skin (slot-normal / slot-selected / slot-locked runtime exports).
+#[derive(Component)]
+pub struct SkinSlot;
+#[allow(clippy::type_complexity)]
+fn decorate_slots(
+    server: Res<AssetServer>,
+    mut q: Query<
+        (
+            Entity,
+            Has<Selected>,
+            Has<bevy::ui::InteractionDisabled>,
+            Option<&mut ImageNode>,
+        ),
+        With<SkinSlot>,
+    >,
+    mut c: Commands,
+) {
+    for (e, selected, disabled, image) in &mut q {
+        let path = if disabled {
+            "ui/runtime/controls/slot-locked.png"
+        } else if selected {
+            "ui/runtime/controls/slot-selected.png"
+        } else {
+            "ui/runtime/controls/slot-normal.png"
+        };
+        let handle: Handle<Image> = server.load(path);
+        if let Some(mut image) = image {
+            if image.image != handle {
+                image.image = handle;
+            }
+        } else {
+            let mut image = ImageNode::new(handle);
+            image.visual_box = bevy::ui::VisualBox::BorderBox;
+            image.image_mode = NodeImageMode::Sliced(TextureSlicer {
+                border: BorderRect::all(24.),
+                max_corner_scale: 0.5,
+                ..default()
+            });
+            c.entity(e).insert(image);
+        }
+    }
+}
+/// Slot state badge colours shared by the showroom, crafting and later codex views.
+pub const BADGE_SALE: Color = Color::srgb(0.16, 0.42, 0.70);
+pub const BADGE_HOLD: Color = Color::srgb(0.18, 0.16, 0.14);
+pub const BADGE_RESERVED: Color = Color::srgb(0.80, 0.52, 0.12);
+/// Larger inventory slot with an optional state badge. One icon per item is reused everywhere;
+/// weapons of any shape share this component instead of bespoke display art.
+pub fn item_slot(
+    parent: &mut ChildSpawnerCommands,
+    server: &AssetServer,
+    icon_name: Option<&str>,
+    badge: Option<(&str, Color)>,
+    selected: bool,
+    action: impl Bundle,
+) -> Entity {
+    let mut slot = parent.spawn((
+        Button,
+        SkinSlot,
+        TabIndex(0),
+        Hovered::default(),
+        action,
+        Node {
+            width: px(74),
+            height: px(78),
+            flex_direction: FlexDirection::Column,
+            align_items: AlignItems::Center,
+            justify_content: JustifyContent::SpaceBetween,
+            padding: UiRect::all(px(4)),
+            border: UiRect::all(px(1)),
+            ..default()
+        },
+        BackgroundColor(Color::NONE),
+        BorderColor::all(Color::NONE),
+    ));
+    if selected {
+        slot.insert(Selected);
+    }
+    slot.with_children(|p| {
+        match icon_name {
+            Some(name) => icon(p, server, name, 40.),
+            None => {
+                p.spawn((
+                    Text::new("+"),
+                    TextFont {
+                        font_size: 22.0.into(),
+                        ..default()
+                    },
+                    TextColor(Color::srgb(0.45, 0.40, 0.34)),
+                    UiFont,
+                    Node {
+                        height: px(40),
+                        align_items: AlignItems::Center,
+                        ..default()
+                    },
+                ));
+            }
+        }
+        if let Some((label, color)) = badge {
+            p.spawn((
+                Node {
+                    width: percent(100),
+                    padding: UiRect::axes(px(4), px(1)),
+                    justify_content: JustifyContent::Center,
+                    ..default()
+                },
+                BackgroundColor(color),
+            ))
+            .with_children(|b| {
+                b.spawn(text(label, 10.));
+            });
+        } else {
+            p.spawn(Node {
+                height: px(14),
+                ..default()
+            });
+        }
+    });
+    slot.id()
+}
 #[derive(Component)]
 pub struct MerchantActor(pub String);
 #[derive(Resource, Default)]
@@ -444,36 +679,43 @@ fn decorate_buttons(
             Has<Pressed>,
             Has<Selected>,
             Has<bevy::ui::InteractionDisabled>,
+            Has<Locked>,
+            Option<&SkinKind>,
             Option<&mut ImageNode>,
         ),
         With<SkinButton>,
     >,
     mut c: Commands,
 ) {
-    for (e, hover, pressed, selected, disabled, image) in &mut q {
-        let x = if disabled {
-            934.
-        } else if selected {
-            1240.
-        } else if pressed {
-            628.
-        } else if hover.get() {
-            322.
-        } else {
-            16.
+    for (e, hover, pressed, selected, disabled, locked, kind, image) in &mut q {
+        let path = match kind {
+            Some(SkinKind::Tab) if selected => "ui/runtime/controls/tab-selected.png",
+            Some(SkinKind::Tab) => "ui/runtime/controls/tab-normal.png",
+            Some(SkinKind::Slot) if selected => "ui/runtime/controls/slot-selected.png",
+            Some(SkinKind::Slot) if locked || disabled => "ui/runtime/controls/slot-locked.png",
+            Some(SkinKind::Slot) => "ui/runtime/controls/slot-normal.png",
+            None if disabled => "ui/runtime/controls/button-disabled.png",
+            None if selected => "ui/runtime/controls/button-selected.png",
+            None if pressed => "ui/runtime/controls/button-pressed.png",
+            None if hover.get() => "ui/runtime/controls/button-hover.png",
+            None => "ui/runtime/controls/button-normal.png",
         };
-        let rect = Some(Rect::new(x, 500., x + 280., 578.));
+        let handle: Handle<Image> = server.load(path);
         if let Some(mut image) = image {
-            if image.rect != rect {
-                image.rect = rect;
+            if image.image != handle {
+                image.image = handle;
             }
         } else {
-            let mut image = ImageNode::new(server.load("ui/source/controls-v1.png"));
-            image.rect = rect;
+            let (border, scale) = match kind {
+                Some(SkinKind::Tab) => (22., 0.5),
+                Some(SkinKind::Slot) => (24., 0.4),
+                None => (20., 0.5),
+            };
+            let mut image = ImageNode::new(handle);
             image.visual_box = bevy::ui::VisualBox::BorderBox;
             image.image_mode = NodeImageMode::Sliced(TextureSlicer {
-                border: BorderRect::all(16.),
-                max_corner_scale: 0.5,
+                border: BorderRect::all(border),
+                max_corner_scale: scale,
                 ..default()
             });
             c.entity(e).insert(image);
@@ -482,13 +724,12 @@ fn decorate_buttons(
 }
 fn windows(mut c: Commands, server: Res<AssetServer>, q: Query<Entity, Added<WindowSkin>>) {
     for e in &q {
-        let mut image = ImageNode::new(server.load("ui/source/controls-v1.png"));
-        image.rect = Some(Rect::new(16., 80., 1024., 454.));
+        let mut image = ImageNode::new(server.load("ui/runtime/controls/window.png"));
         image.visual_box = bevy::ui::VisualBox::BorderBox;
         image.image_mode = NodeImageMode::Sliced(TextureSlicer {
             border: BorderRect {
-                min_inset: Vec2::new(52., 86.),
-                max_inset: Vec2::new(52., 36.),
+                min_inset: Vec2::new(52., 88.),
+                max_inset: Vec2::new(56., 40.),
             },
             max_corner_scale: 0.35,
             ..default()

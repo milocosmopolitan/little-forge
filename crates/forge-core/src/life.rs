@@ -219,8 +219,12 @@ impl State {
         self.life.remaining = seconds;
         self.emit(EventKind::ActionChanged(action), events)
     }
+    /// A queued job may start when its result has somewhere to go.
+    pub fn can_start(&self, job: WorkKind) -> bool {
+        job != WorkKind::IronDagger || self.showroom.block_reason().is_none()
+    }
     fn resume(&mut self, events: &mut Vec<Event>) -> Result<(), Error> {
-        let action = if self.life.work > 0 || !self.life.queue.is_empty() {
+        let action = if self.life.work > 0 || self.life.queue.iter().any(|j| self.can_start(*j)) {
             SmithAction::Working
         } else {
             SmithAction::Idle
@@ -274,15 +278,34 @@ impl State {
                 }
             }
             _ => {
-                if l.work == 0
-                    && let Some(job) = l.queue.pop_front()
-                {
-                    l.active_job = Some(job);
-                    l.work = job.seconds() * 1000;
-                    if job == WorkKind::FarmerSickleRepair {
-                        self.farmer_order.phase = crate::commission::OrderPhase::Working;
+                if l.work == 0 {
+                    // Materials were reserved on enqueue. A dagger also claims its showroom slot
+                    // here; an entrusted repair never needs one, so it may start ahead of daggers
+                    // that are waiting for space. Daggers stay FIFO among themselves.
+                    let pick = self.life.queue.iter().position(|job| self.can_start(*job));
+                    match pick {
+                        Some(i) => {
+                            let job = self.life.queue.remove(i).ok_or(Error::InvalidState)?;
+                            if job == WorkKind::IronDagger {
+                                self.showroom.reserve()?;
+                            }
+                            self.life.active_job = Some(job);
+                            self.life.work = job.seconds() * 1000;
+                            if job == WorkKind::FarmerSickleRepair {
+                                self.farmer_order.phase = crate::commission::OrderPhase::Working;
+                            }
+                        }
+                        None if !self.life.queue.is_empty() => {
+                            if let Some(reason) = self.showroom.block_reason()
+                                && self.life.action != SmithAction::Idle
+                            {
+                                self.emit(EventKind::CraftBlocked(reason), events)?;
+                            }
+                        }
+                        None => {}
                     }
                 }
+                let l = &mut self.life;
                 if l.work > 0 {
                     l.action = SmithAction::Working;
                     if l.fatigue >= l.config.sleep_threshold {
@@ -296,6 +319,7 @@ impl State {
                         if l.work == 0 {
                             match self.life.active_job.take().ok_or(Error::InvalidState)? {
                                 WorkKind::IronDagger => {
+                                    self.showroom.place(self.current_good())?;
                                     self.crafted =
                                         self.crafted.checked_add(1).ok_or(Error::Overflow)?;
                                     self.daggers =

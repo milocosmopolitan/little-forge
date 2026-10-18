@@ -1,6 +1,6 @@
 # 플레이어 캐릭터와 애니메이션
 
-여자·남자 각 1개의 오른쪽 3/4 방향 기본 자세다. 현재 모든 캐릭터 부품과 합성 PNG는 **Grid B 8×10칸, 128×160 RGBA, 발 기준점 `(64,140)`**를 공유한다. NPC의 공통 캔버스와 같은 규격이다. 공통 표정·제스처·보행과 대장장이 작업 5종은 [ANIMATION.md](ANIMATION.md)에 정리한다. 게임 컨트롤 연결은 아직 하지 않았다.
+여자·남자 각 1개의 오른쪽 3/4 방향 기본 자세다. 현재 모든 캐릭터 부품과 합성 PNG는 **Grid B 8×10칸, 128×160 RGBA, 발 기준점 `(64,140)`**를 공유한다. NPC의 공통 캔버스와 같은 규격이다. 공통 표정·제스처·보행과 대장장이 작업 5종은 [ANIMATION.md](ANIMATION.md)에 정리한다. 게임 연동: `crates/forge-npc/src/player.rs`가 `atlas-manifest.json`(트림/피벗)과 `animation.json`(기물·방향·loop_range·이벤트)을 읽어 데스크톱 작업장과 `npc-preview --character`에서 같은 컴포넌트로 재생한다(#91). 담금질 씬은 `frames/scene-quenching-*`/`frames/scene-base/quenching-*` 파생본을 쓴다.
 
 플레이어 작업 계획은 [포즈 스킬](../../.agents/skills/human-character-gen/references/pose.md)의 `player_blacksmith` 세트를 따른다. NPC와 같은 기본 포즈·8표정·끄덕임·도리도리·전달·보행에 작업 5종을 추가하며, 작업 세트가 공통 기본 세트를 대체하지 않는다. 망치질·담금질·화로 가열은 오른쪽 3/4, 연구는 책상 뒤 정면, 분해는 책상 앞 후면이다. [기물·배경과 동작 참고](../forge/workshop/PROVENANCE.md)는 고해상도 후보이며 이 폴더의 채택 기본 자세를 대체하지 않는다. 작업 프레임·정면/후면 네이티브 기본층·런타임 연동은 아직 추가하지 않았다.
 

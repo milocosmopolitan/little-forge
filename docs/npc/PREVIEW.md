@@ -33,6 +33,20 @@ Portable packages include `npc-preview` (`npc-preview.exe` on Windows) beside th
 
 The fixture is a second data configuration, not a newly produced character. No new NPC cast art is implied. `--story` selects a stable reproducible story ID; `--capture` samples 240 ms by default (`--at SECONDS` overrides it; `--left` captures mirrored facing; `--item dagger|carrot|none` selects props; `--sequence` exports six timed motion frames) and exits after screenshot readback. Interactive playback uses monotonic frame time. Transparent sprite pixels are inspected over opaque backgrounds; this preview does not change OS click-through/window transparency.
 
+## Player smith stories
+
+`cargo run -p npc-preview -- --character female|male [--story <clip>]` opens the same
+workshop floor plan the game uses (`forge_npc::stations`) with the chosen smith rendered by
+`forge_npc::player::Actor`, the component the desktop app drives from `State::activity()`.
+Stories: the 17 authored clips (`idle … salvaging`) plus `walk-to-anvil`. Work clips are held
+in their loop range at their station; `H` releases the hold to play the outro. `E` switches
+equipped / base variants (`base/` atlas entries, `frames/scene-base` for quenching), `S` hides
+the stations, `F` mirrors, `B` cycles dark / light / black, `G` shows foot and head guides,
+Left/Right seek ±50 ms, Space pauses, `+`/`-` change speed. `--capture PATH [--at s]
+[--sequence] [--base] [--left] [--light] [--no-stations]` writes reproducible fixed-clock
+frames; `scripts/capture-player.py` covers both smiths and every clip. No simulation, economy
+or save IO runs; research and salvage are preview-only until #72/#76.
+
 ## Architecture
 
 - `crates/forge-npc`: versioned catalog validation; timing, action priorities/neutral return, sockets and shared Bevy renderer; no dependency on `forge-core`.

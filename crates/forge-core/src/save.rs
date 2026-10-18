@@ -7,6 +7,9 @@ use std::{
     io::{self, Write},
     path::Path,
 };
+/// Schema 4 adds the chosen smith and the finite showroom (#86). Schema 3 saves import their
+/// dagger stock losslessly; newer schemas are refused rather than downgraded.
+pub const SCHEMA_VERSION: u32 = 4;
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
 pub struct Save {
     pub schema_version: u32,
@@ -18,7 +21,7 @@ pub struct Save {
 impl Save {
     pub fn new(state: State, now: u64) -> Self {
         Self {
-            schema_version: 4,
+            schema_version: SCHEMA_VERSION,
             content_version: CONTENT_VERSION,
             generation: 0,
             saved_at: now,
@@ -26,7 +29,7 @@ impl Save {
         }
     }
     pub fn validate(&self) -> io::Result<()> {
-        if self.schema_version != 4 || self.content_version != CONTENT_VERSION {
+        if self.schema_version != SCHEMA_VERSION || self.content_version != CONTENT_VERSION {
             return Err(io::Error::new(
                 io::ErrorKind::InvalidData,
                 "unsupported save/content version; preserve files",
@@ -58,7 +61,7 @@ pub fn load(dir: &Path) -> io::Result<Option<Save>> {
                     && (header
                         .get("schema_version")
                         .and_then(|v| v.as_u64())
-                        .is_some_and(|v| v > 4)
+                        .is_some_and(|v| v > SCHEMA_VERSION as u64)
                         || header
                             .get("content_version")
                             .and_then(|v| v.as_u64())
@@ -83,13 +86,15 @@ pub fn load(dir: &Path) -> io::Result<Option<Save>> {
                 }
                 if let Ok(header) = serde_json::from_slice::<serde_json::Value>(&bytes)
                     && header["schema_version"] == 4
-                    && header["state"]["life"].get("active_job").is_none()
+                    && (header["state"].get("showroom").is_none()
+                        || header["state"]["life"].get("active_job").is_none())
                 {
                     continue;
                 }
                 if let Ok(mut value) = serde_json::from_slice::<serde_json::Value>(&bytes) {
                     let version = value["schema_version"].as_u64().unwrap_or(0);
-                    if (1..=3).contains(&version) {
+                    let legacy = (1..=3).contains(&version);
+                    if legacy {
                         if version == 1 {
                             let mut life = crate::life::Life::default();
                             if let Some(due) = value["state"]["job_due"].as_u64() {
@@ -125,9 +130,17 @@ pub fn load(dir: &Path) -> io::Result<Option<Save>> {
                             serde_json::to_value(crate::commission::FarmerOrder::default())?;
                         value["schema_version"] = serde_json::json!(4);
                     }
-                    let Ok(s) = serde_json::from_value::<Save>(value) else {
+                    let Ok(mut s) = serde_json::from_value::<Save>(value) else {
                         continue;
                     };
+                    if legacy {
+                        // Pre-showroom stock: keep every dagger and the in-flight dagger's slot.
+                        s.state.showroom = crate::showroom::Showroom::default();
+                        s.state.showroom.migrate_legacy(
+                            s.state.daggers,
+                            s.state.life.active_job == Some(crate::life::WorkKind::IronDagger),
+                        );
+                    }
                     if s.validate().is_ok() {
                         good.push(s);
                     }
@@ -270,14 +283,71 @@ mod tests {
         value["state"].as_object_mut().unwrap().remove("life");
         fs::write(d.join("save-1.json"), serde_json::to_vec(&value).unwrap()).unwrap();
         let mut migrated = load(&d).unwrap().unwrap();
-        assert_eq!(migrated.schema_version, 4);
+        assert_eq!(migrated.schema_version, SCHEMA_VERSION);
         assert_eq!(migrated.state.life.fatigue, 0);
         assert_eq!(migrated.state.life.work, 3000);
+        assert_eq!(migrated.state.showroom.reserved(), 1);
         migrated.catch_up(120).unwrap();
         assert_eq!(migrated.state.gold, 12);
         assert_eq!(migrated.state.ore, 8);
         store(&d, &mut migrated).unwrap();
         assert_eq!(load(&d).unwrap().unwrap(), migrated);
+        fs::remove_dir_all(d).unwrap();
+    }
+    #[test]
+    fn schema_three_stock_beyond_capacity_is_preserved_and_blocks_new_jobs() {
+        let d = dir();
+        fs::create_dir_all(&d).unwrap();
+        let mut state = State::new(42);
+        state.command(1, Command::Craft).unwrap();
+        state.advance(2).unwrap();
+        // Hand-build a pre-showroom state: seven finished daggers plus the in-flight job.
+        state.crafted += 7;
+        state.daggers += 7;
+        let mut value = serde_json::to_value(Save::new(state, 100)).unwrap();
+        value["schema_version"] = serde_json::json!(3);
+        value["state"]["life"]["queue"] = serde_json::json!(0);
+        value["state"]["life"]
+            .as_object_mut()
+            .unwrap()
+            .remove("active_job");
+        let st = value["state"].as_object_mut().unwrap();
+        st.remove("showroom");
+        st.remove("smith");
+        st.remove("farmer_order");
+        fs::write(d.join("save-0.json"), serde_json::to_vec(&value).unwrap()).unwrap();
+        let mut s = load(&d).unwrap().unwrap();
+        assert_eq!(s.schema_version, 4);
+        assert_eq!(s.state.smith, None);
+        assert_eq!(s.state.daggers, 7);
+        assert_eq!(s.state.showroom.goods(), 7);
+        assert_eq!(s.state.showroom.reserved(), 1);
+        assert_eq!(s.state.showroom.overflow, 4);
+        s.state.validate().unwrap();
+        // The in-flight job still completes into its reserved slot; new work waits for overflow.
+        s.catch_up(103).unwrap();
+        assert_eq!(s.state.crafted, 8);
+        assert_eq!(s.state.showroom.free(), 0);
+        assert_eq!(
+            s.state.command(2, Command::Craft),
+            Err(crate::Error::DisplayFull)
+        );
+        s.state.command(2, Command::QueueCraft).unwrap();
+        assert_eq!(s.state.ore, 6);
+        let before = s.state.gold;
+        // Legacy overflow sells first; nothing is discarded or sold outside visitor sales.
+        s.catch_up(100 + 3 + 4 * 31).unwrap();
+        assert!(s.state.sold >= 4);
+        assert!(s.state.gold > before);
+        store(&d, &mut s).unwrap();
+        assert_eq!(load(&d).unwrap().unwrap(), s);
+        // A schema 4 file without the showroom field is not a valid candidate.
+        let mut value = serde_json::to_value(&s).unwrap();
+        value["state"].as_object_mut().unwrap().remove("showroom");
+        value["generation"] = serde_json::json!(99);
+        let other = d.join(format!("save-{}.json", (s.generation + 1) % 2));
+        fs::write(other, serde_json::to_vec(&value).unwrap()).unwrap();
+        assert_eq!(load(&d).unwrap().unwrap(), s);
         fs::remove_dir_all(d).unwrap();
     }
     #[test]

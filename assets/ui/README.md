@@ -1,6 +1,6 @@
 # Little Forge UI art preparation
 
-Epic #58; asset tasks #59–#61. These files prepare the requested visual direction. **Source sheets are not validated runtime atlases.** The draft integration samples them using explicit UV rectangles to review real Bevy composition; that does not pass the art-first acceptance gate.
+Epic #58; asset tasks #59–#61. These files prepare the requested visual direction. **Source sheets are not runtime atlases.** The game loads the independent exports in `runtime/` (see below); visual approval is still pending.
 
 ## Sources
 
@@ -55,23 +55,53 @@ Opaque charcoal/brown panel interiors; transparent desktop outside. Cream text i
 
 The exact generated files are retained unmodified. Generation requested transparent controls/icons; final export QA must verify compositing rather than trust the request.
 
-## Draft integration rectangles (source pixels)
+## Runtime exports (#59–#61)
 
-These are temporary source crops, not a native atlas contract. Rectangles use
-exclusive right/bottom bounds. There is no atlas extrusion. All live labels,
-counts, focus rings and progress fills remain Bevy nodes.
+`python scripts/export-ui-assets.py` regenerates `assets/ui/runtime/` from the
+source sheets; it never edits the sources. Components come from alpha
+connectivity (`scripts/ui_components.py`), not equal division.
 
-| Component | Rectangle | Slice insets L/T/R/B |
+**True-pixel contract.** Each component is area-averaged to the art-pixel grid
+(controls/icons 4 source px per art pixel, headers 2), palette-limited per asset
+(controls 24, icons 32, headers 128 colours), given hard alpha, then scaled by
+that integer with nearest sampling. Every `grid × grid` block of a runtime file is
+therefore one colour; `validate-ui.py` verifies it. Shared palettes were tried and
+rejected: median cut over a whole sheet dropped blue selection, amber fill and the
+potion. State variants share one canvas; icons sit centred on 64×64 native
+(256×256 file); `runtime/manifest.json` records native size, grid, source box,
+alpha bounds, insets and hashes.
+
+| Group | Files | Slice insets L/T/R/B (multiples of the grid) |
 | --- | --- | --- |
-| Window | 16,80 → 1024,454 | 52/86/52/36; corner scale 0.35 |
-| Inset | 1174,734 → 1400,838 | 14 each |
-| Button states | x=16/322/628/934/1240, y=500; 280×78 | 16 each; corner scale 0.5 |
-| Icons | 6×4 grid of 256×256 crops, named order above | none |
-| Header | x=0..1250; y=0/226/446/666; height=200 | none; fill header region |
+| Window | `controls/window.png` (1012×376) | 52/88/56/40, corner scale 0.35 |
+| Modal / tooltip frame | `controls/modal.png` | 40/60/40/40 (not yet used) |
+| Inset panel | `controls/inset.png` | 20 each |
+| Buttons | `button-normal/hover/pressed/disabled/selected` (288×84) | 20 each, corner scale 0.5 |
+| Tabs | `tab-normal/selected` (sidebar tabs) | 24 each, corner scale 0.5 |
+| Slots | `slot-normal/selected/locked` (64×64 nodes; locked = empty slot) | 24 each, corner scale 0.4 |
+| Progress | `progress-track`, `progress-fill-amber/blue` (16px bars; blue = blade, amber = needs) | 12 each |
+| Scrollbar | `scrollbar-track/thumb`, `progress-track-alt` | exported, not yet used |
+| Icons | `icons/<name>.png`, 24 files | none |
+| Headers | `headers/{carpenter,leatherworker,farm,tavern}.png` (1250×200) | none |
 
-Button order: normal, hover, pressed, disabled, selected. Focus is an independent
-cream border. Temporary noninteger scaling is **not** pixel-grid acceptance.
-The native export contract above remains the target and must replace these crops.
+Header stage: art is 1250×200 and shown at that height with uniform scale,
+anchored right. The farmer sprite is drawn at 2× (the header grid) in front of
+the stall, waist near the counter top, legs cropped by the header's bottom edge so
+nothing floats. A cut-out foreground counter and a full-body standing pose were
+tried and dropped (props make a clean mask impractical; full body floated above the
+ground). Other merchants keep their previous placement.
+
+Skinned controls draw no node background (art carries every state); the node
+border is the focus/hover ring.
+
+`scripts/review-ui-assets.py` renders every export on light and dark
+checkerboards (`docs/ui/evidence/runtime-assets-review.png`).
+
+Known limits: art is a faithful grid snap of generated sheets, not hand-drawn
+pixel art, so some fine detail is simplified; focus ring and separators have no
+art; modal, scrollbar and tooltip components are not built yet; non-farm headers
+are not restaged. `runtime_ready` stays `false` until the owner approves
+native-size review.
 
 ## Font provenance
 

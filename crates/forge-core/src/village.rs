@@ -299,7 +299,7 @@ mod compatibility {
         value["state"].as_object_mut().unwrap().remove("commerce");
         std::fs::write(dir.join("save-0.json"), serde_json::to_vec(&value).unwrap()).unwrap();
         let mut saved = save::load(&dir).unwrap().unwrap();
-        assert_eq!(saved.schema_version, 4);
+        assert_eq!(saved.schema_version, save::SCHEMA_VERSION);
         assert_eq!(saved.state.commerce, Commerce::default());
         saved.state.gold = 100;
         saved.state.life.hunger = 8000;

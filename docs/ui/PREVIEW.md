@@ -6,7 +6,11 @@ network calls run in this application. The desktop and preview import the same
 `forge-ui` crate; these are real Bevy widgets, not an HTML recreation.
 
 Stories: farm, chef, carpenter, leatherworker, empty, full, insufficient, sold-out,
-long-label, controls, confirmation. Buttons across the top change story.
+long-label, controls, confirmation, and the showroom fixtures showroom-empty, -partial,
+-full, -reserved, -held, -upgraded (8-slot rack) and -long (Korean long labels). The showroom
+stories use the shared `item_slot` (one icon per item, FOR SALE / HOLD / RESERVED badges) and
+`SkinFrame` nine-slices registered from the supplied window and detail panel in
+`assets/forge/spaces`; sample values only. Buttons across the top change story.
 Tab / Shift+Tab moves focus; Enter / Space activates. Confirmation defaults to
 Cancel, Escape cancels and restores surviving previous focus. Preview purchase
 buttons are explicitly fixtures. Existing title settings/load/quit retain their

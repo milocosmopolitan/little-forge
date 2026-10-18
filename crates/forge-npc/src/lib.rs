@@ -1,5 +1,7 @@
 //! Presentation-only NPC playback shared by the game and the isolated preview.
 //! No game state, persistence, economy or window bootstrap dependencies.
+pub mod player;
+pub mod stations;
 use bevy::prelude::*;
 use serde::Deserialize;
 use std::collections::{BTreeMap, HashSet};

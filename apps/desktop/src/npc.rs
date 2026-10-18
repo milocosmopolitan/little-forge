@@ -1,5 +1,5 @@
 //! Thin game adapter: only accepted live commands request presentation.
-use crate::{Options, window::Desktop};
+use crate::Options;
 use bevy::prelude::*;
 use forge_npc::{Catalog, NpcPlugin, Player};
 #[derive(Resource, Default)]
@@ -99,11 +99,11 @@ fn update(
     c: Res<Catalog>,
     opts: Res<Options>,
     mut clock: ResMut<forge_npc::PlaybackClock>,
-    desktop: Res<Desktop>,
     session: Res<crate::Session>,
     title: Res<crate::title::TitleScreen>,
     village: Res<crate::village::Village>,
-    windows: Query<&Window, With<bevy::window::PrimaryWindow>>,
+    desktop: Res<crate::window::Desktop>,
+    spaces: Option<Res<crate::spaces::Spaces>>,
     mut state: ResMut<FarmerPresentation>,
     mut farmer: Query<
         (&mut Player, &mut Transform, &mut Visibility),
@@ -138,19 +138,20 @@ fn update(
             p.item = false;
         }
     }
-    t.translation.y = -85.
-        - if desktop.shell.expanded {
-            (windows.single().map_or(540., |w| w.height()) - 180.) / 2.
-        } else {
-            0.
-        };
+    t.translation.y = -85.;
     let waiting = matches!(
         session.save.state.farmer_order.phase,
         forge_core::commission::OrderPhase::Offered | forge_core::commission::OrderPhase::Ready
     );
     let order_scene =
         opts.qa.is_none() || opts.qa.as_deref().is_some_and(|q| q.starts_with("repair-"));
+    // The farmer stands outside the forge; interior views (workshop, showroom) hide him.
+    let outside = !desktop.shell.expanded
+        || spaces
+            .as_ref()
+            .is_none_or(|s| s.space == forge_core::spaces::Space::Exterior);
     *v = if !title.active
+        && outside
         && (state.active
             || (order_scene && waiting && village.nav.screen == forge_core::village::Screen::Home))
     {
@@ -169,12 +170,13 @@ mod tests {
             .insert_resource(crate::Options::default())
             .insert_resource(crate::Art {
                 images: vec![],
-                smith_sizes: vec![],
                 visitor_sizes: vec![],
                 visitor_hands: vec![],
+                building_active: Handle::default(),
+                building_idle: Handle::default(),
             })
             .insert_resource(crate::presentation::Presentation::default())
-            .insert_resource(Desktop::new(false, false))
+            .insert_resource(crate::window::Desktop::new(false, false))
             .add_systems(Update, crate::animate);
         let body = app
             .world_mut()

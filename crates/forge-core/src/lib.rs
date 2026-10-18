@@ -1,8 +1,11 @@
 //! Deterministic domain: no renderer, OS clock, or Bevy dependency.
 pub mod commission;
+pub mod craft;
 pub mod life;
 pub mod save;
 pub mod shell;
+pub mod showroom;
+pub mod spaces;
 pub mod village;
 use serde::{Deserialize, Serialize};
 
@@ -10,6 +13,29 @@ pub const CONTENT_VERSION: u32 = 1;
 pub const OFFLINE_CAP_SECS: u64 = 8 * 60 * 60;
 pub const CRAFT_SECS: u64 = 5;
 pub const SALE_PRICE: u64 = 12;
+
+/// Player appearance. Both smiths share identical rules and economy; this only selects art.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum Smith {
+    Female,
+    Male,
+}
+impl Smith {
+    pub const ALL: [Self; 2] = [Self::Female, Self::Male];
+    pub fn id(self) -> &'static str {
+        match self {
+            Self::Female => "female",
+            Self::Male => "male",
+        }
+    }
+    pub fn label(self) -> &'static str {
+        match self {
+            Self::Female => "Eira",
+            Self::Male => "Bram",
+        }
+    }
+}
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
 pub struct State {
@@ -29,6 +55,12 @@ pub struct State {
     #[serde(default)]
     pub commerce: village::Commerce,
     pub farmer_order: commission::FarmerOrder,
+    /// None until the player chooses; older saves ask once and keep their progress.
+    #[serde(default)]
+    pub smith: Option<Smith>,
+    /// Finite finished-goods capacity; `daggers` always equals `showroom.goods()`.
+    #[serde(default)]
+    pub showroom: showroom::Showroom,
 }
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Command {
@@ -48,6 +80,19 @@ pub enum Command {
         item: village::Item,
         quantity: u32,
     },
+    /// One-time appearance choice; never resets progress.
+    ChooseSmith(Smith),
+    /// Toggle a finished good between display and keeping. Reservations are untouchable.
+    SetForSale {
+        slot: usize,
+        for_sale: bool,
+    },
+    /// Carpenter furniture: one more display rack at the installation limit's expense.
+    BuyRack,
+    /// Carpenter furniture: raise one rack's tier for more slots on the same floor space.
+    UpgradeRack {
+        rack: usize,
+    },
 }
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub enum EventKind {
@@ -57,8 +102,17 @@ pub enum EventKind {
     Ate,
     Drank,
     PantryEmpty,
-    Sold { item: String, gold: u64 },
+    Sold {
+        item: String,
+        gold: u64,
+    },
     VisitorWithoutStock,
+    /// A queued job could not start because no result slot was free.
+    CraftBlocked(spaces::BlockReason),
+    /// Capacity grew (purchase, upgrade); waiting jobs are re-evaluated on the next second.
+    CapacityChanged {
+        slots: u32,
+    },
 }
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Event {
@@ -76,6 +130,10 @@ pub enum Error {
     PantryFull,
     InvalidPurchase,
     OutOfStock,
+    /// No free showroom slot for a new job's result.
+    DisplayFull,
+    /// Rack count or tier is at its data-defined limit.
+    RackLimit,
     InvalidOrderState,
 }
 impl State {
@@ -95,10 +153,13 @@ impl State {
             life: life::Life::default(),
             commerce: village::Commerce::default(),
             farmer_order: commission::FarmerOrder::default(),
+            smith: None,
+            showroom: showroom::Showroom::default(),
         }
     }
     pub fn validate(&self) -> Result<(), Error> {
         self.life.validate()?;
+        self.showroom.validate()?;
         self.validate_farmer_order()?;
         if self.rng == 0
             || self.next_visitor <= self.tick
@@ -106,10 +167,17 @@ impl State {
             || self.job_due.is_some() != (self.life.work > 0)
             || self.sold > self.crafted
             || self.daggers != self.crafted - self.sold
+            || self.daggers != self.showroom.goods()
+            || self.showroom.reserved()
+                != usize::from(self.life.active_job == Some(life::WorkKind::IronDagger))
         {
             return Err(Error::InvalidState);
         }
         Ok(())
+    }
+    /// Goods a visitor may buy right now.
+    pub fn sellable(&self) -> u32 {
+        self.showroom.sellable()
     }
     /// IDs are a monotonic command stream persisted with state. Replays cannot debit twice.
     pub fn command(&mut self, id: u64, command: Command) -> Result<(), Error> {
@@ -126,6 +194,31 @@ impl State {
                 item,
                 quantity,
             } => next.purchase(vendor, item, quantity)?,
+            Command::ChooseSmith(smith) => {
+                if next.smith.is_some() {
+                    return Err(Error::InvalidState);
+                }
+                next.smith = Some(smith);
+            }
+            Command::SetForSale { slot, for_sale } => next.showroom.set_for_sale(slot, for_sale)?,
+            Command::BuyRack => {
+                let (gold, timber) = next.showroom.rack_cost().ok_or(Error::RackLimit)?;
+                if next.gold < gold || next.commerce.timber < timber {
+                    return Err(Error::InsufficientResources);
+                }
+                next.showroom.install_rack()?;
+                next.gold -= gold;
+                next.commerce.timber -= timber;
+            }
+            Command::UpgradeRack { rack } => {
+                let (gold, timber) = next.showroom.upgrade_cost(rack).ok_or(Error::RackLimit)?;
+                if next.gold < gold || next.commerce.timber < timber {
+                    return Err(Error::InsufficientResources);
+                }
+                next.showroom.upgrade(rack)?;
+                next.gold -= gold;
+                next.commerce.timber -= timber;
+            }
             Command::Craft => {
                 if next.job_due.is_some() || !next.life.queue.is_empty() {
                     return Err(Error::Busy);
@@ -133,6 +226,8 @@ impl State {
                 if next.ore < 2 {
                     return Err(Error::InsufficientResources);
                 }
+                // Reserve the result slot before any material is consumed.
+                next.showroom.reserve()?;
                 next.job_due = Some(next.tick.checked_add(CRAFT_SECS).ok_or(Error::Overflow)?);
                 next.ore -= 2;
                 next.life.work = CRAFT_SECS * 1000;
@@ -217,14 +312,15 @@ impl State {
             let due = next.tick;
             next.life_step(&mut events)?;
             if next.next_visitor == due {
-                if next.daggers > 0 {
-                    next.gold = next.gold.checked_add(SALE_PRICE).ok_or(Error::Overflow)?;
+                if let Some(good) = next.showroom.sell() {
+                    let price = good.price();
+                    next.gold = next.gold.checked_add(price).ok_or(Error::Overflow)?;
                     next.sold = next.sold.checked_add(1).ok_or(Error::Overflow)?;
                     next.daggers -= 1;
                     next.emit(
                         EventKind::Sold {
-                            item: "iron_dagger".into(),
-                            gold: SALE_PRICE,
+                            item: good.id().into(),
+                            gold: price,
                         },
                         &mut events,
                     )?;
