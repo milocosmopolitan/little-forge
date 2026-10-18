@@ -94,3 +94,22 @@ the repaired missing-art fixture remain tied to PR #102 workflow results.
 The expedition asset pipeline was rebuilt and all output bytes matched. Capture scripts
 reject empty screenshots. [PR #102](https://github.com/milocosmopolitan/little-forge/pull/102)
 remains a draft pending CI and art acceptance.
+
+## CI qualification
+
+[Run 39165580901](https://github.com/milocosmopolitan/little-forge/actions/runs/39165580901)
+passed the complete macOS job, including eight combat captures, village missing-art fallback,
+lifecycle, forge captures and packaging. Ubuntu build/test/package passed. Windows fmt,
+clippy, tests, validators, deterministic scenarios and debug executable build passed.
+
+Linux/Windows legacy golden gates failed before later visual steps. The base main run
+[39148410464](https://github.com/milocosmopolitan/little-forge/actions/runs/39148410464)
+already has these same failures: Linux changed ratio 0.11745949074074075 and Windows
+static-DXC ambient 0.11746527777777778, against allowed 0.005. Downloaded base and PR
+Linux ambient PNGs compare with changed ratio **0.0**. Existing goldens predate the current
+smith/HUD/forge layout. They remain untouched; baseline approval is separate work.
+
+Combat captures and release builds now run before legacy golden comparisons so independent
+evidence is collected while those gates still fail normally. No continue-on-error or
+threshold change is used. The local black-capture rerun remains unqualified, but native
+macOS CI successfully rendered the same combat scenes.

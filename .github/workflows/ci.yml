@@ -50,6 +50,10 @@ jobs:
       - name: Build Windows diagnostic executable
         if: runner.os == 'Windows'
         run: cargo build --locked -p little-forge
+      - run: cargo build --locked --release -p little-forge -p npc-preview -p ui-preview
+      - name: Capture expedition combat on native desktops
+        if: runner.os != 'Linux'
+        run: python scripts/capture-expedition.py target/release/little-forge${{ runner.os == 'Windows' && '.exe' || '' }}
       - name: Compare Windows debug scenes
         if: runner.os == 'Windows'
         shell: pwsh
@@ -60,10 +64,6 @@ jobs:
           name: windows-debug-scenes
           path: qa-debug/
           retention-days: 14
-      - run: cargo build --locked --release -p little-forge -p npc-preview -p ui-preview
-      - name: Capture expedition combat on native desktops
-        if: runner.os != 'Linux'
-        run: python scripts/capture-expedition.py target/release/little-forge${{ runner.os == 'Windows' && '.exe' || '' }}
       - name: Compare Windows release scenes
         if: runner.os == 'Windows'
         shell: pwsh
@@ -102,6 +102,8 @@ jobs:
       - run: sudo apt-get update && sudo apt-get install -y libx11-dev libxkbcommon-dev libxkbcommon-x11-0 libudev-dev libasound2-dev libvulkan1 mesa-vulkan-drivers xvfb libxtst6
       - run: cargo build --locked -p little-forge -p npc-preview -p ui-preview
       - run: python -m pip install -r scripts/requirements-qa.txt
+      - name: Capture expedition combat in the actual game
+        run: xvfb-run -a -s '-screen 0 1280x800x24' python scripts/capture-expedition.py target/debug/little-forge
       - run: |
           mkdir -p qa-output
           for scene in ambient sale expanded; do
@@ -120,8 +122,6 @@ jobs:
         run: xvfb-run -a -s '-screen 0 1280x800x24' python scripts/capture-forge.py target/debug/little-forge
       - name: Verify forge spaces with real X11 keyboard input
         run: xvfb-run -a -s '-screen 0 1280x800x24' python scripts/test-forge-input.py target/debug/little-forge
-      - name: Capture expedition combat in the actual game
-        run: xvfb-run -a -s '-screen 0 1280x800x24' python scripts/capture-expedition.py target/debug/little-forge
       - name: Capture farmer purchase in the actual game
         run: |
           timeout 90s xvfb-run -a target/debug/little-forge --safe-window --qa npc --screenshot qa-output/npc-purchase.png > qa-output/npc-purchase.log 2>&1
