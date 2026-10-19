@@ -1,0 +1,143 @@
+{
+  "commit": "97427087e0302f83a253b93f5d92c1a95b700a44",
+  "executable_sha256": "0774e7516dd701d446c8dca8df0b1ff56a780f4ba1062a42b08b997cd29cf4ee",
+  "input": "Production Activate handlers, not native mouse/keyboard",
+  "clock": "Core and animation advance 1/30 second per rendered frame",
+  "visual_approval": false,
+  "characters": {
+    "male": {
+      "result": "captures and ECS assertions passed",
+      "cycles": 100,
+      "samples": 1290,
+      "actor_ids": [
+        "421v0"
+      ],
+      "captures": {
+        "male-ambient.png": {
+          "size": [
+            1920,
+            360
+          ],
+          "sha256": "5587f5af5e50c14ed0bff3adc38cfd35d37092b77be65a0aef36c087ed2f2993"
+        },
+        "male-management.png": {
+          "size": [
+            1920,
+            1080
+          ],
+          "sha256": "a718e75daf19ab6264a109f592eddc1fe99c0bca86a927f19f52462f4345173e"
+        },
+        "male-heating.png": {
+          "size": [
+            1920,
+            1080
+          ],
+          "sha256": "c98c3e1baf972aed129bde6542bd4b1110cf6e9add6f88ae97067f1356f90603"
+        },
+        "male-hammering.png": {
+          "size": [
+            1920,
+            360
+          ],
+          "sha256": "e7f0db1e5790223982f8ebf71d1eea58fa6cf5cce02af47a2be1da620d3e50a6"
+        },
+        "male-quenching.png": {
+          "size": [
+            1920,
+            1080
+          ],
+          "sha256": "557117f034459cd03f0af582809a8fea89efef53556241d9ba2f8945bcbb45e0"
+        },
+        "male-rest.png": {
+          "size": [
+            1920,
+            1080
+          ],
+          "sha256": "d56788c181ad511fc75143d124b45c6a88adc4c991c40b2a7fcf86be33eb87f2"
+        },
+        "male-active-expanded.png": {
+          "size": [
+            1920,
+            1080
+          ],
+          "sha256": "d952f50d80ed9c6dcdb855396d78afbeabc0b8df3feb68d2136d56f7ba99c2af"
+        },
+        "male-active-collapsed.png": {
+          "size": [
+            1920,
+            360
+          ],
+          "sha256": "b0cb5b67f24092f1d64d976600f300290dd4545c91c21db938fc43539e5ca933"
+        }
+      },
+      "save_reload": "equal during work and at end"
+    },
+    "female": {
+      "result": "captures and ECS assertions passed",
+      "cycles": 100,
+      "samples": 1290,
+      "actor_ids": [
+        "421v0"
+      ],
+      "captures": {
+        "female-ambient.png": {
+          "size": [
+            1920,
+            360
+          ],
+          "sha256": "9b7d4f2421ba21406c8e7e7a00c02863e791ae361c1a61287b0e42c8dcfc5910"
+        },
+        "female-management.png": {
+          "size": [
+            1920,
+            1080
+          ],
+          "sha256": "5975fb7456b951e4cd7a162af14e3d9838cbe04626411f4822d1090f11b3becd"
+        },
+        "female-heating.png": {
+          "size": [
+            1920,
+            1080
+          ],
+          "sha256": "9af7f18e676757109d1b145fa77e3ecea00acdf6f6d84b833b7b50e7665d3c6b"
+        },
+        "female-hammering.png": {
+          "size": [
+            1920,
+            360
+          ],
+          "sha256": "e839b0794999fc1bb94f213196dccd88d4cc9dc4d57fa6baa522e19010ff02b7"
+        },
+        "female-quenching.png": {
+          "size": [
+            1920,
+            1080
+          ],
+          "sha256": "2a4761ad6c6cbb9efebda2b80d749f1049e04eed7386495c4736f89efc94e389"
+        },
+        "female-rest.png": {
+          "size": [
+            1920,
+            1080
+          ],
+          "sha256": "79f3f93815bb1fc1ef52bbd97390ab2ce4c7624fd2e5adfaa0d0434c03904ec0"
+        },
+        "female-active-expanded.png": {
+          "size": [
+            1920,
+            1080
+          ],
+          "sha256": "acfb8de58fa15f416e231b5dcc67afe3862febece2d09abc8b9ed735bda8cca1"
+        },
+        "female-active-collapsed.png": {
+          "size": [
+            1920,
+            360
+          ],
+          "sha256": "ef2f4a3ce1e010a6dccc68790651a5387f112e1d1035b5b1909e846c54ce6e54"
+        }
+      },
+      "save_reload": "equal during work and at end"
+    }
+  }
+}

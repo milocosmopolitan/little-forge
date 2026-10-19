@@ -758,7 +758,14 @@ fn input(
         desktop.shell.recover();
     }
     if keys.just_pressed(KeyCode::F8) {
-        desktop.shell.idle();
+        // The recovery chord can also reach the focused window as a local key event.
+        if keys.any_pressed([KeyCode::ControlLeft, KeyCode::ControlRight])
+            && keys.any_pressed([KeyCode::AltLeft, KeyCode::AltRight])
+        {
+            desktop.shell.recover();
+        } else {
+            desktop.shell.idle();
+        }
     }
     if keys.just_pressed(KeyCode::Tab)
         && !desktop.shell.expanded

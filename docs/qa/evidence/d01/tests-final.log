@@ -6,8 +6,8 @@ running 5 tests
 test tests::showroom_balance_is_valid_and_matches_core_defaults ... ok
 test tests::duplicates_rejected ... ok
 test tests::manifest_is_valid ... ok
-test village::tests::broken_registry_is_rejected ... ok
 test village::tests::picking_matches_scaled_and_letterboxed_art ... ok
+test village::tests::broken_registry_is_rejected ... ok
 
 test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
 
@@ -15,83 +15,83 @@ test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 
 running 58 tests
 test craft::tests::stages_cover_full_progress_in_order ... ok
-test expedition::tests::invalid_loadout_and_duplicate_commands_are_atomic_and_recall_is_safe ... ok
-test craft::tests::stage_is_derived_from_authoritative_work_only ... ok
 test commission::tests::overflow_does_not_consume_the_delivery ... ok
+test craft::tests::stage_is_derived_from_authoritative_work_only ... ok
 test commission::tests::mixed_queue_is_fifo_and_entrusted_tool_never_enters_sale_stock ... ok
-test commission::tests::invalid_actions_and_resource_failures_are_atomic ... ok
-test expedition::tests::equipment_changes_failure_and_retry_outcome ... ok
+test expedition::tests::invalid_loadout_and_duplicate_commands_are_atomic_and_recall_is_safe ... ok
 test life::tests::empty_pantry_and_premium_are_safe ... ok
 test life::tests::final_job_crossing_threshold_sleeps_without_another_queue ... ok
+test expedition::tests::equipment_changes_failure_and_retry_outcome ... ok
 test life::tests::needs_slow_remaining_work_without_revoking_progress ... ok
-test commission::tests::time_partitioning_preserves_work_and_ready_event ... ok
-test progression::tests::duplicate_delivery_research_and_overflow_never_partially_reward ... ok
+test commission::tests::invalid_actions_and_resource_failures_are_atomic ... ok
 test progression::tests::content_rejects_circular_or_unreachable_first_progression ... ok
-test life::tests::loop_partition_resume_food_water_sale ... ok
+test commission::tests::time_partitioning_preserves_work_and_ready_event ... ok
 test commission::tests::ready_time_controls_deadline_even_when_delivery_is_much_later ... ok
+test life::tests::loop_partition_resume_food_water_sale ... ok
+test progression::tests::duplicate_delivery_research_and_overflow_never_partially_reward ... ok
+test progression::tests::entrusted_knife_bypasses_full_showroom_and_sleep_resumes_work ... ok
 test progression::tests::both_smiths_finish_first_legacy_without_rng_and_continue_idle ... ok
 test life::tests::save_every_boundary_does_not_repeat_consumption_or_rewards ... ok
-test progression::tests::entrusted_knife_bypasses_full_showroom_and_sleep_resumes_work ... ok
-test life::tests::full_pantry_purchase_is_atomic_and_need_bounds_hold ... ok
 test save::tests::clock_cap_and_regression ... ok
+test life::tests::full_pantry_purchase_is_atomic_and_need_bounds_hold ... ok
 test progression::tests::current_schema_missing_progression_is_rejected_and_v4_keeps_recipe ... ok
-test save::tests::abandoned_temp_does_not_replace_committed_state ... ok
 test save::tests::lock_excludes_second_instance ... ok
-test save::tests::future_schema_cannot_fall_back_to_older_generation ... ok
+test save::tests::abandoned_temp_does_not_replace_committed_state ... ok
 test save::tests::current_schema_missing_order_or_work_metadata_is_not_reset ... ok
+test save::tests::future_schema_cannot_fall_back_to_older_generation ... ok
 test shell::tests::expansion_preserves_bottom_and_clamps ... ok
-test save::tests::schema_four_adds_empty_expedition_without_losing_prior_work ... ok
 test shell::tests::unfocused_recovery_and_safe_mode ... ok
 test showroom::tests::config_bounds ... ok
+test save::tests::schema_four_adds_empty_expedition_without_losing_prior_work ... ok
 test showroom::tests::legacy_migration_preserves_every_item_and_the_inflight_reservation ... ok
-test save::tests::schema_three_keeps_paid_queue_active_work_and_economy ... ok
 test showroom::tests::racks_grow_capacity_without_moving_goods ... ok
 test showroom::tests::reserve_place_sell_and_hold_are_single_shot ... ok
-test save::tests::v1_migrates_inflight_job_without_losing_stock ... ok
+test save::tests::schema_three_keeps_paid_queue_active_work_and_economy ... ok
 test spaces::tests::activity_follows_authoritative_state_and_full_showroom_waits ... ok
 test spaces::tests::spaces_cycle_and_station_ids_round_trip ... ok
+test save::tests::v1_migrates_inflight_job_without_losing_stock ... ok
 test tests::commands_are_atomic_and_idempotent ... ok
-test tests::overflow_rolls_back ... ok
-test village::tests::insufficient_overflow_and_pantry_roll_back ... ok
 test save::tests::schema_three_stock_beyond_capacity_is_preserved_and_blocks_new_jobs ... ok
-test village::tests::navigation_is_recoverable ... ok
 test save::tests::restart_recovery_and_no_duplicate_rewards ... ok
+test tests::overflow_rolls_back ... ok
+test village::tests::navigation_is_recoverable ... ok
+test village::tests::insufficient_overflow_and_pantry_roll_back ... ok
 test weapon::tests::a_light_common_blade_outperforms_masterwork_point_without_ranged_support ... ok
-test weapon::tests::costs_and_research_gates_are_atomic ... ok
-test weapon::tests::cosmetics_do_not_change_combat_and_a_poorly_matched_masterwork_fails ... ok
 test weapon::tests::balance_matrix ... ok
-test tests::partition_and_seed_replay ... ok
+test weapon::tests::cosmetics_do_not_change_combat_and_a_poorly_matched_masterwork_fails ... ok
+test weapon::tests::costs_and_research_gates_are_atomic ... ok
+test commission::tests::repair_respects_sleep_and_survives_journal_restart_in_every_phase ... ok
 test village::tests::atomic_validation_and_restart_dedup ... ok
+test tests::partition_and_seed_replay ... ok
 test weapon::tests::normal_start_can_fund_retry_with_one_ordinary_dagger_sale ... ok
 test weapon::tests::queued_knives_reserve_armory_slots_against_bow_jobs ... ok
 test weapon::tests::three_qualities_change_controlled_boar_performance ... ok
 test weapon::tests::wave_three_failure_improves_through_craft_and_history_survives_sale ... ok
-test commission::tests::repair_respects_sleep_and_survives_journal_restart_in_every_phase ... ok
 test village::compatibility::schema_two_migrates_and_premium_is_opt_in ... ok
 test weapon::tests::schema_six_inflight_legacy_battle_keeps_its_rules ... ok
 test progression::tests::save_reload_every_phase_partitioning_and_offline_replay_match ... ok
 test expedition::tests::journal_restart_every_second_matches_offline_and_view_independence ... ok
 test weapon::tests::crafted_combat_and_jobs_survive_journal_and_offline_without_double_settlement ... ok
 
-test result: ok. 58 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.11s
+test result: ok. 58 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.13s
 
      Running unittests src/lib.rs (/private/tmp/little-forge-screen-audit/target/debug/deps/forge_npc-b07d139f00b832ca)
 
 running 12 tests
+test tests::invalid_content_rejected ... ok
 test tests::handoff_scrub_and_independent_catalogs ... ok
 test tests::partition_mirror_and_interruption ... ok
 test tests::paused_seek_is_deterministic ... ok
-test tests::invalid_content_rejected ... ok
-test player::tests::front_and_back_clips_rest_in_their_own_baseline_and_seek_is_deterministic ... ok
-test player::tests::held_station_clips_loop_then_finish_and_markers_fire_once_per_pass ... ok
 test player::tests::base_variant_resolves_through_the_prefix_and_falls_back ... ok
+test player::tests::held_station_clips_loop_then_finish_and_markers_fire_once_per_pass ... ok
+test player::tests::front_and_back_clips_rest_in_their_own_baseline_and_seek_is_deterministic ... ok
 test player::tests::walker_moves_straight_and_hands_over_to_the_station_clip ... ok
 test player::tests::both_characters_parse_with_seventeen_clips_and_five_stations ... ok
 test stations::tests::floor_plan_keeps_every_station_inside_the_scene ... ok
-test player::tests::invalid_manifests_are_rejected ... ok
 test player::tests::selecting_another_smith_replaces_existing_atlas_coordinates ... ok
+test player::tests::invalid_manifests_are_rejected ... ok
 
-test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.07s
 
      Running unittests src/main.rs (/private/tmp/little-forge-screen-audit/target/debug/deps/forge_qa-abe796e60880d4da)
 
@@ -110,27 +110,27 @@ test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
      Running unittests src/main.rs (/private/tmp/little-forge-screen-audit/target/debug/deps/little_forge-15238d01e767cd25)
 
 running 19 tests
-test expedition::tests::bow_draw_holds_aim_without_reversing_or_replaying_release ... ok
-test forge_view::tests::dpi_edges_keep_the_same_lower_strip ... ok
 test rendering::tests::transparent_surface_never_uses_unspecified_alpha ... ok
+test forge_view::tests::dpi_edges_keep_the_same_lower_strip ... ok
+test expedition::tests::bow_draw_holds_aim_without_reversing_or_replaying_release ... ok
 test title::tests::all_submenus_are_reversible ... ok
 test title::tests::fresh_and_existing_journeys_have_safe_actions ... ok
 test title::tests::invalid_transitions_do_not_enter_or_quit ... ok
-test title::tests::new_game_chooses_before_entering_and_choose_is_reversible ... ok
 test title::tests::embers_have_six_stable_poses_and_repeat ... ok
+test title::tests::new_game_chooses_before_entering_and_choose_is_reversible ... ok
 test npc::tests::rejected_and_replayed_commands_cannot_trigger_or_change_inventory ... ok
 test presentation::tests::headless_sale_fsm_deduplicates ... ok
 test npc::tests::legacy_scene_animation_does_not_move_npc_layers ... ok
+test lifestyle::tests::actual_management_observer_uses_domain_and_hidden_panel_ignores_activation ... ok
 test title::tests::picking_records_the_smith_once_and_backing_out_writes_nothing ... ok
 test village::tests::stable_scale_does_not_invalidate_ui_every_frame ... ok
-test lifestyle::tests::actual_management_observer_uses_domain_and_hidden_panel_ignores_activation ... ok
 test spaces::tests::space_actions_need_an_expanded_home_and_toggle_cleanly ... ok
+test village::tests::actual_observer_map_shop_buy_duplicate_back_and_hidden_guard ... ok
 test presentation::tests::scheduled_sale_attaches_same_item_and_exits_without_new_rewards ... ok
 test expedition::tests::actual_ui_observer_craft_fail_change_gear_retry_and_view_switch ... ok
-test village::tests::actual_observer_map_shop_buy_duplicate_back_and_hidden_guard ... ok
 test spaces::tests::a_hundred_window_round_trips_preserve_work_and_actor_phase ... ok
 
-test result: ok. 19 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s
+test result: ok. 19 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.13s
 
      Running unittests src/main.rs (/private/tmp/little-forge-screen-audit/target/debug/deps/npc_preview-65e112614f2fc0a5)
 

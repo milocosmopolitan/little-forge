@@ -1,16 +1,16 @@
-# D01 persistent indoor forge: implementation review
+# D01 persistent indoor forge: implementation and native review
 
-Status: implementation review, **not native acceptance or visual approval**. No implementation issue is closed. D02–D07 and later redesigned panels remain outside this change.
+Status: **current screenshots recovered; visual approval and full native acceptance still pending**. PR #122 remains Draft. No implementation issue is closed. No later management screen or D02–D07 gameplay contract is implemented here.
 
 ## Source and decisions
 
-Base main: `6c6e8339f070229f8ea67925aeede550fee54a9d`. PR #120 remained open at `a25c8db10b96d764f253ed15cd585744ba15b904`; its D01 decisions were read as references, not merged. Branch: `feat/107-live-indoor-forge`. References: #107, #118, #63, #89; selective passthrough is separately tracked in #121.
+Base main: `6c6e8339f070229f8ea67925aeede550fee54a9d`. Audit PR #120 is a design reference, not a merged prerequisite. Implementation branch: `feat/107-live-indoor-forge`; references #107, #118, #63, #89. Selective background passthrough remains #121.
 
-Approved implementation constraints: native 1× existing smith art, interior default, persistent bottom 180 logical pixels, 960×540 expanded client with upper 360 management host, normal input by default, explicit F8 whole-window passthrough with 10-second recovery. Final station positions, background composition and visual acceptance remain unapproved.
+Approved first-slice constraints: existing native1× smiths and stations, interior default, persistent bottom180 logical pixels,960×540 expanded client with upper360 management host, default mouse interaction and explicit F8 whole-window passthrough with10-second recovery. Station positions, backdrop composition, rest treatment and visual acceptance remain review decisions.
 
-## Rendering and navigation
+## Rendering and routing
 
-`forge_view.rs` owns logical/physical layout. A layer-1 Camera2d renders the live workshop into the bottom physical viewport; the layer-0 camera renders existing exterior content and the shared UI, with no second clear. The existing smith Actor/Walker and 20 workstation layers persist across management transitions. Neither navigation nor playback completes core work. The core simulation remains authoritative.
+`apps/desktop/src/forge_view.rs` owns logical/physical viewport geometry. A layer-1 Camera2d clips the live forge to the bottom180 logical pixels. The layer-0 camera owns the shared UI/exterior with no second clear. Smith Actor/Walker and20 station layers persist while management opens/closes. Core work completion is independent of animation playback.
 
 ```text
 960×540 logical client             960×180 logical client
@@ -19,56 +19,76 @@ Approved implementation constraints: native 1× existing smith art, interior def
 ├────────────────────────────┤     ┌────────────────────────────┐
 │ Same live forge: y=360..540 │  ↔  │ Same live forge: y=0..180  │
 └────────────────────────────┘     └────────────────────────────┘
-Desktop bottom edge is retained when the existing OS work-area clamp permits.
+Desktop bottom edge is retained when the existing work-area clamp permits.
 ```
 
-The title routes New/Continue to ambient, not expanded management. Tab or Manage opens the explicitly labeled D01 QA host. It contains working close, legacy-control and modal checks, not fake future screen tabs. Exterior remains reachable through the existing navigation. Showroom navigation currently retains the bottom workshop instead of rendering the old showroom backdrop. This is an explicit presentation compatibility change to review, not a completed showroom redesign. Legacy panels retain their existing gameplay; their container scrolls within the upper region rather than clipping unreachable controls. This compatibility scroll still needs native pointer/keyboard acceptance after the final change.
+New/Continue enters ambient. Manage/Tab opens the explicitly labeled D01 QA host. Its real controls open legacy controls, check a modal, and close; it is not a Dashboard prototype. A frame-start modal guard prevents one Escape from dismissing both modal and host. Closing restores focus to a visible ambient control. Legacy panels scroll within the upper360 region; no panel gameplay was redesigned.
 
-A frame-start modal guard prevents the same Escape from dismissing the dialog and collapsing management. Focus returns to the triggering modal button, or to the visible ambient control after collapse. The ambient controls have their own tab group. Dragging uses the labeled handle. Passthrough expiry uses wall time rather than a clamped frame delta, so long suspension expires the lease; backward wall-clock changes fail toward recovery. Sleep/wake hardware acceptance is still pending.
+The10-second lease uses wall time rather than clamped frame delta. Backward wall-clock changes recover input. The local F8 handler now recognizes Ctrl+Alt modifiers so a recovery chord delivered locally does not unconditionally rearm passthrough. This defensive handling is distinct from proof that native global-hotkey delivery works; see the outstanding input evidence below.
 
-## Assets and composition
+## Assets and visual findings
 
-No asset files were generated, modified or exported. Reused `assets/forge/spaces/catalog.json` workshop backdrop, existing `forge-npc` male/female player manifests and atlases, registered workstation layers and animation offsets, Farmer runtime sprites, and `forge-ui` controls/fonts. The existing backdrop is rendered as six native-scale source crops; this is runtime composition, not a new background PNG. Station translations preserve authored station-relative offsets.
+No runtime assets were generated, changed or exported. Reused: `assets/forge/spaces/catalog.json` backdrop, canonical male/female manifests and atlases, registered station layers/animation offsets, Farmer runtime sprites, existing forge-ui controls/fonts. Six runtime source crops recompose the old backdrop without scaling the character artwork or baking a new background image.
 
-Candidate anchors, in native logical pixels: research112, rest352, forge416, anvil576, quench720, salvage864; feet y156. These are review candidates, not approved final art coordinates. Salvage is scenery only; no command was invented. Repeated wall/lantern motifs and the missing dedicated rest furnishing need art-direction review. Existing canonical characters remain unchanged.
+Candidate native anchors: research112, rest352, forge416, anvil576, quench720, salvage864; feet y156. In current captures both smiths remain unclipped, raised hammers fit inside the strip, and forge/anvil/quench contacts retain station-relative placement. Native resumed female quenching was also observed. This is inspection evidence, not approval of every animation frame. The wall/lantern repetition, forge-to-anvil overlap, station spacing and absence of dedicated rest furnishing require owner review. Salvage remains scenery only.
 
-## Reproduction
+### Showroom compatibility is an open decision
+
+`spaces.rs::route` explicitly hides `Space::Showroom` scene artwork while retaining workshop ambience. The showroom backdrop/catalog/data were not deleted. Nevertheless the old independent room experience is **not preserved by this routing**, and must not be described as preserved just because assets remain.
+
+Recommendation for the later #112 screen: an independent room presentation in the upper management region, with the persistent forge below, using the existing fixed-slot art. That is a proposed future solution, not implemented or approved here. Do not merge the always-hidden showroom route as an implicit permanent product decision; resolve the compatibility disposition in #89/#112 review without implementing the new showroom in this follow-up.
+
+## Capture failure investigation
+
+| Boundary | Current evidence | What it establishes |
+|---|---|---|
+| Window identity | A fresh CUA app binding finds the current window and captures it; stale prior-process IDs are not reused. | Current `cgWindowNotFound` blocker is cleared. Historical wrong-ID causality is not proven. |
+| Capture permission | A Swift `CGPreflightScreenCaptureAccess()` probe returned false for that shell-launched process. CUA capture works. | Capture paths have different access. It does not prove all CLI tools share the same permission or explain Bevy GPU readback. |
+| OS session/display | Current session reports on-console/login-complete; the current online display is active and not asleep. | Current session is renderable. No equivalent state was retained at the old failure instant. |
+| Actual rendering | Unchanged9444c5c Rust build rendered through both CUA and in-game F10 before further Rust changes. Follow-up executable captures pass for both smiths/all work stages. | The old black output is not a consistently reproduced renderer failure. Historical root cause remains unclassified. |
+
+The earlier black image is retained as `blocked-final-black.png`, a failed artifact, not accepted output. `scripts/capture-d01.py` now rejects blank/degenerate bottom strips after checking the real ECS scenario, so successful entity assertions cannot alone publish a successful visual capture result. No golden threshold was reduced.
+
+## Current evidence and reproduction
+
+[Current screenshots, executable/source hashes and capture results](evidence/d01/README.md). `source-hashes.json` identifies the delivered Rust files; `capture-validation.json` identifies the executable and image bytes. Captures were made on9742708 plus the explicit follow-up changes, before their commit; documentation-only commits do not alter the executable. Raw logs/traces remain at `/private/tmp/little-forge-d01-followup`.
 
 ```sh
 cargo fmt --all -- --check
 cargo clippy --locked --workspace --all-targets -- -D warnings
 cargo test --locked --workspace
-cargo run --locked -p little-forge -- --qa d01 --save-dir /tmp/lf-d01-male --screenshot /tmp/d01-male.png
-cargo run --locked -p little-forge -- --qa d01-female --save-dir /tmp/lf-d01-female --screenshot /tmp/d01-female.png
+cargo build --locked -p little-forge
+python scripts/capture-d01.py target/debug/little-forge --output /tmp/lf-d01-review
+python scripts/capture-alpha.py target/debug/little-forge --output /tmp/lf-alpha-review
 cargo run --locked -p little-forge -- --save-dir /tmp/lf-d01-native
 ```
 
-Use fresh isolated QA directories. `d01_qa.rs` invokes production title/host Activate handlers and real AcceptChef/QueueChef commands, paying the normal two ore. No fixture dagger/research unlock is granted. Core and animation clocks advance 1/30 second per rendered frame. This is actual Metal/Bevy rendering, **not OS-input automation and not a real-time performance benchmark**.
+Use fresh isolated output/save directories. D01 QA invokes real title/host Activate handlers and paid AcceptChef/QueueChef commands; no dagger/research fixture unlock. Core and animation advance1/30 second per rendered frame. Both smiths pass100 transitions, one stable smith entity,20 station layers, saved-state readback, and nonblank heating/hammering/quenching/rest captures. These GPU runs are not OS-input automation or frame-pacing benchmarks.
 
-Each smith run performs 100 open/close cycles, asserts one stable Actor entity and 20 station layers, captures live heating/hammering/quenching/rest, and reads back saved state during work and at completion. JSON records 1,290 samples, window geometry, core work, entity identity and animation phase. The separate unit regression preserves actor elapsed time and exact core state across 100 route cycles. Geometry tests cover scale factors1,1.25,1.5,2; only scale2 was observed natively.
+### Native macOS observations
 
-## Evidence and acceptance boundaries
+- Apple M4/Metal at200% DPI: actual mouse Continue restored the selected female smith to960×180. Tab, mouse Manage and Escape exercised960×540 management with the same bottom scene. Actual window/capture dimensions agree.
+- Modal click → Escape returned focus to the modal trigger without collapse; the following Escape collapsed and focused Manage.
+- Actual wheel scrolling exposed the previously clipped Chef acceptance button. Mouse acceptance and Queue Kitchen Knife worked; no direct state mutation was used in this native run.
+- Saved/quit during working state and restarted a new process. Diagnostics before quit showed19,000 work units, Working,8 ore,0 gold; after Continue showed3,000, Working,8 ore,0 gold and actual quenching. Later Ready remained8 ore/0 gold. Thus selection/work resumed without a second material charge or premature reward. This is not a full offline-duration qualification.
+- F8 produced Idle with a9.967881-second lease; after automatic expiry a real Manage click expanded the window. Safe-mode F8 retained Interaction, lease0 and safe=true.
+- Injected Ctrl+Alt+F8 did **not** establish immediate recovery, including after local modifier handling was added. Registration success is insufficient; native modifier/global-event delivery remains unresolved. No focus-independent global shortcut claim is made.
+- CUA drag attempts on the custom handle and native titlebar did not establish movement. Drag qualification remains open, not passed.
+- Native recording and cross-app desktop-composition capture are still absent. Earlier `screencapture` exited1 and AVFoundation received no frames; no synthetic screenshot sequence is presented as a native recording. Cross-app click receipt, sleep/wake,100/125/150% native DPI, Windows/Shadow PC and localization remain unqualified.
 
-Screenshots and compact results are in [d01 evidence](evidence/d01/). They are actual Bevy captures from the last visually observable build, before the final legacy-scroll/tab-group adjustment. Final source hashes identify the delivered code, not that earlier capture build. Full JSON traces and logs were retained locally at `/private/tmp/little-forge-d01-evidence`.
+## CI: baseline versus D01 regression
 
-- Automated: fmt, strict workspace Clippy and 98 workspace tests passed. Five asset/scene/UI/village/expedition validators passed. Existing Alpha production-control scenario passed before the final scroll/tab-group compatibility adjustment; final D01 traces cover delivered ECS state/geometry, but their PNGs were black and fail visual validation.
-- Native macOS Apple M4/Metal, 200% DPI: mouse Continue restored the selected female smith into ambient; Tab/Esc expanded and collapsed; modal Esc dismissed only the modal and restored its button focus; the next Escape collapsed and focused Manage. Window bounds were960×180 /960×540 logical, with constant bottom edge in observed transitions.
-- F8 native diagnostics observed `Idle`, lease9.934181; later automatic recovery observed `Interaction`, lease0. Global shortcut registration succeeded. Actual cross-application click receipt, focus-independent global recovery and sleep/wake recovery are **not qualified** by these diagnostics.
-- Native tool failure: after subsequent shortcut testing, CUA returned `cgWindowNotFound`, including after app/session restart. `screencapture -v -l` exited1 without a recording; ffmpeg AVFoundation received no frames. No recording is attached, and no screenshot sequence is presented as a recording. Final-build PNG inspection also found all-black frames despite successful ECS assertions. Cause is unresolved; do not classify it as either an application regression or a permission failure without evidence. This blocks technical rendering completion on the final build.
-- Save readback equality passed during work and after completion; a normal idle save/quit/Continue restored selection. **Actual process restart during ongoing work, offline continuation and duplicate-reward acceptance remain pending.** Existing core save tests are not a substitute.
-- Native drag, final legacy scrolling, safe-window passthrough block, transparent composition over another app,100/125/150% native DPI, Windows/Shadow PC and localization acceptance remain pending. FPS diagnostic around30 on this host is a sample, not frame-pacing or memory qualification.
+Main run39181315993 is pinned to6c6e8339f070229f8ea67925aeede550fee54a9d. Its Linux golden changed ratio0.11321180555555556 exceeded0.005. Windows Alpha/Alpha-crafting timed out at240/360 seconds. Farmer atlas regeneration and UI release readiness are separate known local failures; those source assets/exporters/release rules are unchanged.
 
-## Baseline failures and regressions
+PR #122 initial run39193055909: Ubuntu passed. macOS and Visual failed earlier, at `capture-alpha.py:54`, because the validator required960×540 for every image while the newly approved startup workshop is960×180. This was a **new D01 QA contract regression**, not the old golden failure. The fix asserts960×180 only for `workshop`, retaining960×540 for every other Alpha scene and preserving brightness checks. Local male/female Alpha capture validation now passes. Windows again timed out at240/360 seconds, matching the baseline symptom but not proving identical root cause.
 
-Main already has Farmer runtime-atlas regeneration mismatch and UI release gate `runtime_ready=false`; basic validators pass. Neither exporter nor assets nor release rules changed. Linux golden ratio0.11321180555555556 exceeds0.005 on the earlier baseline audit; Windows Alpha has240/360-second timeout evidence. PR #120 run39185966470 also showed a macOS expedition-movement120-second timeout; that observation is not proof of identical baseline cause. Golden baselines and thresholds remain untouched. This PR deliberately changes the default scene, so additional screenshot differences must be reviewed as D01 changes, never waved away as baseline failures.
+Fresh run39197434914 tests the geometry-validator fix; later follow-up commits require their own CI disposition. Do not report overall CI success while checks are pending or failing. fmt, strict Clippy and98 workspace tests passed after the local F8 handling change. No screenshot baselines or CI timeouts were changed.
 
-Native review found and corrected old HUD text overlapping ambient controls, hidden-host focus retention, expanded New/Continue routing, and legacy panel clipping. No unresolved new core failure is known; final-build rendering is blocked by black captures; the native control/recording failure and final compatibility acceptance remain open.
+## Remaining gates
 
-## Required before acceptance and next stage
+1. Resolve native global recovery/drag and obtain the native recording/desktop-composition evidence. Automatic recovery is verified but does not qualify every native input path.
+2. Review fresh CI by exact commit; keep baseline Windows/golden problems separate from new D01 failures.
+3. Explicitly settle the showroom routing compatibility decision; do not erase the independent showroom experience by default.
+4. Product owner reviews current character scale, contacts, spacing, backdrop and rest treatment. Passing entity/blank-image assertions is not art approval.
 
-1. Restore native observation/recording and verify the final build: drag, scrolling, native click receipt, global recovery from another app, safe mode and actual ongoing-work restart.
-2. Supply a native expand/collapse recording and desktop-composition capture. Recheck both smiths’ tool contacts in motion, especially quenching and rest; still frames do not establish playback approval.
-3. Product owner approves station spacing, character scale, repeated backdrop composition and rest treatment from the actual game. Do not infer approval from passing pixel or entity assertions.
-4. Review fresh PR CI failures individually and complete Windows/Shadow PC qualification separately. Do not weaken tests or update goldens without explicit review.
-
-Only after these gates should the next screen stage proceed. This PR does not approve D05 storage semantics or D02/D03/D04 balancing and does not complete Epic #106.
+No merge, issue closure, next management panel or overall Epic #106 completion is authorized by these results.
