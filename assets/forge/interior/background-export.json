@@ -1,0 +1,20 @@
+{
+  "source_sha256": "8fbcae342ca4f8d0d226b5f4b4c0201533cc5912f568c57172bdb4d08f28724d",
+  "crop": [
+    0,
+    247,
+    2048,
+    638
+  ],
+  "native_size": [
+    943,
+    180
+  ],
+  "canvas": [
+    960,
+    180
+  ],
+  "padding_left": 8,
+  "padding_right": 9,
+  "status": "Owner-requested source-preserving edit; runtime visual approval pending"
+}

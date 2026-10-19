@@ -18,6 +18,8 @@ pub struct Presentation {
     pub elapsed: f32,
     pub active: bool,
     pub has_item: bool,
+    /// Snapshot of the settled sale, never an inventory or reward command.
+    pub item: Option<String>,
 }
 impl Presentation {
     pub fn accept(&mut self, event: Event) {
@@ -30,9 +32,13 @@ impl Presentation {
     }
     pub fn advance(&mut self, dt: f32) {
         if !self.active {
-            if self.queue.pop_front().is_none() {
+            let Some(event) = self.queue.pop_front() else {
                 return;
-            }
+            };
+            self.item = match event.kind {
+                EventKind::Sold { item, .. } => Some(item),
+                _ => None,
+            };
             self.active = true;
             self.elapsed = 0.;
         }
