@@ -93,7 +93,8 @@ pub fn drive(
             proof.actor = Some(e);
         }
         assert_eq!(id.0, smith.id());
-        assert_eq!(stations.iter().count(), 20, "station layers duplicated");
+        // Seven fixtures x (back, front) x (art, outline).
+        assert_eq!(stations.iter().count(), 28, "station layers duplicated");
         let win = windows.single().expect("one window");
         proof.samples.push(serde_json::json!({"frame":f,"entity":format!("{e:?}"),"clip":a.clip,"clip_frame":a.clip_frame,"elapsed":a.elapsed,"position":[w.pos.x,w.pos.y],"window":[win.width(),win.height()],"physical":[win.resolution.physical_width(),win.resolution.physical_height()],"dpi":win.resolution.scale_factor(),"desktop_position":format!("{:?}",win.position),"expanded":desktop.shell.expanded,"tick":session.save.state.tick,"work":session.save.state.life.work,"activity":format!("{:?}",session.save.state.activity())}));
         let stage = match a.clip.as_str() {

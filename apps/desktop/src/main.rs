@@ -624,7 +624,7 @@ fn setup(
     ));
     let manifest = forge_content::Manifest::bundled().expect("validated bundled manifest");
     let visitor_meta = manifest.assets.iter().find(|a| a.id == "visitor").unwrap();
-    let visitor_sizes = vec![Vec2::new(96., 120.); visitor_meta.frame_rects.len()];
+    let visitor_sizes = vec![interior::CANVAS; visitor_meta.frame_rects.len()];
     let visitor_hands = visitor_meta
         .walking_hand_points
         .iter()
@@ -639,7 +639,7 @@ fn setup(
         })
         .collect();
     let visitor_layout = layouts.add(TextureAtlasLayout::from_grid(
-        UVec2::new(96, 120),
+        interior::CANVAS.as_uvec2(),
         4,
         3,
         None,
@@ -649,16 +649,16 @@ fn setup(
     // (spaces.rs). The visitor sheet stays a visitor and is never used for the player.
     commands.spawn((
         Sprite {
-            image: server.load("forge/atlas-v1/visitor-75.png"),
+            image: server.load("forge/atlas-v2/visitor.png"),
             texture_atlas: Some(TextureAtlas {
                 layout: visitor_layout,
                 index: 0,
             }),
-            custom_size: Some(Vec2::new(96., 120.)),
+            custom_size: Some(interior::CANVAS),
             ..default()
         },
         Transform::from_xyz(-430., -85., 3.),
-        bevy::sprite::Anchor(Vec2::new(0., -0.375)),
+        bevy::sprite::Anchor(Vec2::new(0., 0.5 - interior::PIVOT.y / interior::CANVAS.y)),
         Visibility::Hidden,
         spaces::SceneOf(forge_core::spaces::Space::Exterior),
         Visitor,

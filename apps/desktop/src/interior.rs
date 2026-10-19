@@ -12,7 +12,10 @@ use forge_npc::player::{Actor, CharacterId, PlayerCatalog, PlayerCatalogs};
 use serde::Deserialize;
 use std::collections::BTreeMap;
 
-pub const CHARACTER_SCALE: f32 = 0.75;
+/// Smiths, visitors and props share the canonical 128x160 character density (1:1).
+pub const CHARACTER_SCALE: f32 = 1.;
+pub const CANVAS: Vec2 = Vec2::new(128., 160.);
+pub const PIVOT: Vec2 = Vec2::new(64., 140.);
 pub fn depth(foot_y: f32) -> f32 {
     1. + foot_y * 0.001
 }
@@ -49,7 +52,7 @@ pub struct Interior(pub Vec<Fixture>, forge_npc::stations::StationCatalog);
 impl Default for Interior {
     fn default() -> Self {
         Self(
-            serde_json::from_str(include_str!("../../../assets/forge/atlas-v1/catalog.json"))
+            serde_json::from_str(include_str!("../../../assets/forge/atlas-v2/catalog.json"))
                 .expect("validated interior exports"),
             forge_npc::stations::StationCatalog::bundled().expect("station contacts"),
         )
@@ -105,7 +108,7 @@ struct SmithPage {
     ids: BTreeMap<String, usize>,
 }
 #[derive(Resource, Default)]
-struct ScaledSmiths(BTreeMap<String, SmithPage>);
+struct SmithPages(BTreeMap<String, SmithPage>);
 
 fn setup(
     mut commands: Commands,
@@ -117,20 +120,20 @@ fn setup(
     for (sex, raw) in [
         (
             "female",
-            include_str!("../../../assets/forge/atlas-v1/female-75.json"),
+            include_str!("../../../assets/forge/atlas-v2/female.json"),
         ),
         (
             "male",
-            include_str!("../../../assets/forge/atlas-v1/male-75.json"),
+            include_str!("../../../assets/forge/atlas-v2/male.json"),
         ),
     ] {
-        let spec: SmithFrames = serde_json::from_str(raw).expect("validated scaled atlas");
+        let spec: SmithFrames = serde_json::from_str(raw).expect("validated smith page");
         pages.insert(
             sex.into(),
             SmithPage {
-                image: server.load(format!("forge/atlas-v1/{sex}-75.png")),
+                image: server.load(format!("forge/atlas-v2/{sex}.png")),
                 layout: layouts.add(TextureAtlasLayout::from_grid(
-                    UVec2::new(96, 120),
+                    CANVAS.as_uvec2(),
                     spec.columns,
                     spec.rows,
                     None,
@@ -145,7 +148,7 @@ fn setup(
             },
         );
     }
-    commands.insert_resource(ScaledSmiths(pages));
+    commands.insert_resource(SmithPages(pages));
     for (index, f) in art.0.iter().enumerate() {
         for (kind, front) in [("back", false), ("front", true)] {
             for outline in [false, true] {
@@ -157,7 +160,7 @@ fn setup(
                         outline,
                     },
                     Sprite::from_image(
-                        server.load(format!("forge/atlas-v1/{}-{kind}{suffix}.png", f.id)),
+                        server.load(format!("forge/atlas-v2/{}-{kind}{suffix}.png", f.id)),
                     ),
                     bevy::sprite::Anchor::TOP_LEFT,
                     Transform::from_xyz(f.origin[0] - 480., 90. - f.origin[1], 1.2),
@@ -222,7 +225,7 @@ fn pointer(
         desktop.shell.recover();
         host.legacy = true;
         spaces.manage = false;
-        if id == "display" {
+        if id.starts_with("display") {
             spaces.enter(Space::Showroom);
         } else {
             spaces.enter(Space::Workshop);
@@ -302,7 +305,7 @@ fn project(
         let selected = spaces
             .station
             .is_some_and(|s| art.fixture(s.id()).is_some_and(|a| a.id == f.id))
-            || (f.id == "display" && spaces.space == Space::Showroom);
+            || (f.id.starts_with("display") && spaces.space == Space::Showroom);
         let hovered = hover.0 == Some(part.index);
         *v = if visible && (!part.outline || selected || hovered) {
             Visibility::Visible
@@ -335,20 +338,20 @@ fn project(
                 "base"
             };
             sprite.image = server.load(format!(
-                "forge/atlas-v1/arms/{}-{variant}-{frame}.png",
+                "forge/atlas-v2/arms/{}-{variant}-{frame}.png",
                 id.0
             ));
-            t.translation = actor_transform.translation + Vec3::new(-48., 105., 0.04);
+            t.translation = actor_transform.translation + Vec3::new(-PIVOT.x, PIVOT.y, 0.04);
             *v = Visibility::Visible;
         }
     }
 }
 
-// Playback remains canonical. Only its presentation uses whole-canvas nearest exports,
-// avoiding a different sampling phase when the source atlas trim changes between frames.
+// Playback remains canonical. Presentation uses untrimmed whole-canvas pages so every frame
+// shares one pivot regardless of how the source atlas trimmed it.
 #[allow(clippy::type_complexity)]
-fn scaled_smith(
-    pages: Res<ScaledSmiths>,
+fn smith_pages(
+    pages: Res<SmithPages>,
     catalogs: Res<PlayerCatalogs>,
     mut q: Query<
         (
@@ -378,8 +381,8 @@ fn scaled_smith(
             layout: page.layout.clone(),
             index: *index,
         });
-        sprite.custom_size = Some(Vec2::new(96., 120.));
-        anchor.0 = Vec2::new(0., -0.375);
+        sprite.custom_size = Some(CANVAS);
+        anchor.0 = Vec2::new(0., 0.5 - PIVOT.y / CANVAS.y);
         transform.scale = Vec3::ONE;
         transform.translation = Vec3::new(
             walker.pos.x.round() - 480.,
@@ -408,12 +411,12 @@ pub fn install(app: &mut App) {
         .add_systems(
             Update,
             project
-                .after(scaled_smith)
+                .after(smith_pages)
                 .after(crate::spaces::drive_workshop),
         )
         .add_systems(
             Update,
-            scaled_smith
+            smith_pages
                 .after(forge_npc::player::animate_actors)
                 .after(crate::spaces::drive_workshop),
         );
@@ -490,7 +493,7 @@ fn pose_qa(
         walker.pos = art.foot(station, c);
         if walking {
             let x = 520. + (opts.frames.saturating_sub(30) as f32 * 1.4).min(210.);
-            walker.pos = Vec2::new(x, if pose.ends_with("behind") { 148. } else { 168. });
+            walker.pos = Vec2::new(x, if pose.ends_with("behind") { 148. } else { 178. });
             spaces.station = Some(Workstation::Anvil);
         }
         walker.target = walker.pos;
@@ -514,15 +517,15 @@ fn pose_qa(
 mod tests {
     use super::*;
     #[test]
-    fn scaled_pages_cover_every_canonical_frame_and_travel_crosses_prop_depth() {
+    fn smith_pages_cover_every_canonical_frame_and_travel_crosses_prop_depth() {
         for (sex, raw) in [
             (
                 "female",
-                include_str!("../../../assets/forge/atlas-v1/female-75.json"),
+                include_str!("../../../assets/forge/atlas-v2/female.json"),
             ),
             (
                 "male",
-                include_str!("../../../assets/forge/atlas-v1/male-75.json"),
+                include_str!("../../../assets/forge/atlas-v2/male.json"),
             ),
         ] {
             let page: SmithFrames = serde_json::from_str(raw).unwrap();
@@ -535,7 +538,7 @@ mod tests {
         for id in ["anvil", "quenching-tub"] {
             let floor = art.fixture(id).unwrap().depth;
             assert!(depth(148.) < depth(floor));
-            assert!(depth(168.) > depth(floor));
+            assert!(depth(178.) > depth(floor));
         }
     }
     #[test]
@@ -596,6 +599,40 @@ mod tests {
                     - Vec2::from_array(*target);
                 assert!(error.abs().max_element() <= 0.5);
             }
+        }
+    }
+    #[test]
+    fn runtime_feet_match_exported_layout() {
+        #[derive(Deserialize)]
+        struct Reg {
+            character: String,
+            mode: String,
+            foot: [f32; 2],
+        }
+        #[derive(Deserialize)]
+        struct Layout {
+            registrations: Vec<Reg>,
+        }
+        let layout: Layout =
+            serde_json::from_str(include_str!("../../../assets/forge/atlas-v2/layout.json"))
+                .unwrap();
+        let art = Interior::default();
+        for reg in layout.registrations {
+            let c = PlayerCatalog::bundled(&reg.character).unwrap();
+            let station = match reg.mode.as_str() {
+                "forging" => "forge",
+                "hammering" => "anvil",
+                "quenching" => "quenching-tub",
+                "researching" => "research-table",
+                _ => "salvage-table",
+            };
+            assert_eq!(
+                art.foot(station, &c),
+                Vec2::from_array(reg.foot),
+                "{} {}",
+                reg.character,
+                reg.mode
+            );
         }
     }
     #[test]

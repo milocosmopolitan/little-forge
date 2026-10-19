@@ -3,6 +3,13 @@ use crate::{Session, spaces::Spaces, title::TitleScreen};
 use bevy::{camera::visibility::RenderLayers, prelude::*};
 use forge_core::{craft::Good, showroom::Slot, spaces::Space};
 
+/// UI icons are 256px sources; in the 1:1 scene a held or displayed good is this many pixels.
+const ICON: f32 = 20.;
+/// Empty pegs on the wall display shelf (scene pixels, item centres): three on the top shelf,
+/// one on the lower-left hook. Matches assets/forge/atlas-v2/display-shelf.png at its layout.
+const SHELF_SLOTS: [(f32, f32); 4] = [(183., 41.), (201., 41.), (219., 41.), (121., 71.)];
+const SHELF_ICON: f32 = 14.;
+
 /// Stable preview indices; storage capacity is exclusively owned by forge-core.
 #[derive(Component)]
 pub struct DisplaySlot(pub usize);
@@ -14,11 +21,16 @@ fn displayed(slots: &[Slot], index: usize) -> Option<Good> {
     }
 }
 fn setup(mut c: Commands, server: Res<AssetServer>) {
-    for index in 0..4 {
+    for (index, (x, y)) in SHELF_SLOTS.into_iter().enumerate() {
         c.spawn((
             DisplaySlot(index),
-            Sprite::from_image(server.load("ui/runtime/icons/dagger.png")),
-            Transform::from_xyz(-296. + index as f32 * 18., -30., 1.3),
+            Sprite {
+                image: server.load("ui/runtime/icons/dagger.png"),
+                custom_size: Some(Vec2::splat(SHELF_ICON)),
+                ..default()
+            },
+            // Just above the wall shelf (floor y=101) and behind anyone walking past it.
+            Transform::from_xyz(x - 480., 90. - y, crate::interior::depth(101.) + 0.001),
             Visibility::Hidden,
             RenderLayers::layer(1),
         ));
@@ -63,11 +75,11 @@ fn project(
     // Reuse the existing customer and hand registration, not a second NPC instance.
     // A sale has already committed before this reenactment. No gold or slots are written here.
     let x = if sale.elapsed < 3. {
-        -430. + (sale.elapsed / 3.).clamp(0., 1.) * 155.
+        -430. + (sale.elapsed / 3.).clamp(0., 1.) * 110.
     } else if sale.elapsed < 4.5 {
-        -275.
+        -320.
     } else {
-        -275. - ((sale.elapsed - 4.5) / 3.5).clamp(0., 1.) * 155.
+        -320. - ((sale.elapsed - 4.5) / 3.5).clamp(0., 1.) * 110.
     };
     let frame = ((sale.elapsed * 6.) as usize) % 4;
     for (entity, mut t, mut sprite, mut v, weapon) in &mut customers {
@@ -88,14 +100,16 @@ fn project(
         };
         if weapon {
             sprite.image = server.load("ui/runtime/icons/dagger.png");
+            sprite.custom_size = Some(Vec2::splat(ICON));
             t.translation = Vec3::new(
                 x + art.visitor_hands[frame].x * if sale.elapsed >= 4.5 { -1. } else { 1. },
-                -66. + art.visitor_hands[frame].y + 8.,
+                -78. + art.visitor_hands[frame].y + 8.,
                 5.,
             );
         } else {
             sprite.flip_x = sale.elapsed >= 4.5;
-            t.translation = Vec3::new(x, -66., 4.5);
+            // Foot y=168: the customer stands in front of the counter (floor y=160).
+            t.translation = Vec3::new(x, -78., 4.5);
         }
     }
 }

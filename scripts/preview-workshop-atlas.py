@@ -5,8 +5,8 @@ from pathlib import Path
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
-ART = ROOT/'assets/forge/atlas-v1'
-OUT = ROOT/'docs/qa/evidence/atlas-v1/composites'
+ART = ROOT/'assets/forge/atlas-v2'
+OUT = ROOT/'docs/qa/evidence/atlas-v2/composites'
 OUT.mkdir(parents=True, exist_ok=True)
 fixtures = json.loads((ART/'catalog.json').read_text())
 by_id = {f['id']: f for f in fixtures}
@@ -15,8 +15,8 @@ proof = []
 occlusion = []
 
 for sex in ('female', 'male'):
-    manifest = json.loads((ART/f'{sex}-75.json').read_text())
-    atlas = Image.open(ART/f'{sex}-75.png').convert('RGBA')
+    manifest = json.loads((ART/f'{sex}.json').read_text())
+    atlas = Image.open(ART/f'{sex}.png').convert('RGBA')
     canonical = json.loads((ROOT/f'assets/characters/{sex}/animation.json').read_text())
     for pose in ('forging','hammering','quenching','researching','salvaging','walk-front','walk-behind','idle','empty'):
         frames = []
@@ -29,27 +29,27 @@ for sex in ('female', 'male'):
                 f = by_id[fixture_id]
                 target = f['mode_contacts'].get(pose,f['contact'])
                 original = work['contact_points']['character']
-                exact = [f['origin'][i]+target[i]-original[i]*0.75 for i in range(2)]
+                exact = [f['origin'][i]+target[i]-original[i] for i in range(2)]
                 origin = [int(v+0.5) for v in exact]
             elif pose.startswith('walk'):
-                origin = [520+frame*36-48,(148 if pose.endswith('behind') else 168)-105]
+                origin = [420+frame*48-64,(148 if pose.endswith('behind') else 178)-140]
                 exact = origin
             else:
-                origin = [292-48,156-105]
+                origin = [360-64,166-140]
                 exact = origin
-            foot = [origin[0]+48, origin[1]+105]
+            foot = [origin[0]+64, origin[1]+140]
             name = f'{pose}-{frame}' if work else f'walk-{frame}' if pose.startswith('walk') else 'neutral'
             if pose == 'quenching':
                 name = f'quenching/scene-{frame}'
             index = manifest['ids'].index(name)
-            x,y = index%8*96,index//8*120
-            character = atlas.crop((x,y,x+96,y+120))
+            x,y = index%8*128,index//8*160
+            character = atlas.crop((x,y,x+128,y+160))
             if pose == 'researching':
                 desk = by_id['workbench']
                 mask = Image.open(ART/'workbench.png').getchannel('A')
                 uncovered = 0
-                for cy in range(90,120):
-                    for cx in range(96):
+                for cy in range(120,160):
+                    for cx in range(128):
                         if character.getpixel((cx,cy))[3]:
                             dx,dy = origin[0]+cx-desk['origin'][0],origin[1]+cy-desk['origin'][1]
                             if not (0<=dx<mask.width and 0<=dy<mask.height and mask.getpixel((dx,dy))==255):
@@ -60,7 +60,7 @@ for sex in ('female', 'male'):
             for f in fixtures:
                 for part in ('back','front'):
                     z = f['depth']-0.5
-                    if f['id']==fixture_id:
+                    if f['id']==fixture_id and pose!='salvaging':  # runtime: salvage uses floor depth
                         z = foot[1]+20 if part=='front' or pose=='researching' else foot[1]-20
                     layers.append((z,Image.open(ART/f"{f['id']}-{part}.png").convert('RGBA'),f['origin']))
             if pose!='empty':

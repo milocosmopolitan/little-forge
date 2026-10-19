@@ -1,0 +1,284 @@
+{
+  "version": 2,
+  "status": "visual-review-candidate",
+  "scale_from_v1": [
+    4,
+    3
+  ],
+  "character_scale": [
+    1,
+    1
+  ],
+  "character_canvas": [
+    128,
+    160
+  ],
+  "character_pivot": [
+    64,
+    140
+  ],
+  "source": "generated-atlas-large.png from little-forge-atlas-v1.zip (supplied); v1 native props were the same art reduced for 3/4 characters",
+  "reduction": "per native pixel: inner 60% of its source block, >=50% opaque coverage -> opaque, dominant colour cluster mean; binary alpha",
+  "sprites": {
+    "display-shelf": {
+      "source": "display-shelf.png",
+      "black_background": true,
+      "source_rect": [
+        299,
+        162,
+        1734,
+        958
+      ],
+      "size": [
+        146,
+        81
+      ],
+      "cell": [
+        146,
+        81
+      ],
+      "pad": [
+        0,
+        0
+      ],
+      "contact": [
+        73,
+        80
+      ],
+      "floor": 81,
+      "split_y": 81,
+      "note": "Generated wall display shelf (GPT Image 2.5 via Artlist, 2026-10-19) from a style sheet of the owner front furnace + counter; black background cut, 1px outline redrawn. Hangs on the wall behind the counter."
+    },
+    "furnace": {
+      "source": "front-furnace.png",
+      "source_rect": [
+        277,
+        71,
+        977,
+        1164
+      ],
+      "size": [
+        112,
+        175
+      ],
+      "cell": [
+        112,
+        176
+      ],
+      "pad": [
+        0,
+        1
+      ],
+      "contact": [
+        40,
+        119
+      ],
+      "floor": 176,
+      "split_y": 176,
+      "note": "Owner-supplied front-view furnace (little-forge-assets/interior, Oct 19 12_20_01); art grid ~6.25 source px. Chimney top is cut off by the viewport top."
+    },
+    "anvil": {
+      "source_rect": [
+        679,
+        232,
+        948,
+        514
+      ],
+      "size": [
+        64,
+        53
+      ],
+      "cell": [
+        64,
+        64
+      ],
+      "pad": [
+        0,
+        11
+      ],
+      "contact": [
+        24,
+        18
+      ],
+      "floor": 64,
+      "split_y": 64
+    },
+    "quenching-tub": {
+      "source_rect": [
+        1108,
+        306,
+        1460,
+        546
+      ],
+      "size": [
+        75,
+        37
+      ],
+      "cell": [
+        96,
+        64
+      ],
+      "pad": [
+        10,
+        27
+      ],
+      "contact": [
+        45,
+        38
+      ],
+      "floor": 64,
+      "split_y": 42
+    },
+    "workbench": {
+      "source_rect": [
+        681,
+        617,
+        1343,
+        958
+      ],
+      "size": [
+        171,
+        91
+      ],
+      "cell": [
+        192,
+        96
+      ],
+      "pad": [
+        10,
+        5
+      ],
+      "contact": [
+        95,
+        38
+      ],
+      "floor": 96,
+      "split_y": 42,
+      "mode_contacts": {
+        "researching": [
+          95,
+          26
+        ],
+        "salvaging": [
+          95,
+          38
+        ]
+      }
+    },
+    "counter": {
+      "source_rect": [
+        48,
+        607,
+        594,
+        960
+      ],
+      "size": [
+        128,
+        80
+      ],
+      "cell": [
+        128,
+        96
+      ],
+      "pad": [
+        0,
+        16
+      ],
+      "contact": [
+        64,
+        44
+      ],
+      "floor": 96,
+      "split_y": 96
+    },
+    "coal-bin": {
+      "source": "coal-bin-states.png",
+      "black_background": true,
+      "source_rect": [
+        171,
+        260,
+        623,
+        887
+      ],
+      "size": [
+        44,
+        61
+      ],
+      "cell": [
+        44,
+        61
+      ],
+      "pad": [
+        0,
+        0
+      ],
+      "contact": [
+        22,
+        60
+      ],
+      "floor": 61,
+      "split_y": 61,
+      "note": "Generated coal bin (GPT Image 2.5 via Artlist, 2026-10-19) from the owner reference crop + style sheet; one image holds full/half/empty of the same barrel so states align."
+    },
+    "coal-bin-half": {
+      "source": "coal-bin-states.png",
+      "black_background": true,
+      "source_rect": [
+        793,
+        260,
+        1245,
+        887
+      ],
+      "size": [
+        44,
+        61
+      ],
+      "cell": [
+        44,
+        61
+      ],
+      "pad": [
+        0,
+        0
+      ],
+      "contact": [
+        22,
+        60
+      ],
+      "floor": 61,
+      "split_y": 61,
+      "note": "Generated coal bin (GPT Image 2.5 via Artlist, 2026-10-19) from the owner reference crop + style sheet; one image holds full/half/empty of the same barrel so states align.",
+      "variant_of": "coal-bin"
+    },
+    "coal-bin-empty": {
+      "source": "coal-bin-states.png",
+      "black_background": true,
+      "source_rect": [
+        1421,
+        260,
+        1873,
+        887
+      ],
+      "size": [
+        44,
+        61
+      ],
+      "cell": [
+        44,
+        61
+      ],
+      "pad": [
+        0,
+        0
+      ],
+      "contact": [
+        22,
+        60
+      ],
+      "floor": 61,
+      "split_y": 61,
+      "note": "Generated coal bin (GPT Image 2.5 via Artlist, 2026-10-19) from the owner reference crop + style sheet; one image holds full/half/empty of the same barrel so states align.",
+      "variant_of": "coal-bin"
+    }
+  }
+}

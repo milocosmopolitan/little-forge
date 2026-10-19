@@ -1,5 +1,7 @@
 # Workshop atlas integration at 3/4 character scale
 
+> Superseded by [WORKSHOP_ATLAS_V2](WORKSHOP_ATLAS_V2.md): characters returned to 1:1 and props were redrawn at that density.
+
 ## Authority and source
 
 The owner fixes the character ratio at exactly 3/4: source 128×160, displayed

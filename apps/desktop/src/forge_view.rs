@@ -9,8 +9,9 @@ use forge_core::{spaces::Space, village::Screen};
 
 pub const WIDTH: f32 = 960.;
 pub const HEIGHT: f32 = 180.;
-pub const FOOT_Y: f32 = 156.;
-pub const REST: Vec2 = Vec2::new(292., FOOT_Y);
+/// Free floor left of the anvil, in front of the counter floor (y=160) so the resting smith is
+/// never drawn behind a fixture. Kept close to the furnace: work starts there.
+pub const REST: Vec2 = Vec2::new(360., 166.);
 
 #[derive(Resource, Default, Debug)]
 pub struct Layout {
