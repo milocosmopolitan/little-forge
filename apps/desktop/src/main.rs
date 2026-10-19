@@ -1,13 +1,16 @@
 mod alpha_qa;
 mod d01_qa;
 mod expedition;
+mod forge_trace;
 mod forge_view;
+mod interior;
 mod lifestyle;
 mod native;
 mod npc;
 mod presentation;
 mod progression_ui;
 mod rendering;
+mod shop_scene;
 mod spaces;
 mod title;
 mod village;
@@ -162,6 +165,9 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
                 | "alpha-crafting"
                 | "d01"
                 | "d01-female"
+                | "d01-female-stable"
+                | "d01-stable"
+                | "d01-sales"
                 | "ambient"
                 | "sale"
                 | "expanded"
@@ -576,6 +582,9 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     if !qa_unpatched {
         rendering::install_sprite_shader(&mut app);
     }
+    shop_scene::install(&mut app);
+    interior::install(&mut app);
+    forge_trace::install(&mut app);
     app.run();
     Ok(())
 }
@@ -710,6 +719,7 @@ fn setup(
             "forge/visitor.png",
             "forge/smoke.png",
             "forge/spaces/workshop-backdrop.png",
+            "forge/interior/background.png",
             "forge/spaces/showroom-backdrop.png",
             "characters/female/atlas.png",
             "characters/male/atlas.png",
@@ -974,7 +984,10 @@ fn animate(
             Without<forge_npc::player::Actor>,
             Without<spaces::WindowGlow>,
             Without<spaces::Backdrop>,
+            Without<shop_scene::DisplaySlot>,
             Without<forge_npc::stations::StationLayer>,
+            Without<interior::FixturePart>,
+            Without<interior::ResearchArms>,
         ),
     >,
 ) {

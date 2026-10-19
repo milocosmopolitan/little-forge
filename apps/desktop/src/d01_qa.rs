@@ -15,7 +15,7 @@ pub fn drive(
     titles: Query<(Entity, &title::TitleAction)>,
     controls: Query<(Entity, &forge_view::Action)>,
     actors: Query<(Entity, &Actor, &Walker, &CharacterId), With<spaces::WorkshopActor>>,
-    stations: Query<Entity, With<forge_npc::stations::StationLayer>>,
+    stations: Query<Entity, With<crate::interior::FixturePart>>,
     windows: Query<&Window>,
     mut session: ResMut<Session>,
     desktop: Res<crate::window::Desktop>,
@@ -26,7 +26,8 @@ pub fn drive(
         return;
     }
     let f = opts.frames;
-    let smith = if opts.qa.as_deref() == Some("d01-female") {
+    let sales = opts.qa.as_deref() == Some("d01-sales");
+    let smith = if opts.qa.as_deref().is_some_and(|q| q.contains("female")) {
         forge_core::Smith::Female
     } else {
         forge_core::Smith::Male
@@ -44,7 +45,10 @@ pub fn drive(
             .expect("D01 title control");
         c.trigger(Activate { entity: e });
     }
-    let action = if f == 80 || (142..542).contains(&f) && (f - 142).is_multiple_of(4) {
+    let stable = opts.qa.as_deref().is_some_and(|q| q.ends_with("-stable")) || sales;
+    let action = if stable {
+        (f == 80).then_some(forge_view::Action::Close)
+    } else if f == 80 || (142..542).contains(&f) && (f - 142).is_multiple_of(4) {
         Some(forge_view::Action::Close)
     } else if (140..540).contains(&f) && (f - 140).is_multiple_of(4) || f == 600 {
         Some(forge_view::Action::Open)
@@ -58,7 +62,17 @@ pub fn drive(
             .expect("D01 host control");
         c.trigger(Activate { entity: e });
     }
-    if f == 120 {
+    if f == 120 && sales {
+        // Explicit migrated-recipe fixture; work, slot reservation and sale use real commands.
+        session.save.state.progression.legacy_dagger = true;
+        let id = session.save.state.command_id + 1;
+        session
+            .save
+            .state
+            .command(id, forge_core::Command::Craft)
+            .expect("paid sale good");
+    }
+    if f == 120 && !sales {
         for command in [
             forge_core::Command::AcceptChef,
             forge_core::Command::QueueChef,
@@ -108,6 +122,9 @@ pub fn drive(
     if f == 610 {
         capture(&mut c, &opts, "management");
     }
+    if sales && [300, 400, 470, 525, 620].contains(&f) {
+        capture(&mut c, &opts, &format!("sale-{f}"));
+    }
     if f == 300 {
         let dir = session.dir.clone();
         forge_core::save::store(&dir, &mut session.save).expect("mid-work save");
@@ -132,18 +149,24 @@ pub fn drive(
             .expect("rest command");
     }
     if f == 1380 {
-        assert!(proof.captures.contains("heating"));
-        assert!(proof.captures.contains("hammering"));
-        assert!(proof.captures.contains("quenching"));
-        assert_eq!(
-            session.save.state.progression.chef_phase,
-            forge_core::commission::OrderPhase::Ready
-        );
+        if sales {
+            assert_eq!(session.save.state.sold, 1);
+            assert_eq!(session.save.state.gold, 12);
+            assert_eq!(session.save.state.sellable(), 0);
+        } else {
+            assert!(proof.captures.contains("heating"));
+            assert!(proof.captures.contains("hammering"));
+            assert!(proof.captures.contains("quenching"));
+            assert_eq!(
+                session.save.state.progression.chef_phase,
+                forge_core::commission::OrderPhase::Ready
+            );
+        }
         let dir = session.dir.clone();
         forge_core::save::store(&dir, &mut session.save).expect("save");
         assert_eq!(forge_core::save::load(&dir).unwrap().unwrap(), session.save);
         if let Some(path) = &opts.capture {
-            std::fs::write(format!("{path}.json"),serde_json::to_vec_pretty(&serde_json::json!({"result":"passed","cycles":100,"clock":"core and animation both advance1/30 second per rendered frame","commands":"real paid Chef knife work; production Activate title and host controls, not OS input","state":session.save.state,"samples":proof.samples,"captures":proof.captures,"save_reload":"equal during work and at end"})).unwrap()).unwrap();
+            std::fs::write(format!("{path}.json"),serde_json::to_vec_pretty(&serde_json::json!({"result":"passed","cycles":if stable { 0 } else { 100 },"clock":"core and animation both advance1/30 second per rendered frame","commands":if sales {"migrated recipe fixture; real Craft and scheduled sale; no injected sale event"} else {"real paid Chef knife work; production Activate title and host controls, not OS input"},"state":session.save.state,"samples":proof.samples,"captures":proof.captures,"save_reload":"equal during work and at end"})).unwrap()).unwrap();
         }
     }
     if f == 1400 {
@@ -151,6 +174,9 @@ pub fn drive(
     }
 }
 fn capture(c: &mut Commands, opts: &Options, name: &str) {
+    if std::env::var_os("LITTLE_FORGE_TRACE_DIR").is_some() {
+        return;
+    }
     if let Some(path) = &opts.capture {
         c.spawn(Screenshot::primary_window())
             .observe(crate::save_capture(format!(

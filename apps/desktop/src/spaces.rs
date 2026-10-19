@@ -1,4 +1,4 @@
-//! One forge, three views: exterior diorama, workshop and showroom. All three read the same
+//! One physical workshop with sales, plus a secondary exterior view. Both read the same
 //! `Session` state; nothing here owns a timer, reward or inventory. Motion is a reenactment of
 //! `State::activity()`, so switching or hiding a view never changes when work completes.
 use crate::{Options, Session, title::TitleScreen, village::Village, window::Desktop};
@@ -11,7 +11,7 @@ use forge_core::{
 };
 use forge_npc::{
     player::{Actor, CharacterId, PlayerCatalogs, Walker},
-    stations::{self, StationCatalog},
+    stations::{self},
 };
 
 const EXTERIOR_FOOT: Vec2 = Vec2::new(-72., -85.);
@@ -54,10 +54,6 @@ impl Spaces {
         self.space = space;
         self.redraw = true;
     }
-    /// Window pixel rectangle of a station, for pointer hit areas (not for rendering).
-    pub fn station_rect(&self, origin: Vec2, size: Vec2) -> (Vec2, Vec2) {
-        (self.view_origin + origin * self.scale, size * self.scale)
-    }
 }
 #[derive(Component, Clone, Copy, PartialEq, Eq)]
 pub struct SceneOf(pub Space);
@@ -75,8 +71,6 @@ pub struct HomeRoot;
 pub struct HitRoot;
 #[derive(Component)]
 pub struct AmbientRoot;
-#[derive(Component)]
-pub struct StationHit;
 #[derive(Component, Clone, Copy, PartialEq)]
 pub enum Action {
     Go(Space),
@@ -121,7 +115,6 @@ impl SpaceArt {
 pub fn setup(
     mut commands: Commands,
     server: Res<AssetServer>,
-    catalogs: Res<PlayerCatalogs>,
     art: Res<SpaceArt>,
     s: Res<Session>,
     opts: Res<Options>,
@@ -147,42 +140,19 @@ pub fn setup(
             _ => Space::Exterior,
         };
     }
-    let stations = StationCatalog::bundled().expect("validated station catalog");
     let character = s.save.state.smith.map_or("male", |c| c.id()).to_string();
-    // Workshop: supplied interior, five authored stations, one smith.
-    // Tile existing wall/floor crops at native scale; never stretch the old room.
-    for (x, source_x, width) in [
-        (0., 0., 224.),
-        (224., 224., 164.),
-        (388., 224., 164.),
-        (552., 224., 164.),
-        (716., 224., 164.),
-        (880., 400., 80.),
-    ] {
-        commands.spawn((
-            Sprite {
-                image: server.load(art.assets["workshop-backdrop"].path.clone()),
-                rect: Some(Rect::from_corners(
-                    Vec2::new(source_x, 0.),
-                    Vec2::new(source_x + width, 180.),
-                )),
-                custom_size: Some(Vec2::new(width, 180.)),
-                ..default()
-            },
-            bevy::sprite::Anchor::TOP_LEFT,
-            Transform::from_xyz(x - 480., 90., 0.5),
-            Visibility::Hidden,
-            SceneOf(Space::Workshop),
-            Backdrop,
-            crate::forge_view::BackdropPart(x),
-            bevy::camera::visibility::RenderLayers::layer(1),
-        ));
-    }
-    if let Some(c) = catalogs.get(&character) {
-        for placement in stations::placements(c) {
-            spawn_station_layers(&mut commands, &server, &stations, placement);
-        }
-    }
+    // One continuous room, exported without stretching. The transparent roof margin
+    // leaves room for ambient controls; canonical stations remain independent layers.
+    commands.spawn((
+        Sprite::from_image(server.load("forge/interior/background.png")),
+        bevy::sprite::Anchor::TOP_LEFT,
+        Transform::from_xyz(-480., 90., 0.5),
+        Visibility::Hidden,
+        SceneOf(Space::Workshop),
+        Backdrop,
+        crate::forge_view::BackdropPart(0.),
+        bevy::camera::visibility::RenderLayers::layer(1),
+    ));
     commands.spawn((
         Sprite::default(),
         bevy::sprite::Anchor::default(),
@@ -199,20 +169,8 @@ pub fn setup(
         WorkshopActor,
         bevy::camera::visibility::RenderLayers::layer(1),
     ));
-    // Showroom: the supplied interior sets the mood; goods live in the shared slot UI, so no
-    // per-weapon rack art is drawn into the scene.
-    commands.spawn((
-        Sprite {
-            image: server.load(art.assets["showroom-backdrop"].path.clone()),
-            custom_size: Some(stations::SCENE_SIZE),
-            ..default()
-        },
-        bevy::sprite::Anchor::TOP_LEFT,
-        Transform::from_xyz(0., 0., 0.5),
-        Visibility::Hidden,
-        SceneOf(Space::Showroom),
-        Backdrop,
-    ));
+    // Space::Showroom remains a compatible management route into this same room.
+
     // Exterior: the chosen smith steps outside when there is nothing to do; a lit window shows work.
     commands.spawn((
         Sprite::default(),
@@ -264,13 +222,13 @@ pub fn setup(
         ))
         .with_children(|p| {
             p.spawn((
-                forge_ui::text("Drag window", 12.),
+                forge_ui::text("···", 14.),
                 Node {
                     position_type: PositionType::Absolute,
-                    left: px(120),
-                    bottom: px(152),
-                    width: px(100),
-                    height: px(24),
+                    left: px(148),
+                    bottom: px(160),
+                    width: px(44),
+                    height: px(14),
                     ..default()
                 },
                 BackgroundColor(forge_ui::SURFACE),
@@ -314,7 +272,7 @@ pub fn setup(
             ))
             .with_children(|door| {
                 door.spawn((
-                    forge_ui::text("Manage [Tab]", 12.),
+                    forge_ui::text("Menu", 12.),
                     Node {
                         padding: UiRect::axes(px(6), px(2)),
                         ..default()
@@ -324,27 +282,6 @@ pub fn setup(
                 ));
             });
         });
-}
-fn spawn_station_layers(
-    commands: &mut Commands,
-    server: &AssetServer,
-    stations: &StationCatalog,
-    placement: &forge_npc::player::StationPlacement,
-) {
-    // Spawn through the shared helper, then tag the new layers as workshop scene members.
-    stations::spawn_station(commands, server, stations, placement, 1., Vec2::ZERO);
-}
-fn tag_station_layers(
-    mut commands: Commands,
-    q: Query<Entity, (Added<stations::StationLayer>, Without<SceneOf>)>,
-) {
-    for e in &q {
-        commands.entity(e).insert((
-            SceneOf(Space::Workshop),
-            Visibility::Hidden,
-            bevy::camera::visibility::RenderLayers::layer(1),
-        ));
-    }
 }
 /// Which scenes are visible follows window mode, village screen and the chosen space.
 #[allow(clippy::too_many_arguments, clippy::type_complexity)]
@@ -361,7 +298,6 @@ pub fn route(
         &mut Visibility,
         &mut Transform,
         Option<&Backdrop>,
-        Option<&stations::StationLayer>,
         Option<&crate::forge_view::BackdropPart>,
     )>,
     mut roots: Query<
@@ -382,7 +318,7 @@ pub fn route(
     spaces.scale = scale;
     spaces.view_origin = layout.origin;
     let world_origin = Vec2::new(-480., 90.);
-    for (scene, mut visibility, mut transform, backdrop, station, compact) in &mut scenes {
+    for (scene, mut visibility, mut transform, backdrop, compact) in &mut scenes {
         let visible = match scene.0 {
             Space::Exterior => exterior,
             Space::Workshop => interior && !exterior,
@@ -403,16 +339,6 @@ pub fn route(
             transform.translation.x = world_origin.x;
             transform.translation.y = world_origin.y;
             transform.scale = Vec3::splat(scale);
-        }
-        if let Some(layer) = station {
-            let delta = crate::forge_view::spot(&layer.station)
-                - stations::spot(&layer.station).map_or(Vec2::ZERO, |s| s.foot);
-            let mut next = layer.transform(world_origin, scale);
-            next.translation.x += delta.x;
-            next.translation.y -= delta.y;
-            if *transform != next {
-                *transform = next;
-            }
         }
     }
     for (mut visibility, hit) in &mut roots {
@@ -468,6 +394,7 @@ pub fn drive_workshop(
         With<WorkshopActor>,
     >,
     catalogs: Option<Res<PlayerCatalogs>>,
+    interior: Res<crate::interior::Interior>,
 ) {
     let Some(catalogs) = catalogs else {
         return;
@@ -479,7 +406,7 @@ pub fn drive_workshop(
         let (spot, clip, hold, tint) = match s.save.state.activity() {
             Activity::Working { station, .. } => (
                 stations::Spot {
-                    foot: crate::forge_view::spot(station.id()),
+                    foot: interior.foot(station.id(), c),
                     row: 1,
                 },
                 station.clip(),
@@ -539,12 +466,7 @@ pub fn drive_workshop(
         let shown = Vec2::new(960., 180.) * spaces.scale;
         transform.translation.x = -shown.x / 2. + walker.pos.x * spaces.scale;
         transform.translation.y = shown.y / 2. - walker.pos.y * spaces.scale;
-        transform.translation.z =
-            stations::actor_z(if walker.pos.y < stations::FRONT_FLOOR - 20. {
-                0
-            } else {
-                1
-            });
+        transform.translation.z = stations::actor_z(0);
         if sprite.color != tint && sprite.color != Color::NONE {
             sprite.color = tint;
         }
@@ -654,9 +576,7 @@ pub fn draw(
     desktop: Res<Desktop>,
     village: Res<Village>,
     server: Res<AssetServer>,
-    catalogs: Option<Res<PlayerCatalogs>>,
     home: Query<Entity, With<HomeRoot>>,
-    hit: Query<Entity, With<HitRoot>>,
     art: Res<SpaceArt>,
     mut last: Local<Option<String>>,
 ) {
@@ -686,57 +606,7 @@ pub fn draw(
     }
     *last = Some(key);
     spaces.redraw = false;
-    // Station hit areas over the workshop scene.
-    if let Ok(root) = hit.single() {
-        commands.entity(root).despawn_children();
-        if spaces.space == Space::Workshop {
-            let stations = StationCatalog::bundled().expect("validated station catalog");
-            if let Some(c) = catalogs.as_ref().and_then(|c| c.get(&actor_character(&s))) {
-                commands.entity(root).with_children(|p| {
-                    for placement in stations::placements(c) {
-                        let (Some(origin), Some(art)) = (
-                            Some(crate::forge_view::station_origin(placement)),
-                            stations.stations.get(&placement.id),
-                        ) else {
-                            continue;
-                        };
-                        let (pos, size) =
-                            spaces.station_rect(origin, Vec2::new(art.width(), art.height()));
-                        let Some(station) = Workstation::from_id(&placement.id) else {
-                            continue;
-                        };
-                        let selected = spaces.station == Some(station);
-                        p.spawn((
-                            bevy::ui_widgets::Button,
-                            StationHit,
-                            Action::Station(station),
-                            forge_ui::Help(format!(
-                                "{} · {}",
-                                station.label(),
-                                if station.simulated() {
-                                    "assign work"
-                                } else {
-                                    "preview only; not simulated yet"
-                                }
-                            )),
-                            bevy::picking::hover::Hovered::default(),
-                            Node {
-                                position_type: PositionType::Absolute,
-                                left: px(pos.x),
-                                top: px(pos.y),
-                                width: px(size.x),
-                                height: px(size.y),
-                                border: UiRect::all(px(if selected { 2. } else { 0. })),
-                                ..default()
-                            },
-                            BorderColor::all(forge_ui::INK),
-                            BackgroundColor(Color::NONE),
-                        ));
-                    }
-                });
-            }
-        }
-    }
+    // World-space alpha picking and outlines are owned by interior.rs.
     let Ok(root) = home.single() else {
         return;
     };
@@ -1325,18 +1195,6 @@ pub fn input(
 pub fn drawer_open(spaces: &Spaces) -> bool {
     spaces.space == Space::Workshop && (spaces.station.is_some() || spaces.manage)
 }
-trait Size {
-    fn width(&self) -> f32;
-    fn height(&self) -> f32;
-}
-impl Size for forge_npc::stations::StationArt {
-    fn width(&self) -> f32 {
-        self.size[0] as f32
-    }
-    fn height(&self) -> f32 {
-        self.size[1] as f32
-    }
-}
 /// At home the overlay shell is see-through so the forge scenes show beneath the navigation.
 pub fn shell_transparency(
     village: Res<Village>,
@@ -1365,7 +1223,6 @@ pub fn plugin(app: &mut App) {
         .add_systems(
             Update,
             (
-                tag_station_layers,
                 route,
                 sync_character,
                 drive_workshop,
