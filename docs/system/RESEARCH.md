@@ -1,6 +1,10 @@
-# Research — insight-gated discovery
+# Research — reusable engineering principles
 
-[경험](EXPRIENCE.md) · [무기](WEAPONS.md) · [제작](CRAFTING.md)
+[연구 노드 v1](RESEARCH_NODES_V1.md) · [경험](EXPRIENCE.md) · [무기](WEAPONS.md) · [제작](CRAFTING.md)
+
+## 최신 v1 설계 기준 (구현 전)
+
+16개 공통 원리 연구 노드의 **선행 조건, DAG 검증, 비용, 수치, 레시피 해금**은 [RESEARCH_NODES_V1.md](RESEARCH_NODES_V1.md)가 기준이다. 아래 기존 문단은 장기 확장 원칙으로 유지하며, 연구 노드를 무기 제작물의 직선적 해금 사슬로 해석하지 않는다. 부엌칼·갈퀴·몽둥이·나무방패·주방팬·못은 처음부터 제작 가능한 기본 아이템이다. 초기 연구 단서에는 무작위 필수 관문이 없고, 연구 XP는 선택한 활성 노드에 연구 활동으로만 적립된다. **현재 구현 완료가 아닌 수치 설계 계약**이다.
 
 ## 확정 메커니즘
 
