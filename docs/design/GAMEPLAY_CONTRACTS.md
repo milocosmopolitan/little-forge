@@ -28,7 +28,7 @@ Prefer stable typed IDs and small registries in forge-core/content, not a full E
 ItemId(u64), ArchetypeId(string), RecipeId(string), WorkId(u64), OrderId(u64)
 ItemInstance { id, archetype, origin, owner, location, provenance? }
 owner = Player | Npc(NpcId)
-location = Stored(SlotId) | Displayed(SlotId) | Entrusted(OrderId)
+location = Stored(ContainerId,SlotId) | Displayed(SlotId) | Entrusted(OrderId)
          | ReservedForOrder(OrderId) | Lent(ExpeditionId,MemberId) | Terminal(reason)
 origin = Crafted(WorkId) | ImportedLegacy(source_namespace,old_id?) | Entrusted(OrderId)
 WorkOrder { id, kind, terms_snapshot, paid_inputs, output_reservation, remaining_work }
@@ -66,7 +66,9 @@ Keep enqueue-time debit for MVP to preserve existing work semantics; store exact
 
 ### Capacity and migration, approval D05
 
-Recommend one finite player-item capacity with reservations retained while lent, so a returning weapon always has its original slot. Entrusted tools use order capacity, not player sale slots. Display is a flag/location within that finite storage. Alternative separate 32-item armory can coexist under one ItemId but hides a second storage budget from the player. Existing saves may have 24 showroom items plus 32 armory items; migrate all into a non-selling overflow/legacy capacity allowance with exact counts, no forced sales or deletion. D05 must approve this capacity change before implementation. Preserve existing old showroom overflow policy for already-marked legacy stock, distinguish newly imported armory overflow.
+Owner review separates identity from capacity. **Unify ItemId and ownership first; preserve the existing armory and showroom capacity policies during that migration.** One registry does not imply one storage budget. Represent location with its container kind and stable slot, and enforce the existing destination's eligibility/capacity atomically. Existing armory limit32 and rack capacities/upgrades remain unchanged; do not turn the potential24+32 items into a new pooled limit56, nor transfer capacity between containers implicitly.
+
+Loan-return reservation must belong to the originating container, not a global pool. Cross-container display/lending of newly supported archetypes still needs explicit compatibility rules; preserving capacity does not authorize every item in every slot. Keep entrusted tools outside player sale/equipment capacity. Preserve existing legacy overflow semantics and counts; do not invent new overflow merely to accommodate a capacity merger. Unified capacity remains a separate future economy decision, not a prerequisite for #119. History retention and legacy entitlements remain unresolved D05 decisions.
 
 Stage migrations with explicit version decoders from schema 7; do not choose a next version until integration branch is current. Deterministic ID map covers `(legacy_kind,old_id)` and old anonymous slots; do not synthesize craftsmanship/timestamps. Keep an old-ID alias table for battle snapshots and codex first records. A first_item_id with no true item link stays an historical local reference. Preserve paid active/queued work, command/event counters, stocks, smith, rules and two-slot recovery. Validate migrated totals before writing. Reject unknown future/current missing required fields; do not use serde defaults to erase missing authoritative records. Stable tagged versioned enums simplify explicit migration ([Serde representations](https://serde.rs/enum-representations.html)); representation alone does not validate gameplay invariants.
 
@@ -78,11 +80,11 @@ Transitions: Offered → Accepted → Queued → Working → Ready → Delivered
 
 Unresolved: docs propose paused-offline deadlines, but existing `Save::catch_up` advances the same tick used by Farmer deadlines. Options: (A) keep one capped simulation clock including offline, simple and deterministic; (B) add explicit active-time budget/deadline clock that pauses offline, friendlier but migration and suspend semantics required. Recommend A with completion-time adjudication for existing contracts; new-contract policy needs owner approval, not an inferred change. Deadline boundary is inclusive. No RNG gate for required starter requests.
 
-Repeat scheduling: preserve approved 30–60 minute direction. Proposed one shared village channel, persisted next_due/seed, no auto-accept, cap 3 offered/2 accepted, no relationship penalty for ignored offers. Caps/distribution remain proposals. Prefer deterministic round-robin eligible NPC selection plus seeded interval; alternative weighted random NPC selection risks starving required content. Narrative starter orders bypass timer. Offline proposal produces at most enough offers to fill the cap, does not fabricate accepted failures or completed orders. Reliable recovery income still needs explicit resource-free or NPC-supplied-input recovery contract, because spending all resources can otherwise softlock; this is a product decision, not an implemented feature.
+Repeat scheduling: evaluate the previously proposed 30–60 minute interval; it is not an approved balance requirement. Proposed one shared village channel, persisted next_due/seed, no auto-accept, cap 3 offered/2 accepted, no relationship penalty for ignored offers. Caps/distribution remain proposals. Prefer deterministic round-robin eligible NPC selection plus seeded interval; alternative weighted random NPC selection risks starving required content. Narrative starter orders bypass timer. Offline proposal produces at most enough offers to fill the cap, does not fabricate accepted failures or completed orders. Reliable recovery income still needs explicit resource-free or NPC-supplied-input recovery contract, because spending all resources can otherwise softlock; this is a product decision, not an implemented feature.
 
 ## Open decision
 
-D02: deadline clock, late/failure/cancel deltas, routine terms/caps, shop restock and zero-resource recovery. D03: recipe/practice costs and new fabrication effects. D05: common capacity, history retention, legacy entitlements. These are real blockers for generalized screens; do not fill them with fixture cards. See issue ownership in IMPLEMENTATION_SEQUENCE.
+D02: deadline clock, late/failure/cancel deltas, routine terms/caps, shop restock and zero-resource recovery. D03: recipe/practice costs and new fabrication effects. D05: identity/ownership migration, container-specific compatibility and return reservations, history retention and legacy entitlements. Capacity pooling is a separate economy review. These are real blockers for generalized screens; do not fill them with fixture cards. See issue ownership in IMPLEMENTATION_SEQUENCE.
 
 ## Explicitly excluded scope
 

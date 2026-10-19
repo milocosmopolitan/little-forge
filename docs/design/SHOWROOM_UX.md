@@ -45,7 +45,7 @@ Required balance evidence: 30/60/120-minute deterministic sessions for routine-r
 
 ## Open decision
 
-D07: price/rejection/visitor pacing, online browse durations, manual price scope; D02: repeat income, merchant restock, recovery; D05: common storage and return reservations. Reuse #92/#93/#95 for ownership/capacity/sales and #112 for presentation. Existing sale animation is implemented but incomplete for this design.
+D07: price/rejection/visitor pacing, online browse durations, manual price scope; D02: repeat income, merchant restock, recovery; D05: shared identity with existing separate storage budgets and container-specific return reservations. Reuse #92/#93/#95 for ownership/capacity/sales and #112 for presentation. Existing sale animation is implemented but incomplete for this design.
 
 ## Explicitly excluded scope
 

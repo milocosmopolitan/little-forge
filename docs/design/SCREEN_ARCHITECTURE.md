@@ -2,6 +2,8 @@
 
 Audit baseline: `6c6e8339f070229f8ea67925aeede550fee54a9d` (fresh `origin/main`). This is a pre-implementation contract, not a shipped-screen claim. Decision IDs refer to [implementation sequence](IMPLEMENTATION_SEQUENCE.md). Evidence and qualification are in [acceptance matrix](../qa/SCREEN_ACCEPTANCE_MATRIX.md).
 
+[D01 owner-review packet](D01_WORKSHOP_REVIEW.md) refines policy candidates and separates approval to verify a layout from visual acceptance. It does not declare the compact scene implemented.
+
 ## Approved decision
 
 Indoor workshop is the default ambient; exterior is secondary. Logical client sizes are 960×180 collapsed and 960×540 expanded. Management occupies only the upper 360 logical pixels. The same live workshop occupies the lower 180, with the same smith, work, animation and simulation continuity. All twelve screens reuse the existing Rust domain and Bevy application. No new assets or implementation are supplied by this audit.
@@ -38,7 +40,7 @@ Collapsed: world local rect (0,0)-(960,180); same bottom desktop edge.
 
 At normal size `world_rect=(0,H-180,960,180)`. In world local pixels with center origin, `world_x=x-480`, `world_y=90-y`; window input subtracts `(0,H-180)` first. DPI conversion rounds viewport edges together: physical edges = round(logical edge × scale factor). Do not multiply input by DPI twice. Window expansion changes top by −360×DPI, except work-area clamping; bottom error must be at most one physical pixel where the work area permits.
 
-Proposed constrained-work-area behavior: uniform fit `s=min(W/960,H/540,1)` keeps the partition 360s/180s; show a readable scale option / scrollable detail and qualify legibility separately. At 640×480 this gives a 640×360 canvas, 240px management and 120px world. This is a fallback, not pixel-perfect 1× support. Integer sprite scaling and fractional desktop DPI are different guarantees; 125/150% must be tested, not described as perfectly uniform pixels. Approval D01 must settle minimum supported logical work area and fallback typography.
+Earlier constrained-work-area candidate (not approved; see the review packet for the recommended first qualification target): uniform fit `s=min(W/960,H/540,1)` keeps the partition 360s/180s; show a readable scale option / scrollable detail and qualify legibility separately. At 640×480 this gives a 640×360 canvas, 240px management and 120px world. This is a fallback, not pixel-perfect 1× support. Integer sprite scaling and fractional desktop DPI are different guarantees; 125/150% must be tested, not described as perfectly uniform pixels. Approval D01 must settle minimum supported logical work area and fallback typography.
 
 Proposed scene adaptation: native 128×160 smith fits at 1× in 180px (foot around y=156); it cannot fit at 2×. Existing forge station is 128×144; anvil 64×64; tables 128×96. Recompose existing station layers across a 960×180 native scene, preserving each clip's contact offsets and head/foot margins. Existing 480×270 backdrop needs a reviewed crop/repeatable wall/floor export, not vertical squeezing. D01 owns this composition; no crop is approved here. A 480×90 strip at 2× would cut canonical characters and is rejected as the default approach.
 
@@ -61,11 +63,11 @@ One persistent `GameUiRoot` owns `ManagementHost`, `AmbientHitHost`, `Notificati
 
 Input pipeline: collect intent → route/modal ownership check → command validation → atomic state commit → journal persist → read-only projections → visual effects. All keyboard, pointer and programmatic Activate paths use the same guard. Modal makes lower strip noninteractive while it continues rendering; block F8 while modal is open, retain native emergency recovery. Global Tab opens from Ambient and traverses controls once expanded; Esc/Close collapses. Notifications do not focus or switch screens.
 
-Transparency does not imply per-pixel hit testing. Existing `CursorOptions.hit_test` switches the whole window. Keep the explicit 10-second click-through lease and safe opaque mode. D01 must resolve whether transparent non-hotspot regions require native passthrough during Interaction; do not claim existing whole-window toggling provides this.
+Transparency does not imply per-pixel hit testing. Existing `CursorOptions.hit_test` switches the whole window. Keep the explicit 10-second click-through lease and safe opaque mode. Owner selected default whole-window input capture plus explicit10-second passthrough; transparent non-hotspot regions do not pass clicks in Interaction. Per-pixel passthrough is outside this slice.
 
 ## Open decision
 
-D01: approve 1× compact composition, minimum work area fallback, and whole-window versus per-pixel interactive passthrough; register the eleven approved concept images and their crop/viewport intent under #118. Geometry above is a precise proposed contract, not visual approval. #63 owns routing consolidation and modal guards; #89/#107 own viewport adaptation.
+D01: approve final 1× compact composition and minimum work area fallback; whole-window input policy is now selected in the review packet. Register the eleven approved concept images and their crop/viewport intent under #118. Geometry above is a precise proposed contract, not visual approval. #63 owns routing consolidation and modal guards; #89/#107 own viewport adaptation.
 
 ## Explicitly excluded scope
 

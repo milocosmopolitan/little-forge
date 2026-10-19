@@ -43,7 +43,7 @@ Screen projections:
 
 ## Open decision
 
-D05: retention/pinning, unified ID/capacity migration, incomparable-quality presentation; D06: whether personal editable smith notes are MVP and their bounds. Shared identity prerequisite must land before three parallel projections. #79 owns records, #103 properties, #82/#83 field narrative/milestones.
+D05: retention/pinning, unified ID/ownership migration without pooling capacity, incomparable-quality presentation; D06: whether personal editable smith notes are MVP and their bounds. Shared identity prerequisite must land before three parallel projections. #79 owns records, #103 properties, #82/#83 field narrative/milestones.
 
 ## Explicitly excluded scope
 

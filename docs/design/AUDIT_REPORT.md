@@ -35,11 +35,15 @@ Freshly fetched PRs #97/#98/#102/#104/#105 are merged; no open PR was returned i
 6. **Economy is a tutorial slice.** Two one-off orders, no merchant restock,12G fast visitor dagger versus4G crafted-knife disposal and30–60minute intended repairs do not establish sustainable research/party progression.
 7. **Acceptance infrastructure has real gaps.**47 valid UI exports remain unapproved; Farmer byte regeneration fails; Linux golden fails and prior Windows Alpha times out. Real input/transparent compositor/hardware performance remain separate from fixtures and safe captures.
 
+## Owner review follow-up
+
+[D01 review packet](D01_WORKSHOP_REVIEW.md): default input capture with explicit10-second whole-window passthrough is now approved. Final compact composition, minimum display policy and native visual acceptance remain open. D05 now preserves separate armory/showroom capacity rules while unifying IDs and ownership; capacity pooling is a separate economy decision. The30–60minute order interval remains a candidate to validate, not accepted balance. No blanket D01–D07 approval or implementation authorization.
+
 ## Recommended decisions and unresolved approvals
 
 [Decision register D01–D07](IMPLEMENTATION_SEQUENCE.md#open-decision-register) compares feasible alternatives and names owners. Recommended smallest solution: persistent viewport/root, pure goal selector, one typed item registry with exact reservations, generic snapshotted order terms, deterministic single-smith research work, compact versioned front/rear party resolver and shared bounded historical projections. No event-sourcing platform, full RPG or per-screen databases.
 
-Owner approval is still required for compact scene/reference/minimum-display policy; deadline/late/relationship/recovery/restock rules; starter/experiment costs and research effects; hiring/Guard stats/encounters/mode rewards; unified capacity/legacy entitlements/history retention; dashboard priorities/notes; showroom price/rejection/pacing. Proposed numbers are clearly identified in their contracts; none changes shipped code or the16-node numerical baseline.
+Owner approval is still required for compact scene/reference/minimum-display policy; deadline/late/relationship/recovery/restock rules; starter/experiment costs and research effects; hiring/Guard stats/encounters/mode rewards; identity/ownership migration, preserved container budgets, legacy entitlements/history retention; dashboard priorities/notes; showroom price/rejection/pacing. Proposed numbers are clearly identified in their contracts; none changes shipped code or the16-node numerical baseline.
 
 ## Contradictions and disposition
 
@@ -76,7 +80,7 @@ Annotations lead the relevant canonical documents; old balance/evidence is retai
 
 ## Proposed execution and final gate
 
-Audit review/decisions → relevant QA defect resolution + #118 reference/art gate → #63/#89/#107 live strip → #119 identity/migration → content/orders/research → real screen slices → showroom and party → three historical views → native integrated acceptance. See dependency graph for safe parallel tracks and exact exit evidence. Do not start the first screen implementation PR until D01/reference/QA prerequisites are satisfied. This audit is delivered as a documentation-only PR for review, not merged automatically.
+Audit review/decisions → relevant QA defect resolution + #118 reference/art gate → #63/#89/#107 live strip → #119 identity/migration → content/orders/research → real screen slices → showroom and party → three historical views → native integrated acceptance. See dependency graph for safe parallel tracks and exact exit evidence. Do not start the first screen implementation PR until D01 policy/reference/QA prerequisites are satisfied. This audit is delivered as a documentation-only PR for review, not merged automatically.
 
 ## Explicitly excluded scope
 
