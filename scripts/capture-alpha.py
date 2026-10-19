@@ -51,7 +51,9 @@ for character, scenario in [("male", "alpha"), ("female", "alpha-female")]:
     for scene in scenes:
         path = output / f"{character}-{scene}.png"
         with Image.open(path) as image:
-            assert image.width / image.height == 960 / 540
+            # D01 starts inside the collapsed ambient workshop; later management views expand.
+            expected_height = 180 if scene == "workshop" else 540
+            assert image.width * expected_height == image.height * 960, (scene, image.size, expected_height)
             assert image.convert("RGB").getextrema()[0][1] > 100
         files[path.name] = hashlib.sha256(path.read_bytes()).hexdigest()
     reports[character] = {"result": "passed", "captures": files}
