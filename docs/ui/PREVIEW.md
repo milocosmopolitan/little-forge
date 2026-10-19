@@ -1,5 +1,7 @@
 # Shared UI workshop
 
+> **Screen audit supersession (2026-10-19 UTC):** Runtime now uses47 registered independent images; older source-sheet-sampling statements below are historical. runtime_ready remains false pending visual approval. This preview still has no gameplay transactions and cannot qualify redesigned screens. [Current audit](../design/ASSET_PRODUCTION.md).
+
 Run `cargo run -p ui-preview -- --story farm`. The packaged `ui-preview` binary
 uses the adjacent `assets` directory. No game simulation, saves, purchases or
 network calls run in this application. The desktop and preview import the same

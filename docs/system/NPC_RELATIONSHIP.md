@@ -1,5 +1,7 @@
 # NPC Relationship — 관계·의뢰·납기
 
+> **Screen audit supersession (2026-10-19 UTC):** Offline-paused deadlines below are a proposal, not current behavior: Farmer deadlines use the same tick advanced by capped catch-up. D02 must decide new-contract semantics; preserve existing completion-time terms and do not silently add relationship penalties. [Current audit](../design/GAMEPLAY_CONTRACTS.md).
+
 [홈](../../README.md) · [NPC](../npc/README.md) · [경제](ECONOMY.md) · [경험](EXPRIENCE.md)
 
 ## 확정된 관계

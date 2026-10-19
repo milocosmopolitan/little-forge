@@ -1,5 +1,7 @@
 # Experience — 경험·이해도·발견형 연구
 
+> **Screen audit supersession (2026-10-19 UTC):** New principle research uses deterministic mandatory clues, Lv1=0XP and active-node research work only. The older three-order/ probabilistic understanding paragraphs are historical design context and must not create RNG gates or passive node XP in v1. [Current audit](../design/RESEARCH_IMPLEMENTATION.md).
+
 [홈](../../README.md) · [제작](CRAFTING.md) · [NPC 관계](NPC_RELATIONSHIP.md)
 
 요청한 파일명 `EXPRIENCE.md`를 유지한다.

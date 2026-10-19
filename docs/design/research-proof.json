@@ -1,0 +1,237 @@
+{
+  "source_sha": "6c6e8339f070229f8ea67925aeede550fee54a9d",
+  "scope": "document DAG only; not runtime reachability or economy certification",
+  "nodes": [
+    {
+      "id": "MET-01",
+      "tier": "I",
+      "parents": [],
+      "mode": "AND",
+      "gate": "`blade_forging` Lv.1",
+      "xp": 24,
+      "gold": 6,
+      "seconds": 30
+    },
+    {
+      "id": "GEO-01",
+      "tier": "I",
+      "parents": [],
+      "mode": "AND",
+      "gate": "`edge_geometry` Lv.1 **OR** `blade_forging` Lv.1",
+      "xp": 24,
+      "gold": 6,
+      "seconds": 30
+    },
+    {
+      "id": "GEO-03",
+      "tier": "I",
+      "parents": [],
+      "mode": "AND",
+      "gate": "`impact_geometry` Lv.1",
+      "xp": 24,
+      "gold": 6,
+      "seconds": 30
+    },
+    {
+      "id": "ASM-01",
+      "tier": "I",
+      "parents": [],
+      "mode": "AND",
+      "gate": "`hafting` Lv.1",
+      "xp": 24,
+      "gold": 6,
+      "seconds": 30
+    },
+    {
+      "id": "ELA-01",
+      "tier": "I",
+      "parents": [],
+      "mode": "AND",
+      "gate": "`bow_assembly` Lv.1 (beginning practice allowed)",
+      "xp": 24,
+      "gold": 6,
+      "seconds": 30
+    },
+    {
+      "id": "DEF-01",
+      "tier": "I",
+      "parents": [],
+      "mode": "AND",
+      "gate": "`handle_fitting` Lv.1; basic wooden shield available without it",
+      "xp": 24,
+      "gold": 6,
+      "seconds": 30
+    },
+    {
+      "id": "PRE-01",
+      "tier": "I",
+      "parents": [],
+      "mode": "AND",
+      "gate": "`handle_fitting` Lv.1",
+      "xp": 24,
+      "gold": 6,
+      "seconds": 30
+    },
+    {
+      "id": "MET-02",
+      "tier": "II",
+      "parents": [
+        "MET-01"
+      ],
+      "mode": "AND",
+      "gate": "`blade_forging` Lv.2",
+      "xp": 48,
+      "gold": 12,
+      "seconds": 60
+    },
+    {
+      "id": "GEO-02",
+      "tier": "II",
+      "parents": [
+        "GEO-01",
+        "ASM-01"
+      ],
+      "mode": "OR",
+      "gate": "`point_forging` Lv.2",
+      "xp": 48,
+      "gold": 12,
+      "seconds": 60
+    },
+    {
+      "id": "ASM-02",
+      "tier": "II",
+      "parents": [
+        "ASM-01"
+      ],
+      "mode": "AND",
+      "gate": "`hafting` Lv.2",
+      "xp": 48,
+      "gold": 12,
+      "seconds": 60
+    },
+    {
+      "id": "ELA-02",
+      "tier": "II",
+      "parents": [
+        "ELA-01"
+      ],
+      "mode": "AND",
+      "gate": "`bow_assembly` Lv.2",
+      "xp": 48,
+      "gold": 12,
+      "seconds": 60
+    },
+    {
+      "id": "DEF-03",
+      "tier": "II",
+      "parents": [
+        "MET-01"
+      ],
+      "mode": "AND",
+      "gate": "`blade_forging` Lv.2 **or** `sheet_forming_practice` + `impact_geometry` Lv.2",
+      "xp": 48,
+      "gold": 12,
+      "seconds": 60
+    },
+    {
+      "id": "PRE-02",
+      "tier": "II",
+      "parents": [
+        "PRE-01",
+        "GEO-03"
+      ],
+      "mode": "AND",
+      "gate": "`impact_geometry` Lv.2",
+      "xp": 48,
+      "gold": 12,
+      "seconds": 60
+    },
+    {
+      "id": "DEF-02",
+      "tier": "III",
+      "parents": [
+        "DEF-01",
+        "DEF-03",
+        "ASM-02"
+      ],
+      "mode": "AND",
+      "gate": "`handle_fitting` Lv.3",
+      "xp": 80,
+      "gold": 24,
+      "seconds": 100
+    },
+    {
+      "id": "MET-03",
+      "tier": "III",
+      "parents": [
+        "MET-02"
+      ],
+      "mode": "AND",
+      "gate": "`blade_forging` Lv.3 + one deterministic material test",
+      "xp": 80,
+      "gold": 24,
+      "seconds": 100
+    },
+    {
+      "id": "PRE-03",
+      "tier": "III",
+      "parents": [
+        "PRE-02",
+        "MET-02"
+      ],
+      "mode": "AND",
+      "gate": "`handle_fitting` Lv.3",
+      "xp": 80,
+      "gold": 24,
+      "seconds": 100
+    }
+  ],
+  "topological_layers": [
+    [
+      "MET-01",
+      "GEO-01",
+      "GEO-03",
+      "ASM-01",
+      "ELA-01",
+      "DEF-01",
+      "PRE-01"
+    ],
+    [
+      "MET-02",
+      "GEO-02",
+      "ASM-02",
+      "ELA-02",
+      "DEF-03",
+      "PRE-02"
+    ],
+    [
+      "DEF-02",
+      "MET-03",
+      "PRE-03"
+    ]
+  ],
+  "total_gold": 186,
+  "total_nominal_seconds": 870,
+  "shortbow_nodes": [
+    "ELA-01",
+    "ELA-02"
+  ],
+  "spear_nodes": [
+    "ASM-01",
+    "GEO-02"
+  ],
+  "metal_shield_nodes": [
+    "ASM-01",
+    "ASM-02",
+    "DEF-01",
+    "DEF-02",
+    "DEF-03",
+    "MET-01"
+  ],
+  "unresolved": [
+    "experiment/material-test costs",
+    "six starter recipe costs and repeatability",
+    "option effect magnitudes",
+    "sustainable resource recovery"
+  ]
+}

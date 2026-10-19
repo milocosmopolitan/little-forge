@@ -1,5 +1,7 @@
 # Progression — 제작 경험, 기술 숙련, 연구 노드
 
+> **Screen audit supersession (2026-10-19 UTC):** PR105 is merged. For new16-node content, Lv1 starts at0XP, mandatory clues are deterministic, XP is node-local research work, and no Lv2 cap may block Lv3 prerequisites. Older cap/explicit-claim examples below are not implementation requirements; completion/migration details remain audit proposals pending approval. [Current audit](../design/RESEARCH_IMPLEMENTATION.md).
+
 [첫 유산](../mvp/FIRST_LEGACY.md) · [연구 노드 v1](RESEARCH_NODES_V1.md) · [연구](RESEARCH.md) · [경험](EXPRIENCE.md) · [제작](CRAFTING.md) · [도감](SMITHS_CODEX.md)
 
 ## 연구 트리 변경 안내 (2026-10-18)

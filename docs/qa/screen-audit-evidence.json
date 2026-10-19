@@ -1,0 +1,1097 @@
+{
+  "audited_main": "6c6e8339f070229f8ea67925aeede550fee54a9d",
+  "observed_utc": "2026-10-19T01:25:11.215503+00:00",
+  "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+  "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "workspace_tests": {
+    "result": "passed",
+    "count": 96
+  },
+  "fmt": "passed",
+  "strict_clippy": "passed",
+  "asset_validators": {
+    "assets": "passed",
+    "village": "passed",
+    "ui": "passed",
+    "spaces": "passed",
+    "expedition": "passed",
+    "ui_release": "failed: source-manifest.runtime_ready=false",
+    "farmer_runtime_check": "failed: stale assets/npc/farmer/runtime-atlas.png"
+  },
+  "native": {
+    "command": "cargo build --locked -p little-forge && python scripts/capture-alpha.py target/debug/little-forge --crafting --output <disposable directory>",
+    "result": "passed",
+    "save_reload": "equal",
+    "clock": "0.1s per rendered frame",
+    "fixture": "initial ore40 gold80 timber8 only; research and weapons earned",
+    "input": "production Bevy Activate controls",
+    "evidence": "screen-audit/native-crafting.json",
+    "qualification": "safe-window actual Bevy path only; no OS input, transparency, normal economy, Shadow PC or redesigned-screen qualification",
+    "screenshot": "screen-audit/native-common-crafting.png"
+  },
+  "ci": {
+    "conclusion": "failure",
+    "headSha": "6c6e8339f070229f8ea67925aeede550fee54a9d",
+    "jobs": [
+      {
+        "completedAt": "2026-10-19T00:47:43Z",
+        "conclusion": "success",
+        "databaseId": 117834674110,
+        "name": "verify (ubuntu-24.04)",
+        "startedAt": "2026-10-19T00:34:33Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-10-19T00:34:35Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-10-19T00:34:34Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:34:45Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4",
+            "number": 2,
+            "startedAt": "2026-10-19T00:34:35Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:34:54Z",
+            "conclusion": "success",
+            "name": "Run dtolnay/rust-toolchain@master",
+            "number": 3,
+            "startedAt": "2026-10-19T00:34:45Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:35:17Z",
+            "conclusion": "success",
+            "name": "Run Swatinem/rust-cache@v2",
+            "number": 4,
+            "startedAt": "2026-10-19T00:34:54Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:35:40Z",
+            "conclusion": "success",
+            "name": "Run sudo apt-get update && sudo apt-get install -y libx11-dev libxkbcommon-dev libxkbcommon-x11-0 libudev-dev libasound2-dev libwayland-dev libvulkan1 mesa-vulkan-drivers xvfb libxtst6",
+            "number": 5,
+            "startedAt": "2026-10-19T00:35:17Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:35:41Z",
+            "conclusion": "success",
+            "name": "Run cargo fmt --all -- --check",
+            "number": 6,
+            "startedAt": "2026-10-19T00:35:40Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:35:45Z",
+            "conclusion": "success",
+            "name": "Run cargo clippy --locked --workspace --all-targets -- -D warnings",
+            "number": 7,
+            "startedAt": "2026-10-19T00:35:41Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:35:56Z",
+            "conclusion": "success",
+            "name": "Run cargo test --locked --workspace",
+            "number": 8,
+            "startedAt": "2026-10-19T00:35:45Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:35:59Z",
+            "conclusion": "success",
+            "name": "Run python -m pip install -r scripts/requirements-qa.txt",
+            "number": 9,
+            "startedAt": "2026-10-19T00:35:56Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:36:00Z",
+            "conclusion": "success",
+            "name": "Run python scripts/validate-assets.py",
+            "number": 10,
+            "startedAt": "2026-10-19T00:35:59Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:36:00Z",
+            "conclusion": "success",
+            "name": "Run python scripts/validate-village.py",
+            "number": 11,
+            "startedAt": "2026-10-19T00:36:00Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:36:00Z",
+            "conclusion": "success",
+            "name": "Run python scripts/validate-ui.py",
+            "number": 12,
+            "startedAt": "2026-10-19T00:36:00Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:36:00Z",
+            "conclusion": "success",
+            "name": "Run python scripts/validate-spaces.py",
+            "number": 13,
+            "startedAt": "2026-10-19T00:36:00Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:36:01Z",
+            "conclusion": "success",
+            "name": "Run python scripts/validate-expedition.py",
+            "number": 14,
+            "startedAt": "2026-10-19T00:36:00Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:36:10Z",
+            "conclusion": "success",
+            "name": "Run mkdir -p qa-output",
+            "number": 15,
+            "startedAt": "2026-10-19T00:36:01Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:36:10Z",
+            "conclusion": "skipped",
+            "name": "Build Windows diagnostic executable",
+            "number": 16,
+            "startedAt": "2026-10-19T00:36:10Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:47:04Z",
+            "conclusion": "success",
+            "name": "Run cargo build --locked --release -p little-forge -p npc-preview -p ui-preview",
+            "number": 17,
+            "startedAt": "2026-10-19T00:36:10Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:47:04Z",
+            "conclusion": "skipped",
+            "name": "Capture expedition combat on native desktops",
+            "number": 18,
+            "startedAt": "2026-10-19T00:47:04Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:47:04Z",
+            "conclusion": "skipped",
+            "name": "Play Alpha 01 through production controls on native platforms",
+            "number": 19,
+            "startedAt": "2026-10-19T00:47:04Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:47:04Z",
+            "conclusion": "skipped",
+            "name": "Compare Windows debug scenes",
+            "number": 20,
+            "startedAt": "2026-10-19T00:47:04Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:47:04Z",
+            "conclusion": "skipped",
+            "name": "Run actions/upload-artifact@v4",
+            "number": 21,
+            "startedAt": "2026-10-19T00:47:04Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:47:04Z",
+            "conclusion": "skipped",
+            "name": "Compare Windows release scenes",
+            "number": 22,
+            "startedAt": "2026-10-19T00:47:04Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:47:04Z",
+            "conclusion": "skipped",
+            "name": "Capture native lifecycle on macOS and Windows",
+            "number": 23,
+            "startedAt": "2026-10-19T00:47:04Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:47:04Z",
+            "conclusion": "skipped",
+            "name": "Capture village UI on native macOS and Windows",
+            "number": 24,
+            "startedAt": "2026-10-19T00:47:04Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:47:04Z",
+            "conclusion": "skipped",
+            "name": "Capture forge spaces on native macOS and Windows",
+            "number": 25,
+            "startedAt": "2026-10-19T00:47:04Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:47:26Z",
+            "conclusion": "success",
+            "name": "Run python scripts/package.py",
+            "number": 26,
+            "startedAt": "2026-10-19T00:47:04Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:47:39Z",
+            "conclusion": "success",
+            "name": "Run actions/upload-artifact@v4",
+            "number": 27,
+            "startedAt": "2026-10-19T00:47:26Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:47:40Z",
+            "conclusion": "success",
+            "name": "Run actions/upload-artifact@v4",
+            "number": 28,
+            "startedAt": "2026-10-19T00:47:39Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:47:40Z",
+            "conclusion": "success",
+            "name": "Post Run Swatinem/rust-cache@v2",
+            "number": 55,
+            "startedAt": "2026-10-19T00:47:40Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:47:40Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v4",
+            "number": 56,
+            "startedAt": "2026-10-19T00:47:40Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:47:40Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 57,
+            "startedAt": "2026-10-19T00:47:40Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/milocosmopolitan/little-forge/actions/runs/39181315993/job/117834674110"
+      },
+      {
+        "completedAt": "2026-10-19T00:44:34Z",
+        "conclusion": "failure",
+        "databaseId": 117834674174,
+        "name": "visual",
+        "startedAt": "2026-10-19T00:34:33Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-10-19T00:34:35Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-10-19T00:34:33Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:34:44Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4",
+            "number": 2,
+            "startedAt": "2026-10-19T00:34:35Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:34:52Z",
+            "conclusion": "success",
+            "name": "Run dtolnay/rust-toolchain@master",
+            "number": 3,
+            "startedAt": "2026-10-19T00:34:44Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:35:03Z",
+            "conclusion": "success",
+            "name": "Run Swatinem/rust-cache@v2",
+            "number": 4,
+            "startedAt": "2026-10-19T00:34:52Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:35:23Z",
+            "conclusion": "success",
+            "name": "Run sudo apt-get update && sudo apt-get install -y libx11-dev libxkbcommon-dev libxkbcommon-x11-0 libudev-dev libasound2-dev libvulkan1 mesa-vulkan-drivers xvfb libxtst6",
+            "number": 5,
+            "startedAt": "2026-10-19T00:35:03Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:35:34Z",
+            "conclusion": "success",
+            "name": "Run cargo build --locked -p little-forge -p npc-preview -p ui-preview",
+            "number": 6,
+            "startedAt": "2026-10-19T00:35:23Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:35:40Z",
+            "conclusion": "success",
+            "name": "Run python -m pip install -r scripts/requirements-qa.txt",
+            "number": 7,
+            "startedAt": "2026-10-19T00:35:34Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:38:14Z",
+            "conclusion": "success",
+            "name": "Capture expedition combat in the actual game",
+            "number": 8,
+            "startedAt": "2026-10-19T00:35:40Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:44:14Z",
+            "conclusion": "success",
+            "name": "Play Alpha 01 through production controls",
+            "number": 9,
+            "startedAt": "2026-10-19T00:38:14Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:44:30Z",
+            "conclusion": "failure",
+            "name": "Run mkdir -p qa-output",
+            "number": 10,
+            "startedAt": "2026-10-19T00:44:14Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:44:30Z",
+            "conclusion": "skipped",
+            "name": "Capture shared UI fixtures",
+            "number": 11,
+            "startedAt": "2026-10-19T00:44:30Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:44:30Z",
+            "conclusion": "skipped",
+            "name": "Capture independent NPC stories and missing-art fallback",
+            "number": 12,
+            "startedAt": "2026-10-19T00:44:30Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:44:30Z",
+            "conclusion": "skipped",
+            "name": "Capture independent player smith stories (both characters, all clips)",
+            "number": 13,
+            "startedAt": "2026-10-19T00:44:30Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:44:30Z",
+            "conclusion": "skipped",
+            "name": "Capture forge spaces in the actual app",
+            "number": 14,
+            "startedAt": "2026-10-19T00:44:30Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:44:30Z",
+            "conclusion": "skipped",
+            "name": "Verify forge spaces with real X11 keyboard input",
+            "number": 15,
+            "startedAt": "2026-10-19T00:44:30Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:44:30Z",
+            "conclusion": "skipped",
+            "name": "Capture farmer purchase in the actual game",
+            "number": 16,
+            "startedAt": "2026-10-19T00:44:30Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:44:30Z",
+            "conclusion": "skipped",
+            "name": "Capture title screen in actual Bevy app",
+            "number": 17,
+            "startedAt": "2026-10-19T00:44:30Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:44:30Z",
+            "conclusion": "skipped",
+            "name": "Verify actual title keyboard and save flow",
+            "number": 18,
+            "startedAt": "2026-10-19T00:44:30Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:44:30Z",
+            "conclusion": "skipped",
+            "name": "Capture village navigation and vendors in the actual app",
+            "number": 19,
+            "startedAt": "2026-10-19T00:44:30Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:44:30Z",
+            "conclusion": "skipped",
+            "name": "Capture small work area and 200 percent DPI",
+            "number": 20,
+            "startedAt": "2026-10-19T00:44:30Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:44:30Z",
+            "conclusion": "skipped",
+            "name": "Verify village with real X11 pointer and keyboard input",
+            "number": 21,
+            "startedAt": "2026-10-19T00:44:30Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:44:30Z",
+            "conclusion": "skipped",
+            "name": "Capture lifecycle in the actual app",
+            "number": 22,
+            "startedAt": "2026-10-19T00:44:30Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:44:30Z",
+            "conclusion": "skipped",
+            "name": "Thirty-minute production-clock desktop soak",
+            "number": 23,
+            "startedAt": "2026-10-19T00:44:30Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:44:32Z",
+            "conclusion": "success",
+            "name": "Run actions/upload-artifact@v4",
+            "number": 24,
+            "startedAt": "2026-10-19T00:44:30Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:44:32Z",
+            "conclusion": "success",
+            "name": "Post Run Swatinem/rust-cache@v2",
+            "number": 47,
+            "startedAt": "2026-10-19T00:44:32Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:44:32Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v4",
+            "number": 48,
+            "startedAt": "2026-10-19T00:44:32Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:44:32Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 49,
+            "startedAt": "2026-10-19T00:44:32Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/milocosmopolitan/little-forge/actions/runs/39181315993/job/117834674174"
+      },
+      {
+        "completedAt": "2026-10-19T01:17:08Z",
+        "conclusion": "failure",
+        "databaseId": 117834674244,
+        "name": "verify (windows-2022)",
+        "startedAt": "2026-10-19T00:34:33Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-10-19T00:34:34Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-10-19T00:34:33Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:34:50Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4",
+            "number": 2,
+            "startedAt": "2026-10-19T00:34:34Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:35:04Z",
+            "conclusion": "success",
+            "name": "Run dtolnay/rust-toolchain@master",
+            "number": 3,
+            "startedAt": "2026-10-19T00:34:50Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:35:47Z",
+            "conclusion": "success",
+            "name": "Run Swatinem/rust-cache@v2",
+            "number": 4,
+            "startedAt": "2026-10-19T00:35:04Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:35:47Z",
+            "conclusion": "skipped",
+            "name": "Run sudo apt-get update && sudo apt-get install -y libx11-dev libxkbcommon-dev libxkbcommon-x11-0 libudev-dev libasound2-dev libwayland-dev libvulkan1 mesa-vulkan-drivers xvfb libxtst6",
+            "number": 5,
+            "startedAt": "2026-10-19T00:35:47Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:35:49Z",
+            "conclusion": "success",
+            "name": "Run cargo fmt --all -- --check",
+            "number": 6,
+            "startedAt": "2026-10-19T00:35:47Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:36:10Z",
+            "conclusion": "success",
+            "name": "Run cargo clippy --locked --workspace --all-targets -- -D warnings",
+            "number": 7,
+            "startedAt": "2026-10-19T00:35:49Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:36:40Z",
+            "conclusion": "success",
+            "name": "Run cargo test --locked --workspace",
+            "number": 8,
+            "startedAt": "2026-10-19T00:36:10Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:36:49Z",
+            "conclusion": "success",
+            "name": "Run python -m pip install -r scripts/requirements-qa.txt",
+            "number": 9,
+            "startedAt": "2026-10-19T00:36:40Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:36:49Z",
+            "conclusion": "success",
+            "name": "Run python scripts/validate-assets.py",
+            "number": 10,
+            "startedAt": "2026-10-19T00:36:49Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:36:50Z",
+            "conclusion": "success",
+            "name": "Run python scripts/validate-village.py",
+            "number": 11,
+            "startedAt": "2026-10-19T00:36:49Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:36:51Z",
+            "conclusion": "success",
+            "name": "Run python scripts/validate-ui.py",
+            "number": 12,
+            "startedAt": "2026-10-19T00:36:50Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:36:51Z",
+            "conclusion": "success",
+            "name": "Run python scripts/validate-spaces.py",
+            "number": 13,
+            "startedAt": "2026-10-19T00:36:51Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:36:52Z",
+            "conclusion": "success",
+            "name": "Run python scripts/validate-expedition.py",
+            "number": 14,
+            "startedAt": "2026-10-19T00:36:51Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:37:09Z",
+            "conclusion": "success",
+            "name": "Run mkdir -p qa-output",
+            "number": 15,
+            "startedAt": "2026-10-19T00:36:52Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:37:22Z",
+            "conclusion": "success",
+            "name": "Build Windows diagnostic executable",
+            "number": 16,
+            "startedAt": "2026-10-19T00:37:09Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T01:00:09Z",
+            "conclusion": "success",
+            "name": "Run cargo build --locked --release -p little-forge -p npc-preview -p ui-preview",
+            "number": 17,
+            "startedAt": "2026-10-19T00:37:22Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T01:07:02Z",
+            "conclusion": "success",
+            "name": "Capture expedition combat on native desktops",
+            "number": 18,
+            "startedAt": "2026-10-19T01:00:09Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T01:17:03Z",
+            "conclusion": "failure",
+            "name": "Play Alpha 01 through production controls on native platforms",
+            "number": 19,
+            "startedAt": "2026-10-19T01:07:02Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T01:17:03Z",
+            "conclusion": "skipped",
+            "name": "Compare Windows debug scenes",
+            "number": 20,
+            "startedAt": "2026-10-19T01:17:03Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T01:17:04Z",
+            "conclusion": "success",
+            "name": "Run actions/upload-artifact@v4",
+            "number": 21,
+            "startedAt": "2026-10-19T01:17:03Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T01:17:04Z",
+            "conclusion": "skipped",
+            "name": "Compare Windows release scenes",
+            "number": 22,
+            "startedAt": "2026-10-19T01:17:04Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T01:17:04Z",
+            "conclusion": "skipped",
+            "name": "Capture native lifecycle on macOS and Windows",
+            "number": 23,
+            "startedAt": "2026-10-19T01:17:04Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T01:17:04Z",
+            "conclusion": "skipped",
+            "name": "Capture village UI on native macOS and Windows",
+            "number": 24,
+            "startedAt": "2026-10-19T01:17:04Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T01:17:04Z",
+            "conclusion": "skipped",
+            "name": "Capture forge spaces on native macOS and Windows",
+            "number": 25,
+            "startedAt": "2026-10-19T01:17:04Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T01:17:04Z",
+            "conclusion": "skipped",
+            "name": "Run python scripts/package.py",
+            "number": 26,
+            "startedAt": "2026-10-19T01:17:04Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T01:17:04Z",
+            "conclusion": "skipped",
+            "name": "Run actions/upload-artifact@v4",
+            "number": 27,
+            "startedAt": "2026-10-19T01:17:04Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T01:17:05Z",
+            "conclusion": "success",
+            "name": "Run actions/upload-artifact@v4",
+            "number": 28,
+            "startedAt": "2026-10-19T01:17:04Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T01:17:05Z",
+            "conclusion": "success",
+            "name": "Post Run Swatinem/rust-cache@v2",
+            "number": 55,
+            "startedAt": "2026-10-19T01:17:05Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T01:17:07Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v4",
+            "number": 56,
+            "startedAt": "2026-10-19T01:17:05Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T01:17:07Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 57,
+            "startedAt": "2026-10-19T01:17:07Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/milocosmopolitan/little-forge/actions/runs/39181315993/job/117834674244"
+      },
+      {
+        "completedAt": "2026-10-19T01:03:12Z",
+        "conclusion": "success",
+        "databaseId": 117834674270,
+        "name": "verify (macos-14)",
+        "startedAt": "2026-10-19T00:34:39Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-10-19T00:34:41Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-10-19T00:34:39Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:34:55Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4",
+            "number": 2,
+            "startedAt": "2026-10-19T00:34:42Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:35:04Z",
+            "conclusion": "success",
+            "name": "Run dtolnay/rust-toolchain@master",
+            "number": 3,
+            "startedAt": "2026-10-19T00:34:55Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:35:45Z",
+            "conclusion": "success",
+            "name": "Run Swatinem/rust-cache@v2",
+            "number": 4,
+            "startedAt": "2026-10-19T00:35:04Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:35:45Z",
+            "conclusion": "skipped",
+            "name": "Run sudo apt-get update && sudo apt-get install -y libx11-dev libxkbcommon-dev libxkbcommon-x11-0 libudev-dev libasound2-dev libwayland-dev libvulkan1 mesa-vulkan-drivers xvfb libxtst6",
+            "number": 5,
+            "startedAt": "2026-10-19T00:35:45Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:35:46Z",
+            "conclusion": "success",
+            "name": "Run cargo fmt --all -- --check",
+            "number": 6,
+            "startedAt": "2026-10-19T00:35:45Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:36:01Z",
+            "conclusion": "success",
+            "name": "Run cargo clippy --locked --workspace --all-targets -- -D warnings",
+            "number": 7,
+            "startedAt": "2026-10-19T00:35:46Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:36:32Z",
+            "conclusion": "success",
+            "name": "Run cargo test --locked --workspace",
+            "number": 8,
+            "startedAt": "2026-10-19T00:36:01Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:36:36Z",
+            "conclusion": "success",
+            "name": "Run python -m pip install -r scripts/requirements-qa.txt",
+            "number": 9,
+            "startedAt": "2026-10-19T00:36:32Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:36:37Z",
+            "conclusion": "success",
+            "name": "Run python scripts/validate-assets.py",
+            "number": 10,
+            "startedAt": "2026-10-19T00:36:36Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:36:37Z",
+            "conclusion": "success",
+            "name": "Run python scripts/validate-village.py",
+            "number": 11,
+            "startedAt": "2026-10-19T00:36:37Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:36:38Z",
+            "conclusion": "success",
+            "name": "Run python scripts/validate-ui.py",
+            "number": 12,
+            "startedAt": "2026-10-19T00:36:37Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:36:38Z",
+            "conclusion": "success",
+            "name": "Run python scripts/validate-spaces.py",
+            "number": 13,
+            "startedAt": "2026-10-19T00:36:38Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:36:39Z",
+            "conclusion": "success",
+            "name": "Run python scripts/validate-expedition.py",
+            "number": 14,
+            "startedAt": "2026-10-19T00:36:38Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:36:56Z",
+            "conclusion": "success",
+            "name": "Run mkdir -p qa-output",
+            "number": 15,
+            "startedAt": "2026-10-19T00:36:39Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:36:56Z",
+            "conclusion": "skipped",
+            "name": "Build Windows diagnostic executable",
+            "number": 16,
+            "startedAt": "2026-10-19T00:36:56Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:50:29Z",
+            "conclusion": "success",
+            "name": "Run cargo build --locked --release -p little-forge -p npc-preview -p ui-preview",
+            "number": 17,
+            "startedAt": "2026-10-19T00:36:56Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:51:42Z",
+            "conclusion": "success",
+            "name": "Capture expedition combat on native desktops",
+            "number": 18,
+            "startedAt": "2026-10-19T00:50:29Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:56:26Z",
+            "conclusion": "success",
+            "name": "Play Alpha 01 through production controls on native platforms",
+            "number": 19,
+            "startedAt": "2026-10-19T00:51:42Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:56:26Z",
+            "conclusion": "skipped",
+            "name": "Compare Windows debug scenes",
+            "number": 20,
+            "startedAt": "2026-10-19T00:56:26Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:56:26Z",
+            "conclusion": "skipped",
+            "name": "Run actions/upload-artifact@v4",
+            "number": 21,
+            "startedAt": "2026-10-19T00:56:26Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:56:26Z",
+            "conclusion": "skipped",
+            "name": "Compare Windows release scenes",
+            "number": 22,
+            "startedAt": "2026-10-19T00:56:26Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T00:59:59Z",
+            "conclusion": "success",
+            "name": "Capture native lifecycle on macOS and Windows",
+            "number": 23,
+            "startedAt": "2026-10-19T00:56:26Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T01:01:21Z",
+            "conclusion": "success",
+            "name": "Capture village UI on native macOS and Windows",
+            "number": 24,
+            "startedAt": "2026-10-19T00:59:59Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T01:02:29Z",
+            "conclusion": "success",
+            "name": "Capture forge spaces on native macOS and Windows",
+            "number": 25,
+            "startedAt": "2026-10-19T01:01:21Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T01:02:53Z",
+            "conclusion": "success",
+            "name": "Run python scripts/package.py",
+            "number": 26,
+            "startedAt": "2026-10-19T01:02:29Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T01:03:05Z",
+            "conclusion": "success",
+            "name": "Run actions/upload-artifact@v4",
+            "number": 27,
+            "startedAt": "2026-10-19T01:02:53Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T01:03:08Z",
+            "conclusion": "success",
+            "name": "Run actions/upload-artifact@v4",
+            "number": 28,
+            "startedAt": "2026-10-19T01:03:05Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T01:03:08Z",
+            "conclusion": "success",
+            "name": "Post Run Swatinem/rust-cache@v2",
+            "number": 55,
+            "startedAt": "2026-10-19T01:03:08Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T01:03:08Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v4",
+            "number": 56,
+            "startedAt": "2026-10-19T01:03:08Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-19T01:03:10Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 57,
+            "startedAt": "2026-10-19T01:03:08Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/milocosmopolitan/little-forge/actions/runs/39181315993/job/117834674270"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/milocosmopolitan/little-forge/actions/runs/39181315993"
+  },
+  "excluded": [
+    "No baseline modifications",
+    "No new asset generation",
+    "No gameplay implementation",
+    "No test weakening"
+  ],
+  "logs": {
+    "workspace-tests.log": {
+      "path": "screen-audit/workspace-tests.txt",
+      "sha256": "ae0d1da6b009488d1c616525ce18f07ddeb69a1a6c92ad87412233d1ffe161f2"
+    },
+    "fmt.log": {
+      "path": "screen-audit/fmt.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "clippy.log": {
+      "path": "screen-audit/clippy.txt",
+      "sha256": "89702686a41b1cb14f425705dcf5af46b1c5c044e2e83d12f0475709f062bbc7"
+    },
+    "validate-assets.log": {
+      "path": "screen-audit/validate-assets.txt",
+      "sha256": "661a341518a15643c091fec319d6a662e4f5a962dd68c19bbd7808df4ce1dc41"
+    },
+    "validate-village.log": {
+      "path": "screen-audit/validate-village.txt",
+      "sha256": "8beb546be2b4b2e4c2bc3bbee9a888d313beaad03b95c519a4e1c9e78f72fa6f"
+    },
+    "validate-ui.log": {
+      "path": "screen-audit/validate-ui.txt",
+      "sha256": "6b4aae7d447d3889737579194bc2a93a6dab985555a9373fbcd9c06c4955e1eb"
+    },
+    "validate-spaces.log": {
+      "path": "screen-audit/validate-spaces.txt",
+      "sha256": "5875217ea647308915cba7733e94e71277624e02d7c296dcdf9629fe91e02f09"
+    },
+    "validate-expedition.log": {
+      "path": "screen-audit/validate-expedition.txt",
+      "sha256": "6a79357c1e9fa578de9b94e4eb97c431bfab262396b237f14429c12cce7ff22c"
+    },
+    "validate-ui-release.log": {
+      "path": "screen-audit/validate-ui-release.txt",
+      "sha256": "636a17ef246031ecb0349c1999a4ab627edd050c58636ddfe1319f316bdc2135"
+    },
+    "export-farmer-runtime.log": {
+      "path": "screen-audit/export-farmer-runtime.txt",
+      "sha256": "6ccddb35d2efbee445d59ef4918903aea29c880e0b87c22cfcc739f701faf42f"
+    },
+    "native-crafting.log": {
+      "path": "screen-audit/native-crafting.txt",
+      "sha256": "e177324906238f74939811edb0d6efe4999fe74303f123df9b4f35646608d687"
+    }
+  },
+  "ci_failure_log": "screen-audit/ci-final-failed.txt"
+}

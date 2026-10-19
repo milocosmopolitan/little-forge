@@ -1,5 +1,7 @@
 # Economy — 마을 경제
 
+> **Screen audit supersession (2026-10-19 UTC):** Current core already performs visitor sales during capped8h offline catch-up. Repeat orders/restock and sustainable research/party economy remain missing. Current fast12G dagger sales and4G crafted-knife disposal are distinct legacy paths, not approved unified pricing. [Current audit](../design/SHOWROOM_UX.md).
+
 [홈](../../README.md) · [관계](NPC_RELATIONSHIP.md) · [제작](CRAFTING.md) · [탐험](EXPEDITION.md)
 
 ## 핵심 결정

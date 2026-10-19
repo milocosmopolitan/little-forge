@@ -1,0 +1,3 @@
+Source hashes/dimensions and ASCII + 11,172 Hangul syllables verified.
+Runtime exports verified: 47 independent files, true pixel grid, palette limits, hard alpha, matching states/icons.
+Art gate: exports registered; runtime_ready stays false until visual approval.

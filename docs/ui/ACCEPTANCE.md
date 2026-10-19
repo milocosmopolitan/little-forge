@@ -1,5 +1,7 @@
 # Epic 58 integration review — 2026-10-17
 
+> **Screen audit supersession (2026-10-19 UTC):** Current manifest has47 files (19 controls+24 icons+4 headers), not48. Exports and scrollbar/modal sprites exist, but visual approval remains pending. Earlier absent-export statements below describe older work, not latest main. [Current audit](../design/ASSET_PRODUCTION.md).
+
 Status: **draft; epic and children remain open**. This branch adds shared Bevy
 widgets and runnable game windows, but it does not satisfy the mandatory art-first
 export gate. No issue is auto-closed by this PR.

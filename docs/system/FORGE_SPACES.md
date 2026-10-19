@@ -1,5 +1,7 @@
 # Forge Spaces — 세 공간·작업·진열 용량 계약 (Epic #86)
 
+> **Screen audit supersession (2026-10-19 UTC):** The exterior-default/full-height layout below describes the existing implementation. #106/#107 supersede it with indoor ambient and the same live lower180px. Current save schema is7; old schema4/5 descriptions are historical. Compact art/geometry still needs approval. [Current audit](../design/SCREEN_ARCHITECTURE.md).
+
 [홈](../../README.md) · [아키텍처](../../ARCHITECTURE.md) · [제작](CRAFTING.md) · [마을 거래](VILLAGE_COMMERCE.md) · [QA 증거](../qa/FORGE_SPACES.md)
 
 > 상태: **구현 계약**. 2026-10-18 main `340940a` 조사와 사용자 결정(외형만 다른 캐릭터 선택, 같은 상태를

@@ -1,5 +1,7 @@
 # Playable Alpha 01
 
+> **Screen audit supersession (2026-10-19 UTC):** This file preserves Alpha scope/evidence. PR102/104 expedition and crafted-property work is merged; earlier deferred/absent expedition paragraphs do not describe latest main. Redesigned screens/16-node graph/party are still pending. [Current audit](SCREEN_ACCEPTANCE_MATRIX.md).
+
 2026-10-18. Original captures were made against `ad09f282e30876dc01f61ca65da9f9264c95dad1`; the implementation is now integrated on combat merge `c4a35bf`.
 The Chef → Dagger → Codex slice is playable. This is local implementation and macOS
 verification, not completion of the four parent epics or cross-platform release approval.

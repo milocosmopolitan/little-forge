@@ -1,5 +1,7 @@
 # Architecture
 
+> **Screen audit supersession (2026-10-19 UTC):** Current main uses save schema7 (forge-core/src/save.rs), not the historical schema4 below. #106 approves default indoor960×180 and persistent lower180 during960×540 management. See the audit for proposed viewport/identity/party contracts; no runtime changes are made by that document. [Current audit](docs/design/AUDIT_REPORT.md).
+
 Bevy 0.20.0 owns desktop windows, input, rendering, assets and presentation. Pure Rust owns game rules from the first implementation. Foundation is production repository code, not a throwaway POC.
 
 ## Workspace boundaries

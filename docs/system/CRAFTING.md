@@ -1,5 +1,7 @@
 # Crafting — 제작·수리
 
+> **Screen audit supersession (2026-10-19 UTC):** Current jobs debit inputs at enqueue and reserve general output storage at start. Reserve-then-consume and cancellation paragraphs below remain proposals. The audit recommends explicit paid-input snapshots, canonical item identity and no invented salvage/refund rules. [Current audit](../design/GAMEPLAY_CONTRACTS.md).
+
 [홈](../../README.md) · [제작물](../items/CRAFTABLES.md) · [경험](EXPRIENCE.md) · [관계](NPC_RELATIONSHIP.md)
 
 ## 중심 활동
