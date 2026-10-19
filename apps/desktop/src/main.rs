@@ -624,49 +624,41 @@ fn setup(
     ));
     let manifest = forge_content::Manifest::bundled().expect("validated bundled manifest");
     let visitor_meta = manifest.assets.iter().find(|a| a.id == "visitor").unwrap();
-    let frame_layout = |asset: &forge_content::Asset| {
-        let mut layout = TextureAtlasLayout::new_empty(UVec2::new(asset.width, asset.height));
-        for r in &asset.frame_rects {
-            layout.add_texture(URect::new(r[0], r[1], r[2], r[3]));
-        }
-        layout
-    };
-    let sizes = |asset: &forge_content::Asset| {
-        asset
-            .frame_rects
-            .iter()
-            .map(|r| Vec2::new((r[2] - r[0]) as f32 / (r[3] - r[1]) as f32 * 75., 75.))
-            .collect::<Vec<_>>()
-    };
-    let visitor_sizes = sizes(visitor_meta);
+    let visitor_sizes = vec![Vec2::new(96., 120.); visitor_meta.frame_rects.len()];
     let visitor_hands = visitor_meta
         .walking_hand_points
         .iter()
         .enumerate()
         .map(|(i, p)| {
             let r = visitor_meta.frame_rects[i + 4];
-            let scale = 75. / (r[3] - r[1]) as f32;
+            let scale = interior::CHARACTER_SCALE / 3.;
             Vec2::new(
                 (p[0] as f32 - (r[0] + r[2]) as f32 / 2.) * scale,
                 (r[3] as f32 - p[1] as f32) * scale,
             )
         })
         .collect();
-    let visitor_layout = layouts.add(frame_layout(visitor_meta));
+    let visitor_layout = layouts.add(TextureAtlasLayout::from_grid(
+        UVec2::new(96, 120),
+        4,
+        3,
+        None,
+        None,
+    ));
     // The legacy smith sheet is no longer drawn: the chosen player character owns that role
     // (spaces.rs). The visitor sheet stays a visitor and is never used for the player.
     commands.spawn((
         Sprite {
-            image: server.load("forge/visitor.png"),
+            image: server.load("forge/atlas-v1/visitor-75.png"),
             texture_atlas: Some(TextureAtlas {
                 layout: visitor_layout,
                 index: 0,
             }),
-            custom_size: Some(Vec2::splat(85.)),
+            custom_size: Some(Vec2::new(96., 120.)),
             ..default()
         },
         Transform::from_xyz(-430., -85., 3.),
-        bevy::sprite::Anchor::BOTTOM_CENTER,
+        bevy::sprite::Anchor(Vec2::new(0., -0.375)),
         Visibility::Hidden,
         spaces::SceneOf(forge_core::spaces::Space::Exterior),
         Visitor,

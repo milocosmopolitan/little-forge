@@ -1,0 +1,1256 @@
+[
+  {
+    "gender": "female",
+    "state": "forging",
+    "frame": "forging-2",
+    "origin": [
+      335,
+      52
+    ],
+    "exact_origin": [
+      335.0,
+      52.5
+    ],
+    "contact_rounding_error": [
+      0.0,
+      -0.5
+    ],
+    "foot_y": 157,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "female",
+    "state": "hammering",
+    "frame": "hammering-3",
+    "origin": [
+      488,
+      52
+    ],
+    "exact_origin": [
+      487.5,
+      51.5
+    ],
+    "contact_rounding_error": [
+      0.5,
+      0.5
+    ],
+    "foot_y": 157,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "female",
+    "state": "quenching",
+    "frame": "quenching-2",
+    "origin": [
+      623,
+      51
+    ],
+    "exact_origin": [
+      623.25,
+      50.75
+    ],
+    "contact_rounding_error": [
+      -0.25,
+      0.25
+    ],
+    "foot_y": 156,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "female",
+    "state": "researching",
+    "frame": "researching-2",
+    "origin": [
+      816,
+      43
+    ],
+    "exact_origin": [
+      816.0,
+      42.75
+    ],
+    "contact_rounding_error": [
+      0.0,
+      0.25
+    ],
+    "foot_y": 148,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "female",
+    "state": "forging",
+    "frame": "forging-0",
+    "origin": [
+      335,
+      52
+    ],
+    "exact_origin": [
+      335.0,
+      52.5
+    ],
+    "contact_rounding_error": [
+      0.0,
+      -0.5
+    ],
+    "foot_y": 157,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "female",
+    "state": "hammering",
+    "frame": "hammering-3",
+    "origin": [
+      488,
+      52
+    ],
+    "exact_origin": [
+      487.5,
+      51.5
+    ],
+    "contact_rounding_error": [
+      0.5,
+      0.5
+    ],
+    "foot_y": 157,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "female",
+    "state": "quenching",
+    "frame": "quenching-0",
+    "origin": [
+      623,
+      51
+    ],
+    "exact_origin": [
+      623.25,
+      50.75
+    ],
+    "contact_rounding_error": [
+      -0.25,
+      0.25
+    ],
+    "foot_y": 156,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "female",
+    "state": "researching",
+    "frame": "researching-0",
+    "origin": [
+      816,
+      43
+    ],
+    "exact_origin": [
+      816.0,
+      42.75
+    ],
+    "contact_rounding_error": [
+      0.0,
+      0.25
+    ],
+    "foot_y": 148,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "female",
+    "state": "forging",
+    "frame": "forging-1",
+    "origin": [
+      335,
+      52
+    ],
+    "exact_origin": [
+      335.0,
+      52.5
+    ],
+    "contact_rounding_error": [
+      0.0,
+      -0.5
+    ],
+    "foot_y": 157,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "female",
+    "state": "hammering",
+    "frame": "hammering-3",
+    "origin": [
+      488,
+      52
+    ],
+    "exact_origin": [
+      487.5,
+      51.5
+    ],
+    "contact_rounding_error": [
+      0.5,
+      0.5
+    ],
+    "foot_y": 157,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "female",
+    "state": "quenching",
+    "frame": "quenching-1",
+    "origin": [
+      623,
+      51
+    ],
+    "exact_origin": [
+      623.25,
+      50.75
+    ],
+    "contact_rounding_error": [
+      -0.25,
+      0.25
+    ],
+    "foot_y": 156,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "female",
+    "state": "researching",
+    "frame": "researching-1",
+    "origin": [
+      816,
+      43
+    ],
+    "exact_origin": [
+      816.0,
+      42.75
+    ],
+    "contact_rounding_error": [
+      0.0,
+      0.25
+    ],
+    "foot_y": 148,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "female",
+    "state": "forging",
+    "frame": "forging-2",
+    "origin": [
+      335,
+      52
+    ],
+    "exact_origin": [
+      335.0,
+      52.5
+    ],
+    "contact_rounding_error": [
+      0.0,
+      -0.5
+    ],
+    "foot_y": 157,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "female",
+    "state": "hammering",
+    "frame": "hammering-3",
+    "origin": [
+      488,
+      52
+    ],
+    "exact_origin": [
+      487.5,
+      51.5
+    ],
+    "contact_rounding_error": [
+      0.5,
+      0.5
+    ],
+    "foot_y": 157,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "female",
+    "state": "quenching",
+    "frame": "quenching-2",
+    "origin": [
+      623,
+      51
+    ],
+    "exact_origin": [
+      623.25,
+      50.75
+    ],
+    "contact_rounding_error": [
+      -0.25,
+      0.25
+    ],
+    "foot_y": 156,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "female",
+    "state": "researching",
+    "frame": "researching-2",
+    "origin": [
+      816,
+      43
+    ],
+    "exact_origin": [
+      816.0,
+      42.75
+    ],
+    "contact_rounding_error": [
+      0.0,
+      0.25
+    ],
+    "foot_y": 148,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "female",
+    "state": "forging",
+    "frame": "forging-3",
+    "origin": [
+      335,
+      52
+    ],
+    "exact_origin": [
+      335.0,
+      52.5
+    ],
+    "contact_rounding_error": [
+      0.0,
+      -0.5
+    ],
+    "foot_y": 157,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "female",
+    "state": "hammering",
+    "frame": "hammering-3",
+    "origin": [
+      488,
+      52
+    ],
+    "exact_origin": [
+      487.5,
+      51.5
+    ],
+    "contact_rounding_error": [
+      0.5,
+      0.5
+    ],
+    "foot_y": 157,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "female",
+    "state": "quenching",
+    "frame": "quenching-3",
+    "origin": [
+      623,
+      51
+    ],
+    "exact_origin": [
+      623.25,
+      50.75
+    ],
+    "contact_rounding_error": [
+      -0.25,
+      0.25
+    ],
+    "foot_y": 156,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "female",
+    "state": "salvaging",
+    "frame": "salvaging-3",
+    "origin": [
+      816,
+      56
+    ],
+    "exact_origin": [
+      816.0,
+      55.5
+    ],
+    "contact_rounding_error": [
+      0.0,
+      0.5
+    ],
+    "foot_y": 161,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "female",
+    "state": "forging",
+    "frame": "forging-4",
+    "origin": [
+      335,
+      52
+    ],
+    "exact_origin": [
+      335.0,
+      52.5
+    ],
+    "contact_rounding_error": [
+      0.0,
+      -0.5
+    ],
+    "foot_y": 157,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "female",
+    "state": "hammering",
+    "frame": "hammering-3",
+    "origin": [
+      488,
+      52
+    ],
+    "exact_origin": [
+      487.5,
+      51.5
+    ],
+    "contact_rounding_error": [
+      0.5,
+      0.5
+    ],
+    "foot_y": 157,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "female",
+    "state": "quenching",
+    "frame": "quenching-4",
+    "origin": [
+      623,
+      51
+    ],
+    "exact_origin": [
+      623.25,
+      50.75
+    ],
+    "contact_rounding_error": [
+      -0.25,
+      0.25
+    ],
+    "foot_y": 156,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "female",
+    "state": "salvaging",
+    "frame": "salvaging-4",
+    "origin": [
+      816,
+      56
+    ],
+    "exact_origin": [
+      816.0,
+      55.5
+    ],
+    "contact_rounding_error": [
+      0.0,
+      0.5
+    ],
+    "foot_y": 161,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "female",
+    "state": "forging",
+    "frame": "forging-5",
+    "origin": [
+      335,
+      52
+    ],
+    "exact_origin": [
+      335.0,
+      52.5
+    ],
+    "contact_rounding_error": [
+      0.0,
+      -0.5
+    ],
+    "foot_y": 157,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "female",
+    "state": "hammering",
+    "frame": "hammering-3",
+    "origin": [
+      488,
+      52
+    ],
+    "exact_origin": [
+      487.5,
+      51.5
+    ],
+    "contact_rounding_error": [
+      0.5,
+      0.5
+    ],
+    "foot_y": 157,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "female",
+    "state": "quenching",
+    "frame": "quenching-5",
+    "origin": [
+      623,
+      51
+    ],
+    "exact_origin": [
+      623.25,
+      50.75
+    ],
+    "contact_rounding_error": [
+      -0.25,
+      0.25
+    ],
+    "foot_y": 156,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "female",
+    "state": "salvaging",
+    "frame": "salvaging-5",
+    "origin": [
+      816,
+      56
+    ],
+    "exact_origin": [
+      816.0,
+      55.5
+    ],
+    "contact_rounding_error": [
+      0.0,
+      0.5
+    ],
+    "foot_y": 161,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "male",
+    "state": "forging",
+    "frame": "forging-2",
+    "origin": [
+      335,
+      50
+    ],
+    "exact_origin": [
+      335.0,
+      50.25
+    ],
+    "contact_rounding_error": [
+      0.0,
+      -0.25
+    ],
+    "foot_y": 155,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "male",
+    "state": "hammering",
+    "frame": "hammering-3",
+    "origin": [
+      488,
+      50
+    ],
+    "exact_origin": [
+      488.25,
+      50.0
+    ],
+    "contact_rounding_error": [
+      -0.25,
+      0.0
+    ],
+    "foot_y": 155,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "male",
+    "state": "quenching",
+    "frame": "quenching-2",
+    "origin": [
+      629,
+      46
+    ],
+    "exact_origin": [
+      629.25,
+      46.25
+    ],
+    "contact_rounding_error": [
+      -0.25,
+      -0.25
+    ],
+    "foot_y": 151,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "male",
+    "state": "researching",
+    "frame": "researching-2",
+    "origin": [
+      816,
+      43
+    ],
+    "exact_origin": [
+      816.0,
+      42.75
+    ],
+    "contact_rounding_error": [
+      0.0,
+      0.25
+    ],
+    "foot_y": 148,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "male",
+    "state": "forging",
+    "frame": "forging-0",
+    "origin": [
+      335,
+      50
+    ],
+    "exact_origin": [
+      335.0,
+      50.25
+    ],
+    "contact_rounding_error": [
+      0.0,
+      -0.25
+    ],
+    "foot_y": 155,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "male",
+    "state": "hammering",
+    "frame": "hammering-3",
+    "origin": [
+      488,
+      50
+    ],
+    "exact_origin": [
+      488.25,
+      50.0
+    ],
+    "contact_rounding_error": [
+      -0.25,
+      0.0
+    ],
+    "foot_y": 155,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "male",
+    "state": "quenching",
+    "frame": "quenching-0",
+    "origin": [
+      629,
+      46
+    ],
+    "exact_origin": [
+      629.25,
+      46.25
+    ],
+    "contact_rounding_error": [
+      -0.25,
+      -0.25
+    ],
+    "foot_y": 151,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "male",
+    "state": "researching",
+    "frame": "researching-0",
+    "origin": [
+      816,
+      43
+    ],
+    "exact_origin": [
+      816.0,
+      42.75
+    ],
+    "contact_rounding_error": [
+      0.0,
+      0.25
+    ],
+    "foot_y": 148,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "male",
+    "state": "forging",
+    "frame": "forging-1",
+    "origin": [
+      335,
+      50
+    ],
+    "exact_origin": [
+      335.0,
+      50.25
+    ],
+    "contact_rounding_error": [
+      0.0,
+      -0.25
+    ],
+    "foot_y": 155,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "male",
+    "state": "hammering",
+    "frame": "hammering-3",
+    "origin": [
+      488,
+      50
+    ],
+    "exact_origin": [
+      488.25,
+      50.0
+    ],
+    "contact_rounding_error": [
+      -0.25,
+      0.0
+    ],
+    "foot_y": 155,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "male",
+    "state": "quenching",
+    "frame": "quenching-1",
+    "origin": [
+      629,
+      46
+    ],
+    "exact_origin": [
+      629.25,
+      46.25
+    ],
+    "contact_rounding_error": [
+      -0.25,
+      -0.25
+    ],
+    "foot_y": 151,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "male",
+    "state": "researching",
+    "frame": "researching-1",
+    "origin": [
+      816,
+      43
+    ],
+    "exact_origin": [
+      816.0,
+      42.75
+    ],
+    "contact_rounding_error": [
+      0.0,
+      0.25
+    ],
+    "foot_y": 148,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "male",
+    "state": "forging",
+    "frame": "forging-2",
+    "origin": [
+      335,
+      50
+    ],
+    "exact_origin": [
+      335.0,
+      50.25
+    ],
+    "contact_rounding_error": [
+      0.0,
+      -0.25
+    ],
+    "foot_y": 155,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "male",
+    "state": "hammering",
+    "frame": "hammering-3",
+    "origin": [
+      488,
+      50
+    ],
+    "exact_origin": [
+      488.25,
+      50.0
+    ],
+    "contact_rounding_error": [
+      -0.25,
+      0.0
+    ],
+    "foot_y": 155,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "male",
+    "state": "quenching",
+    "frame": "quenching-2",
+    "origin": [
+      629,
+      46
+    ],
+    "exact_origin": [
+      629.25,
+      46.25
+    ],
+    "contact_rounding_error": [
+      -0.25,
+      -0.25
+    ],
+    "foot_y": 151,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "male",
+    "state": "researching",
+    "frame": "researching-2",
+    "origin": [
+      816,
+      43
+    ],
+    "exact_origin": [
+      816.0,
+      42.75
+    ],
+    "contact_rounding_error": [
+      0.0,
+      0.25
+    ],
+    "foot_y": 148,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "male",
+    "state": "forging",
+    "frame": "forging-3",
+    "origin": [
+      335,
+      50
+    ],
+    "exact_origin": [
+      335.0,
+      50.25
+    ],
+    "contact_rounding_error": [
+      0.0,
+      -0.25
+    ],
+    "foot_y": 155,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "male",
+    "state": "hammering",
+    "frame": "hammering-3",
+    "origin": [
+      488,
+      50
+    ],
+    "exact_origin": [
+      488.25,
+      50.0
+    ],
+    "contact_rounding_error": [
+      -0.25,
+      0.0
+    ],
+    "foot_y": 155,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "male",
+    "state": "quenching",
+    "frame": "quenching-3",
+    "origin": [
+      629,
+      46
+    ],
+    "exact_origin": [
+      629.25,
+      46.25
+    ],
+    "contact_rounding_error": [
+      -0.25,
+      -0.25
+    ],
+    "foot_y": 151,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "male",
+    "state": "salvaging",
+    "frame": "salvaging-3",
+    "origin": [
+      816,
+      56
+    ],
+    "exact_origin": [
+      816.0,
+      55.5
+    ],
+    "contact_rounding_error": [
+      0.0,
+      0.5
+    ],
+    "foot_y": 161,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "male",
+    "state": "forging",
+    "frame": "forging-4",
+    "origin": [
+      335,
+      50
+    ],
+    "exact_origin": [
+      335.0,
+      50.25
+    ],
+    "contact_rounding_error": [
+      0.0,
+      -0.25
+    ],
+    "foot_y": 155,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "male",
+    "state": "hammering",
+    "frame": "hammering-3",
+    "origin": [
+      488,
+      50
+    ],
+    "exact_origin": [
+      488.25,
+      50.0
+    ],
+    "contact_rounding_error": [
+      -0.25,
+      0.0
+    ],
+    "foot_y": 155,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "male",
+    "state": "quenching",
+    "frame": "quenching-4",
+    "origin": [
+      629,
+      46
+    ],
+    "exact_origin": [
+      629.25,
+      46.25
+    ],
+    "contact_rounding_error": [
+      -0.25,
+      -0.25
+    ],
+    "foot_y": 151,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "male",
+    "state": "salvaging",
+    "frame": "salvaging-4",
+    "origin": [
+      816,
+      56
+    ],
+    "exact_origin": [
+      816.0,
+      55.5
+    ],
+    "contact_rounding_error": [
+      0.0,
+      0.5
+    ],
+    "foot_y": 161,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "male",
+    "state": "forging",
+    "frame": "forging-5",
+    "origin": [
+      335,
+      50
+    ],
+    "exact_origin": [
+      335.0,
+      50.25
+    ],
+    "contact_rounding_error": [
+      0.0,
+      -0.25
+    ],
+    "foot_y": 155,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "male",
+    "state": "hammering",
+    "frame": "hammering-3",
+    "origin": [
+      488,
+      50
+    ],
+    "exact_origin": [
+      488.25,
+      50.0
+    ],
+    "contact_rounding_error": [
+      -0.25,
+      0.0
+    ],
+    "foot_y": 155,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "male",
+    "state": "quenching",
+    "frame": "quenching-5",
+    "origin": [
+      629,
+      46
+    ],
+    "exact_origin": [
+      629.25,
+      46.25
+    ],
+    "contact_rounding_error": [
+      -0.25,
+      -0.25
+    ],
+    "foot_y": 151,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "male",
+    "state": "salvaging",
+    "frame": "salvaging-5",
+    "origin": [
+      816,
+      56
+    ],
+    "exact_origin": [
+      816.0,
+      55.5
+    ],
+    "contact_rounding_error": [
+      0.0,
+      0.5
+    ],
+    "foot_y": 161,
+    "station_floor_y": 157
+  },
+  {
+    "gender": "female",
+    "state": "forging",
+    "frame": "forging-2",
+    "origin": [
+      15,
+      56
+    ],
+    "exact_origin": [
+      15.0,
+      55.5
+    ],
+    "contact_rounding_error": [
+      0.0,
+      0.5
+    ],
+    "foot_y": 161,
+    "station_floor_y": 160
+  },
+  {
+    "gender": "female",
+    "state": "hammering",
+    "frame": "hammering-3",
+    "origin": [
+      8,
+      54
+    ],
+    "exact_origin": [
+      7.5,
+      54.5
+    ],
+    "contact_rounding_error": [
+      0.5,
+      -0.5
+    ],
+    "foot_y": 159,
+    "station_floor_y": 160
+  },
+  {
+    "gender": "female",
+    "state": "quenching",
+    "frame": "quenching-2",
+    "origin": [
+      15,
+      54
+    ],
+    "exact_origin": [
+      15.25,
+      53.75
+    ],
+    "contact_rounding_error": [
+      -0.25,
+      0.25
+    ],
+    "foot_y": 159,
+    "station_floor_y": 160
+  },
+  {
+    "gender": "female",
+    "state": "researching",
+    "frame": "researching-2",
+    "origin": [
+      48,
+      46
+    ],
+    "exact_origin": [
+      48.0,
+      45.75
+    ],
+    "contact_rounding_error": [
+      0.0,
+      0.25
+    ],
+    "foot_y": 151,
+    "station_floor_y": 160
+  },
+  {
+    "gender": "female",
+    "state": "salvaging",
+    "frame": "salvaging-2",
+    "origin": [
+      48,
+      58
+    ],
+    "exact_origin": [
+      48.0,
+      58.5
+    ],
+    "contact_rounding_error": [
+      0.0,
+      -0.5
+    ],
+    "foot_y": 163,
+    "station_floor_y": 160
+  },
+  {
+    "gender": "male",
+    "state": "forging",
+    "frame": "forging-2",
+    "origin": [
+      15,
+      53
+    ],
+    "exact_origin": [
+      15.0,
+      53.25
+    ],
+    "contact_rounding_error": [
+      0.0,
+      -0.25
+    ],
+    "foot_y": 158,
+    "station_floor_y": 160
+  },
+  {
+    "gender": "male",
+    "state": "hammering",
+    "frame": "hammering-3",
+    "origin": [
+      8,
+      53
+    ],
+    "exact_origin": [
+      8.25,
+      53.0
+    ],
+    "contact_rounding_error": [
+      -0.25,
+      0.0
+    ],
+    "foot_y": 158,
+    "station_floor_y": 160
+  },
+  {
+    "gender": "male",
+    "state": "quenching",
+    "frame": "quenching-2",
+    "origin": [
+      21,
+      49
+    ],
+    "exact_origin": [
+      21.25,
+      49.25
+    ],
+    "contact_rounding_error": [
+      -0.25,
+      -0.25
+    ],
+    "foot_y": 154,
+    "station_floor_y": 160
+  },
+  {
+    "gender": "male",
+    "state": "researching",
+    "frame": "researching-2",
+    "origin": [
+      48,
+      46
+    ],
+    "exact_origin": [
+      48.0,
+      45.75
+    ],
+    "contact_rounding_error": [
+      0.0,
+      0.25
+    ],
+    "foot_y": 151,
+    "station_floor_y": 160
+  },
+  {
+    "gender": "male",
+    "state": "salvaging",
+    "frame": "salvaging-2",
+    "origin": [
+      48,
+      58
+    ],
+    "exact_origin": [
+      48.0,
+      58.5
+    ],
+    "contact_rounding_error": [
+      0.0,
+      -0.5
+    ],
+    "foot_y": 163,
+    "station_floor_y": 160
+  }
+]

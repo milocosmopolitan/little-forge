@@ -1,0 +1,242 @@
+{
+  "version": 1,
+  "status": "visual-review-candidate-not-runtime-qualified",
+  "cell": [
+    32,
+    32
+  ],
+  "atlas": [
+    384,
+    256
+  ],
+  "sampler": "nearest",
+  "mipmaps": false,
+  "character_scale": [
+    3,
+    4
+  ],
+  "character_canvas": [
+    96,
+    120
+  ],
+  "character_pivot": [
+    48,
+    105
+  ],
+  "source_commit": "ae47fc506fd11da64157a19f20331b7808d94f2f",
+  "source_branch": "feat/unified-workshop-flicker",
+  "source_sha256": "79a6a45f4757869489ae0bde3ad2ed24118cedaef01c951cc9b302b3884520ad",
+  "sprites": {
+    "furnace": {
+      "rect": [
+        0,
+        0,
+        96,
+        128
+      ],
+      "size": [
+        96,
+        108
+      ],
+      "pad": [
+        0,
+        20
+      ],
+      "contact": [
+        41,
+        91
+      ],
+      "floor": 128,
+      "alpha_bounds": [
+        0,
+        20,
+        96,
+        128
+      ],
+      "split_y": 128,
+      "source_crop_bounds": [
+        12,
+        19,
+        460,
+        520
+      ],
+      "source_crop": [
+        20,
+        70,
+        490,
+        595
+      ]
+    },
+    "anvil": {
+      "rect": [
+        128,
+        0,
+        64,
+        64
+      ],
+      "size": [
+        48,
+        40
+      ],
+      "pad": [
+        8,
+        24
+      ],
+      "contact": [
+        26,
+        29
+      ],
+      "floor": 64,
+      "alpha_bounds": [
+        8,
+        24,
+        56,
+        64
+      ],
+      "split_y": 64,
+      "source_crop_bounds": [
+        14,
+        12,
+        283,
+        294
+      ],
+      "source_crop": [
+        665,
+        220,
+        960,
+        525
+      ]
+    },
+    "quenching-tub": {
+      "rect": [
+        224,
+        0,
+        64,
+        64
+      ],
+      "size": [
+        56,
+        28
+      ],
+      "pad": [
+        4,
+        36
+      ],
+      "contact": [
+        30,
+        44
+      ],
+      "floor": 64,
+      "alpha_bounds": [
+        4,
+        36,
+        60,
+        64
+      ],
+      "split_y": 47,
+      "source_crop_bounds": [
+        8,
+        6,
+        360,
+        246
+      ],
+      "source_crop": [
+        1100,
+        300,
+        1470,
+        550
+      ]
+    },
+    "workbench": {
+      "rect": [
+        128,
+        96,
+        128,
+        96
+      ],
+      "size": [
+        128,
+        68
+      ],
+      "pad": [
+        0,
+        28
+      ],
+      "contact": [
+        64,
+        53
+      ],
+      "mode_contacts": {
+        "researching": [
+          64,
+          44
+        ],
+        "salvaging": [
+          64,
+          53
+        ]
+      },
+      "rear_standing_floor": 87,
+      "floor": 96,
+      "alpha_bounds": [
+        0,
+        28,
+        128,
+        96
+      ],
+      "split_y": 56,
+      "source_crop_bounds": [
+        11,
+        12,
+        673,
+        353
+      ],
+      "source_crop": [
+        670,
+        605,
+        1350,
+        965
+      ]
+    },
+    "counter": {
+      "rect": [
+        0,
+        160,
+        96,
+        64
+      ],
+      "size": [
+        96,
+        60
+      ],
+      "pad": [
+        0,
+        4
+      ],
+      "contact": [
+        48,
+        25
+      ],
+      "floor": 64,
+      "alpha_bounds": [
+        0,
+        4,
+        96,
+        64
+      ],
+      "split_y": 64,
+      "source_crop_bounds": [
+        13,
+        7,
+        559,
+        360
+      ],
+      "source_crop": [
+        35,
+        600,
+        605,
+        970
+      ]
+    }
+  }
+}

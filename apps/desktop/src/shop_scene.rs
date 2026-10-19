@@ -18,7 +18,7 @@ fn setup(mut c: Commands, server: Res<AssetServer>) {
         c.spawn((
             DisplaySlot(index),
             Sprite::from_image(server.load("ui/runtime/icons/dagger.png")),
-            Transform::from_xyz(-246. + index as f32 * 18., -20., 1.4),
+            Transform::from_xyz(-296. + index as f32 * 18., -30., 1.3),
             Visibility::Hidden,
             RenderLayers::layer(1),
         ));

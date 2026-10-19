@@ -10,6 +10,12 @@ use forge_core::{
 };
 use forge_npc::player::{Actor, CharacterId, PlayerCatalog, PlayerCatalogs};
 use serde::Deserialize;
+use std::collections::BTreeMap;
+
+pub const CHARACTER_SCALE: f32 = 0.75;
+pub fn depth(foot_y: f32) -> f32 {
+    1. + foot_y * 0.001
+}
 
 #[derive(Clone, Deserialize)]
 pub struct Fixture {
@@ -17,6 +23,8 @@ pub struct Fixture {
     pub origin: [f32; 2],
     pub size: [u32; 2],
     pub contact: [f32; 2],
+    pub depth: f32,
+    pub mode_contacts: BTreeMap<String, [f32; 2]>,
     pub hit_mask: Vec<String>,
 }
 impl Fixture {
@@ -41,7 +49,7 @@ pub struct Interior(pub Vec<Fixture>, forge_npc::stations::StationCatalog);
 impl Default for Interior {
     fn default() -> Self {
         Self(
-            serde_json::from_str(include_str!("../../../assets/forge/interior/catalog.json"))
+            serde_json::from_str(include_str!("../../../assets/forge/atlas-v1/catalog.json"))
                 .expect("validated interior exports"),
             forge_npc::stations::StationCatalog::bundled().expect("station contacts"),
         )
@@ -63,9 +71,15 @@ impl Interior {
             return crate::forge_view::REST;
         };
         let contact = self.1.stations[station].contact;
-        Vec2::from_array(f.origin) + Vec2::from_array(f.contact)
-            - reg.offset.as_vec2()
-            - UVec2::from_array(contact).as_vec2()
+        let mode = if station == "research-table" {
+            "researching"
+        } else {
+            "salvaging"
+        };
+        let target = f.mode_contacts.get(mode).unwrap_or(&f.contact);
+        (Vec2::from_array(f.origin) + Vec2::from_array(*target)
+            - (reg.offset.as_vec2() + UVec2::from_array(contact).as_vec2()) * CHARACTER_SCALE)
+            .round()
     }
 }
 #[derive(Component)]
@@ -79,7 +93,59 @@ pub(crate) struct ResearchArms;
 #[derive(Resource, Default)]
 struct Hover(Option<usize>);
 
-fn setup(mut commands: Commands, server: Res<AssetServer>, art: Res<Interior>) {
+#[derive(Deserialize)]
+struct SmithFrames {
+    columns: u32,
+    rows: u32,
+    ids: Vec<String>,
+}
+struct SmithPage {
+    image: Handle<Image>,
+    layout: Handle<TextureAtlasLayout>,
+    ids: BTreeMap<String, usize>,
+}
+#[derive(Resource, Default)]
+struct ScaledSmiths(BTreeMap<String, SmithPage>);
+
+fn setup(
+    mut commands: Commands,
+    server: Res<AssetServer>,
+    art: Res<Interior>,
+    mut layouts: ResMut<Assets<TextureAtlasLayout>>,
+) {
+    let mut pages = BTreeMap::new();
+    for (sex, raw) in [
+        (
+            "female",
+            include_str!("../../../assets/forge/atlas-v1/female-75.json"),
+        ),
+        (
+            "male",
+            include_str!("../../../assets/forge/atlas-v1/male-75.json"),
+        ),
+    ] {
+        let spec: SmithFrames = serde_json::from_str(raw).expect("validated scaled atlas");
+        pages.insert(
+            sex.into(),
+            SmithPage {
+                image: server.load(format!("forge/atlas-v1/{sex}-75.png")),
+                layout: layouts.add(TextureAtlasLayout::from_grid(
+                    UVec2::new(96, 120),
+                    spec.columns,
+                    spec.rows,
+                    None,
+                    None,
+                )),
+                ids: spec
+                    .ids
+                    .into_iter()
+                    .enumerate()
+                    .map(|(i, id)| (id, i))
+                    .collect(),
+            },
+        );
+    }
+    commands.insert_resource(ScaledSmiths(pages));
     for (index, f) in art.0.iter().enumerate() {
         for (kind, front) in [("back", false), ("front", true)] {
             for outline in [false, true] {
@@ -91,7 +157,7 @@ fn setup(mut commands: Commands, server: Res<AssetServer>, art: Res<Interior>) {
                         outline,
                     },
                     Sprite::from_image(
-                        server.load(format!("forge/interior/{}-{kind}{suffix}.png", f.id)),
+                        server.load(format!("forge/atlas-v1/{}-{kind}{suffix}.png", f.id)),
                     ),
                     bevy::sprite::Anchor::TOP_LEFT,
                     Transform::from_xyz(f.origin[0] - 480., 90. - f.origin[1], 1.2),
@@ -221,10 +287,18 @@ fn project(
     };
     for (part, mut sprite, mut t, mut v) in &mut parts {
         let f = &art.0[part.index];
-        // The foreground exists only at the corresponding authored work pose. Walking
-        // and salvage remain in front of the fixture, including its outline.
-        let foreground = working == f.id && (part.front || f.id == "workbench");
-        t.translation.z = if foreground { 1.8 } else { 1.2 } + if part.outline { 0.01 } else { 0. };
+        // Travel compares the foot with the fixture floor. Authored work poses use
+        // their layer contract; outlines stay in the same depth group as the prop.
+        let working_here = working == f.id;
+        let foreground = working_here && (part.front || f.id == "workbench");
+        let z = if foreground {
+            actor_transform.translation.z + 0.02
+        } else if working_here {
+            actor_transform.translation.z - 0.02
+        } else {
+            depth(f.depth) - 0.0005
+        };
+        t.translation.z = z + if part.outline { 0.0001 } else { 0. };
         let selected = spaces
             .station
             .is_some_and(|s| art.fixture(s.id()).is_some_and(|a| a.id == f.id))
@@ -261,12 +335,57 @@ fn project(
                 "base"
             };
             sprite.image = server.load(format!(
-                "forge/interior/arms/{}-{variant}-{frame}.png",
+                "forge/atlas-v1/arms/{}-{variant}-{frame}.png",
                 id.0
             ));
-            t.translation = actor_transform.translation + Vec3::new(-64., 140., 0.45);
+            t.translation = actor_transform.translation + Vec3::new(-48., 105., 0.04);
             *v = Visibility::Visible;
         }
+    }
+}
+
+// Playback remains canonical. Only its presentation uses whole-canvas nearest exports,
+// avoiding a different sampling phase when the source atlas trim changes between frames.
+#[allow(clippy::type_complexity)]
+fn scaled_smith(
+    pages: Res<ScaledSmiths>,
+    catalogs: Res<PlayerCatalogs>,
+    mut q: Query<
+        (
+            &Actor,
+            &CharacterId,
+            &forge_npc::player::Walker,
+            &mut Sprite,
+            &mut bevy::sprite::Anchor,
+            &mut Transform,
+        ),
+        With<WorkshopActor>,
+    >,
+) {
+    for (actor, id, walker, mut sprite, mut anchor, mut transform) in &mut q {
+        let Some(catalog) = catalogs.get(&id.0) else {
+            continue;
+        };
+        let Some(page) = pages.0.get(&id.0) else {
+            continue;
+        };
+        let frame = actor.sprite(catalog);
+        let Some(index) = page.ids.get(&frame.id) else {
+            continue;
+        };
+        sprite.image = page.image.clone();
+        sprite.texture_atlas = Some(TextureAtlas {
+            layout: page.layout.clone(),
+            index: *index,
+        });
+        sprite.custom_size = Some(Vec2::new(96., 120.));
+        anchor.0 = Vec2::new(0., -0.375);
+        transform.scale = Vec3::ONE;
+        transform.translation = Vec3::new(
+            walker.pos.x.round() - 480.,
+            90. - walker.pos.y.round(),
+            depth(walker.pos.y),
+        );
     }
 }
 
@@ -289,6 +408,12 @@ pub fn install(app: &mut App) {
         .add_systems(
             Update,
             project
+                .after(scaled_smith)
+                .after(crate::spaces::drive_workshop),
+        )
+        .add_systems(
+            Update,
+            scaled_smith
                 .after(forge_npc::player::animate_actors)
                 .after(crate::spaces::drive_workshop),
         );
@@ -338,7 +463,10 @@ fn pose_qa(
         let Some(c) = catalogs.get(&id.0) else {
             continue;
         };
-        let clip_name = if pose == "overlap" || pose == "empty" {
+        let walking = pose.starts_with("walk-");
+        let clip_name = if walking {
+            "walk"
+        } else if pose == "overlap" || pose == "empty" {
             "idle"
         } else {
             &pose
@@ -360,6 +488,11 @@ fn pose_qa(
             actor.seek(time, c);
         }
         walker.pos = art.foot(station, c);
+        if walking {
+            let x = 520. + (opts.frames.saturating_sub(30) as f32 * 1.4).min(210.);
+            walker.pos = Vec2::new(x, if pose.ends_with("behind") { 148. } else { 168. });
+            spaces.station = Some(Workstation::Anvil);
+        }
         walker.target = walker.pos;
         walker.arrival = None;
         t.translation = Vec3::new(walker.pos.x - 480., 90. - walker.pos.y, 1.5);
@@ -380,6 +513,31 @@ fn pose_qa(
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn scaled_pages_cover_every_canonical_frame_and_travel_crosses_prop_depth() {
+        for (sex, raw) in [
+            (
+                "female",
+                include_str!("../../../assets/forge/atlas-v1/female-75.json"),
+            ),
+            (
+                "male",
+                include_str!("../../../assets/forge/atlas-v1/male-75.json"),
+            ),
+        ] {
+            let page: SmithFrames = serde_json::from_str(raw).unwrap();
+            let catalog = PlayerCatalog::bundled(sex).unwrap();
+            for frame in catalog.sprites {
+                assert!(page.ids.contains(&frame.id), "missing {} {}", sex, frame.id);
+            }
+        }
+        let art = Interior::default();
+        for id in ["anvil", "quenching-tub"] {
+            let floor = art.fixture(id).unwrap().depth;
+            assert!(depth(148.) < depth(floor));
+            assert!(depth(168.) > depth(floor));
+        }
+    }
     #[test]
     fn legacy_animation_cannot_move_or_hide_fixture_parts() {
         let mut app = App::new();
@@ -424,12 +582,19 @@ mod tests {
             let old = forge_npc::stations::StationCatalog::bundled().unwrap();
             for (id, reg) in &c.stations {
                 let f = art.fixture(id).unwrap();
-                assert_eq!(
-                    art.foot(id, &c)
-                        + reg.offset.as_vec2()
-                        + UVec2::from_array(old.stations[id].contact).as_vec2(),
-                    Vec2::from_array(f.origin) + Vec2::from_array(f.contact)
-                );
+                let mode = if id == "research-table" {
+                    "researching"
+                } else {
+                    "salvaging"
+                };
+                let target = f.mode_contacts.get(mode).unwrap_or(&f.contact);
+                let error = art.foot(id, &c)
+                    + (reg.offset.as_vec2()
+                        + UVec2::from_array(old.stations[id].contact).as_vec2())
+                        * CHARACTER_SCALE
+                    - Vec2::from_array(f.origin)
+                    - Vec2::from_array(*target);
+                assert!(error.abs().max_element() <= 0.5);
             }
         }
     }
@@ -440,6 +605,8 @@ mod tests {
             origin: [-5., -3.],
             size: [3, 2],
             contact: [1., 1.],
+            depth: 0.,
+            mode_contacts: BTreeMap::new(),
             hit_mask: vec!["000".into(), "010".into()],
         };
         assert!(!f.hit(Vec2::new(-5., -3.)));

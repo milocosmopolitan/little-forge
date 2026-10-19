@@ -1,0 +1,21 @@
+{
+  "source": "forge/visitor.png",
+  "source_density_divisor": 3,
+  "normalized_canvas": [
+    128,
+    160
+  ],
+  "display_scale": [
+    3,
+    4
+  ],
+  "display_canvas": [
+    96,
+    120
+  ],
+  "pivot": [
+    48,
+    105
+  ],
+  "status": "Legacy source density normalization is a visual-review decision, not canonical character reauthoring"
+}

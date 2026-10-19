@@ -56,7 +56,7 @@ fn setup(
     c: Res<Catalog>,
 ) {
     // Keep the authored pixel scale when the animation canvas gains padding.
-    let height = 95. * c.cell[1] as f32 / 128.;
+    let height = crate::interior::CHARACTER_SCALE * c.cell[1] as f32;
     let owner = commands
         .spawn((
             Sprite {

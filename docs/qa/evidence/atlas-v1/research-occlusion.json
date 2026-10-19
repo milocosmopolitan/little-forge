@@ -1,0 +1,62 @@
+[
+  {
+    "sex": "female",
+    "frame": 0,
+    "uncovered_lower_body_pixels": 0
+  },
+  {
+    "sex": "female",
+    "frame": 1,
+    "uncovered_lower_body_pixels": 0
+  },
+  {
+    "sex": "female",
+    "frame": 2,
+    "uncovered_lower_body_pixels": 0
+  },
+  {
+    "sex": "female",
+    "frame": 3,
+    "uncovered_lower_body_pixels": 0
+  },
+  {
+    "sex": "female",
+    "frame": 4,
+    "uncovered_lower_body_pixels": 0
+  },
+  {
+    "sex": "female",
+    "frame": 5,
+    "uncovered_lower_body_pixels": 0
+  },
+  {
+    "sex": "male",
+    "frame": 0,
+    "uncovered_lower_body_pixels": 0
+  },
+  {
+    "sex": "male",
+    "frame": 1,
+    "uncovered_lower_body_pixels": 0
+  },
+  {
+    "sex": "male",
+    "frame": 2,
+    "uncovered_lower_body_pixels": 0
+  },
+  {
+    "sex": "male",
+    "frame": 3,
+    "uncovered_lower_body_pixels": 0
+  },
+  {
+    "sex": "male",
+    "frame": 4,
+    "uncovered_lower_body_pixels": 0
+  },
+  {
+    "sex": "male",
+    "frame": 5,
+    "uncovered_lower_body_pixels": 0
+  }
+]

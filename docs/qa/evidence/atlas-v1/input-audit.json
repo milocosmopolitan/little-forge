@@ -1,0 +1,69 @@
+{
+  "zip_sha256": "28b075429c90791035e9edc79a29eadb1cdc92f2bc72865a2d406a953052666a",
+  "references": [
+    {
+      "sex": "female",
+      "pose": "neutral",
+      "exact_rgba_match": true
+    },
+    {
+      "sex": "female",
+      "pose": "forging-2",
+      "exact_rgba_match": true
+    },
+    {
+      "sex": "female",
+      "pose": "hammering-3",
+      "exact_rgba_match": true
+    },
+    {
+      "sex": "female",
+      "pose": "quenching-2",
+      "exact_rgba_match": true
+    },
+    {
+      "sex": "female",
+      "pose": "researching-2",
+      "exact_rgba_match": true
+    },
+    {
+      "sex": "female",
+      "pose": "salvaging-2",
+      "exact_rgba_match": true
+    },
+    {
+      "sex": "male",
+      "pose": "neutral",
+      "exact_rgba_match": true
+    },
+    {
+      "sex": "male",
+      "pose": "forging-2",
+      "exact_rgba_match": true
+    },
+    {
+      "sex": "male",
+      "pose": "hammering-3",
+      "exact_rgba_match": true
+    },
+    {
+      "sex": "male",
+      "pose": "quenching-2",
+      "exact_rgba_match": true
+    },
+    {
+      "sex": "male",
+      "pose": "researching-2",
+      "exact_rgba_match": true
+    },
+    {
+      "sex": "male",
+      "pose": "salvaging-2",
+      "exact_rgba_match": true
+    }
+  ],
+  "gifs": {
+    "female": 6,
+    "male": 6
+  }
+}
