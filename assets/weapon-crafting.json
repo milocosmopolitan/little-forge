@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "materials": [
+    {"material":"Iron", "force":4, "penetration":0, "interval":1, "ore":2},
+    {"material":"Steel", "force":6, "penetration":2, "interval":2, "ore":3}
+  ],
+  "approaches": [
+    {"approach":"Quick", "quality":40, "precision":0, "seconds":8, "extra_ore":0},
+    {"approach":"Standard", "quality":65, "precision":1, "seconds":16, "extra_ore":0},
+    {"approach":"Careful", "quality":90, "precision":3, "seconds":28, "extra_ore":1}
+  ],
+  "boar_resistance":5,
+  "wolf_pressure":4
+}

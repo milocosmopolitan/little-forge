@@ -1,8 +1,10 @@
+mod alpha_qa;
 mod expedition;
 mod lifestyle;
 mod native;
 mod npc;
 mod presentation;
+mod progression_ui;
 mod rendering;
 mod spaces;
 mod title;
@@ -153,7 +155,10 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     if opts.qa.as_ref().is_some_and(|s| {
         !matches!(
             s.as_str(),
-            "ambient"
+            "alpha"
+                | "alpha-female"
+                | "alpha-crafting"
+                | "ambient"
                 | "sale"
                 | "expanded"
                 | "idle"
@@ -208,6 +213,17 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     let loaded = if qa { None } else { save::load(&dir)? };
     let has_save = loaded.is_some();
     let mut saved = loaded.unwrap_or_else(|| Save::new(State::new(42), now()));
+    if opts.qa.as_deref() == Some("alpha-crafting") {
+        saved.state.ore = 40;
+        saved.state.gold = 80;
+        saved.state.commerce.timber = 8;
+    }
+    if saved.state.progression.rules.is_none() {
+        saved.state.progression.rules = Some(forge_content::progression_rules()?);
+    }
+    if qa && !opts.qa.as_deref().is_some_and(|q| q.starts_with("alpha")) {
+        saved.state.progression.legacy_dagger = true;
+    }
     if saved.state.tick == 0 {
         saved.state.life.config = forge_content::needs_config()?;
     }
@@ -233,6 +249,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         saved.state.gold = 24;
     }
     if qa
+        && !opts.qa.as_deref().is_some_and(|q| q.starts_with("alpha"))
         && opts
             .forge_scene()
             .is_none_or(|(scene, _)| scene != "select")
@@ -326,7 +343,11 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         }
     }
     let elapsed = if qa { 0 } else { saved.catch_up(now())? };
-    if saved.state.command_id == 0 && saved.state.showroom.block_reason().is_none() {
+    if qa
+        && saved.state.progression.legacy_dagger
+        && saved.state.command_id == 0
+        && saved.state.showroom.block_reason().is_none()
+    {
         saved
             .state
             .command(1, Command::Craft)
@@ -344,9 +365,11 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     if !qa && has_save {
         save::store(&dir, &mut saved)?;
     }
-    let status = format!(
-        "Welcome back | caught up {elapsed}s. C craft / B buy ore / Tab manage / F8 idle 10s / Ctrl+Alt+F8 recover"
-    );
+    let status = if has_save {
+        format!("Welcome back. {elapsed}s of offline work recovered.")
+    } else {
+        "Chef has a first commission for you. Open Chef [O].".into()
+    };
     let mut presentation = Presentation::default();
     if opts.qa.as_deref() == Some("sale") {
         for event in saved.state.advance(12).map_err(|e| format!("{e:?}"))? {
@@ -377,6 +400,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     }
     let mut app = App::new();
     let title_active = !qa
+        || opts.qa.as_deref().is_some_and(|q| q.starts_with("alpha"))
         || opts.qa.as_deref() == Some("title")
         || opts
             .forge_scene()
@@ -497,6 +521,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         Update,
         (
             qa_capture,
+            alpha_qa::drive,
             title::animate_heat,
             title::fit_stage,
             title::keyboard,
@@ -671,7 +696,7 @@ fn setup(
         },
         Hud,
     ));
-    commands.spawn((Text::new("FORGE LEDGER\n\nC   Craft iron dagger | 2 ore | 5 seconds\nB   Buy 2 ore | 4 gold\n\nTab   Return to the small forge\nF8    Click through for 10 seconds (automatic recovery)\nCtrl+Alt+F8   Global recovery\nEsc   Restore interaction\nT      Toggle always-on-top (off by default)\nD     Toggle window decorations / drag window\nF12  Write diagnostic report\n\nFirst repair: O orders, A accept, S queue, L deliver. Research and expeditions follow later."),TextFont{font_size:18.0.into(),..default()},Node{position_type:PositionType::Absolute,top:px(60),left:px(30),..default()},Visibility::Hidden,Panel));
+    commands.spawn((Text::new("FORGE LEDGER\n\nC   Craft iron dagger | 2 ore | 5 seconds\nB   Buy 2 ore | 4 gold\n\nTab   Return to the small forge\nF8    Click through for 10 seconds (automatic recovery)\nCtrl+Alt+F8   Global recovery\nEsc   Restore interaction\nT      Toggle always-on-top (off by default)\nD     Toggle window decorations / drag window\nF12  Write diagnostic report\n\nO Chef commission | Manage: Research, Codex and Journal.\nFarmer tab: A accept, S queue, L deliver."),TextFont{font_size:18.0.into(),..default()},Node{position_type:PositionType::Absolute,top:px(60),left:px(30),..default()},Visibility::Hidden,Panel));
 }
 #[allow(clippy::too_many_arguments)]
 fn input(
@@ -723,6 +748,9 @@ fn input(
         desktop.shell.recover();
         desktop.shell.expanded = true;
         home.tab = 3;
+        spaces.space = forge_core::spaces::Space::Workshop;
+        spaces.manage = true;
+        spaces.station = None;
     }
     for (key, cmd) in [
         (KeyCode::KeyC, Command::Craft),
@@ -737,6 +765,12 @@ fn input(
         (KeyCode::KeyL, Command::DeliverFarmerRepair),
     ] {
         if keys.just_pressed(key)
+            && (!matches!(
+                cmd,
+                Command::AcceptFarmerRepair
+                    | Command::QueueFarmerRepair
+                    | Command::DeliverFarmerRepair
+            ) || home.tab == 7)
             && !session.disabled
             && village.nav.screen == forge_core::village::Screen::Home
         {
@@ -793,7 +827,9 @@ fn simulate(
     {
         return;
     }
-    let seconds = if opts.qa.as_deref().is_some_and(|q| q.starts_with("life-")) {
+    let seconds = if opts.qa.as_deref().is_some_and(|q| q.starts_with("alpha")) {
+        0.1
+    } else if opts.qa.as_deref().is_some_and(|q| q.starts_with("life-")) {
         if opts.frames.is_multiple_of(30) {
             1.
         } else {
@@ -817,8 +853,31 @@ fn simulate(
         match s.save.state.advance(whole) {
             Ok(events) => {
                 for e in events {
+                    if e.kind == forge_core::EventKind::ChefReady {
+                        s.status = format!(
+                            "Kitchen Knife ready. Blade forging Lv.{} / Handle fitting Lv.{}. Deliver to Chef [O].",
+                            s.save.state.progression.level(0),
+                            s.save.state.progression.level(1)
+                        );
+                    }
+                    if e.kind == forge_core::EventKind::ProgressionChanged {
+                        s.status = s
+                            .save
+                            .state
+                            .progression
+                            .journal
+                            .last()
+                            .map(|m| m.text.clone())
+                            .unwrap_or_else(|| "Research progress updated.".into());
+                    }
+                    if e.kind == forge_core::EventKind::ProgressionChanged
+                        && s.save.state.progression.can_complete()
+                    {
+                        s.status =
+                            "Dagger study finished. Open Research to complete the design.".into();
+                    }
                     if e.kind == forge_core::EventKind::FarmerRepairReady {
-                        s.status = "The farmer's sickle is ready. Orders [O] to deliver.".into();
+                        s.status = "Sickle ready. Open Manage > Farmer to deliver.".into();
                     }
                     if opts.qa.as_deref().is_some_and(|q| q.starts_with("life-")) {
                         s.trace.push(e.clone());
@@ -972,14 +1031,8 @@ fn hud(
             Visibility::Visible
         };
         **t = format!(
-            "LITTLE FORGE   Gold {}   Ore {}   Finished {}/{}   {:?}\n{} · Orders [O] | {}",
-            s.save.state.gold,
-            s.save.state.ore,
-            s.save.state.showroom.goods(),
-            s.save.state.showroom.capacity(),
-            desktop.shell.mode,
-            s.save.state.farmer_order.phase.label(),
-            s.status
+            "Gold {}  Ore {}  |  {}",
+            s.save.state.gold, s.save.state.ore, s.status
         );
     }
     for mut v in &mut panel {
@@ -1040,6 +1093,9 @@ fn qa_capture(
         return;
     }
     opts.frames += 1;
+    if opts.qa.as_deref().is_some_and(|q| q.starts_with("alpha")) {
+        return;
+    }
     if opts.qa.as_deref() == Some("npc") && opts.frames == 170 {
         session.save.state.gold = 100; // isolated QA fixture, never a user save
         let id = session.save.state.command_id + 1;

@@ -17,13 +17,7 @@ pub enum Live {
     Action,
     Queue,
     Status,
-    Fatigue,
-    Hunger,
-    Thirst,
     WorkBar,
-    FatigueBar,
-    HungerBar,
-    ThirstBar,
 }
 fn live_text(s: &Session, kind: Live) -> String {
     let l = &s.save.state.life;
@@ -40,9 +34,6 @@ fn live_text(s: &Session, kind: Live) -> String {
             .next()
             .unwrap_or(&s.status)
             .to_string(),
-        Live::Fatigue => format!("Fatigue {}%", l.fatigue / 100),
-        Live::Hunger => format!("Hunger {}%", l.hunger / 100),
-        Live::Thirst => format!("Thirst {}%", l.thirst / 100),
         _ => String::new(),
     }
 }
@@ -50,10 +41,8 @@ fn live_fraction(s: &Session, kind: Live) -> f32 {
     let l = &s.save.state.life;
     match kind {
         Live::WorkBar if l.work == 0 => 0.,
-        Live::WorkBar => 1. - l.work as f32 / (forge_core::CRAFT_SECS * 1000) as f32,
-        Live::FatigueBar => l.fatigue as f32 / 10000.,
-        Live::HungerBar => l.hunger as f32 / 10000.,
-        _ => l.thirst as f32 / 10000.,
+        Live::WorkBar => s.save.state.job_progress().unwrap_or(0) as f32 / 1000.,
+        _ => 0.,
     }
     .clamp(0., 1.)
 }
@@ -66,7 +55,14 @@ fn meter(
 ) {
     match label {
         Some(kind) => parent.spawn((forge_ui::text(live_text(s, kind), 13.), kind)),
-        None => parent.spawn(forge_ui::text("Current blade", 13.)),
+        None => parent.spawn(forge_ui::text(
+            s.save
+                .state
+                .life
+                .active_job
+                .map_or("Workbench", |j| j.label()),
+            13.,
+        )),
     };
     let fill = if label.is_some() {
         forge_ui::Fill::Amber
@@ -110,6 +106,7 @@ pub fn tab(
     tabs: Query<&HomeTab>,
     items: Query<&HomeItem>,
     mut home: ResMut<HomeUi>,
+    mut spaces: ResMut<crate::spaces::Spaces>,
     desktop: Res<Desktop>,
     village: Res<crate::village::Village>,
     title: Res<crate::title::TitleScreen>,
@@ -124,6 +121,9 @@ pub fn tab(
     }
     if let Ok(tab) = tabs.get(event.entity) {
         home.tab = tab.0;
+        spaces.space = forge_core::spaces::Space::Workshop;
+        spaces.manage = true;
+        spaces.station = None;
         home.selected = 0;
     }
     if let Ok(item) = items.get(event.entity) {
@@ -134,7 +134,8 @@ pub fn setup(mut commands: Commands, opts: Res<Options>, mut home: ResMut<HomeUi
     home.tab = match opts.qa.as_deref() {
         Some("village-materials") => 1,
         Some("village-provisions") => 2,
-        Some(q) if q.starts_with("repair-") => 3,
+        Some(q) if q.starts_with("repair-") => 7,
+        Some(q) if q.starts_with("alpha") => 3,
         _ => 0,
     };
     commands.spawn((
@@ -184,7 +185,14 @@ pub fn draw(
         "{key}:{}:{:?}:{}",
         st.command_id,
         st.farmer_order.phase,
-        if home.tab == 3 { st.tick } else { 0 }
+        if home.tab == 7 { st.tick } else { 0 }
+    );
+    let key = format!(
+        "{key}:{:?}:{}:{}:{:?}",
+        st.progression.chef_phase,
+        st.progression.research_xp,
+        st.progression.general_xp,
+        st.life.active_job
     );
     if *last == key {
         return;
@@ -207,22 +215,23 @@ pub fn draw(
         BorderColor::all(forge_ui::EDGE),
     ));
     commands.entity(root).with_children(|p|{
-        p.spawn(forge_ui::text("Workshop ledger",21.));
+
         p.spawn(Node{flex_grow:1.,min_height:px(0),column_gap:px(12),..default()}).with_children(|row|{
-            row.spawn(forge_ui::panel(percent(18))).with_children(|side|{
-                for (i,label) in ["Crafting","Materials","Provisions","Orders [O]"].iter().enumerate(){let entity = forge_ui::button(side,*label,HomeTab(i)); side.commands().entity(entity).insert(forge_ui::SkinKind::Tab); if home.tab == i { side.commands().entity(entity).insert(forge_ui::Selected); }}
-                side.spawn(forge_ui::text("Work continues while you browse.",12.));
-                forge_ui::button(side,"Rest [R]",Action(Command::Rest));
+            row.spawn((forge_ui::SkinPanel, Node { width: percent(18), padding: UiRect::all(px(8)), flex_direction: FlexDirection::Column, row_gap: px(4), min_width: px(0), ..default() }, BackgroundColor(forge_ui::SURFACE))).with_children(|side|{
+                for (i,label) in ["Crafting","Materials","Provisions","Chef [O]","Research","Codex","Journal","Farmer"].iter().enumerate(){let entity = forge_ui::button(side,*label,HomeTab(i)); side.commands().entity(entity).insert((forge_ui::SkinKind::Tab, Node { min_height: px(26), height: px(26), padding: UiRect::axes(px(4), px(2)), align_items: AlignItems::Center, justify_content: JustifyContent::Center, ..default() })); if home.tab == i { side.commands().entity(entity).insert(forge_ui::Selected); }}
+                forge_ui::button(side,"Hunter",crate::expedition::Action::Prepare);
+
             });
-            row.spawn(forge_ui::panel(percent(48))).with_children(|body|{
+            row.spawn(forge_ui::panel(percent(52))).with_children(|body|{
                 match home.tab {
                     0=>{
                         body.spawn(forge_ui::text("Iron dagger",22.));
                         forge_ui::icon(body,&server,"dagger",80.);
                         body.spawn(forge_ui::text("A simple blade, carefully made.",14.));
-                        body.spawn(forge_ui::text(format!("Requires 2 ore · Available {} · Result slots free {}",s.save.state.ore,st.showroom.free()),14.));
+                        body.spawn(forge_ui::text(format!("Requires {} ore · Available {} · Result slots free {}",st.dagger_ore(),s.save.state.ore,st.showroom.free()),14.));
                         if let Some(reason) = st.craft_block_reason() { body.spawn(forge_ui::text(reason.label(),13.)); }
-                        forge_ui::button(body,"Add to queue [Q]",Action(Command::QueueCraft));
+                        crate::progression_ui::command_button(body, &s.save.state, "Add to queue [Q]", Command::QueueCraft);
+                        if !st.progression.dagger_unlocked() { body.spawn(forge_ui::text("Complete Chef’s commission, then study Dagger research.",14.)); forge_ui::button(body,"Open research",HomeTab(4)); }
                         forge_ui::button(body,"Buy 2 ore · 4 gold [B]",Action(Command::BuyOre));
                     },
                     1=>{
@@ -232,7 +241,8 @@ pub fn draw(
                         });
                         body.spawn(forge_ui::text(["Iron ore · 2 required for an iron dagger.","Timber · Stored for recipes and display racks.","Leather · Stored for future recipes.","Iron daggers · Finished goods live on the showroom racks; only displayed ones sell."][home.selected.min(3)],16.));
                     },
-                    3 => draw_order(body, &s.save.state),
+                    3..=6 => crate::progression_ui::draw(body, &server, &s.save.state, home.tab, home.selected),
+                    7 => draw_order(body, &s.save.state),
                     _=>{
                         body.spawn(forge_ui::text("Provisions",20.));
                         body.spawn(Node{flex_wrap:FlexWrap::Wrap,column_gap:px(5),row_gap:px(5),..default()}).with_children(|grid|{
@@ -246,16 +256,14 @@ pub fn draw(
                     }
                 }
             });
-            row.spawn(forge_ui::panel(percent(34))).with_children(|queue|{
-                queue.spawn(forge_ui::text("At the workbench",20.));
+            row.spawn((forge_ui::SkinPanel, Node { width: percent(30), padding: UiRect::all(px(12)), flex_direction: FlexDirection::Column, row_gap: px(6), min_width: px(0), ..default() }, BackgroundColor(forge_ui::SURFACE))).with_children(|queue|{
+                queue.spawn(forge_ui::text("At the workbench",18.));
                 queue.spawn((forge_ui::text(live_text(&s, Live::Action), 17.), Live::Action));
                 queue.spawn((forge_ui::text(live_text(&s, Live::Queue), 14.), Live::Queue));
                 meter(queue, &server, &s, None, Live::WorkBar);
-                meter(queue, &server, &s, Some(Live::Fatigue), Live::FatigueBar);
-                meter(queue, &server, &s, Some(Live::Hunger), Live::HungerBar);
-                meter(queue, &server, &s, Some(Live::Thirst), Live::ThirstBar);
-                queue.spawn(forge_ui::text("Your smith rests, eats and resumes work automatically. Meals are used only when you choose.",13.));
+
                 queue.spawn((forge_ui::text(live_text(&s, Live::Status), 13.), Live::Status));
+                forge_ui::button(queue,"Rest [R]",Action(Command::Rest));
             });
         });
     });
@@ -313,7 +321,7 @@ pub fn update(
                 || q.starts_with("village-")
                 || q.starts_with("forge-")
                 || q == "expanded"
-                || q.starts_with("repair-")
+                || (q.starts_with("repair-") || q.starts_with("alpha"))
         });
     let l = &s.save.state.life;
     for mut v in &mut panel {
@@ -329,11 +337,7 @@ pub fn update(
         };
     }
     for (mut text, mut v) in &mut needs {
-        *v = if visible && !desktop.shell.expanded {
-            Visibility::Visible
-        } else {
-            Visibility::Hidden
-        };
+        *v = Visibility::Hidden;
         **text = format!(
             "Fatigue {}%  /  Hunger {}%  /  Thirst {}%   |   {:?}{}",
             l.fatigue / 100,
@@ -475,7 +479,19 @@ fn draw_order(body: &mut ChildSpawnerCommands, s: &forge_core::State) {
 }
 pub fn command_status(command: Command, s: &forge_core::State) -> String {
     match command {
-        Command::AcceptFarmerRepair => "Farmer's repair accepted. Queue it in Orders [O].".into(),
+        Command::AcceptChef => "Chef commission accepted. Queue the Kitchen Knife here.".into(),
+        Command::QueueChef => "Kitchen Knife queued. Materials reserved once.".into(),
+        Command::DeliverChef => {
+            "Chef commission delivered! Dagger research discovered. Open Research.".into()
+        }
+        Command::StudyDagger => "Dagger study queued at the research table.".into(),
+        Command::CompleteDaggerResearch => {
+            "Dagger recipe unlocked! Open Crafting to forge your first weapon.".into()
+        }
+        Command::QueueCraft | Command::Craft => "Iron Dagger queued at the workbench.".into(),
+        Command::AcceptFarmerRepair => {
+            "Farmer's repair accepted. Queue it in the Farmer tab.".into()
+        }
         Command::QueueFarmerRepair => {
             "Sickle repair queued. 2 ore used; work begins in order.".into()
         }
@@ -488,6 +504,9 @@ pub fn command_status(command: Command, s: &forge_core::State) -> String {
 }
 pub fn command_error(error: forge_core::Error) -> String {
     match error {
+        forge_core::Error::ResearchLocked => {
+            "Dagger recipe locked. Check Research for the next step.".into()
+        }
         forge_core::Error::InsufficientResources => {
             "Not enough materials or gold. Check your supplies.".into()
         }

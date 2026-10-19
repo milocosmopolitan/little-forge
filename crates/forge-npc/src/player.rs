@@ -799,6 +799,11 @@ pub fn animate_actors(
             let index = actor.frame;
             match &mut sprite.texture_atlas {
                 Some(a) => {
+                    // Character selection swaps the texture and its packed coordinates together.
+                    let layout = &catalogs.layouts[&id.0];
+                    if a.layout != *layout {
+                        a.layout = layout.clone();
+                    }
                     if a.index != index {
                         a.index = index;
                     }
@@ -838,6 +843,45 @@ pub fn animate_actors(
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn selecting_another_smith_replaces_existing_atlas_coordinates() {
+        let mut app = App::new();
+        app.add_plugins((MinimalPlugins, AssetPlugin::default()))
+            .init_asset::<Image>()
+            .init_asset::<TextureAtlasLayout>()
+            .init_resource::<crate::PlaybackClock>()
+            .add_systems(Startup, load_catalogs)
+            .add_systems(Update, animate_actors);
+        app.update();
+        let catalogs = app.world().resource::<PlayerCatalogs>();
+        let male_image = catalogs.images["male"].clone();
+        let male_layout = catalogs.layouts["male"].clone();
+        let female_image = catalogs.images["female"].clone();
+        let female_layout = catalogs.layouts["female"].clone();
+        let mut actor = Actor::default();
+        actor.play("walk", &catalogs.catalogs["female"]);
+        actor.paused = true;
+        let entity = app
+            .world_mut()
+            .spawn((
+                actor,
+                CharacterId("female".into()),
+                Sprite {
+                    image: male_image,
+                    texture_atlas: Some(TextureAtlas {
+                        layout: male_layout,
+                        index: 0,
+                    }),
+                    ..default()
+                },
+                bevy::sprite::Anchor::default(),
+            ))
+            .id();
+        app.update();
+        let sprite = app.world().get::<Sprite>(entity).unwrap();
+        assert_eq!(sprite.image, female_image);
+        assert_eq!(sprite.texture_atlas.as_ref().unwrap().layout, female_layout);
+    }
     #[test]
     fn both_characters_parse_with_seventeen_clips_and_five_stations() {
         for id in CHARACTERS {

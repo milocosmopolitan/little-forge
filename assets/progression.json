@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "techniques": [
+    {"id": "blade_forging", "label": "Blade forging", "level_xp": 6},
+    {"id": "handle_fitting", "label": "Handle fitting", "level_xp": 3}
+  ],
+  "recipes": [
+    {"id": "kitchen_knife", "label": "Kitchen Knife", "ore": 2, "seconds": 20, "general_xp": 10, "technique_xp": [6, 3], "research_xp": 6},
+    {"id": "iron_dagger", "label": "Iron Dagger", "ore": 2, "seconds": 5, "general_xp": 12, "technique_xp": [4, 2], "research_xp": 0}
+  ],
+  "chef": {"id": "chef_first_knife", "reward_gold": 24, "request": "A balanced kitchen knife for the village kitchen. Will you forge one for me?"},
+  "dagger": {"id": "dagger_structure", "goal_xp": 10, "technique_levels": [1, 1], "prerequisites": [], "study_seconds": 10, "study_xp": 4, "study_gold": 4}
+}

@@ -111,6 +111,7 @@ mod tests {
     fn scheduled_sale_attaches_same_item_and_exits_without_new_rewards() {
         use crate::{Options, Visitor, Weapon, window::Desktop};
         let mut state = forge_core::State::new(42);
+        state.progression.legacy_dagger = true;
         state.command(1, forge_core::Command::Craft).unwrap();
         let mut p = Presentation::default();
         for e in state.advance(12).unwrap() {

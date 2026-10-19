@@ -101,6 +101,7 @@ mod tests {
     fn manifest_is_valid() {
         Manifest::bundled().unwrap();
         expedition_content().unwrap();
+        forge_core::weapon::Rules::bundled().validate().unwrap();
     }
     #[test]
     fn showroom_balance_is_valid_and_matches_core_defaults() {
@@ -131,4 +132,13 @@ pub fn expedition_content() -> Result<serde_json::Value, String> {
         return Err("expedition content and simulation version differ".into());
     }
     Ok(data)
+}
+
+/// Alpha tuning and stable content IDs; core validates reachability before a new game.
+pub fn progression_rules() -> Result<forge_core::progression::Rules, String> {
+    let rules: forge_core::progression::Rules =
+        serde_json::from_str(include_str!("../../../assets/progression.json"))
+            .map_err(|e| e.to_string())?;
+    rules.validate().map_err(|e| format!("{e:?}"))?;
+    Ok(rules)
 }

@@ -1,6 +1,7 @@
 use forge_core::{Command, EventKind, State, life::SmithAction, save::Save};
 pub fn report() -> serde_json::Value {
     let mut s = State::new(42);
+    s.progression.legacy_dagger = true;
     s.life.config = forge_content::needs_config().unwrap();
     s.life.fatigue = 8990;
     s.life.hunger = 8000;

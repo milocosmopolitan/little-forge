@@ -1,0 +1,33 @@
+{
+  "date_utc": "2026-10-18T22:42:21.365259+00:00",
+  "platform": "macOS arm64 / Apple M4 Metal",
+  "checks": {
+    "fmt": "passed",
+    "strict_workspace_clippy": "passed",
+    "workspace_tests": 96,
+    "asset_ui_spaces_village_expedition_validators": "passed",
+    "farmer_exporter_bytes": "fails equally on unchanged combat branch; decoded RGBA identical, 0 changed pixels"
+  },
+  "source_sha256": {
+    "crates/forge-core/src/weapon.rs": "a34fc42fb6add6912ce42b48cbb28e7cf4e89c7cf0b93da0d8851c487574be8f",
+    "crates/forge-core/src/expedition.rs": "d8746fbcbf75537625cfcb5be32da038082c037fb39fdd29b0606597658382cf",
+    "crates/forge-core/src/save.rs": "a9dc3ec45fc31db7d8788b09942d92a36bdbb4fa09846a3c30daff2c35e581c4",
+    "apps/desktop/src/expedition.rs": "f9f1515ee23a9e9d14db8db91f8df221752e06b0c022bbac1b7f638866fa3718",
+    "apps/desktop/src/alpha_qa.rs": "d832bd828a8fb943d9de97770b527cd82ce4e6f78d7f2db6402a36d8b4e1c950",
+    "assets/weapon-crafting.json": "c29a25340d6d5a19ce47e0ec3a06972aea07c8b48a2c4c7df629180170e0c277"
+  },
+  "native_windows_shadow_pc": "pending",
+  "captures_sha256": {
+    "crafting-common-crafting.png": "7a1bf45ef28ff91183a898c73679c39d3e119e171ddda927d9cd5caff678b605",
+    "crafting-first-wolves.png": "ca5fa7b0c73ffa8f915a44ed8c2ac45f6454cf6c97bd7cd6d7719f61d64d6e97",
+    "crafting-wave-three-retreat.png": "552a2f12f7721d99b4875401c27684e6cd1890a418eb15487e23610e54f0c344",
+    "crafting-failure-feedback.png": "413235b30f750fbd147352fd63efd3cc6cda653b8ed57d471e4f39ba68da8f3a",
+    "crafting-masterwork-crafting.png": "ad6ae823d88f8784911b6942635c44de57ae0f3efacbe8a2fca98a27662c5b1d",
+    "crafting-retry-boar.png": "307a0513ccc41a4ce36b6f1e83fe450beb0ca9fbfda6e90d94ea42a6792f70dd",
+    "crafting-victory.png": "508ce4ba388b388bc007a3cbe3d8fc32f23c2cd3275efe475cfd0072b93293a6",
+    "crafting-breakthrough-codex.png": "f6fe878cb4f29be94d7e283f622a154bc32a1d3893b0dbdc2fdaf192721afa34",
+    "crafting.png.json": "c4ae1c85c42c7ce02e29ecaa7204387515472229c3b92ecc2cbf858d617c016b"
+  },
+  "actual_bevy_crafting_playthrough": "passed: 2 cleared -> 5 cleared; Wave 3 defeat event captured; save/reload equal",
+  "existing_bevy_regressions": "both smith Alpha routes and nine expedition captures passed"
+}

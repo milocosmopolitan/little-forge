@@ -1,0 +1,42 @@
+{
+  "base_commit": "ad09f282e30876dc01f61ca65da9f9264c95dad1",
+  "working_tree": "includes local Alpha 01 changes",
+  "clock": "0.1 simulation second per rendered frame",
+  "input": "Activate events on actual production controls; native input checked separately",
+  "characters": {
+    "male": {
+      "result": "passed",
+      "captures": {
+        "male-title.png": "a237e56970542836adc4ead03434a73c21705aee87c83a49408738618be0d0f2",
+        "male-character-selection.png": "4ac51be36666224208c5d857ad0b5d5fdc3aaa326ddc463411a54afd3afeb389",
+        "male-workshop.png": "f8a916ee0f576e33f72cdfa523ed047784e5a055db0d53113278d62822f81165",
+        "male-chef-commission.png": "f7d14151b22c2471cbf6cd5a666753953035b534dfc14b1de8789f46c5d8b2be",
+        "male-active-crafting.png": "4db295d358ef9b4511d9fbd3ac778e4cb94b39e93a8083692d0317450549800e",
+        "male-chef-ready.png": "3dba83678c699bb5c02e61669ac1758d158deb3c70f4f7adb18403707d09ecc6",
+        "male-research-discovered.png": "9de1df500d4f1f8654c7160f4a6f5e18864893a3094e814536df5cb4e80f2789",
+        "male-research-ready.png": "3f28af89583648a77b4291e3f2d1ac6fbb782eb1555a03955895f4ffa33532cd",
+        "male-research-completed.png": "2d401cf32c8ac02cc78199871f43dc9ffd7c95213e718a1a5874846bf920b851",
+        "male-codex.png": "9d2bfa779920ec5dce450961cf233fdbc32869c819ffad71b94c9c93e3f06cd9",
+        "male-journal.png": "9f677c800c81328ee11a5f52ba4ef2fdd40ca53ce79e1a4d8b6343830c0c6b34",
+        "male-workshop-return.png": "6f9116aba97be783ac32a1e6d74e88bdc0a47df49b7b92cb67edc43ee72beb47"
+      }
+    },
+    "female": {
+      "result": "passed",
+      "captures": {
+        "female-title.png": "10f132b5d9568be5b17b19bbc7f250835ed8ccd10778433176bd9491d20373fb",
+        "female-character-selection.png": "e653d59834a375b12d5e60c965e00d813d42e20913b1c502d291d4c4757d3d4b",
+        "female-workshop.png": "d3a56bf2319ed211d55da3a86e7579a19f290f8ae904dd0e7e7c927d4ea9a346",
+        "female-chef-commission.png": "f7d14151b22c2471cbf6cd5a666753953035b534dfc14b1de8789f46c5d8b2be",
+        "female-active-crafting.png": "bbb95bb42ad55619fd595f5078e226112455d17241d3ed3258ee6f6f6bdf0eff",
+        "female-chef-ready.png": "3dba83678c699bb5c02e61669ac1758d158deb3c70f4f7adb18403707d09ecc6",
+        "female-research-discovered.png": "9de1df500d4f1f8654c7160f4a6f5e18864893a3094e814536df5cb4e80f2789",
+        "female-research-ready.png": "3f28af89583648a77b4291e3f2d1ac6fbb782eb1555a03955895f4ffa33532cd",
+        "female-research-completed.png": "2d401cf32c8ac02cc78199871f43dc9ffd7c95213e718a1a5874846bf920b851",
+        "female-codex.png": "9d2bfa779920ec5dce450961cf233fdbc32869c819ffad71b94c9c93e3f06cd9",
+        "female-journal.png": "9f677c800c81328ee11a5f52ba4ef2fdd40ca53ce79e1a4d8b6343830c0c6b34",
+        "female-workshop-return.png": "ae3c5cfb451fe6f5f0d08997baff04e631b67a57bf8f229c17c204f65ffcf70a"
+      }
+    }
+  }
+}

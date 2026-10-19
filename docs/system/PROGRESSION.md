@@ -82,3 +82,8 @@
 ## Expedition combat slice (2026-10-18)
 
 The first expedition now uses deterministic five-wave automatic combat. See [combat rules](EXPEDITION.md) and the implementation boundary in [Hunter return](FIRST_EXPEDITION.md). Weapon IDs retain actual field-use and defeat counts; five-wave completion reopens the forest and awards eight timber once. Full research/technique progression and the broader Codex UI remain separate open work, not completion claims from this combat slice.
+
+
+## Crafted-weapon gameplay follow-up
+
+The implemented knife material/technique/approach choices, research gates, permanent instance history, migration and Wave 3 retry are documented in [Crafting × Combat](../qa/CRAFTING-COMBAT.md). The broader systems above remain design targets where that report identifies gaps.

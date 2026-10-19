@@ -47,6 +47,7 @@ jobs:
           cargo run --locked --release -p forge-qa > qa-output/simulation.json
           cargo run --locked --release -p forge-qa -- life-loop > qa-output/life-multiday.json
           cargo run --locked --release -p forge-qa -- expedition > qa-output/expedition.json
+          cargo run --locked --release -p forge-qa -- crafting-combat > qa-output/crafting-combat.json
       - name: Build Windows diagnostic executable
         if: runner.os == 'Windows'
         run: cargo build --locked -p little-forge
@@ -54,6 +55,11 @@ jobs:
       - name: Capture expedition combat on native desktops
         if: runner.os != 'Linux'
         run: python scripts/capture-expedition.py target/release/little-forge${{ runner.os == 'Windows' && '.exe' || '' }}
+      - name: Play Alpha 01 through production controls on native platforms
+        if: runner.os != 'Linux'
+        run: |
+          python scripts/capture-alpha.py target/release/little-forge${{ runner.os == 'Windows' && '.exe' || '' }}
+          python scripts/capture-alpha.py target/release/little-forge${{ runner.os == 'Windows' && '.exe' || '' }} --crafting --output qa-output/crafting-combat
       - name: Compare Windows debug scenes
         if: runner.os == 'Windows'
         shell: pwsh
@@ -104,6 +110,10 @@ jobs:
       - run: python -m pip install -r scripts/requirements-qa.txt
       - name: Capture expedition combat in the actual game
         run: xvfb-run -a -s '-screen 0 1280x800x24' python scripts/capture-expedition.py target/debug/little-forge
+      - name: Play Alpha 01 through production controls
+        run: |
+          xvfb-run -a -s '-screen 0 1280x800x24' python scripts/capture-alpha.py target/debug/little-forge
+          xvfb-run -a -s '-screen 0 1280x800x24' python scripts/capture-alpha.py target/debug/little-forge --crafting --output qa-output/crafting-combat
       - run: |
           mkdir -p qa-output
           for scene in ambient sale expanded; do

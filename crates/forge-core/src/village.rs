@@ -197,7 +197,7 @@ mod tests {
     };
     #[test]
     fn atomic_validation_and_restart_dedup() {
-        let mut s = State::new(42);
+        let mut s = State::foundation(42);
         s.gold = 100;
         let old = s.clone();
         for (v, i, n) in [
@@ -242,7 +242,7 @@ mod tests {
     }
     #[test]
     fn insufficient_overflow_and_pantry_roll_back() {
-        let mut s = State::new(7);
+        let mut s = State::foundation(7);
         let buy = Command::Purchase {
             vendor: Location::Carpenter,
             item: Item::Timber,
@@ -293,7 +293,7 @@ mod compatibility {
     fn schema_two_migrates_and_premium_is_opt_in() {
         let dir = std::env::temp_dir().join(format!("village-migrate-{}", std::process::id()));
         std::fs::create_dir_all(&dir).unwrap();
-        let mut value = serde_json::to_value(save::Save::new(State::new(2), 100)).unwrap();
+        let mut value = serde_json::to_value(save::Save::new(State::foundation(2), 100)).unwrap();
         value["schema_version"] = 2.into();
         value["state"]["life"]["queue"] = 0.into();
         value["state"].as_object_mut().unwrap().remove("commerce");

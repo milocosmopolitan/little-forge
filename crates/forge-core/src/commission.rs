@@ -163,7 +163,7 @@ mod tests {
     }
     #[test]
     fn mixed_queue_is_fifo_and_entrusted_tool_never_enters_sale_stock() {
-        let mut s = State::new(42);
+        let mut s = State::foundation(42);
         cmd(&mut s, Command::Craft);
         cmd(&mut s, Command::QueueCraft);
         cmd(&mut s, Command::AcceptFarmerRepair);
@@ -204,7 +204,7 @@ mod tests {
     }
     #[test]
     fn invalid_actions_and_resource_failures_are_atomic() {
-        let mut s = State::new(1);
+        let mut s = State::foundation(1);
         for c in [Command::QueueFarmerRepair, Command::DeliverFarmerRepair] {
             let before = s.clone();
             assert_eq!(s.command(1, c), Err(Error::InvalidOrderState));
@@ -238,7 +238,7 @@ mod tests {
             (DEADLINE_SECS - REPAIR_SECS, true),
             (DEADLINE_SECS - REPAIR_SECS + 1, false),
         ] {
-            let mut s = State::new(1);
+            let mut s = State::foundation(1);
             cmd(&mut s, Command::AcceptFarmerRepair);
             s.advance(start).unwrap();
             cmd(&mut s, Command::QueueFarmerRepair);
@@ -260,7 +260,7 @@ mod tests {
     #[test]
     fn repair_respects_sleep_and_survives_journal_restart_in_every_phase() {
         let dir = std::env::temp_dir().join(format!("forge-repair-{}", std::process::id()));
-        let mut s = Save::new(State::new(42), 1000);
+        let mut s = Save::new(State::foundation(42), 1000);
         for action in [
             None,
             Some(Command::AcceptFarmerRepair),
@@ -295,7 +295,7 @@ mod tests {
     }
     #[test]
     fn time_partitioning_preserves_work_and_ready_event() {
-        let mut a = State::new(1);
+        let mut a = State::foundation(1);
         cmd(&mut a, Command::AcceptFarmerRepair);
         cmd(&mut a, Command::QueueFarmerRepair);
         let mut b = a.clone();
@@ -319,7 +319,7 @@ mod tests {
     }
     #[test]
     fn overflow_does_not_consume_the_delivery() {
-        let mut s = State::new(1);
+        let mut s = State::foundation(1);
         cmd(&mut s, Command::AcceptFarmerRepair);
         cmd(&mut s, Command::QueueFarmerRepair);
         s.advance(REPAIR_SECS).unwrap();

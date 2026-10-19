@@ -1,0 +1,164 @@
+{
+  "benchmark": {
+    "elapsed_ms": 163.400833,
+    "event_checksum": 1519897,
+    "kind": "simulation-only",
+    "runs": 10000,
+    "simulated_seconds_per_run": 3600
+  },
+  "events": [
+    {
+      "id": 1,
+      "kind": "Crafted",
+      "tick": 5
+    },
+    {
+      "id": 2,
+      "kind": {
+        "ActionChanged": "Idle"
+      },
+      "tick": 5
+    },
+    {
+      "id": 3,
+      "kind": {
+        "Sold": {
+          "gold": 12,
+          "item": "iron_dagger"
+        }
+      },
+      "tick": 12
+    }
+  ],
+  "platform": {
+    "arch": "aarch64",
+    "os": "macos"
+  },
+  "scenario": "craft-and-sale",
+  "state": {
+    "command_id": 1,
+    "commerce": {
+      "leather": 0,
+      "stock": [
+        40,
+        30,
+        60,
+        12
+      ],
+      "timber": 0
+    },
+    "crafted": 1,
+    "daggers": 0,
+    "event_id": 3,
+    "farmer_order": {
+      "accepted_at": null,
+      "completed_at": null,
+      "deadline_at": null,
+      "delivered_at": null,
+      "favor": 0,
+      "phase": "Offered",
+      "settled_gold": 0
+    },
+    "gold": 12,
+    "job_due": null,
+    "life": {
+      "action": "Idle",
+      "active_job": null,
+      "config": {
+        "consume_seconds": 2,
+        "drink_threshold": 3000,
+        "eat_threshold": 3000,
+        "food_price": 2,
+        "food_restore": 6000,
+        "hunger_rate": 1,
+        "minimum_speed": 250,
+        "sleep_seconds": 120,
+        "sleep_threshold": 9000,
+        "slowdown_threshold": 2500,
+        "stack_limit": 20,
+        "thirst_rate": 2,
+        "work_fatigue": 4
+      },
+      "fatigue": 20,
+      "hunger": 20,
+      "pantry": {
+        "slots": [
+          {
+            "count": 3,
+            "food": "Staple"
+          },
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "queue": [],
+      "remaining": 0,
+      "thirst": 40,
+      "work": 0
+    },
+    "next_visitor": 35,
+    "ore": 8,
+    "progression": {
+      "chef_phase": "Offered",
+      "clues": [],
+      "codex": {},
+      "general_xp": 0,
+      "journal": [],
+      "legacy_dagger": true,
+      "next_item_id": 0,
+      "research_completed": false,
+      "research_xp": 0,
+      "rules": null,
+      "study_pending": false,
+      "technique_xp": [
+        0,
+        0
+      ]
+    },
+    "rng": 45454805674,
+    "showroom": {
+      "config": {
+        "max_racks": 3,
+        "rack_gold": 30,
+        "rack_slots": [
+          4,
+          6,
+          8
+        ],
+        "rack_timber": 4,
+        "upgrade_gold": [
+          20,
+          40
+        ],
+        "upgrade_timber": [
+          2,
+          4
+        ]
+      },
+      "overflow": 0,
+      "racks": [
+        {
+          "tier": 1
+        }
+      ],
+      "slots": [
+        "empty",
+        "empty",
+        "empty",
+        "empty"
+      ]
+    },
+    "smith": null,
+    "sold": 1,
+    "tick": 20
+  }
+}

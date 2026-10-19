@@ -127,11 +127,18 @@ pub fn setup(
     opts: Res<Options>,
     mut spaces: ResMut<Spaces>,
 ) {
-    // Isolated QA scenes start in the space they document; normal launches start outside.
-    if opts.qa.as_deref().is_some_and(|q| q.starts_with("repair-")) {
-        // The first-repair fixtures open the workshop ledger on its Orders tab.
+    if opts.qa.is_none() {
         spaces.space = Space::Workshop;
-        spaces.manage = true;
+    }
+    // QA scenes select their documented view; a new player's selection enters the workshop.
+    if opts
+        .qa
+        .as_deref()
+        .is_some_and(|q| q.starts_with("repair-") || q.starts_with("alpha"))
+    {
+        // Repair fixtures open their drawer; Alpha follows the real title route.
+        spaces.space = Space::Workshop;
+        spaces.manage = !opts.qa.as_deref().is_some_and(|q| q.starts_with("alpha"));
     }
     if let Some((scene, _)) = opts.forge_scene() {
         spaces.space = match scene {
@@ -498,7 +505,10 @@ fn status_line(s: &Session) -> String {
             format!(
                 "{} {} · {}%",
                 station.label(),
-                st.current_good().label().to_lowercase(),
+                st.life
+                    .active_job
+                    .map_or("work", |job| job.label())
+                    .to_lowercase(),
                 progress / 10
             )
         }
@@ -550,7 +560,11 @@ pub fn draw(
         st.showroom.slots,
         st.showroom.racks.len(),
         st.gold,
-        st.activity(),
+        if spaces.manage {
+            String::new()
+        } else {
+            format!("{:?}", st.activity())
+        },
         spaces.scale,
         home.single().ok(),
     );
@@ -611,7 +625,11 @@ pub fn draw(
     // Station hit areas over the workshop scene.
     if let Ok(root) = hit.single() {
         commands.entity(root).despawn_children();
-        if spaces.space == Space::Workshop && desktop.shell.expanded {
+        if spaces.space == Space::Workshop
+            && desktop.shell.expanded
+            && !spaces.manage
+            && spaces.station.is_none()
+        {
             let stations = StationCatalog::bundled().expect("validated station catalog");
             if let Some(c) = catalogs.as_ref().and_then(|c| c.get(&actor_character(&s))) {
                 commands.entity(root).with_children(|p| {
@@ -700,6 +718,9 @@ fn draw_workshop(p: &mut ChildSpawnerCommands, s: &Session, spaces: &Spaces, ser
                 bottom: px(0),
                 padding: UiRect::all(px(8)),
                 column_gap: px(10),
+                flex_wrap: FlexWrap::Wrap,
+                right: px(0),
+                row_gap: px(4),
                 align_items: AlignItems::Center,
                 ..default()
             },
@@ -711,12 +732,18 @@ fn draw_workshop(p: &mut ChildSpawnerCommands, s: &Session, spaces: &Spaces, ser
                 13.,
             ));
             forge_ui::button(row, "Manage", Action::Manage);
+            forge_ui::button(row, "Hunter expedition", crate::expedition::Action::Prepare);
+            forge_ui::button(row, "Chef commission", crate::lifestyle::HomeTab(3));
+            forge_ui::button(row, "Research", crate::lifestyle::HomeTab(4));
         });
         return;
     }
-    // The ledger keeps its three-column layout, so the manage drawer is twice as wide as a
-    // station menu; the hot stations on the right stay visible either way.
-    let drawer_width = if spaces.manage { 660. } else { 330. };
+    // Keep all three ledger columns readable at the management window's target width.
+    let drawer_width = if spaces.manage {
+        (spaces.window.x - 48.).min(900.)
+    } else {
+        330.
+    };
     p.spawn((
         forge_ui::SkinPanel,
         Node {
@@ -743,9 +770,10 @@ fn draw_workshop(p: &mut ChildSpawnerCommands, s: &Session, spaces: &Spaces, ser
                     let good = st.current_good();
                     drawer.spawn(forge_ui::text(
                         format!(
-                            "{} · 2 ore · {} s\n{} → {} → {} are one job; the smith moves between stations as the work progresses.",
+                            "{} · {} ore · {} s\n{} → {} → {} are one job; the smith moves between stations as the work progresses.",
                             good.label(),
-                            forge_core::CRAFT_SECS,
+                            st.dagger_ore(),
+                            st.work_seconds(forge_core::life::WorkKind::IronDagger),
                             Workstation::Forge.label(),
                             Workstation::Anvil.label(),
                             Workstation::QuenchingTub.label()
@@ -764,26 +792,23 @@ fn draw_workshop(p: &mut ChildSpawnerCommands, s: &Session, spaces: &Spaces, ser
                     if let Some(reason) = st.craft_block_reason() {
                         drawer.spawn(forge_ui::text(reason.label(), 13.));
                     }
-                    let queue = forge_ui::button(
+                    crate::progression_ui::command_button(
                         drawer,
+                        st,
                         "Queue iron dagger [Q]",
-                        crate::lifestyle::Action(Command::QueueCraft),
+                        Command::QueueCraft,
                     );
-                    if st.ore < 2 || st.life.queue.len() >= 32 {
-                        drawer.commands().entity(queue).insert((
-                            bevy::ui::InteractionDisabled,
-                            forge_ui::Unavailable("Not enough ore, or the queue is full.".into()),
-                        ));
-                    }
                     forge_ui::button(
                         drawer,
                         "Buy 2 ore · 4 gold [B]",
                         crate::lifestyle::Action(Command::BuyOre),
                     );
+                } else if station == Workstation::ResearchTable {
+                    forge_ui::button(drawer, "Open research tree", crate::lifestyle::HomeTab(4));
                 } else {
                     drawer.spawn(forge_ui::text(
                         format!(
-                            "{} work is not simulated yet (#72/#76). The motion exists in the preview only; no result or reward is produced here.",
+                            "{} is not available in this alpha. Return to the workshop to continue crafting.",
                             station.label()
                         ),
                         13.,
@@ -1135,7 +1160,7 @@ pub fn apply(
             }
         }
         Action::Go(space) if desktop.shell.expanded && home => spaces.enter(space),
-        Action::Station(station) if desktop.shell.expanded && home => {
+        Action::Station(station) if desktop.shell.expanded && home && !spaces.manage => {
             spaces.station = if spaces.station == Some(station) {
                 None
             } else {
@@ -1292,6 +1317,7 @@ mod tests {
     fn space_actions_need_an_expanded_home_and_toggle_cleanly() {
         let dir = std::env::temp_dir().join(format!("forge-spaces-{}", std::process::id()));
         let mut state = forge_core::State::new(9);
+        state.progression.legacy_dagger = true;
         state
             .command(1, Command::ChooseSmith(forge_core::Smith::Female))
             .unwrap();
@@ -1353,6 +1379,19 @@ mod tests {
             &opts,
         );
         assert_eq!(spaces.station, None);
+        spaces.manage = true;
+        let before = s.save.state.clone();
+        apply(
+            Action::Station(Workstation::SalvageTable),
+            &mut spaces,
+            &mut desktop,
+            &mut village,
+            &mut s,
+            &opts,
+        );
+        assert!(spaces.manage);
+        assert_eq!(spaces.station, None);
+        assert_eq!(s.save.state, before);
         apply(
             Action::Go(Space::Showroom),
             &mut spaces,

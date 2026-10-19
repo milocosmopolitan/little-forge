@@ -49,3 +49,8 @@ Bevy renders authoritative event snapshots with independent cosmetic animation f
 The forest backdrop and continuous ground are static; two actors and light effects keep
 render cost small. New action/monster art is a visual candidate, not approved production art.
 See [combat QA](../qa/EXPEDITION-COMBAT.md) for actual checks and evidence boundaries.
+
+
+## Crafted-weapon gameplay follow-up
+
+The implemented knife material/technique/approach choices, research gates, permanent instance history, migration and Wave 3 retry are documented in [Crafting × Combat](../qa/CRAFTING-COMBAT.md). The broader systems above remain design targets where that report identifies gaps.
