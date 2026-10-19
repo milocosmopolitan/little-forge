@@ -29,6 +29,10 @@ pub struct Spaces {
     pub scale: f32,
     pub view_origin: Vec2,
     pub window: Vec2,
+    /// Set by `route`: the workshop scene (backdrop, smith, fixtures, display goods) is on screen.
+    /// The village map can show it while `space` is still `Exterior`, so never derive it from
+    /// `space` alone.
+    pub workshop_shown: bool,
 }
 impl Default for Spaces {
     fn default() -> Self {
@@ -42,6 +46,7 @@ impl Default for Spaces {
             scale: 1.,
             view_origin: Vec2::ZERO,
             window: Vec2::new(960., 540.),
+            workshop_shown: false,
         }
     }
 }
@@ -312,8 +317,8 @@ pub fn route(
     spaces.window = Vec2::new(window.width(), window.height());
     let home = village.nav.screen == Screen::Home;
     let shown = !title.active && s.save.state.smith.is_some() && qa_allows(&opts);
-    let interior = shown;
-    let exterior = shown && home && spaces.space == Space::Exterior;
+    let (exterior, workshop) = scene_flags(shown, home, spaces.space);
+    spaces.workshop_shown = workshop;
     let scale = 1.;
     spaces.scale = scale;
     spaces.view_origin = layout.origin;
@@ -321,7 +326,7 @@ pub fn route(
     for (scene, mut visibility, mut transform, backdrop, compact) in &mut scenes {
         let visible = match scene.0 {
             Space::Exterior => exterior,
-            Space::Workshop => interior && !exterior,
+            Space::Workshop => workshop,
             Space::Showroom => false,
         };
         let next = if visible {
@@ -342,7 +347,7 @@ pub fn route(
         }
     }
     for (mut visibility, hit) in &mut roots {
-        let next = if (hit && interior && !exterior) || (!hit && shown) {
+        let next = if (hit && workshop) || (!hit && shown) {
             Visibility::Visible
         } else {
             Visibility::Hidden
@@ -533,6 +538,35 @@ pub fn drive_presence(
 fn actor_character(s: &Session) -> String {
     s.save.state.smith.map_or("male", |c| c.id()).into()
 }
+/// (exterior shown, workshop shown). The exterior plate only shows on the home screen; any
+/// other screen (village map, destinations) keeps the workshop scene below it, even when the
+/// last space was Outside.
+fn scene_flags(shown: bool, home: bool, space: Space) -> (bool, bool) {
+    let exterior = shown && home && space == Space::Exterior;
+    (exterior, shown && !exterior)
+}
+/// The activity without its progress: progress only changes `StatusText`, updated in place.
+fn activity_shape(activity: Activity) -> String {
+    match activity {
+        Activity::Working { station, .. } => format!("Working({station:?})"),
+        other => format!("{other:?}"),
+    }
+}
+/// A status line refreshed in place by `refresh_status`, with an optional fixed suffix.
+#[derive(Component)]
+pub struct StatusText(&'static str);
+fn refresh_status(s: Res<Session>, mut q: Query<(&StatusText, &mut Text)>) {
+    if q.is_empty() {
+        return;
+    }
+    let line = status_line(&s);
+    for (status, mut text) in &mut q {
+        let value = format!("{line}{}", status.0);
+        if text.0 != value {
+            text.0 = value;
+        }
+    }
+}
 fn status_line(s: &Session) -> String {
     let st = &s.save.state;
     let room = &st.showroom;
@@ -596,7 +630,7 @@ pub fn draw(
         if spaces.manage {
             String::new()
         } else {
-            format!("{:?}", st.activity())
+            activity_shape(st.activity())
         },
         spaces.scale,
         home.single().ok(),
@@ -632,7 +666,7 @@ fn draw_exterior(p: &mut ChildSpawnerCommands, s: &Session) {
         BackgroundColor(Color::srgba(0.105, 0.083, 0.068, 0.85)),
     ))
     .with_children(|row| {
-        row.spawn(forge_ui::text(status_line(s), 13.));
+        row.spawn((forge_ui::text(status_line(s), 13.), StatusText("")));
         forge_ui::button(row, "Workshop", Action::Go(Space::Workshop));
         forge_ui::button(row, "Showroom", Action::Go(Space::Showroom));
     });
@@ -657,9 +691,10 @@ fn draw_workshop(p: &mut ChildSpawnerCommands, s: &Session, spaces: &Spaces, ser
             BackgroundColor(Color::srgba(0.105, 0.083, 0.068, 0.85)),
         ))
         .with_children(|row| {
-            row.spawn(forge_ui::text(
-                format!("{}   ·   Click a station to assign work", status_line(s)),
-                13.,
+            const HINT: &str = "   ·   Click a station to assign work";
+            row.spawn((
+                forge_ui::text(format!("{}{HINT}", status_line(s)), 13.),
+                StatusText(HINT),
             ));
             forge_ui::button(row, "Manage", Action::Manage);
             forge_ui::button(row, "Hunter expedition", crate::expedition::Action::Prepare);
@@ -695,7 +730,7 @@ fn draw_workshop(p: &mut ChildSpawnerCommands, s: &Session, spaces: &Spaces, ser
         match spaces.station {
             Some(station) => {
                 drawer.spawn(forge_ui::text(station.label(), 21.));
-                drawer.spawn(forge_ui::text(status_line(s), 12.));
+                drawer.spawn((forge_ui::text(status_line(s), 12.), StatusText("")));
                 if station.simulated() {
                     let good = st.current_good();
                     drawer.spawn(forge_ui::text(
@@ -1229,6 +1264,7 @@ pub fn plugin(app: &mut App) {
                 drive_presence,
                 input,
                 draw,
+                refresh_status,
                 shell_transparency,
             )
                 .chain()
@@ -1238,6 +1274,28 @@ pub fn plugin(app: &mut App) {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn village_from_outside_keeps_the_whole_workshop_scene() {
+        assert_eq!(scene_flags(true, true, Space::Exterior), (true, false));
+        assert_eq!(scene_flags(true, false, Space::Exterior), (false, true));
+        assert_eq!(scene_flags(true, true, Space::Workshop), (false, true));
+        assert_eq!(scene_flags(false, false, Space::Workshop), (false, false));
+    }
+    #[test]
+    fn work_progress_does_not_change_the_panel_redraw_key() {
+        let at = |progress| Activity::Working {
+            station: Workstation::Forge,
+            progress,
+        };
+        assert_eq!(activity_shape(at(70)), activity_shape(at(980)));
+        assert_ne!(
+            activity_shape(at(70)),
+            activity_shape(Activity::Working {
+                station: Workstation::Anvil,
+                progress: 70
+            })
+        );
+    }
     #[test]
     fn a_hundred_window_round_trips_preserve_work_and_actor_phase() {
         let dir = std::env::temp_dir().join(format!("d01-continuity-{}", std::process::id()));

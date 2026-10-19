@@ -1,4 +1,5 @@
 mod alpha_qa;
+mod customer;
 mod d01_qa;
 mod expedition;
 mod forge_trace;
@@ -109,7 +110,8 @@ struct Panel;
 #[derive(Resource)]
 struct Art {
     images: Vec<Handle<Image>>,
-    visitor_sizes: Vec<Vec2>,
+    /// Hunter customer frames (`customer::FRAMES`) and the item hand of each.
+    visitor_frames: Vec<Handle<Image>>,
     visitor_hands: Vec<Vec2>,
     building_active: Handle<Image>,
     building_idle: Handle<Image>,
@@ -622,38 +624,13 @@ fn setup(
         Transform::from_xyz(90., -27., 0.),
         spaces::SceneOf(forge_core::spaces::Space::Exterior),
     ));
-    let manifest = forge_content::Manifest::bundled().expect("validated bundled manifest");
-    let visitor_meta = manifest.assets.iter().find(|a| a.id == "visitor").unwrap();
-    let visitor_sizes = vec![interior::CANVAS; visitor_meta.frame_rects.len()];
-    let visitor_hands = visitor_meta
-        .walking_hand_points
-        .iter()
-        .enumerate()
-        .map(|(i, p)| {
-            let r = visitor_meta.frame_rects[i + 4];
-            let scale = interior::CHARACTER_SCALE / 3.;
-            Vec2::new(
-                (p[0] as f32 - (r[0] + r[2]) as f32 / 2.) * scale,
-                (r[3] as f32 - p[1] as f32) * scale,
-            )
-        })
-        .collect();
-    let visitor_layout = layouts.add(TextureAtlasLayout::from_grid(
-        interior::CANVAS.as_uvec2(),
-        4,
-        3,
-        None,
-        None,
-    ));
-    // The legacy smith sheet is no longer drawn: the chosen player character owns that role
-    // (spaces.rs). The visitor sheet stays a visitor and is never used for the player.
+    let visitor_frames: Vec<Handle<Image>> = customer::paths().map(|p| server.load(p)).collect();
+    let visitor_hands = customer::hands();
+    // The customer is the hunter NPC with its own walk/give frames; the legacy visitor sheet
+    // looked like the player smith and is no longer drawn.
     commands.spawn((
         Sprite {
-            image: server.load("forge/atlas-v2/visitor.png"),
-            texture_atlas: Some(TextureAtlas {
-                layout: visitor_layout,
-                index: 0,
-            }),
+            image: visitor_frames[customer::NEUTRAL].clone(),
             custom_size: Some(interior::CANVAS),
             ..default()
         },
@@ -700,7 +677,7 @@ fn setup(
         Weapon,
     ));
     commands.insert_resource(Art {
-        visitor_sizes,
+        visitor_frames,
         visitor_hands,
         building_active: server.load("forge/forge.png"),
         building_idle: server.load("forge/forge_idle.png"),
@@ -991,15 +968,19 @@ fn animate(
     // The exterior keeps its ambient composition in every window mode; the expanded window
     // shows it centred instead of pinned to the bottom under an opaque panel.
     let offset = 0.;
-    let walk_frame = ((p.elapsed * 6.) as usize) % 4;
     let visitor_frame = if matches!(
         p.phase,
         presentation::Phase::Walk | presentation::Phase::ExitWithItem
     ) {
-        4 + walk_frame
+        customer::walk(p.elapsed)
     } else {
-        0
+        customer::NEUTRAL
     };
+    let hand = art
+        .visitor_hands
+        .get(visitor_frame)
+        .copied()
+        .unwrap_or_default();
     let legacy_qa = opts.qa.as_deref().is_some_and(|q| {
         !q.starts_with("life-") && !q.starts_with("village-") && !q.starts_with("forge-")
     });
@@ -1022,16 +1003,13 @@ fn animate(
             } else {
                 Visibility::Hidden
             };
-            if let Some(a) = &mut sprite.texture_atlas {
-                a.index = visitor_frame;
-                sprite.custom_size = Some(art.visitor_sizes[visitor_frame]);
+            if let Some(image) = art.visitor_frames.get(visitor_frame)
+                && sprite.image != *image
+            {
+                sprite.image = image.clone();
             }
         } else if weapon.is_some() {
-            t.translation = Vec3::new(
-                p.x() + art.visitor_hands[walk_frame].x,
-                -85. + art.visitor_hands[walk_frame].y + 8. + offset,
-                4.,
-            );
+            t.translation = Vec3::new(p.x() + hand.x, -85. + hand.y + offset, 4.);
             *visibility = if p.has_item {
                 Visibility::Visible
             } else {

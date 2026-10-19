@@ -163,31 +163,12 @@ def characters(out):
                 im.save(arms_dir / f'{sex}-{variant}-researching-{i}.png')
 
 
-def visitor(out):
-    # Legacy visitor is a high-resolution sheet, not native 128x160 character art.
-    # Normalize its fixed 3x source density once into the canonical canvas.
-    meta = next(a for a in json.loads((ROOT / 'assets/manifest.json').read_text())['assets']
-                if a['id'] == 'visitor')
-    sheet = Image.open(ROOT / 'assets' / meta['path']).convert('RGBA')
-    packed = Image.new('RGBA', (CANVAS[0] * 4, CANVAS[1] * 3))
-    for i, (x0, y0, x1, y1) in enumerate(meta['frame_rects']):
-        crop = sheet.crop((x0, y0, x1, y1))
-        w, h = round(crop.width / 3), round(crop.height / 3)
-        packed.alpha_composite(crop.resize((w, h), Image.Resampling.NEAREST),
-                               ((i % 4) * CANVAS[0] + PIVOT[0] - w // 2, (i // 4) * CANVAS[1] + PIVOT[1] - h))
-    packed.save(out / 'visitor.png')
-    save_json(out / 'visitor.json', dict(source=meta['path'], source_density_divisor=3,
-                                         canvas=list(CANVAS), pivot=list(PIVOT),
-                                         status='Legacy source density normalization; visual-review item'))
-
-
 def build(out):
     out.mkdir(parents=True, exist_ok=True)
     spec = json.loads((SOURCE / 'workshop-atlas.json').read_text())
     rows = props(out, spec)
     save_json(out / 'catalog.json', rows)
     characters(out)
-    visitor(out)
     registrations = []
     for sex in ('female', 'male'):
         animation = json.loads((ROOT / f'assets/characters/{sex}/animation.json').read_text())

@@ -190,7 +190,7 @@ mod tests {
             .insert_resource(crate::Options::default())
             .insert_resource(crate::Art {
                 images: vec![],
-                visitor_sizes: vec![],
+                visitor_frames: vec![],
                 visitor_hands: vec![],
                 building_active: Handle::default(),
                 building_idle: Handle::default(),

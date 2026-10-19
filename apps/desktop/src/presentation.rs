@@ -134,8 +134,8 @@ mod tests {
             .insert_resource(Desktop::new(false, false))
             .insert_resource(crate::Art {
                 images: vec![],
-                visitor_sizes: vec![Vec2::new(45., 75.); 12],
-                visitor_hands: vec![Vec2::new(-18., 30.); 4],
+                visitor_frames: vec![Handle::default(); crate::customer::FRAMES.len()],
+                visitor_hands: vec![Vec2::new(-18., 30.); crate::customer::FRAMES.len()],
                 building_active: Handle::default(),
                 building_idle: Handle::default(),
             })

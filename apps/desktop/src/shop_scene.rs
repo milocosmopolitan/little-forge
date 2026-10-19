@@ -1,7 +1,7 @@
 //! Read-only projection of existing showroom slots and already-settled sale events.
 use crate::{Session, spaces::Spaces, title::TitleScreen};
 use bevy::{camera::visibility::RenderLayers, prelude::*};
-use forge_core::{craft::Good, showroom::Slot, spaces::Space};
+use forge_core::{craft::Good, showroom::Slot};
 
 /// UI icons are 256px sources; in the 1:1 scene a held or displayed good is this many pixels.
 const ICON: f32 = 20.;
@@ -63,8 +63,7 @@ fn project(
         ),
     >,
 ) {
-    let visible =
-        !title.active && session.save.state.smith.is_some() && spaces.space != Space::Exterior;
+    let visible = !title.active && session.save.state.smith.is_some() && spaces.workshop_shown;
     for (slot, mut v) in &mut slots {
         *v = if visible && displayed(&session.save.state.showroom.slots, slot.0).is_some() {
             Visibility::Visible
@@ -81,15 +80,16 @@ fn project(
     } else {
         -320. - ((sale.elapsed - 4.5) / 3.5).clamp(0., 1.) * 110.
     };
-    let frame = ((sale.elapsed * 6.) as usize) % 4;
+    let (frame, flip) = crate::customer::sale_frame(sale.elapsed);
+    let hand = art.visitor_hands.get(frame).copied().unwrap_or_default();
     for (entity, mut t, mut sprite, mut v, weapon) in &mut customers {
         c.entity(entity)
-            .insert(RenderLayers::layer(if spaces.space == Space::Exterior {
+            .insert(RenderLayers::layer(if !spaces.workshop_shown {
                 0
             } else {
                 1
             }));
-        if spaces.space == Space::Exterior {
+        if !spaces.workshop_shown {
             continue;
         }
         let supported = sale.item.as_deref() == Some(Good::IronDagger.id());
@@ -101,13 +101,14 @@ fn project(
         if weapon {
             sprite.image = server.load("ui/runtime/icons/dagger.png");
             sprite.custom_size = Some(Vec2::splat(ICON));
-            t.translation = Vec3::new(
-                x + art.visitor_hands[frame].x * if sale.elapsed >= 4.5 { -1. } else { 1. },
-                -78. + art.visitor_hands[frame].y + 8.,
-                5.,
-            );
+            t.translation = Vec3::new(x + hand.x * if flip { -1. } else { 1. }, -78. + hand.y, 5.);
         } else {
-            sprite.flip_x = sale.elapsed >= 4.5;
+            sprite.flip_x = flip;
+            if let Some(image) = art.visitor_frames.get(frame)
+                && sprite.image != *image
+            {
+                sprite.image = image.clone();
+            }
             // Foot y=168: the customer stands in front of the counter (floor y=160).
             t.translation = Vec3::new(x, -78., 4.5);
         }
