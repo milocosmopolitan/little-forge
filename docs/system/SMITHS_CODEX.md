@@ -1,5 +1,7 @@
 # Smith's Codex — 장인의 도감과 작품의 흔적
 
+> **Screen audit supersession (2026-10-19 UTC):** #115/#116/#117 are three independent views of one canonical historical model. Current knife craftsmanship/history is implemented, but generic item IDs, party attribution and retention contracts remain incomplete. Never fabricate old quality or provenance. [Current audit](../design/CODEX_EVENTS.md).
+
 [첫 유산](../mvp/FIRST_LEGACY.md) · [성장](PROGRESSION.md) · [무기](WEAPONS.md) · [세계 진행](WORLD_PROGRESSION.md)
 
 ## 목표

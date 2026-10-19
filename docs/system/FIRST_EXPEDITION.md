@@ -1,5 +1,7 @@
 # First Expedition — Hunter's Return
 
+> **Screen audit supersession (2026-10-19 UTC):** The8-second simple-gear recipe examples below describe the legacy combat slice. Crafted knives now use plan-specific8/16/28-second work and inputs (weapon-crafting.json, PR104 merged). The next target is explicit Solo/Party preparation, not merely a second sprite. [Current audit](../design/EXPEDITION_PARTY.md).
+
 The first playable target is **forge → equip → watch → understand retreat → improve → retry**.
 The old timer-only result concept is superseded by [automatic combat](EXPEDITION.md).
 The canonical `assets/npc/hunter` character remains unchanged. Expedition derivatives live

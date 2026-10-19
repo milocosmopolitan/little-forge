@@ -1,5 +1,7 @@
 # Forge Spaces QA — Epic #86
 
+> **Screen audit supersession (2026-10-19 UTC):** Historical captures below qualify their original full-height/exterior layout only. The new lower180 live-indoor contract is not implemented. Research DaggerStudy is real now; salvage remains unavailable. Current native acceptance is listed in the new audit matrix. [Current audit](SCREEN_ACCEPTANCE_MATRIX.md).
+
 Contract: [docs/system/FORGE_SPACES.md](../system/FORGE_SPACES.md). This page separates
 **independent visual checks** (preview fixtures, no simulation) from **actual game / save /
 offline checks** (real `State`, real commands, real persistence). Generated previews and

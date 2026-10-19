@@ -1,5 +1,7 @@
 # Research — reusable engineering principles
 
+> **Screen audit supersession (2026-10-19 UTC):** RESEARCH_NODES_V1 is the new16-node source of truth. Older RNG insight/family-tree/claim prose is long-term or legacy context, not a mandatory gate. Runtime still has one dagger node; merged documentation is not implementation. [Current audit](../design/RESEARCH_IMPLEMENTATION.md).
+
 [연구 노드 v1](RESEARCH_NODES_V1.md) · [경험](EXPRIENCE.md) · [무기](WEAPONS.md) · [제작](CRAFTING.md)
 
 ## 최신 v1 설계 기준 (구현 전)

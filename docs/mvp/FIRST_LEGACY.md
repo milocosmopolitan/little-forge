@@ -1,5 +1,7 @@
 # The First Legacy — 첫 번째 장인의 흔적
 
+> **Screen audit supersession (2026-10-19 UTC):** #106/#114 supersede the old no-party exclusion for one Hunter+Guard party; four members are data/UI extensibility only. RESEARCH_NODES_V1 owns principle research; older linear craft examples are narrative paths, not mandatory dagger dependencies. [Current audit](../design/IMPLEMENTATION_SEQUENCE.md).
+
 [콘텐츠 MVP](README.md) · [성장 체계](../system/PROGRESSION.md) · [장인의 도감](../system/SMITHS_CODEX.md) · [첫 탐험](../system/FIRST_EXPEDITION.md)
 
 ## 왜 필요한가

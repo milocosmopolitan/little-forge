@@ -1,0 +1,4 @@
+hunter 20 frames; 64 colors; atlas and alpha valid
+wolf 8 frames; 43 colors; atlas and alpha valid
+boar 8 frames; 45 colors; atlas and alpha valid
+Canonical source hashes unchanged; structural validation only. Visual approval is separate.

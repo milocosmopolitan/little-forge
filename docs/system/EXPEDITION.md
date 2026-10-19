@@ -1,5 +1,7 @@
 # Expedition combat
 
+> **Screen audit supersession (2026-10-19 UTC):** The no-party exclusion below belongs to the shipped solo v1/v2 slice. #106/#114 approve Hunter+Guard two-person gameplay, data/UI up to4. Hiring/combat economics remain unapproved and are explicitly blocked in the audit; solo regression and old active battles must be preserved. [Current audit](../design/EXPEDITION_PARTY.md).
+
 The approved milestone replaces timer-only dispatch with observable automatic combat.
 One Hunter, Old Forest Path, wolves and wild boars, five sequential encounters and three
 loadout slots. Direct attack controls, parties, procedural maps and permanent loss are excluded.

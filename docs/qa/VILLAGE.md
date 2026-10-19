@@ -1,5 +1,7 @@
 # Village UI & Navigation — Epic #27
 
+> **Screen audit supersession (2026-10-19 UTC):** Outside now routes to implemented solo combat; the placeholder statement below is historical. Generic hiring, multi-NPC progression and redesigned navigation still require the audit contracts. Existing captures do not qualify native transparency. [Current audit](SCREEN_ACCEPTANCE_MATRIX.md).
+
 ## Implementation
 
 The actual Bevy desktop app now has a common thin wood/charcoal navigation shell,

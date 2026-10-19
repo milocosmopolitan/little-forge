@@ -1,0 +1,8 @@
+blacksmith aligned transparent wash OK
+carpenter aligned transparent wash OK
+leatherworker aligned transparent wash OK
+farm aligned transparent wash OK
+tavern aligned transparent wash OK
+village_chief aligned transparent wash OK
+merchant_guild aligned transparent wash OK
+outside aligned transparent wash OK

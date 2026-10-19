@@ -1,0 +1,8 @@
+Source hashes/dimensions and ASCII + 11,172 Hangul syllables verified.
+Runtime exports verified: 47 independent files, true pixel grid, palette limits, hard alpha, matching states/icons.
+Art gate: exports registered; runtime_ready stays false until visual approval.
+Traceback (most recent call last):
+  File "/private/tmp/little-forge-screen-audit/scripts/validate-ui.py", line 80, in <module>
+    assert manifest['runtime_ready'], 'UI 02/03 asset gate is not complete'
+           ~~~~~~~~^^^^^^^^^^^^^^^^^
+AssertionError: UI 02/03 asset gate is not complete

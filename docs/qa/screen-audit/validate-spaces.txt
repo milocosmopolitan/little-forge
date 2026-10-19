@@ -1,0 +1,6 @@
+workshop-backdrop (480, 270) OK
+showroom-backdrop (480, 270) OK
+showroom-window (240, 240) OK
+detail-panel (330, 330) OK
+window-glow (24, 20) OK
+forge spaces OK

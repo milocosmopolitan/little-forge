@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/private/tmp/little-forge-screen-audit/scripts/export-farmer-runtime.py", line 84, in <module>
+    export(check='--check' in sys.argv)
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/little-forge-screen-audit/scripts/export-farmer-runtime.py", line 77, in export
+    raise ValueError(f'Stale runtime export: {target.relative_to(ROOT)}')
+ValueError: Stale runtime export: assets/npc/farmer/runtime-atlas.png
