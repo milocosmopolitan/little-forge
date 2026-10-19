@@ -1,12 +1,14 @@
 # D01 workshop layout, window and input decision packet
 
-Status: **partially approved; visual acceptance pending**. This refines PR #120 after owner review. Main was refetched and remains `6c6e8339f070229f8ea67925aeede550fee54a9d`. No runtime or asset change accompanies this packet.
+Status: **D01 limited implementation authorized; visual acceptance pending**. This refines PR #120 after owner review. Main was refetched and remains `6c6e8339f070229f8ea67925aeede550fee54a9d`. No runtime or asset change accompanies this packet.
 
 ## Approved decision
 
 Previously approved: indoor default; logical960×180 collapsed /960×540 expanded; persistent lower180px workshop; upper360px management; exterior secondary. Owner agrees with reuse/recomposition and bottom viewport direction, conditional on actual960×180 visual review. This is not approval of final station coordinates.
 
-Owner explicitly selected the input policy: **the game receives input by default; the player explicitly enables whole-window click-through for10 seconds**. Transparent empty pixels do not automatically pass clicks to other applications. Per-pixel native passthrough is excluded from this first slice. Retain existing Ctrl+Alt+F8 recovery and automatic lease expiry. The remaining policies below are proposals, not inferred approvals.
+Owner clarified two stages. **Stage1 approved:** reuse existing characters/stations at native1×, indoor default, same live lower180px, upper360px management host; retain default whole-window input plus manual F8/10-second recovery. This is the first implementation fallback, not final product UX. **Stage2 product goal:** ambient noninteractive background passes clicks to desktop applications while semantic NPC/station/button regions receive input. Investigate native macOS/Windows behavior separately in [#121](https://github.com/milocosmopolitan/little-forge/issues/121), after the live scene is visually stable. Management uses normal input with modal focus ownership.
+
+Official initial management minimum is960×540 logical usable pixels. Smaller-display accessible layouts remain future support, not a reason to squash characters or text. Final station coordinates, backdrop composition, small-display readability and platform selective-input implementation are not approved. D02–D07 are not approved as complete contracts. The owner now explicitly authorizes a separate bounded implementation PR for #107/#118/#63/#89; do not implement Epic #106 wholesale or merge PR #120 automatically.
 
 ## Existing implementation and evidence
 
@@ -18,7 +20,7 @@ Owner explicitly selected the input policy: **the game receives input by default
 
 ## Proposed resolution A: one horizontal work lane
 
-Use native1× sprite scale at logical960px width. Keep the actor foot at y=156; the full frame then occupies y=16..176, leaving16px above and4px below. All animation-frame alpha, held tools and station layers still need verification; frame arithmetic is not playback proof. Do not enlarge the actor when management opens.
+Use native1× sprite scale at logical960px width. Keep the actor foot at y=156; the full frame then occupies y=16..176, leaving16px above and4px below. Not every inactive station must be fully visible at once: emphasize active work, allow inactive equipment to blend into the scene, and preserve usable navigation. All animation-frame alpha, held tools and station layers still need verification; frame arithmetic is not playback proof. Do not enlarge the actor when management opens.
 
 Candidate work positions, **for validation, not approved artwork**:
 
@@ -67,16 +69,16 @@ For nominal geometry, keep bottom edge within1 physical pixel through resize; cl
 
 ## Open decision: small displays and visual approval
 
-Recommend960×540 **logical usable work area** as the first qualified design target, excluding Dock/taskbar. Keep a smaller-area recovery fallback but do not claim full readability at640×480 from uniform scaling alone. The earlier uniform-fit proposal remains an option for later qualification; neither shrinking to640×360 nor scrolling a full management canvas is approved yet. At125/150% DPI, physical pixel edges will vary even with nearest sampling; evaluate readability and sprite consistency on actual displays. Do not silently reinterpret960×540 as physical pixels to make a high-DPI screen fit.
+Use the approved960×540 **logical usable work area** as the first qualification target, excluding Dock/taskbar. Keep a smaller-area recovery fallback but do not claim full readability at640×480 from uniform scaling alone. The earlier uniform-fit proposal remains an option for later qualification; neither shrinking to640×360 nor scrolling a full management canvas is approved yet. At125/150% DPI, physical pixel edges will vary even with nearest sampling; evaluate readability and sprite consistency on actual displays. Do not silently reinterpret960×540 as physical pixels to make a high-DPI screen fit.
 
 D01 review gates, in order:
 
-1. **Policy:** owner approves geometry/recomposition direction and chooses input behavior. Input choice is now recorded above; exact coordinates, drag behavior and minimum readable area remain proposed.
-2. **Permission for a bounded real-Bevy validation slice:** after relevant baseline QA defects are diagnosed/resolved and reference provenance is registered, explicitly authorize only persistent indoor strip, top management host and input behavior. Do not require completed final Bevy visual approval before this validation slice can exist. Do not run the old full implementation prompt.
+1. **Policy:** owner approves geometry/recomposition direction and chooses input behavior. Input choice is now recorded above; exact coordinates and drag behavior remain proposed; the initial management minimum is approved.
+2. **Permission for a bounded real-Bevy validation slice:** owner authorization now covers only persistent indoor strip, top management host and input behavior. Do not require completed final Bevy visual approval before this validation slice can exist. Record baseline CI failures separately; do not hide them or require unrelated baseline fixes before starting this authorized slice. Do not run the old full implementation prompt.
 3. **Visual/native acceptance:** owner reviews actual960×180 and960×540 playback for both smiths. Only then freeze scene placement and claim D01 visual approval. Broader screens remain blocked by their own domain decisions.
 
 Required evidence for gate3: idle, walking, forge, hammer, quench and research contacts; needs/rest motion as currently authored;100 expand/collapse transitions without actor/work restart; both temporal frames and video; no clipped heads/tools/flame/feet; backdrop seams inspected; lower scene unchanged while upper controls update; modal input isolation; actual mouse+keyboard tests; passthrough sends a click to a background app, then automatically recovers after10s; unavailable global shortcut and sleep/wake recovery; macOS and Shadow Windows, normal/safe modes and100/125/150/200%DPI. Report any smaller-screen result separately. Use disposable saves and real command state. No decorative mockup substitutes for this evidence.
 
 ## Explicitly excluded scope
 
-No new sprite or backdrop generation, screen implementation, QA defect fix, blanket D01–D07 approval, capacity merger, research/economy/party balance adoption or automatic merge. Follow-up order is D01 policy/validation planning → D05 identity/ownership review → D02/D03/D04 balance; actual implementation remains separately gated.
+This documentation change implements no runtime or assets. The separately authorized slice excludes new character generation, unrelated QA fixes, blanket D01–D07 approval, capacity merger, research/economy/party balance adoption or automatic merge. Follow-up order is D01 policy/validation planning → D05 identity/ownership review → D02/D03/D04 balance; D01 limited implementation may now proceed; visual acceptance remains a separate owner gate.

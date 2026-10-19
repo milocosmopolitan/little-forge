@@ -37,7 +37,7 @@ Freshly fetched PRs #97/#98/#102/#104/#105 are merged; no open PR was returned i
 
 ## Owner review follow-up
 
-[D01 review packet](D01_WORKSHOP_REVIEW.md): default input capture with explicit10-second whole-window passthrough is now approved. Final compact composition, minimum display policy and native visual acceptance remain open. D05 now preserves separate armory/showroom capacity rules while unifying IDs and ownership; capacity pooling is a separate economy decision. The30–60minute order interval remains a candidate to validate, not accepted balance. No blanket D01–D07 approval or implementation authorization.
+[D01 review packet](D01_WORKSHOP_REVIEW.md): D01 limited implementation is authorized:1× recomposition, persistent lower180px, Stage1 F8/10-second input fallback and initial960×540 logical minimum. Final compact composition and native visual acceptance remain open. Selective ambient background passthrough is the later product goal, tracked separately in #121. D05 now preserves separate armory/showroom capacity rules while unifying IDs and ownership; capacity pooling is a separate economy decision. The30–60minute order interval remains a candidate to validate, not accepted balance. No blanket D02–D07 approval; only the bounded D01 validation PR is authorized.
 
 ## Recommended decisions and unresolved approvals
 
@@ -80,7 +80,7 @@ Annotations lead the relevant canonical documents; old balance/evidence is retai
 
 ## Proposed execution and final gate
 
-Audit review/decisions → relevant QA defect resolution + #118 reference/art gate → #63/#89/#107 live strip → #119 identity/migration → content/orders/research → real screen slices → showroom and party → three historical views → native integrated acceptance. See dependency graph for safe parallel tracks and exact exit evidence. Do not start the first screen implementation PR until D01 policy/reference/QA prerequisites are satisfied. This audit is delivered as a documentation-only PR for review, not merged automatically.
+Audit review/decisions → relevant QA defect resolution + #118 reference/art gate → #63/#89/#107 live strip → #119 identity/migration → content/orders/research → real screen slices → showroom and party → three historical views → native integrated acceptance. See dependency graph for safe parallel tracks and exact exit evidence. The owner now authorizes starting the bounded D01 validation PR, retaining baseline CI failures as explicit evidence rather than bypassing them. This audit is delivered as a documentation-only PR for review, not merged automatically.
 
 ## Explicitly excluded scope
 

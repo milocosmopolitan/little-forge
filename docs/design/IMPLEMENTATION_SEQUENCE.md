@@ -10,7 +10,7 @@ Latest audited main: `6c6e8339f070229f8ea67925aeede550fee54a9d`. PRs #97/#98/#10
 
 ## Owner review update
 
-Direction agreement is not complete design approval. Review D01 first, D05 identity/ownership second, then D02/D03/D04 balance. D06 prioritizes concise goals; D07 fixed pricing is suitable for MVP but visual reward remains to review. No status changes to Design Ready. [D01 decision packet](D01_WORKSHOP_REVIEW.md) separates policy approval from later native visual acceptance.
+D01 limited implementation is now explicitly authorized; final visual acceptance and complete D02–D07 approval remain pending. Review D01 first, D05 identity/ownership second, then D02/D03/D04 balance. D06 prioritizes concise goals; D07 fixed pricing is suitable for MVP but visual reward remains to review. No status changes to Design Ready. [D01 decision packet](D01_WORKSHOP_REVIEW.md) separates policy approval from later native visual acceptance.
 
 ## Open decision register
 
@@ -18,7 +18,7 @@ Each decision requires explicit owner acceptance recorded in the named issue. A 
 
 | ID / owner | Actual uncertainty | Feasible approaches and recommendation | Approval needed / blocking issues |
 |---|---|---|---|
-| D01 #118/#107 | canonical160px smith plus station contacts in180px strip; missing exact concepts; small-screen and passthrough behavior | recommend1× recomposition of existing layers + clipped world camera; reject squeezing old540px scene; fractional fit versus minimum-size scrolling; owner selected default input capture plus explicit10-second whole-window passthrough; per-pixel deferred | approve final composition/reference registry and minimum supported area; input policy selected; #107/#118 and all visual acceptance |
+| D01 #118/#107 | canonical160px smith plus station contacts in180px strip; missing exact concepts; small-screen and passthrough behavior | recommend1× recomposition of existing layers + clipped world camera; reject squeezing old540px scene; fractional fit versus minimum-size scrolling; Stage1 whole-window input/F8 recovery; Stage2 selective background passthrough #121 | approve final composition; initial960×540 logical minimum and staged input scope approved; #107/#118 and all visual acceptance |
 | D02 #77/#109 | repeated income, accepted deadline clock/late/failure/cancel, NPC relation, stock exhaustion | generic templates/shared channel; retain existing terms, prefer completion-time settlement; one capped clock simpler than new offline-paused clock; recovery commission versus guaranteed material source | approve exact template inputs/rewards/deltas/caps, scheduling/offline, stock restock and0-resource recovery; #109/#108/#110/#111/#112 |
 | D03 #74/#75/#76/#111 | new starter inputs/time, experiments, node effects and first-unlock economy | keep published tier values; explicit work actions and deterministic options versus introducing new RNG; automatic completion versus old claim button | approve missing costs/effect table and grandfathered effect boundary; #110/#111/#115 |
 | D04 #81/#99/#114 | two-person tactics/hiring/supplies/rewards | atomic deployment charge versus refundable early hire; compact deterministic front/rear resolver versus full RPG; retreat whole party versus remaining-member combat | approve fees/availability/legal gear/Guard stats/interception/encounters/consumption/rewards; #113/#114/#117 and Guard motion |
@@ -93,7 +93,7 @@ Graph arrows express integration requirements, not approval to perform work now.
 
 1. **This documentation-only audit PR.** Review decisions, references and issue ownership. No automatic merge.
 2. **Existing QA defect investigation/fix under #68/#96.** Reproduce Linux ambient changed ratio and Windows Alpha timeouts; distinguish stale reviewed baseline from regression with before/after evidence. Investigate Farmer byte mismatch separately. Never relax tolerances or blindly replace images. Any justified baseline change requires later explicit review, not this audit.
-3. **First screen-foundation implementation PR, only after D01 policy approval + reference registration and relevant baseline defects are resolved:** #63/#89/#107 one persistent indoor strip + exclusive route/modal input + top360 host. No dashboard/gameplay expansion bundled. This bounded slice produces the missing D01 visual evidence; final visual approval follows it and gates broader screens. Exit: both smiths,100 toggles, exact anchor, live work and native click-through/recovery proof. If prerequisites are not satisfied, do not recommend starting this PR yet.
+3. **Authorized first screen-foundation validation PR:** #63/#89/#107 one persistent indoor strip + exclusive route/modal input + top360 host. No dashboard/gameplay expansion bundled. This bounded slice produces the missing D01 visual evidence; final visual approval follows it and gates broader screens. Exit: both smiths,100 toggles, exact anchor, live work and native click-through/recovery proof. Record unchanged baseline CI failures separately; investigate introduced failures without bypasses. #121 is follow-up, not a Stage1 prerequisite.
 4. **#119 identity/migration integration, only after D05 identity/ownership approval:** preserve existing container capacities; adapters for existing goods/armory/order/battle state, same gameplay numbers. Exit: one real craft→hold→loan→return→sell→history vertical path, legacy saves intact. No independent concurrent migrations.
 5. **#74/#75 content + #77 repeat orders/recovery + #76 research**, integrate in this order against shared identity. Publish approved D02/D03 numeric table before code. Exit: baseline recipes, graph witnesses, no economic softlock, actual unlock consumers and old battle parity.
 6. **#109/#110/#111 and #108 selectors:** thin vertical slices from real domain, not fixture fronts. Each PR owns command/save/input/capture evidence. Dashboard finalizes only when goals can resolve across delivered domains.
@@ -106,4 +106,4 @@ Safe parallel work: reference/provenance inventory; localization strings against
 
 ## Explicitly excluded scope
 
-Audit does not authorize an implementation PR sequence, new gameplay/assets, unrelated refactors, merges or closures. These are execution instructions for a later implementation mission after recorded approvals.
+Owner follow-up authorizes only the D01 limited validation PR. No full implementation sequence, new gameplay, unrelated refactors, merges or closures is authorized.
