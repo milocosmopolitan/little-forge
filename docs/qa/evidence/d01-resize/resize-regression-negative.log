@@ -1,0 +1,21 @@
+   Compiling little-forge v0.1.0 (/private/tmp/little-forge-d01-resize/apps/desktop)
+    Finished `test` profile [unoptimized] target(s) in 1.91s
+     Running unittests src/main.rs (/private/tmp/little-forge-screen-audit/target/debug/deps/little_forge-15238d01e767cd25)
+
+running 1 test
+
+thread 'forge_view::tests::resize_updates_both_camera_targets_before_winit_resize_message' (6413365) panicked at apps/desktop/src/forge_view.rs:482:17:
+assertion `left == right` failed
+  left: Some(UVec2(960, 180))
+ right: Some(UVec2(960, 540))
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test forge_view::tests::resize_updates_both_camera_targets_before_winit_resize_message ... FAILED
+
+failures:
+
+failures:
+    forge_view::tests::resize_updates_both_camera_targets_before_winit_resize_message
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 19 filtered out; finished in 0.01s
+
+error: test failed, to rerun pass `-p little-forge --bin little-forge`

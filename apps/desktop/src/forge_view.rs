@@ -88,7 +88,7 @@ pub fn setup(mut c: Commands) {
         RenderLayers::layer(1),
         WorldCamera,
     ));
-    c.spawn((HostRoot, GlobalZIndex(30), Node { display:Display::None, position_type:PositionType::Absolute,
+    c.spawn((HostRoot, Visibility::Hidden, GlobalZIndex(30), Node { display:Display::None, position_type:PositionType::Absolute,
         left:px(0),top:px(0),width:percent(100),height:px(360), padding:UiRect::all(px(20)),
         flex_direction:FlexDirection::Column,row_gap:px(16), overflow:Overflow::clip(),..default() },
         BackgroundColor(forge_ui::SURFACE),bevy::input_focus::tab_navigation::TabGroup::new(0)))
@@ -107,7 +107,7 @@ pub fn setup(mut c: Commands) {
 pub fn layout(
     windows: Query<&Window, With<bevy::window::PrimaryWindow>>,
     mut layout: ResMut<Layout>,
-    mut cameras: Query<&mut Camera, With<WorldCamera>>,
+    mut cameras: Query<(&mut Camera, &mut Projection, Has<WorldCamera>)>,
 ) {
     let Ok(w) = windows.single() else { return };
     *layout = Layout::calculate(
@@ -118,12 +118,117 @@ pub fn layout(
         ),
         w.resolution.scale_factor(),
     );
-    for mut c in &mut cameras {
-        c.viewport = Some(Viewport {
+    for (mut c, mut projection, world) in &mut cameras {
+        // Winit publishes WindowResized in Last, after camera/UI layout. Invalidate
+        // projection now so this frame cannot combine a new surface with old coordinates.
+        if c.physical_target_size() != Some(w.resolution.physical_size()) {
+            projection.set_changed();
+        }
+        if !world {
+            continue;
+        }
+        let viewport = Some(Viewport {
             physical_position: layout.physical_origin,
             physical_size: layout.physical_size,
             ..default()
         });
+        c.viewport = viewport;
+    }
+}
+// Keep layout active while the native surface catches up with the requested size.
+// Visibility is published only after UI layout, before visibility propagation.
+#[allow(clippy::too_many_arguments, clippy::type_complexity)]
+fn publish_host(
+    mut commands: Commands,
+    mut capture: Local<(bool, u8)>,
+    _main_thread: bevy::ecs::system::NonSendMarker,
+    windows: Query<(Entity, &Window), With<bevy::window::PrimaryWindow>>,
+    cameras: Query<(&Camera, Has<WorldCamera>)>,
+    mut roots: Query<(&ComputedNode, &UiGlobalTransform, &mut Visibility), With<HostRoot>>,
+    title: Res<TitleScreen>,
+    village: Res<Village>,
+    desktop: Res<Desktop>,
+    host: Res<Host>,
+    opts: Res<crate::Options>,
+) {
+    let Ok((entity, window)) = windows.single() else {
+        return;
+    };
+    if let Some(path) = std::env::var_os("LITTLE_FORGE_RESIZE_CAPTURE_DIR") {
+        if capture.0 != desktop.shell.expanded {
+            capture.0 = desktop.shell.expanded;
+            capture.1 = 4;
+        }
+        if capture.1 > 0 {
+            capture.1 -= 1;
+            let path = std::path::PathBuf::from(path);
+            if std::fs::create_dir_all(&path).is_ok() {
+                commands
+                    .spawn(bevy::render::view::screenshot::Screenshot::primary_window())
+                    .observe(crate::save_capture(
+                        path.join(format!("frame-{:04}.png", opts.frames)),
+                    ));
+            }
+        }
+    }
+
+    let physical = window.resolution.physical_size();
+    let native = bevy::winit::WINIT_WINDOWS.with_borrow(|windows| {
+        windows.get_window(entity).map(|w| {
+            let size = w.inner_size();
+            UVec2::new(size.width, size.height)
+        })
+    });
+    let dpi = window.resolution.scale_factor();
+    let expected = Vec2::new(WIDTH, 540.) * dpi;
+    let geometry_ready = native == Some(physical)
+        && physical.as_vec2().abs_diff_eq(expected, 1.)
+        && cameras.iter().all(|(camera, world)| {
+            camera.physical_target_size() == Some(physical)
+                && (!world
+                    || camera.viewport.as_ref().is_some_and(|v| {
+                        v.physical_position == UVec2::new(0, (360. * dpi).round() as u32)
+                            && v.physical_size
+                                == UVec2::new(physical.x, (HEIGHT * dpi).round() as u32)
+                    }))
+        });
+    for (computed, transform, mut visibility) in &mut roots {
+        let size = computed.size();
+        let center = transform.to_scale_angle_translation().2;
+        let bounds_ready =
+            size.abs_diff_eq(Vec2::new(WIDTH, 360.) * dpi, 1.) && center.abs_diff_eq(size / 2., 1.);
+        let visible = shown(&title, &village, &desktop, &host) && geometry_ready && bounds_ready;
+        *visibility = if visible {
+            Visibility::Inherited
+        } else {
+            Visibility::Hidden
+        };
+        if let Some(path) = std::env::var_os("LITTLE_FORGE_TRACE_DIR") {
+            use std::io::Write;
+            if let Ok(mut file) = std::fs::OpenOptions::new()
+                .create(true)
+                .append(true)
+                .open(std::path::PathBuf::from(path).join("host-layout.jsonl"))
+            {
+                let cameras: Vec<_> = cameras
+                    .iter()
+                    .map(|(c, world)| {
+                        serde_json::json!({
+                            "world":world,"target":format!("{:?}",c.physical_target_size()),
+                            "viewport":format!("{:?}",c.viewport)
+                        })
+                    })
+                    .collect();
+                let _ = writeln!(
+                    file,
+                    "{}",
+                    serde_json::json!({"frame":opts.frames,
+                    "expanded":desktop.shell.expanded,"native":native.map(|v|v.to_array()),
+                    "window":physical.to_array(),"host_size":size.to_array(),
+                    "host_center":center.to_array(),"visible":visible,"cameras":cameras})
+                );
+            }
+        }
     }
 }
 fn activity_label(s: &forge_core::State) -> String {
@@ -236,16 +341,13 @@ pub fn keyboard(
 }
 #[allow(clippy::too_many_arguments)]
 fn restore_host_focus(
-    title: Res<TitleScreen>,
-    v: Res<Village>,
-    d: Res<Desktop>,
-    host: Res<Host>,
+    roots: Query<&Visibility, With<HostRoot>>,
     dialog: Res<forge_ui::DialogState>,
     mut previous: Local<bool>,
     actions: Query<(Entity, &Action)>,
     mut focus: ResMut<bevy::input_focus::InputFocus>,
 ) {
-    let visible = shown(&title, &v, &d, &host);
+    let visible = roots.iter().any(|v| *v != Visibility::Hidden);
     if visible != *previous && !dialog.is_open() {
         let target = if visible {
             Action::Legacy
@@ -318,12 +420,18 @@ pub fn plugin(app: &mut App) {
         .add_observer(activate)
         .add_systems(Startup, setup)
         .add_systems(
+            PostUpdate,
+            (publish_host, restore_host_focus)
+                .chain()
+                .after(bevy::ui::UiSystems::Layout)
+                .before(bevy::camera::visibility::VisibilitySystems::VisibilityPropagate),
+        )
+        .add_systems(
             Update,
             (
                 layout,
                 update,
                 keyboard.run_if(no_modal_at_frame_start),
-                restore_host_focus,
                 crate::npc::render_layers,
                 drag,
                 scroll_legacy,
@@ -336,6 +444,62 @@ pub fn plugin(app: &mut App) {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn resize_updates_both_camera_targets_before_winit_resize_message() {
+        use bevy::{
+            render::{camera::camera_system, texture::ManualTextureViews},
+            window::{PrimaryWindow, WindowCreated, WindowResized, WindowScaleFactorChanged},
+        };
+        let mut app = App::new();
+        app.init_resource::<Layout>()
+            .init_resource::<Assets<Image>>()
+            .init_resource::<ManualTextureViews>()
+            .add_message::<WindowCreated>()
+            .add_message::<WindowResized>()
+            .add_message::<WindowScaleFactorChanged>()
+            .add_message::<AssetEvent<Image>>()
+            .add_systems(Update, (layout, camera_system).chain());
+        let window = app
+            .world_mut()
+            .spawn((
+                Window {
+                    resolution: (960, 180).into(),
+                    ..default()
+                },
+                PrimaryWindow,
+            ))
+            .id();
+        let world = app.world_mut().spawn((Camera2d, WorldCamera)).id();
+        let ui = app.world_mut().spawn(Camera2d).id();
+        app.update();
+        for height in [540, 180, 540, 180] {
+            app.world_mut()
+                .get_mut::<Window>(window)
+                .unwrap()
+                .resolution
+                .set(960., height as f32);
+            // Native acknowledgement deliberately has not arrived yet.
+            app.update();
+            for entity in [world, ui] {
+                assert_eq!(
+                    app.world()
+                        .get::<Camera>(entity)
+                        .unwrap()
+                        .physical_target_size(),
+                    Some(UVec2::new(960, height))
+                );
+            }
+            let viewport = app
+                .world()
+                .get::<Camera>(world)
+                .unwrap()
+                .viewport
+                .as_ref()
+                .unwrap();
+            assert_eq!(viewport.physical_position.y, height - 180);
+            assert_eq!(viewport.physical_size, UVec2::new(960, 180));
+        }
+    }
     #[test]
     fn dpi_edges_keep_the_same_lower_strip() {
         for dpi in [1., 1.25, 1.5, 2.] {
