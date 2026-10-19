@@ -1,0 +1,17 @@
+{
+  "apps/desktop/src/alpha_qa.rs": "5fe3a5958174d1b3b76937fc9ba3d58a44844a4646c845394da976b5266d4a2b",
+  "apps/desktop/src/d01_qa.rs": "3f526f996c30c9e3368e8e38d1cab3ac9cb45b6c67fd1d0dac6abdfaf1fc273c",
+  "apps/desktop/src/expedition.rs": "f9f1515ee23a9e9d14db8db91f8df221752e06b0c022bbac1b7f638866fa3718",
+  "apps/desktop/src/forge_view.rs": "210b9722f4f4f2d8e211d5c86587de8fb9f13b6c6a28b181e23ee1045a349409",
+  "apps/desktop/src/lifestyle.rs": "9c6a7d122b99c2a3b5b7d1eac23ab473c8e089e04a23883ae4a8c1896e3d3057",
+  "apps/desktop/src/main.rs": "da80ee4a258bd24ca10ede2cdc4383322994b4c7287e368c1840ea8430df18a0",
+  "apps/desktop/src/native.rs": "81125d7d8f1bccda56bd66939cdab7c0b83186d0204c3866c68881117ace0c47",
+  "apps/desktop/src/npc.rs": "442e4c60c043bf9947359eb7e4bd5e663a99f44d04f6a39bbfa85a84510d1947",
+  "apps/desktop/src/presentation.rs": "3fa648d33071e7dc0a996db7566f72c36c1c494f051b1aec5ce0480e68ac489b",
+  "apps/desktop/src/progression_ui.rs": "0641eda27971b73a22d447c5c9dd27b79a410490501a7120d054f8f07cd3c2a1",
+  "apps/desktop/src/rendering.rs": "992095ce80aa104dabc95fea2d438768989ec27b1211c93ac45fc2138f98f79d",
+  "apps/desktop/src/spaces.rs": "192fd4a55d3e46ed26eabd0b6f5fc5300765f0775359661a096b4d3c3acc846a",
+  "apps/desktop/src/title.rs": "acce79e6e1b03c5f018a10e66e68745f5d5b327d6d824e19a338e0a1ced1ce13",
+  "apps/desktop/src/village.rs": "1bf142dfea5436c18a7a2e0196efe96338f21d8759a63e2ecf8e6cd5505ca2bf",
+  "apps/desktop/src/window.rs": "6f3d5b1050954df533c5823d613bc2fbc05f64799370fccfb76b5ad9308fc5dc"
+}

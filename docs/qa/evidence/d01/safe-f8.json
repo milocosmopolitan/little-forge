@@ -1,0 +1,286 @@
+{
+  "activity": "Idle",
+  "adapter": "Apple M4 | Metal |  ",
+  "arch": "aarch64",
+  "fps": 33.53470987853678,
+  "life": {
+    "action": "Idle",
+    "active_job": null,
+    "config": {
+      "consume_seconds": 2,
+      "drink_threshold": 3000,
+      "eat_threshold": 3000,
+      "food_price": 2,
+      "food_restore": 6000,
+      "hunger_rate": 1,
+      "minimum_speed": 250,
+      "sleep_seconds": 120,
+      "sleep_threshold": 9000,
+      "slowdown_threshold": 2500,
+      "stack_limit": 20,
+      "thirst_rate": 2,
+      "work_fatigue": 4
+    },
+    "fatigue": 180,
+    "hunger": 4792,
+    "pantry": {
+      "slots": [
+        {
+          "count": 3,
+          "food": "Staple"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    "queue": [],
+    "remaining": 0,
+    "thirst": 9584,
+    "work": 0
+  },
+  "native_display": "monitor=Some(\"Monitor #41058\") physical=2940x1912 scale=2 position=At(IVec2(510, 1444)); native_work_area=true; Ctrl+Alt+F8 global recovery registered",
+  "note": "Native transparency requires manual verification",
+  "os": "macos",
+  "qa": null,
+  "safe": true,
+  "shell": "Shell { mode: Interaction, expanded: false, safe: true, always_on_top: false, lease_left: 0.0 }",
+  "showroom": {
+    "capacity": 4,
+    "displayed": 0,
+    "free": 4,
+    "held": 0,
+    "overflow": 0,
+    "racks": 1,
+    "reserved": 0
+  },
+  "space": "Workshop",
+  "state": {
+    "command_id": 3,
+    "commerce": {
+      "leather": 0,
+      "stock": [
+        40,
+        30,
+        60,
+        12
+      ],
+      "timber": 0
+    },
+    "crafted": 0,
+    "daggers": 0,
+    "event_id": 201,
+    "expedition": {
+      "active": null,
+      "arrows": 0,
+      "next_contract": 0,
+      "next_weapon": 0,
+      "path_reopened": false,
+      "records": [],
+      "weapons": []
+    },
+    "farmer_order": {
+      "accepted_at": null,
+      "completed_at": null,
+      "deadline_at": null,
+      "delivered_at": null,
+      "favor": 0,
+      "phase": "Offered",
+      "settled_gold": 0
+    },
+    "gold": 0,
+    "job_due": null,
+    "life": {
+      "action": "Idle",
+      "active_job": null,
+      "config": {
+        "consume_seconds": 2,
+        "drink_threshold": 3000,
+        "eat_threshold": 3000,
+        "food_price": 2,
+        "food_restore": 6000,
+        "hunger_rate": 1,
+        "minimum_speed": 250,
+        "sleep_seconds": 120,
+        "sleep_threshold": 9000,
+        "slowdown_threshold": 2500,
+        "stack_limit": 20,
+        "thirst_rate": 2,
+        "work_fatigue": 4
+      },
+      "fatigue": 180,
+      "hunger": 4792,
+      "pantry": {
+        "slots": [
+          {
+            "count": 3,
+            "food": "Staple"
+          },
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "queue": [],
+      "remaining": 0,
+      "thirst": 9584,
+      "work": 0
+    },
+    "next_visitor": 4805,
+    "ore": 8,
+    "progression": {
+      "chef_phase": "Ready",
+      "clues": [],
+      "codex": {
+        "kitchen_knife": {
+          "best_quality": null,
+          "count": 1,
+          "first_item_id": 1,
+          "first_tick": 4445
+        }
+      },
+      "general_xp": 10,
+      "journal": [
+        {
+          "id": "blade_forging:1",
+          "text": "Blade forging reached level 1.",
+          "tick": 4445
+        },
+        {
+          "id": "handle_fitting:1",
+          "text": "Handle fitting reached level 1.",
+          "tick": 4445
+        },
+        {
+          "id": "first:kitchen_knife",
+          "text": "First Kitchen Knife forged and recorded in Smith's Codex.",
+          "tick": 4445
+        }
+      ],
+      "legacy_dagger": false,
+      "next_item_id": 1,
+      "research_completed": false,
+      "research_xp": 6,
+      "rules": {
+        "chef": {
+          "id": "chef_first_knife",
+          "request": "A balanced kitchen knife for the village kitchen. Will you forge one for me?",
+          "reward_gold": 24
+        },
+        "dagger": {
+          "goal_xp": 10,
+          "id": "dagger_structure",
+          "prerequisites": [],
+          "study_gold": 4,
+          "study_seconds": 10,
+          "study_xp": 4,
+          "technique_levels": [
+            1,
+            1
+          ]
+        },
+        "recipes": [
+          {
+            "general_xp": 10,
+            "id": "kitchen_knife",
+            "label": "Kitchen Knife",
+            "ore": 2,
+            "research_xp": 6,
+            "seconds": 20,
+            "technique_xp": [
+              6,
+              3
+            ]
+          },
+          {
+            "general_xp": 12,
+            "id": "iron_dagger",
+            "label": "Iron Dagger",
+            "ore": 2,
+            "research_xp": 0,
+            "seconds": 5,
+            "technique_xp": [
+              4,
+              2
+            ]
+          }
+        ],
+        "techniques": [
+          {
+            "id": "blade_forging",
+            "label": "Blade forging",
+            "level_xp": 6
+          },
+          {
+            "id": "handle_fitting",
+            "label": "Handle fitting",
+            "level_xp": 3
+          }
+        ],
+        "version": 1
+      },
+      "study_pending": false,
+      "technique_xp": [
+        6,
+        3
+      ],
+      "weapons": []
+    },
+    "rng": 8183040453948076854,
+    "showroom": {
+      "config": {
+        "max_racks": 3,
+        "rack_gold": 30,
+        "rack_slots": [
+          4,
+          6,
+          8
+        ],
+        "rack_timber": 4,
+        "upgrade_gold": [
+          20,
+          40
+        ],
+        "upgrade_timber": [
+          2,
+          4
+        ]
+      },
+      "overflow": 0,
+      "racks": [
+        {
+          "tier": 1
+        }
+      ],
+      "slots": [
+        "empty",
+        "empty",
+        "empty",
+        "empty"
+      ]
+    },
+    "smith": "female",
+    "sold": 0,
+    "tick": 4792
+  },
+  "station": "None",
+  "tick": 4792,
+  "version": "0.1.0",
+  "village_screen": "Home"
+}

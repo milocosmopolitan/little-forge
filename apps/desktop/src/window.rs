@@ -12,6 +12,7 @@ pub struct Desktop {
     initialized: bool,
     previous_height: f32,
     last_write: f32,
+    lease_sample: std::time::SystemTime,
     pub diagnostics: String,
 }
 impl Desktop {
@@ -27,6 +28,7 @@ impl Desktop {
             initialized: false,
             previous_height: 180.,
             last_write: -5.,
+            lease_sample: std::time::SystemTime::now(),
             diagnostics: String::new(),
         }
     }
@@ -42,7 +44,12 @@ pub fn update(
     let Ok((mut w, mut cursor)) = q.single_mut() else {
         return;
     };
-    d.shell.tick(time.delta_secs());
+    let now = std::time::SystemTime::now();
+    let elapsed = now
+        .duration_since(d.lease_sample)
+        .map_or(10., |d| d.as_secs_f32());
+    d.lease_sample = now;
+    d.shell.tick(elapsed);
     if native.recovery_requested() {
         d.shell.recover();
     }

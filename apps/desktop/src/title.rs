@@ -425,7 +425,7 @@ fn perform(
     title.selected = 0;
     title.active = title.route != Route::InGame;
     if !title.active {
-        desktop.shell.expanded = true;
+        desktop.shell.expanded = false;
         desktop.shell.recover();
         session.last = std::time::Instant::now();
     }

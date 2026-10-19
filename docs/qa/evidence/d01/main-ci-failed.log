@@ -1,0 +1,58 @@
+visual	Run mkdir -p qa-output	﻿2026-10-19T00:44:14.0874932Z ##[group]Run mkdir -p qa-output
+visual	Run mkdir -p qa-output	2026-10-19T00:44:14.0875292Z ^[[36;1mmkdir -p qa-output^[[0m
+visual	Run mkdir -p qa-output	2026-10-19T00:44:14.0875581Z ^[[36;1mfor scene in ambient sale expanded; do^[[0m
+visual	Run mkdir -p qa-output	2026-10-19T00:44:14.0876362Z ^[[36;1m  timeout 90s xvfb-run -a -s '-screen 0 1280x800x24' target/debug/little-forge --safe-window --qa "$scene" --screenshot "qa-output/$scene.png" > "qa-output/$scene.log" 2>&1^[[0m
+visual	Run mkdir -p qa-output	2026-10-19T00:44:14.0877118Z ^[[36;1m  test -s "qa-output/$scene.png"^[[0m
+visual	Run mkdir -p qa-output	2026-10-19T00:44:14.0877480Z ^[[36;1m  test -s "docs/qa/golden/linux-llvmpipe/$scene.png"^[[0m
+visual	Run mkdir -p qa-output	2026-10-19T00:44:14.0878171Z ^[[36;1m  python scripts/compare-images.py "docs/qa/golden/linux-llvmpipe/$scene.png" "qa-output/$scene.png" --diff "qa-output/$scene-diff.png"^[[0m
+visual	Run mkdir -p qa-output	2026-10-19T00:44:14.0878789Z ^[[36;1mdone^[[0m
+visual	Run mkdir -p qa-output	2026-10-19T00:44:14.0941110Z shell: /usr/bin/bash -e {0}
+visual	Run mkdir -p qa-output	2026-10-19T00:44:14.0941618Z env:
+visual	Run mkdir -p qa-output	2026-10-19T00:44:14.0941854Z   CARGO_HOME: /home/runner/.cargo
+visual	Run mkdir -p qa-output	2026-10-19T00:44:14.0942135Z   CARGO_INCREMENTAL: 0
+visual	Run mkdir -p qa-output	2026-10-19T00:44:14.0942366Z   CARGO_TERM_COLOR: always
+visual	Run mkdir -p qa-output	2026-10-19T00:44:14.0942637Z   CACHE_ON_FAILURE: true
+visual	Run mkdir -p qa-output	2026-10-19T00:44:14.0942868Z ##[endgroup]
+visual	Run mkdir -p qa-output	2026-10-19T00:44:30.8229169Z {"changed_ratio": 0.11321180555555556, "allowed_ratio": 0.005, "dimensions": [960, 180]}
+visual	Run mkdir -p qa-output	2026-10-19T00:44:30.8331040Z ##[error]Process completed with exit code 1.
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	﻿2026-10-19T01:07:02.8578220Z ##[group]Run python scripts/capture-alpha.py target/release/little-forge.exe
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:07:02.8579635Z ^[[36;1mpython scripts/capture-alpha.py target/release/little-forge.exe^[[0m
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:07:02.8580701Z ^[[36;1mpython scripts/capture-alpha.py target/release/little-forge.exe --crafting --output qa-output/crafting-combat^[[0m
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:07:02.8621217Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:07:02.8622332Z env:
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:07:02.8622597Z   CARGO_HOME: C:\Users\runneradmin\.cargo
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:07:02.8622915Z   CARGO_INCREMENTAL: 0
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:07:02.8623196Z   CARGO_TERM_COLOR: always
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:07:02.8623464Z   CACHE_ON_FAILURE: true
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:07:02.8623727Z ##[endgroup]
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:11:03.3570470Z Traceback (most recent call last):
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:11:03.3571761Z   File "D:\a\little-forge\little-forge\scripts\capture-alpha.py", line 40, in <module>
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:11:03.3573463Z     subprocess.run([executable, "--safe-window", "--qa", scenario,
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:11:03.3578955Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\subprocess.py", line 550, in run
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:11:03.3722699Z     stdout, stderr = process.communicate(input, timeout=timeout)
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:11:03.3733230Z                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:11:03.3734638Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\subprocess.py", line 1228, in communicate
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:11:03.3756969Z     sts = self.wait(timeout=self._remaining_time(endtime))
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:11:03.3757625Z           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:11:03.3758437Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\subprocess.py", line 1264, in wait
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:11:03.3763013Z     return self._wait(timeout=timeout)
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:11:03.3763521Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:11:03.3764400Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\subprocess.py", line 1593, in _wait
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:11:03.3779476Z     raise TimeoutExpired(self.args, timeout)
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:11:03.3781668Z subprocess.TimeoutExpired: Command '['D:\\a\\little-forge\\little-forge\\target\\release\\little-forge.exe', '--safe-window', '--qa', 'alpha', '--save-dir', 'D:\\a\\little-forge\\little-forge\\qa-output\\alpha\\session-male', '--screenshot', 'D:\\a\\little-forge\\little-forge\\qa-output\\alpha\\male.png']' timed out after 240.0 seconds
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:17:03.6208155Z Traceback (most recent call last):
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:17:03.6209100Z   File "D:\a\little-forge\little-forge\scripts\capture-alpha.py", line 25, in <module>
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:17:03.6211989Z     subprocess.run([executable, "--safe-window", "--qa", "alpha-crafting", "--save-dir", str(output / "session-crafting"), "--screenshot", str(prefix)], stdout=log, stderr=subprocess.STDOUT, check=True, timeout=360)
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:17:03.6213770Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\subprocess.py", line 550, in run
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:17:03.6216065Z     stdout, stderr = process.communicate(input, timeout=timeout)
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:17:03.6216768Z                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:17:03.6217631Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\subprocess.py", line 1228, in communicate
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:17:03.6222988Z     sts = self.wait(timeout=self._remaining_time(endtime))
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:17:03.6223650Z           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:17:03.6224412Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\subprocess.py", line 1264, in wait
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:17:03.6227174Z     return self._wait(timeout=timeout)
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:17:03.6227681Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:17:03.6228461Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\subprocess.py", line 1593, in _wait
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:17:03.6234043Z     raise TimeoutExpired(self.args, timeout)
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:17:03.6236459Z subprocess.TimeoutExpired: Command '['D:\\a\\little-forge\\little-forge\\target\\release\\little-forge.exe', '--safe-window', '--qa', 'alpha-crafting', '--save-dir', 'D:\\a\\little-forge\\little-forge\\qa-output\\crafting-combat\\session-crafting', '--screenshot', 'D:\\a\\little-forge\\little-forge\\qa-output\\crafting-combat\\crafting.png']' timed out after 360.0 seconds
+verify (windows-2022)	Play Alpha 01 through production controls on native platforms	2026-10-19T01:17:03.7765613Z ##[error]Process completed with exit code 1.

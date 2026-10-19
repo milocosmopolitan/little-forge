@@ -16,11 +16,25 @@ pub fn drive(
     mut session: ResMut<Session>,
     mut exit: MessageWriter<AppExit>,
     mut boar_capture: Local<bool>,
+    host: Query<(Entity, &crate::forge_view::Action)>,
 ) {
     if !opts.qa.as_deref().is_some_and(|q| q.starts_with("alpha")) {
         return;
     }
     let frame = opts.frames;
+    if frame == 85 || frame == 90 {
+        let (entity, _) = host
+            .iter()
+            .find(|(_, a)| {
+                **a == if frame == 85 {
+                    crate::forge_view::Action::Open
+                } else {
+                    crate::forge_view::Action::Legacy
+                }
+            })
+            .expect("alpha: legacy controls");
+        commands.trigger(Activate { entity });
+    }
     if opts.qa.as_deref() == Some("alpha-crafting") && frame >= 620 {
         crafting(
             &mut commands,

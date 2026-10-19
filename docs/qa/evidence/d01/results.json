@@ -1,0 +1,474 @@
+[
+  {
+    "captures": [
+      "hammering",
+      "heating",
+      "quenching",
+      "rest"
+    ],
+    "clock": "core and animation both advance1/30 second per rendered frame",
+    "commands": "real paid Chef knife work; production Activate title and host controls, not OS input",
+    "cycles": 100,
+    "result": "ecs_and_nonblank_capture_checks_passed",
+    "save_reload": "equal during work and at end",
+    "state": {
+      "command_id": 4,
+      "commerce": {
+        "leather": 0,
+        "stock": [
+          40,
+          30,
+          60,
+          12
+        ],
+        "timber": 0
+      },
+      "crafted": 0,
+      "daggers": 0,
+      "event_id": 5,
+      "expedition": {
+        "active": null,
+        "arrows": 0,
+        "next_contract": 0,
+        "next_weapon": 0,
+        "path_reopened": false,
+        "records": [],
+        "weapons": []
+      },
+      "farmer_order": {
+        "accepted_at": null,
+        "completed_at": null,
+        "deadline_at": null,
+        "delivered_at": null,
+        "favor": 0,
+        "phase": "Offered",
+        "settled_gold": 0
+      },
+      "gold": 0,
+      "job_due": null,
+      "life": {
+        "action": "Sleeping",
+        "active_job": null,
+        "config": {
+          "consume_seconds": 2,
+          "drink_threshold": 3000,
+          "eat_threshold": 3000,
+          "food_price": 2,
+          "food_restore": 6000,
+          "hunger_rate": 1,
+          "minimum_speed": 250,
+          "sleep_seconds": 120,
+          "sleep_threshold": 9000,
+          "slowdown_threshold": 2500,
+          "stack_limit": 20,
+          "thirst_rate": 2,
+          "work_fatigue": 4
+        },
+        "fatigue": 80,
+        "hunger": 43,
+        "pantry": {
+          "slots": [
+            {
+              "count": 3,
+              "food": "Staple"
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        "queue": [],
+        "remaining": 103,
+        "thirst": 86,
+        "work": 0
+      },
+      "next_visitor": 60,
+      "ore": 8,
+      "progression": {
+        "chef_phase": "Ready",
+        "clues": [],
+        "codex": {
+          "kitchen_knife": {
+            "best_quality": null,
+            "count": 1,
+            "first_item_id": 1,
+            "first_tick": 21
+          }
+        },
+        "general_xp": 10,
+        "journal": [
+          {
+            "id": "blade_forging:1",
+            "text": "Blade forging reached level 1.",
+            "tick": 21
+          },
+          {
+            "id": "handle_fitting:1",
+            "text": "Handle fitting reached level 1.",
+            "tick": 21
+          },
+          {
+            "id": "first:kitchen_knife",
+            "text": "First Kitchen Knife forged and recorded in Smith's Codex.",
+            "tick": 21
+          }
+        ],
+        "legacy_dagger": false,
+        "next_item_id": 1,
+        "research_completed": false,
+        "research_xp": 6,
+        "rules": {
+          "chef": {
+            "id": "chef_first_knife",
+            "request": "A balanced kitchen knife for the village kitchen. Will you forge one for me?",
+            "reward_gold": 24
+          },
+          "dagger": {
+            "goal_xp": 10,
+            "id": "dagger_structure",
+            "prerequisites": [],
+            "study_gold": 4,
+            "study_seconds": 10,
+            "study_xp": 4,
+            "technique_levels": [
+              1,
+              1
+            ]
+          },
+          "recipes": [
+            {
+              "general_xp": 10,
+              "id": "kitchen_knife",
+              "label": "Kitchen Knife",
+              "ore": 2,
+              "research_xp": 6,
+              "seconds": 20,
+              "technique_xp": [
+                6,
+                3
+              ]
+            },
+            {
+              "general_xp": 12,
+              "id": "iron_dagger",
+              "label": "Iron Dagger",
+              "ore": 2,
+              "research_xp": 0,
+              "seconds": 5,
+              "technique_xp": [
+                4,
+                2
+              ]
+            }
+          ],
+          "techniques": [
+            {
+              "id": "blade_forging",
+              "label": "Blade forging",
+              "level_xp": 6
+            },
+            {
+              "id": "handle_fitting",
+              "label": "Handle fitting",
+              "level_xp": 3
+            }
+          ],
+          "version": 1
+        },
+        "study_pending": false,
+        "technique_xp": [
+          6,
+          3
+        ],
+        "weapons": []
+      },
+      "rng": 11532217803599905471,
+      "showroom": {
+        "config": {
+          "max_racks": 3,
+          "rack_gold": 30,
+          "rack_slots": [
+            4,
+            6,
+            8
+          ],
+          "rack_timber": 4,
+          "upgrade_gold": [
+            20,
+            40
+          ],
+          "upgrade_timber": [
+            2,
+            4
+          ]
+        },
+        "overflow": 0,
+        "racks": [
+          {
+            "tier": 1
+          }
+        ],
+        "slots": [
+          "empty",
+          "empty",
+          "empty",
+          "empty"
+        ]
+      },
+      "smith": "male",
+      "sold": 0,
+      "tick": 43
+    },
+    "smith": "male",
+    "sample_count": 1290,
+    "actor_ids": [
+      "421v0"
+    ],
+    "visual_approval": false,
+    "full_trace_sha256": "fdbcf84ce2f270be16840441906098b56a3128e24449d9eeb0559ee1af5bb870"
+  },
+  {
+    "captures": [
+      "hammering",
+      "heating",
+      "quenching",
+      "rest"
+    ],
+    "clock": "core and animation both advance1/30 second per rendered frame",
+    "commands": "real paid Chef knife work; production Activate title and host controls, not OS input",
+    "cycles": 100,
+    "result": "ecs_and_nonblank_capture_checks_passed",
+    "save_reload": "equal during work and at end",
+    "state": {
+      "command_id": 4,
+      "commerce": {
+        "leather": 0,
+        "stock": [
+          40,
+          30,
+          60,
+          12
+        ],
+        "timber": 0
+      },
+      "crafted": 0,
+      "daggers": 0,
+      "event_id": 5,
+      "expedition": {
+        "active": null,
+        "arrows": 0,
+        "next_contract": 0,
+        "next_weapon": 0,
+        "path_reopened": false,
+        "records": [],
+        "weapons": []
+      },
+      "farmer_order": {
+        "accepted_at": null,
+        "completed_at": null,
+        "deadline_at": null,
+        "delivered_at": null,
+        "favor": 0,
+        "phase": "Offered",
+        "settled_gold": 0
+      },
+      "gold": 0,
+      "job_due": null,
+      "life": {
+        "action": "Sleeping",
+        "active_job": null,
+        "config": {
+          "consume_seconds": 2,
+          "drink_threshold": 3000,
+          "eat_threshold": 3000,
+          "food_price": 2,
+          "food_restore": 6000,
+          "hunger_rate": 1,
+          "minimum_speed": 250,
+          "sleep_seconds": 120,
+          "sleep_threshold": 9000,
+          "slowdown_threshold": 2500,
+          "stack_limit": 20,
+          "thirst_rate": 2,
+          "work_fatigue": 4
+        },
+        "fatigue": 80,
+        "hunger": 43,
+        "pantry": {
+          "slots": [
+            {
+              "count": 3,
+              "food": "Staple"
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        "queue": [],
+        "remaining": 103,
+        "thirst": 86,
+        "work": 0
+      },
+      "next_visitor": 60,
+      "ore": 8,
+      "progression": {
+        "chef_phase": "Ready",
+        "clues": [],
+        "codex": {
+          "kitchen_knife": {
+            "best_quality": null,
+            "count": 1,
+            "first_item_id": 1,
+            "first_tick": 21
+          }
+        },
+        "general_xp": 10,
+        "journal": [
+          {
+            "id": "blade_forging:1",
+            "text": "Blade forging reached level 1.",
+            "tick": 21
+          },
+          {
+            "id": "handle_fitting:1",
+            "text": "Handle fitting reached level 1.",
+            "tick": 21
+          },
+          {
+            "id": "first:kitchen_knife",
+            "text": "First Kitchen Knife forged and recorded in Smith's Codex.",
+            "tick": 21
+          }
+        ],
+        "legacy_dagger": false,
+        "next_item_id": 1,
+        "research_completed": false,
+        "research_xp": 6,
+        "rules": {
+          "chef": {
+            "id": "chef_first_knife",
+            "request": "A balanced kitchen knife for the village kitchen. Will you forge one for me?",
+            "reward_gold": 24
+          },
+          "dagger": {
+            "goal_xp": 10,
+            "id": "dagger_structure",
+            "prerequisites": [],
+            "study_gold": 4,
+            "study_seconds": 10,
+            "study_xp": 4,
+            "technique_levels": [
+              1,
+              1
+            ]
+          },
+          "recipes": [
+            {
+              "general_xp": 10,
+              "id": "kitchen_knife",
+              "label": "Kitchen Knife",
+              "ore": 2,
+              "research_xp": 6,
+              "seconds": 20,
+              "technique_xp": [
+                6,
+                3
+              ]
+            },
+            {
+              "general_xp": 12,
+              "id": "iron_dagger",
+              "label": "Iron Dagger",
+              "ore": 2,
+              "research_xp": 0,
+              "seconds": 5,
+              "technique_xp": [
+                4,
+                2
+              ]
+            }
+          ],
+          "techniques": [
+            {
+              "id": "blade_forging",
+              "label": "Blade forging",
+              "level_xp": 6
+            },
+            {
+              "id": "handle_fitting",
+              "label": "Handle fitting",
+              "level_xp": 3
+            }
+          ],
+          "version": 1
+        },
+        "study_pending": false,
+        "technique_xp": [
+          6,
+          3
+        ],
+        "weapons": []
+      },
+      "rng": 11532217803599905471,
+      "showroom": {
+        "config": {
+          "max_racks": 3,
+          "rack_gold": 30,
+          "rack_slots": [
+            4,
+            6,
+            8
+          ],
+          "rack_timber": 4,
+          "upgrade_gold": [
+            20,
+            40
+          ],
+          "upgrade_timber": [
+            2,
+            4
+          ]
+        },
+        "overflow": 0,
+        "racks": [
+          {
+            "tier": 1
+          }
+        ],
+        "slots": [
+          "empty",
+          "empty",
+          "empty",
+          "empty"
+        ]
+      },
+      "smith": "female",
+      "sold": 0,
+      "tick": 43
+    },
+    "smith": "female",
+    "sample_count": 1290,
+    "actor_ids": [
+      "421v0"
+    ],
+    "visual_approval": false,
+    "full_trace_sha256": "05d6e4c223896044ae8d99fb62bbb652d5dc09f0668f5b7df9a4a0d5a3e4dc41"
+  }
+]

@@ -444,6 +444,7 @@ pub fn draw(
     opts: Res<Options>,
     title: Res<TitleScreen>,
     spaces: Option<Res<crate::spaces::Spaces>>,
+    host: Res<crate::forge_view::Host>,
 ) {
     // Home content is owned by `spaces::draw` / `lifestyle::draw`; their buttons issue commands
     // on every click, so command/gold/pantry changes must not rebuild (and flash) the shell there.
@@ -464,7 +465,7 @@ pub fn draw(
         },
         space,
     );
-    if *last == Some(key) && !v.redraw {
+    if *last == Some(key) && !v.redraw && !host.is_changed() {
         return;
     }
     *last = Some(key);
@@ -473,7 +474,8 @@ pub fn draw(
         return;
     };
     commands.entity(root).despawn_children();
-    let show = d.shell.expanded
+    let show = !crate::forge_view::shown(&title, &v, &d, &host)
+        && d.shell.expanded
         && v.nav.screen != Screen::Destination(Location::Outside)
         && !title.active
         && opts.qa.as_deref().is_none_or(|q| {
@@ -490,12 +492,12 @@ pub fn draw(
             top: px(8),
             left: px(12),
             right: px(12),
-            bottom: px(16),
+            bottom: px(196),
             padding: UiRect::all(px(10)),
             border: UiRect::all(px(1)),
             flex_direction: FlexDirection::Column,
             row_gap: px(8),
-            overflow: Overflow::clip(),
+            overflow: Overflow::scroll_y(),
             ..default()
         },
         BorderColor::all(Color::srgb(0.38, 0.28, 0.18)),
@@ -535,7 +537,8 @@ pub fn draw(
                 bevy::input_focus::tab_navigation::TabGroup::new(1),
                 Node {
                     flex_grow: 1.,
-                    min_height: px(0),
+                    min_height: px(420),
+                    flex_shrink: 0.,
                     position_type: PositionType::Relative,
                     ..default()
                 },

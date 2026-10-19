@@ -1,5 +1,7 @@
 mod alpha_qa;
+mod d01_qa;
 mod expedition;
+mod forge_view;
 mod lifestyle;
 mod native;
 mod npc;
@@ -158,6 +160,8 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             "alpha"
                 | "alpha-female"
                 | "alpha-crafting"
+                | "d01"
+                | "d01-female"
                 | "ambient"
                 | "sale"
                 | "expanded"
@@ -221,7 +225,12 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     if saved.state.progression.rules.is_none() {
         saved.state.progression.rules = Some(forge_content::progression_rules()?);
     }
-    if qa && !opts.qa.as_deref().is_some_and(|q| q.starts_with("alpha")) {
+    if qa
+        && !opts
+            .qa
+            .as_deref()
+            .is_some_and(|q| q.starts_with("alpha") || q.starts_with("d01"))
+    {
         saved.state.progression.legacy_dagger = true;
     }
     if saved.state.tick == 0 {
@@ -249,7 +258,10 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         saved.state.gold = 24;
     }
     if qa
-        && !opts.qa.as_deref().is_some_and(|q| q.starts_with("alpha"))
+        && !opts
+            .qa
+            .as_deref()
+            .is_some_and(|q| q.starts_with("alpha") || q.starts_with("d01"))
         && opts
             .forge_scene()
             .is_none_or(|(scene, _)| scene != "select")
@@ -400,7 +412,10 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     }
     let mut app = App::new();
     let title_active = !qa
-        || opts.qa.as_deref().is_some_and(|q| q.starts_with("alpha"))
+        || opts
+            .qa
+            .as_deref()
+            .is_some_and(|q| q.starts_with("alpha") || q.starts_with("d01"))
         || opts.qa.as_deref() == Some("title")
         || opts
             .forge_scene()
@@ -500,6 +515,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     .add_plugins(forge_npc::player::PlayerPlugin)
     .add_plugins(forge_ui::ForgeUiPlugin)
     .add_plugins(spaces::plugin)
+    .add_plugins(forge_view::plugin)
     .add_plugins(expedition::plugin)
     .init_resource::<village::Village>()
     .add_observer(village::activate)
@@ -522,11 +538,12 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         (
             qa_capture,
             alpha_qa::drive,
+            d01_qa::drive,
             title::animate_heat,
             title::fit_stage,
             title::keyboard,
             title::refresh,
-            input,
+            input.run_if(forge_view::no_modal_at_frame_start),
             simulate,
             presentation::tick,
             window::update,
@@ -534,7 +551,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             animate,
             hud,
             lifestyle::update,
-            village::input,
+            village::input.run_if(forge_view::no_modal_at_frame_start),
             village::draw,
             lifestyle::draw,
             lifestyle::live,
@@ -542,6 +559,17 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         )
             .chain(),
     );
+    if app
+        .world()
+        .resource::<Options>()
+        .qa
+        .as_deref()
+        .is_some_and(|q| q.starts_with("d01"))
+    {
+        app.insert_resource(forge_npc::PlaybackClock {
+            fixed_delta: Some(1. / 30.),
+        });
+    }
     // QA-only A/B control; normal launches always receive the renderer correction.
     let qa_unpatched = app.world().resource::<Options>().qa.is_some()
         && std::env::var_os("LITTLE_FORGE_QA_UNPATCHED_SHADER").is_some();
@@ -557,7 +585,15 @@ fn setup(
     mut layouts: ResMut<Assets<TextureAtlasLayout>>,
     mut images: ResMut<Assets<Image>>,
 ) {
-    commands.spawn(Camera2d);
+    commands.spawn((
+        Camera2d,
+        Camera {
+            order: 1,
+            clear_color: bevy::camera::ClearColorConfig::None,
+            ..default()
+        },
+        bevy::ui::IsDefaultUiCamera,
+    ));
     commands.spawn((
         Sprite {
             image: server.load("forge/forge.png"),
@@ -713,6 +749,7 @@ fn input(
     mut home: ResMut<lifestyle::HomeUi>,
     dialog: Res<forge_ui::DialogState>,
     mut commands: Commands,
+    mut forge_host: ResMut<forge_view::Host>,
 ) {
     if title.active || dialog.is_open() {
         return;
@@ -721,12 +758,20 @@ fn input(
         desktop.shell.recover();
     }
     if keys.just_pressed(KeyCode::F8) {
-        desktop.shell.idle();
+        // The recovery chord can also reach the focused window as a local key event.
+        if keys.any_pressed([KeyCode::ControlLeft, KeyCode::ControlRight])
+            && keys.any_pressed([KeyCode::AltLeft, KeyCode::AltRight])
+        {
+            desktop.shell.recover();
+        } else {
+            desktop.shell.idle();
+        }
     }
     if keys.just_pressed(KeyCode::Tab)
         && !desktop.shell.expanded
         && village.nav.screen == forge_core::village::Screen::Home
     {
+        forge_host.legacy = false;
         spaces::apply(
             spaces::Action::Enter,
             &mut spaces,
@@ -745,6 +790,7 @@ fn input(
         desktop.dirty = true;
     }
     if keys.just_pressed(KeyCode::KeyO) && village.nav.screen == forge_core::village::Screen::Home {
+        forge_host.legacy = true;
         desktop.shell.recover();
         desktop.shell.expanded = true;
         home.tab = 3;
@@ -1021,15 +1067,17 @@ fn animate(
 fn hud(
     s: Res<Session>,
     desktop: Res<window::Desktop>,
+    spaces: Res<spaces::Spaces>,
     mut q: Query<(&mut Text, &mut Visibility), (With<Hud>, Without<Panel>)>,
     mut panel: Query<&mut Visibility, With<Panel>>,
 ) {
     for (mut t, mut visibility) in &mut q {
-        *visibility = if desktop.shell.expanded {
-            Visibility::Hidden
-        } else {
-            Visibility::Visible
-        };
+        *visibility =
+            if desktop.shell.expanded || spaces.space != forge_core::spaces::Space::Exterior {
+                Visibility::Hidden
+            } else {
+                Visibility::Visible
+            };
         **t = format!(
             "Gold {}  Ore {}  |  {}",
             s.save.state.gold, s.save.state.ore, s.status
@@ -1093,7 +1141,11 @@ fn qa_capture(
         return;
     }
     opts.frames += 1;
-    if opts.qa.as_deref().is_some_and(|q| q.starts_with("alpha")) {
+    if opts
+        .qa
+        .as_deref()
+        .is_some_and(|q| q.starts_with("alpha") || q.starts_with("d01"))
+    {
         return;
     }
     if opts.qa.as_deref() == Some("npc") && opts.frames == 170 {
