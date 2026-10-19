@@ -9,7 +9,7 @@
     "clock": "core and animation both advance1/30 second per rendered frame",
     "commands": "real paid Chef knife work; production Activate title and host controls, not OS input",
     "cycles": 100,
-    "result": "passed",
+    "result": "ecs_assertions_passed_visual_capture_failed",
     "save_reload": "equal during work and at end",
     "state": {
       "command_id": 4,
@@ -256,7 +256,9 @@
       "At(IVec2(510, 1444))",
       "At(IVec2(510, 724))"
     ],
-    "full_trace_sha256": "bd5052dfd8d1460c22e2dfde7c7d658bedf23668bf9ea31bf61b8b617dd0b924"
+    "full_trace_sha256": "bd5052dfd8d1460c22e2dfde7c7d658bedf23668bf9ea31bf61b8b617dd0b924",
+    "visual_capture": "Final capture black after native observation failure; not visual acceptance",
+    "attached_screenshots": "Earlier same-session build, before legacy scroll and ambient tab group adjustments"
   },
   {
     "captures": [
@@ -268,7 +270,7 @@
     "clock": "core and animation both advance1/30 second per rendered frame",
     "commands": "real paid Chef knife work; production Activate title and host controls, not OS input",
     "cycles": 100,
-    "result": "passed",
+    "result": "ecs_assertions_passed_visual_capture_failed",
     "save_reload": "equal during work and at end",
     "state": {
       "command_id": 4,
@@ -515,6 +517,8 @@
       "At(IVec2(510, 1444))",
       "At(IVec2(510, 724))"
     ],
-    "full_trace_sha256": "05d6e4c223896044ae8d99fb62bbb652d5dc09f0668f5b7df9a4a0d5a3e4dc41"
+    "full_trace_sha256": "05d6e4c223896044ae8d99fb62bbb652d5dc09f0668f5b7df9a4a0d5a3e4dc41",
+    "visual_capture": "Final capture black after native observation failure; not visual acceptance",
+    "attached_screenshots": "Earlier same-session build, before legacy scroll and ambient tab group adjustments"
   }
 ]
