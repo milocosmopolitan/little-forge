@@ -9,6 +9,9 @@ use forge_core::{
 #[derive(Resource)]
 pub struct ExpeditionUi {
     pub loadout: Loadout,
+    pub plan: forge_core::weapon::Plan,
+    tab: u8,
+    record_page: usize,
     revision: u64,
     seen_return: u64,
 }
@@ -20,6 +23,9 @@ impl Default for ExpeditionUi {
                 arrows: 24,
                 ..default()
             },
+            plan: forge_core::weapon::Plan::default(),
+            tab: 0,
+            record_page: 0,
             revision: 0,
             seen_return: 0,
         }
@@ -36,8 +42,16 @@ struct Arrow;
 struct Impact;
 #[derive(Component)]
 struct Summary;
-#[derive(Component, Clone, Copy)]
-enum Action {
+#[derive(Component, Debug, Clone, Copy, PartialEq, Eq)]
+pub(crate) enum Action {
+    Tab(u8),
+    FieldCodex,
+    NextRecords,
+    Material,
+    Technique,
+    Approach,
+    Forge,
+    Domain(Command),
     Close,
     Craft(Gear),
     Primary,
@@ -95,9 +109,12 @@ fn activate(
     let Ok(a) = q.get(e.entity) else {
         return;
     };
-    if matches!(a, Action::Dismiss | Action::Prepare) {
+    if matches!(a, Action::Dismiss | Action::Prepare | Action::FieldCodex) {
         ui.seen_return = s.save.state.expedition.active.as_ref().map_or(0, |b| b.id);
-        if matches!(a, Action::Prepare) {
+        if matches!(a, Action::Prepare | Action::FieldCodex) {
+            if matches!(a, Action::FieldCodex) {
+                ui.tab = 2;
+            }
             v.nav.visit(Location::Outside);
         }
         return;
@@ -111,6 +128,41 @@ fn activate(
     }
     let running = s.save.state.expedition.running();
     let cmd = match *a {
+        Action::NextRecords => {
+            ui.record_page =
+                (ui.record_page + 1) % s.save.state.progression.weapons.len().max(1).div_ceil(2);
+            None
+        }
+        Action::Tab(tab) => {
+            ui.tab = tab;
+            None
+        }
+        Action::Material => {
+            ui.plan.material = if ui.plan.material == forge_core::weapon::Material::Iron {
+                forge_core::weapon::Material::Steel
+            } else {
+                forge_core::weapon::Material::Iron
+            };
+            None
+        }
+        Action::Technique => {
+            ui.plan.technique = if ui.plan.technique == forge_core::weapon::Technique::LightEdge {
+                forge_core::weapon::Technique::ReinforcedPoint
+            } else {
+                forge_core::weapon::Technique::LightEdge
+            };
+            None
+        }
+        Action::Approach => {
+            ui.plan.approach = match ui.plan.approach {
+                forge_core::weapon::Approach::Quick => forge_core::weapon::Approach::Standard,
+                forge_core::weapon::Approach::Standard => forge_core::weapon::Approach::Careful,
+                forge_core::weapon::Approach::Careful => forge_core::weapon::Approach::Quick,
+            };
+            None
+        }
+        Action::Forge => Some(Command::ForgeWeapon(ui.plan)),
+        Action::Domain(cmd) => Some(cmd),
         Action::Craft(g) => Some(Command::CraftExpeditionGear(g)),
         Action::Launch => Some(Command::LaunchExpedition(ui.loadout)),
         Action::Recall => Some(Command::RecallExpedition),
@@ -199,8 +251,13 @@ fn draw(
     }
     let state = &s.save.state;
     let ex = &state.expedition;
+    if ui.tab != 0 {
+        draw_workshop(&mut c, state, &ui);
+        return;
+    }
     c.spawn((Root,GlobalZIndex(90),node(0.,0.,960.,540.),BackgroundColor(Color::srgb(0.08,0.10,0.09)))).with_children(|p|{
-  p.spawn((forge_ui::text("OLD FOREST PATH  /  HUNTER'S EXPEDITION",22.),node(20.,12.,700.,30.)));
+  p.spawn((forge_ui::text("OLD FOREST PATH",22.),node(20.,12.,300.,30.)));
+  p.spawn(node(350.,8.,400.,40.)).with_children(|p| { forge_ui::button(p,"Forge equipment",Action::Tab(1)); forge_ui::button(p,"Field Codex",Action::Tab(2)); });
   p.spawn((Node{position_type:PositionType::Absolute,right:px(16),top:px(8),..default()},)).with_children(|p|{forge_ui::button(p,"Back to forge",Action::Close);});
   p.spawn((Node{overflow:Overflow::clip(),..node(0.,50.,960.,300.)},)).with_children(|p|{
    for path in ["distant", "midground", "foreground"] {picture(p,&server,&format!("expedition/forest/{path}.png"),node(0.,-100.,960.,540.));}
@@ -221,7 +278,7 @@ fn draw(
    p.spawn((Node{column_gap:px(5),..default()},)).with_children(|p|{
     forge_ui::button(p,"Bow: 1 ore + 2 timber",Action::Craft(Gear::Shortbow));forge_ui::button(p,"Knife: 2 ore",Action::Craft(Gear::HuntingKnife));forge_ui::button(p,"12 arrows: 1 ore + 1 timber",Action::Craft(Gear::Arrows));forge_ui::button(p,"Timber: 3g",Action::BuyTimber);forge_ui::button(p,"Food: 2g",Action::BuyFood);
    });
-   p.spawn(forge_ui::text("Click slots to cycle. Bow stops wolves; knife counters boar hide. Food restores 20 condition between waves.",13.));
+   p.spawn(forge_ui::text("Click slots to cycle. Inspect penetration for boars and handling for wolves in Forge equipment.",13.));
    p.spawn((Ledger,forge_ui::text("",13.)));
    p.spawn((Status,forge_ui::text("",13.)));
   });
@@ -383,26 +440,28 @@ fn animate(
             st.expedition.arrows,
             st.life.queue.len(),
             st.expedition
-                .weapons
-                .iter()
-                .map(|w| format!(
-                    "{} #{}: {} trips / {} defeats",
-                    w.kind.label(),
-                    w.id,
-                    w.field_uses,
-                    w.kills
+                .weapon(b.and_then(|b| b.knife))
+                .and_then(|w| w.craftsmanship.as_ref())
+                .map_or("Legacy equipment".into(), |c| format!(
+                    "{} · Pen {} / handling {} / {}s",
+                    c.label(),
+                    c.properties.penetration,
+                    c.properties.handling,
+                    c.properties.interval
                 ))
-                .collect::<Vec<_>>()
-                .join("; ")
         );
     }
     for mut text in &mut status {
-        **text = if st.expedition.path_reopened {
-            "Path reopened: +8 timber once. Next: build a new showroom rack at the carpenter."
-                .into()
-        } else {
-            s.status.clone()
-        };
+        **text = format!(
+            "{}\nGold {} · Ore {} · Timber {} · Food {} · Work {} · Queue {}",
+            s.status,
+            st.gold,
+            st.ore,
+            st.commerce.timber,
+            st.life.pantry.staples(),
+            st.life.active_job.map_or("Idle", |j| j.label()),
+            st.life.queue.len()
+        );
     }
 }
 
@@ -639,4 +698,70 @@ fn preload(mut commands: Commands, server: Res<AssetServer>) {
         images.push(server.load(format!("expedition/{path}.png")));
     }
     commands.insert_resource(ExpeditionArt { images });
+}
+
+fn draw_workshop(c: &mut Commands, s: &forge_core::State, ui: &ExpeditionUi) {
+    c.spawn((Root,GlobalZIndex(90),node(0.,0.,960.,540.),BackgroundColor(Color::srgb(0.08,0.10,0.09)))).with_children(|p| {
+        p.spawn(node(18.,12.,924.,40.)).with_children(|p| {
+            forge_ui::button(p,"Watch expedition",Action::Tab(0));
+            forge_ui::button(p,"Forge equipment",Action::Tab(1));
+            forge_ui::button(p,"Field Codex",Action::Tab(2));
+            forge_ui::button(p,"Back to forge",Action::Close);
+        });
+        p.spawn((Node{flex_direction:FlexDirection::Column,row_gap:px(10),..node(24.,66.,912.,450.)},)).with_children(|p| {
+            if ui.tab == 1 {
+                let craft=forge_core::weapon::Rules::bundled().forge(ui.plan,s.progression.level(0),s.smith);
+                p.spawn(forge_ui::text("HUNTING KNIFE / Choose the tool for the threat",22.));
+                p.spawn(Node{column_gap:px(8),..default()}).with_children(|p| {
+                    forge_ui::button(p,format!("Material: {:?}",ui.plan.material),Action::Material);
+                    forge_ui::button(p,format!("Technique: {}",ui.plan.technique.label()),Action::Technique);
+                    forge_ui::button(p,format!("Approach: {}",ui.plan.approach.label()),Action::Approach);
+                });
+                let v=craft.properties;
+                p.spawn(forge_ui::text(format!("{}
+Force {} · Penetration {} · Recovery {}s · Handling {}
+Investment: {} ore / {} effective work seconds",craft.label(),v.force,v.penetration,v.interval,v.handling,craft.ore,craft.seconds),19.));
+                p.spawn(forge_ui::text("Boar hide resists 5 force; penetration bypasses resistance.
+Light edges recover quickly and reduce wolf damage. Reinforced points trade speed for penetration.
+Steel uses extra ore and recovers slower. Quality measures precision, never a damage multiplier.",15.));
+                forge_ui::button(p,"Forge this knife",Action::Forge);
+                p.spawn(Node{column_gap:px(6),..default()}).with_children(|p| {
+                    forge_ui::button(p,"Buy 2 ore / 4g",Action::Domain(Command::BuyOre));
+                    let progress=&s.progression;
+                    let next=match progress.chef_phase {
+                        forge_core::commission::OrderPhase::Offered=>Some(("Accept Chef commission",Command::AcceptChef)),
+                        forge_core::commission::OrderPhase::Accepted=>Some(("Forge Kitchen Knife / 2 ore",Command::QueueChef)),
+                        forge_core::commission::OrderPhase::Ready=>Some(("Deliver Chef knife",Command::DeliverChef)),
+                        forge_core::commission::OrderPhase::Delivered if progress.can_complete()=>Some(("Complete Dagger research",Command::CompleteDaggerResearch)),
+                        forge_core::commission::OrderPhase::Delivered if !progress.research_completed && !progress.study_pending=>Some(("Study Dagger / 4g",Command::StudyDagger)),
+                        _=>None,
+                    };
+                    if let Some((label,cmd))=next {forge_ui::button(p,label,Action::Domain(cmd));}
+                });
+                p.spawn(forge_ui::text(format!("Blade forging Lv{} · Handle fitting Lv{} · Research {}/10 {}
+Common uses Quick Craft. Standard/Careful require both techniques Lv1; all new knives require the researched recipe.",s.progression.level(0),s.progression.level(1),s.progression.research_xp,if s.progression.research_completed {"completed"}else{"not completed"}),14.));
+            } else {
+                p.spawn(forge_ui::text("SMITH'S CODEX / Permanent field records",22.));
+                forge_ui::button(p,"Next records",Action::NextRecords);
+                if let Some(b)=&s.expedition.active {
+                    p.spawn(forge_ui::text(format!("Previous best {} / Current cleared {} / Reached wave {}
+{}",b.previous_best,b.cleared,b.wave+1,b.story()),16.));
+                    if b.done { p.spawn(forge_ui::text(format!("Equipment returned · Reward {} gold · {} arrows returned",b.reward_gold(),b.arrows),14.)); }
+                }
+                if let Some(b)=&s.expedition.active {
+                    let mut contributions=std::collections::BTreeMap::<u64,u32>::new();
+                    for t in &b.trace {if let Some(id)=t.weapon { *contributions.entry(id).or_default()+=u32::from(t.amount); }}
+                    if let Some((id,damage))=contributions.iter().max_by_key(|(_,damage)|*damage) {p.spawn(forge_ui::text(format!("Largest contribution: weapon #{id}, {damage} attack force delivered"),14.));}
+                }
+                for w in s.progression.weapons.iter().rev().skip(ui.record_page*2).take(2) {
+                    let owned=s.expedition.weapon(Some(w.id)).is_some();
+                    let craft=w.craftsmanship.as_ref().expect("crafted Codex record");
+                    p.spawn(forge_ui::text(format!("#{} {} · {}
+{} trips / {} defeats / best wave {} / {} completions / breakthrough {}",w.id,craft.label(),if owned {"Owned"}else{"Sold, history retained"},w.field_uses,w.kills,w.highest_wave,w.completions,w.first_breakthrough.map_or("not yet".into(),|id|format!("expedition #{id}"))),15.));
+                    if owned {forge_ui::button(p,format!("Sell #{} / 4g",w.id),Action::Domain(Command::SellWeapon(w.id)));}
+                }
+            }
+            p.spawn((Status,forge_ui::text("",14.)));
+        });
+    });
 }

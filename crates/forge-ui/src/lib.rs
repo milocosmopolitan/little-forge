@@ -378,7 +378,9 @@ pub fn progress_bar(
             capped(server, "ui/runtime/controls/progress-track.png"),
             Node {
                 width: percent(100),
-                height: px(16),
+                height: px(14),
+                min_height: px(14),
+                flex_shrink: 0.,
                 ..default()
             },
         ))

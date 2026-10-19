@@ -1,0 +1,309 @@
+{
+  "clock": "QA scripted 1 eligible second per 30 rendered frames; production uses monotonic elapsed time",
+  "events": [
+    {
+      "id": 1,
+      "kind": {
+        "ActionChanged": "Sleeping"
+      },
+      "tick": 2
+    },
+    {
+      "id": 2,
+      "kind": "Ate",
+      "tick": 10
+    },
+    {
+      "id": 3,
+      "kind": {
+        "ActionChanged": "Eating"
+      },
+      "tick": 10
+    },
+    {
+      "id": 4,
+      "kind": "Drank",
+      "tick": 12
+    },
+    {
+      "id": 5,
+      "kind": {
+        "ActionChanged": "Drinking"
+      },
+      "tick": 12
+    },
+    {
+      "id": 6,
+      "kind": "VisitorWithoutStock",
+      "tick": 12
+    },
+    {
+      "id": 7,
+      "kind": {
+        "ActionChanged": "Working"
+      },
+      "tick": 14
+    },
+    {
+      "id": 8,
+      "kind": "ProgressionChanged",
+      "tick": 19
+    },
+    {
+      "id": 9,
+      "kind": "Crafted",
+      "tick": 19
+    },
+    {
+      "id": 10,
+      "kind": {
+        "ActionChanged": "Working"
+      },
+      "tick": 19
+    },
+    {
+      "id": 11,
+      "kind": "ProgressionChanged",
+      "tick": 24
+    },
+    {
+      "id": 12,
+      "kind": "Crafted",
+      "tick": 24
+    },
+    {
+      "id": 13,
+      "kind": {
+        "ActionChanged": "Idle"
+      },
+      "tick": 24
+    },
+    {
+      "id": 14,
+      "kind": {
+        "Sold": {
+          "gold": 12,
+          "item": "iron_dagger"
+        }
+      },
+      "tick": 35
+    },
+    {
+      "id": 15,
+      "kind": {
+        "Sold": {
+          "gold": 12,
+          "item": "iron_dagger"
+        }
+      },
+      "tick": 60
+    }
+  ],
+  "scenario": "life-ambient",
+  "state": {
+    "command_id": 3,
+    "commerce": {
+      "leather": 0,
+      "stock": [
+        40,
+        30,
+        59,
+        12
+      ],
+      "timber": 0
+    },
+    "crafted": 2,
+    "daggers": 0,
+    "event_id": 15,
+    "farmer_order": {
+      "accepted_at": null,
+      "completed_at": null,
+      "deadline_at": null,
+      "delivered_at": null,
+      "favor": 0,
+      "phase": "Offered",
+      "settled_gold": 0
+    },
+    "gold": 22,
+    "job_due": null,
+    "life": {
+      "action": "Idle",
+      "active_job": null,
+      "config": {
+        "consume_seconds": 2,
+        "drink_threshold": 3000,
+        "eat_threshold": 3000,
+        "food_price": 2,
+        "food_restore": 6000,
+        "hunger_rate": 1,
+        "minimum_speed": 250,
+        "sleep_seconds": 8,
+        "sleep_threshold": 9000,
+        "slowdown_threshold": 2500,
+        "stack_limit": 20,
+        "thirst_rate": 2,
+        "work_fatigue": 4
+      },
+      "fatigue": 40,
+      "hunger": 2060,
+      "pantry": {
+        "slots": [
+          {
+            "count": 3,
+            "food": "Staple"
+          },
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "queue": [],
+      "remaining": 0,
+      "thirst": 96,
+      "work": 0
+    },
+    "next_visitor": 79,
+    "ore": 6,
+    "progression": {
+      "chef_phase": "Offered",
+      "clues": [],
+      "codex": {
+        "iron_dagger": {
+          "best_quality": null,
+          "count": 2,
+          "first_item_id": 1,
+          "first_tick": 19
+        }
+      },
+      "general_xp": 24,
+      "journal": [
+        {
+          "id": "first:iron_dagger",
+          "text": "First Iron Dagger forged and recorded in Smith's Codex.",
+          "tick": 19
+        },
+        {
+          "id": "blade_forging:1",
+          "text": "Blade forging reached level 1.",
+          "tick": 24
+        },
+        {
+          "id": "handle_fitting:1",
+          "text": "Handle fitting reached level 1.",
+          "tick": 24
+        }
+      ],
+      "legacy_dagger": true,
+      "next_item_id": 2,
+      "research_completed": false,
+      "research_xp": 0,
+      "rules": {
+        "chef": {
+          "id": "chef_first_knife",
+          "request": "A balanced kitchen knife for the village kitchen. Will you forge one for me?",
+          "reward_gold": 24
+        },
+        "dagger": {
+          "goal_xp": 10,
+          "id": "dagger_structure",
+          "prerequisites": [],
+          "study_gold": 4,
+          "study_seconds": 10,
+          "study_xp": 4,
+          "technique_levels": [
+            1,
+            1
+          ]
+        },
+        "recipes": [
+          {
+            "general_xp": 10,
+            "id": "kitchen_knife",
+            "label": "Kitchen Knife",
+            "ore": 2,
+            "research_xp": 6,
+            "seconds": 20,
+            "technique_xp": [
+              6,
+              3
+            ]
+          },
+          {
+            "general_xp": 12,
+            "id": "iron_dagger",
+            "label": "Iron Dagger",
+            "ore": 2,
+            "research_xp": 0,
+            "seconds": 5,
+            "technique_xp": [
+              4,
+              2
+            ]
+          }
+        ],
+        "techniques": [
+          {
+            "id": "blade_forging",
+            "label": "Blade forging",
+            "level_xp": 6
+          },
+          {
+            "id": "handle_fitting",
+            "label": "Handle fitting",
+            "level_xp": 3
+          }
+        ],
+        "version": 1
+      },
+      "study_pending": false,
+      "technique_xp": [
+        8,
+        4
+      ]
+    },
+    "rng": 10021416941527320954,
+    "showroom": {
+      "config": {
+        "max_racks": 3,
+        "rack_gold": 30,
+        "rack_slots": [
+          4,
+          6,
+          8
+        ],
+        "rack_timber": 4,
+        "upgrade_gold": [
+          20,
+          40
+        ],
+        "upgrade_timber": [
+          2,
+          4
+        ]
+      },
+      "overflow": 0,
+      "racks": [
+        {
+          "tier": 1
+        }
+      ],
+      "slots": [
+        "empty",
+        "empty",
+        "empty",
+        "empty"
+      ]
+    },
+    "smith": "male",
+    "sold": 2,
+    "tick": 60
+  }
+}

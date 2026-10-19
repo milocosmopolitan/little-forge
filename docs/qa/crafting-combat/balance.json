@@ -1,0 +1,776 @@
+{
+  "note": "Deterministic duration is also the mean for repeated identical runs; knife investment excludes the fixed bow/provisions.",
+  "results": [
+    {
+      "ammunition_consumed": 0,
+      "bow": false,
+      "cause": "Penetration",
+      "craft": {
+        "appearance": "Common",
+        "content_version": 2,
+        "creator": null,
+        "ore": 2,
+        "plan": {
+          "approach": "Quick",
+          "material": "Iron",
+          "technique": "LightEdge"
+        },
+        "proficiency": 1,
+        "properties": {
+          "force": 4,
+          "handling": 1,
+          "interval": 1,
+          "penetration": 0
+        },
+        "quality": 42,
+        "recipe": "hunting_knife",
+        "seconds": 8
+      },
+      "duration_seconds": 45,
+      "hunter_damage": 90,
+      "knife_damage": 37,
+      "provisions_consumed": 3,
+      "waves_cleared": 2,
+      "waves_per_ore": 1.0
+    },
+    {
+      "ammunition_consumed": 10,
+      "bow": true,
+      "cause": "Penetration",
+      "craft": {
+        "appearance": "Common",
+        "content_version": 2,
+        "creator": null,
+        "ore": 2,
+        "plan": {
+          "approach": "Quick",
+          "material": "Iron",
+          "technique": "LightEdge"
+        },
+        "proficiency": 1,
+        "properties": {
+          "force": 4,
+          "handling": 1,
+          "interval": 1,
+          "penetration": 0
+        },
+        "quality": 42,
+        "recipe": "hunting_knife",
+        "seconds": 8
+      },
+      "duration_seconds": 51,
+      "hunter_damage": 84,
+      "knife_damage": 19,
+      "provisions_consumed": 4,
+      "waves_cleared": 3,
+      "waves_per_ore": 1.5
+    },
+    {
+      "ammunition_consumed": 0,
+      "bow": false,
+      "cause": "Penetration",
+      "craft": {
+        "appearance": "Refined",
+        "content_version": 2,
+        "creator": null,
+        "ore": 2,
+        "plan": {
+          "approach": "Standard",
+          "material": "Iron",
+          "technique": "LightEdge"
+        },
+        "proficiency": 1,
+        "properties": {
+          "force": 4,
+          "handling": 2,
+          "interval": 1,
+          "penetration": 0
+        },
+        "quality": 67,
+        "recipe": "hunting_knife",
+        "seconds": 16
+      },
+      "duration_seconds": 45,
+      "hunter_damage": 88,
+      "knife_damage": 37,
+      "provisions_consumed": 3,
+      "waves_cleared": 2,
+      "waves_per_ore": 1.0
+    },
+    {
+      "ammunition_consumed": 10,
+      "bow": true,
+      "cause": "Penetration",
+      "craft": {
+        "appearance": "Refined",
+        "content_version": 2,
+        "creator": null,
+        "ore": 2,
+        "plan": {
+          "approach": "Standard",
+          "material": "Iron",
+          "technique": "LightEdge"
+        },
+        "proficiency": 1,
+        "properties": {
+          "force": 4,
+          "handling": 2,
+          "interval": 1,
+          "penetration": 0
+        },
+        "quality": 67,
+        "recipe": "hunting_knife",
+        "seconds": 16
+      },
+      "duration_seconds": 51,
+      "hunter_damage": 84,
+      "knife_damage": 19,
+      "provisions_consumed": 4,
+      "waves_cleared": 3,
+      "waves_per_ore": 1.5
+    },
+    {
+      "ammunition_consumed": 0,
+      "bow": false,
+      "cause": "Penetration",
+      "craft": {
+        "appearance": "Masterwork",
+        "content_version": 2,
+        "creator": null,
+        "ore": 3,
+        "plan": {
+          "approach": "Careful",
+          "material": "Iron",
+          "technique": "LightEdge"
+        },
+        "proficiency": 1,
+        "properties": {
+          "force": 4,
+          "handling": 4,
+          "interval": 1,
+          "penetration": 0
+        },
+        "quality": 92,
+        "recipe": "hunting_knife",
+        "seconds": 28
+      },
+      "duration_seconds": 45,
+      "hunter_damage": 84,
+      "knife_damage": 37,
+      "provisions_consumed": 3,
+      "waves_cleared": 2,
+      "waves_per_ore": 0.6666666666666666
+    },
+    {
+      "ammunition_consumed": 10,
+      "bow": true,
+      "cause": "Penetration",
+      "craft": {
+        "appearance": "Masterwork",
+        "content_version": 2,
+        "creator": null,
+        "ore": 3,
+        "plan": {
+          "approach": "Careful",
+          "material": "Iron",
+          "technique": "LightEdge"
+        },
+        "proficiency": 1,
+        "properties": {
+          "force": 4,
+          "handling": 4,
+          "interval": 1,
+          "penetration": 0
+        },
+        "quality": 92,
+        "recipe": "hunting_knife",
+        "seconds": 28
+      },
+      "duration_seconds": 51,
+      "hunter_damage": 84,
+      "knife_damage": 19,
+      "provisions_consumed": 4,
+      "waves_cleared": 3,
+      "waves_per_ore": 1.0
+    },
+    {
+      "ammunition_consumed": 0,
+      "bow": false,
+      "cause": "Penetration",
+      "craft": {
+        "appearance": "Common",
+        "content_version": 2,
+        "creator": null,
+        "ore": 2,
+        "plan": {
+          "approach": "Quick",
+          "material": "Iron",
+          "technique": "ReinforcedPoint"
+        },
+        "proficiency": 1,
+        "properties": {
+          "force": 4,
+          "handling": 0,
+          "interval": 2,
+          "penetration": 1
+        },
+        "quality": 42,
+        "recipe": "hunting_knife",
+        "seconds": 8
+      },
+      "duration_seconds": 45,
+      "hunter_damage": 100,
+      "knife_damage": 27,
+      "provisions_consumed": 3,
+      "waves_cleared": 2,
+      "waves_per_ore": 1.0
+    },
+    {
+      "ammunition_consumed": 6,
+      "bow": true,
+      "cause": "Penetration",
+      "craft": {
+        "appearance": "Common",
+        "content_version": 2,
+        "creator": null,
+        "ore": 2,
+        "plan": {
+          "approach": "Quick",
+          "material": "Iron",
+          "technique": "ReinforcedPoint"
+        },
+        "proficiency": 1,
+        "properties": {
+          "force": 4,
+          "handling": 0,
+          "interval": 2,
+          "penetration": 1
+        },
+        "quality": 42,
+        "recipe": "hunting_knife",
+        "seconds": 8
+      },
+      "duration_seconds": 33,
+      "hunter_damage": 60,
+      "knife_damage": 6,
+      "provisions_consumed": 3,
+      "waves_cleared": 2,
+      "waves_per_ore": 1.0
+    },
+    {
+      "ammunition_consumed": 0,
+      "bow": false,
+      "cause": "Penetration",
+      "craft": {
+        "appearance": "Refined",
+        "content_version": 2,
+        "creator": null,
+        "ore": 2,
+        "plan": {
+          "approach": "Standard",
+          "material": "Iron",
+          "technique": "ReinforcedPoint"
+        },
+        "proficiency": 1,
+        "properties": {
+          "force": 4,
+          "handling": 0,
+          "interval": 2,
+          "penetration": 2
+        },
+        "quality": 67,
+        "recipe": "hunting_knife",
+        "seconds": 16
+      },
+      "duration_seconds": 45,
+      "hunter_damage": 100,
+      "knife_damage": 27,
+      "provisions_consumed": 3,
+      "waves_cleared": 2,
+      "waves_per_ore": 1.0
+    },
+    {
+      "ammunition_consumed": 6,
+      "bow": true,
+      "cause": "Penetration",
+      "craft": {
+        "appearance": "Refined",
+        "content_version": 2,
+        "creator": null,
+        "ore": 2,
+        "plan": {
+          "approach": "Standard",
+          "material": "Iron",
+          "technique": "ReinforcedPoint"
+        },
+        "proficiency": 1,
+        "properties": {
+          "force": 4,
+          "handling": 0,
+          "interval": 2,
+          "penetration": 2
+        },
+        "quality": 67,
+        "recipe": "hunting_knife",
+        "seconds": 16
+      },
+      "duration_seconds": 33,
+      "hunter_damage": 60,
+      "knife_damage": 6,
+      "provisions_consumed": 3,
+      "waves_cleared": 2,
+      "waves_per_ore": 1.0
+    },
+    {
+      "ammunition_consumed": 0,
+      "bow": false,
+      "cause": "MissingBow",
+      "craft": {
+        "appearance": "Masterwork",
+        "content_version": 2,
+        "creator": null,
+        "ore": 3,
+        "plan": {
+          "approach": "Careful",
+          "material": "Iron",
+          "technique": "ReinforcedPoint"
+        },
+        "proficiency": 1,
+        "properties": {
+          "force": 4,
+          "handling": 0,
+          "interval": 2,
+          "penetration": 4
+        },
+        "quality": 92,
+        "recipe": "hunting_knife",
+        "seconds": 28
+      },
+      "duration_seconds": 45,
+      "hunter_damage": 100,
+      "knife_damage": 33,
+      "provisions_consumed": 3,
+      "waves_cleared": 2,
+      "waves_per_ore": 0.6666666666666666
+    },
+    {
+      "ammunition_consumed": 16,
+      "bow": true,
+      "cause": "Wounded",
+      "craft": {
+        "appearance": "Masterwork",
+        "content_version": 2,
+        "creator": null,
+        "ore": 3,
+        "plan": {
+          "approach": "Careful",
+          "material": "Iron",
+          "technique": "ReinforcedPoint"
+        },
+        "proficiency": 1,
+        "properties": {
+          "force": 4,
+          "handling": 0,
+          "interval": 2,
+          "penetration": 4
+        },
+        "quality": 92,
+        "recipe": "hunting_knife",
+        "seconds": 28
+      },
+      "duration_seconds": 72,
+      "hunter_damage": 108,
+      "knife_damage": 36,
+      "provisions_consumed": 5,
+      "waves_cleared": 4,
+      "waves_per_ore": 1.3333333333333333
+    },
+    {
+      "ammunition_consumed": 0,
+      "bow": false,
+      "cause": "Penetration",
+      "craft": {
+        "appearance": "Common",
+        "content_version": 2,
+        "creator": null,
+        "ore": 3,
+        "plan": {
+          "approach": "Quick",
+          "material": "Steel",
+          "technique": "LightEdge"
+        },
+        "proficiency": 1,
+        "properties": {
+          "force": 6,
+          "handling": 1,
+          "interval": 2,
+          "penetration": 2
+        },
+        "quality": 42,
+        "recipe": "hunting_knife",
+        "seconds": 8
+      },
+      "duration_seconds": 48,
+      "hunter_damage": 108,
+      "knife_damage": 51,
+      "provisions_consumed": 3,
+      "waves_cleared": 2,
+      "waves_per_ore": 0.6666666666666666
+    },
+    {
+      "ammunition_consumed": 16,
+      "bow": true,
+      "cause": "Penetration",
+      "craft": {
+        "appearance": "Common",
+        "content_version": 2,
+        "creator": null,
+        "ore": 3,
+        "plan": {
+          "approach": "Quick",
+          "material": "Steel",
+          "technique": "LightEdge"
+        },
+        "proficiency": 1,
+        "properties": {
+          "force": 6,
+          "handling": 1,
+          "interval": 2,
+          "penetration": 2
+        },
+        "quality": 42,
+        "recipe": "hunting_knife",
+        "seconds": 8
+      },
+      "duration_seconds": 72,
+      "hunter_damage": 108,
+      "knife_damage": 36,
+      "provisions_consumed": 5,
+      "waves_cleared": 4,
+      "waves_per_ore": 1.3333333333333333
+    },
+    {
+      "ammunition_consumed": 0,
+      "bow": false,
+      "cause": "Penetration",
+      "craft": {
+        "appearance": "Refined",
+        "content_version": 2,
+        "creator": null,
+        "ore": 3,
+        "plan": {
+          "approach": "Standard",
+          "material": "Steel",
+          "technique": "LightEdge"
+        },
+        "proficiency": 1,
+        "properties": {
+          "force": 6,
+          "handling": 2,
+          "interval": 2,
+          "penetration": 2
+        },
+        "quality": 67,
+        "recipe": "hunting_knife",
+        "seconds": 16
+      },
+      "duration_seconds": 48,
+      "hunter_damage": 104,
+      "knife_damage": 51,
+      "provisions_consumed": 3,
+      "waves_cleared": 2,
+      "waves_per_ore": 0.6666666666666666
+    },
+    {
+      "ammunition_consumed": 16,
+      "bow": true,
+      "cause": "Penetration",
+      "craft": {
+        "appearance": "Refined",
+        "content_version": 2,
+        "creator": null,
+        "ore": 3,
+        "plan": {
+          "approach": "Standard",
+          "material": "Steel",
+          "technique": "LightEdge"
+        },
+        "proficiency": 1,
+        "properties": {
+          "force": 6,
+          "handling": 2,
+          "interval": 2,
+          "penetration": 2
+        },
+        "quality": 67,
+        "recipe": "hunting_knife",
+        "seconds": 16
+      },
+      "duration_seconds": 72,
+      "hunter_damage": 108,
+      "knife_damage": 36,
+      "provisions_consumed": 5,
+      "waves_cleared": 4,
+      "waves_per_ore": 1.3333333333333333
+    },
+    {
+      "ammunition_consumed": 0,
+      "bow": false,
+      "cause": "Penetration",
+      "craft": {
+        "appearance": "Masterwork",
+        "content_version": 2,
+        "creator": null,
+        "ore": 4,
+        "plan": {
+          "approach": "Careful",
+          "material": "Steel",
+          "technique": "LightEdge"
+        },
+        "proficiency": 1,
+        "properties": {
+          "force": 6,
+          "handling": 4,
+          "interval": 2,
+          "penetration": 2
+        },
+        "quality": 92,
+        "recipe": "hunting_knife",
+        "seconds": 28
+      },
+      "duration_seconds": 69,
+      "hunter_damage": 120,
+      "knife_damage": 66,
+      "provisions_consumed": 4,
+      "waves_cleared": 3,
+      "waves_per_ore": 0.75
+    },
+    {
+      "ammunition_consumed": 16,
+      "bow": true,
+      "cause": "Penetration",
+      "craft": {
+        "appearance": "Masterwork",
+        "content_version": 2,
+        "creator": null,
+        "ore": 4,
+        "plan": {
+          "approach": "Careful",
+          "material": "Steel",
+          "technique": "LightEdge"
+        },
+        "proficiency": 1,
+        "properties": {
+          "force": 6,
+          "handling": 4,
+          "interval": 2,
+          "penetration": 2
+        },
+        "quality": 92,
+        "recipe": "hunting_knife",
+        "seconds": 28
+      },
+      "duration_seconds": 72,
+      "hunter_damage": 108,
+      "knife_damage": 36,
+      "provisions_consumed": 5,
+      "waves_cleared": 4,
+      "waves_per_ore": 1.0
+    },
+    {
+      "ammunition_consumed": 0,
+      "bow": false,
+      "cause": "Handling",
+      "craft": {
+        "appearance": "Common",
+        "content_version": 2,
+        "creator": null,
+        "ore": 3,
+        "plan": {
+          "approach": "Quick",
+          "material": "Steel",
+          "technique": "ReinforcedPoint"
+        },
+        "proficiency": 1,
+        "properties": {
+          "force": 6,
+          "handling": 0,
+          "interval": 3,
+          "penetration": 3
+        },
+        "quality": 42,
+        "recipe": "hunting_knife",
+        "seconds": 8
+      },
+      "duration_seconds": 30,
+      "hunter_damage": 80,
+      "knife_damage": 24,
+      "provisions_consumed": 2,
+      "waves_cleared": 1,
+      "waves_per_ore": 0.3333333333333333
+    },
+    {
+      "ammunition_consumed": 15,
+      "bow": true,
+      "cause": "Penetration",
+      "craft": {
+        "appearance": "Common",
+        "content_version": 2,
+        "creator": null,
+        "ore": 3,
+        "plan": {
+          "approach": "Quick",
+          "material": "Steel",
+          "technique": "ReinforcedPoint"
+        },
+        "proficiency": 1,
+        "properties": {
+          "force": 6,
+          "handling": 0,
+          "interval": 3,
+          "penetration": 3
+        },
+        "quality": 42,
+        "recipe": "hunting_knife",
+        "seconds": 8
+      },
+      "duration_seconds": 78,
+      "hunter_damage": 108,
+      "knife_damage": 48,
+      "provisions_consumed": 5,
+      "waves_cleared": 4,
+      "waves_per_ore": 1.3333333333333333
+    },
+    {
+      "ammunition_consumed": 0,
+      "bow": false,
+      "cause": "Handling",
+      "craft": {
+        "appearance": "Refined",
+        "content_version": 2,
+        "creator": null,
+        "ore": 3,
+        "plan": {
+          "approach": "Standard",
+          "material": "Steel",
+          "technique": "ReinforcedPoint"
+        },
+        "proficiency": 1,
+        "properties": {
+          "force": 6,
+          "handling": 0,
+          "interval": 3,
+          "penetration": 4
+        },
+        "quality": 67,
+        "recipe": "hunting_knife",
+        "seconds": 16
+      },
+      "duration_seconds": 30,
+      "hunter_damage": 80,
+      "knife_damage": 24,
+      "provisions_consumed": 2,
+      "waves_cleared": 1,
+      "waves_per_ore": 0.3333333333333333
+    },
+    {
+      "ammunition_consumed": 15,
+      "bow": true,
+      "cause": null,
+      "craft": {
+        "appearance": "Refined",
+        "content_version": 2,
+        "creator": null,
+        "ore": 3,
+        "plan": {
+          "approach": "Standard",
+          "material": "Steel",
+          "technique": "ReinforcedPoint"
+        },
+        "proficiency": 1,
+        "properties": {
+          "force": 6,
+          "handling": 0,
+          "interval": 3,
+          "penetration": 4
+        },
+        "quality": 67,
+        "recipe": "hunting_knife",
+        "seconds": 16
+      },
+      "duration_seconds": 79,
+      "hunter_damage": 96,
+      "knife_damage": 60,
+      "provisions_consumed": 5,
+      "waves_cleared": 5,
+      "waves_per_ore": 1.6666666666666667
+    },
+    {
+      "ammunition_consumed": 0,
+      "bow": false,
+      "cause": "Handling",
+      "craft": {
+        "appearance": "Masterwork",
+        "content_version": 2,
+        "creator": null,
+        "ore": 4,
+        "plan": {
+          "approach": "Careful",
+          "material": "Steel",
+          "technique": "ReinforcedPoint"
+        },
+        "proficiency": 1,
+        "properties": {
+          "force": 6,
+          "handling": 0,
+          "interval": 3,
+          "penetration": 6
+        },
+        "quality": 92,
+        "recipe": "hunting_knife",
+        "seconds": 28
+      },
+      "duration_seconds": 30,
+      "hunter_damage": 80,
+      "knife_damage": 24,
+      "provisions_consumed": 2,
+      "waves_cleared": 1,
+      "waves_per_ore": 0.25
+    },
+    {
+      "ammunition_consumed": 16,
+      "bow": true,
+      "cause": null,
+      "craft": {
+        "appearance": "Masterwork",
+        "content_version": 2,
+        "creator": null,
+        "ore": 4,
+        "plan": {
+          "approach": "Careful",
+          "material": "Steel",
+          "technique": "ReinforcedPoint"
+        },
+        "proficiency": 1,
+        "properties": {
+          "force": 6,
+          "handling": 0,
+          "interval": 3,
+          "penetration": 6
+        },
+        "quality": 92,
+        "recipe": "hunting_knife",
+        "seconds": 28
+      },
+      "duration_seconds": 67,
+      "hunter_damage": 60,
+      "knife_damage": 48,
+      "provisions_consumed": 5,
+      "waves_cleared": 5,
+      "waves_per_ore": 1.25
+    }
+  ],
+  "runs_per_build": 1,
+  "seed": 42,
+  "version": 2
+}

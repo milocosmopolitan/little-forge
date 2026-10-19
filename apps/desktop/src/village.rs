@@ -480,7 +480,7 @@ pub fn draw(
             q.starts_with("village-")
                 || q.starts_with("life-")
                 || q.starts_with("forge-")
-                || q.starts_with("repair-")
+                || (q.starts_with("repair-") || q.starts_with("alpha"))
                 || q == "expanded"
         });
     commands.entity(root).insert((
@@ -1057,6 +1057,7 @@ mod tests {
         let mut app = App::new();
         app.add_plugins(MinimalPlugins);
         let mut state = forge_core::State::new(1);
+        state.progression.legacy_dagger = true;
         state.gold = 30;
         state.command(1, Command::Craft).unwrap();
         app.insert_resource(Session {

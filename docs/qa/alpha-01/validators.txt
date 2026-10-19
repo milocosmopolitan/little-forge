@@ -1,0 +1,49 @@
+$ python3 scripts/validate-assets.py
+forge 1254 1254 OK
+forge_idle 1254 1254 OK
+smith 1448 1086 OK
+visitor 1448 1086 OK
+smoke 2172 724 OK
+fire 2172 724 OK
+workbench 1254 1254 OK
+village_base 1122 1402 OK
+wash_village_chief 1122 1402 OK
+wash_merchant_guild 1122 1402 OK
+wash_blacksmith 1122 1402 OK
+wash_farm 1122 1402 OK
+wash_carpenter 1122 1402 OK
+wash_outside 1122 1402 OK
+wash_leatherworker 1122 1402 OK
+wash_tavern 1122 1402 OK
+village_farm 200 248 OK
+village_carpenter 195 260 OK
+village_leatherworker 195 260 OK
+village_tavern 172 260 OK
+farmer_runtime_atlas 512 960 OK
+farmer_carrot 110 140 OK
+
+$ /tmp/little-forge-alpha-qa-venv/bin/python scripts/validate-ui.py
+Source hashes/dimensions and ASCII + 11,172 Hangul syllables verified.
+Runtime exports verified: 47 independent files, true pixel grid, palette limits, hard alpha, matching states/icons.
+Art gate: exports registered; runtime_ready stays false until visual approval.
+
+$ python3 scripts/validate-spaces.py
+workshop-backdrop (480, 270) OK
+showroom-backdrop (480, 270) OK
+showroom-window (240, 240) OK
+detail-panel (330, 330) OK
+window-glow (24, 20) OK
+forge spaces OK
+
+$ python3 scripts/validate-village.py
+blacksmith aligned transparent wash OK
+carpenter aligned transparent wash OK
+leatherworker aligned transparent wash OK
+farm aligned transparent wash OK
+tavern aligned transparent wash OK
+village_chief aligned transparent wash OK
+merchant_guild aligned transparent wash OK
+outside aligned transparent wash OK
+
+$ python3 scripts/export-farmer-runtime.py --check
+Farmer runtime verified: 22 native sprites, 11 clips

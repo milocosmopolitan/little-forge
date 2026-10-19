@@ -20,6 +20,10 @@ impl Gear {
 }
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Weapon {
+    pub craftsmanship: Option<crate::weapon::Craftsmanship>,
+    pub highest_wave: u8,
+    pub completions: u32,
+    pub first_breakthrough: Option<u64>,
     pub id: u64,
     pub kind: Gear,
     pub crafted_at: u64,
@@ -76,6 +80,8 @@ pub enum Action {
 }
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 pub enum Cause {
+    Penetration,
+    Handling,
     MissingKnife,
     MissingBow,
     NoArrows,
@@ -86,6 +92,12 @@ pub enum Cause {
 impl Cause {
     pub fn advice(self) -> &'static str {
         match self {
+            Self::Penetration => {
+                "The boar resisted my blade. Forge a reinforced point with more penetration; quality alone does not pierce hide."
+            }
+            Self::Handling => {
+                "The wolves punished my slow recovery. Try a lighter blade with better handling."
+            }
             Self::MissingKnife => {
                 "The boar's hide resisted arrows. Lend me a hunting knife for close range."
             }
@@ -114,6 +126,9 @@ pub struct Trace {
 }
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Battle {
+    pub weapon_snapshot: Vec<Weapon>,
+    pub rules: Option<crate::weapon::Rules>,
+    pub previous_best: u8,
     pub id: u64,
     pub seed: u64,
     pub version: u32,
@@ -166,6 +181,14 @@ impl Battle {
         );
     }
     fn failure(&self) -> Cause {
+        if let Some(p) = self.knife_properties() {
+            if self.enemy() == Enemy::Boar && p.penetration < 4 {
+                return Cause::Penetration;
+            }
+            if self.enemy() == Enemy::Wolf && p.handling < 2 {
+                return Cause::Handling;
+            }
+        }
         if self.enemy() == Enemy::Boar && self.knife.is_none() {
             Cause::MissingKnife
         } else if self.bow.is_none() {
@@ -177,6 +200,13 @@ impl Battle {
         } else {
             Cause::Wounded
         }
+    }
+    fn knife_properties(&self) -> Option<crate::weapon::Properties> {
+        self.weapon_snapshot
+            .iter()
+            .find(|w| Some(w.id) == self.knife)
+            .and_then(|w| w.craftsmanship.as_ref())
+            .map(|c| c.properties)
     }
     fn step(&mut self) {
         if self.done {
@@ -241,8 +271,21 @@ impl Battle {
                 self.emit(Action::Walk, 0, None);
             }
         } else if let Some(knife) = self.knife {
-            if self.second.is_multiple_of(2) {
-                let damage = if enemy == Enemy::Wolf { 4 } else { 6 };
+            let properties = self.knife_properties();
+            if self
+                .second
+                .is_multiple_of(properties.map_or(2, |p| p.interval))
+            {
+                let damage = properties.map_or(if enemy == Enemy::Wolf { 4 } else { 6 }, |p| {
+                    let resistance = if enemy == Enemy::Boar {
+                        self.rules.as_ref().map_or(5, |r| r.boar_resistance)
+                    } else {
+                        0
+                    };
+                    p.force
+                        .saturating_sub(resistance.saturating_sub(p.penetration))
+                        .max(1)
+                });
                 self.enemy_hp = self.enemy_hp.saturating_sub(damage);
                 self.emit(Action::Slash, damage, Some(knife));
             } else {
@@ -265,7 +308,13 @@ impl Battle {
             return;
         }
         if self.distance == 0 && self.second.is_multiple_of(3) {
-            let damage = 12;
+            let damage = if enemy == Enemy::Wolf {
+                self.knife_properties().map_or(12, |p| {
+                    12 + self.rules.as_ref().map_or(4, |r| r.wolf_pressure) - p.handling.min(8)
+                })
+            } else {
+                12
+            };
             self.health = self.health.saturating_sub(damage);
             self.emit(Action::Hit, damage, None);
             if self.health == 0 {
@@ -326,8 +375,31 @@ impl Expedition {
         {
             return Err(Error::InvalidState);
         }
+        for w in &self.weapons {
+            crate::weapon::validate_record(w)?;
+        }
         for b in self.active.iter().chain(self.records.iter()) {
-            if b.version != VERSION
+            if let Some(rules) = &b.rules {
+                rules.validate()?;
+            }
+            if (b.version == 2) != b.rules.is_some() || b.previous_best > 5 {
+                return Err(Error::InvalidState);
+            }
+            if b.version == 2
+                && (b.weapon_snapshot.len()
+                    != usize::from(b.bow.is_some()) + usize::from(b.knife.is_some())
+                    || !b
+                        .weapon_snapshot
+                        .iter()
+                        .any(|w| Some(w.id) == b.knife && w.craftsmanship.is_some()))
+            {
+                return Err(Error::InvalidState);
+            }
+            for w in &b.weapon_snapshot {
+                crate::weapon::validate_record(w)?;
+            }
+
+            if ![VERSION, 2].contains(&b.version)
                 || b.wave >= 5
                 || b.opponent as usize >= WAVES[b.wave as usize].len()
                 || b.health > 60
@@ -344,10 +416,15 @@ impl Expedition {
             {
                 return Err(Error::InvalidState);
             }
-            if b.bow.is_some() && self.weapon(b.bow).is_none_or(|w| w.kind != Gear::Shortbow)
+            if b.bow.is_some()
+                && self
+                    .weapon(b.bow)
+                    .or_else(|| b.weapon_snapshot.iter().find(|w| Some(w.id) == b.bow))
+                    .is_none_or(|w| w.kind != Gear::Shortbow)
                 || b.knife.is_some()
                     && self
                         .weapon(b.knife)
+                        .or_else(|| b.weapon_snapshot.iter().find(|w| Some(w.id) == b.knife))
                         .is_none_or(|w| w.kind != Gear::HuntingKnife)
             {
                 return Err(Error::InvalidState);
@@ -358,6 +435,9 @@ impl Expedition {
 }
 impl State {
     pub(crate) fn queue_expedition_gear(&mut self, gear: Gear) -> Result<(), Error> {
+        if gear == Gear::HuntingKnife && self.progression.rules.is_some() {
+            return self.queue_weapon(crate::weapon::Plan::default());
+        }
         if self.life.queue.len() >= 32
             || gear != Gear::Arrows
                 && self.expedition.weapons.len()
@@ -365,10 +445,14 @@ impl State {
                         .life
                         .queue
                         .iter()
-                        .filter(|j| matches!(j,WorkKind::ExpeditionGear(g) if *g!=Gear::Arrows))
+                        .filter(|j| {
+                            matches!(j, WorkKind::ForgedWeapon(_))
+                                || matches!(j,WorkKind::ExpeditionGear(g) if *g!=Gear::Arrows)
+                        })
                         .count()
                     + usize::from(
-                        matches!(self.life.active_job,Some(WorkKind::ExpeditionGear(g)) if g!=Gear::Arrows),
+                        matches!(self.life.active_job, Some(WorkKind::ForgedWeapon(_)))
+                            || matches!(self.life.active_job,Some(WorkKind::ExpeditionGear(g)) if g!=Gear::Arrows),
                     )
                     >= 32
         {
@@ -401,6 +485,10 @@ impl State {
                 .checked_add(1)
                 .ok_or(Error::Overflow)?;
             self.expedition.weapons.push(Weapon {
+                craftsmanship: None,
+                highest_wave: 0,
+                completions: 0,
+                first_breakthrough: None,
                 id: self.expedition.next_weapon,
                 kind: gear,
                 crafted_at: self.tick,
@@ -454,10 +542,33 @@ impl State {
             .next_contract
             .checked_add(1)
             .ok_or(Error::Overflow)?;
+        let weapon_snapshot: Vec<_> = [bow, knife]
+            .into_iter()
+            .flatten()
+            .filter_map(|id| self.expedition.weapon(Some(id)).cloned())
+            .collect();
+        let is_crafted = weapon_snapshot.iter().any(|w| w.craftsmanship.is_some());
+        let previous_best = self
+            .expedition
+            .records
+            .iter()
+            .map(|b| b.cleared)
+            .chain(
+                self.expedition
+                    .weapons
+                    .iter()
+                    .chain(self.progression.weapons.iter())
+                    .map(|w| w.highest_wave),
+            )
+            .max()
+            .unwrap_or(0);
         let mut b = Battle {
+            weapon_snapshot,
+            rules: is_crafted.then(crate::weapon::Rules::bundled),
+            previous_best,
             id: self.expedition.next_contract,
             seed: self.rng,
-            version: VERSION,
+            version: if is_crafted { 2 } else { VERSION },
             loadout,
             bow,
             knife,
@@ -524,6 +635,17 @@ impl State {
         }
         for w in &mut self.expedition.weapons {
             if Some(w.id) == b.bow || Some(w.id) == b.knife {
+                w.highest_wave = w.highest_wave.max(b.cleared);
+                w.completions = w
+                    .completions
+                    .checked_add(u32::from(b.cleared == 5))
+                    .ok_or(Error::Overflow)?;
+                if b.cleared > b.previous_best
+                    && b.previous_best > 0
+                    && w.first_breakthrough.is_none()
+                {
+                    w.first_breakthrough = Some(b.id);
+                }
                 w.field_uses = w.field_uses.checked_add(1).ok_or(Error::Overflow)?;
                 w.kills = w
                     .kills
@@ -537,6 +659,16 @@ impl State {
                             .count() as u32,
                     )
                     .ok_or(Error::Overflow)?;
+            }
+        }
+        for w in &self.expedition.weapons {
+            if let Some(record) = self
+                .progression
+                .weapons
+                .iter_mut()
+                .find(|record| record.id == w.id)
+            {
+                *record = w.clone();
             }
         }
         Ok(())

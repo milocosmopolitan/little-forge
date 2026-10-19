@@ -6,21 +6,29 @@ use std::collections::VecDeque;
 #[derive(Debug, Clone, Copy, Serialize, Deserialize, PartialEq, Eq)]
 pub enum WorkKind {
     ExpeditionGear(crate::expedition::Gear),
+    ForgedWeapon(crate::weapon::Plan),
     IronDagger,
+    KitchenKnife,
+    DaggerStudy,
     FarmerSickleRepair,
 }
 impl WorkKind {
     pub fn seconds(self) -> u64 {
         match self {
+            Self::ForgedWeapon(p) => crate::weapon::Rules::bundled().forge(p, 0, None).seconds,
             Self::ExpeditionGear(_) => 8,
             Self::IronDagger => CRAFT_SECS,
+            Self::KitchenKnife | Self::DaggerStudy => 1,
             Self::FarmerSickleRepair => crate::commission::REPAIR_SECS,
         }
     }
     pub fn label(self) -> &'static str {
         match self {
+            Self::ForgedWeapon(_) => "Hunting knife",
             Self::ExpeditionGear(g) => g.label(),
             Self::IronDagger => "Iron dagger",
+            Self::KitchenKnife => "Chef Kitchen Knife",
+            Self::DaggerStudy => "Dagger research",
             Self::FarmerSickleRepair => "Farmer's sickle repair",
         }
     }
@@ -193,7 +201,6 @@ impl Life {
             .any(|&v| v > MAX_NEED)
             || self.queue.len() > 32
             || (self.work > 0) != self.active_job.is_some()
-            || self.work > self.active_job.map_or(0, |job| job.seconds() * 1000)
             || self.pantry.slots.len() != 12
             || self
                 .pantry
@@ -293,7 +300,11 @@ impl State {
                                 self.showroom.reserve()?;
                             }
                             self.life.active_job = Some(job);
-                            self.life.work = job.seconds() * 1000;
+                            self.life.work = self.work_seconds(job) * 1000;
+                            if job == WorkKind::KitchenKnife {
+                                self.progression.chef_phase =
+                                    crate::commission::OrderPhase::Working;
+                            }
                             if job == WorkKind::FarmerSickleRepair {
                                 self.farmer_order.phase = crate::commission::OrderPhase::Working;
                             }
@@ -321,6 +332,7 @@ impl State {
                         l.fatigue = l.fatigue.saturating_add(gain).min(MAX_NEED);
                         if l.work == 0 {
                             match self.life.active_job.take().ok_or(Error::InvalidState)? {
+                                WorkKind::ForgedWeapon(p) => self.finish_weapon(p, events)?,
                                 WorkKind::ExpeditionGear(g) => self.finish_expedition_gear(g)?,
                                 WorkKind::IronDagger => {
                                     self.showroom.place(self.current_good())?;
@@ -328,7 +340,28 @@ impl State {
                                         self.crafted.checked_add(1).ok_or(Error::Overflow)?;
                                     self.daggers =
                                         self.daggers.checked_add(1).ok_or(Error::Overflow)?;
+                                    self.record_creation(1, events)?;
                                     self.emit(EventKind::Crafted, events)?;
+                                }
+                                WorkKind::KitchenKnife => {
+                                    self.progression.chef_phase =
+                                        crate::commission::OrderPhase::Ready;
+                                    self.record_creation(0, events)?;
+                                    self.emit(EventKind::ChefReady, events)?;
+                                }
+                                WorkKind::DaggerStudy => {
+                                    let rules = self
+                                        .progression
+                                        .rules
+                                        .as_ref()
+                                        .ok_or(Error::InvalidState)?;
+                                    self.progression.research_xp = self
+                                        .progression
+                                        .research_xp
+                                        .saturating_add(rules.dagger.study_xp)
+                                        .min(rules.dagger.goal_xp);
+                                    self.progression.study_pending = false;
+                                    self.emit(EventKind::ProgressionChanged, events)?;
                                 }
                                 WorkKind::FarmerSickleRepair => {
                                     self.farmer_order.phase = crate::commission::OrderPhase::Ready;
@@ -367,7 +400,7 @@ mod tests {
     use super::*;
     use crate::{Command, save::Save};
     fn fixture() -> State {
-        let mut s = State::new(42);
+        let mut s = State::foundation(42);
         s.life.fatigue = 8990;
         s.life.hunger = 8000;
         s.life.thirst = 8000;
@@ -437,7 +470,7 @@ mod tests {
     }
     #[test]
     fn full_pantry_purchase_is_atomic_and_need_bounds_hold() {
-        let mut s = State::new(42);
+        let mut s = State::foundation(42);
         s.gold = 50;
         s.life.pantry.slots = vec![
             Some(Stack {
@@ -456,7 +489,7 @@ mod tests {
     }
     #[test]
     fn final_job_crossing_threshold_sleeps_without_another_queue() {
-        let mut s = State::new(42);
+        let mut s = State::foundation(42);
         s.command(1, Command::Craft).unwrap();
         s.life.work = 1;
         s.life.fatigue = 8999;
@@ -472,7 +505,7 @@ mod tests {
     }
     #[test]
     fn needs_slow_remaining_work_without_revoking_progress() {
-        let mut healthy = State::new(1);
+        let mut healthy = State::foundation(1);
         healthy.command(1, Command::Craft).unwrap();
         let mut tired = healthy.clone();
         tired.life.fatigue = 8000;

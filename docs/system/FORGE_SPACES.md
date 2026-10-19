@@ -31,7 +31,7 @@
 - 레시피 단계는 권위 있는 남은 작업량에서 **파생**된다: `State::work_stage()` → `Good::stages()` (철제 단검: 가열 30% → 망치질 50% → 담금질 20%). 뷰 전환·오프라인 복귀는 단계를 다시 재생하지 않는다.
 - `State::activity()`가 표시 계약이다: `Working{station, progress}` / `Waiting(reason)` / `Idle` / `Sleeping` / `Eating` / `Drinking`.
 - 어댑터(`forge_npc::player`)는 `animation.json`(기물·방향·loop_range·이벤트)과 `atlas-manifest.json`(트림·피벗)을 소비한다. 이동은 고정 접근점 사이의 직선(`stations::spot`)이며 범용 길찾기는 없다. `hammer_contact`·`water_enter`·`heat_exit`·`parts_place`는 `Actor.events`에 쌓이는 소리/효과 표식일 뿐 결과를 지급하지 않는다.
-- 연구대·분해대는 엔진에 없다(#72/#76). 작업 메뉴는 "미구현"을 그대로 말하고, 모션은 프리뷰 fixture(`npc-preview --character`)로만 노출한다.
+- Alpha 01 연구대는 실제 `DaggerStudy` 작업과 Research 창에 연결된다. 분해는 아직 사용할 수 없다고 표시한다. 전체 연구 그래프와 분해 규칙은 이 범위에 포함하지 않는다.
 
 ## 4. 유한 완성품 용량 — 진열장
 
@@ -64,7 +64,9 @@
 
 판매 속도·가격 버프·자유 배치는 없다. 목공소 `Furniture` 탭에서 구매/업그레이드하며 Timber 상품과 별개 ID다.
 
-## 6. 저장과 이전 (스키마 4)
+## 6. 저장과 이전 (현재 스키마 5)
+
+- Alpha 01의 스키마 5는 별도 progression 상태를 추가한다. 스키마 1–4의 기존 단검 제작 권한은 보존하며 과거 XP/도감 기록은 만들지 않는다. [Alpha 검증](../qa/PLAYABLE_ALPHA_01.md) 참고.
 
 - 스키마 4 = 3 + `state.smith` + `state.showroom`. 스키마 4 파일에 `showroom`이 없으면 후보에서 제외한다(기존 commerce 규칙과 동일). 더 높은 스키마는 거부한다.
 - 스키마 3 → 4: `daggers`를 기본 진열대(4칸)에 `Displayed`로 채우고, 진행 중 작업이 있으면 `Reserved` 한 칸을 확보한다(밀려난 기존 단검은 `overflow`로). 나머지는 `overflow`에 보존한다.
