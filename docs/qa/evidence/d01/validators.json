@@ -1,0 +1,30 @@
+[
+  {
+    "command": "python scripts/validate-assets.py",
+    "exit": 0
+  },
+  {
+    "command": "python scripts/validate-spaces.py",
+    "exit": 0
+  },
+  {
+    "command": "python scripts/validate-ui.py",
+    "exit": 0
+  },
+  {
+    "command": "python scripts/validate-village.py",
+    "exit": 0
+  },
+  {
+    "command": "python scripts/validate-expedition.py",
+    "exit": 0
+  },
+  {
+    "command": "python scripts/export-farmer-runtime.py --check",
+    "exit": 1
+  },
+  {
+    "command": "python scripts/validate-ui.py --release",
+    "exit": 1
+  }
+]

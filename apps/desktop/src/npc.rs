@@ -37,9 +37,9 @@ impl FarmerPresentation {
     }
 }
 #[derive(Component)]
-struct Farmer;
+pub(crate) struct Farmer;
 #[derive(Component)]
-struct Produce;
+pub(crate) struct Produce;
 pub struct FarmerPlugin;
 impl Plugin for FarmerPlugin {
     fn build(&self, app: &mut App) {
@@ -102,7 +102,7 @@ fn update(
     session: Res<crate::Session>,
     title: Res<crate::title::TitleScreen>,
     village: Res<crate::village::Village>,
-    desktop: Res<crate::window::Desktop>,
+
     spaces: Option<Res<crate::spaces::Spaces>>,
     mut state: ResMut<FarmerPresentation>,
     mut farmer: Query<
@@ -138,20 +138,18 @@ fn update(
             p.item = false;
         }
     }
-    t.translation.y = -85.;
+    let outside = spaces
+        .as_ref()
+        .is_some_and(|s| s.space == forge_core::spaces::Space::Exterior);
+    t.translation.x = if outside { 270. } else { -250. };
+    t.translation.y = if outside { -85. } else { -66. };
     let waiting = matches!(
         session.save.state.farmer_order.phase,
         forge_core::commission::OrderPhase::Offered | forge_core::commission::OrderPhase::Ready
     );
     let order_scene =
         opts.qa.is_none() || opts.qa.as_deref().is_some_and(|q| q.starts_with("repair-"));
-    // The farmer stands outside the forge; interior views (workshop, showroom) hide him.
-    let outside = !desktop.shell.expanded
-        || spaces
-            .as_ref()
-            .is_none_or(|s| s.space == forge_core::spaces::Space::Exterior);
     *v = if !title.active
-        && outside
         && (state.active
             || (order_scene && waiting && village.nav.screen == forge_core::village::Screen::Home))
     {
@@ -159,6 +157,28 @@ fn update(
     } else {
         Visibility::Hidden
     };
+}
+#[allow(clippy::type_complexity)]
+pub fn render_layers(
+    mut commands: Commands,
+    spaces: Res<crate::spaces::Spaces>,
+    q: Query<
+        (Entity, Option<&bevy::camera::visibility::RenderLayers>),
+        Or<(With<Farmer>, With<Produce>, With<forge_npc::NpcVisual>)>,
+    >,
+) {
+    let layer = bevy::camera::visibility::RenderLayers::layer(
+        if spaces.space == forge_core::spaces::Space::Exterior {
+            0
+        } else {
+            1
+        },
+    );
+    for (e, current) in &q {
+        if current != Some(&layer) {
+            commands.entity(e).insert(layer.clone());
+        }
+    }
 }
 #[cfg(test)]
 mod tests {

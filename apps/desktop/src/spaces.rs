@@ -33,13 +33,13 @@ pub struct Spaces {
 impl Default for Spaces {
     fn default() -> Self {
         Self {
-            space: Space::Exterior,
+            space: Space::Workshop,
             station: None,
             manage: false,
             slot: None,
             rack: 0,
             redraw: true,
-            scale: 2.,
+            scale: 1.,
             view_origin: Vec2::ZERO,
             window: Vec2::new(960., 540.),
         }
@@ -150,18 +150,34 @@ pub fn setup(
     let stations = StationCatalog::bundled().expect("validated station catalog");
     let character = s.save.state.smith.map_or("male", |c| c.id()).to_string();
     // Workshop: supplied interior, five authored stations, one smith.
-    commands.spawn((
-        Sprite {
-            image: server.load(art.assets["workshop-backdrop"].path.clone()),
-            custom_size: Some(stations::SCENE_SIZE),
-            ..default()
-        },
-        bevy::sprite::Anchor::TOP_LEFT,
-        Transform::from_xyz(0., 0., 0.5),
-        Visibility::Hidden,
-        SceneOf(Space::Workshop),
-        Backdrop,
-    ));
+    // Tile existing wall/floor crops at native scale; never stretch the old room.
+    for (x, source_x, width) in [
+        (0., 0., 224.),
+        (224., 224., 164.),
+        (388., 224., 164.),
+        (552., 224., 164.),
+        (716., 224., 164.),
+        (880., 400., 80.),
+    ] {
+        commands.spawn((
+            Sprite {
+                image: server.load(art.assets["workshop-backdrop"].path.clone()),
+                rect: Some(Rect::from_corners(
+                    Vec2::new(source_x, 0.),
+                    Vec2::new(source_x + width, 180.),
+                )),
+                custom_size: Some(Vec2::new(width, 180.)),
+                ..default()
+            },
+            bevy::sprite::Anchor::TOP_LEFT,
+            Transform::from_xyz(x - 480., 90., 0.5),
+            Visibility::Hidden,
+            SceneOf(Space::Workshop),
+            Backdrop,
+            crate::forge_view::BackdropPart(x),
+            bevy::camera::visibility::RenderLayers::layer(1),
+        ));
+    }
     if let Some(c) = catalogs.get(&character) {
         for placement in stations::placements(c) {
             spawn_station_layers(&mut commands, &server, &stations, placement);
@@ -174,13 +190,14 @@ pub fn setup(
         Visibility::Hidden,
         Actor::default(),
         Walker {
-            pos: stations::REST_SPOT.foot,
-            target: stations::REST_SPOT.foot,
+            pos: crate::forge_view::REST,
+            target: crate::forge_view::REST,
             ..default()
         },
         CharacterId(character.clone()),
         SceneOf(Space::Workshop),
         WorkshopActor,
+        bevy::camera::visibility::RenderLayers::layer(1),
     ));
     // Showroom: the supplied interior sets the mood; goods live in the shared slot UI, so no
     // per-weapon rack art is drawn into the scene.
@@ -231,18 +248,82 @@ pub fn setup(
         GlobalZIndex(11),
         Visibility::Hidden,
     ));
-    commands.spawn((
-        AmbientRoot,
-        Node {
-            position_type: PositionType::Absolute,
-            width: percent(100),
-            height: percent(100),
-            ..default()
-        },
-        Pickable::IGNORE,
-        GlobalZIndex(9),
-        Visibility::Hidden,
-    ));
+    commands
+        .spawn((
+            AmbientRoot,
+            bevy::input_focus::tab_navigation::TabGroup::new(2),
+            Node {
+                position_type: PositionType::Absolute,
+                width: percent(100),
+                height: percent(100),
+                ..default()
+            },
+            Pickable::IGNORE,
+            GlobalZIndex(9),
+            Visibility::Hidden,
+        ))
+        .with_children(|p| {
+            p.spawn((
+                forge_ui::text("Drag window", 12.),
+                Node {
+                    position_type: PositionType::Absolute,
+                    left: px(120),
+                    bottom: px(152),
+                    width: px(100),
+                    height: px(24),
+                    ..default()
+                },
+                BackgroundColor(forge_ui::SURFACE),
+                Pickable::IGNORE,
+            ));
+            p.spawn((
+                Node {
+                    position_type: PositionType::Absolute,
+                    right: px(12),
+                    bottom: px(152),
+                    padding: UiRect::axes(px(8), px(3)),
+                    ..default()
+                },
+                BackgroundColor(Color::srgba(0.05, 0.04, 0.03, 0.75)),
+                Pickable::IGNORE,
+            ))
+            .with_children(|row| {
+                row.spawn((
+                    forge_ui::text("", 12.),
+                    crate::forge_view::AmbientStatus,
+                    Pickable::IGNORE,
+                ));
+            });
+            // Transparent hit area over the open front of the building; only the label is drawn.
+            p.spawn((
+                bevy::ui_widgets::Button,
+                crate::forge_view::Action::Open,
+                forge_ui::Help("Open management (Tab)".into()),
+                bevy::picking::hover::Hovered::default(),
+                Node {
+                    position_type: PositionType::Absolute,
+                    left: px(8),
+                    bottom: px(152),
+                    width: px(100),
+                    height: px(28),
+                    align_items: AlignItems::End,
+                    justify_content: JustifyContent::Center,
+                    ..default()
+                },
+                BackgroundColor(Color::NONE),
+            ))
+            .with_children(|door| {
+                door.spawn((
+                    forge_ui::text("Manage [Tab]", 12.),
+                    Node {
+                        padding: UiRect::axes(px(6), px(2)),
+                        ..default()
+                    },
+                    BackgroundColor(Color::srgba(0.05, 0.04, 0.03, 0.75)),
+                    Pickable::IGNORE,
+                ));
+            });
+        });
 }
 fn spawn_station_layers(
     commands: &mut Commands,
@@ -258,16 +339,18 @@ fn tag_station_layers(
     q: Query<Entity, (Added<stations::StationLayer>, Without<SceneOf>)>,
 ) {
     for e in &q {
-        commands
-            .entity(e)
-            .insert((SceneOf(Space::Workshop), Visibility::Hidden));
+        commands.entity(e).insert((
+            SceneOf(Space::Workshop),
+            Visibility::Hidden,
+            bevy::camera::visibility::RenderLayers::layer(1),
+        ));
     }
 }
 /// Which scenes are visible follows window mode, village screen and the chosen space.
 #[allow(clippy::too_many_arguments, clippy::type_complexity)]
 pub fn route(
     mut spaces: ResMut<Spaces>,
-    desktop: Res<Desktop>,
+    layout: Res<crate::forge_view::Layout>,
     village: Res<Village>,
     title: Res<TitleScreen>,
     opts: Res<Options>,
@@ -279,6 +362,7 @@ pub fn route(
         &mut Transform,
         Option<&Backdrop>,
         Option<&stations::StationLayer>,
+        Option<&crate::forge_view::BackdropPart>,
     )>,
     mut roots: Query<
         (&mut Visibility, Has<HitRoot>),
@@ -292,22 +376,17 @@ pub fn route(
     spaces.window = Vec2::new(window.width(), window.height());
     let home = village.nav.screen == Screen::Home;
     let shown = !title.active && s.save.state.smith.is_some() && qa_allows(&opts);
-    let interior = shown && desktop.shell.expanded && home && spaces.space.interior();
-    let exterior = shown && (!desktop.shell.expanded || (home && spaces.space == Space::Exterior));
-    let scale = ((spaces.window.x / stations::SCENE_SIZE.x)
-        .min(spaces.window.y / stations::SCENE_SIZE.y)
-        .floor())
-    .clamp(1., 2.);
-    let shown_size = stations::SCENE_SIZE * scale;
-    let origin_px = (spaces.window - shown_size) / 2.;
+    let interior = shown;
+    let exterior = shown && home && spaces.space == Space::Exterior;
+    let scale = 1.;
     spaces.scale = scale;
-    spaces.view_origin = origin_px;
-    let world_origin = Vec2::new(-shown_size.x / 2., shown_size.y / 2.);
-    for (scene, mut visibility, mut transform, backdrop, station) in &mut scenes {
+    spaces.view_origin = layout.origin;
+    let world_origin = Vec2::new(-480., 90.);
+    for (scene, mut visibility, mut transform, backdrop, station, compact) in &mut scenes {
         let visible = match scene.0 {
             Space::Exterior => exterior,
-            Space::Workshop => interior && spaces.space == Space::Workshop,
-            Space::Showroom => interior && spaces.space == Space::Showroom,
+            Space::Workshop => interior && !exterior,
+            Space::Showroom => false,
         };
         let next = if visible {
             Visibility::Visible
@@ -317,20 +396,27 @@ pub fn route(
         if *visibility != next {
             *visibility = next;
         }
-        if scene.0.interior() && backdrop.is_some() {
+        if let Some(part) = compact {
+            transform.translation.x = world_origin.x + part.0;
+            transform.translation.y = world_origin.y;
+        } else if scene.0.interior() && backdrop.is_some() {
             transform.translation.x = world_origin.x;
             transform.translation.y = world_origin.y;
             transform.scale = Vec3::splat(scale);
         }
         if let Some(layer) = station {
-            let next = layer.transform(world_origin, scale);
+            let delta = crate::forge_view::spot(&layer.station)
+                - stations::spot(&layer.station).map_or(Vec2::ZERO, |s| s.foot);
+            let mut next = layer.transform(world_origin, scale);
+            next.translation.x += delta.x;
+            next.translation.y -= delta.y;
             if *transform != next {
                 *transform = next;
             }
         }
     }
     for (mut visibility, hit) in &mut roots {
-        let next = if (hit && interior) || (!hit && shown && !desktop.shell.expanded) {
+        let next = if (hit && interior && !exterior) || (!hit && shown) {
             Visibility::Visible
         } else {
             Visibility::Hidden
@@ -392,22 +478,50 @@ pub fn drive_workshop(
         };
         let (spot, clip, hold, tint) = match s.save.state.activity() {
             Activity::Working { station, .. } => (
-                stations::spot(station.id()).unwrap_or(stations::REST_SPOT),
+                stations::Spot {
+                    foot: crate::forge_view::spot(station.id()),
+                    row: 1,
+                },
                 station.clip(),
                 true,
                 Color::WHITE,
             ),
             Activity::Sleeping => (
-                stations::REST_SPOT,
+                stations::Spot {
+                    foot: crate::forge_view::REST,
+                    row: 1,
+                },
                 "relaxed",
                 true,
                 Color::srgb(0.55, 0.65, 0.85),
             ),
-            Activity::Eating => (stations::REST_SPOT, "happy", true, Color::WHITE),
-            Activity::Drinking => (stations::REST_SPOT, "nod", true, Color::WHITE),
-            Activity::Idle | Activity::Waiting(_) => {
-                (stations::REST_SPOT, "idle", false, Color::WHITE)
-            }
+            Activity::Eating => (
+                stations::Spot {
+                    foot: crate::forge_view::REST,
+                    row: 1,
+                },
+                "happy",
+                true,
+                Color::WHITE,
+            ),
+            Activity::Drinking => (
+                stations::Spot {
+                    foot: crate::forge_view::REST,
+                    row: 1,
+                },
+                "nod",
+                true,
+                Color::WHITE,
+            ),
+            Activity::Idle | Activity::Waiting(_) => (
+                stations::Spot {
+                    foot: crate::forge_view::REST,
+                    row: 1,
+                },
+                "idle",
+                false,
+                Color::WHITE,
+            ),
         };
         let wants = walker.target != spot.foot
             || (walker.arrived()
@@ -422,7 +536,7 @@ pub fn drive_workshop(
             actor.release();
         }
         transform.scale = Vec3::splat(spaces.scale);
-        let shown = stations::SCENE_SIZE * spaces.scale;
+        let shown = Vec2::new(960., 180.) * spaces.scale;
         transform.translation.x = -shown.x / 2. + walker.pos.x * spaces.scale;
         transform.translation.y = shown.y / 2. - walker.pos.y * spaces.scale;
         transform.translation.z =
@@ -543,7 +657,6 @@ pub fn draw(
     catalogs: Option<Res<PlayerCatalogs>>,
     home: Query<Entity, With<HomeRoot>>,
     hit: Query<Entity, With<HitRoot>>,
-    ambient: Query<Entity, With<AmbientRoot>>,
     art: Res<SpaceArt>,
     mut last: Local<Option<String>>,
 ) {
@@ -573,69 +686,16 @@ pub fn draw(
     }
     *last = Some(key);
     spaces.redraw = false;
-    // Ambient chip: one quiet line and a door button; never a notification.
-    if let Ok(root) = ambient.single() {
-        commands.entity(root).despawn_children();
-        commands.entity(root).with_children(|p| {
-            p.spawn((
-                Node {
-                    position_type: PositionType::Absolute,
-                    right: px(12),
-                    bottom: px(6),
-                    padding: UiRect::axes(px(8), px(3)),
-                    ..default()
-                },
-                BackgroundColor(Color::srgba(0.05, 0.04, 0.03, 0.75)),
-                Pickable::IGNORE,
-            ))
-            .with_children(|row| {
-                row.spawn((forge_ui::text(status_line(&s), 12.), Pickable::IGNORE));
-            });
-            // Transparent hit area over the open front of the building; only the label is drawn.
-            p.spawn((
-                bevy::ui_widgets::Button,
-                Action::Enter,
-                forge_ui::Help("Enter the workshop (Tab)".into()),
-                bevy::picking::hover::Hovered::default(),
-                Node {
-                    position_type: PositionType::Absolute,
-                    left: px(318),
-                    top: px(100),
-                    width: px(76),
-                    height: px(76),
-                    align_items: AlignItems::End,
-                    justify_content: JustifyContent::Center,
-                    ..default()
-                },
-                BackgroundColor(Color::NONE),
-            ))
-            .with_children(|door| {
-                door.spawn((
-                    forge_ui::text("Enter", 12.),
-                    Node {
-                        padding: UiRect::axes(px(6), px(2)),
-                        ..default()
-                    },
-                    BackgroundColor(Color::srgba(0.05, 0.04, 0.03, 0.75)),
-                    Pickable::IGNORE,
-                ));
-            });
-        });
-    }
     // Station hit areas over the workshop scene.
     if let Ok(root) = hit.single() {
         commands.entity(root).despawn_children();
-        if spaces.space == Space::Workshop
-            && desktop.shell.expanded
-            && !spaces.manage
-            && spaces.station.is_none()
-        {
+        if spaces.space == Space::Workshop {
             let stations = StationCatalog::bundled().expect("validated station catalog");
             if let Some(c) = catalogs.as_ref().and_then(|c| c.get(&actor_character(&s))) {
                 commands.entity(root).with_children(|p| {
                     for placement in stations::placements(c) {
                         let (Some(origin), Some(art)) = (
-                            stations::station_origin(placement),
+                            Some(crate::forge_view::station_origin(placement)),
                             stations.stations.get(&placement.id),
                         ) else {
                             continue;
@@ -1123,6 +1183,7 @@ pub fn activate(
     opts: Res<Options>,
     title: Res<TitleScreen>,
     dialog: Res<forge_ui::DialogState>,
+    mut host: ResMut<crate::forge_view::Host>,
 ) {
     if title.active || dialog.is_open() {
         return;
@@ -1130,6 +1191,12 @@ pub fn activate(
     let Ok(action) = actions.get(event.entity) else {
         return;
     };
+    if matches!(action, Action::Station(_)) {
+        host.legacy = true;
+        desktop.shell.expanded = true;
+        desktop.shell.recover();
+        spaces.manage = false;
+    }
     apply(
         *action,
         &mut spaces,
@@ -1275,7 +1342,8 @@ pub fn shell_transparency(
     village: Res<Village>,
     mut roots: Query<(&mut BackgroundColor, Option<&mut ImageNode>), With<crate::village::Root>>,
 ) {
-    let home = village.nav.screen == Screen::Home;
+    let home = false;
+    let _ = &village;
     for (mut bg, image) in &mut roots {
         let next = if home { Color::NONE } else { forge_ui::SURFACE };
         if bg.0 != next {
@@ -1314,6 +1382,98 @@ pub fn plugin(app: &mut App) {
 mod tests {
     use super::*;
     #[test]
+    fn a_hundred_window_round_trips_preserve_work_and_actor_phase() {
+        let dir = std::env::temp_dir().join(format!("d01-continuity-{}", std::process::id()));
+        let mut state = forge_core::State::new(42);
+        state.progression.legacy_dagger = true;
+        state
+            .command(1, Command::ChooseSmith(forge_core::Smith::Female))
+            .unwrap();
+        state.command(2, Command::Craft).unwrap();
+        let before = state.clone();
+        let mut app = App::new();
+        app.add_plugins(MinimalPlugins)
+            .insert_resource(Session {
+                save: forge_core::save::Save::new(state, 100),
+                dir: dir.clone(),
+                _lock: forge_core::save::SaveLock::acquire(&dir).unwrap(),
+                last: std::time::Instant::now(),
+                fraction: 0.,
+                status: String::new(),
+                disabled: false,
+                trace: vec![],
+            })
+            .insert_resource(Spaces::default())
+            .insert_resource(Village::default())
+            .insert_resource(TitleScreen {
+                active: false,
+                ..default()
+            })
+            .insert_resource(Options::default())
+            .insert_resource(crate::forge_view::Layout::default())
+            .add_systems(Update, route);
+        let window = app
+            .world_mut()
+            .spawn((Window::default(), bevy::window::PrimaryWindow))
+            .id();
+        let actor = app
+            .world_mut()
+            .spawn((
+                SceneOf(Space::Workshop),
+                WorkshopActor,
+                Transform::default(),
+                Visibility::Hidden,
+                Actor {
+                    clip: "hammering".into(),
+                    elapsed: 0.375,
+                    ..default()
+                },
+                Walker {
+                    pos: Vec2::new(576., 156.),
+                    target: Vec2::new(576., 156.),
+                    ..default()
+                },
+            ))
+            .id();
+        for _ in 0..100 {
+            for height in [540., 180.] {
+                app.world_mut()
+                    .get_mut::<Window>(window)
+                    .unwrap()
+                    .resolution
+                    .set(960., height);
+                app.insert_resource(crate::forge_view::Layout::calculate(
+                    Vec2::new(960., height),
+                    UVec2::new(960, height as u32),
+                    1.,
+                ));
+                app.update();
+                let a = app.world().get::<Actor>(actor).unwrap();
+                assert_eq!(a.clip, "hammering");
+                assert_eq!(a.elapsed, 0.375);
+                assert_eq!(
+                    app.world().get::<Visibility>(actor),
+                    Some(&Visibility::Visible)
+                );
+                assert_eq!(app.world().resource::<Session>().save.state, before);
+                assert_eq!(app.world().resource::<Spaces>().scale, 1.);
+                assert_eq!(
+                    app.world().resource::<Spaces>().view_origin.y,
+                    height - 180.
+                );
+            }
+        }
+        assert_eq!(
+            app.world_mut()
+                .query_filtered::<Entity, With<WorkshopActor>>()
+                .iter(app.world())
+                .count(),
+            1
+        );
+        drop(app);
+        std::fs::remove_dir_all(dir).unwrap();
+    }
+    #[test]
     fn space_actions_need_an_expanded_home_and_toggle_cleanly() {
         let dir = std::env::temp_dir().join(format!("forge-spaces-{}", std::process::id()));
         let mut state = forge_core::State::new(9);
@@ -1349,7 +1509,7 @@ mod tests {
             &mut s,
             &opts,
         );
-        assert_eq!(spaces.space, Space::Exterior);
+        assert_eq!(spaces.space, Space::Workshop);
         apply(
             Action::Enter,
             &mut spaces,
