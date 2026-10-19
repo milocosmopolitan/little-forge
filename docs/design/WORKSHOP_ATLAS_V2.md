@@ -6,7 +6,7 @@ at that density.
 
 ## Scale
 
-- Smiths, the Farmer and the legacy visitor render at the canonical 128×160 canvas, foot pivot
+- Smiths and the Farmer render at the canonical 128×160 canvas, foot pivot
   (64,140), `interior::CHARACTER_SCALE = 1`. Smith pages (`atlas-v2/{sex}.png`) are untrimmed
   canonical frames. They are not resampled.
 - Props are **re-reduced from the large source art** at 4/3 of their v1 size. They are not
@@ -51,6 +51,10 @@ rule can later swap the image.
 The display shelf opens display management, like the counter. Four runtime display slots sit
 on its empty pegs (`shop_scene::SHELF_SLOTS`). Icons are 14px on the shelf and 20px in hand.
 The customer stops in front of the counter at foot y = 168.
+
+The customer is the hunter NPC (`customer.rs`). It walks in with its authored walk clip, plays
+the give clip at the counter and walks out flipped, holding the dagger in the socketed hand. The
+legacy visitor sheet looked like the player smith and is no longer drawn.
 
 `interior::tests::runtime_feet_match_exported_layout` checks that runtime feet equal the
 exported `layout.json`, so the offline composites show the real positions.
