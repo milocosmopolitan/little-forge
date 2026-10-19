@@ -1,6 +1,10 @@
 # Progression — 제작 경험, 기술 숙련, 연구 노드
 
-[첫 유산](../mvp/FIRST_LEGACY.md) · [연구](RESEARCH.md) · [경험](EXPRIENCE.md) · [제작](CRAFTING.md) · [도감](SMITHS_CODEX.md)
+[첫 유산](../mvp/FIRST_LEGACY.md) · [연구 노드 v1](RESEARCH_NODES_V1.md) · [연구](RESEARCH.md) · [경험](EXPRIENCE.md) · [제작](CRAFTING.md) · [도감](SMITHS_CODEX.md)
+
+## 연구 트리 변경 안내 (2026-10-18)
+
+[16개 과학·기술 원리 기반 노드 및 비용표](RESEARCH_NODES_V1.md)가 신규 구현 기준이다. 아래 8개 Technique ID는 계속 사용하지만, Kitchen Knife → Dagger 등의 문구는 **물건이 선행 연구 노드라는 뜻이 아니라 경험/레시피의 예시**이다. Club, Wooden Shield, Kitchen Knife, Rake, Frying Pan, Nails는 연구 없이 기본 제작 가능한 상품이다. 초기 튜토리얼 3회 내 Lv.1 보장과 새 Lv.1=0 XP, Lv.2=20 XP, Lv.3=55 XP 수치의 세부 호환성은 구현 단계에서 검증한다. 연구 노드 XP는 선택한 연구 작업에서만 발생한다. 최신 명세가 기존 미확정 숫자·레시피 예시보다 우선한다.
 
 ## 핵심 개념 분리
 
@@ -10,7 +14,7 @@
 - **Research Clue:** 블라인드 노드의 존재/정체를 **발견**하게 하는 조건. 즉시 제작법 해금이 아니다.
 - **Smith's Codex:** 품목별 제작 기록·현장 평가·최고 품질을 저장한다. 별도의 무기 XP 지갑이 아니다.
 
-기존 `EXPRIENCE.md`의 '이해도'는 도메인/기술 숙련과 인사이트 기록으로 구체화한다. 동일한 완료 이벤트에서 **General XP, 해당 Technique XP, 적격 Research Node XP, Codex 기록**을 일관되게 정산하되 중복 보상을 금지한다.
+기존 `EXPRIENCE.md`의 '이해도'는 도메인/기술 숙련과 인사이트 기록으로 구체화한다. 제작 완료 이벤트에서 **General XP, 해당 Technique XP, Codex 기록**을 일관되게 정산한다. Research Node XP는 별도 활성 연구 작업에서만 적립하며 중복 보상을 금지한다.
 
 ## 기술 숙련 8가지 — 첫 콘텐츠 검증 후보
 
