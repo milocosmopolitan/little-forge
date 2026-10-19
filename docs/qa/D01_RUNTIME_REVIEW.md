@@ -1,6 +1,6 @@
 # D01 persistent indoor forge: implementation and native review
 
-Status: **current screenshots recovered; visual approval and full native acceptance still pending**. PR #122 remains Draft. No implementation issue is closed. No later management screen or D02–D07 gameplay contract is implemented here.
+Status: **current screenshots recovered; visual approval and full native acceptance still pending**. PR #122 is open for review, not approved for merge. No implementation issue is closed. No later management screen or D02–D07 gameplay contract is implemented here.
 
 ## Source and decisions
 
