@@ -56,7 +56,7 @@ fn setup(
     c: Res<Catalog>,
 ) {
     // Keep the authored pixel scale when the animation canvas gains padding.
-    let height = 95. * c.cell[1] as f32 / 128.;
+    let height = crate::interior::CHARACTER_SCALE * c.cell[1] as f32;
     let owner = commands
         .spawn((
             Sprite {
@@ -141,7 +141,7 @@ fn update(
     let outside = spaces
         .as_ref()
         .is_some_and(|s| s.space == forge_core::spaces::Space::Exterior);
-    t.translation.x = if outside { 270. } else { -250. };
+    t.translation.x = if outside { 270. } else { -380. };
     t.translation.y = if outside { -85. } else { -66. };
     let waiting = matches!(
         session.save.state.farmer_order.phase,

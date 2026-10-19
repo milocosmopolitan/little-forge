@@ -1,0 +1,14 @@
+{
+  "server": "https://www.spritefusion.com/mcp",
+  "tool": "create_upload",
+  "http_status": 200,
+  "bytes": 52311,
+  "sha256": "b48c44f61b98399ae609a2dc9e47f75fb6f296771407e9fbe56e9b48241f9c6c",
+  "scope": "Private generation-input upload only; not a tilemap project or library import",
+  "tools_list": "spritefusion-tools.json",
+  "unsupported": [
+    "tilemap placement",
+    "tile/layer editor",
+    "project export"
+  ]
+}

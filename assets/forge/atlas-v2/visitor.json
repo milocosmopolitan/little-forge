@@ -1,0 +1,13 @@
+{
+  "source": "forge/visitor.png",
+  "source_density_divisor": 3,
+  "canvas": [
+    128,
+    160
+  ],
+  "pivot": [
+    64,
+    140
+  ],
+  "status": "Legacy source density normalization; visual-review item"
+}

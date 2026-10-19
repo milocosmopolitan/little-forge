@@ -1,0 +1,2270 @@
+[
+  {
+    "sex": "female",
+    "pose": "forging",
+    "frame": 0,
+    "canvas_origin": [
+      335,
+      56
+    ],
+    "foot": [
+      383,
+      161
+    ],
+    "exact_origin": [
+      335.0,
+      55.5
+    ],
+    "contact_rounding": [
+      0.0,
+      0.5
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "forging",
+    "frame": 1,
+    "canvas_origin": [
+      335,
+      56
+    ],
+    "foot": [
+      383,
+      161
+    ],
+    "exact_origin": [
+      335.0,
+      55.5
+    ],
+    "contact_rounding": [
+      0.0,
+      0.5
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "forging",
+    "frame": 2,
+    "canvas_origin": [
+      335,
+      56
+    ],
+    "foot": [
+      383,
+      161
+    ],
+    "exact_origin": [
+      335.0,
+      55.5
+    ],
+    "contact_rounding": [
+      0.0,
+      0.5
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "forging",
+    "frame": 3,
+    "canvas_origin": [
+      335,
+      56
+    ],
+    "foot": [
+      383,
+      161
+    ],
+    "exact_origin": [
+      335.0,
+      55.5
+    ],
+    "contact_rounding": [
+      0.0,
+      0.5
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "forging",
+    "frame": 4,
+    "canvas_origin": [
+      335,
+      56
+    ],
+    "foot": [
+      383,
+      161
+    ],
+    "exact_origin": [
+      335.0,
+      55.5
+    ],
+    "contact_rounding": [
+      0.0,
+      0.5
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "forging",
+    "frame": 5,
+    "canvas_origin": [
+      335,
+      56
+    ],
+    "foot": [
+      383,
+      161
+    ],
+    "exact_origin": [
+      335.0,
+      55.5
+    ],
+    "contact_rounding": [
+      0.0,
+      0.5
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "hammering",
+    "frame": 0,
+    "canvas_origin": [
+      488,
+      55
+    ],
+    "foot": [
+      536,
+      160
+    ],
+    "exact_origin": [
+      487.5,
+      54.5
+    ],
+    "contact_rounding": [
+      0.5,
+      0.5
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "hammering",
+    "frame": 1,
+    "canvas_origin": [
+      488,
+      55
+    ],
+    "foot": [
+      536,
+      160
+    ],
+    "exact_origin": [
+      487.5,
+      54.5
+    ],
+    "contact_rounding": [
+      0.5,
+      0.5
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "hammering",
+    "frame": 2,
+    "canvas_origin": [
+      488,
+      55
+    ],
+    "foot": [
+      536,
+      160
+    ],
+    "exact_origin": [
+      487.5,
+      54.5
+    ],
+    "contact_rounding": [
+      0.5,
+      0.5
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "hammering",
+    "frame": 3,
+    "canvas_origin": [
+      488,
+      55
+    ],
+    "foot": [
+      536,
+      160
+    ],
+    "exact_origin": [
+      487.5,
+      54.5
+    ],
+    "contact_rounding": [
+      0.5,
+      0.5
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "hammering",
+    "frame": 4,
+    "canvas_origin": [
+      488,
+      55
+    ],
+    "foot": [
+      536,
+      160
+    ],
+    "exact_origin": [
+      487.5,
+      54.5
+    ],
+    "contact_rounding": [
+      0.5,
+      0.5
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "hammering",
+    "frame": 5,
+    "canvas_origin": [
+      488,
+      55
+    ],
+    "foot": [
+      536,
+      160
+    ],
+    "exact_origin": [
+      487.5,
+      54.5
+    ],
+    "contact_rounding": [
+      0.5,
+      0.5
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "quenching",
+    "frame": 0,
+    "canvas_origin": [
+      623,
+      54
+    ],
+    "foot": [
+      671,
+      159
+    ],
+    "exact_origin": [
+      623.25,
+      53.75
+    ],
+    "contact_rounding": [
+      -0.25,
+      0.25
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "quenching",
+    "frame": 1,
+    "canvas_origin": [
+      623,
+      54
+    ],
+    "foot": [
+      671,
+      159
+    ],
+    "exact_origin": [
+      623.25,
+      53.75
+    ],
+    "contact_rounding": [
+      -0.25,
+      0.25
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "quenching",
+    "frame": 2,
+    "canvas_origin": [
+      623,
+      54
+    ],
+    "foot": [
+      671,
+      159
+    ],
+    "exact_origin": [
+      623.25,
+      53.75
+    ],
+    "contact_rounding": [
+      -0.25,
+      0.25
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "quenching",
+    "frame": 3,
+    "canvas_origin": [
+      623,
+      54
+    ],
+    "foot": [
+      671,
+      159
+    ],
+    "exact_origin": [
+      623.25,
+      53.75
+    ],
+    "contact_rounding": [
+      -0.25,
+      0.25
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "quenching",
+    "frame": 4,
+    "canvas_origin": [
+      623,
+      54
+    ],
+    "foot": [
+      671,
+      159
+    ],
+    "exact_origin": [
+      623.25,
+      53.75
+    ],
+    "contact_rounding": [
+      -0.25,
+      0.25
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "quenching",
+    "frame": 5,
+    "canvas_origin": [
+      623,
+      54
+    ],
+    "foot": [
+      671,
+      159
+    ],
+    "exact_origin": [
+      623.25,
+      53.75
+    ],
+    "contact_rounding": [
+      -0.25,
+      0.25
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "researching",
+    "frame": 0,
+    "canvas_origin": [
+      816,
+      46
+    ],
+    "foot": [
+      864,
+      151
+    ],
+    "exact_origin": [
+      816.0,
+      45.75
+    ],
+    "contact_rounding": [
+      0.0,
+      0.25
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "researching",
+    "frame": 1,
+    "canvas_origin": [
+      816,
+      46
+    ],
+    "foot": [
+      864,
+      151
+    ],
+    "exact_origin": [
+      816.0,
+      45.75
+    ],
+    "contact_rounding": [
+      0.0,
+      0.25
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "researching",
+    "frame": 2,
+    "canvas_origin": [
+      816,
+      46
+    ],
+    "foot": [
+      864,
+      151
+    ],
+    "exact_origin": [
+      816.0,
+      45.75
+    ],
+    "contact_rounding": [
+      0.0,
+      0.25
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "researching",
+    "frame": 3,
+    "canvas_origin": [
+      816,
+      46
+    ],
+    "foot": [
+      864,
+      151
+    ],
+    "exact_origin": [
+      816.0,
+      45.75
+    ],
+    "contact_rounding": [
+      0.0,
+      0.25
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "researching",
+    "frame": 4,
+    "canvas_origin": [
+      816,
+      46
+    ],
+    "foot": [
+      864,
+      151
+    ],
+    "exact_origin": [
+      816.0,
+      45.75
+    ],
+    "contact_rounding": [
+      0.0,
+      0.25
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "researching",
+    "frame": 5,
+    "canvas_origin": [
+      816,
+      46
+    ],
+    "foot": [
+      864,
+      151
+    ],
+    "exact_origin": [
+      816.0,
+      45.75
+    ],
+    "contact_rounding": [
+      0.0,
+      0.25
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "salvaging",
+    "frame": 0,
+    "canvas_origin": [
+      816,
+      59
+    ],
+    "foot": [
+      864,
+      164
+    ],
+    "exact_origin": [
+      816.0,
+      58.5
+    ],
+    "contact_rounding": [
+      0.0,
+      0.5
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "salvaging",
+    "frame": 1,
+    "canvas_origin": [
+      816,
+      59
+    ],
+    "foot": [
+      864,
+      164
+    ],
+    "exact_origin": [
+      816.0,
+      58.5
+    ],
+    "contact_rounding": [
+      0.0,
+      0.5
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "salvaging",
+    "frame": 2,
+    "canvas_origin": [
+      816,
+      59
+    ],
+    "foot": [
+      864,
+      164
+    ],
+    "exact_origin": [
+      816.0,
+      58.5
+    ],
+    "contact_rounding": [
+      0.0,
+      0.5
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "salvaging",
+    "frame": 3,
+    "canvas_origin": [
+      816,
+      59
+    ],
+    "foot": [
+      864,
+      164
+    ],
+    "exact_origin": [
+      816.0,
+      58.5
+    ],
+    "contact_rounding": [
+      0.0,
+      0.5
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "salvaging",
+    "frame": 4,
+    "canvas_origin": [
+      816,
+      59
+    ],
+    "foot": [
+      864,
+      164
+    ],
+    "exact_origin": [
+      816.0,
+      58.5
+    ],
+    "contact_rounding": [
+      0.0,
+      0.5
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "salvaging",
+    "frame": 5,
+    "canvas_origin": [
+      816,
+      59
+    ],
+    "foot": [
+      864,
+      164
+    ],
+    "exact_origin": [
+      816.0,
+      58.5
+    ],
+    "contact_rounding": [
+      0.0,
+      0.5
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "walk-front",
+    "frame": 0,
+    "canvas_origin": [
+      472,
+      63
+    ],
+    "foot": [
+      520,
+      168
+    ],
+    "exact_origin": [
+      472,
+      63
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "walk-front",
+    "frame": 1,
+    "canvas_origin": [
+      508,
+      63
+    ],
+    "foot": [
+      556,
+      168
+    ],
+    "exact_origin": [
+      508,
+      63
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "walk-front",
+    "frame": 2,
+    "canvas_origin": [
+      544,
+      63
+    ],
+    "foot": [
+      592,
+      168
+    ],
+    "exact_origin": [
+      544,
+      63
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "walk-front",
+    "frame": 3,
+    "canvas_origin": [
+      580,
+      63
+    ],
+    "foot": [
+      628,
+      168
+    ],
+    "exact_origin": [
+      580,
+      63
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "walk-front",
+    "frame": 4,
+    "canvas_origin": [
+      616,
+      63
+    ],
+    "foot": [
+      664,
+      168
+    ],
+    "exact_origin": [
+      616,
+      63
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "walk-front",
+    "frame": 5,
+    "canvas_origin": [
+      652,
+      63
+    ],
+    "foot": [
+      700,
+      168
+    ],
+    "exact_origin": [
+      652,
+      63
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "walk-behind",
+    "frame": 0,
+    "canvas_origin": [
+      472,
+      43
+    ],
+    "foot": [
+      520,
+      148
+    ],
+    "exact_origin": [
+      472,
+      43
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "walk-behind",
+    "frame": 1,
+    "canvas_origin": [
+      508,
+      43
+    ],
+    "foot": [
+      556,
+      148
+    ],
+    "exact_origin": [
+      508,
+      43
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "walk-behind",
+    "frame": 2,
+    "canvas_origin": [
+      544,
+      43
+    ],
+    "foot": [
+      592,
+      148
+    ],
+    "exact_origin": [
+      544,
+      43
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "walk-behind",
+    "frame": 3,
+    "canvas_origin": [
+      580,
+      43
+    ],
+    "foot": [
+      628,
+      148
+    ],
+    "exact_origin": [
+      580,
+      43
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "walk-behind",
+    "frame": 4,
+    "canvas_origin": [
+      616,
+      43
+    ],
+    "foot": [
+      664,
+      148
+    ],
+    "exact_origin": [
+      616,
+      43
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "walk-behind",
+    "frame": 5,
+    "canvas_origin": [
+      652,
+      43
+    ],
+    "foot": [
+      700,
+      148
+    ],
+    "exact_origin": [
+      652,
+      43
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "idle",
+    "frame": 0,
+    "canvas_origin": [
+      244,
+      51
+    ],
+    "foot": [
+      292,
+      156
+    ],
+    "exact_origin": [
+      244,
+      51
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "idle",
+    "frame": 1,
+    "canvas_origin": [
+      244,
+      51
+    ],
+    "foot": [
+      292,
+      156
+    ],
+    "exact_origin": [
+      244,
+      51
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "idle",
+    "frame": 2,
+    "canvas_origin": [
+      244,
+      51
+    ],
+    "foot": [
+      292,
+      156
+    ],
+    "exact_origin": [
+      244,
+      51
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "idle",
+    "frame": 3,
+    "canvas_origin": [
+      244,
+      51
+    ],
+    "foot": [
+      292,
+      156
+    ],
+    "exact_origin": [
+      244,
+      51
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "idle",
+    "frame": 4,
+    "canvas_origin": [
+      244,
+      51
+    ],
+    "foot": [
+      292,
+      156
+    ],
+    "exact_origin": [
+      244,
+      51
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "idle",
+    "frame": 5,
+    "canvas_origin": [
+      244,
+      51
+    ],
+    "foot": [
+      292,
+      156
+    ],
+    "exact_origin": [
+      244,
+      51
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "empty",
+    "frame": 0,
+    "canvas_origin": [
+      244,
+      51
+    ],
+    "foot": [
+      292,
+      156
+    ],
+    "exact_origin": [
+      244,
+      51
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "empty",
+    "frame": 1,
+    "canvas_origin": [
+      244,
+      51
+    ],
+    "foot": [
+      292,
+      156
+    ],
+    "exact_origin": [
+      244,
+      51
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "empty",
+    "frame": 2,
+    "canvas_origin": [
+      244,
+      51
+    ],
+    "foot": [
+      292,
+      156
+    ],
+    "exact_origin": [
+      244,
+      51
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "empty",
+    "frame": 3,
+    "canvas_origin": [
+      244,
+      51
+    ],
+    "foot": [
+      292,
+      156
+    ],
+    "exact_origin": [
+      244,
+      51
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "empty",
+    "frame": 4,
+    "canvas_origin": [
+      244,
+      51
+    ],
+    "foot": [
+      292,
+      156
+    ],
+    "exact_origin": [
+      244,
+      51
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "female",
+    "pose": "empty",
+    "frame": 5,
+    "canvas_origin": [
+      244,
+      51
+    ],
+    "foot": [
+      292,
+      156
+    ],
+    "exact_origin": [
+      244,
+      51
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "forging",
+    "frame": 0,
+    "canvas_origin": [
+      335,
+      53
+    ],
+    "foot": [
+      383,
+      158
+    ],
+    "exact_origin": [
+      335.0,
+      53.25
+    ],
+    "contact_rounding": [
+      0.0,
+      -0.25
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "forging",
+    "frame": 1,
+    "canvas_origin": [
+      335,
+      53
+    ],
+    "foot": [
+      383,
+      158
+    ],
+    "exact_origin": [
+      335.0,
+      53.25
+    ],
+    "contact_rounding": [
+      0.0,
+      -0.25
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "forging",
+    "frame": 2,
+    "canvas_origin": [
+      335,
+      53
+    ],
+    "foot": [
+      383,
+      158
+    ],
+    "exact_origin": [
+      335.0,
+      53.25
+    ],
+    "contact_rounding": [
+      0.0,
+      -0.25
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "forging",
+    "frame": 3,
+    "canvas_origin": [
+      335,
+      53
+    ],
+    "foot": [
+      383,
+      158
+    ],
+    "exact_origin": [
+      335.0,
+      53.25
+    ],
+    "contact_rounding": [
+      0.0,
+      -0.25
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "forging",
+    "frame": 4,
+    "canvas_origin": [
+      335,
+      53
+    ],
+    "foot": [
+      383,
+      158
+    ],
+    "exact_origin": [
+      335.0,
+      53.25
+    ],
+    "contact_rounding": [
+      0.0,
+      -0.25
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "forging",
+    "frame": 5,
+    "canvas_origin": [
+      335,
+      53
+    ],
+    "foot": [
+      383,
+      158
+    ],
+    "exact_origin": [
+      335.0,
+      53.25
+    ],
+    "contact_rounding": [
+      0.0,
+      -0.25
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "hammering",
+    "frame": 0,
+    "canvas_origin": [
+      488,
+      53
+    ],
+    "foot": [
+      536,
+      158
+    ],
+    "exact_origin": [
+      488.25,
+      53.0
+    ],
+    "contact_rounding": [
+      -0.25,
+      0.0
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "hammering",
+    "frame": 1,
+    "canvas_origin": [
+      488,
+      53
+    ],
+    "foot": [
+      536,
+      158
+    ],
+    "exact_origin": [
+      488.25,
+      53.0
+    ],
+    "contact_rounding": [
+      -0.25,
+      0.0
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "hammering",
+    "frame": 2,
+    "canvas_origin": [
+      488,
+      53
+    ],
+    "foot": [
+      536,
+      158
+    ],
+    "exact_origin": [
+      488.25,
+      53.0
+    ],
+    "contact_rounding": [
+      -0.25,
+      0.0
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "hammering",
+    "frame": 3,
+    "canvas_origin": [
+      488,
+      53
+    ],
+    "foot": [
+      536,
+      158
+    ],
+    "exact_origin": [
+      488.25,
+      53.0
+    ],
+    "contact_rounding": [
+      -0.25,
+      0.0
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "hammering",
+    "frame": 4,
+    "canvas_origin": [
+      488,
+      53
+    ],
+    "foot": [
+      536,
+      158
+    ],
+    "exact_origin": [
+      488.25,
+      53.0
+    ],
+    "contact_rounding": [
+      -0.25,
+      0.0
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "hammering",
+    "frame": 5,
+    "canvas_origin": [
+      488,
+      53
+    ],
+    "foot": [
+      536,
+      158
+    ],
+    "exact_origin": [
+      488.25,
+      53.0
+    ],
+    "contact_rounding": [
+      -0.25,
+      0.0
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "quenching",
+    "frame": 0,
+    "canvas_origin": [
+      629,
+      49
+    ],
+    "foot": [
+      677,
+      154
+    ],
+    "exact_origin": [
+      629.25,
+      49.25
+    ],
+    "contact_rounding": [
+      -0.25,
+      -0.25
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "quenching",
+    "frame": 1,
+    "canvas_origin": [
+      629,
+      49
+    ],
+    "foot": [
+      677,
+      154
+    ],
+    "exact_origin": [
+      629.25,
+      49.25
+    ],
+    "contact_rounding": [
+      -0.25,
+      -0.25
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "quenching",
+    "frame": 2,
+    "canvas_origin": [
+      629,
+      49
+    ],
+    "foot": [
+      677,
+      154
+    ],
+    "exact_origin": [
+      629.25,
+      49.25
+    ],
+    "contact_rounding": [
+      -0.25,
+      -0.25
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "quenching",
+    "frame": 3,
+    "canvas_origin": [
+      629,
+      49
+    ],
+    "foot": [
+      677,
+      154
+    ],
+    "exact_origin": [
+      629.25,
+      49.25
+    ],
+    "contact_rounding": [
+      -0.25,
+      -0.25
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "quenching",
+    "frame": 4,
+    "canvas_origin": [
+      629,
+      49
+    ],
+    "foot": [
+      677,
+      154
+    ],
+    "exact_origin": [
+      629.25,
+      49.25
+    ],
+    "contact_rounding": [
+      -0.25,
+      -0.25
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "quenching",
+    "frame": 5,
+    "canvas_origin": [
+      629,
+      49
+    ],
+    "foot": [
+      677,
+      154
+    ],
+    "exact_origin": [
+      629.25,
+      49.25
+    ],
+    "contact_rounding": [
+      -0.25,
+      -0.25
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "researching",
+    "frame": 0,
+    "canvas_origin": [
+      816,
+      46
+    ],
+    "foot": [
+      864,
+      151
+    ],
+    "exact_origin": [
+      816.0,
+      45.75
+    ],
+    "contact_rounding": [
+      0.0,
+      0.25
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "researching",
+    "frame": 1,
+    "canvas_origin": [
+      816,
+      46
+    ],
+    "foot": [
+      864,
+      151
+    ],
+    "exact_origin": [
+      816.0,
+      45.75
+    ],
+    "contact_rounding": [
+      0.0,
+      0.25
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "researching",
+    "frame": 2,
+    "canvas_origin": [
+      816,
+      46
+    ],
+    "foot": [
+      864,
+      151
+    ],
+    "exact_origin": [
+      816.0,
+      45.75
+    ],
+    "contact_rounding": [
+      0.0,
+      0.25
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "researching",
+    "frame": 3,
+    "canvas_origin": [
+      816,
+      46
+    ],
+    "foot": [
+      864,
+      151
+    ],
+    "exact_origin": [
+      816.0,
+      45.75
+    ],
+    "contact_rounding": [
+      0.0,
+      0.25
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "researching",
+    "frame": 4,
+    "canvas_origin": [
+      816,
+      46
+    ],
+    "foot": [
+      864,
+      151
+    ],
+    "exact_origin": [
+      816.0,
+      45.75
+    ],
+    "contact_rounding": [
+      0.0,
+      0.25
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "researching",
+    "frame": 5,
+    "canvas_origin": [
+      816,
+      46
+    ],
+    "foot": [
+      864,
+      151
+    ],
+    "exact_origin": [
+      816.0,
+      45.75
+    ],
+    "contact_rounding": [
+      0.0,
+      0.25
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "salvaging",
+    "frame": 0,
+    "canvas_origin": [
+      816,
+      59
+    ],
+    "foot": [
+      864,
+      164
+    ],
+    "exact_origin": [
+      816.0,
+      58.5
+    ],
+    "contact_rounding": [
+      0.0,
+      0.5
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "salvaging",
+    "frame": 1,
+    "canvas_origin": [
+      816,
+      59
+    ],
+    "foot": [
+      864,
+      164
+    ],
+    "exact_origin": [
+      816.0,
+      58.5
+    ],
+    "contact_rounding": [
+      0.0,
+      0.5
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "salvaging",
+    "frame": 2,
+    "canvas_origin": [
+      816,
+      59
+    ],
+    "foot": [
+      864,
+      164
+    ],
+    "exact_origin": [
+      816.0,
+      58.5
+    ],
+    "contact_rounding": [
+      0.0,
+      0.5
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "salvaging",
+    "frame": 3,
+    "canvas_origin": [
+      816,
+      59
+    ],
+    "foot": [
+      864,
+      164
+    ],
+    "exact_origin": [
+      816.0,
+      58.5
+    ],
+    "contact_rounding": [
+      0.0,
+      0.5
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "salvaging",
+    "frame": 4,
+    "canvas_origin": [
+      816,
+      59
+    ],
+    "foot": [
+      864,
+      164
+    ],
+    "exact_origin": [
+      816.0,
+      58.5
+    ],
+    "contact_rounding": [
+      0.0,
+      0.5
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "salvaging",
+    "frame": 5,
+    "canvas_origin": [
+      816,
+      59
+    ],
+    "foot": [
+      864,
+      164
+    ],
+    "exact_origin": [
+      816.0,
+      58.5
+    ],
+    "contact_rounding": [
+      0.0,
+      0.5
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "walk-front",
+    "frame": 0,
+    "canvas_origin": [
+      472,
+      63
+    ],
+    "foot": [
+      520,
+      168
+    ],
+    "exact_origin": [
+      472,
+      63
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "walk-front",
+    "frame": 1,
+    "canvas_origin": [
+      508,
+      63
+    ],
+    "foot": [
+      556,
+      168
+    ],
+    "exact_origin": [
+      508,
+      63
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "walk-front",
+    "frame": 2,
+    "canvas_origin": [
+      544,
+      63
+    ],
+    "foot": [
+      592,
+      168
+    ],
+    "exact_origin": [
+      544,
+      63
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "walk-front",
+    "frame": 3,
+    "canvas_origin": [
+      580,
+      63
+    ],
+    "foot": [
+      628,
+      168
+    ],
+    "exact_origin": [
+      580,
+      63
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "walk-front",
+    "frame": 4,
+    "canvas_origin": [
+      616,
+      63
+    ],
+    "foot": [
+      664,
+      168
+    ],
+    "exact_origin": [
+      616,
+      63
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "walk-front",
+    "frame": 5,
+    "canvas_origin": [
+      652,
+      63
+    ],
+    "foot": [
+      700,
+      168
+    ],
+    "exact_origin": [
+      652,
+      63
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "walk-behind",
+    "frame": 0,
+    "canvas_origin": [
+      472,
+      43
+    ],
+    "foot": [
+      520,
+      148
+    ],
+    "exact_origin": [
+      472,
+      43
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "walk-behind",
+    "frame": 1,
+    "canvas_origin": [
+      508,
+      43
+    ],
+    "foot": [
+      556,
+      148
+    ],
+    "exact_origin": [
+      508,
+      43
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "walk-behind",
+    "frame": 2,
+    "canvas_origin": [
+      544,
+      43
+    ],
+    "foot": [
+      592,
+      148
+    ],
+    "exact_origin": [
+      544,
+      43
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "walk-behind",
+    "frame": 3,
+    "canvas_origin": [
+      580,
+      43
+    ],
+    "foot": [
+      628,
+      148
+    ],
+    "exact_origin": [
+      580,
+      43
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "walk-behind",
+    "frame": 4,
+    "canvas_origin": [
+      616,
+      43
+    ],
+    "foot": [
+      664,
+      148
+    ],
+    "exact_origin": [
+      616,
+      43
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "walk-behind",
+    "frame": 5,
+    "canvas_origin": [
+      652,
+      43
+    ],
+    "foot": [
+      700,
+      148
+    ],
+    "exact_origin": [
+      652,
+      43
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "idle",
+    "frame": 0,
+    "canvas_origin": [
+      244,
+      51
+    ],
+    "foot": [
+      292,
+      156
+    ],
+    "exact_origin": [
+      244,
+      51
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "idle",
+    "frame": 1,
+    "canvas_origin": [
+      244,
+      51
+    ],
+    "foot": [
+      292,
+      156
+    ],
+    "exact_origin": [
+      244,
+      51
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "idle",
+    "frame": 2,
+    "canvas_origin": [
+      244,
+      51
+    ],
+    "foot": [
+      292,
+      156
+    ],
+    "exact_origin": [
+      244,
+      51
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "idle",
+    "frame": 3,
+    "canvas_origin": [
+      244,
+      51
+    ],
+    "foot": [
+      292,
+      156
+    ],
+    "exact_origin": [
+      244,
+      51
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "idle",
+    "frame": 4,
+    "canvas_origin": [
+      244,
+      51
+    ],
+    "foot": [
+      292,
+      156
+    ],
+    "exact_origin": [
+      244,
+      51
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "idle",
+    "frame": 5,
+    "canvas_origin": [
+      244,
+      51
+    ],
+    "foot": [
+      292,
+      156
+    ],
+    "exact_origin": [
+      244,
+      51
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "empty",
+    "frame": 0,
+    "canvas_origin": [
+      244,
+      51
+    ],
+    "foot": [
+      292,
+      156
+    ],
+    "exact_origin": [
+      244,
+      51
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "empty",
+    "frame": 1,
+    "canvas_origin": [
+      244,
+      51
+    ],
+    "foot": [
+      292,
+      156
+    ],
+    "exact_origin": [
+      244,
+      51
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "empty",
+    "frame": 2,
+    "canvas_origin": [
+      244,
+      51
+    ],
+    "foot": [
+      292,
+      156
+    ],
+    "exact_origin": [
+      244,
+      51
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "empty",
+    "frame": 3,
+    "canvas_origin": [
+      244,
+      51
+    ],
+    "foot": [
+      292,
+      156
+    ],
+    "exact_origin": [
+      244,
+      51
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "empty",
+    "frame": 4,
+    "canvas_origin": [
+      244,
+      51
+    ],
+    "foot": [
+      292,
+      156
+    ],
+    "exact_origin": [
+      244,
+      51
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  },
+  {
+    "sex": "male",
+    "pose": "empty",
+    "frame": 5,
+    "canvas_origin": [
+      244,
+      51
+    ],
+    "foot": [
+      292,
+      156
+    ],
+    "exact_origin": [
+      244,
+      51
+    ],
+    "contact_rounding": [
+      0,
+      0
+    ]
+  }
+]

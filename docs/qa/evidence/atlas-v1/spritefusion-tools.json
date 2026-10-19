@@ -1,0 +1,567 @@
+{
+  "tools": [
+    {
+      "name": "generate_sprites",
+      "title": "Generate sprites",
+      "description": "Create new pixel art sprites from a text prompt, at an exact size. Returns up to 12 variations, saved to the user's Sprite Fusion library. Costs 15 credits, refunded if no sprite is saved.\n\nDescribe one subject (e.g. \"A clockwork fox carrying a brass lantern\"). Variations are automatic: don't ask for a number of sprites, a grid, a sprite sheet, or an atlas. Set the size field rather than writing pixel dimensions in the prompt, and avoid noisy phrases such as \"transparent background\" or \"crisp pixel art\".",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "prompt": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 10000,
+            "description": "The subject to create and the visual details that matter."
+          },
+          "size": {
+            "type": "integer",
+            "enum": [
+              16,
+              32,
+              64
+            ],
+            "description": "Sprite size in pixels (square): 16, 32, or 64."
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            },
+            "maxItems": 10,
+            "description": "Optional tags saved on every result, most often the game or project name, such as [\"dungeon-crawler\"]: up to 10 tags of up to 32 letters, numbers, spaces, hyphens, or underscores, stored lowercase. Reuse existing tags from list_tags."
+          }
+        },
+        "required": [
+          "prompt",
+          "size"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Generate sprites",
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "idempotentHint": false,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "edit_sprite",
+      "title": "Edit sprite",
+      "description": "Make a targeted change to an existing sprite, such as its equipment, outfit, or pose, while keeping everything else. The first input is the sprite to edit; any later inputs (up to 9 in total) are visual references, such as an item to give the character. The result keeps the first input's size. Costs 15 credits, refunded if no sprite is saved.\n\nState the change and anything that must stay the same. For several poses, make one edit per pose instead of asking for a sprite sheet.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "prompt": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 10000,
+            "description": "The change to make."
+          },
+          "inputs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "description": "One image. Set exactly one field.",
+              "properties": {
+                "asset_id": {
+                  "type": "string",
+                  "description": "ID of an image in the user's Sprite Fusion library, from an earlier result or list_assets."
+                },
+                "data_url": {
+                  "type": "string",
+                  "description": "A small still PNG, JPEG, or WebP as a base64 data URL (data:image/png;base64,...), up to 1 MB decoded, and 2.5 MB across all inline images of a request."
+                },
+                "upload_id": {
+                  "type": "string",
+                  "description": "The upload_id from create_upload, once the file has been uploaded to its upload_url."
+                }
+              },
+              "additionalProperties": false,
+              "minProperties": 1,
+              "maxProperties": 1
+            },
+            "minItems": 1,
+            "maxItems": 9,
+            "description": "The sprite to edit first, then optional reference images."
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            },
+            "maxItems": 10,
+            "description": "Optional tags saved on every result, most often the game or project name, such as [\"dungeon-crawler\"]: up to 10 tags of up to 32 letters, numbers, spaces, hyphens, or underscores, stored lowercase. Reuse existing tags from list_tags."
+          }
+        },
+        "required": [
+          "prompt",
+          "inputs"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Edit sprite",
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "idempotentHint": false,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "generate_sprites_in_style",
+      "title": "Generate sprites in a style",
+      "description": "Create new sprites matching the style of 1 to 20 reference images. To make a targeted change to an existing sprite instead, use edit_sprite. Costs 15 credits, refunded if no sprite is saved.\n\nDescribe the new subject, and explain each reference's role when it isn't obvious. Don't ask for a grid or a sprite sheet.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "prompt": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 10000,
+            "description": "The new subject to create in the references' style."
+          },
+          "inputs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "description": "One image. Set exactly one field.",
+              "properties": {
+                "asset_id": {
+                  "type": "string",
+                  "description": "ID of an image in the user's Sprite Fusion library, from an earlier result or list_assets."
+                },
+                "data_url": {
+                  "type": "string",
+                  "description": "A small still PNG, JPEG, or WebP as a base64 data URL (data:image/png;base64,...), up to 1 MB decoded, and 2.5 MB across all inline images of a request."
+                },
+                "upload_id": {
+                  "type": "string",
+                  "description": "The upload_id from create_upload, once the file has been uploaded to its upload_url."
+                }
+              },
+              "additionalProperties": false,
+              "minProperties": 1,
+              "maxProperties": 1
+            },
+            "minItems": 1,
+            "maxItems": 20,
+            "description": "Style reference images."
+          },
+          "size": {
+            "type": "integer",
+            "enum": [
+              16,
+              24,
+              32,
+              48,
+              64,
+              80,
+              96,
+              112,
+              128
+            ],
+            "description": "Optional sprite size in pixels. Inferred from the references when omitted."
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            },
+            "maxItems": 10,
+            "description": "Optional tags saved on every result, most often the game or project name, such as [\"dungeon-crawler\"]: up to 10 tags of up to 32 letters, numbers, spaces, hyphens, or underscores, stored lowercase. Reuse existing tags from list_tags."
+          }
+        },
+        "required": [
+          "prompt",
+          "inputs"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Generate sprites in a style",
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "idempotentHint": false,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "create_8_directions",
+      "title": "Create 8 directions",
+      "description": "Turn one sprite into eight directional views. Returns exactly eight directional sprites. Takes no prompt. Costs 15 credits, refunded if no sprite is saved.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "input": {
+            "type": "object",
+            "description": "The sprite to turn. Set exactly one field.",
+            "properties": {
+              "asset_id": {
+                "type": "string",
+                "description": "ID of an image in the user's Sprite Fusion library, from an earlier result or list_assets."
+              },
+              "data_url": {
+                "type": "string",
+                "description": "A small still PNG, JPEG, or WebP as a base64 data URL (data:image/png;base64,...), up to 1 MB decoded, and 2.5 MB across all inline images of a request."
+              },
+              "upload_id": {
+                "type": "string",
+                "description": "The upload_id from create_upload, once the file has been uploaded to its upload_url."
+              }
+            },
+            "additionalProperties": false,
+            "minProperties": 1,
+            "maxProperties": 1
+          },
+          "size": {
+            "type": "integer",
+            "enum": [
+              16,
+              32,
+              64
+            ],
+            "description": "Optional output size in pixels: 16, 32, or 64."
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            },
+            "maxItems": 10,
+            "description": "Optional tags saved on every result, most often the game or project name, such as [\"dungeon-crawler\"]: up to 10 tags of up to 32 letters, numbers, spaces, hyphens, or underscores, stored lowercase. Reuse existing tags from list_tags."
+          }
+        },
+        "required": [
+          "input"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Create 8 directions",
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "idempotentHint": false,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "animate_sprite",
+      "title": "Animate sprite",
+      "description": "Animate one sprite from a motion prompt. Returns one animation, with assetUrl for the animation, sourceImageUrl, spritesheetUrl, frame count, and FPS. Costs 15 credits, refunded if no sprite is saved.\n\nDescribe the motion, its energy, and whether it loops (e.g. \"A relaxed idle bounce, seamless loop\"). For walking, running, attacking, jumping, and similar actions, first use edit_sprite to put the sprite in a suitable starting pose, then animate that result; idle and other subtle animations can usually use the original sprite directly. Set frame and color counts with output_frames and colors, not in the prompt, and don't request a sprite sheet layout.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "prompt": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000,
+            "description": "The motion to animate."
+          },
+          "input": {
+            "type": "object",
+            "description": "The sprite to animate. Set exactly one field.",
+            "properties": {
+              "asset_id": {
+                "type": "string",
+                "description": "ID of an image in the user's Sprite Fusion library, from an earlier result or list_assets."
+              },
+              "data_url": {
+                "type": "string",
+                "description": "A small still PNG, JPEG, or WebP as a base64 data URL (data:image/png;base64,...), up to 1 MB decoded, and 2.5 MB across all inline images of a request."
+              },
+              "upload_id": {
+                "type": "string",
+                "description": "The upload_id from create_upload, once the file has been uploaded to its upload_url."
+              }
+            },
+            "additionalProperties": false,
+            "minProperties": 1,
+            "maxProperties": 1
+          },
+          "output_frames": {
+            "type": "integer",
+            "enum": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16
+            ],
+            "description": "Optional number of frames."
+          },
+          "colors": {
+            "type": "integer",
+            "minimum": 2,
+            "maximum": 256,
+            "description": "Optional number of colors, from 2 to 256."
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            },
+            "maxItems": 10,
+            "description": "Optional tags saved on every result, most often the game or project name, such as [\"dungeon-crawler\"]: up to 10 tags of up to 32 letters, numbers, spaces, hyphens, or underscores, stored lowercase. Reuse existing tags from list_tags."
+          }
+        },
+        "required": [
+          "prompt",
+          "input"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Animate sprite",
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "idempotentHint": false,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "create_normal_map",
+      "title": "Create normal map",
+      "description": "Create a normal map of one sprite or animation, for 2D dynamic lighting. Returns the exact normal map PNG as an image at the input's pixel size, with the same transparency; an animation's map keeps its sprite sheet layout (one row of frames). Nothing is saved to the library, so save the returned image into the project, for example as <name>_n.png next to the sprite; if your client stored the image as a file, copy that file. Up to 1024\u00d71024 pixels per sprite or frame. Free.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "input": {
+            "type": "object",
+            "description": "The sprite to map. Set exactly one field; an asset_id can also be an animation's id.",
+            "properties": {
+              "asset_id": {
+                "type": "string",
+                "description": "ID of an image in the user's Sprite Fusion library, from an earlier result or list_assets."
+              },
+              "data_url": {
+                "type": "string",
+                "description": "A small still PNG, JPEG, or WebP as a base64 data URL (data:image/png;base64,...), up to 1 MB decoded, and 2.5 MB across all inline images of a request."
+              },
+              "upload_id": {
+                "type": "string",
+                "description": "The upload_id from create_upload, once the file has been uploaded to its upload_url."
+              }
+            },
+            "additionalProperties": false,
+            "minProperties": 1,
+            "maxProperties": 1
+          },
+          "strength": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 8,
+            "description": "Optional relief strength, 1.5 by default."
+          },
+          "format": {
+            "type": "string",
+            "enum": [
+              "opengl",
+              "directx"
+            ],
+            "description": "Optional green channel convention: opengl (Godot, Unity) by default, or directx."
+          }
+        },
+        "required": [
+          "input"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Create normal map",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "list_assets",
+      "title": "List saved assets",
+      "description": "List the user's saved Sprite Fusion assets (from the editor, API, MCP, and integrations), newest first, with their file URLs and tags. Free. Use it to find earlier results to reuse as inputs, and set tag to list one group. When nextCursor isn't null, pass it as cursor to get the next page.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100,
+            "description": "Assets per page, 20 by default."
+          },
+          "cursor": {
+            "type": "string",
+            "description": "nextCursor from the previous page."
+          },
+          "tag": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32,
+            "description": "Only list assets with this tag."
+          }
+        },
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "List saved assets",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_asset",
+      "title": "Get saved asset",
+      "description": "Get one of the user's saved assets by ID, with its file URLs. Free.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "asset_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "description": "The asset's id."
+          }
+        },
+        "required": [
+          "asset_id"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Get saved asset",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "list_tags",
+      "title": "List tags",
+      "description": "List the tags on the user's saved assets, most used first (up to 200), with how many assets carry each. Free. Check it before tagging, and reuse an existing tag rather than creating a near-duplicate such as \"weapon\" next to \"weapons\".",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "List tags",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "set_asset_tags",
+      "title": "Set asset tags",
+      "description": "Replace the tags of one of the user's saved assets. To add a tag, send the asset's current tags plus the new one; an empty list removes them all. Free.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "asset_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "description": "The asset's id."
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            },
+            "maxItems": 10,
+            "description": "The asset's complete new list of tags: up to 10 tags of up to 32 letters, numbers, spaces, hyphens, or underscores, stored lowercase."
+          }
+        },
+        "required": [
+          "asset_id",
+          "tags"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Set asset tags",
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_credits",
+      "title": "Get credit balance",
+      "description": "Get the user's current Sprite Fusion credit balance. Free. Every generate, edit, style, 8-direction, and animation request costs 15 credits; normal maps are free.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Get credit balance",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "create_upload",
+      "title": "Create image upload",
+      "description": "Get a private, short-lived URL to upload a large local image (PNG, JPEG, or WebP, up to 20 MiB) for use as a generation input. Only useful when you can send HTTP requests yourself: PUT the exact file bytes to upload_url with every returned header within 5 minutes, then pass {\"upload_id\": ...} as an input (valid for about a day). All inputs of one request may total up to 40 MiB. Never log upload_url or upload_id. Small images can be sent directly as a data_url instead. Free.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "content_type": {
+            "type": "string",
+            "enum": [
+              "image/png",
+              "image/jpeg",
+              "image/webp"
+            ],
+            "description": "The file's image type."
+          },
+          "size_bytes": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "The file's exact size in bytes."
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "description": "Lowercase hex SHA-256 digest of the file."
+          }
+        },
+        "required": [
+          "content_type",
+          "size_bytes",
+          "sha256"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Create image upload",
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "idempotentHint": false,
+        "openWorldHint": false
+      }
+    }
+  ]
+}

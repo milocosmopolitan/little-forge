@@ -9,8 +9,9 @@ use forge_core::{spaces::Space, village::Screen};
 
 pub const WIDTH: f32 = 960.;
 pub const HEIGHT: f32 = 180.;
-pub const FOOT_Y: f32 = 156.;
-pub const REST: Vec2 = Vec2::new(352., FOOT_Y);
+/// Free floor left of the anvil, in front of the counter floor (y=160) so the resting smith is
+/// never drawn behind a fixture. Kept close to the furnace: work starts there.
+pub const REST: Vec2 = Vec2::new(360., 166.);
 
 #[derive(Resource, Default, Debug)]
 pub struct Layout {
@@ -46,7 +47,7 @@ pub struct Host {
     pub legacy: bool,
 }
 #[derive(Component)]
-struct HostRoot;
+pub(crate) struct HostRoot;
 #[derive(Component)]
 struct HostStatus;
 #[derive(Component)]
@@ -59,22 +60,6 @@ pub enum Action {
     Modal,
 }
 
-pub fn spot(id: &str) -> Vec2 {
-    Vec2::new(
-        match id {
-            "research-table" => 112.,
-            "forge" => 416.,
-            "anvil" => 576.,
-            "quenching-tub" => 720.,
-            "salvage-table" => 864.,
-            _ => REST.x,
-        },
-        FOOT_Y,
-    )
-}
-pub fn station_origin(placement: &forge_npc::player::StationPlacement) -> Vec2 {
-    spot(&placement.id) + placement.offset.as_vec2()
-}
 pub fn shown(title: &TitleScreen, village: &Village, desktop: &Desktop, host: &Host) -> bool {
     !title.active && desktop.shell.expanded && village.nav.screen == Screen::Home && !host.legacy
 }
@@ -237,7 +222,7 @@ fn activity_label(s: &forge_core::State) -> String {
         Activity::Working { station, progress } => {
             format!("{} · {}%", station.label(), progress / 10)
         }
-        Activity::Idle => "Taking a breather".into(),
+        Activity::Idle => String::new(),
         Activity::Waiting(reason) => reason.label().into(),
         Activity::Sleeping => "Resting".into(),
         Activity::Eating => "Eating".into(),
