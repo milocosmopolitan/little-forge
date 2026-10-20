@@ -126,7 +126,7 @@ pub fn run_all(cases: &[Case], threads: usize) -> Vec<Result<Report, String>> {
         .collect()
 }
 
-const COLUMNS: &str = "case,seed,params,wall_secs,gold_start,gold_end,gold_delta,sale_gold,ore_bought_cmds,crafted,sold,chef,farmer,queue_waiting_secs,longest_queue_wait_secs,offline_uncredited_secs,failures,error";
+const COLUMNS: &str = "case,seed,params,wall_secs,gold_start,gold_end,gold_delta,sale_gold,ore_bought_cmds,material_spend,produced,crafted,sold,chef,farmer,queue_waiting_secs,longest_queue_wait_secs,offline_uncredited_secs,failures,error";
 
 fn csv_field(s: &str) -> String {
     if s.contains([',', '"', '\n']) {
@@ -144,7 +144,7 @@ pub fn summary_csv(cases: &[Case], results: &[Result<Report, String>]) -> String
         let params = csv_field(&params.join(";"));
         let row = match r {
             Ok(r) => format!(
-                "{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},",
+                "{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},",
                 c.index,
                 r.seed,
                 params,
@@ -154,6 +154,8 @@ pub fn summary_csv(cases: &[Case], results: &[Result<Report, String>]) -> String
                 r.end.gold as i64 - r.start.gold as i64,
                 r.ledger.get("sale").copied().unwrap_or(0),
                 r.commands.get("BuyOre").map_or(0, |t| t.ok),
+                -r.ledger.get("cmd:Buy").copied().unwrap_or(0),
+                r.produced.values().sum::<u64>(),
                 r.end.crafted,
                 r.end.sold,
                 r.end.chef,
@@ -164,7 +166,7 @@ pub fn summary_csv(cases: &[Case], results: &[Result<Report, String>]) -> String
                 r.failures.len(),
             ),
             Err(e) => format!(
-                "{},{},{},,,,,,,,,,,,,,,{}",
+                "{},{},{},,,,,,,,,,,,,,,,,{}",
                 c.index,
                 c.scenario.seed,
                 params,

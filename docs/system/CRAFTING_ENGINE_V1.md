@@ -16,7 +16,7 @@ Status: core and content are implemented and tested. The desktop shows the Chef'
 
 ## Data: `assets/crafting.json` (version 1, `draft-test-data`)
 
-**Recipes.** Inputs are debited when the job is queued; the output enters the inventory once, when the job completes.
+**Recipes** (22, all available from the start; owner decision 2026-10-20 added the six P0 tools: wooden shield, hoe, sickle, woodcutting axe, cleaver, hand saw). Inputs are debited when the job is queued; the output enters the inventory once, when the job completes.
 
 | Recipe | Inputs → output | Seconds | Station |
 |---|---|---:|---|
@@ -28,6 +28,14 @@ Status: core and content are implemented and tested. The desktop shows the Chef'
 | `carve_wooden_club` | ash_log → wooden_club | 6 | workbench |
 | `make_wooden_staff` | wooden_pole → wooden_staff | 4 | workbench |
 | `forge_frying_pan` | iron_ingot ×2 → frying_pan | 10 | anvil |
+| `cut_wooden_plank` | ash_log → wooden_plank ×2 | 6 | workbench |
+| `forge_metal_rivet` | iron_ingot → metal_rivet ×8 | 6 | anvil |
+| `cut_leather_strap` | deer_leather → leather_strap ×2 | 4 | workbench |
+| `forge_hoe_head` / `forge_sickle_blade` / `forge_wide_blade` / `forge_saw_blade` | iron_ingot → part | 8 | anvil |
+| `forge_axe_head` | iron_ingot ×2 → axe_head | 10 | anvil |
+| `assemble_wooden_shield` | wooden_plank ×2 + leather_strap + metal_rivet → wooden_shield | 10 | workbench |
+| `assemble_farming_hoe` / `assemble_woodcutting_axe` | head + wooden_pole → tool | 6 | workbench |
+| `assemble_sickle` / `assemble_cleaver` / `assemble_hand_saw` | blade + wooden_handle → tool | 6 | workbench |
 
 Notes on the table:
 - **Quantities** come from `parts-catalog.json` and `finished-goods-catalog.json`. A content test fails if a recipe's inputs differ from the catalog's own recipe line.
@@ -35,14 +43,14 @@ Notes on the table:
 - **Knife time:** 20 s matches the existing approved Kitchen Knife time in `progression.json`.
 - **Station** picks the smith's animation stage: forge = heating, anvil = hammering, workbench = the bench.
 
-**Vendors** (`Buy { vendor, item, quantity }`). Finite stock is saved state (`commerce.vendor_stock`). There is no restock yet; that is D02.
+**Vendors** (`Buy { vendor, item, quantity }`, at most 99 per purchase). **Stock is unlimited for now** (owner, 2026-10-20). Finite stock stays supported: set a number on an offer, and its remaining count becomes saved state (`commerce.vendor_stock`).
 
-| Vendor | Offers (price · stock) |
+| Vendor | Offers (price) |
 |---|---|
-| Blacksmith supply (the existing Buy-ore channel, no new NPC) | iron_ore 2 · unlimited (`BuyOre` = 2 for 4g, unchanged), charcoal 1 · 60, coal 2 · 20, iron_ingot 7 · 10 |
-| Carpenter | ash_log 3 · 40 (was "Seasoned timber"), pine_log 2 · 30, wooden_plank 2 · 20, wooden_pole 4 · 10, wooden_handle 5 · 10 |
-| Leatherworker | deer_leather 5 · 30 (was "Leather straps"), deer_hide 3 · 20, leather_strip 3 · 20, leather_strap 4 · 10 |
-| Farm | wood_branch 1 · 40, pine_resin 2 · 30 (food stays in the pantry shop) |
+| Blacksmith supply (the existing Buy-ore channel, no new NPC) | iron_ore 2 (`BuyOre` = 2 for 4g, unchanged), charcoal 1, coal 2, iron_ingot 7 |
+| Carpenter: every wood material | ash 3 (was "Seasoned timber"), pine 2, oak 3, birch 2, walnut 4, cherry 4, mahogany 6, yew 5 logs; wood_branch 1, pine_resin 2, charcoal 1; wooden_plank 2, wooden_pole 4, wooden_handle 5 |
+| Leatherworker: every hide and leather | deer_hide 3, boar_hide 3, wolf_pelt 4, bear_hide 6, tiger_pelt 9; deer 5 (was "Leather straps"), boar 5, wolf 6, bear 9, tiger 14 leather; leather_strip 3, leather_strap 4 |
+| Farm | wood_branch 1, pine_resin 2 (food stays in the pantry shop) |
 
 **New-game kit (draft).** A new game starts with iron_ore 10 (as before) plus charcoal 1, ash_log 1 and pine_resin 1. That is exactly one kitchen knife's purchased inputs. Without it the first commission would need 6 gold that a new player cannot have. The existing "normal start can fund research" test proves the start still works. Migrated saves get no kit.
 
@@ -58,13 +66,13 @@ Notes on the table:
   - `make_chef_parts` is a fixture helper that drives real commands.
 - **Jobs:** `WorkKind::Recipe(Id)` and `WorkKind::ChefOrder`. The Chef's knife is held for the Chef, never stocked.
 - **Event:** `EventKind::Produced { item, qty }`.
-- **Schema 8:** an explicit decoder moves `ore`, `timber` and `leather` and the remaining timber/leather shop stock. No serde default fills the new inventory.
+- **Schema 8:** an explicit decoder moves `ore`, `timber` and `leather`. The old remaining timber/leather shop stock is dropped, because those offers are now unlimited. No serde default fills the new inventory.
 
 ## Not done here (needs a decision or another issue)
 
 - **Selling new goods.** Kitchen knives, clubs, staffs and pans enter the inventory but cannot be displayed or sold. The showroom accepts `Good::IronDagger` only, and showing new archetypes needs D05's container compatibility rules.
 - **Material variants.** Log species are fixed to ash, and the pole has no length attribute. Both wait for attributes in the item model.
 - **XP for new recipes.** Technique XP for the six starter items is #75. Only the Chef's knife grants XP, through the existing recipe 0.
-- **Research gates.** Every v1 recipe is `starter`. Pole, staff, smelting and part recipes are not in RESEARCH_NODES_V1's six starter items, so the owner should confirm they are starter.
-- **Crafting UI.** There is no recipe list or vendor offers in the UI beyond the Chef part buttons, the existing ore button and Carpenter timber. That is #110 / #64 / #65.
+- **Research gates.** Every v1 recipe is `starter` (owner confirmed 2026-10-20). Weapon recipes behind research come with #75 / #76.
+- **Crafting and shop UI.** The new offers and recipes exist in the core, but the UI only shows the Chef part buttons, the ore button and the old timber/leather buttons. That is #110 / #64 / #65.
 - **Cancellation, refunds and salvage:** none, by rule.

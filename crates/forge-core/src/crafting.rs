@@ -205,8 +205,17 @@ impl Book {
             .map(|l| catalog_line(l))
             .collect::<Result<Vec<_>, _>>()?
             .concat();
+        // "iron|bronze ingot" lists alternatives: iron_ingot or bronze_ingot.
+        let alternatives = |name: &str| -> Vec<String> {
+            match name.split_once(' ') {
+                Some((alts, noun)) if alts.contains('|') => {
+                    alts.split('|').map(|a| format!("{a}_{noun}")).collect()
+                }
+                _ => vec![name.to_string()],
+            }
+        };
         let fits = |name: &str, item: Id| {
-            item.as_str() == name
+            alternatives(name).iter().any(|n| n == item.as_str())
                 || registry
                     .get(item)
                     .is_some_and(|d| d.family == name && d.kind == crate::items::Kind::Material)
@@ -473,7 +482,14 @@ mod tests {
     #[test]
     fn bundled_book_matches_catalog_quantities() {
         let b = Book::bundled();
-        assert_eq!(b.recipes.len(), 8);
+        assert_eq!(b.recipes.len(), 22);
+        // Every offer is unlimited for now (owner decision 2026-10-20).
+        assert!(
+            b.vendors
+                .iter()
+                .flat_map(|v| &v.offers)
+                .all(|o| o.stock.is_none())
+        );
         // A recipe whose inputs disagree with the catalog line is rejected.
         let mut bad = b.clone();
         bad.recipes
@@ -584,39 +600,94 @@ mod tests {
                 &mut s,
                 Command::Buy {
                     vendor: Location::Carpenter,
-                    item: Id::new("wooden_pole"),
-                    quantity: 11
+                    item: Id::new("ash_log"),
+                    quantity: 100
                 }
             ),
-            Err(Error::OutOfStock),
-            "finite stock"
+            Err(Error::InvalidPurchase),
+            "at most 99 per purchase"
         );
     }
 
     #[test]
-    fn vendor_stock_runs_out_and_is_state() {
+    fn vendors_sell_every_wood_and_leather_material_without_limit() {
+        let reg = Registry::bundled();
+        let book = Book::bundled();
+        let sells = |loc: Location, id: Id| book.offer(loc, id).is_some();
+        for d in reg.items.values().filter(|d| d.kind == Kind::Material) {
+            match d.family.as_str() {
+                "log" | "branch" => assert!(sells(Location::Carpenter, d.id), "{}", d.id),
+                "raw-hide" | "leather" => assert!(sells(Location::Leatherworker, d.id), "{}", d.id),
+                _ => {}
+            }
+        }
+        assert!(sells(Location::Carpenter, Id::new("pine_resin")));
         let mut s = state();
-        s.gold = 10_000;
-        buy(&mut s, Location::Carpenter, "wooden_pole", 10);
-        assert_eq!(
-            s.vendor_stock(Location::Carpenter, Id::new("wooden_pole")),
-            Some(0)
+        s.gold = 100_000;
+        for _ in 0..20 {
+            buy(&mut s, Location::Carpenter, "wooden_pole", 99);
+        }
+        assert_eq!(s.stock(Id::new("wooden_pole")), 20 * 99);
+        assert!(
+            s.commerce.vendor_stock.is_empty(),
+            "no finite stock is tracked"
         );
-        assert_eq!(
-            cmd(
-                &mut s,
-                Command::Buy {
-                    vendor: Location::Carpenter,
-                    item: Id::new("wooden_pole"),
-                    quantity: 1
-                }
-            ),
-            Err(Error::OutOfStock)
-        );
-        // The ore channel never runs out (existing behaviour).
         for _ in 0..50 {
             cmd(&mut s, Command::BuyOre).unwrap();
         }
+    }
+
+    #[test]
+    fn the_six_p0_tools_are_craftable_from_the_start() {
+        let mut s = state();
+        s.gold = 1_000;
+        buy(&mut s, Location::Blacksmith, "iron_ingot", 7);
+        buy(&mut s, Location::Carpenter, "ash_log", 5);
+        buy(&mut s, Location::Carpenter, "pine_resin", 3);
+        buy(&mut s, Location::Leatherworker, "deer_leather", 1);
+        for r in [
+            "cut_wooden_plank",
+            "forge_metal_rivet",
+            "cut_leather_strap",
+            "forge_hoe_head",
+            "forge_sickle_blade",
+            "forge_axe_head",
+            "forge_wide_blade",
+            "forge_saw_blade",
+            "make_wooden_pole",
+            "make_wooden_handle",
+            "make_wooden_handle",
+            "make_wooden_handle",
+        ] {
+            queue(&mut s, r).unwrap();
+        }
+        s.advance(600).unwrap();
+        assert_eq!(s.stock(Id::new("wooden_plank")), 2, "planks come in twos");
+        assert_eq!(s.stock(Id::new("metal_rivet")), 8, "rivets come in eights");
+        buy(&mut s, Location::Carpenter, "wooden_pole", 1);
+        for r in [
+            "assemble_wooden_shield",
+            "assemble_farming_hoe",
+            "assemble_sickle",
+            "assemble_woodcutting_axe",
+            "assemble_cleaver",
+            "assemble_hand_saw",
+        ] {
+            queue(&mut s, r).unwrap();
+        }
+        s.advance(600).unwrap();
+        for item in [
+            "wooden_shield",
+            "farming_hoe",
+            "sickle",
+            "woodcutting_axe",
+            "cleaver",
+            "hand_saw",
+        ] {
+            assert_eq!(s.stock(Id::new(item)), 1, "{item}");
+        }
+        assert_eq!(s.stock(Id::new("metal_rivet")), 7);
+        assert_eq!(s.stock(Id::new("iron_ingot")), 0);
     }
 
     #[test]
@@ -681,11 +752,12 @@ mod tests {
         );
         // No start kit is granted to an existing save.
         assert_eq!(st.stock(Id::new("charcoal")), 0);
-        assert_eq!(st.vendor_stock(Location::Carpenter, ASH_LOG), Some(33));
+        // Offers are unlimited now, so the old remaining shop stock is not tracked.
         assert_eq!(
-            st.vendor_stock(Location::Leatherworker, DEER_LEATHER),
-            Some(21)
+            st.vendor_stock(Location::Carpenter, ASH_LOG),
+            Some(u32::MAX)
         );
+        assert!(st.commerce.vendor_stock.is_empty());
         assert_eq!(st.commerce.stock, [0, 0, 60, 12]);
         assert_eq!(st.gold, 50);
     }

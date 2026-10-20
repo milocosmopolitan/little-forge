@@ -1,116 +1,605 @@
 {
   "version": 1,
   "status": "draft-test-data",
-  "doc": "Generic processing/assembly recipes and vendor offers (#74, #132). Item IDs are catalog IDs. Input/output quantities follow parts-catalog.json and finished-goods-catalog.json; smelting ratio, seconds, prices and stock are provisional test data (owner decision 2026-10-20) to be validated with crates/economy-sim. See docs/system/CRAFTING_ENGINE_V1.md.",
+  "doc": "Generic processing/assembly recipes and vendor offers (#74, #132, #142). Item IDs are catalog IDs. Input/output quantities and yields follow parts-catalog.json and finished-goods-catalog.json; smelting ratio, seconds and prices are provisional test data (owner decision 2026-10-20) to be validated with crates/economy-sim. Vendor stock is unlimited for now (owner, 2026-10-20); finite stock remains supported by setting a number. See docs/system/CRAFTING_ENGINE_V1.md.",
   "recipes": [
     {
       "id": "smelt_iron_ingot",
-      "inputs": [{ "item": "iron_ore", "qty": 2 }, { "item": "charcoal", "qty": 1 }],
-      "output": { "item": "iron_ingot", "qty": 1 },
+      "inputs": [
+        {
+          "item": "iron_ore",
+          "qty": 2
+        },
+        {
+          "item": "charcoal",
+          "qty": 1
+        }
+      ],
+      "output": {
+        "item": "iron_ingot",
+        "qty": 1
+      },
       "seconds": 10,
       "station": "forge",
       "unlock": "starter"
     },
     {
       "id": "forge_straight_blade",
-      "inputs": [{ "item": "iron_ingot", "qty": 1 }],
-      "output": { "item": "straight_blade", "qty": 1 },
+      "inputs": [
+        {
+          "item": "iron_ingot",
+          "qty": 1
+        }
+      ],
+      "output": {
+        "item": "straight_blade",
+        "qty": 1
+      },
       "seconds": 8,
       "station": "anvil",
       "unlock": "starter"
     },
     {
       "id": "make_wooden_handle",
-      "inputs": [{ "item": "ash_log", "qty": 1 }, { "item": "pine_resin", "qty": 1 }],
-      "output": { "item": "wooden_handle", "qty": 1 },
+      "inputs": [
+        {
+          "item": "ash_log",
+          "qty": 1
+        },
+        {
+          "item": "pine_resin",
+          "qty": 1
+        }
+      ],
+      "output": {
+        "item": "wooden_handle",
+        "qty": 1
+      },
       "seconds": 6,
       "station": "workbench",
       "unlock": "starter"
     },
     {
       "id": "make_wooden_pole",
-      "inputs": [{ "item": "ash_log", "qty": 1 }],
-      "output": { "item": "wooden_pole", "qty": 1 },
+      "inputs": [
+        {
+          "item": "ash_log",
+          "qty": 1
+        }
+      ],
+      "output": {
+        "item": "wooden_pole",
+        "qty": 1
+      },
       "seconds": 6,
       "station": "workbench",
       "unlock": "starter"
     },
     {
       "id": "assemble_kitchen_knife",
-      "inputs": [{ "item": "straight_blade", "qty": 1 }, { "item": "wooden_handle", "qty": 1 }],
-      "output": { "item": "kitchen_knife", "qty": 1 },
+      "inputs": [
+        {
+          "item": "straight_blade",
+          "qty": 1
+        },
+        {
+          "item": "wooden_handle",
+          "qty": 1
+        }
+      ],
+      "output": {
+        "item": "kitchen_knife",
+        "qty": 1
+      },
       "seconds": 20,
       "station": "workbench",
       "unlock": "starter"
     },
     {
       "id": "carve_wooden_club",
-      "inputs": [{ "item": "ash_log", "qty": 1 }],
-      "output": { "item": "wooden_club", "qty": 1 },
+      "inputs": [
+        {
+          "item": "ash_log",
+          "qty": 1
+        }
+      ],
+      "output": {
+        "item": "wooden_club",
+        "qty": 1
+      },
       "seconds": 6,
       "station": "workbench",
       "unlock": "starter"
     },
     {
       "id": "make_wooden_staff",
-      "inputs": [{ "item": "wooden_pole", "qty": 1 }],
-      "output": { "item": "wooden_staff", "qty": 1 },
+      "inputs": [
+        {
+          "item": "wooden_pole",
+          "qty": 1
+        }
+      ],
+      "output": {
+        "item": "wooden_staff",
+        "qty": 1
+      },
       "seconds": 4,
       "station": "workbench",
       "unlock": "starter"
     },
     {
       "id": "forge_frying_pan",
-      "inputs": [{ "item": "iron_ingot", "qty": 2 }],
-      "output": { "item": "frying_pan", "qty": 1 },
+      "inputs": [
+        {
+          "item": "iron_ingot",
+          "qty": 2
+        }
+      ],
+      "output": {
+        "item": "frying_pan",
+        "qty": 1
+      },
       "seconds": 10,
       "station": "anvil",
+      "unlock": "starter"
+    },
+    {
+      "id": "cut_wooden_plank",
+      "inputs": [
+        {
+          "item": "ash_log",
+          "qty": 1
+        }
+      ],
+      "output": {
+        "item": "wooden_plank",
+        "qty": 2
+      },
+      "seconds": 6,
+      "station": "workbench",
+      "unlock": "starter"
+    },
+    {
+      "id": "forge_metal_rivet",
+      "inputs": [
+        {
+          "item": "iron_ingot",
+          "qty": 1
+        }
+      ],
+      "output": {
+        "item": "metal_rivet",
+        "qty": 8
+      },
+      "seconds": 6,
+      "station": "anvil",
+      "unlock": "starter"
+    },
+    {
+      "id": "cut_leather_strap",
+      "inputs": [
+        {
+          "item": "deer_leather",
+          "qty": 1
+        }
+      ],
+      "output": {
+        "item": "leather_strap",
+        "qty": 2
+      },
+      "seconds": 4,
+      "station": "workbench",
+      "unlock": "starter"
+    },
+    {
+      "id": "forge_hoe_head",
+      "inputs": [
+        {
+          "item": "iron_ingot",
+          "qty": 1
+        }
+      ],
+      "output": {
+        "item": "hoe_head",
+        "qty": 1
+      },
+      "seconds": 8,
+      "station": "anvil",
+      "unlock": "starter"
+    },
+    {
+      "id": "forge_sickle_blade",
+      "inputs": [
+        {
+          "item": "iron_ingot",
+          "qty": 1
+        }
+      ],
+      "output": {
+        "item": "sickle_blade",
+        "qty": 1
+      },
+      "seconds": 8,
+      "station": "anvil",
+      "unlock": "starter"
+    },
+    {
+      "id": "forge_axe_head",
+      "inputs": [
+        {
+          "item": "iron_ingot",
+          "qty": 2
+        }
+      ],
+      "output": {
+        "item": "axe_head",
+        "qty": 1
+      },
+      "seconds": 10,
+      "station": "anvil",
+      "unlock": "starter"
+    },
+    {
+      "id": "forge_wide_blade",
+      "inputs": [
+        {
+          "item": "iron_ingot",
+          "qty": 1
+        }
+      ],
+      "output": {
+        "item": "wide_blade",
+        "qty": 1
+      },
+      "seconds": 8,
+      "station": "anvil",
+      "unlock": "starter"
+    },
+    {
+      "id": "forge_saw_blade",
+      "inputs": [
+        {
+          "item": "iron_ingot",
+          "qty": 1
+        }
+      ],
+      "output": {
+        "item": "saw_blade",
+        "qty": 1
+      },
+      "seconds": 8,
+      "station": "anvil",
+      "unlock": "starter"
+    },
+    {
+      "id": "assemble_wooden_shield",
+      "inputs": [
+        {
+          "item": "wooden_plank",
+          "qty": 2
+        },
+        {
+          "item": "leather_strap",
+          "qty": 1
+        },
+        {
+          "item": "metal_rivet",
+          "qty": 1
+        }
+      ],
+      "output": {
+        "item": "wooden_shield",
+        "qty": 1
+      },
+      "seconds": 10,
+      "station": "workbench",
+      "unlock": "starter"
+    },
+    {
+      "id": "assemble_farming_hoe",
+      "inputs": [
+        {
+          "item": "hoe_head",
+          "qty": 1
+        },
+        {
+          "item": "wooden_pole",
+          "qty": 1
+        }
+      ],
+      "output": {
+        "item": "farming_hoe",
+        "qty": 1
+      },
+      "seconds": 6,
+      "station": "workbench",
+      "unlock": "starter"
+    },
+    {
+      "id": "assemble_sickle",
+      "inputs": [
+        {
+          "item": "sickle_blade",
+          "qty": 1
+        },
+        {
+          "item": "wooden_handle",
+          "qty": 1
+        }
+      ],
+      "output": {
+        "item": "sickle",
+        "qty": 1
+      },
+      "seconds": 6,
+      "station": "workbench",
+      "unlock": "starter"
+    },
+    {
+      "id": "assemble_woodcutting_axe",
+      "inputs": [
+        {
+          "item": "axe_head",
+          "qty": 1
+        },
+        {
+          "item": "wooden_pole",
+          "qty": 1
+        }
+      ],
+      "output": {
+        "item": "woodcutting_axe",
+        "qty": 1
+      },
+      "seconds": 6,
+      "station": "workbench",
+      "unlock": "starter"
+    },
+    {
+      "id": "assemble_cleaver",
+      "inputs": [
+        {
+          "item": "wide_blade",
+          "qty": 1
+        },
+        {
+          "item": "wooden_handle",
+          "qty": 1
+        }
+      ],
+      "output": {
+        "item": "cleaver",
+        "qty": 1
+      },
+      "seconds": 6,
+      "station": "workbench",
+      "unlock": "starter"
+    },
+    {
+      "id": "assemble_hand_saw",
+      "inputs": [
+        {
+          "item": "saw_blade",
+          "qty": 1
+        },
+        {
+          "item": "wooden_handle",
+          "qty": 1
+        }
+      ],
+      "output": {
+        "item": "hand_saw",
+        "qty": 1
+      },
+      "seconds": 6,
+      "station": "workbench",
       "unlock": "starter"
     }
   ],
   "chef_order_recipe": "assemble_kitchen_knife",
   "start_inventory_note": "New games only (draft): exactly one kitchen knife's purchased inputs, so the Chef's first commission never needs gold the player cannot have yet. Iron ore 10 is the existing start.",
   "start_inventory": [
-    { "item": "iron_ore", "qty": 10 },
-    { "item": "charcoal", "qty": 1 },
-    { "item": "ash_log", "qty": 1 },
-    { "item": "pine_resin", "qty": 1 }
+    {
+      "item": "iron_ore",
+      "qty": 10
+    },
+    {
+      "item": "charcoal",
+      "qty": 1
+    },
+    {
+      "item": "ash_log",
+      "qty": 1
+    },
+    {
+      "item": "pine_resin",
+      "qty": 1
+    }
   ],
   "vendors": [
     {
       "location": "blacksmith",
       "note": "Existing forge supply channel (the Buy ore button); no new NPC.",
       "offers": [
-        { "item": "iron_ore", "price": 2, "stock": null },
-        { "item": "charcoal", "price": 1, "stock": 60 },
-        { "item": "coal", "price": 2, "stock": 20 },
-        { "item": "iron_ingot", "price": 7, "stock": 10 }
+        {
+          "item": "iron_ore",
+          "price": 2,
+          "stock": null
+        },
+        {
+          "item": "charcoal",
+          "price": 1,
+          "stock": null
+        },
+        {
+          "item": "coal",
+          "price": 2,
+          "stock": null
+        },
+        {
+          "item": "iron_ingot",
+          "price": 7,
+          "stock": null
+        }
       ]
     },
     {
       "location": "carpenter",
+      "note": "Every wood material: all eight logs, branches, pine resin, charcoal, and basic wood parts.",
       "offers": [
-        { "item": "ash_log", "price": 3, "stock": 40, "legacy": "timber" },
-        { "item": "pine_log", "price": 2, "stock": 30 },
-        { "item": "wooden_plank", "price": 2, "stock": 20 },
-        { "item": "wooden_pole", "price": 4, "stock": 10 },
-        { "item": "wooden_handle", "price": 5, "stock": 10 }
+        {
+          "item": "ash_log",
+          "price": 3,
+          "stock": null,
+          "legacy": "timber"
+        },
+        {
+          "item": "pine_log",
+          "price": 2,
+          "stock": null
+        },
+        {
+          "item": "oak_log",
+          "price": 3,
+          "stock": null
+        },
+        {
+          "item": "birch_log",
+          "price": 2,
+          "stock": null
+        },
+        {
+          "item": "walnut_log",
+          "price": 4,
+          "stock": null
+        },
+        {
+          "item": "cherry_log",
+          "price": 4,
+          "stock": null
+        },
+        {
+          "item": "mahogany_log",
+          "price": 6,
+          "stock": null
+        },
+        {
+          "item": "yew_log",
+          "price": 5,
+          "stock": null
+        },
+        {
+          "item": "wood_branch",
+          "price": 1,
+          "stock": null
+        },
+        {
+          "item": "pine_resin",
+          "price": 2,
+          "stock": null
+        },
+        {
+          "item": "charcoal",
+          "price": 1,
+          "stock": null
+        },
+        {
+          "item": "wooden_plank",
+          "price": 2,
+          "stock": null
+        },
+        {
+          "item": "wooden_pole",
+          "price": 4,
+          "stock": null
+        },
+        {
+          "item": "wooden_handle",
+          "price": 5,
+          "stock": null
+        }
       ]
     },
     {
       "location": "leatherworker",
+      "note": "Every hide and leather, plus basic leather parts.",
       "offers": [
-        { "item": "deer_leather", "price": 5, "stock": 30, "legacy": "leather" },
-        { "item": "deer_hide", "price": 3, "stock": 20 },
-        { "item": "leather_strip", "price": 3, "stock": 20 },
-        { "item": "leather_strap", "price": 4, "stock": 10 }
+        {
+          "item": "deer_hide",
+          "price": 3,
+          "stock": null
+        },
+        {
+          "item": "boar_hide",
+          "price": 3,
+          "stock": null
+        },
+        {
+          "item": "wolf_pelt",
+          "price": 4,
+          "stock": null
+        },
+        {
+          "item": "bear_hide",
+          "price": 6,
+          "stock": null
+        },
+        {
+          "item": "tiger_pelt",
+          "price": 9,
+          "stock": null
+        },
+        {
+          "item": "deer_leather",
+          "price": 5,
+          "stock": null,
+          "legacy": "leather"
+        },
+        {
+          "item": "boar_leather",
+          "price": 5,
+          "stock": null
+        },
+        {
+          "item": "wolf_leather",
+          "price": 6,
+          "stock": null
+        },
+        {
+          "item": "bear_leather",
+          "price": 9,
+          "stock": null
+        },
+        {
+          "item": "tiger_leather",
+          "price": 14,
+          "stock": null
+        },
+        {
+          "item": "leather_strip",
+          "price": 3,
+          "stock": null
+        },
+        {
+          "item": "leather_strap",
+          "price": 4,
+          "stock": null
+        }
       ]
     },
     {
       "location": "farm",
       "offers": [
-        { "item": "wood_branch", "price": 1, "stock": 40 },
-        { "item": "pine_resin", "price": 2, "stock": 30 }
+        {
+          "item": "wood_branch",
+          "price": 1,
+          "stock": null
+        },
+        {
+          "item": "pine_resin",
+          "price": 2,
+          "stock": null
+        }
       ]
     }
   ]
