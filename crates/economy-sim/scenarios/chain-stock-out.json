@@ -1,0 +1,9 @@
+{
+  "name": "chain-stock-out",
+  "seed": 42,
+  "duration_secs": 172800,
+  "sample_every_secs": 3600,
+  "start": { "preset": "fresh", "gold": 5000 },
+  "driver": { "kind": "player", "craft": false, "make": ["kitchen_knife"], "make_target": 1000, "act_every_secs": 5 },
+  "offline": [{ "at": 43200, "secs": 28800 }]
+}
