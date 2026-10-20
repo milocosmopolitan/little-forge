@@ -1,0 +1,431 @@
+{
+  "schema": 1,
+  "issue": 118,
+  "kit": "v2-timber-parchment",
+  "status": "hand-drawn-candidate-pending-owner-approval",
+  "density": "1 art px = 1 logical px (same as the workshop scene and 32px item icons); nearest sampling",
+  "references": [
+    "assets/ui/references/orders-reference.jpg",
+    "assets/ui/references/weapon-collection-reference.jpg"
+  ],
+  "text_colors": {
+    "on_parchment": "#5a3a20",
+    "on_parchment_muted": "#7a5e40",
+    "on_wood": "#ecd1a6",
+    "on_wood_muted": "#b89a74",
+    "deadline": "#8a3a28",
+    "gold": "#f2c37f"
+  },
+  "slot_content_inset": 4,
+  "assets": [
+    {
+      "name": "window-frame",
+      "path": "assets/ui/kit-v2/window-frame.png",
+      "width": 48,
+      "height": 48,
+      "colors": 10,
+      "slice_ltrb": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "sha256": "9e73f7c1a189d33f6d22e6172d34dacf30e1d65296384fe26e5aab6921e1290a"
+    },
+    {
+      "name": "panel-parchment",
+      "path": "assets/ui/kit-v2/panel-parchment.png",
+      "width": 36,
+      "height": 36,
+      "colors": 10,
+      "slice_ltrb": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "sha256": "cbb572403f56333f33e5d8b660033ded45e5d03f343d4b415e5db28423470b95"
+    },
+    {
+      "name": "card",
+      "path": "assets/ui/kit-v2/card.png",
+      "width": 16,
+      "height": 16,
+      "colors": 4,
+      "slice_ltrb": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "sha256": "280792dce25ed07b60d0ad88adb71d4266bf7f41bface3a83796f82a68de0a8a"
+    },
+    {
+      "name": "card-selected",
+      "path": "assets/ui/kit-v2/card-selected.png",
+      "width": 20,
+      "height": 20,
+      "colors": 5,
+      "slice_ltrb": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "sha256": "8b458dd5948ac1a9d0a81e86cd34c8c49f6925dfa114e6f4952bd999d6de727c"
+    },
+    {
+      "name": "tab-normal",
+      "path": "assets/ui/kit-v2/tab-normal.png",
+      "width": 24,
+      "height": 24,
+      "colors": 5,
+      "slice_ltrb": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "sha256": "cefb6bda4b24625ce571564e68ce78ddfbb408da3b7f816a2908284b4953c629"
+    },
+    {
+      "name": "tab-hover",
+      "path": "assets/ui/kit-v2/tab-hover.png",
+      "width": 24,
+      "height": 24,
+      "colors": 5,
+      "slice_ltrb": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "sha256": "8568625cdd9915c26ff3fee4938c56e0c8ecc112017acf6eab04e2ceea69b66a"
+    },
+    {
+      "name": "tab-selected",
+      "path": "assets/ui/kit-v2/tab-selected.png",
+      "width": 24,
+      "height": 24,
+      "colors": 6,
+      "slice_ltrb": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "sha256": "3bb8cdcc17410e415a9b54559735b7517401633650cfc0774c20b5e113fb7a48"
+    },
+    {
+      "name": "button-normal",
+      "path": "assets/ui/kit-v2/button-normal.png",
+      "width": 20,
+      "height": 18,
+      "colors": 6,
+      "slice_ltrb": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "sha256": "b39c52a3e6752df5b8f1816501b114fe02046054ed9a856f9404961eae8355a2"
+    },
+    {
+      "name": "button-hover",
+      "path": "assets/ui/kit-v2/button-hover.png",
+      "width": 20,
+      "height": 18,
+      "colors": 6,
+      "slice_ltrb": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "sha256": "befac2fbacf18d2e1029edabee8e83e46df1af19e950a58dcc738aa90d9b45fd"
+    },
+    {
+      "name": "button-pressed",
+      "path": "assets/ui/kit-v2/button-pressed.png",
+      "width": 20,
+      "height": 18,
+      "colors": 5,
+      "slice_ltrb": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "sha256": "40216cb2b813ae3da2311a1bfed6cd59384b5c277ddc3caa40d5a87b6444544d"
+    },
+    {
+      "name": "button-disabled",
+      "path": "assets/ui/kit-v2/button-disabled.png",
+      "width": 20,
+      "height": 18,
+      "colors": 4,
+      "slice_ltrb": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "sha256": "e2de570c5e4fee0ffd9c139956ffad8c86dbcd8fdaaff0054ab39b6585f68090"
+    },
+    {
+      "name": "button-primary-normal",
+      "path": "assets/ui/kit-v2/button-primary-normal.png",
+      "width": 20,
+      "height": 18,
+      "colors": 6,
+      "slice_ltrb": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "sha256": "c1602058fa68b93265fd1a94a47d9d1707fd273ed8eeb4dab067cc73d753e841"
+    },
+    {
+      "name": "button-primary-hover",
+      "path": "assets/ui/kit-v2/button-primary-hover.png",
+      "width": 20,
+      "height": 18,
+      "colors": 6,
+      "slice_ltrb": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "sha256": "eb1bd0054ae94ec0d0ed38d5f5b2b6e5dbdfb5e6a18dff42f2445a3ade75727f"
+    },
+    {
+      "name": "button-primary-pressed",
+      "path": "assets/ui/kit-v2/button-primary-pressed.png",
+      "width": 20,
+      "height": 18,
+      "colors": 6,
+      "slice_ltrb": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "sha256": "97fe31757334a8b5296d1a5c4b31acf1d3d66d0b4490b2e6ad845580cb12c845"
+    },
+    {
+      "name": "slot-normal",
+      "path": "assets/ui/kit-v2/slot-normal.png",
+      "width": 16,
+      "height": 16,
+      "colors": 5,
+      "slice_ltrb": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "sha256": "b00efcba9aa5df1b006584971572f2b0c1fc3c15ca565f82db7eb0a2d471d186"
+    },
+    {
+      "name": "slot-selected",
+      "path": "assets/ui/kit-v2/slot-selected.png",
+      "width": 16,
+      "height": 16,
+      "colors": 6,
+      "slice_ltrb": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "sha256": "f868dbbd7f4d9343569e26bd8bbcd39fdcdae0fafa524fe9eec5aafb6d598dff"
+    },
+    {
+      "name": "slot-locked",
+      "path": "assets/ui/kit-v2/slot-locked.png",
+      "width": 16,
+      "height": 16,
+      "colors": 4,
+      "slice_ltrb": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "sha256": "f715259af39b7c69602613161ab4cd9b51d84716c39fa82e898209bf74af0ffb"
+    },
+    {
+      "name": "tag-daily",
+      "path": "assets/ui/kit-v2/tag-daily.png",
+      "width": 12,
+      "height": 12,
+      "colors": 4,
+      "slice_ltrb": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "sha256": "25eef144f86e6b5dac3d6f1778512e90027eb31b431a94d634d3fb2fc8560d9f"
+    },
+    {
+      "name": "tag-special",
+      "path": "assets/ui/kit-v2/tag-special.png",
+      "width": 12,
+      "height": 12,
+      "colors": 4,
+      "slice_ltrb": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "sha256": "e4e16ad1ff0711b213de179be3e3cdc70615b42cf3c1d0948e5b0a4fbabec0de"
+    },
+    {
+      "name": "tag-rank",
+      "path": "assets/ui/kit-v2/tag-rank.png",
+      "width": 12,
+      "height": 12,
+      "colors": 4,
+      "slice_ltrb": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "sha256": "91a69373ff1be8a7974322b44793650ce7b08dc921c1cb56316d7e608085b969"
+    },
+    {
+      "name": "tag-gold",
+      "path": "assets/ui/kit-v2/tag-gold.png",
+      "width": 12,
+      "height": 12,
+      "colors": 3,
+      "slice_ltrb": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "sha256": "84f6a3decaf73d063bde7368fe05d0caf4d5efb5f894adc8b174c228cb2c66d5"
+    },
+    {
+      "name": "progress-track",
+      "path": "assets/ui/kit-v2/progress-track.png",
+      "width": 12,
+      "height": 8,
+      "colors": 3,
+      "slice_ltrb": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "sha256": "2c3dca07790652338046b913401c6e3a679a3553e06845fe580a1f9b8e8dfc8b"
+    },
+    {
+      "name": "progress-fill",
+      "path": "assets/ui/kit-v2/progress-fill.png",
+      "width": 12,
+      "height": 8,
+      "colors": 4,
+      "slice_ltrb": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "sha256": "53a939254d81d628ccbd8e8666fe0b5590f9c6b7b3ce67f4d147ae6cfd0bdf9b"
+    },
+    {
+      "name": "scrollbar-track",
+      "path": "assets/ui/kit-v2/scrollbar-track.png",
+      "width": 8,
+      "height": 12,
+      "colors": 3,
+      "slice_ltrb": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "sha256": "1031ec900d203df47d5d9af0327a0bb8305cdb4baa92bd9b14eff6eb2148581b"
+    },
+    {
+      "name": "scrollbar-thumb",
+      "path": "assets/ui/kit-v2/scrollbar-thumb.png",
+      "width": 8,
+      "height": 12,
+      "colors": 4,
+      "slice_ltrb": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "sha256": "dfac94d67dc02ec00225dd0cae031ad2e6be7419f255d264ec5af98309ef7d2a"
+    },
+    {
+      "name": "divider",
+      "path": "assets/ui/kit-v2/divider.png",
+      "width": 16,
+      "height": 5,
+      "colors": 3,
+      "slice_ltrb": [
+        6,
+        0,
+        6,
+        0
+      ],
+      "sha256": "acfa5183ebe91db8a7f36e124d187a19464030b737bbf992dc88a0f920c657c9"
+    },
+    {
+      "name": "sparkle",
+      "path": "assets/ui/kit-v2/sparkle.png",
+      "width": 9,
+      "height": 9,
+      "colors": 4,
+      "slice_ltrb": null,
+      "sha256": "f1acf9d1b94bbe58b36cb7efaf643ee12a10e43f883cef0371d08989bcc5eeed"
+    },
+    {
+      "name": "glyph-coin",
+      "path": "assets/ui/kit-v2/glyph-coin.png",
+      "width": 10,
+      "height": 10,
+      "colors": 4,
+      "slice_ltrb": null,
+      "sha256": "a3af3bcd8d636e115737164268ae6b5788188a6a4a4340650173ed32e7e5a28d"
+    },
+    {
+      "name": "glyph-hourglass",
+      "path": "assets/ui/kit-v2/glyph-hourglass.png",
+      "width": 8,
+      "height": 9,
+      "colors": 3,
+      "slice_ltrb": null,
+      "sha256": "7573ea7e8cd997ee2c6e3caa55b716b55ef40f966219d14aa33a4f9be8f6d9bb"
+    },
+    {
+      "name": "glyph-star",
+      "path": "assets/ui/kit-v2/glyph-star.png",
+      "width": 9,
+      "height": 9,
+      "colors": 4,
+      "slice_ltrb": null,
+      "sha256": "fee341d399997b8c6f976f74541f38146269fa9f65f3d36080995304ac905b34"
+    },
+    {
+      "name": "glyph-star-empty",
+      "path": "assets/ui/kit-v2/glyph-star-empty.png",
+      "width": 9,
+      "height": 9,
+      "colors": 3,
+      "slice_ltrb": null,
+      "sha256": "2f6a8e1568ddcbf3534a58a1495b8515db52a0252f64204ffbbbbe96b5ae3bf0"
+    }
+  ]
+}

@@ -45,11 +45,24 @@ pub fn no_modal_at_frame_start(guard: Res<ModalFrame>) -> bool {
 #[derive(Resource, Default)]
 pub struct Host {
     pub legacy: bool,
+    /// Kit-v2 screen shown in the upper 360px (Home keeps the D01 host content).
+    pub screen: HostScreen,
+    pub order_filter: usize,
+    pub order: Option<crate::screens::OrderId>,
+    pub family: usize,
+    pub weapon: Option<usize>,
+}
+#[derive(Clone, Copy, PartialEq, Eq, Debug, Default)]
+pub enum HostScreen {
+    #[default]
+    Home,
+    Orders,
+    Collection,
 }
 #[derive(Component)]
 pub(crate) struct HostRoot;
 #[derive(Component)]
-struct HostStatus;
+pub(crate) struct HostStatus;
 #[derive(Component)]
 pub struct AmbientStatus;
 #[derive(Component, Clone, Copy, PartialEq, Eq)]
@@ -74,19 +87,26 @@ pub fn setup(mut c: Commands) {
         WorldCamera,
     ));
     c.spawn((HostRoot, Visibility::Hidden, GlobalZIndex(30), Node { display:Display::None, position_type:PositionType::Absolute,
-        left:px(0),top:px(0),width:percent(100),height:px(360), padding:UiRect::all(px(20)),
-        flex_direction:FlexDirection::Column,row_gap:px(16), overflow:Overflow::clip(),..default() },
+        left:px(0),top:px(0),width:percent(100),height:px(360),
+        flex_direction:FlexDirection::Column, overflow:Overflow::clip(),..default() },
         BackgroundColor(forge_ui::SURFACE),bevy::input_focus::tab_navigation::TabGroup::new(0)))
-        .with_children(|p| {
+        .with_children(|root| {
+            root.spawn(crate::screens::page());
+            root.spawn((crate::screens::HomePage, Node { width:percent(100),height:percent(100), padding:UiRect::all(px(20)),
+                flex_direction:FlexDirection::Column,row_gap:px(16),..default() })).with_children(|p| {
             p.spawn(forge_ui::text("Workshop · D01 layout validation", 24.));
             p.spawn(forge_ui::text("The workshop below stays live. This is the management host, not the finished Dashboard.",16.));
             p.spawn((HostStatus, forge_ui::text("",16.)));
             p.spawn(Node {column_gap:px(12),..default()}).with_children(|p| {
+                let lang = crate::text::Lang::from_env();
+                forge_ui::button(p,crate::text::ORDERS.get(lang),crate::screens::Nav::Screen(HostScreen::Orders));
+                forge_ui::button(p,crate::text::COLLECTION.get(lang),crate::screens::Nav::Screen(HostScreen::Collection));
                 forge_ui::button(p,"Existing workshop controls",Action::Legacy);
                 forge_ui::button(p,"Check modal focus",Action::Modal);
                 forge_ui::button(p,"Close [Esc]",Action::Close);
             });
             p.spawn(forge_ui::text("F8: 10-second click-through · Ctrl+Alt+F8: recovery · Drag the handle to move",14.));
+            });
         });
 }
 pub fn layout(
@@ -230,7 +250,7 @@ fn activity_label(s: &forge_core::State) -> String {
     }
 }
 #[allow(clippy::too_many_arguments)]
-fn update(
+pub fn update_host(
     title: Res<TitleScreen>,
     v: Res<Village>,
     d: Res<Desktop>,
@@ -309,19 +329,41 @@ fn activate(
         _ => {}
     }
 }
+#[allow(clippy::too_many_arguments)]
 pub fn keyboard(
     keys: Res<ButtonInput<KeyCode>>,
     title: Res<TitleScreen>,
     dialog: Res<forge_ui::DialogState>,
     mut d: ResMut<Desktop>,
-    host: Res<Host>,
-    v: Res<Village>,
+    mut host: ResMut<Host>,
+    mut v: ResMut<Village>,
+    mut spaces: ResMut<spaces::Spaces>,
+    mut was_expanded: Local<bool>,
 ) {
+    // Expanded state as it was when this system last ran, so an Escape that another system used
+    // to collapse the window this frame does not reopen it here.
+    let previous = std::mem::replace(&mut *was_expanded, d.shell.expanded);
     if title.active || dialog.is_open() {
         return;
     }
+    if keys.just_pressed(KeyCode::Escape) && !d.shell.expanded && !previous {
+        // Escape opens the menu from the collapsed workshop (same as Tab / Manage).
+        host.legacy = false;
+        d.shell.recover();
+        d.shell.expanded = true;
+        v.nav = Default::default();
+        spaces.enter(Space::Workshop);
+        *was_expanded = true;
+        return;
+    }
     if keys.just_pressed(KeyCode::Escape) && shown(&title, &v, &d, &host) {
-        d.shell.expanded = false;
+        // A kit screen steps back to the host first; Esc on the host collapses the window.
+        if host.screen != HostScreen::Home {
+            host.screen = HostScreen::Home;
+        } else {
+            d.shell.expanded = false;
+        }
+        *was_expanded = d.shell.expanded;
     }
 }
 #[allow(clippy::too_many_arguments)]
@@ -415,7 +457,7 @@ pub fn plugin(app: &mut App) {
             Update,
             (
                 layout,
-                update,
+                update_host,
                 keyboard.run_if(no_modal_at_frame_start),
                 crate::npc::render_layers,
                 drag,
@@ -505,5 +547,50 @@ mod tests {
             );
             assert_eq!(expanded.origin.y - compact.origin.y, 360.);
         }
+    }
+    #[test]
+    fn escape_opens_steps_back_then_collapses() {
+        let mut app = App::new();
+        app.insert_resource(TitleScreen::default())
+            .init_resource::<forge_ui::DialogState>()
+            .insert_resource(Desktop::new(false, false))
+            .init_resource::<Host>()
+            .init_resource::<Village>()
+            .init_resource::<spaces::Spaces>()
+            .init_resource::<ButtonInput<KeyCode>>()
+            .add_systems(Update, keyboard);
+        let esc = |app: &mut App| {
+            let mut keys = app.world_mut().resource_mut::<ButtonInput<KeyCode>>();
+            keys.press(KeyCode::Escape);
+            app.update();
+            let mut keys = app.world_mut().resource_mut::<ButtonInput<KeyCode>>();
+            keys.release(KeyCode::Escape);
+            keys.clear();
+            app.update();
+        };
+        app.update();
+        esc(&mut app);
+        assert!(
+            app.world().resource::<Desktop>().shell.expanded,
+            "Escape opens the menu"
+        );
+        app.world_mut().resource_mut::<Host>().screen = HostScreen::Orders;
+        esc(&mut app);
+        assert!(app.world().resource::<Desktop>().shell.expanded);
+        assert_eq!(
+            app.world().resource::<Host>().screen,
+            HostScreen::Home,
+            "Orders steps back"
+        );
+        esc(&mut app);
+        assert!(
+            !app.world().resource::<Desktop>().shell.expanded,
+            "host collapses"
+        );
+        esc(&mut app);
+        assert!(
+            app.world().resource::<Desktop>().shell.expanded,
+            "and opens again"
+        );
     }
 }
