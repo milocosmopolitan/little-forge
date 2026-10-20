@@ -141,17 +141,100 @@ fn smoke_matrix_has_no_invariant_failures() {
 }
 
 #[test]
+fn ore_dagger_runaway_baseline_is_unchanged() {
+    // Historical regression baseline (recorded on main 584a58d, before the crafting engine):
+    // buy ore → dagger → visitor sale compounds without limit. Changing these numbers is a
+    // deliberate balance change and must update docs/system/ECONOMY_SIM.md with it.
+    let sc = Scenario::from_json(include_str!(
+        "../scenarios/baseline-ore-dagger-runaway.json"
+    ))
+    .unwrap();
+    let r = run(&sc).unwrap();
+    assert!(r.failures.is_empty(), "{:?}", r.failures);
+    assert_eq!(
+        (r.end.gold, r.end.crafted, r.end.sold),
+        (28_446, 3_564, 3_560)
+    );
+    assert_eq!(r.ledger.get("sale"), Some(&42_720));
+}
+
+#[test]
+fn crafting_chain_makes_goods_from_bought_materials() {
+    let sc = Scenario::from_json(include_str!("../scenarios/chain-day.json")).unwrap();
+    let r = run(&sc).unwrap();
+    assert!(r.failures.is_empty(), "{:?}", r.failures);
+    assert_eq!(r.end.chef, "Delivered");
+    for item in [
+        "iron_ingot",
+        "straight_blade",
+        "wooden_handle",
+        "kitchen_knife",
+        "wooden_club",
+        "wooden_pole",
+        "wooden_staff",
+        "frying_pan",
+    ] {
+        assert!(
+            r.produced.get(item).copied().unwrap_or(0) > 0,
+            "{item} never produced"
+        );
+    }
+    assert!(
+        r.ledger.get("cmd:Buy").copied().unwrap_or(0) < 0,
+        "materials were bought"
+    );
+}
+
+#[test]
+fn vendor_stock_runs_out_without_breaking_invariants() {
+    let sc = Scenario::from_json(include_str!("../scenarios/chain-stock-out.json")).unwrap();
+    let r = run(&sc).unwrap();
+    assert!(r.failures.is_empty(), "{:?}", r.failures);
+    // Pine resin (farm, 30) or ash logs (carpenter, 40) run out; production then stops cleanly.
+    let out = ["farm/pine_resin", "carpenter/ash_log"]
+        .iter()
+        .any(|k| r.end_vendor_stock.get(*k) == Some(&0));
+    assert!(out, "{:?}", r.end_vendor_stock);
+    assert!(
+        r.commands
+            .get("Buy")
+            .is_some_and(|t| t.refused > 0 || t.ok > 0)
+    );
+}
+
+#[test]
+fn zero_gold_without_purchases_still_finishes_the_chef_order() {
+    let mut sc = Scenario::from_json(include_str!("../scenarios/chain-day.json")).unwrap();
+    sc.duration_secs = 4 * 3600;
+    if let Driver::Player(p) = &mut sc.driver {
+        p.buy_materials = false;
+        p.buy_ore = false;
+        p.make.clear();
+    }
+    let r = run(&sc).unwrap();
+    assert!(r.failures.is_empty(), "{:?}", r.failures);
+    assert_eq!(
+        r.end.chef, "Delivered",
+        "the new-game kit covers the first knife"
+    );
+}
+
+#[test]
 fn bundled_scenarios_load() {
     for text in [
         include_str!("../scenarios/craft-and-sale.json"),
         include_str!("../scenarios/player-day.json"),
         include_str!("../scenarios/offline-8h.json"),
+        include_str!("../scenarios/baseline-ore-dagger-runaway.json"),
+        include_str!("../scenarios/chain-day.json"),
+        include_str!("../scenarios/chain-stock-out.json"),
     ] {
         Scenario::from_json(text).unwrap();
     }
     for text in [
         include_str!("../scenarios/matrix-smoke.json"),
         include_str!("../scenarios/matrix-v0.json"),
+        include_str!("../scenarios/matrix-crafting.json"),
     ] {
         expand(&serde_json::from_str(text).unwrap()).unwrap();
     }

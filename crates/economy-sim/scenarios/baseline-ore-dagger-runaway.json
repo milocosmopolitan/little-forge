@@ -1,0 +1,8 @@
+{
+  "name": "baseline-ore-dagger-runaway",
+  "seed": 42,
+  "duration_secs": 86400,
+  "sample_every_secs": 3600,
+  "start": { "preset": "legacy-dagger" },
+  "driver": { "kind": "player", "orders": false, "research": false, "buy_materials": false, "act_every_secs": 1 }
+}
