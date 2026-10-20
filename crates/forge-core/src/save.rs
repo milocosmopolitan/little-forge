@@ -99,7 +99,11 @@ fn migrate_inventory_v8(value: &mut serde_json::Value) -> Result<(), ()> {
             .enumerate()
             {
                 let left = stock.get(i).map_or(Ok(0), count)?;
-                vendor.insert(crate::crafting::stock_key(loc, id), left);
+                // Remaining old stock carries over only if that offer is still finite.
+                let key = crate::crafting::stock_key(loc, id);
+                if vendor.contains_key(&key) {
+                    vendor.insert(key, left);
+                }
                 if let Some(slot) = stock.get_mut(i) {
                     *slot = 0.into();
                 }

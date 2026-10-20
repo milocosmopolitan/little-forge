@@ -250,7 +250,7 @@ mod tests {
                 s.stock(crate::items::ASH_LOG),
                 s.vendor_stock(Location::Carpenter, crate::items::ASH_LOG)
             ),
-            (94, logs + 2, Some(38))
+            (94, logs + 2, Some(u32::MAX))
         );
         let dir = std::env::temp_dir().join(format!("village-save-{}", std::process::id()));
         let mut saved = Save::new(s, 100);
