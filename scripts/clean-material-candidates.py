@@ -1,10 +1,15 @@
 import json, os, sys
 from PIL import Image
-SRC = "assets/items/materials/source/spritefusion-p0"
-OUT = "assets/items/materials/icons"
+import argparse
+_a = argparse.ArgumentParser(description="Clean Sprite Fusion picks into 32x32 icons and rebuild the atlas.")
+_a.add_argument("--set", default="materials", choices=["materials", "parts"])
+_set = _a.parse_args().set
+ROOT = f"assets/items/{_set}"
+SRC = f"{ROOT}/source/spritefusion-p0"
+OUT = f"{ROOT}/icons"
 GROUND = 30            # last opaque row for resting families
 REST = {"ore","ingot","log","leather","fuel"}
-cat = json.load(open("assets/items/materials/material-catalog.json"))
+cat = json.load(open(f"{ROOT}/" + ("material-catalog.json" if _set == "materials" else "parts-catalog.json")))
 items = {i["id"]: i for i in cat["items"]}
 def kmeans(pts, k, it=30):
     pts.sort(key=lambda t: -t[1])
@@ -25,7 +30,7 @@ def kmeans(pts, k, it=30):
     img = Image.new("P", (1,1)); flat = [v for c in cents for v in c]
     img.putpalette(flat + flat[:3]*(256-len(cents))); return img
 import os; os.makedirs(OUT, exist_ok=True)
-atlas = Image.new("RGBA", (256, 192))
+atlas = Image.new("RGBA", tuple(cat["atlas_size"]))
 report = []
 for id in sorted(f[:-4] for f in os.listdir(SRC) if f.endswith(".png")):
     im = Image.open(f"{SRC}/{id}.png").convert("RGBA")
@@ -64,7 +69,7 @@ for id in sorted(f[:-4] for f in os.listdir(SRC) if f.endswith(".png")):
         crop = crop.crop((0, 1, W, H) if top else (0, 0, W, H - 1))
     w, h = crop.size
     nx = (32 - w) // 2
-    ny = GROUND + 1 - h if items[id]["family"] in REST else (32 - h) // 2
+    ny = GROUND + 1 - h if (items[id].get("rest") or items[id]["family"] in REST) else (32 - h) // 2
     ny = max(ny, 0)
     final = Image.new("RGBA", (32, 32)); final.paste(crop, (nx, ny))
     final.save(f"{OUT}/{id}.png")
@@ -77,6 +82,6 @@ atlas = Image.new("RGBA", tuple(cat["atlas_size"]))
 for f in sorted(os.listdir(OUT)):
     if f[:-4] in items:
         c, r = items[f[:-4]]["cell"]; atlas.paste(Image.open(f"{OUT}/{f}"), (32 * c, 32 * r))
-atlas.save("assets/items/materials/materials-v1.png")
+atlas.save(f"{ROOT}/{_set}-v1.png")
 for r in report: print(*r)
 

@@ -1,0 +1,439 @@
+{
+ "version": "0.3",
+ "doc": "docs/design/CRAFTING_PARTS_V1.md",
+ "cell": [
+  32,
+  32
+ ],
+ "atlas_cells": [
+  8,
+  4
+ ],
+ "atlas_size": [
+  256,
+  128
+ ],
+ "content_box": [
+  1,
+  1,
+  30,
+  30
+ ],
+ "light": "top-left",
+ "max_colors_per_icon": 16,
+ "base_materials": {
+  "wood": "ash",
+  "metal": "iron",
+  "leather": "deer"
+ },
+ "material_ramps": "assets/items/materials/material-catalog.json",
+ "items": [
+  {
+   "id": "wooden_pole",
+   "name_ko": "봉",
+   "name_en": "Wooden Pole",
+   "family": "wood",
+   "recipe": "log x1",
+   "uses": "staff, spear (short); pike, halberd (long)",
+   "tier": "P0",
+   "cell": [
+    0,
+    0
+   ],
+   "base_material": "ash",
+   "cue": "long straight round pole lying diagonally, smooth planed ash, pale cut ends; one icon for both lengths, length is an item attribute",
+   "yield": 1,
+   "attributes": {
+    "length": [
+     "short",
+     "long"
+    ]
+   }
+  },
+  {
+   "id": "wooden_plank",
+   "name_ko": "판자",
+   "name_en": "Wooden Plank",
+   "family": "wood",
+   "recipe": "log x1",
+   "uses": "shield, furniture",
+   "tier": "P0",
+   "cell": [
+    1,
+    0
+   ],
+   "base_material": "ash",
+   "cue": "flat rectangular board in 3/4 view, visible end grain and long grain lines",
+   "yield": 2,
+   "rest": true
+  },
+  {
+   "id": "wooden_rod",
+   "name_ko": "짧은 막대",
+   "name_en": "Wooden Rod",
+   "family": "wood",
+   "recipe": "wood_branch x1",
+   "uses": "small tools, hand axe",
+   "tier": "P3",
+   "cell": [
+    2,
+    0
+   ],
+   "base_material": "ash",
+   "cue": "short smoothed round rod, about half the pole length",
+   "yield": 2,
+   "derived_from": "wooden_pole"
+  },
+  {
+   "id": "arrow_shaft",
+   "name_ko": "화살대",
+   "name_en": "Arrow Shaft",
+   "family": "wood",
+   "recipe": "wood_branch x1",
+   "uses": "arrows",
+   "tier": "P3",
+   "cell": [
+    3,
+    0
+   ],
+   "base_material": "ash",
+   "cue": "thin straight shaft with a nock slit at one end, no head, no fletching",
+   "yield": 3,
+   "derived_from": "wooden_pole"
+  },
+  {
+   "id": "wooden_handle",
+   "name_ko": "나무 손잡이",
+   "name_en": "Wooden Handle",
+   "family": "wood",
+   "recipe": "log x1 + pine_resin x1",
+   "uses": "knife, sickle, saw",
+   "tier": "P0",
+   "cell": [
+    4,
+    0
+   ],
+   "base_material": "ash",
+   "cue": "short oval tool handle with a slot for a blade tang at one end and a rounded butt",
+   "yield": 1
+  },
+  {
+   "id": "leather_wrapped_handle",
+   "name_ko": "가죽 감싼 손잡이",
+   "name_en": "Leather-wrapped Handle",
+   "family": "wood",
+   "recipe": "log x1 + pine_resin x1 + leather x1",
+   "uses": "dagger, fine tools",
+   "tier": "P3",
+   "cell": [
+    5,
+    0
+   ],
+   "base_material": "ash+deer",
+   "cue": "wooden handle with a spiral leather wrap over the grip",
+   "yield": 1,
+   "derived_from": "wooden_handle"
+  },
+  {
+   "id": "shield_core",
+   "name_ko": "방패 몸체",
+   "name_en": "Shield Core",
+   "family": "wood",
+   "recipe": "wooden_plank x2",
+   "uses": "wooden shield",
+   "tier": "P1",
+   "cell": [
+    6,
+    0
+   ],
+   "base_material": "ash",
+   "cue": "round board made of joined planks seen face-on, no boss, no rim",
+   "yield": 1,
+   "status": "on hold",
+   "note": "wooden shield shape not decided (likely square, other shapes possible); no icon until then"
+  },
+  {
+   "id": "straight_blade",
+   "name_ko": "칼날",
+   "name_en": "Straight Blade",
+   "family": "metal",
+   "recipe": "iron_ingot x1",
+   "uses": "kitchen knife, dagger, chisel",
+   "tier": "P0",
+   "cell": [
+    0,
+    1
+   ],
+   "base_material": "iron",
+   "cue": "single straight knife blade with a narrow tang, no handle",
+   "yield": 1
+  },
+  {
+   "id": "wide_blade",
+   "name_ko": "넓은 칼날",
+   "name_en": "Wide Blade",
+   "family": "metal",
+   "recipe": "iron_ingot x1",
+   "uses": "cleaver, fleshing knife",
+   "tier": "P2",
+   "cell": [
+    1,
+    1
+   ],
+   "base_material": "iron",
+   "cue": "broad rectangular cleaver-style blade with a tang, no handle",
+   "yield": 1
+  },
+  {
+   "id": "awl_point",
+   "name_ko": "송곳날",
+   "name_en": "Awl Point",
+   "family": "metal",
+   "recipe": "iron_ingot x1",
+   "uses": "leather awl, punch",
+   "tier": "P2",
+   "cell": [
+    2,
+    1
+   ],
+   "base_material": "iron",
+   "cue": "thin tapering spike with a tang",
+   "yield": 1
+  },
+  {
+   "id": "axe_head",
+   "name_ko": "도끼날",
+   "name_en": "Axe Head",
+   "family": "metal",
+   "recipe": "iron_ingot x2",
+   "uses": "woodcutting axe, halberd",
+   "tier": "P0",
+   "cell": [
+    3,
+    1
+   ],
+   "base_material": "iron",
+   "cue": "axe head with a round eye (socket hole) and a curved bit, side view, no haft",
+   "yield": 1
+  },
+  {
+   "id": "hoe_head",
+   "name_ko": "괭이날",
+   "name_en": "Hoe Head",
+   "family": "metal",
+   "recipe": "iron_ingot x1",
+   "uses": "farming hoe",
+   "tier": "P1",
+   "cell": [
+    4,
+    1
+   ],
+   "base_material": "iron",
+   "cue": "flat hoe blade with a socket collar, no handle",
+   "yield": 1
+  },
+  {
+   "id": "saw_blade",
+   "name_ko": "톱날",
+   "name_en": "Saw Blade",
+   "family": "metal",
+   "recipe": "iron_ingot x1",
+   "uses": "hand saw",
+   "tier": "P2",
+   "cell": [
+    5,
+    1
+   ],
+   "base_material": "iron",
+   "cue": "long tapering saw blade with a row of teeth and a tang",
+   "yield": 1
+  },
+  {
+   "id": "sickle_blade",
+   "name_ko": "낫날",
+   "name_en": "Sickle Blade",
+   "family": "metal",
+   "recipe": "iron_ingot x1",
+   "uses": "sickle",
+   "tier": "P1",
+   "cell": [
+    6,
+    1
+   ],
+   "base_material": "iron",
+   "cue": "crescent-curved sickle blade with a tang",
+   "yield": 1
+  },
+  {
+   "id": "arrowhead",
+   "name_ko": "화살촉",
+   "name_en": "Arrowhead",
+   "family": "metal",
+   "recipe": "iron_ingot x1",
+   "uses": "arrows",
+   "tier": "P2",
+   "cell": [
+    7,
+    1
+   ],
+   "base_material": "iron",
+   "cue": "small leaf/barbed arrowhead with a short socket; icon shows a small group",
+   "yield": 6
+  },
+  {
+   "id": "spearhead",
+   "name_ko": "창촉",
+   "name_en": "Spearhead",
+   "family": "metal",
+   "recipe": "iron_ingot x1",
+   "uses": "spear, pike, halberd",
+   "tier": "P0",
+   "cell": [
+    0,
+    2
+   ],
+   "base_material": "iron",
+   "cue": "leaf-shaped blade with a raised midrib running into a round tapering socket with a rivet hole",
+   "yield": 1
+  },
+  {
+   "id": "shear_blade",
+   "name_ko": "가윗날",
+   "name_en": "Shear Blade",
+   "family": "metal",
+   "recipe": "iron_ingot x1",
+   "uses": "shears",
+   "tier": "P2",
+   "cell": [
+    1,
+    2
+   ],
+   "base_material": "iron",
+   "cue": "single shear blade with a pivot hole",
+   "yield": 2
+  },
+  {
+   "id": "metal_rivet",
+   "name_ko": "리벳",
+   "name_en": "Metal Rivet",
+   "family": "metal",
+   "recipe": "iron|bronze ingot x1",
+   "uses": "shield, shears, tools",
+   "tier": "P0",
+   "cell": [
+    2,
+    2
+   ],
+   "base_material": "iron",
+   "cue": "small group of rivets: domed heads on short shanks",
+   "yield": 8,
+   "rest": true
+  },
+  {
+   "id": "metal_fitting",
+   "name_ko": "금속 결합구",
+   "name_en": "Metal Fitting",
+   "family": "metal",
+   "recipe": "iron|bronze|brass ingot x1",
+   "uses": "handle and haft reinforcement",
+   "tier": "P2",
+   "cell": [
+    3,
+    2
+   ],
+   "base_material": "iron",
+   "cue": "short metal ferrule/collar ring with a rivet hole",
+   "yield": 1
+  },
+  {
+   "id": "shield_boss",
+   "name_ko": "방패 보스",
+   "name_en": "Shield Boss",
+   "family": "metal",
+   "recipe": "iron|bronze ingot x1",
+   "uses": "reinforced shield",
+   "tier": "P3",
+   "cell": [
+    4,
+    2
+   ],
+   "base_material": "iron",
+   "cue": "domed round boss with a flat rivet flange",
+   "yield": 1,
+   "rest": true
+  },
+  {
+   "id": "leather_strip",
+   "name_ko": "가죽 끈",
+   "name_en": "Leather Strip",
+   "family": "leather",
+   "recipe": "leather x1",
+   "uses": "shield, binding",
+   "tier": "P0",
+   "cell": [
+    0,
+    3
+   ],
+   "base_material": "deer",
+   "cue": "coiled thin leather thong",
+   "yield": 3,
+   "rest": true
+  },
+  {
+   "id": "leather_grip",
+   "name_ko": "가죽 그립",
+   "name_en": "Leather Grip",
+   "family": "leather",
+   "recipe": "leather x1 + pine_resin x1",
+   "uses": "handle finish",
+   "tier": "P3",
+   "cell": [
+    1,
+    3
+   ],
+   "base_material": "deer",
+   "cue": "short tube of wound leather wrap, open at both ends",
+   "yield": 1,
+   "derived_from": "wooden_handle"
+  },
+  {
+   "id": "leather_strap",
+   "name_ko": "가죽 스트랩",
+   "name_en": "Leather Strap",
+   "family": "leather",
+   "recipe": "leather x1",
+   "uses": "shield handle",
+   "tier": "P3",
+   "cell": [
+    2,
+    3
+   ],
+   "base_material": "deer",
+   "cue": "flat strap with punched holes and a small buckle-less loop",
+   "yield": 2
+  },
+  {
+   "id": "leather_reinforcement",
+   "name_ko": "가죽 보강재",
+   "name_en": "Leather Reinforcement",
+   "family": "leather",
+   "recipe": "leather x1",
+   "uses": "armor, gear",
+   "tier": "P3",
+   "cell": [
+    3,
+    3
+   ],
+   "base_material": "deer",
+   "cue": "thick stitched leather patch with stitched border",
+   "yield": 1,
+   "rest": true
+  }
+ ],
+ "dropped": [
+  {
+   "id": "pan_body",
+   "reason": "frying_pan is made from iron_ingot x2 directly (owner decision 2026-10-19)"
+  }
+ ]
+}
