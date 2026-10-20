@@ -37,6 +37,32 @@
       "mode": "RGB",
       "alpha_extrema": null,
       "sha256": "a5eeefdcefcc15a4a97acd96373396ae52ac8885b237aafcb8db01a3a49b3f39"
+    },
+    {
+      "path": "assets/ui/references/orders-reference.jpg",
+      "status": "owner-visual-reference-not-runtime",
+      "screen": "Orders",
+      "issue": 118,
+      "supplied": "2026-10-20 by the owner (desktop screenshot)",
+      "width": 2174,
+      "height": 1038,
+      "mode": "RGB",
+      "alpha_extrema": null,
+      "sha256": "79b45ec058cb0ccecf700420e3c5bd237af4d5b64327a5e737a17a88bbd7b362",
+      "use": "layout and palette target only; nothing is cut from it. Rights not independently assessed."
+    },
+    {
+      "path": "assets/ui/references/weapon-collection-reference.jpg",
+      "status": "owner-visual-reference-not-runtime",
+      "screen": "Weapon Collection",
+      "issue": 118,
+      "supplied": "2026-10-20 by the owner (desktop screenshot)",
+      "width": 2160,
+      "height": 1026,
+      "mode": "RGB",
+      "alpha_extrema": null,
+      "sha256": "92516b0adfaec02e718ca40a83db64fdf54864ad44f485175fe8ddf2b0f907d3",
+      "use": "layout and palette target only; nothing is cut from it. Rights not independently assessed."
     }
   ]
 }

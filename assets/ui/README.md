@@ -110,3 +110,12 @@ https://github.com/google/fonts/blob/main/ofl/notosanskr/NotoSansKR%5Bwght%5D.tt
 with adjacent `OFL.txt` (SIL Open Font License 1.1). No system font is required.
 `python scripts/validate-ui.py` verifies source hashes and font glyph coverage;
 `--release` rejects candidate art rather than reporting it as finished.
+
+## Kit v2 (#118, candidate)
+
+`kit-v2/` is a hand-drawn timber, parchment and gold kit that follows the owner's Orders and Weapon
+Collection references (`references/orders-reference.jpg`, `references/weapon-collection-reference.jpg`).
+It sits next to v1 and does not replace it until the owner approves.
+
+- Spec, layout fit and open review: [UI_KIT_V2.md](../../docs/design/UI_KIT_V2.md).
+- Scripts: `scripts/draw-ui-kit-v2.py` draws the kit; `scripts/mockup-ui-kit-v2.py` renders the 960×540 mockups.
