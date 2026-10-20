@@ -1,0 +1,9 @@
+{
+  "name": "offline-8h",
+  "seed": 42,
+  "duration_secs": 43200,
+  "sample_every_secs": 1800,
+  "start": { "preset": "fresh" },
+  "driver": { "kind": "player", "act_every_secs": 30 },
+  "offline": [{ "at": 3600, "secs": 28800 }]
+}

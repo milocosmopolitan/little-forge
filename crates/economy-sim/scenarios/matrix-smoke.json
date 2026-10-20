@@ -1,0 +1,16 @@
+{
+  "base": {
+    "name": "smoke",
+    "seed": 0,
+    "duration_secs": 7200,
+    "step_secs": 1,
+    "sample_every_secs": 1800,
+    "driver": { "kind": "player", "act_every_secs": 5 }
+  },
+  "seeds": { "from": 1, "count": 3 },
+  "vary": {
+    "/start/gold": [0, 40],
+    "/driver/buy_ore": [true, false],
+    "/offline": [[], [{ "at": 600, "secs": 3600 }]]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "player-day",
+  "seed": 42,
+  "duration_secs": 86400,
+  "sample_every_secs": 1800,
+  "start": { "preset": "fresh" },
+  "driver": { "kind": "player", "max_queue": 2, "gold_reserve": 0, "act_every_secs": 1 }
+}
