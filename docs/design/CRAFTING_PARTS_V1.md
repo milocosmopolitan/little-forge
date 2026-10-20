@@ -84,6 +84,7 @@ Raw Sprite Fusion picks and their asset ids are in `assets/items/parts/source/sp
 - **Pole length:** `wooden_pole` carries a `length` attribute (`short` | `long`). A spear uses a short pole; a pike and a halberd use a long one. Both lengths share one icon.
 - **Frying pan:** made directly from iron ingot ×2. `pan_body` is removed from the catalog. Its generated candidate was not used.
 - **Shield core:** on hold. The wooden shield is likely square, but other shapes are possible, so the core waits for that decision.
+- **Shield shape (2026-10-20):** square. The finished shield is drawn from planks, a strap and rivets (see [FINISHED_GOODS_V1](FINISHED_GOODS_V1.md)); whether `shield_core` is still needed is open.
 
 ## Open question
 
