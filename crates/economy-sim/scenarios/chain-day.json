@@ -1,0 +1,14 @@
+{
+  "name": "chain-day",
+  "seed": 42,
+  "duration_secs": 86400,
+  "sample_every_secs": 3600,
+  "start": { "preset": "fresh" },
+  "driver": {
+    "kind": "player",
+    "craft": false,
+    "buy_ore": true,
+    "make": ["kitchen_knife", "wooden_club", "wooden_staff", "frying_pan"],
+    "act_every_secs": 5
+  }
+}
