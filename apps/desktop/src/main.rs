@@ -1,4 +1,5 @@
 mod alpha_qa;
+mod crafting_screen;
 mod customer;
 mod d01_qa;
 mod expedition;
@@ -206,6 +207,8 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
                     | "screen-collection"
                     | "screen-collection-en"
                     | "screen-collection-clicks"
+                    | "screen-crafting"
+                    | "screen-crafting-en"
             )
             && !matches!(
                 Options {
@@ -462,6 +465,32 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             .map_err(|e| format!("{e:?}"))?;
         saved.state.smith = Some(forge_core::Smith::Male);
     }
+    if opts
+        .qa
+        .as_deref()
+        .is_some_and(|q| q.starts_with("screen-crafting"))
+    {
+        // Real commands: buy a few supplies, queue a smelt so the queue shows a job.
+        let s = &mut saved.state;
+        s.gold = s.gold.max(40);
+        for c in [
+            Command::Buy {
+                vendor: forge_core::village::Location::Blacksmith,
+                item: forge_core::items::Id::new("iron_ingot"),
+                quantity: 2,
+            },
+            Command::Buy {
+                vendor: forge_core::village::Location::Carpenter,
+                item: forge_core::items::Id::new("pine_resin"),
+                quantity: 1,
+            },
+            Command::QueueRecipe(forge_core::items::Id::new("smelt_iron_ingot")),
+        ] {
+            let id = s.command_id + 1;
+            s.command(id, c).map_err(|e| format!("{e:?}"))?;
+        }
+        s.smith = Some(forge_core::Smith::Male);
+    }
     let mut app = App::new();
     let title_active = !qa
         || opts
@@ -573,7 +602,18 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         screen: match opts.qa.as_deref() {
             Some(q) if q.starts_with("screen-orders") => forge_view::HostScreen::Orders,
             Some(q) if q.starts_with("screen-collection") => forge_view::HostScreen::Collection,
+            Some(q) if q.starts_with("screen-crafting") => forge_view::HostScreen::Crafting,
             _ => forge_view::HostScreen::Home,
+        },
+        // Crafting QA opens on finished goods, where missing parts show their fixes.
+        craft_tab: if opts
+            .qa
+            .as_deref()
+            .is_some_and(|q| q.starts_with("screen-crafting"))
+        {
+            2
+        } else {
+            0
         },
         ..default()
     })

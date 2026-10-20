@@ -1,9 +1,12 @@
 //! Bevy presentation for the village. All money/stock changes go through State::command.
+use crate::text::{self, Lang, T};
 use crate::{Options, Session, title::TitleScreen, window::Desktop};
 use bevy::{prelude::*, ui::RelativeCursorPosition, ui_widgets::Activate};
 use forge_content::village::Registry;
 use forge_core::{
     Command,
+    crafting::{Book, Offer},
+    items::Id,
     village::{Item, Location, Navigation, Screen},
 };
 
@@ -16,7 +19,8 @@ pub struct Village {
     hover: Option<usize>,
     quantity: u32,
     category: usize,
-    selected_item: Option<Item>,
+    /// Selected catalog offer on an offers shelf (#65).
+    selected_offer: Option<Id>,
     pub redraw: bool,
     art_available: bool,
 }
@@ -28,7 +32,7 @@ impl Default for Village {
             hover: None,
             quantity: 1,
             category: 0,
-            selected_item: None,
+            selected_offer: None,
             redraw: true,
             art_available: true,
         }
@@ -54,9 +58,12 @@ pub(crate) enum Action {
     Close,
     Visit(Location),
     Category(usize),
-    SelectItem(Item),
     Quantity(i32),
     Buy(Item, u64),
+    /// A catalog offer on this shop's offers shelf (#65).
+    SelectOffer(Id),
+    /// Buy the selected quantity of a catalog offer; the transaction ID is rendered on the button.
+    BuyOffer(Location, Id, u64),
     /// Carpenter furniture: rack purchase/upgrade with the transaction ID rendered on the button.
     Furniture(Command, u64),
 }
@@ -142,6 +149,74 @@ pub fn setup(
         GlobalZIndex(10),
     ));
 }
+/// What a shop tab shows (#65).
+#[derive(Clone, Debug, PartialEq)]
+pub(crate) enum Shelf {
+    /// A pantry good with its own purchase rule (staples, meals).
+    Pantry(Item),
+    /// Catalog offers from `assets/crafting.json`.
+    Offers(Vec<&'static Offer>),
+    Furniture,
+    /// Honest unavailable state with the reason.
+    Locked(T),
+}
+const NO_TAB: T = T("", "");
+/// Tab names for a shop; an empty name is no tab.
+pub(crate) fn tabs(location: Location) -> [T; 2] {
+    match location {
+        Location::Carpenter => [text::SHOP_MATERIALS, text::SHOP_FURNITURE],
+        Location::Leatherworker => [text::SHOP_MATERIALS, text::SHOP_WORK_GEAR],
+        Location::Farm => [text::SHOP_PROVISIONS, text::SHOP_BASIC],
+        Location::Tavern => [text::SHOP_MEALS, text::SHOP_RECRUIT],
+        _ => [T("둘러보기", "Overview"), NO_TAB],
+    }
+}
+pub(crate) fn offers(location: Location) -> Vec<&'static Offer> {
+    Book::bundled()
+        .vendors
+        .iter()
+        .filter(|v| v.location == location)
+        .flat_map(|v| v.offers.iter())
+        .collect()
+}
+pub(crate) fn shelf(location: Location, category: usize) -> Shelf {
+    match (location, category) {
+        (Location::Carpenter, 0) | (Location::Leatherworker, 0) | (Location::Farm, 1) => {
+            Shelf::Offers(offers(location))
+        }
+        (Location::Carpenter, 1) => Shelf::Furniture,
+        (Location::Farm, 0) => Shelf::Pantry(Item::Staple),
+        (Location::Tavern, 0) => Shelf::Pantry(Item::Meal),
+        _ => Shelf::Locked(locked_copy(location)),
+    }
+}
+fn on_offer_shelf(location: Location, category: usize, item: Id) -> bool {
+    matches!(shelf(location, category), Shelf::Offers(list) if list.iter().any(|o| o.item == item))
+}
+/// The offer the detail panel shows: the selected one if on this shelf, else the first.
+fn current_offer(v: &Village, list: &[&'static Offer]) -> Option<&'static Offer> {
+    v.selected_offer
+        .and_then(|id| list.iter().copied().find(|o| o.item == id))
+        .or_else(|| list.first().copied())
+}
+/// The purchase Enter makes on the current shelf, with the next transaction ID.
+fn enter_purchase(v: &Village, location: Location, next: u64) -> Option<Action> {
+    match shelf(location, v.category) {
+        Shelf::Pantry(item) => Some(Action::Buy(item, next)),
+        Shelf::Offers(list) => {
+            current_offer(v, &list).map(|o| Action::BuyOffer(location, o.item, next))
+        }
+        _ => None,
+    }
+}
+fn pantry_name(l: Lang, item: Item) -> &'static str {
+    match item {
+        Item::Staple => T("기본 식량", "Staple provisions").get(l),
+        Item::Meal => T("따뜻한 식사 (직접 사용)", "Prepared meal (manual use)").get(l),
+        Item::Timber => T("물푸레나무 원목", "Ash log").get(l),
+        Item::Leather => T("사슴 가죽", "Deer leather").get(l),
+    }
+}
 #[allow(clippy::too_many_arguments)]
 pub fn activate(
     event: On<Activate>,
@@ -153,6 +228,7 @@ pub fn activate(
     title: Res<TitleScreen>,
     dialog: Option<Res<forge_ui::DialogState>>,
     mut farmer: Option<ResMut<crate::npc::FarmerPresentation>>,
+    lang: Option<Res<Lang>>,
 ) {
     if title.active || !d.shell.expanded || dialog.as_ref().is_some_and(|d| d.is_open()) {
         return;
@@ -167,6 +243,7 @@ pub fn activate(
         &mut s,
         &opts,
         farmer.as_deref_mut(),
+        lang.as_deref().copied().unwrap_or_default(),
     );
 }
 fn purchase_error(error: &forge_core::Error) -> &'static str {
@@ -191,6 +268,7 @@ fn apply(
     s: &mut Session,
     opts: &Options,
     farmer: Option<&mut crate::npc::FarmerPresentation>,
+    l: Lang,
 ) {
     match a {
         Action::Map => v.nav.map(),
@@ -205,13 +283,38 @@ fn apply(
             v.nav.visit(l);
             v.category = 0;
             v.quantity = 1;
-            v.selected_item = None;
+            v.selected_offer = None;
         }
-        Action::Category(i) => v.category = i,
-        Action::SelectItem(item) => {
-            if v.nav.screen == Screen::Destination(item.vendor()) {
-                v.selected_item = Some(item);
+        Action::Category(i) => {
+            v.category = i;
+            v.quantity = 1;
+        }
+        Action::SelectOffer(item) => {
+            if let Screen::Destination(location) = v.nav.screen
+                && on_offer_shelf(location, v.category, item)
+            {
+                v.selected_offer = Some(item);
                 v.quantity = 1;
+            }
+        }
+        Action::BuyOffer(location, item, id) => {
+            if s.disabled
+                || v.nav.screen != Screen::Destination(location)
+                || !on_offer_shelf(location, v.category, item)
+            {
+                return;
+            }
+            if id > s.save.state.command_id {
+                let command = Command::Buy {
+                    vendor: location,
+                    item,
+                    quantity: v.quantity,
+                };
+                s.status = match s.save.state.command(id, command) {
+                    Ok(()) => text::bought(l, &crate::screens::item_name(l, item), v.quantity),
+                    Err(e) => text::error(l, e).to_owned(),
+                };
+                crate::persist(s, opts);
             }
         }
         Action::Quantity(delta) => v.quantity = (v.quantity as i32 + delta).clamp(1, 99) as u32,
@@ -241,7 +344,8 @@ fn apply(
             if s.disabled || v.nav.screen != Screen::Destination(item.vendor()) {
                 return;
             }
-            if id > s.save.state.command_id && v.category == 0 {
+            let on_shelf = shelf(item.vendor(), v.category) == Shelf::Pantry(item);
+            if id > s.save.state.command_id && on_shelf {
                 let command = Command::Purchase {
                     vendor: item.vendor(),
                     item,
@@ -280,7 +384,9 @@ pub fn input(
     mut spaces: Option<ResMut<crate::spaces::Spaces>>,
     surface: Query<(&RelativeCursorPosition, &ComputedNode), With<MapSurface>>,
     host: Option<Res<crate::forge_view::Host>>,
+    lang: Option<Res<Lang>>,
 ) {
+    let l = lang.as_deref().copied().unwrap_or_default();
     if title.active || dialog.as_ref().is_some_and(|d| d.is_open()) {
         return;
     }
@@ -320,7 +426,7 @@ pub fn input(
         } else {
             Action::Back
         };
-        apply(a, &mut v, &mut d, &mut s, &opts, farmer.as_deref_mut());
+        apply(a, &mut v, &mut d, &mut s, &opts, farmer.as_deref_mut(), l);
         return;
     }
     if v.nav.screen == Screen::Map {
@@ -382,17 +488,18 @@ pub fn input(
             }
         });
         if let Some(i) = visit {
-            let l = v.registry.locations[i].id;
+            let place = v.registry.locations[i].id;
             apply(
-                Action::Visit(l),
+                Action::Visit(place),
                 &mut v,
                 &mut d,
                 &mut s,
                 &opts,
                 farmer.as_deref_mut(),
+                l,
             );
         }
-    } else if let Screen::Destination(l) = v.nav.screen {
+    } else if let Screen::Destination(location) = v.nav.screen {
         if keys.just_pressed(KeyCode::ArrowLeft) || keys.just_pressed(KeyCode::ArrowRight) {
             v.category = 1 - v.category;
             v.redraw = true;
@@ -405,6 +512,7 @@ pub fn input(
                 &mut s,
                 &opts,
                 farmer.as_deref_mut(),
+                l,
             );
         }
         if keys.just_pressed(KeyCode::Equal) {
@@ -415,23 +523,22 @@ pub fn input(
                 &mut s,
                 &opts,
                 farmer.as_deref_mut(),
+                l,
             );
         }
         if keys.just_pressed(KeyCode::Enter)
             && !widget_focused
-            && v.category == 0
-            && let Some(item) = v
-                .selected_item
-                .filter(|i| i.vendor() == l)
-                .or_else(|| Item::ALL.into_iter().find(|i| i.vendor() == l))
+            && let Some(purchase) =
+                enter_purchase(&v, location, s.save.state.command_id.saturating_add(1))
         {
             apply(
-                Action::Buy(item, s.save.state.command_id.saturating_add(1)),
+                purchase,
                 &mut v,
                 &mut d,
                 &mut s,
                 &opts,
                 farmer.as_deref_mut(),
+                l,
             );
         }
     }
@@ -450,6 +557,7 @@ pub fn draw(
     title: Res<TitleScreen>,
     spaces: Option<Res<crate::spaces::Spaces>>,
     host: Res<crate::forge_view::Host>,
+    lang: Option<Res<Lang>>,
 ) {
     // Home content is owned by `spaces::draw` / `lifestyle::draw`; their buttons issue commands
     // on every click, so command/gold/pantry changes must not rebuild (and flash) the shell there.
@@ -553,9 +661,15 @@ pub fn draw(
         parent.spawn((text("", 13.), Status));
         match v.nav.screen {
             Screen::Map => draw_map(parent, &v, &server),
-            Screen::Destination(location) => {
-                draw_destination(parent, location, &v, &s, &server, &assets)
-            }
+            Screen::Destination(location) => draw_destination(
+                parent,
+                location,
+                &v,
+                &s,
+                &server,
+                &assets,
+                lang.as_deref().copied().unwrap_or_default(),
+            ),
             Screen::Home => {}
         }
     });
@@ -636,37 +750,93 @@ fn draw_map(parent: &mut ChildSpawnerCommands, village: &Village, server: &Asset
         });
 }
 
-fn destination_copy(location: Location) -> ([&'static str; 2], &'static str) {
+/// Why a shop tab is not open yet (honest unavailable states).
+fn locked_copy(location: Location) -> T {
     match location {
-        Location::Carpenter => (
-            ["Materials", "Furniture"],
-            "Display racks grow the showroom. Further furniture waits for the carpenter's tool commission.",
-        ),
-        Location::Leatherworker => (
-            ["Materials", "Work gear"],
+        Location::Leatherworker => T(
+            "작업 장비는 가죽세공사의 도구 의뢰를 마쳐야 열립니다. 아직 의뢰가 없습니다.",
             "Work gear requires the leatherworker's tool commission. Commissions are not available yet.",
         ),
-        Location::Farm => (
-            ["Provisions", "Basic materials"],
-            "Fiber supply requires the farmer's tool commission. No seeds or livestock in this milestone.",
-        ),
-        Location::Tavern => (
-            ["Meals", "Recruit"],
+        Location::Tavern => T(
+            "모집은 원정 시스템이 들어오면 열립니다. 아직 모험가를 보낼 수 없습니다.",
             "Recruitment awaits the expedition system. No adventurers can be dispatched yet.",
         ),
-        Location::VillageChief => (
-            ["Village", ""],
+        Location::VillageChief => T(
+            "촌장의 마을 성장과 대화는 아직 없습니다. 받을 보상도 없습니다.",
             "The chief's village progression and dialogue are not implemented yet. No quest reward can be claimed.",
         ),
-        Location::MerchantGuild => (
-            ["Trade", ""],
+        Location::MerchantGuild => T(
+            "상인 길드 의뢰와 교역은 아직 없습니다. 마을 상점은 이용할 수 있습니다.",
             "Guild commissions and trade progression are not implemented yet. Local shops remain available.",
         ),
-        _ => (
-            ["Expeditions", ""],
-            "Expeditions unavailable: recruitment, supplies and destinations are not implemented yet. Return to the village to prepare.",
+        _ => T(
+            "원정은 아직 할 수 없습니다. 모집, 보급, 목적지가 준비되지 않았습니다.",
+            "Expeditions unavailable: recruitment, supplies and destinations are not implemented yet.",
         ),
     }
+}
+fn place_name(l: Lang, location: Location) -> &'static str {
+    match l {
+        Lang::Ko => text::vendor(l, location),
+        Lang::En => location.label(),
+    }
+}
+/// Names of what a catalog item is used for (outputs of recipes that take it).
+fn used_in(l: Lang, item: Id) -> Vec<String> {
+    let mut names: Vec<String> = Book::bundled()
+        .recipes
+        .iter()
+        .filter(|r| r.inputs.iter().any(|i| i.item == item))
+        .map(|r| crate::screens::item_name(l, r.output.item))
+        .collect();
+    names.dedup();
+    names
+}
+fn offer_card(
+    list: &mut ChildSpawnerCommands,
+    server: &AssetServer,
+    l: Lang,
+    offer: &Offer,
+    selected: bool,
+) {
+    let mut card = list.spawn((
+        bevy::ui_widgets::Button,
+        forge_ui::SkinButton,
+        forge_ui::FocusKey(format!("offer:{}", offer.item)),
+        bevy::input_focus::tab_navigation::TabIndex(0),
+        bevy::picking::hover::Hovered::default(),
+        Node {
+            width: px(134),
+            padding: UiRect::all(px(4)),
+            column_gap: px(6),
+            align_items: AlignItems::Center,
+            border: UiRect::all(px(1)),
+            ..default()
+        },
+        BackgroundColor(forge_ui::SURFACE),
+        BorderColor::all(forge_ui::EDGE),
+        Action::SelectOffer(offer.item),
+    ));
+    if selected {
+        card.insert(forge_ui::Selected);
+    }
+    card.with_children(|p| {
+        p.spawn(forge_ui::image(
+            server,
+            &crate::screens::item_icon(offer.item),
+            None,
+            32.,
+            32.,
+        ));
+        p.spawn(text(
+            format!(
+                "{}\n{}",
+                crate::screens::item_name(l, offer.item),
+                text::gold(l, offer.price)
+            ),
+            12.,
+        ));
+    });
 }
 
 fn draw_destination(
@@ -676,144 +846,248 @@ fn draw_destination(
     session: &Session,
     server: &AssetServer,
     assets: &AssetRoot,
+    l: Lang,
 ) {
     let state = &session.save.state;
     let (id, line) = match location {
-        Location::Carpenter => ("carpenter", "Good timber. Tools made to last."),
-        Location::Leatherworker => ("leatherworker", "A little care goes a long way."),
-        Location::Farm => ("farmer", "Fresh provisions for a good day's work."),
-        Location::Tavern => ("chef", "Come in. There is something warm on the stove."),
-        _ => ("", ""),
+        Location::Carpenter => (
+            "carpenter",
+            T(
+                "좋은 목재 있어요. 오래 쓸 연장도요.",
+                "Good timber. Tools made to last.",
+            ),
+        ),
+        Location::Leatherworker => (
+            "leatherworker",
+            T(
+                "조금만 손봐도 오래 갑니다.",
+                "A little care goes a long way.",
+            ),
+        ),
+        Location::Farm => (
+            "farmer",
+            T(
+                "하루 일할 신선한 식량이에요.",
+                "Fresh provisions for a good day's work.",
+            ),
+        ),
+        Location::Tavern => (
+            "chef",
+            T(
+                "어서 와요. 난로에 따뜻한 게 있어요.",
+                "Come in. There is something warm on the stove.",
+            ),
+        ),
+        _ => ("", NO_TAB),
     };
     if !id.is_empty() && assets.0.join(format!("npc/{id}/neutral.png")).is_file() {
-        forge_ui::merchant_header(parent, server, id, location.label(), line);
+        forge_ui::merchant_header(parent, server, id, place_name(l, location), line.get(l));
     } else {
-        parent.spawn(text(location.label(), 24.));
+        parent.spawn(text(place_name(l, location), 24.));
     }
-    let (tabs, locked) = destination_copy(location);
-    let items: Vec<_> = Item::ALL
-        .into_iter()
-        .filter(|i| i.vendor() == location)
-        .collect();
+    let names = tabs(location);
+    let current = shelf(location, village.category);
+    // Full content height: the window scrolls (wheel / focus) instead of squashing the panels.
     parent
         .spawn(Node {
             flex_grow: 1.,
-            min_height: px(0),
+            flex_shrink: 0.,
+            align_items: AlignItems::Start,
             column_gap: px(12),
             ..default()
         })
         .with_children(|row| {
-            row.spawn(forge_ui::panel(percent(18)))
+            row.spawn(forge_ui::panel(percent(16)))
                 .with_children(|side| {
-                    for (i, tab) in tabs.iter().enumerate().filter(|(_, t)| !t.is_empty()) {
+                    for (i, tab) in names.iter().enumerate().filter(|(_, t)| !t.0.is_empty()) {
                         button(
                             side,
-                            format!("{}{}", if village.category == i { "> " } else { "" }, tab),
+                            format!(
+                                "{}{}",
+                                if village.category == i { "> " } else { "" },
+                                tab.get(l)
+                            ),
                             Action::Category(i),
                         );
                     }
-                    side.spawn(text("Esc · Village", 12.));
+                    side.spawn(text(T("Esc · 마을", "Esc · Village").get(l), 12.));
                 });
-            if location == Location::Carpenter && village.category == 1 {
-                draw_furniture(row, state, server);
-                return;
-            }
-            if village.category != 0 || items.is_empty() {
-                row.spawn(forge_ui::panel(percent(82))).with_children(|p| {
-                    p.spawn(text("Not available yet", 20.));
-                    p.spawn(text(locked, 14.));
-                    button(p, "Return to map", Action::Map);
-                });
-                return;
-            }
-            row.spawn(forge_ui::panel(percent(38)))
-                .with_children(|list| {
-                    list.spawn(text("AVAILABLE GOODS", 13.));
-                    for item in &items {
-                        forge_ui::item_button(
-                            list,
-                            server,
-                            item_icon(*item),
-                            item.label(),
-                            item.price(state),
-                            village.selected_item.unwrap_or(items[0]) == *item,
-                            Action::SelectItem(*item),
-                        );
-                    }
-                    list.spawn(text("More goods unlock as the village grows.", 12.));
-                });
-            let item = village
-                .selected_item
-                .filter(|i| items.contains(i))
-                .unwrap_or(items[0]);
-            row.spawn(forge_ui::panel(percent(44)))
-                .with_children(|body| {
-                    body.spawn(Node {
-                        column_gap: px(12),
-                        align_items: AlignItems::Center,
-                        ..default()
-                    })
-                    .with_children(|p| {
-                        forge_ui::icon(p, server, item_icon(item), 40.);
-                        p.spawn(text(item.label(), 18.));
+            match current {
+                Shelf::Furniture => draw_furniture(row, state, server),
+                Shelf::Locked(why) => {
+                    row.spawn(forge_ui::panel(percent(84))).with_children(|p| {
+                        p.spawn(text(text::SHOP_LOCKED.get(l), 20.));
+                        p.spawn(text(why.get(l), 14.));
+                        button(p, text::SHOP_TO_MAP.get(l), Action::Map);
                     });
-                    let owned = match item {
-                        Item::Timber => state.stock(forge_core::items::ASH_LOG),
-                        Item::Leather => state.stock(forge_core::items::DEER_LEATHER),
-                        Item::Staple => state.life.pantry.staples(),
-                        Item::Meal => state
-                            .life
-                            .pantry
-                            .slots
-                            .iter()
-                            .flatten()
-                            .filter(|s| s.food == forge_core::life::Food::Premium)
-                            .map(|s| s.count)
-                            .sum(),
+                }
+                Shelf::Offers(list) => {
+                    let Some(chosen) = current_offer(village, &list) else {
+                        return;
                     };
-                    body.spawn(text(
-                        format!(
-                            "In stock {}   ·   Owned {}",
-                            state.commerce.stock[item.index()],
-                            owned
-                        ),
-                        13.,
-                    ));
-                    let reason = match state.quote(location, item, village.quantity) {
-                        Err(e) => purchase_error(&e).to_owned(),
-                        Ok(p) if p > state.gold => {
-                            format!("Need {p} gold · You have {}", state.gold)
-                        }
-                        Ok(p) => format!("Total: {p} gold"),
-                    };
-                    body.spawn(Node {
-                        column_gap: px(8),
-                        align_items: AlignItems::Center,
-                        ..default()
-                    })
-                    .with_children(|p| {
-                        button(p, "-", Action::Quantity(-1));
-                        p.spawn(text(village.quantity.to_string(), 17.));
-                        button(p, "+", Action::Quantity(1));
+                    row.spawn(forge_ui::panel(percent(52))).with_children(|p| {
+                        p.spawn(text(text::SHOP_GOODS.get(l), 13.));
+                        p.spawn(Node {
+                            flex_wrap: FlexWrap::Wrap,
+                            column_gap: px(6),
+                            row_gap: px(6),
+                            ..default()
+                        })
+                        .with_children(|grid| {
+                            for o in &list {
+                                offer_card(grid, server, l, o, o.item == chosen.item);
+                            }
+                        });
                     });
-                    body.spawn(text(reason, 14.));
-                    button(
-                        body,
-                        "Purchase [Enter]",
-                        Action::Buy(item, state.command_id.saturating_add(1)),
-                    );
-                    body.spawn(text(
-                        if item == Item::Meal {
-                            "A warm meal. Use it from your provisions."
-                        } else if item == Item::Staple {
-                            "Everyday provisions. Your smith eats these when needed."
-                        } else {
-                            "Stored for future recipes and commissions."
-                        },
-                        12.,
-                    ));
-                });
+                    row.spawn(forge_ui::panel(percent(32)))
+                        .with_children(|body| {
+                            offer_detail(body, server, location, chosen, village, state, l)
+                        });
+                }
+                Shelf::Pantry(item) => {
+                    row.spawn(forge_ui::panel(percent(84)))
+                        .with_children(|body| pantry_detail(body, server, item, village, state, l));
+                }
+            }
         });
+}
+
+fn offer_detail(
+    body: &mut ChildSpawnerCommands,
+    server: &AssetServer,
+    location: Location,
+    offer: &Offer,
+    village: &Village,
+    state: &forge_core::State,
+    l: Lang,
+) {
+    body.spawn(Node {
+        column_gap: px(12),
+        align_items: AlignItems::Center,
+        ..default()
+    })
+    .with_children(|p| {
+        p.spawn(forge_ui::image(
+            server,
+            &crate::screens::item_icon(offer.item),
+            None,
+            64.,
+            64.,
+        ));
+        p.spawn(text(crate::screens::item_name(l, offer.item), 18.));
+    });
+    body.spawn(text(
+        text::shop_stock(
+            l,
+            state.stock(offer.item),
+            state.vendor_stock(location, offer.item),
+        ),
+        13.,
+    ));
+    body.spawn(Node {
+        column_gap: px(8),
+        align_items: AlignItems::Center,
+        ..default()
+    })
+    .with_children(|p| {
+        button(p, "-", Action::Quantity(-1));
+        p.spawn(text(village.quantity.to_string(), 17.));
+        button(p, "+", Action::Quantity(1));
+        p.spawn(text(format!("× {}", text::gold(l, offer.price)), 13.));
+    });
+    let reason = match state.quote_buy(location, offer.item, village.quantity) {
+        Err(e) => text::error(l, e).to_owned(),
+        Ok(q) => text::shop_total(l, q.total, state.gold),
+    };
+    body.spawn(text(reason, 14.));
+    button(
+        body,
+        text::SHOP_BUY.get(l),
+        Action::BuyOffer(location, offer.item, state.command_id.saturating_add(1)),
+    );
+    let uses = used_in(l, offer.item);
+    body.spawn(text(
+        if uses.is_empty() {
+            text::SHOP_NOT_USED.get(l).to_string()
+        } else {
+            format!("{}: {}", text::SHOP_USED_IN.get(l), uses.join(", "))
+        },
+        12.,
+    ));
+}
+
+fn pantry_detail(
+    body: &mut ChildSpawnerCommands,
+    server: &AssetServer,
+    item: Item,
+    village: &Village,
+    state: &forge_core::State,
+    l: Lang,
+) {
+    let location = item.vendor();
+    body.spawn(Node {
+        column_gap: px(12),
+        align_items: AlignItems::Center,
+        ..default()
+    })
+    .with_children(|p| {
+        forge_ui::icon(p, server, item_icon(item), 40.);
+        p.spawn(text(pantry_name(l, item), 18.));
+    });
+    let owned = match item {
+        Item::Timber => state.stock(forge_core::items::ASH_LOG),
+        Item::Leather => state.stock(forge_core::items::DEER_LEATHER),
+        Item::Staple => state.life.pantry.staples(),
+        Item::Meal => state
+            .life
+            .pantry
+            .slots
+            .iter()
+            .flatten()
+            .filter(|s| s.food == forge_core::life::Food::Premium)
+            .map(|s| s.count)
+            .sum(),
+    };
+    body.spawn(text(
+        text::shop_stock(l, owned, Some(state.commerce.stock[item.index()])),
+        13.,
+    ));
+    let reason = match state.quote(location, item, village.quantity) {
+        Err(e) => text::error(l, e).to_owned(),
+        Ok(p) => text::shop_total(l, p, state.gold),
+    };
+    body.spawn(Node {
+        column_gap: px(8),
+        align_items: AlignItems::Center,
+        ..default()
+    })
+    .with_children(|p| {
+        button(p, "-", Action::Quantity(-1));
+        p.spawn(text(village.quantity.to_string(), 17.));
+        button(p, "+", Action::Quantity(1));
+    });
+    body.spawn(text(reason, 14.));
+    button(
+        body,
+        text::SHOP_BUY.get(l),
+        Action::Buy(item, state.command_id.saturating_add(1)),
+    );
+    body.spawn(text(
+        if item == Item::Meal {
+            T(
+                "따뜻한 식사. 식량 보관함에서 직접 사용하세요.",
+                "A warm meal. Use it from your provisions.",
+            )
+            .get(l)
+        } else {
+            T(
+                "일상 식량. 대장장이가 필요할 때 먹습니다.",
+                "Everyday provisions. Your smith eats these when needed.",
+            )
+            .get(l)
+        },
+        12.,
+    ));
 }
 /// Showroom furniture (#95): one more rack or a higher tier on an existing rack. Prices and
 /// slot counts come from the save's showroom config (seeded from assets/showroom.json).
@@ -926,8 +1200,10 @@ pub fn update(
     for (entity, action, was_disabled, was_selected) in &buttons {
         let selected = matches!(action,Action::Visit(l) if active.is_some_and(|i|v.registry.locations[i].id==*l))
             || matches!(action,Action::Category(i) if v.category==*i)
-            || matches!(action,Action::SelectItem(item) if v.selected_item.or_else(|| Item::ALL.into_iter().find(|candidate| candidate.vendor() == item.vendor()))==Some(*item));
+            || matches!((action, v.nav.screen), (Action::SelectOffer(item), Screen::Destination(loc))
+                if matches!(shelf(loc, v.category), Shelf::Offers(list) if current_offer(&v, &list).is_some_and(|o| o.item == *item)));
         let disabled = matches!(action,Action::Buy(item,_) if s.disabled || s.save.state.quote(item.vendor(),*item,v.quantity).map_or(true,|p|p>s.save.state.gold))
+            || matches!(action,Action::BuyOffer(loc,item,_) if s.disabled || s.save.state.quote_buy(*loc,*item,v.quantity).map_or(true,|q|q.total>s.save.state.gold))
             || matches!(action,Action::Furniture(command,_) if s.disabled || {
                 let room=&s.save.state.showroom;
                 let cost=match command{Command::BuyRack=>room.rack_cost(),Command::UpgradeRack{rack}=>room.upgrade_cost(*rack),_=>None};
@@ -1060,6 +1336,134 @@ mod tests {
         assert!((app.world().resource::<UiScale>().0 - 2. / 3.).abs() < 0.0001);
     }
     #[test]
+    fn shops_list_every_catalog_offer_on_the_right_tab() {
+        let book = Book::bundled();
+        for (loc, tab) in [
+            (Location::Carpenter, 0),
+            (Location::Leatherworker, 0),
+            (Location::Farm, 1),
+        ] {
+            let want: Vec<_> = book
+                .vendors
+                .iter()
+                .filter(|v| v.location == loc)
+                .flat_map(|v| v.offers.iter().map(|o| o.item))
+                .collect();
+            let Shelf::Offers(list) = shelf(loc, tab) else {
+                panic!("{loc:?} tab {tab} is not an offers shelf")
+            };
+            assert_eq!(list.iter().map(|o| o.item).collect::<Vec<_>>(), want);
+            assert!(!want.is_empty());
+        }
+        assert_eq!(
+            shelf(Location::Carpenter, 0).clone(),
+            shelf(Location::Carpenter, 0)
+        );
+        assert_eq!(shelf(Location::Carpenter, 1), Shelf::Furniture);
+        assert_eq!(shelf(Location::Farm, 0), Shelf::Pantry(Item::Staple));
+        assert_eq!(shelf(Location::Tavern, 0), Shelf::Pantry(Item::Meal));
+        assert!(matches!(
+            shelf(Location::Leatherworker, 1),
+            Shelf::Locked(_)
+        ));
+        // Enter buys what the detail panel shows.
+        let mut v = Village {
+            nav: Navigation::default(),
+            ..default()
+        };
+        assert_eq!(
+            enter_purchase(&v, Location::Carpenter, 9).map(|a| matches!(a, Action::BuyOffer(Location::Carpenter, id, 9) if id == forge_core::items::ASH_LOG)),
+            Some(true)
+        );
+        v.selected_offer = Some(Id::new("yew_log"));
+        assert!(matches!(
+            enter_purchase(&v, Location::Carpenter, 9),
+            Some(Action::BuyOffer(_, id, _)) if id == Id::new("yew_log")
+        ));
+        assert!(
+            enter_purchase(&v, Location::Leatherworker, 9).is_some_and(
+                |a| matches!(a, Action::BuyOffer(_, id, _) if id == Id::new("deer_hide"))
+            ),
+            "a selection from another shop is ignored"
+        );
+        v.category = 1;
+        assert!(enter_purchase(&v, Location::Carpenter, 9).is_none());
+        assert_eq!(
+            used_in(Lang::En, Id::new("pine_resin")),
+            vec!["Wooden Handle".to_string()]
+        );
+    }
+    #[test]
+    fn offer_purchase_uses_the_shown_quantity_once_and_only_on_its_shelf() {
+        let dir = std::env::temp_dir().join(format!("village-offer-{}", std::process::id()));
+        let mut app = App::new();
+        app.add_plugins(MinimalPlugins);
+        let mut state = forge_core::State::new(1);
+        state.gold = 50;
+        app.insert_resource(Session {
+            save: forge_core::save::Save::new(state, 100),
+            dir: dir.clone(),
+            _lock: forge_core::save::SaveLock::acquire(&dir).unwrap(),
+            last: std::time::Instant::now(),
+            fraction: 0.,
+            status: String::new(),
+            disabled: false,
+            trace: vec![],
+        });
+        app.insert_resource(Options {
+            qa: Some("village-map".into()),
+            ..default()
+        });
+        app.insert_resource(Desktop::new(false, true));
+        app.init_resource::<Village>();
+        app.init_resource::<TitleScreen>();
+        app.insert_resource(Lang::En);
+        app.add_observer(activate);
+        let yew = Id::new("yew_log");
+        let visit = app
+            .world_mut()
+            .spawn(Action::Visit(Location::Carpenter))
+            .id();
+        let pick = app.world_mut().spawn(Action::SelectOffer(yew)).id();
+        let more = app.world_mut().spawn(Action::Quantity(1)).id();
+        let buy = app
+            .world_mut()
+            .spawn(Action::BuyOffer(Location::Carpenter, yew, 1))
+            .id();
+        let wrong_shop = app
+            .world_mut()
+            .spawn(Action::BuyOffer(
+                Location::Leatherworker,
+                Id::new("deer_hide"),
+                2,
+            ))
+            .id();
+        for e in [visit, pick, more, buy, buy, wrong_shop] {
+            app.world_mut().trigger(Activate { entity: e });
+        }
+        let s = app.world().resource::<Session>();
+        assert_eq!(
+            (
+                s.save.state.gold,
+                s.save.state.stock(yew),
+                s.save.state.command_id
+            ),
+            (40, 2, 1),
+            "two yew logs at 5g, bought once; another shop's offer is ignored here"
+        );
+        assert_eq!(s.status, "Bought Yew Log ×2.");
+        // Furniture tab: an offer button cannot buy.
+        app.world_mut().resource_mut::<Village>().category = 1;
+        let again = app
+            .world_mut()
+            .spawn(Action::BuyOffer(Location::Carpenter, yew, 2))
+            .id();
+        app.world_mut().trigger(Activate { entity: again });
+        assert_eq!(app.world().resource::<Session>().save.state.command_id, 1);
+        drop(app);
+        std::fs::remove_dir_all(dir).unwrap();
+    }
+    #[test]
     fn actual_observer_map_shop_buy_duplicate_back_and_hidden_guard() {
         let dir = std::env::temp_dir().join(format!("village-ui-{}", std::process::id()));
         let mut app = App::new();
@@ -1093,7 +1497,14 @@ mod tests {
             .world_mut()
             .spawn(Action::Visit(Location::Carpenter))
             .id();
-        let buy = app.world_mut().spawn(Action::Buy(Item::Timber, 2)).id();
+        let buy = app
+            .world_mut()
+            .spawn(Action::BuyOffer(
+                Location::Carpenter,
+                forge_core::items::ASH_LOG,
+                2,
+            ))
+            .id();
         let back = app.world_mut().spawn(Action::Back).id();
         let close = app.world_mut().spawn(Action::Close).id();
         for e in [map, shop, buy, buy] {

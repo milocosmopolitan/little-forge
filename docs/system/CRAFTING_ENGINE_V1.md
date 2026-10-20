@@ -3,7 +3,7 @@
 This replaces the Ore → Dagger-only economy with a data-driven processing and assembly chain. It uses
 the approved asset catalogs: 40 materials, 23 parts and 22 finished goods.
 
-Status: core and content are implemented and tested. The desktop shows the Chef's parts and part buttons in Orders. The full Crafting screen is still #110 / #64.
+Status: core and content are implemented and tested. The desktop has a Crafting screen (#110) and catalog shop windows (#65); see "Desktop UI" below.
 
 ## Owner decisions (2026-10-20)
 
@@ -68,11 +68,26 @@ Notes on the table:
 - **Event:** `EventKind::Produced { item, qty }`.
 - **Schema 8:** an explicit decoder moves `ore`, `timber` and `leather`. The old remaining timber/leather shop stock is dropped, because those offers are now unlimited. No serde default fills the new inventory.
 
+## Desktop UI (#110, #65)
+
+- **Crafting** (host screen, Home → 제작 / Crafting; QA `--qa screen-crafting[-en]`):
+  - Tabs: Processing / Parts / Finished goods / Researched weapons (empty until #75/#76).
+  - Recipe cards show what is ready now. The selected recipe shows its result, time and station.
+  - Each input shows have/need. A missing input offers explicit fixes: **Make** (queue the recipe that makes it), **Buy ×n** (forge supplier, `Buy { Blacksmith, .. }`), or "Sold at the carpenter/leatherworker".
+  - **Queue job** issues `QueueRecipe`. Every button runs its command on a copy of the state first; a refused button is disabled and shows the command's own reason.
+  - The rail shows the live queue: waiting count, the job at the bench with time left, and what is next.
+- **Shops** (village carpenter, leatherworker, farm; QA `--qa village-carpenter`):
+  - Offers shelves list every `crafting.json` offer for that shop: carpenter Materials, leatherworker Materials, farm Basic materials.
+  - Pantry shelves (farm staples, tavern meals) keep their existing purchase rule. The carpenter's Furniture tab is unchanged.
+  - Detail: owned, stock (unlimited shows as plenty), quantity, total vs gold, Purchase, and "Used in" (recipes that take the item).
+  - Purchases issue `Buy { vendor, item, quantity }` with the transaction ID rendered on the button. A replayed click or an offer from another tab or shop buys nothing.
+  - Locked tabs state why they are unavailable.
+
 ## Not done here (needs a decision or another issue)
 
 - **Selling new goods.** Kitchen knives, clubs, staffs and pans enter the inventory but cannot be displayed or sold. The showroom accepts `Good::IronDagger` only, and showing new archetypes needs D05's container compatibility rules.
 - **Material variants.** Log species are fixed to ash, and the pole has no length attribute. Both wait for attributes in the item model.
 - **XP for new recipes.** Technique XP for the six starter items is #75. Only the Chef's knife grants XP, through the existing recipe 0.
 - **Research gates.** Every v1 recipe is `starter` (owner confirmed 2026-10-20). Weapon recipes behind research come with #75 / #76.
-- **Crafting and shop UI.** The new offers and recipes exist in the core, but the UI only shows the Chef part buttons, the ore button and the old timber/leather buttons. That is #110 / #64 / #65.
+- **Crafting UI polish.** Quality/approach controls, research gates and order-destination links wait for #75 / #76 / D05. The research tab is shown empty with that reason.
 - **Cancellation, refunds and salvage:** none, by rule.

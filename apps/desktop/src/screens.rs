@@ -103,7 +103,7 @@ fn part_steps(s: &State) -> Vec<Id> {
     steps
 }
 
-fn item_name(l: Lang, id: Id) -> String {
+pub(crate) fn item_name(l: Lang, id: Id) -> String {
     forge_core::items::Registry::bundled().get(id).map_or_else(
         || id.to_string(),
         |d| match l {
@@ -112,7 +112,7 @@ fn item_name(l: Lang, id: Id) -> String {
         },
     )
 }
-fn item_icon(id: Id) -> String {
+pub(crate) fn item_icon(id: Id) -> String {
     forge_core::items::Registry::bundled()
         .get(id)
         .map_or_else(String::new, |d| d.icon.clone())
@@ -353,6 +353,8 @@ pub enum Nav {
     Order(OrderId),
     Family(usize),
     Weapon(usize),
+    CraftTab(usize),
+    Recipe(Id),
 }
 
 pub fn navigate(
@@ -374,6 +376,11 @@ pub fn navigate(
             host.weapon = None;
         }
         Nav::Weapon(i) => host.weapon = Some(i),
+        Nav::CraftTab(t) => {
+            host.craft_tab = t;
+            host.recipe = None;
+        }
+        Nav::Recipe(id) => host.recipe = Some(id),
     }
 }
 
@@ -453,9 +460,11 @@ pub fn draw(
     // Whole-screen key: what the rail and lists show. Selection is kept out of it so choosing a
     // row or card only redraws the detail panel and moves the gold rim.
     let page_key = format!(
-        "{:?}:{}:{:?}:{}:{}:{:?}:{}:{}:{}:{}:{}:{:?}:{:?}:{}",
+        "{:?}:{}:{:?}:{}:{:?}:{}:{}:{:?}:{}:{}:{}:{}:{}:{:?}:{:?}:{}",
         st.inventory,
         st.life.queue.len(),
+        st.life.active_job,
+        host.craft_tab,
         host.screen,
         host.order_filter,
         host.family,
@@ -475,7 +484,8 @@ pub fn draw(
     );
     let order = selected_order(&host, st);
     let weapon = selected_weapon(&host, st);
-    let sel_key = format!("{order:?}:{weapon:?}");
+    let recipe = crate::crafting_screen::selected(&host);
+    let sel_key = format!("{order:?}:{weapon:?}:{:?}", recipe.map(|r| r.id));
     let l = *lang;
     if last.0 != page_key {
         last.0 = page_key;
@@ -485,6 +495,7 @@ pub fn draw(
             HostScreen::Home => {}
             HostScreen::Orders => draw_orders(p, &server, &host, st, l),
             HostScreen::Collection => draw_collection(p, &server, &host, st, l),
+            HostScreen::Crafting => crate::crafting_screen::draw(p, &server, &host, st, l),
         });
         return;
     }
@@ -496,6 +507,7 @@ pub fn draw(
         let want = match nav {
             Nav::Order(id) => Some(order == Some(*id)),
             Nav::Weapon(i) => Some(weapon == Some(*i)),
+            Nav::Recipe(id) => Some(recipe.is_some_and(|r| r.id == *id)),
             _ => None,
         };
         match want {
@@ -537,6 +549,11 @@ fn fill_detail(
                 weapon_detail(d, server, id, family, &record(s, id), l);
             }
         }
+        HostScreen::Crafting => {
+            if let Some(r) = crate::crafting_screen::selected(host) {
+                crate::crafting_screen::detail(d, server, r, s, l);
+            }
+        }
         HostScreen::Home => {}
     }
 }
@@ -555,7 +572,7 @@ fn column(width: Option<f32>) -> Node {
     }
 }
 
-fn parchment(
+pub(crate) fn parchment(
     p: &mut ChildSpawnerCommands,
     server: &AssetServer,
     width: Option<f32>,
@@ -572,7 +589,8 @@ fn parchment(
 }
 
 /// Left rail: one tab per entry, the selected one lit, a Back button at the bottom.
-fn rail(
+#[allow(clippy::too_many_arguments)]
+pub(crate) fn rail(
     p: &mut ChildSpawnerCommands,
     server: &AssetServer,
     l: Lang,
@@ -580,6 +598,7 @@ fn rail(
     selected: usize,
     tab_h: f32,
     nav: impl Fn(usize) -> Nav,
+    footer: impl FnOnce(&mut ChildSpawnerCommands),
 ) {
     p.spawn(Node {
         width: px(172),
@@ -626,6 +645,7 @@ fn rail(
             flex_grow: 1.,
             ..default()
         });
+        footer(r);
         kit2::button(
             r,
             server,
@@ -637,7 +657,7 @@ fn rail(
     });
 }
 
-fn screen_root(
+pub(crate) fn screen_root(
     p: &mut ChildSpawnerCommands,
     server: &AssetServer,
     body: impl FnOnce(&mut ChildSpawnerCommands),
@@ -656,7 +676,7 @@ fn screen_root(
     .with_children(body);
 }
 
-fn row(gap: f32) -> Node {
+pub(crate) fn row(gap: f32) -> Node {
     Node {
         column_gap: px(gap),
         align_items: AlignItems::Center,
@@ -695,6 +715,7 @@ fn draw_orders(
             host.order_filter,
             52.,
             Nav::OrderFilter,
+            |_| {},
         );
         parchment(p, server, Some(392.), |list| {
             list.spawn(kit2::strong(text::ORDER_LIST.get(l), 17., kit2::INK));
@@ -1013,7 +1034,7 @@ fn draw_collection(
                 .enumerate()
                 .map(|(i, f)| (text::family(l, f).to_string(), count(i + 1))),
         );
-        rail(p, server, l, &tabs, host.family, 38., Nav::Family);
+        rail(p, server, l, &tabs, host.family, 38., Nav::Family, |_| {});
         parchment(p, server, Some(392.), |g| {
             g.spawn(Node {
                 justify_content: JustifyContent::SpaceBetween,
@@ -1267,7 +1288,12 @@ pub fn plugin(app: &mut App) {
         .add_observer(navigate)
         .add_systems(
             Update,
-            (show_pages, draw, live_due)
+            (
+                show_pages,
+                draw,
+                live_due,
+                crate::crafting_screen::live_queue,
+            )
                 .chain()
                 .after(forge_view::update_host)
                 .run_if(|q: Query<(), With<HostRoot>>| !q.is_empty()),
@@ -1427,6 +1453,35 @@ mod tests {
                 .phase,
             OrderPhase::Accepted
         );
+        // Crafting: tab and recipe selection, then the detail's queue button queues that recipe.
+        press(&mut app, (Nav::Screen(HostScreen::Crafting),));
+        press(&mut app, (Nav::CraftTab(2),));
+        let club = Id::new("carve_wooden_club");
+        press(&mut app, (Nav::Recipe(club),));
+        let host = app.world().resource::<Host>();
+        assert_eq!(
+            crate::crafting_screen::selected(host).map(|r| r.id),
+            Some(club)
+        );
+        let logs = app
+            .world()
+            .resource::<Session>()
+            .save
+            .state
+            .stock(forge_core::items::ASH_LOG);
+        let e = app
+            .world_mut()
+            .spawn(Action(Command::QueueRecipe(club)))
+            .id();
+        app.world_mut().trigger(Activate { entity: e });
+        let st = &app.world().resource::<Session>().save.state;
+        assert_eq!(
+            (st.stock(forge_core::items::ASH_LOG), st.life.queue.len()),
+            (logs - 1, 1)
+        );
+        press(&mut app, (Nav::CraftTab(0),));
+        assert_eq!(app.world().resource::<Host>().recipe, None);
+        press(&mut app, (Nav::Screen(HostScreen::Orders),));
         // A modal blocks navigation.
         app.world_mut()
             .resource_mut::<forge_ui::DialogState>()

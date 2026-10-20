@@ -51,6 +51,9 @@ pub struct Host {
     pub order: Option<crate::screens::OrderId>,
     pub family: usize,
     pub weapon: Option<usize>,
+    /// Crafting (#110): selected tab and recipe.
+    pub craft_tab: usize,
+    pub recipe: Option<forge_core::items::Id>,
 }
 #[derive(Clone, Copy, PartialEq, Eq, Debug, Default)]
 pub enum HostScreen {
@@ -58,6 +61,7 @@ pub enum HostScreen {
     Home,
     Orders,
     Collection,
+    Crafting,
 }
 #[derive(Component)]
 pub(crate) struct HostRoot;
@@ -101,6 +105,7 @@ pub fn setup(mut c: Commands) {
                 let lang = crate::text::Lang::from_env();
                 forge_ui::button(p,crate::text::ORDERS.get(lang),crate::screens::Nav::Screen(HostScreen::Orders));
                 forge_ui::button(p,crate::text::COLLECTION.get(lang),crate::screens::Nav::Screen(HostScreen::Collection));
+                forge_ui::button(p,crate::text::CRAFTING.get(lang),crate::screens::Nav::Screen(HostScreen::Crafting));
                 forge_ui::button(p,"Existing workshop controls",Action::Legacy);
                 forge_ui::button(p,"Check modal focus",Action::Modal);
                 forge_ui::button(p,"Close [Esc]",Action::Close);

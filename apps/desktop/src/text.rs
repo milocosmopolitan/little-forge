@@ -150,6 +150,19 @@ pub fn error(l: Lang, e: forge_core::Error) -> &'static str {
         .get(l),
         DisplayFull => T("진열대에 빈 자리가 없습니다.", "No free display slot.").get(l),
         ResearchLocked => T("연구가 필요합니다.", "Research required.").get(l),
+        OutOfStock => T("재고가 없습니다.", "Out of stock.").get(l),
+        PantryFull => T("식량 보관함이 가득 찼습니다.", "Your pantry is full.").get(l),
+        Overflow => T("더 보관할 수 없습니다.", "Storage is full.").get(l),
+        InvalidPurchase => T(
+            "수량은 1~99개로 고르세요.",
+            "Choose a quantity from 1 to 99.",
+        )
+        .get(l),
+        DuplicateCommand => T(
+            "이미 처리된 거래입니다.",
+            "This purchase was already processed.",
+        )
+        .get(l),
         _ => T("지금은 할 수 없습니다.", "Not available now.").get(l),
     }
 }
@@ -234,5 +247,123 @@ pub fn appearance(l: Lang, a: forge_core::weapon::Appearance) -> &'static str {
         Common => T("일반", "Common").get(l),
         Refined => T("정교", "Refined").get(l),
         Masterwork => T("걸작", "Masterwork").get(l),
+    }
+}
+
+// Crafting (#110)
+pub const CRAFTING: T = T("제작", "Crafting");
+pub const CRAFT_TABS: [T; 4] = [
+    T("원료 가공", "Processing"),
+    T("부품", "Parts"),
+    T("완제품", "Finished goods"),
+    T("연구 무기", "Researched weapons"),
+];
+pub const CRAFT_HINT: T = T(
+    "재료는 작업을 등록할 때 한 번 차감됩니다.",
+    "Materials are used once, when the job is queued.",
+);
+pub const CRAFT_RESEARCH_EMPTY: T = T(
+    "연구로 열리는 무기 제작법은 아직 없습니다. 연구 시스템이 들어오면 여기에 나타납니다.",
+    "No weapon recipes are unlocked by research yet. They will appear here once research arrives.",
+);
+pub const READY_COUNT: T = T("지금 제작 가능", "Ready now");
+pub const RESULT: T = T("결과물", "Result");
+pub const QUEUE_RECIPE: T = T("작업 등록", "Queue job");
+pub const MAKE_ONE: T = T("만들기", "Make");
+pub const QUEUE_TITLE: T = T("작업 대기열", "Work queue");
+pub const QUEUE_IDLE: T = T("작업대가 비어 있습니다.", "The bench is idle.");
+pub fn station(l: Lang, s: forge_core::crafting::Station) -> &'static str {
+    use forge_core::crafting::Station::*;
+    match s {
+        Forge => T("화로", "Forge").get(l),
+        Anvil => T("모루", "Anvil").get(l),
+        Workbench => T("작업대", "Workbench").get(l),
+    }
+}
+pub fn buy_short(l: Lang, qty: u32, total: u64) -> String {
+    match l {
+        Lang::Ko => format!("구매 ×{qty} · {total}G"),
+        Lang::En => format!("Buy ×{qty} · {total}g"),
+    }
+}
+pub fn sold_at(l: Lang, v: forge_core::village::Location) -> String {
+    match l {
+        Lang::Ko => format!("{}에서 판매", vendor(l, v)),
+        Lang::En => format!("Sold at the {}", vendor(l, v)),
+    }
+}
+pub fn queue_line(l: Lang, waiting: usize, cap: usize) -> String {
+    match l {
+        Lang::Ko => format!("대기 {waiting} / {cap}"),
+        Lang::En => format!("{waiting} / {cap} waiting"),
+    }
+}
+pub fn up_next(l: Lang, name: &str) -> String {
+    match l {
+        Lang::Ko => format!("곧 시작: {name}"),
+        Lang::En => format!("Next: {name}"),
+    }
+}
+pub fn working_on(l: Lang, name: &str, secs: u64) -> String {
+    match l {
+        Lang::Ko => format!("작업 중: {name}\n{}", left(l, secs)),
+        Lang::En => format!("Working: {name}\n{}", left(l, secs)),
+    }
+}
+
+// Shops (#65)
+pub fn vendor(l: Lang, v: forge_core::village::Location) -> &'static str {
+    use forge_core::village::Location::*;
+    match v {
+        Blacksmith => T("대장간 공급처", "forge supplier").get(l),
+        Carpenter => T("목공소", "carpenter").get(l),
+        Leatherworker => T("가죽공방", "leatherworker").get(l),
+        Farm => T("농장", "farm").get(l),
+        Tavern => T("주점", "tavern").get(l),
+        _ => T("마을", "village").get(l),
+    }
+}
+pub const SHOP_MATERIALS: T = T("재료", "Materials");
+pub const SHOP_FURNITURE: T = T("가구", "Furniture");
+pub const SHOP_WORK_GEAR: T = T("작업 장비", "Work gear");
+pub const SHOP_PROVISIONS: T = T("식량", "Provisions");
+pub const SHOP_BASIC: T = T("기본 재료", "Basic materials");
+pub const SHOP_MEALS: T = T("식사", "Meals");
+pub const SHOP_RECRUIT: T = T("모집", "Recruit");
+pub const SHOP_GOODS: T = T("판매 품목", "Goods for sale");
+pub const SHOP_BUY: T = T("구매 [Enter]", "Purchase [Enter]");
+pub const SHOP_UNLIMITED: T = T("재고 넉넉함", "Plenty in stock");
+pub const SHOP_LOCKED: T = T("아직 열리지 않았습니다", "Not available yet");
+pub const SHOP_TO_MAP: T = T("지도로 돌아가기", "Return to map");
+pub const SHOP_USED_IN: T = T("쓰이는 곳", "Used in");
+pub const SHOP_NOT_USED: T = T(
+    "아직 쓰이는 제작법이 없습니다. 보관해 두면 나중 제작에 쓰입니다.",
+    "No recipe uses this yet. It is kept for future recipes.",
+);
+pub fn shop_stock(l: Lang, owned: u32, stock: Option<u32>) -> String {
+    let stock = match stock {
+        None | Some(u32::MAX) => SHOP_UNLIMITED.get(l).to_string(),
+        Some(n) => match l {
+            Lang::Ko => format!("재고 {n}"),
+            Lang::En => format!("{n} in stock"),
+        },
+    };
+    match l {
+        Lang::Ko => format!("보유 {owned}  ·  {stock}"),
+        Lang::En => format!("Owned {owned}  ·  {stock}"),
+    }
+}
+pub fn shop_total(l: Lang, total: u64, gold: u64) -> String {
+    match l {
+        Lang::Ko if total > gold => format!("합계 {total}G · 보유 금화 {gold}G (부족)"),
+        Lang::Ko => format!("합계 {total}G · 보유 금화 {gold}G"),
+        Lang::En if total > gold => format!("Total {total}g · you have {gold}g (not enough)"),
+        Lang::En => format!("Total {total}g · you have {gold}g"),
+    }
+}
+pub fn bought(l: Lang, name: &str, qty: u32) -> String {
+    match l {
+        Lang::Ko => format!("{name} {qty}개를 샀습니다."),
+        Lang::En => format!("Bought {name} ×{qty}."),
     }
 }
