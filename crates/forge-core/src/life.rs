@@ -8,9 +8,14 @@ pub enum WorkKind {
     ExpeditionGear(crate::expedition::Gear),
     ForgedWeapon(crate::weapon::Plan),
     IronDagger,
+    /// Legacy Chef knife (ore-only); only finishes for saves that queued it before schema 8.
     KitchenKnife,
     DaggerStudy,
     FarmerSickleRepair,
+    /// A data-driven recipe; its output enters the inventory.
+    Recipe(crate::items::Id),
+    /// The Chef's knife assembled from parts; its output is held for the Chef, not stocked.
+    ChefOrder,
 }
 impl WorkKind {
     pub fn seconds(self) -> u64 {
@@ -20,6 +25,13 @@ impl WorkKind {
             Self::IronDagger => CRAFT_SECS,
             Self::KitchenKnife | Self::DaggerStudy => 1,
             Self::FarmerSickleRepair => crate::commission::REPAIR_SECS,
+            Self::Recipe(id) => crate::crafting::Book::bundled()
+                .recipe(id)
+                .map_or(1, |r| r.seconds),
+            Self::ChefOrder => {
+                let b = crate::crafting::Book::bundled();
+                b.recipe(b.chef_order_recipe).map_or(1, |r| r.seconds)
+            }
         }
     }
     pub fn label(self) -> &'static str {
@@ -30,6 +42,11 @@ impl WorkKind {
             Self::KitchenKnife => "Chef Kitchen Knife",
             Self::DaggerStudy => "Dagger research",
             Self::FarmerSickleRepair => "Farmer's sickle repair",
+            Self::Recipe(id) => crate::crafting::Book::bundled()
+                .recipe(id)
+                .and_then(|r| crate::items::Registry::bundled().get(r.output.item))
+                .map_or("Recipe", |d| d.name_en.as_str()),
+            Self::ChefOrder => "Chef Kitchen Knife",
         }
     }
 }
@@ -301,7 +318,7 @@ impl State {
                             }
                             self.life.active_job = Some(job);
                             self.life.work = self.work_seconds(job) * 1000;
-                            if job == WorkKind::KitchenKnife {
+                            if matches!(job, WorkKind::KitchenKnife | WorkKind::ChefOrder) {
                                 self.progression.chef_phase =
                                     crate::commission::OrderPhase::Working;
                             }
@@ -343,7 +360,8 @@ impl State {
                                     self.record_creation(1, events)?;
                                     self.emit(EventKind::Crafted, events)?;
                                 }
-                                WorkKind::KitchenKnife => {
+                                WorkKind::Recipe(id) => self.finish_recipe(id, events)?,
+                                WorkKind::KitchenKnife | WorkKind::ChefOrder => {
                                     self.progression.chef_phase =
                                         crate::commission::OrderPhase::Ready;
                                     self.record_creation(0, events)?;

@@ -34,12 +34,12 @@ impl Sample {
             wall,
             tick: s.tick,
             gold: s.gold,
-            ore: s.ore,
+            ore: s.ore(),
             daggers: s.daggers,
             crafted: s.crafted,
             sold: s.sold,
-            timber: s.commerce.timber,
-            leather: s.commerce.leather,
+            timber: s.stock(forge_core::items::ASH_LOG),
+            leather: s.stock(forge_core::items::DEER_LEATHER),
             staples: s.life.pantry.staples(),
             queue: s.life.queue.len(),
             working: s.life.active_job.is_some(),
@@ -94,6 +94,12 @@ pub struct Report {
     pub queue_waiting_secs: u64,
     pub longest_queue_wait_secs: u64,
     pub offline: Vec<OfflineResult>,
+    /// Recipe outputs by item (from `Produced` events, including offline settlement is not
+    /// visible: offline time is reported by the inventory and ledger instead).
+    pub produced: BTreeMap<String, u64>,
+    /// Holdings and finite vendor stock at the end of the run.
+    pub end_inventory: BTreeMap<String, u32>,
+    pub end_vendor_stock: BTreeMap<String, u32>,
     pub failures: Vec<Failure>,
 }
 
@@ -197,6 +203,9 @@ impl Run {
         let mut sales = 0i64;
         for e in events {
             *self.report.events.entry(event_name(&e.kind)).or_default() += 1;
+            if let EventKind::Produced { item, qty } = &e.kind {
+                *self.report.produced.entry(item.clone()).or_default() += u64::from(*qty);
+            }
             if let EventKind::Sold { gold, .. } = e.kind {
                 sales += gold as i64;
             }
@@ -245,6 +254,9 @@ pub fn run(sc: &Scenario) -> Result<Report, String> {
             queue_waiting_secs: 0,
             longest_queue_wait_secs: 0,
             offline: vec![],
+            produced: BTreeMap::new(),
+            end_inventory: BTreeMap::new(),
+            end_vendor_stock: BTreeMap::new(),
             failures: vec![],
         },
         deliveries: BTreeMap::new(),
@@ -328,5 +340,11 @@ pub fn run(sc: &Scenario) -> Result<Report, String> {
         r.fail(&s, wall, "gold-ledger", detail);
     }
     r.report.end = Sample::of(&s, wall);
+    r.report.end_inventory = s
+        .inventory
+        .iter()
+        .map(|(id, n)| (id.to_string(), n))
+        .collect();
+    r.report.end_vendor_stock = s.commerce.vendor_stock.clone();
     Ok(r.report)
 }

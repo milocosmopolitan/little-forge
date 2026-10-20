@@ -175,10 +175,10 @@ pub fn draw(
         "{}:{}:{}:{}:{}:{}:{}:{root:?}",
         home.tab,
         l.pantry.staples(),
-        st.ore,
+        st.ore(),
         st.daggers,
-        st.commerce.timber,
-        st.commerce.leather,
+        st.stock(forge_core::items::ASH_LOG),
+        st.stock(forge_core::items::DEER_LEATHER),
         home.selected,
     );
     let key = format!(
@@ -228,7 +228,7 @@ pub fn draw(
                         body.spawn(forge_ui::text("Iron dagger",22.));
                         forge_ui::icon(body,&server,"dagger",80.);
                         body.spawn(forge_ui::text("A simple blade, carefully made.",14.));
-                        body.spawn(forge_ui::text(format!("Requires {} ore · Available {} · Result slots free {}",st.dagger_ore(),s.save.state.ore,st.showroom.free()),14.));
+                        body.spawn(forge_ui::text(format!("Requires {} ore · Available {} · Result slots free {}",st.dagger_ore(),s.save.state.ore(),st.showroom.free()),14.));
                         if let Some(reason) = st.craft_block_reason() { body.spawn(forge_ui::text(reason.label(),13.)); }
                         crate::progression_ui::command_button(body, &s.save.state, "Add to queue [Q]", Command::QueueCraft);
                         if !st.progression.dagger_unlocked() { body.spawn(forge_ui::text("Complete Chef’s commission, then study Dagger research.",14.)); forge_ui::button(body,"Open research",HomeTab(4)); }
@@ -237,7 +237,7 @@ pub fn draw(
                     1=>{
                         body.spawn(forge_ui::text("Materials & finished goods",19.));
                         body.spawn(Node{flex_wrap:FlexWrap::Wrap,column_gap:px(8),row_gap:px(8),..default()}).with_children(|grid|{
-                            for (i,(icon,count)) in [("ore",s.save.state.ore),("timber",s.save.state.commerce.timber),("leather",s.save.state.commerce.leather),("dagger",s.save.state.daggers)].into_iter().enumerate() {forge_ui::slot(grid,&server,icon,count,home.selected==i,(HomeItem(i),forge_ui::FocusKey(format!("home-slot:{i}"))));}
+                            for (i,(icon,count)) in [("ore",s.save.state.ore()),("timber",s.save.state.stock(forge_core::items::ASH_LOG)),("leather",s.save.state.stock(forge_core::items::DEER_LEATHER)),("dagger",s.save.state.daggers)].into_iter().enumerate() {forge_ui::slot(grid,&server,icon,count,home.selected==i,(HomeItem(i),forge_ui::FocusKey(format!("home-slot:{i}"))));}
                         });
                         body.spawn(forge_ui::text(["Iron ore · 2 required for an iron dagger.","Timber · Stored for recipes and display racks.","Leather · Stored for future recipes.","Iron daggers · Finished goods live on the showroom racks; only displayed ones sell."][home.selected.min(3)],16.));
                     },
@@ -433,7 +433,10 @@ fn draw_order(body: &mut ChildSpawnerCommands, s: &forge_core::State) {
         }
         OrderPhase::Accepted => {
             body.spawn(forge_ui::text(
-                format!("Available ore: {}. Materials are used when queued.", s.ore),
+                format!(
+                    "Available ore: {}. Materials are used when queued.",
+                    s.ore()
+                ),
                 13.,
             ));
             forge_ui::button(body, "Queue repair [S]", Action(Command::QueueFarmerRepair));
@@ -614,7 +617,7 @@ mod tests {
         assert_eq!(app.world().resource::<Session>().save.state.command_id, 1);
         app.world_mut().trigger(Activate { entity: enqueue });
         app.world_mut().trigger(Activate { entity: enqueue });
-        assert_eq!(app.world().resource::<Session>().save.state.ore, 8);
+        assert_eq!(app.world().resource::<Session>().save.state.ore(), 8);
         app.world_mut()
             .resource_mut::<Session>()
             .save

@@ -237,9 +237,9 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     let has_save = loaded.is_some();
     let mut saved = loaded.unwrap_or_else(|| Save::new(State::new(42), now()));
     if opts.qa.as_deref() == Some("alpha-crafting") {
-        saved.state.ore = 40;
+        saved.state.set_stock(forge_core::items::IRON_ORE, 40);
         saved.state.gold = 80;
-        saved.state.commerce.timber = 8;
+        saved.state.set_stock(forge_core::items::ASH_LOG, 8);
     }
     if saved.state.progression.rules.is_none() {
         saved.state.progression.rules = Some(forge_content::progression_rules()?);
@@ -293,7 +293,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     }
     if let Some((scene, _)) = opts.forge_scene() {
         saved.state.gold = 60;
-        saved.state.commerce.timber = 6;
+        saved.state.set_stock(forge_core::items::ASH_LOG, 6);
         if matches!(scene, "showroom" | "full") {
             // Two finished goods on display, one kept; "full" fills every slot and queues two jobs.
             let target = if scene == "full" {
@@ -1117,7 +1117,9 @@ fn hud(
             };
         **t = format!(
             "Gold {}  Ore {}  |  {}",
-            s.save.state.gold, s.save.state.ore, s.status
+            s.save.state.gold,
+            s.save.state.ore(),
+            s.status
         );
     }
     for mut v in &mut panel {

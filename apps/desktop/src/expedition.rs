@@ -434,8 +434,8 @@ fn animate(
         **text = format!(
             "Gold {}  Ore {}  Timber {}  Pantry {}  Arrows {}  Queue {}  |  Codex: {}",
             st.gold,
-            st.ore,
-            st.commerce.timber,
+            st.ore(),
+            st.stock(forge_core::items::ASH_LOG),
             st.life.pantry.staples(),
             st.expedition.arrows,
             st.life.queue.len(),
@@ -456,8 +456,8 @@ fn animate(
             "{}\nGold {} · Ore {} · Timber {} · Food {} · Work {} · Queue {}",
             s.status,
             st.gold,
-            st.ore,
-            st.commerce.timber,
+            st.ore(),
+            st.stock(forge_core::items::ASH_LOG),
             st.life.pantry.staples(),
             st.life.active_job.map_or("Idle", |j| j.label()),
             st.life.queue.len()
@@ -559,7 +559,7 @@ mod tests {
         app.add_plugins(MinimalPlugins);
         let mut state = forge_core::State::new(42);
         state.gold = 50;
-        state.commerce.timber = 8;
+        state.set_stock(forge_core::items::ASH_LOG, 8);
         state
             .life
             .pantry
@@ -730,7 +730,7 @@ Steel uses extra ore and recovers slower. Quality measures precision, never a da
                     let progress=&s.progression;
                     let next=match progress.chef_phase {
                         forge_core::commission::OrderPhase::Offered=>Some(("Accept Chef commission",Command::AcceptChef)),
-                        forge_core::commission::OrderPhase::Accepted=>Some(("Forge Kitchen Knife / 2 ore",Command::QueueChef)),
+                        forge_core::commission::OrderPhase::Accepted=>Some(("Assemble Kitchen Knife (blade + handle)",Command::QueueChef)),
                         forge_core::commission::OrderPhase::Ready=>Some(("Deliver Chef knife",Command::DeliverChef)),
                         forge_core::commission::OrderPhase::Delivered if progress.can_complete()=>Some(("Complete Dagger research",Command::CompleteDaggerResearch)),
                         forge_core::commission::OrderPhase::Delivered if !progress.research_completed && !progress.study_pending=>Some(("Study Dagger / 4g",Command::StudyDagger)),

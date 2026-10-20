@@ -174,7 +174,7 @@ mod tests {
         for id in 2..=5 {
             s.command(id, Command::QueueCraft).unwrap();
         }
-        assert_eq!(s.ore, 0);
+        assert_eq!(s.ore(), 0);
         s.advance(60).unwrap();
         assert_eq!(s.showroom.free(), 0);
         assert_eq!(s.life.queue.len(), 1);

@@ -53,10 +53,9 @@ pub fn draw(
                     text.spawn(ui::text(&rules.chef.request, 14.));
                     text.spawn(ui::text(
                         format!(
-                            "{} ore / {} available\n{}s base work · No deadline\nReward: {} gold",
-                            rules.recipes[0].ore,
-                            s.ore,
-                            rules.recipes[0].seconds,
+                            "Blade {} / 1 · Wooden handle {} / 1\nMake them in Orders (smelt, forge, handle)\nNo deadline · Reward: {} gold",
+                            s.stock(forge_core::items::Id::new("straight_blade")),
+                            s.stock(forge_core::items::Id::new("wooden_handle")),
                             rules.chef.reward_gold
                         ),
                         14.,

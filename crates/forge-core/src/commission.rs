@@ -84,10 +84,10 @@ impl State {
         if self.life.queue.len() >= 32 {
             return Err(Error::Busy);
         }
-        if self.ore < REPAIR_ORE {
+        if self.ore() < REPAIR_ORE {
             return Err(Error::InsufficientResources);
         }
-        self.ore -= REPAIR_ORE;
+        self.inventory.take(crate::items::IRON_ORE, REPAIR_ORE)?;
         self.life.queue.push_back(WorkKind::FarmerSickleRepair);
         self.farmer_order.phase = OrderPhase::Queued;
         Ok(())
@@ -169,7 +169,7 @@ mod tests {
         cmd(&mut s, Command::AcceptFarmerRepair);
         cmd(&mut s, Command::QueueFarmerRepair);
         cmd(&mut s, Command::QueueCraft);
-        assert_eq!(s.ore, 2);
+        assert_eq!(s.ore(), 2);
         assert_eq!(
             s.command(s.command_id + 1, Command::Craft),
             Err(Error::Busy)
@@ -214,14 +214,14 @@ mod tests {
         assert!(s.farmer_order.deadline_at.is_none());
         cmd(&mut s, Command::AcceptFarmerRepair);
         assert_eq!(s.farmer_order.deadline_at, Some(s.tick + DEADLINE_SECS));
-        s.ore = 1;
+        s.set_stock(crate::items::IRON_ORE, 1);
         let before = s.clone();
         assert_eq!(
             s.command(s.command_id + 1, Command::QueueFarmerRepair),
             Err(Error::InsufficientResources)
         );
         assert_eq!(s, before);
-        s.ore = 100;
+        s.set_stock(crate::items::IRON_ORE, 100);
         for _ in 0..32 {
             cmd(&mut s, Command::QueueCraft);
         }

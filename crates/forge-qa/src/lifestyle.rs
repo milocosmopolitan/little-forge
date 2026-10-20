@@ -31,12 +31,12 @@ pub fn report() -> serde_json::Value {
     for _ in 0..3 * 86400 {
         // Scripted player policy; production never automatically spends gold.
         if multiday.life.queue.len() < 2 {
-            if multiday.ore < 2 && multiday.gold >= 4 {
+            if multiday.ore() < 2 && multiday.gold >= 4 {
                 multiday
                     .command(multiday.command_id + 1, Command::BuyOre)
                     .unwrap();
             }
-            if multiday.ore >= 2 {
+            if multiday.ore() >= 2 {
                 multiday
                     .command(multiday.command_id + 1, Command::QueueCraft)
                     .unwrap();

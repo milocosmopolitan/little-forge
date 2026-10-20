@@ -758,8 +758,8 @@ fn draw_destination(
                         p.spawn(text(item.label(), 18.));
                     });
                     let owned = match item {
-                        Item::Timber => state.commerce.timber,
-                        Item::Leather => state.commerce.leather,
+                        Item::Timber => state.stock(forge_core::items::ASH_LOG),
+                        Item::Leather => state.stock(forge_core::items::DEER_LEATHER),
                         Item::Staple => state.life.pantry.staples(),
                         Item::Meal => state
                             .life
@@ -827,7 +827,7 @@ fn draw_furniture(row: &mut ChildSpawnerCommands, state: &forge_core::State, ser
                 "Finished goods share the showroom's {} slots. Each rack adds slots; upgrades add slots on the same floor space. Gold {} · Timber {}",
                 room.capacity(),
                 state.gold,
-                state.commerce.timber
+                state.stock(forge_core::items::ASH_LOG)
             ),
             13.,
         ));
@@ -931,7 +931,7 @@ pub fn update(
             || matches!(action,Action::Furniture(command,_) if s.disabled || {
                 let room=&s.save.state.showroom;
                 let cost=match command{Command::BuyRack=>room.rack_cost(),Command::UpgradeRack{rack}=>room.upgrade_cost(*rack),_=>None};
-                cost.is_none_or(|(gold,timber)|gold>s.save.state.gold||timber>s.save.state.commerce.timber)
+                cost.is_none_or(|(gold,timber)|gold>s.save.state.gold||timber>s.save.state.stock(forge_core::items::ASH_LOG))
             });
         if disabled != was_disabled {
             if disabled {
@@ -992,8 +992,8 @@ pub fn update(
         let value = format!(
             "Gold {}  |  Timber {}  |  Leather {}  |  F {}%  H {}%  T {}%",
             s.save.state.gold,
-            s.save.state.commerce.timber,
-            s.save.state.commerce.leather,
+            s.save.state.stock(forge_core::items::ASH_LOG),
+            s.save.state.stock(forge_core::items::DEER_LEATHER),
             s.save.state.life.fatigue / 100,
             s.save.state.life.hunger / 100,
             s.save.state.life.thirst / 100
@@ -1067,6 +1067,7 @@ mod tests {
         let mut state = forge_core::State::new(1);
         state.progression.legacy_dagger = true;
         state.gold = 30;
+        let logs = state.stock(forge_core::items::ASH_LOG);
         state.command(1, Command::Craft).unwrap();
         app.insert_resource(Session {
             save: forge_core::save::Save::new(state, 100),
@@ -1099,7 +1100,10 @@ mod tests {
             app.world_mut().trigger(Activate { entity: e });
         }
         let s = &app.world().resource::<Session>().save.state;
-        assert_eq!((s.gold, s.commerce.timber, s.command_id), (27, 1, 2));
+        assert_eq!(
+            (s.gold, s.stock(forge_core::items::ASH_LOG), s.command_id),
+            (27, logs + 1, 2)
+        );
         app.world_mut()
             .resource_mut::<Session>()
             .save
@@ -1151,8 +1155,7 @@ mod tests {
             .resource_mut::<Session>()
             .save
             .state
-            .commerce
-            .timber = 10;
+            .set_stock(forge_core::items::ASH_LOG, 10);
         app.world_mut().trigger(Activate { entity: shop });
         app.world_mut().resource_mut::<Village>().category = 1;
         let next = app.world().resource::<Session>().save.state.command_id + 1;
@@ -1168,7 +1171,7 @@ mod tests {
                 st.showroom.racks.len(),
                 st.showroom.capacity(),
                 st.gold,
-                st.commerce.timber
+                st.stock(forge_core::items::ASH_LOG)
             ),
             (2, 8, 70, 6)
         );

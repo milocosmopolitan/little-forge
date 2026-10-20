@@ -11,7 +11,7 @@ use std::{
 /// Schema 6 adds progression, research and Codex; schema 5 added expedition contracts and field
 /// records. Schemas 1-5 import losslessly and keep their dagger recipe; newer schemas are refused
 /// rather than downgraded.
-pub const SCHEMA_VERSION: u32 = 7;
+pub const SCHEMA_VERSION: u32 = 8;
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
 pub struct Save {
     pub schema_version: u32,
@@ -50,6 +50,68 @@ impl Save {
         self.saved_at = self.saved_at.max(now);
         Ok(elapsed)
     }
+}
+/// Schema 7 → 8: the aggregate `ore`, `commerce.timber` and `commerce.leather` counts become
+/// catalog stacks (`iron_ore`, `ash_log`, `deer_leather`, owner decision 2026-10-20), and the
+/// remaining timber/leather shop stock moves to those catalog offers. Nothing else changes.
+fn migrate_inventory_v8(value: &mut serde_json::Value) -> Result<(), ()> {
+    use crate::items::{ASH_LOG, DEER_LEATHER, IRON_ORE, Inventory};
+    use crate::village::Location;
+    let st = value.get_mut("state").ok_or(())?;
+    // Only the old fields are migrated; a state that already has the new ones keeps them.
+    if st.get("inventory").is_some() && st.get("ore").is_none() {
+        value["schema_version"] = serde_json::json!(8);
+        return Ok(());
+    }
+    let count = |v: &serde_json::Value| -> Result<u32, ()> {
+        match v {
+            serde_json::Value::Null => Ok(0),
+            v => v.as_u64().and_then(|n| u32::try_from(n).ok()).ok_or(()),
+        }
+    };
+    let ore = count(&st["ore"])?;
+    let timber = count(&st["commerce"]["timber"])?;
+    let leather = count(&st["commerce"]["leather"])?;
+    let mut inv = Inventory::default();
+    for (id, n) in [(IRON_ORE, ore), (ASH_LOG, timber), (DEER_LEATHER, leather)] {
+        inv.add(id, n).map_err(|_| ())?;
+    }
+    let obj = st.as_object_mut().ok_or(())?;
+    obj.remove("ore");
+    obj.insert(
+        "inventory".into(),
+        serde_json::to_value(inv).map_err(|_| ())?,
+    );
+    if let Some(commerce) = obj
+        .get_mut("commerce")
+        .and_then(|c| c.as_object_mut())
+        .filter(|c| !c.contains_key("vendor_stock"))
+    {
+        commerce.remove("timber");
+        commerce.remove("leather");
+        let mut vendor = crate::crafting::Book::bundled().initial_stock();
+        if let Some(stock) = commerce.get_mut("stock").and_then(|s| s.as_array_mut()) {
+            for (i, (loc, id)) in [
+                (Location::Carpenter, ASH_LOG),
+                (Location::Leatherworker, DEER_LEATHER),
+            ]
+            .into_iter()
+            .enumerate()
+            {
+                let left = stock.get(i).map_or(Ok(0), count)?;
+                vendor.insert(crate::crafting::stock_key(loc, id), left);
+                if let Some(slot) = stock.get_mut(i) {
+                    *slot = 0.into();
+                }
+            }
+        }
+        commerce.insert(
+            "vendor_stock".into(),
+            serde_json::to_value(vendor).map_err(|_| ())?,
+        );
+    }
+    value["schema_version"] = serde_json::json!(8);
+    Ok(())
 }
 pub fn load(dir: &Path) -> io::Result<Option<Save>> {
     let mut good = vec![];
@@ -170,6 +232,9 @@ pub fn load(dir: &Path) -> io::Result<Option<Save>> {
                                 migrate_battle(b);
                             }
                         }
+                    }
+                    if (1..=7).contains(&version) && migrate_inventory_v8(&mut value).is_err() {
+                        continue;
                     }
                     let Ok(mut s) = serde_json::from_value::<Save>(value) else {
                         continue;
@@ -306,7 +371,7 @@ mod tests {
         store(&d, &mut s).unwrap();
         fs::write(
             d.join("save-0.json"),
-            br#"{"schema_version":8,"content_version":1,"different_state":{}}"#,
+            br#"{"schema_version":9,"content_version":1,"different_state":{}}"#,
         )
         .unwrap();
         assert!(load(&d).is_err());
@@ -330,7 +395,7 @@ mod tests {
         assert_eq!(migrated.state.showroom.reserved(), 1);
         migrated.catch_up(120).unwrap();
         assert_eq!(migrated.state.gold, 12);
-        assert_eq!(migrated.state.ore, 8);
+        assert_eq!(migrated.state.ore(), 8);
         store(&d, &mut migrated).unwrap();
         assert_eq!(load(&d).unwrap().unwrap(), migrated);
         fs::remove_dir_all(d).unwrap();
@@ -374,7 +439,7 @@ mod tests {
             Err(crate::Error::DisplayFull)
         );
         s.state.command(2, Command::QueueCraft).unwrap();
-        assert_eq!(s.state.ore, 6);
+        assert_eq!(s.state.ore(), 6);
         let before = s.state.gold;
         // Legacy overflow sells first; nothing is discarded or sold outside visitor sales.
         s.catch_up(100 + 3 + 4 * 31).unwrap();
@@ -425,7 +490,7 @@ mod tests {
         assert_eq!(loaded.state, state);
         loaded.catch_up(140).unwrap();
         assert_eq!(loaded.state.crafted, 2);
-        assert_eq!(loaded.state.ore, 6);
+        assert_eq!(loaded.state.ore(), 6);
         store(&d, &mut loaded).unwrap();
         assert_eq!(load(&d).unwrap().unwrap(), loaded);
         fs::remove_dir_all(d).unwrap();

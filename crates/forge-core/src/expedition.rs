@@ -463,11 +463,11 @@ impl State {
             Gear::HuntingKnife => (2, 0),
             Gear::Arrows => (1, 1),
         };
-        if self.ore < ore || self.commerce.timber < timber {
+        if self.ore() < ore || self.stock(crate::items::ASH_LOG) < timber {
             return Err(Error::InsufficientResources);
         }
-        self.ore -= ore;
-        self.commerce.timber -= timber;
+        self.inventory.take(crate::items::IRON_ORE, ore)?;
+        self.inventory.take(crate::items::ASH_LOG, timber)?;
         self.life.queue.push_back(WorkKind::ExpeditionGear(gear));
         Ok(())
     }
@@ -631,7 +631,7 @@ impl State {
             .ok_or(Error::Overflow)?;
         if b.cleared == 5 && !self.expedition.path_reopened {
             self.expedition.path_reopened = true;
-            self.commerce.timber = self.commerce.timber.checked_add(8).ok_or(Error::Overflow)?;
+            self.inventory.add(crate::items::ASH_LOG, 8)?;
         }
         for w in &mut self.expedition.weapons {
             if Some(w.id) == b.bow || Some(w.id) == b.knife {
@@ -679,7 +679,7 @@ impl State {
 pub fn qa_fixture() -> State {
     let mut s = State::new(42);
     s.gold = 40;
-    s.commerce.timber = 8;
+    s.set_stock(crate::items::ASH_LOG, 8);
     for g in [
         Gear::Shortbow,
         Gear::HuntingKnife,
@@ -785,11 +785,11 @@ mod tests {
         assert_eq!(live.state, offline.state);
         let ended = live.state.expedition.clone();
         let gold = live.state.gold;
-        let timber = live.state.commerce.timber;
+        let timber = live.state.stock(crate::items::ASH_LOG);
         live.catch_up(2000).unwrap();
         assert_eq!(ended, live.state.expedition);
         assert_eq!(gold, live.state.gold);
-        assert_eq!(timber, live.state.commerce.timber);
+        assert_eq!(timber, live.state.stock(crate::items::ASH_LOG));
         assert_eq!(live.state.expedition.weapons.len(), 2);
         std::fs::remove_dir_all(dir).unwrap();
     }

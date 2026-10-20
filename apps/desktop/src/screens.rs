@@ -9,7 +9,7 @@ use crate::text::{self, Lang, T};
 use crate::{Session, forge_view};
 use bevy::prelude::*;
 use bevy::ui_widgets::Activate;
-use forge_core::{Command, State, commission::OrderPhase, expedition::Gear};
+use forge_core::{Command, State, commission::OrderPhase, expedition::Gear, items::Id};
 use forge_ui::kit2::{self, Kind};
 
 // ---- view models ----------------------------------------------------------------------------
@@ -51,8 +51,10 @@ pub struct OrderView {
     pub gold: u64,
     pub favor: Option<u8>,
     pub due: Due,
-    pub ore_need: u32,
-    pub ore_have: u32,
+    /// Inputs the order consumes when queued: (item, have, need).
+    pub needs: Vec<(Id, u32, u32)>,
+    /// Recipes the player can queue now to make missing parts (explicit buttons, never automatic).
+    pub steps: Vec<Id>,
     pub work_secs: u64,
     pub actions: Vec<OrderAction>,
 }
@@ -63,6 +65,57 @@ fn act(label: T, command: Command, primary: bool) -> OrderAction {
         command,
         primary,
     }
+}
+
+/// The Chef's knife is assembled from the chef recipe's parts (schema 8).
+fn chef_needs(s: &State) -> Vec<(Id, u32, u32)> {
+    let book = forge_core::crafting::Book::bundled();
+    book.recipe(book.chef_order_recipe)
+        .map(|r| {
+            r.inputs
+                .iter()
+                .map(|i| (i.item, s.stock(i.item), i.qty))
+                .collect()
+        })
+        .unwrap_or_default()
+}
+
+/// Part recipes still useful for the Chef's knife: one per missing part, plus smelting while a
+/// blade is missing and no ingot is on hand. Whether each can run now is the command's own check.
+fn part_steps(s: &State) -> Vec<Id> {
+    let book = forge_core::crafting::Book::bundled();
+    let mut steps = vec![];
+    for (item, have, need) in chef_needs(s) {
+        if have >= need {
+            continue;
+        }
+        if let Some(r) = book.recipes.iter().find(|r| r.output.item == item) {
+            for input in &r.inputs {
+                if s.stock(input.item) < input.qty
+                    && let Some(sub) = book.recipes.iter().find(|x| x.output.item == input.item)
+                {
+                    steps.push(sub.id);
+                }
+            }
+            steps.push(r.id);
+        }
+    }
+    steps
+}
+
+fn item_name(l: Lang, id: Id) -> String {
+    forge_core::items::Registry::bundled().get(id).map_or_else(
+        || id.to_string(),
+        |d| match l {
+            Lang::Ko => d.name_ko.clone(),
+            Lang::En => d.name_en.clone(),
+        },
+    )
+}
+fn item_icon(id: Id) -> String {
+    forge_core::items::Registry::bundled()
+        .get(id)
+        .map_or_else(String::new, |d| d.icon.clone())
 }
 
 /// The orders that exist in the current state, in a stable order.
@@ -92,8 +145,12 @@ pub fn orders(s: &State) -> Vec<OrderView> {
             gold: rules.chef.reward_gold,
             favor: None,
             due: Due::None,
-            ore_need: rules.recipes[0].ore,
-            ore_have: s.ore,
+            needs: chef_needs(s),
+            steps: if phase == OrderPhase::Accepted {
+                part_steps(s)
+            } else {
+                vec![]
+            },
             work_secs: rules.recipes[0].seconds,
             actions,
         });
@@ -143,8 +200,8 @@ pub fn orders(s: &State) -> Vec<OrderView> {
             gold,
             favor,
             due,
-            ore_need: REPAIR_ORE,
-            ore_have: s.ore,
+            needs: vec![(forge_core::items::IRON_ORE, s.ore(), REPAIR_ORE)],
+            steps: vec![],
             work_secs: REPAIR_SECS,
             actions,
         });
@@ -396,13 +453,15 @@ pub fn draw(
     // Whole-screen key: what the rail and lists show. Selection is kept out of it so choosing a
     // row or card only redraws the detail panel and moves the gold rim.
     let page_key = format!(
-        "{:?}:{}:{}:{:?}:{}:{}:{}:{}:{}:{:?}:{:?}:{}",
+        "{:?}:{}:{:?}:{}:{}:{:?}:{}:{}:{}:{}:{}:{:?}:{:?}:{}",
+        st.inventory,
+        st.life.queue.len(),
         host.screen,
         host.order_filter,
         host.family,
         *lang,
         st.command_id,
-        st.ore,
+        st.ore(),
         st.gold,
         st.crafted,
         st.expedition.weapons.len(),
@@ -827,26 +886,51 @@ fn order_detail(
     kit2::divider(d, server);
     d.spawn(row(8.)).with_children(|r| {
         r.spawn(kit2::label(text::NEEDS.get(l), 12., kit2::INK));
-        kit2::slot(
-            r,
-            server,
-            "normal",
-            40.,
-            Some(("items/materials/icons/iron_ore.png", None)),
-            1.,
-        );
-        let enough = o.ore_have >= o.ore_need
-            || !matches!(o.phase, OrderPhase::Offered | OrderPhase::Accepted);
-        r.spawn(kit2::label(
-            format!(
-                "{} · {}",
-                text::IRON_ORE.get(l),
-                text::have_need(l, o.ore_have, o.ore_need)
-            ),
-            12.,
-            if enough { kit2::INK } else { kit2::DEADLINE },
-        ));
+        let open = matches!(o.phase, OrderPhase::Offered | OrderPhase::Accepted);
+        for &(item, have, need) in &o.needs {
+            kit2::slot(r, server, "normal", 40., Some((&item_icon(item), None)), 1.);
+            r.spawn(kit2::label(
+                format!("{}\n{}", item_name(l, item), text::have_need(l, have, need)),
+                11.,
+                if have >= need || !open {
+                    kit2::INK
+                } else {
+                    kit2::DEADLINE
+                },
+            ));
+        }
     });
+    if !o.steps.is_empty() {
+        d.spawn(Node {
+            column_gap: px(4),
+            align_items: AlignItems::Center,
+            ..default()
+        })
+        .with_children(|r| {
+            r.spawn(kit2::label(text::MAKE.get(l), 11., kit2::INK_MUTED));
+            for &step in &o.steps {
+                let out = forge_core::crafting::Book::bundled()
+                    .recipe(step)
+                    .map(|x| x.output.item)
+                    .unwrap_or(step);
+                let command = Command::QueueRecipe(step);
+                let e = kit2::button(
+                    r,
+                    server,
+                    Kind::Plain,
+                    item_name(l, out),
+                    92.,
+                    Action(command),
+                );
+                if let Err(err) = s.clone().command(s.command_id.saturating_add(1), command) {
+                    r.commands().entity(e).insert((
+                        bevy::ui::InteractionDisabled,
+                        forge_ui::Unavailable(text::error(l, err).into()),
+                    ));
+                }
+            }
+        });
+    }
     d.spawn(Node {
         flex_grow: 1.,
         ..default()
@@ -1227,7 +1311,10 @@ mod tests {
         );
         // Rewards and costs are the domain constants, not display copies.
         assert_eq!(v[1].gold, forge_core::commission::REWARD_GOLD);
-        assert_eq!(v[1].ore_need, forge_core::commission::REPAIR_ORE);
+        assert_eq!(v[1].needs[0].2, forge_core::commission::REPAIR_ORE);
+        // The Chef needs the chef recipe's parts, not ore.
+        let parts: Vec<_> = v[0].needs.iter().map(|n| n.0.to_string()).collect();
+        assert_eq!(parts, ["straight_blade", "wooden_handle"]);
         assert_eq!(
             v[0].gold,
             s.progression.rules.as_ref().unwrap().chef.reward_gold
