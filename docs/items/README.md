@@ -55,6 +55,6 @@
 - [기초 자원 40종](RESOURCE_CATALOG_V1.md) — PR #126 기준 광석·주괴·목재·가죽·연료
 - [재사용 제작 부품 23종](INITIAL_PARTS_V1.md) — PR #127 기준, shield_core 보류
 - [초기 제작·조립 레시피](INITIAL_RECIPES_V1.md) — 자원→부품→완제품→상위 제작
-- [완제품 에셋 제작 계획 22+3종](INITIAL_FINISHED_GOODS_V1.md) — 32×32 아이콘 작업 순서
+- [완제품 에셋 22종 완료·후속 3종 계획](INITIAL_FINISHED_GOODS_V1.md) — 32×32 아이콘 작업 순서
 
 위 문서는 기존 연구 노드/게임플레이 계약을 대체하지 않는 콘텐츠 설계안이다. 에셋 준비와 게임 내 획득·제작 구현을 구분한다.
