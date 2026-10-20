@@ -11,8 +11,10 @@ mod npc;
 mod presentation;
 mod progression_ui;
 mod rendering;
+mod screens;
 mod shop_scene;
 mod spaces;
+mod text;
 mod title;
 mod village;
 mod window;
@@ -85,6 +87,7 @@ impl Options {
             .as_deref()
             .is_some_and(|q| q.starts_with("expedition-"))
             || self.qa.as_deref().is_some_and(|q| q.starts_with("repair-"))
+            || self.qa.as_deref().is_some_and(|q| q.starts_with("screen-"))
             || self.forge_scene().is_some_and(|(scene, _)| {
                 matches!(
                     scene,
@@ -196,6 +199,14 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
                 | "village-outside"
                 | "village-input"
         ) && !s.starts_with("expedition-")
+            && !matches!(
+                s.as_str(),
+                "screen-orders"
+                    | "screen-orders-en"
+                    | "screen-collection"
+                    | "screen-collection-en"
+                    | "screen-collection-clicks"
+            )
             && !matches!(
                 Options {
                     qa: Some(s.clone()),
@@ -418,6 +429,39 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
                 .expect("QA deliver");
         }
     }
+    // Kit-v2 screen fixtures: real commands on an isolated QA save.
+    if opts
+        .qa
+        .as_deref()
+        .is_some_and(|q| q.starts_with("screen-collection"))
+    {
+        let mut s = forge_core::weapon::qa_smith();
+        let id = s.command_id + 1;
+        s.command(
+            id,
+            Command::ForgeWeapon(forge_core::weapon::Plan {
+                approach: forge_core::weapon::Approach::Careful,
+                ..default()
+            }),
+        )
+        .map_err(|e| format!("{e:?}"))?;
+        s.advance(60).map_err(|e| format!("{e:?}"))?;
+        s.life.config = saved.state.life.config.clone();
+        s.smith = Some(forge_core::Smith::Male);
+        saved.state = s;
+    }
+    if opts
+        .qa
+        .as_deref()
+        .is_some_and(|q| q.starts_with("screen-orders"))
+    {
+        let id = saved.state.command_id + 1;
+        saved
+            .state
+            .command(id, Command::AcceptFarmerRepair)
+            .map_err(|e| format!("{e:?}"))?;
+        saved.state.smith = Some(forge_core::Smith::Male);
+    }
     let mut app = App::new();
     let title_active = !qa
         || opts
@@ -524,6 +568,15 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     .add_plugins(forge_ui::ForgeUiPlugin)
     .add_plugins(spaces::plugin)
     .add_plugins(forge_view::plugin)
+    .add_plugins(screens::plugin)
+    .insert_resource(forge_view::Host {
+        screen: match opts.qa.as_deref() {
+            Some(q) if q.starts_with("screen-orders") => forge_view::HostScreen::Orders,
+            Some(q) if q.starts_with("screen-collection") => forge_view::HostScreen::Collection,
+            _ => forge_view::HostScreen::Home,
+        },
+        ..default()
+    })
     .add_plugins(expedition::plugin)
     .init_resource::<village::Village>()
     .add_observer(village::activate)
@@ -725,7 +778,7 @@ fn input(
     mut farmer: ResMut<npc::FarmerPresentation>,
     mut village: ResMut<village::Village>,
     mut spaces: ResMut<spaces::Spaces>,
-    mut home: ResMut<lifestyle::HomeUi>,
+    home: Res<lifestyle::HomeUi>,
     dialog: Res<forge_ui::DialogState>,
     mut commands: Commands,
     mut forge_host: ResMut<forge_view::Host>,
@@ -769,12 +822,13 @@ fn input(
         desktop.dirty = true;
     }
     if keys.just_pressed(KeyCode::KeyO) && village.nav.screen == forge_core::village::Screen::Home {
-        forge_host.legacy = true;
+        // Orders open in the kit-v2 host screen (same place as clicking the service counter).
+        forge_host.legacy = false;
+        forge_host.screen = forge_view::HostScreen::Orders;
         desktop.shell.recover();
         desktop.shell.expanded = true;
-        home.tab = 3;
         spaces.space = forge_core::spaces::Space::Workshop;
-        spaces.manage = true;
+        spaces.manage = false;
         spaces.station = None;
     }
     for (key, cmd) in [

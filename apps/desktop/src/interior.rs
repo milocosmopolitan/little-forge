@@ -15,6 +15,25 @@ use std::collections::BTreeMap;
 /// Smiths, visitors and props share the canonical 128x160 character density (1:1).
 pub const CHARACTER_SCALE: f32 = 1.;
 pub const CANVAS: Vec2 = Vec2::new(128., 160.);
+/// The service counter fixture; it opens Orders. The wall shelf (`display-shelf`) opens the showroom.
+pub const COUNTER: &str = "display";
+
+/// Where clicking a fixture leads.
+#[derive(Debug, PartialEq, Eq)]
+pub enum FixtureRoute {
+    Orders,
+    Showroom,
+    Workshop,
+}
+pub fn fixture_route(id: &str) -> FixtureRoute {
+    if id == COUNTER {
+        FixtureRoute::Orders
+    } else if id.starts_with("display") {
+        FixtureRoute::Showroom
+    } else {
+        FixtureRoute::Workshop
+    }
+}
 pub const PIVOT: Vec2 = Vec2::new(64., 140.);
 pub fn depth(foot_y: f32) -> f32 {
     1. + foot_y * 0.001
@@ -225,7 +244,13 @@ fn pointer(
         desktop.shell.recover();
         host.legacy = true;
         spaces.manage = false;
-        if id.starts_with("display") {
+        let route = fixture_route(id);
+        if route == FixtureRoute::Orders {
+            // The service counter is where customers bring orders: it opens Orders.
+            spaces.enter(Space::Workshop);
+            host.legacy = false;
+            host.screen = crate::forge_view::HostScreen::Orders;
+        } else if route == FixtureRoute::Showroom {
             spaces.enter(Space::Showroom);
         } else {
             spaces.enter(Space::Workshop);
@@ -255,6 +280,8 @@ fn project(
     hover: Res<Hover>,
     server: Res<AssetServer>,
     catalogs: Res<PlayerCatalogs>,
+    host: Res<crate::forge_view::Host>,
+    desktop: Res<crate::window::Desktop>,
     actor: Query<
         (&Actor, &CharacterId, &Transform),
         (
@@ -277,6 +304,9 @@ fn project(
     >,
 ) {
     let visible = !title.active && spaces.workshop_shown;
+    let counter_open = desktop.shell.expanded
+        && !host.legacy
+        && host.screen == crate::forge_view::HostScreen::Orders;
     let Ok((actor, id, actor_transform)) = actor.single() else {
         return;
     };
@@ -305,7 +335,8 @@ fn project(
         let selected = spaces
             .station
             .is_some_and(|s| art.fixture(s.id()).is_some_and(|a| a.id == f.id))
-            || (f.id.starts_with("display") && spaces.space == Space::Showroom);
+            || (f.id.starts_with("display") && f.id != COUNTER && spaces.space == Space::Showroom)
+            || (f.id == COUNTER && counter_open);
         let hovered = hover.0 == Some(part.index);
         *v = if visible && (!part.outline || selected || hovered) {
             Visibility::Visible
@@ -650,5 +681,27 @@ mod tests {
         assert!(f.hit(Vec2::new(-4., -2.)));
         assert!(!f.hit(Vec2::new(-5.1, -2.)));
         assert!(!f.hit(Vec2::new(f32::NAN, 0.)));
+    }
+    #[test]
+    fn counter_opens_orders_and_shelf_opens_showroom() {
+        let catalog: serde_json::Value =
+            serde_json::from_str(include_str!("../../../assets/forge/atlas-v2/catalog.json"))
+                .unwrap();
+        let ids: Vec<String> = catalog
+            .as_array()
+            .map(|a| {
+                a.iter()
+                    .filter_map(|f| f["id"].as_str().map(String::from))
+                    .collect()
+            })
+            .unwrap_or_default();
+        assert!(
+            ids.iter().any(|i| i == COUNTER),
+            "counter fixture exists: {ids:?}"
+        );
+        assert!(ids.iter().any(|i| i == "display-shelf"));
+        assert_eq!(fixture_route(COUNTER), FixtureRoute::Orders);
+        assert_eq!(fixture_route("display-shelf"), FixtureRoute::Showroom);
+        assert_eq!(fixture_route("anvil"), FixtureRoute::Workshop);
     }
 }

@@ -8,6 +8,7 @@ use bevy::prelude::*;
 use bevy::sprite::{BorderRect, TextureSlicer};
 use bevy::ui::Pressed;
 use bevy::ui_widgets::Button;
+pub mod kit2;
 #[derive(Component)]
 pub struct SkinPanel;
 pub const INK: Color = Color::srgb(0.94, 0.88, 0.74);
@@ -82,14 +83,30 @@ impl Plugin for ForgeUiPlugin {
                     decorate_slots,
                     animate_merchants,
                     tooltip,
+                    kit2::decorate,
                 ),
             );
     }
 }
 #[derive(Resource)]
 struct ThemeFont(Handle<Font>);
+/// The theme font handle, set once at startup so new text is born with it. Without it a rebuilt
+/// label renders one frame in Bevy's default font (no Hangul) before `font` swaps it, which
+/// reads as the whole panel blinking.
+static THEME_FONT: std::sync::OnceLock<Handle<Font>> = std::sync::OnceLock::new();
+pub(crate) fn theme_font() -> TextFont {
+    match THEME_FONT.get() {
+        Some(h) => TextFont {
+            font: h.clone().into(),
+            ..default()
+        },
+        None => TextFont::default(),
+    }
+}
 fn load_font(mut commands: Commands, server: Res<AssetServer>) {
-    commands.insert_resource(ThemeFont(server.load("ui/fonts/NotoSansKR.ttf")));
+    let handle = server.load("ui/fonts/NotoSansKR.ttf");
+    let _ = THEME_FONT.set(handle.clone());
+    commands.insert_resource(ThemeFont(handle));
 }
 fn font(
     server: Res<AssetServer>,
@@ -158,7 +175,7 @@ pub fn text(s: impl Into<String>, size: f32) -> impl Bundle {
         Text::new(s),
         TextFont {
             font_size: size.into(),
-            ..default()
+            ..theme_font()
         },
         TextColor(INK),
         UiFont,

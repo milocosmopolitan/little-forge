@@ -279,10 +279,15 @@ pub fn input(
     mut farmer: Option<ResMut<crate::npc::FarmerPresentation>>,
     mut spaces: Option<ResMut<crate::spaces::Spaces>>,
     surface: Query<(&RelativeCursorPosition, &ComputedNode), With<MapSurface>>,
+    host: Option<Res<crate::forge_view::Host>>,
 ) {
     if title.active || dialog.as_ref().is_some_and(|d| d.is_open()) {
         return;
     }
+    // Orders / Collection handle their own Escape (back to the host first), see forge_view::keyboard.
+    let kit_screen = host
+        .as_ref()
+        .is_some_and(|h| !h.legacy && h.screen != crate::forge_view::HostScreen::Home);
     let widget_focused = focus
         .as_ref()
         .is_some_and(|f| f.get().is_some_and(|e| widgets.contains(e)));
@@ -299,7 +304,7 @@ pub fn input(
         }
         return;
     }
-    if keys.just_pressed(KeyCode::Escape) {
+    if keys.just_pressed(KeyCode::Escape) && !kit_screen {
         // A workshop drawer closes first; the overlay collapses on the next Escape.
         if v.nav.screen == Screen::Home
             && let Some(spaces) = spaces.as_deref_mut()
