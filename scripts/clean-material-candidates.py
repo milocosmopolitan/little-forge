@@ -2,14 +2,14 @@ import json, os, sys
 from PIL import Image
 import argparse
 _a = argparse.ArgumentParser(description="Clean Sprite Fusion picks into 32x32 icons and rebuild the atlas.")
-_a.add_argument("--set", default="materials", choices=["materials", "parts"])
+_a.add_argument("--set", default="materials", choices=["materials", "parts", "finished"])
 _set = _a.parse_args().set
 ROOT = f"assets/items/{_set}"
 SRC = f"{ROOT}/source/spritefusion-p0"
 OUT = f"{ROOT}/icons"
 GROUND = 30            # last opaque row for resting families
 REST = {"ore","ingot","log","leather","fuel"}
-cat = json.load(open(f"{ROOT}/" + ("material-catalog.json" if _set == "materials" else "parts-catalog.json")))
+cat = json.load(open(f"{ROOT}/" + {"materials": "material-catalog.json", "parts": "parts-catalog.json", "finished": "finished-goods-catalog.json"}[_set]))
 items = {i["id"]: i for i in cat["items"]}
 def kmeans(pts, k, it=30):
     pts.sort(key=lambda t: -t[1])
@@ -33,6 +33,7 @@ import os; os.makedirs(OUT, exist_ok=True)
 atlas = Image.new("RGBA", tuple(cat["atlas_size"]))
 report = []
 for id in sorted(f[:-4] for f in os.listdir(SRC) if f.endswith(".png")):
+    if items.get(id, {}).get("source") == "hand": continue   # drawn by scripts/draw-finished.py
     im = Image.open(f"{SRC}/{id}.png").convert("RGBA")
     a = im.getchannel("A")
     rgb = Image.new("RGB", im.size, (0, 0, 0)); rgb.paste(im.convert("RGB"), mask=a)
@@ -69,7 +70,7 @@ for id in sorted(f[:-4] for f in os.listdir(SRC) if f.endswith(".png")):
         crop = crop.crop((0, 1, W, H) if top else (0, 0, W, H - 1))
     w, h = crop.size
     nx = (32 - w) // 2
-    ny = GROUND + 1 - h if (items[id].get("rest") or items[id]["family"] in REST) else (32 - h) // 2
+    ny = GROUND + 1 - h if (items[id].get("rest") or items[id].get("family") in REST) else (32 - h) // 2
     ny = max(ny, 0)
     final = Image.new("RGBA", (32, 32)); final.paste(crop, (nx, ny))
     final.save(f"{OUT}/{id}.png")

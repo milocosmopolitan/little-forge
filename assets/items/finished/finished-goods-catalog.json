@@ -1,0 +1,554 @@
+{
+  "version": "0.1",
+  "doc": "docs/design/FINISHED_GOODS_V1.md",
+  "cell": [
+    32,
+    32
+  ],
+  "atlas_cells": [
+    8,
+    4
+  ],
+  "atlas_size": [
+    256,
+    128
+  ],
+  "content_box": [
+    1,
+    1,
+    30,
+    30
+  ],
+  "light": "top-left",
+  "max_colors_per_icon": 16,
+  "materials": {
+    "wood": "ash-end (heartwood, as parts)",
+    "bark": "ash-bark",
+    "metal": "iron",
+    "leather": "deer-leather"
+  },
+  "layout": "row 0 = P0, row 1 = P1, row 2 = P2, row 3 reserved for P3",
+  "items": [
+    {
+      "id": "wooden_club",
+      "name_ko": "몽둥이",
+      "name_en": "Wooden Club",
+      "category": "weapon",
+      "recipe": [
+        "ash_log x1"
+      ],
+      "tier": "P0",
+      "cell": [
+        0,
+        0
+      ],
+      "cue": "crude cudgel from one log: bark left on the thick head, cut end at the top, pale carved grip",
+      "status": "done",
+      "regions": {
+        "warm": "wood",
+        "grey": "bark"
+      }
+    },
+    {
+      "id": "wooden_staff",
+      "name_ko": "나무 스태프",
+      "name_en": "Wooden Staff",
+      "category": "weapon",
+      "recipe": [
+        "wooden_pole x1 (long)"
+      ],
+      "tier": "P0",
+      "cell": [
+        1,
+        0
+      ],
+      "cue": "long plain ash staff lying diagonally, rounded knob at the top",
+      "status": "done",
+      "regions": {
+        "warm": "wood"
+      }
+    },
+    {
+      "id": "wooden_shield",
+      "name_ko": "나무 방패",
+      "name_en": "Wooden Shield",
+      "category": "shield",
+      "recipe": [
+        "wooden_plank x2",
+        "leather_strap x1",
+        "metal_rivet x1"
+      ],
+      "tier": "P0",
+      "cell": [
+        2,
+        0
+      ],
+      "cue": "square shield, front view: vertical ash planks, two horizontal leather straps, iron rivets at strap ends",
+      "status": "done",
+      "regions": {
+        "warm": "wood",
+        "strap": "leather",
+        "grey": "metal"
+      }
+    },
+    {
+      "id": "kitchen_knife",
+      "name_ko": "부엌칼",
+      "name_en": "Kitchen Knife",
+      "category": "tool",
+      "recipe": [
+        "straight_blade x1",
+        "wooden_handle x1"
+      ],
+      "tier": "P0",
+      "cell": [
+        3,
+        0
+      ],
+      "cue": "narrow straight iron blade, ash handle with two pins",
+      "status": "done",
+      "regions": {
+        "warm": "wood",
+        "grey": "metal"
+      }
+    },
+    {
+      "id": "frying_pan",
+      "name_ko": "주방 팬",
+      "name_en": "Frying Pan",
+      "category": "tool",
+      "recipe": [
+        "iron_ingot x2"
+      ],
+      "tier": "P0",
+      "cell": [
+        4,
+        0
+      ],
+      "cue": "all-iron pan from slightly above, round shallow body, forged handle with a hanging hole",
+      "status": "done",
+      "regions": {
+        "grey": "metal"
+      }
+    },
+    {
+      "id": "farming_hoe",
+      "name_ko": "괭이",
+      "name_en": "Farming Hoe",
+      "category": "tool",
+      "recipe": [
+        "hoe_head x1",
+        "wooden_pole x1 (short)"
+      ],
+      "tier": "P0",
+      "cell": [
+        5,
+        0
+      ],
+      "cue": "long ash handle, flat iron blade hanging at a right angle from the top",
+      "status": "done",
+      "regions": {
+        "warm": "wood",
+        "grey": "metal"
+      }
+    },
+    {
+      "id": "sickle",
+      "name_ko": "낫",
+      "name_en": "Sickle",
+      "category": "tool",
+      "recipe": [
+        "sickle_blade x1",
+        "wooden_handle x1"
+      ],
+      "tier": "P0",
+      "cell": [
+        6,
+        0
+      ],
+      "cue": "thin crescent iron blade with a bright inner edge, short ash handle at the lower left",
+      "status": "done",
+      "regions": {
+        "warm": "wood",
+        "grey": "metal"
+      }
+    },
+    {
+      "id": "woodcutting_axe",
+      "name_ko": "벌목 도끼",
+      "name_en": "Woodcutting Axe",
+      "category": "tool",
+      "recipe": [
+        "axe_head x1",
+        "wooden_pole x1 (short)"
+      ],
+      "tier": "P0",
+      "cell": [
+        7,
+        0
+      ],
+      "cue": "ash haft, socketed iron head with a curved bit and bright edge",
+      "status": "done",
+      "regions": {
+        "warm": "wood",
+        "grey": "metal"
+      }
+    },
+    {
+      "id": "cleaver",
+      "name_ko": "식칼",
+      "name_en": "Cleaver",
+      "category": "tool",
+      "recipe": [
+        "wide_blade x1",
+        "wooden_handle x1"
+      ],
+      "tier": "P1",
+      "cell": [
+        0,
+        1
+      ],
+      "cue": "broad rectangular blade, ash handle",
+      "status": "done",
+      "regions": {
+        "warm": "wood",
+        "grey": "metal"
+      }
+    },
+    {
+      "id": "hand_saw",
+      "name_ko": "톱",
+      "name_en": "Hand Saw",
+      "category": "tool",
+      "recipe": [
+        "saw_blade x1",
+        "wooden_handle x1"
+      ],
+      "tier": "P1",
+      "cell": [
+        1,
+        1
+      ],
+      "cue": "toothed iron blade, closed ash handle",
+      "status": "done",
+      "regions": {
+        "warm": "wood",
+        "grey": "metal"
+      }
+    },
+    {
+      "id": "shears",
+      "name_ko": "가위",
+      "name_en": "Shears",
+      "category": "tool",
+      "recipe": [
+        "shear_blade x2",
+        "metal_rivet x1"
+      ],
+      "tier": "P1",
+      "cell": [
+        2,
+        1
+      ],
+      "cue": "two blades joined by a rivet, ring handles",
+      "status": "done",
+      "regions": {
+        "grey": "metal"
+      }
+    },
+    {
+      "id": "fleshing_knife",
+      "name_ko": "무두칼",
+      "name_en": "Fleshing Knife",
+      "category": "tool",
+      "recipe": [
+        "wide_blade x1",
+        "wooden_handle x2"
+      ],
+      "tier": "P1",
+      "cell": [
+        3,
+        1
+      ],
+      "cue": "drawknife: curved blade with a handle at each end, so it never reads as the cleaver",
+      "status": "done",
+      "regions": {
+        "warm": "wood",
+        "grey": "metal"
+      }
+    },
+    {
+      "id": "leather_awl",
+      "name_ko": "가죽 송곳",
+      "name_en": "Leather Awl",
+      "category": "tool",
+      "recipe": [
+        "awl_point x1",
+        "wooden_handle x1"
+      ],
+      "tier": "P1",
+      "cell": [
+        4,
+        1
+      ],
+      "cue": "thin iron point in a pear-shaped ash handle",
+      "status": "done",
+      "regions": {
+        "warm": "wood",
+        "grey": "metal"
+      }
+    },
+    {
+      "id": "leather_punch",
+      "name_ko": "가죽 펀치",
+      "name_en": "Leather Punch",
+      "category": "tool",
+      "recipe": [
+        "awl_point x1",
+        "metal_fitting x1",
+        "wooden_handle x1"
+      ],
+      "tier": "P1",
+      "cell": [
+        5,
+        1
+      ],
+      "cue": "hollow round punch tip, iron ferrule, ash handle",
+      "status": "done",
+      "regions": {
+        "warm": "wood",
+        "grey": "metal"
+      }
+    },
+    {
+      "id": "wood_chisel",
+      "name_ko": "목공 끌",
+      "name_en": "Wood Chisel",
+      "category": "tool",
+      "recipe": [
+        "straight_blade x1",
+        "wooden_handle x1"
+      ],
+      "tier": "P1",
+      "cell": [
+        6,
+        1
+      ],
+      "cue": "flat square-ended iron chisel, ash handle with a struck butt",
+      "status": "done",
+      "regions": {
+        "warm": "wood",
+        "grey": "metal"
+      }
+    },
+    {
+      "id": "dagger",
+      "name_ko": "단도",
+      "name_en": "Dagger",
+      "category": "weapon",
+      "recipe": [
+        "straight_blade x1",
+        "leather_wrapped_handle x1"
+      ],
+      "tier": "P2",
+      "cell": [
+        0,
+        2
+      ],
+      "cue": "double-edged short blade, small guard, leather-wrapped grip",
+      "status": "done",
+      "regions": {
+        "warm": "leather",
+        "grey": "metal"
+      },
+      "grey_sat": 0.06
+    },
+    {
+      "id": "hunting_knife",
+      "name_ko": "사냥칼",
+      "name_en": "Hunting Knife",
+      "category": "weapon",
+      "recipe": [
+        "straight_blade x1",
+        "wooden_handle x1",
+        "leather_grip x1"
+      ],
+      "tier": "P2",
+      "cell": [
+        1,
+        2
+      ],
+      "cue": "single-edged blade with a clipped point, leather grip over ash",
+      "status": "done",
+      "regions": {
+        "warm": "wood",
+        "warm_dark": "leather",
+        "grey": "metal"
+      }
+    },
+    {
+      "id": "hand_axe",
+      "name_ko": "손도끼",
+      "name_en": "Hand Axe",
+      "category": "weapon",
+      "recipe": [
+        "axe_head x1",
+        "wooden_rod x1"
+      ],
+      "tier": "P2",
+      "cell": [
+        2,
+        2
+      ],
+      "cue": "hatchet: short ash haft, small pale iron head with a flat 2px poll and a short unbearded bit with a convex honed edge (hand-drawn, scripts/draw-finished.py)",
+      "status": "done",
+      "regions": {
+        "warm": "wood",
+        "grey": "metal"
+      },
+      "source": "hand"
+    },
+    {
+      "id": "spear",
+      "name_ko": "창",
+      "name_en": "Spear",
+      "category": "weapon",
+      "recipe": [
+        "spearhead x1",
+        "wooden_pole x1 (short)"
+      ],
+      "tier": "P2",
+      "cell": [
+        3,
+        2
+      ],
+      "cue": "leaf spearhead on a short pole; corner-to-corner diagonal",
+      "status": "done",
+      "regions": {
+        "warm": "wood",
+        "grey": "metal"
+      },
+      "grey_sat": 0.08
+    },
+    {
+      "id": "pike",
+      "name_ko": "파이크",
+      "name_en": "Pike",
+      "category": "weapon",
+      "recipe": [
+        "spearhead x1",
+        "wooden_pole x1 (long)"
+      ],
+      "tier": "P2",
+      "cell": [
+        4,
+        2
+      ],
+      "cue": "small narrow head on a thin pole that runs past the cell corner (cropped), so length reads against the spear",
+      "status": "done",
+      "regions": {
+        "warm": "wood",
+        "grey": "metal"
+      },
+      "grey_sat": 0.08
+    },
+    {
+      "id": "halberd",
+      "name_ko": "할버드",
+      "name_en": "Halberd",
+      "category": "weapon",
+      "recipe": [
+        "spearhead x1",
+        "axe_head x1",
+        "wooden_pole x1 (long)"
+      ],
+      "tier": "P2",
+      "cell": [
+        5,
+        2
+      ],
+      "cue": "long pole with a spike tip and an axe blade below it",
+      "status": "done",
+      "regions": {
+        "warm": "wood",
+        "grey": "metal"
+      },
+      "grey_sat": 0.08
+    },
+    {
+      "id": "arrow",
+      "name_ko": "화살 묶음",
+      "name_en": "Arrow Bundle",
+      "category": "ammo",
+      "recipe": [
+        "arrow_shaft x1",
+        "arrowhead x1"
+      ],
+      "tier": "P2",
+      "cell": [
+        6,
+        2
+      ],
+      "cue": "three arrows with iron heads and fletching, bundled",
+      "status": "done",
+      "regions": {
+        "warm": "wood",
+        "warm_dark": "leather",
+        "grey": "metal"
+      }
+    }
+  ],
+  "later": [
+    {
+      "id": "shortbow",
+      "name_ko": "단궁",
+      "name_en": "Shortbow",
+      "tier": "P3",
+      "needs": [
+        "bow stave and bowstring parts (new)"
+      ]
+    },
+    {
+      "id": "reinforced_shield",
+      "name_ko": "강화 방패",
+      "name_en": "Reinforced Shield",
+      "tier": "P3",
+      "needs": [
+        "wooden_shield x1",
+        "shield_boss x1"
+      ]
+    },
+    {
+      "id": "magic_wand",
+      "name_ko": "마법 완드",
+      "name_en": "Magic Wand",
+      "tier": "P3",
+      "needs": [
+        "special branch from rare expeditions",
+        "mana shard"
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "date": "2026-10-20",
+      "what": "no more Sprite Fusion; new and revised icons are hand-drawn in scripts/draw-finished.py (owner)"
+    },
+    {
+      "date": "2026-10-20",
+      "what": "wooden_shield is square (owner)"
+    },
+    {
+      "date": "2026-10-20",
+      "what": "P0 generated first; P1 approved next; P2 approved after (owner, 2026-10-20)"
+    },
+    {
+      "date": "2026-10-19",
+      "what": "frying_pan is made from iron_ingot x2; no pan_body part"
+    },
+    {
+      "date": "2026-10-19",
+      "what": "pole length is an attribute; spear/pike differ by silhouette in the icon"
+    }
+  ]
+}
