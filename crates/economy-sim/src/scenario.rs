@@ -101,6 +101,15 @@ pub struct Player {
     /// Buy staples when the pantry is empty.
     #[serde(default = "yes")]
     pub buy_food: bool,
+    /// Buy recipe inputs (charcoal, logs, resin...) from vendors when short.
+    #[serde(default = "yes")]
+    pub buy_materials: bool,
+    /// Finished goods to keep one of in stock through the recipe chain, e.g. "kitchen_knife".
+    #[serde(default)]
+    pub make: Vec<String>,
+    /// How many of each `make` good to keep on hand (finished goods do not sell yet).
+    #[serde(default = "one_u32")]
+    pub make_target: u32,
     #[serde(default = "two")]
     pub max_queue: usize,
     #[serde(default)]
@@ -108,6 +117,9 @@ pub struct Player {
     /// The player only acts every N wall seconds (attention span); 1 = every step.
     #[serde(default = "one")]
     pub act_every_secs: u64,
+}
+fn one_u32() -> u32 {
+    1
 }
 fn yes() -> bool {
     true
@@ -123,6 +135,9 @@ impl Default for Player {
             craft: true,
             buy_ore: true,
             buy_food: true,
+            buy_materials: true,
+            make: vec![],
+            make_target: 1,
             max_queue: 2,
             gold_reserve: 0,
             act_every_secs: 1,
@@ -151,6 +166,12 @@ pub fn parse_command(name: &str) -> Result<Command, String> {
         "Rest" => Command::Rest,
         "RecallExpedition" => Command::RecallExpedition,
         "BuyRack" => Command::BuyRack,
+        other if other.starts_with("QueueRecipe:") => {
+            let id = &other["QueueRecipe:".len()..];
+            Command::QueueRecipe(
+                forge_core::items::Id::parse(id).map_err(|_| format!("bad recipe id {id:?}"))?,
+            )
+        }
         other => return Err(format!("unknown or non-scriptable command {other:?}")),
     })
 }
@@ -182,7 +203,7 @@ impl Start {
             s.gold = g;
         }
         if let Some(o) = self.ore {
-            s.ore = o;
+            s.set_stock(forge_core::items::IRON_ORE, o);
         }
         if let Some(n) = self.staples {
             let have = s.life.pantry.staples();
@@ -215,10 +236,21 @@ impl Scenario {
                 parse_command(&c.command)?;
             }
         }
-        if let Driver::Player(p) = &self.driver
-            && p.act_every_secs == 0
-        {
-            return Err("act_every_secs must be > 0".into());
+        if let Driver::Player(p) = &self.driver {
+            if p.act_every_secs == 0 {
+                return Err("act_every_secs must be > 0".into());
+            }
+            for good in &p.make {
+                let id = forge_core::items::Id::parse(good)
+                    .map_err(|_| format!("make: bad item id {good:?}"))?;
+                if !forge_core::crafting::Book::bundled()
+                    .recipes
+                    .iter()
+                    .any(|r| r.output.item == id)
+                {
+                    return Err(format!("make: no recipe makes {good}"));
+                }
+            }
         }
         Ok(())
     }

@@ -122,16 +122,39 @@ impl Item {
 }
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Commerce {
+    /// Pantry offers (staple, meal). Indices 0/1 (timber, leather) moved to `vendor_stock`
+    /// as `carpenter/ash_log` and `leatherworker/deer_leather` in schema 8 and stay 0.
     pub stock: [u32; 4],
-    pub timber: u32,
-    pub leather: u32,
+    /// Remaining finite stock of catalog offers, keyed `"<location>/<item>"`.
+    pub vendor_stock: std::collections::BTreeMap<String, u32>,
 }
 impl Default for Commerce {
     fn default() -> Self {
         Self {
-            stock: [40, 30, 60, 12],
-            timber: 0,
-            leather: 0,
+            stock: [0, 0, 60, 12],
+            vendor_stock: crate::crafting::Book::bundled().initial_stock(),
+        }
+    }
+}
+impl Commerce {
+    pub fn validate(&self) -> Result<(), Error> {
+        let known = crate::crafting::Book::bundled_initial_stock();
+        if self.stock[0] != 0
+            || self.stock[1] != 0
+            || self.vendor_stock.keys().any(|k| !known.contains_key(k))
+        {
+            return Err(Error::InvalidState);
+        }
+        Ok(())
+    }
+}
+impl Item {
+    /// The catalog offer a legacy shop item now sells.
+    pub fn catalog(self) -> Option<crate::items::Id> {
+        match self {
+            Self::Timber => Some(crate::items::ASH_LOG),
+            Self::Leather => Some(crate::items::DEER_LEATHER),
+            Self::Staple | Self::Meal => None,
         }
     }
 }
@@ -140,6 +163,9 @@ impl State {
     pub fn quote(&self, vendor: Location, item: Item, quantity: u32) -> Result<u64, Error> {
         if vendor != item.vendor() || quantity == 0 || quantity > 99 {
             return Err(Error::InvalidPurchase);
+        }
+        if let Some(id) = item.catalog() {
+            return self.quote_buy(vendor, id, quantity).map(|q| q.total);
         }
         if self.commerce.stock[item.index()] < quantity {
             return Err(Error::OutOfStock);
@@ -154,25 +180,18 @@ impl State {
         item: Item,
         quantity: u32,
     ) -> Result<(), Error> {
+        if let Some(id) = item.catalog() {
+            if vendor != item.vendor() {
+                return Err(Error::InvalidPurchase);
+            }
+            return self.buy(vendor, id, quantity);
+        }
         let price = self.quote(vendor, item, quantity)?;
         if self.gold < price {
             return Err(Error::InsufficientResources);
         }
         match item {
-            Item::Timber => {
-                self.commerce.timber = self
-                    .commerce
-                    .timber
-                    .checked_add(quantity)
-                    .ok_or(Error::Overflow)?
-            }
-            Item::Leather => {
-                self.commerce.leather = self
-                    .commerce
-                    .leather
-                    .checked_add(quantity)
-                    .ok_or(Error::Overflow)?
-            }
+            Item::Timber | Item::Leather => return Err(Error::InvalidPurchase),
             Item::Staple | Item::Meal => self.life.pantry.add(
                 if item == Item::Staple {
                     Food::Staple
@@ -223,10 +242,15 @@ mod tests {
             item: Item::Timber,
             quantity: 2,
         };
+        let logs = s.stock(crate::items::ASH_LOG);
         s.command(1, buy).unwrap();
         assert_eq!(
-            (s.gold, s.commerce.timber, s.commerce.stock[0]),
-            (94, 2, 38)
+            (
+                s.gold,
+                s.stock(crate::items::ASH_LOG),
+                s.vendor_stock(Location::Carpenter, crate::items::ASH_LOG)
+            ),
+            (94, logs + 2, Some(38))
         );
         let dir = std::env::temp_dir().join(format!("village-save-{}", std::process::id()));
         let mut saved = Save::new(s, 100);
@@ -252,7 +276,7 @@ mod tests {
         assert_eq!(s.command(1, buy), Err(Error::InsufficientResources));
         assert_eq!(s, old);
         s.gold = 100;
-        s.commerce.timber = u32::MAX;
+        s.set_stock(crate::items::ASH_LOG, crate::items::STACK_CAP);
         let old = s.clone();
         assert_eq!(s.command(1, buy), Err(Error::Overflow));
         assert_eq!(s, old);

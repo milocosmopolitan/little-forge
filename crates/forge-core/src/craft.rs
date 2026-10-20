@@ -105,6 +105,18 @@ impl State {
         Some(match self.life.active_job {
             Some(crate::life::WorkKind::FarmerSickleRepair) => Stage::Hammering,
             Some(crate::life::WorkKind::DaggerStudy) => Stage::Researching,
+            // Recipe jobs animate at their station; the Chef's knife keeps the full
+            // heat → hammer → quench sequence of a forged blade.
+            Some(crate::life::WorkKind::Recipe(id)) => {
+                match crate::crafting::Book::bundled()
+                    .recipe(id)
+                    .map(|r| r.station)
+                {
+                    Some(crate::crafting::Station::Forge) => Stage::Heating,
+                    Some(crate::crafting::Station::Anvil) => Stage::Hammering,
+                    _ => Stage::Researching,
+                }
+            }
             _ => stage_at(self.current_good(), progress),
         })
     }

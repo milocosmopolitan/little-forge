@@ -73,17 +73,20 @@ pub fn drive(
             .expect("paid sale good");
     }
     if f == 120 && !sales {
-        for command in [
-            forge_core::Command::AcceptChef,
-            forge_core::Command::QueueChef,
-        ] {
-            let id = session.save.state.command_id + 1;
-            session
-                .save
-                .state
-                .command(id, command)
-                .expect("D01 paid Chef work command");
-        }
+        let id = session.save.state.command_id + 1;
+        session
+            .save
+            .state
+            .command(id, forge_core::Command::AcceptChef)
+            .expect("D01 accept Chef");
+        // Schema 8: blade and handle first, through real recipe commands and simulated time.
+        forge_core::crafting::make_chef_parts(&mut session.save.state).expect("D01 Chef parts");
+        let id = session.save.state.command_id + 1;
+        session
+            .save
+            .state
+            .command(id, forge_core::Command::QueueChef)
+            .expect("D01 paid Chef work command");
     }
     if f > 90 {
         let (e, a, w, id) = actors.single().expect("exactly one persistent smith");

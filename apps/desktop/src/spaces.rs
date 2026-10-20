@@ -748,7 +748,7 @@ fn draw_workshop(p: &mut ChildSpawnerCommands, s: &Session, spaces: &Spaces, ser
                     drawer.spawn(forge_ui::text(
                         format!(
                             "Ore {} · Queue {} · Result slots free {}",
-                            st.ore,
+                            st.ore(),
                             st.life.queue.len(),
                             st.showroom.free()
                         ),

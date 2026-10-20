@@ -46,7 +46,7 @@ pub const REWARD: T = T("보상 금화", "Reward");
 pub const NEEDS: T = T("필요 재료", "Materials");
 pub const WORK: T = T("작업 시간", "Work");
 pub const STATUS: T = T("상태", "Status");
-pub const IRON_ORE: T = T("철광석", "Iron ore");
+pub const MAKE: T = T("부품 제작", "Make parts");
 
 pub const CHEF: T = T("요리사", "Chef");
 pub const FARMER: T = T("농부", "Farmer");

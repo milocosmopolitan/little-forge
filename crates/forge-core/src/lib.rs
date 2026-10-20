@@ -1,7 +1,9 @@
 //! Deterministic domain: no renderer, OS clock, or Bevy dependency.
 pub mod commission;
 pub mod craft;
+pub mod crafting;
 pub mod expedition;
+pub mod items;
 pub mod life;
 pub mod progression;
 pub mod save;
@@ -46,7 +48,9 @@ pub struct State {
     pub progression: progression::Progression,
     pub tick: u64,
     pub gold: u64,
-    pub ore: u32,
+    /// Stackable holdings by catalog ID: materials, parts, ordinary finished goods. Replaced the
+    /// old `ore` count (schema 8); iron ore is `iron_ore`.
+    pub inventory: items::Inventory,
     pub daggers: u32,
     pub crafted: u32,
     pub sold: u32,
@@ -75,6 +79,14 @@ pub enum Command {
     LaunchExpedition(expedition::Loadout),
     RecallExpedition,
     Craft,
+    /// Queue a data-driven recipe (`assets/crafting.json`); inputs are debited now.
+    QueueRecipe(items::Id),
+    /// Buy a catalog item from a vendor's offer.
+    Buy {
+        vendor: village::Location,
+        item: items::Id,
+        quantity: u32,
+    },
     AcceptChef,
     QueueChef,
     DeliverChef,
@@ -130,6 +142,11 @@ pub enum EventKind {
     CapacityChanged {
         slots: u32,
     },
+    /// A recipe job finished and its output entered the inventory.
+    Produced {
+        item: String,
+        qty: u32,
+    },
 }
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Event {
@@ -167,7 +184,7 @@ impl State {
             progression: progression::Progression::default(),
             tick: 0,
             gold: 0,
-            ore: 10,
+            inventory: crafting::Book::bundled().start_inventory(),
             daggers: 0,
             crafted: 0,
             sold: 0,
@@ -189,6 +206,9 @@ impl State {
         self.validate_progression()?;
         self.showroom.validate()?;
         self.validate_farmer_order()?;
+        self.inventory.validate(items::Registry::bundled())?;
+        self.commerce.validate()?;
+        self.validate_recipe_jobs()?;
         if self.rng == 0
             || self.next_visitor <= self.tick
             || self.job_due.is_some_and(|t| t <= self.tick)
@@ -232,6 +252,12 @@ impl State {
                 item,
                 quantity,
             } => next.purchase(vendor, item, quantity)?,
+            Command::QueueRecipe(recipe) => next.queue_recipe(recipe)?,
+            Command::Buy {
+                vendor,
+                item,
+                quantity,
+            } => next.buy(vendor, item, quantity)?,
             Command::ChooseSmith(smith) => {
                 if next.smith.is_some() {
                     return Err(Error::InvalidState);
@@ -241,21 +267,21 @@ impl State {
             Command::SetForSale { slot, for_sale } => next.showroom.set_for_sale(slot, for_sale)?,
             Command::BuyRack => {
                 let (gold, timber) = next.showroom.rack_cost().ok_or(Error::RackLimit)?;
-                if next.gold < gold || next.commerce.timber < timber {
+                if next.gold < gold || next.stock(crate::items::ASH_LOG) < timber {
                     return Err(Error::InsufficientResources);
                 }
                 next.showroom.install_rack()?;
                 next.gold -= gold;
-                next.commerce.timber -= timber;
+                next.inventory.take(crate::items::ASH_LOG, timber)?;
             }
             Command::UpgradeRack { rack } => {
                 let (gold, timber) = next.showroom.upgrade_cost(rack).ok_or(Error::RackLimit)?;
-                if next.gold < gold || next.commerce.timber < timber {
+                if next.gold < gold || next.stock(crate::items::ASH_LOG) < timber {
                     return Err(Error::InsufficientResources);
                 }
                 next.showroom.upgrade(rack)?;
                 next.gold -= gold;
-                next.commerce.timber -= timber;
+                next.inventory.take(crate::items::ASH_LOG, timber)?;
             }
             Command::Craft => {
                 if !next.progression.dagger_unlocked() {
@@ -264,7 +290,7 @@ impl State {
                 if next.job_due.is_some() || !next.life.queue.is_empty() {
                     return Err(Error::Busy);
                 }
-                if next.ore < next.dagger_ore() {
+                if next.ore() < next.dagger_ore() {
                     return Err(Error::InsufficientResources);
                 }
                 // Reserve the result slot before any material is consumed.
@@ -274,7 +300,10 @@ impl State {
                         .checked_add(next.work_seconds(life::WorkKind::IronDagger))
                         .ok_or(Error::Overflow)?,
                 );
-                next.ore -= next.dagger_ore();
+                {
+                    let n = next.dagger_ore();
+                    next.inventory.take(crate::items::IRON_ORE, n)?;
+                }
                 next.life.work = next.work_seconds(life::WorkKind::IronDagger) * 1000;
                 next.life.active_job = Some(life::WorkKind::IronDagger);
                 if next.life.action == life::SmithAction::Idle {
@@ -285,13 +314,16 @@ impl State {
                 if !next.progression.dagger_unlocked() {
                     return Err(Error::ResearchLocked);
                 }
-                if next.ore < next.dagger_ore() {
+                if next.ore() < next.dagger_ore() {
                     return Err(Error::InsufficientResources);
                 }
                 if next.life.queue.len() >= 32 {
                     return Err(Error::Busy);
                 }
-                next.ore -= next.dagger_ore();
+                {
+                    let n = next.dagger_ore();
+                    next.inventory.take(crate::items::IRON_ORE, n)?;
+                }
                 next.life.queue.push_back(life::WorkKind::IronDagger);
             }
             Command::BuyFood => {
@@ -336,13 +368,8 @@ impl State {
                 next.life.action = life::SmithAction::Sleeping;
                 next.life.remaining = next.life.config.sleep_seconds;
             }
-            Command::BuyOre => {
-                if next.gold < 4 {
-                    return Err(Error::InsufficientResources);
-                }
-                next.ore = next.ore.checked_add(2).ok_or(Error::Overflow)?;
-                next.gold -= 4;
-            }
+            // The legacy "Buy 2 ore · 4 gold" button: the forge supply channel's iron ore offer.
+            Command::BuyOre => next.buy(village::Location::Blacksmith, items::IRON_ORE, 2)?,
         }
         next.command_id = id;
         next.validate()?;
@@ -411,7 +438,7 @@ mod tests {
             assert_eq!(a, b);
             assert_eq!(expected, actual);
             assert_eq!(a.gold, 12);
-            assert_eq!(a.ore, 8);
+            assert_eq!(a.ore(), 8);
             assert_eq!(a.sold, 1);
         }
     }

@@ -1,0 +1,117 @@
+{
+  "version": 1,
+  "status": "draft-test-data",
+  "doc": "Generic processing/assembly recipes and vendor offers (#74, #132). Item IDs are catalog IDs. Input/output quantities follow parts-catalog.json and finished-goods-catalog.json; smelting ratio, seconds, prices and stock are provisional test data (owner decision 2026-10-20) to be validated with crates/economy-sim. See docs/system/CRAFTING_ENGINE_V1.md.",
+  "recipes": [
+    {
+      "id": "smelt_iron_ingot",
+      "inputs": [{ "item": "iron_ore", "qty": 2 }, { "item": "charcoal", "qty": 1 }],
+      "output": { "item": "iron_ingot", "qty": 1 },
+      "seconds": 10,
+      "station": "forge",
+      "unlock": "starter"
+    },
+    {
+      "id": "forge_straight_blade",
+      "inputs": [{ "item": "iron_ingot", "qty": 1 }],
+      "output": { "item": "straight_blade", "qty": 1 },
+      "seconds": 8,
+      "station": "anvil",
+      "unlock": "starter"
+    },
+    {
+      "id": "make_wooden_handle",
+      "inputs": [{ "item": "ash_log", "qty": 1 }, { "item": "pine_resin", "qty": 1 }],
+      "output": { "item": "wooden_handle", "qty": 1 },
+      "seconds": 6,
+      "station": "workbench",
+      "unlock": "starter"
+    },
+    {
+      "id": "make_wooden_pole",
+      "inputs": [{ "item": "ash_log", "qty": 1 }],
+      "output": { "item": "wooden_pole", "qty": 1 },
+      "seconds": 6,
+      "station": "workbench",
+      "unlock": "starter"
+    },
+    {
+      "id": "assemble_kitchen_knife",
+      "inputs": [{ "item": "straight_blade", "qty": 1 }, { "item": "wooden_handle", "qty": 1 }],
+      "output": { "item": "kitchen_knife", "qty": 1 },
+      "seconds": 20,
+      "station": "workbench",
+      "unlock": "starter"
+    },
+    {
+      "id": "carve_wooden_club",
+      "inputs": [{ "item": "ash_log", "qty": 1 }],
+      "output": { "item": "wooden_club", "qty": 1 },
+      "seconds": 6,
+      "station": "workbench",
+      "unlock": "starter"
+    },
+    {
+      "id": "make_wooden_staff",
+      "inputs": [{ "item": "wooden_pole", "qty": 1 }],
+      "output": { "item": "wooden_staff", "qty": 1 },
+      "seconds": 4,
+      "station": "workbench",
+      "unlock": "starter"
+    },
+    {
+      "id": "forge_frying_pan",
+      "inputs": [{ "item": "iron_ingot", "qty": 2 }],
+      "output": { "item": "frying_pan", "qty": 1 },
+      "seconds": 10,
+      "station": "anvil",
+      "unlock": "starter"
+    }
+  ],
+  "chef_order_recipe": "assemble_kitchen_knife",
+  "start_inventory_note": "New games only (draft): exactly one kitchen knife's purchased inputs, so the Chef's first commission never needs gold the player cannot have yet. Iron ore 10 is the existing start.",
+  "start_inventory": [
+    { "item": "iron_ore", "qty": 10 },
+    { "item": "charcoal", "qty": 1 },
+    { "item": "ash_log", "qty": 1 },
+    { "item": "pine_resin", "qty": 1 }
+  ],
+  "vendors": [
+    {
+      "location": "blacksmith",
+      "note": "Existing forge supply channel (the Buy ore button); no new NPC.",
+      "offers": [
+        { "item": "iron_ore", "price": 2, "stock": null },
+        { "item": "charcoal", "price": 1, "stock": 60 },
+        { "item": "coal", "price": 2, "stock": 20 },
+        { "item": "iron_ingot", "price": 7, "stock": 10 }
+      ]
+    },
+    {
+      "location": "carpenter",
+      "offers": [
+        { "item": "ash_log", "price": 3, "stock": 40, "legacy": "timber" },
+        { "item": "pine_log", "price": 2, "stock": 30 },
+        { "item": "wooden_plank", "price": 2, "stock": 20 },
+        { "item": "wooden_pole", "price": 4, "stock": 10 },
+        { "item": "wooden_handle", "price": 5, "stock": 10 }
+      ]
+    },
+    {
+      "location": "leatherworker",
+      "offers": [
+        { "item": "deer_leather", "price": 5, "stock": 30, "legacy": "leather" },
+        { "item": "deer_hide", "price": 3, "stock": 20 },
+        { "item": "leather_strip", "price": 3, "stock": 20 },
+        { "item": "leather_strap", "price": 4, "stock": 10 }
+      ]
+    },
+    {
+      "location": "farm",
+      "offers": [
+        { "item": "wood_branch", "price": 1, "stock": 40 },
+        { "item": "pine_resin", "price": 2, "stock": 30 }
+      ]
+    }
+  ]
+}

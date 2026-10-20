@@ -219,10 +219,10 @@ impl crate::State {
             return Err(Error::Busy);
         }
         let craft = Rules::bundled().forge(plan, self.progression.level(0), self.smith);
-        if self.ore < craft.ore {
+        if self.ore() < craft.ore {
             return Err(Error::InsufficientResources);
         }
-        self.ore -= craft.ore;
+        self.inventory.take(crate::items::IRON_ORE, craft.ore)?;
         self.life
             .queue
             .push_back(crate::life::WorkKind::ForgedWeapon(plan));
@@ -315,9 +315,10 @@ pub fn qa_smith() -> crate::State {
     )
     .unwrap();
     s.gold = 80;
-    s.ore = 40;
-    s.commerce.timber = 12;
+    s.set_stock(crate::items::IRON_ORE, 40);
+    s.set_stock(crate::items::ASH_LOG, 12);
     command(&mut s, Command::AcceptChef);
+    crate::crafting::make_chef_parts(&mut s).expect("QA chef parts");
     command(&mut s, Command::QueueChef);
     s.advance(20).unwrap();
     command(&mut s, Command::DeliverChef);
@@ -619,7 +620,7 @@ mod tests {
     #[test]
     fn queued_knives_reserve_armory_slots_against_bow_jobs() {
         let mut s = qa_smith();
-        s.ore = 200;
+        s.set_stock(crate::items::IRON_ORE, 200);
         for _ in 0..31 {
             command(&mut s, Command::ForgeWeapon(Plan::default()));
         }
@@ -644,6 +645,7 @@ mod tests {
         )
         .unwrap();
         command(&mut s, Command::AcceptChef);
+        crate::crafting::make_chef_parts(&mut s).unwrap();
         command(&mut s, Command::QueueChef);
         s.advance(20).unwrap();
         command(&mut s, Command::DeliverChef);
@@ -699,7 +701,7 @@ mod tests {
     #[test]
     fn costs_and_research_gates_are_atomic() {
         let mut s = qa_smith();
-        s.ore = 0;
+        s.set_stock(crate::items::IRON_ORE, 0);
         let before = s.clone();
         assert_eq!(
             s.command(s.command_id + 1, Command::ForgeWeapon(Plan::default())),

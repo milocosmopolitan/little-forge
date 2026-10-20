@@ -65,6 +65,11 @@ pub fn drive(
         800 => Some(6),
         _ => None,
     };
+    if frame == 150 {
+        // Schema 8: the knife needs a blade and a handle. Make them with real recipe commands
+        // and simulated time before the UI's Queue button is pressed at frame 160.
+        forge_core::crafting::make_chef_parts(&mut session.save.state).expect("alpha Chef parts");
+    }
     let action = match frame {
         140 => Some(Command::AcceptChef),
         160 => Some(Command::QueueChef),
@@ -154,7 +159,7 @@ pub fn drive(
         assert_eq!(s.progression.general_xp, 22);
         assert_eq!(s.progression.codex["iron_dagger"].count, 1);
         assert_eq!(s.progression.codex["kitchen_knife"].count, 1);
-        assert_eq!(s.ore, 6);
+        assert_eq!(s.ore(), 6);
         assert!(!session.disabled);
         let dir = session.dir.clone();
         forge_core::save::store(&dir, &mut session.save).expect("alpha: save");

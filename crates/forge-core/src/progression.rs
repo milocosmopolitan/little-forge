@@ -193,11 +193,20 @@ impl State {
                 if self.life.queue.len() >= 32 {
                     return Err(Error::Busy);
                 }
-                if self.ore < rules.recipes[0].ore {
+                // Schema 8: the knife is assembled from a blade and a handle (crafting.json's
+                // chef_order_recipe). Parts are debited now; the knife is held for the Chef.
+                let book = crate::crafting::Book::bundled();
+                let recipe = book
+                    .recipe(book.chef_order_recipe)
+                    .ok_or(Error::InvalidState)?;
+                let needs: Vec<_> = recipe.inputs.iter().map(|s| (s.item, s.qty)).collect();
+                if !self.inventory.has(&needs) {
                     return Err(Error::InsufficientResources);
                 }
-                self.ore -= rules.recipes[0].ore;
-                self.life.queue.push_back(WorkKind::KitchenKnife);
+                for (item, qty) in needs {
+                    self.inventory.take(item, qty)?;
+                }
+                self.life.queue.push_back(WorkKind::ChefOrder);
                 p.chef_phase = OrderPhase::Queued;
             }
             Command::DeliverChef => {
@@ -333,9 +342,11 @@ impl State {
             return Err(Error::InvalidState);
         }
         let queued = |job| self.life.queue.iter().filter(|&&j| j == job).count();
-        if queued(WorkKind::KitchenKnife) != usize::from(p.chef_phase == OrderPhase::Queued)
-            || (self.life.active_job == Some(WorkKind::KitchenKnife))
-                != (p.chef_phase == OrderPhase::Working)
+        let chef_job =
+            |j: Option<WorkKind>| matches!(j, Some(WorkKind::KitchenKnife | WorkKind::ChefOrder));
+        if queued(WorkKind::KitchenKnife) + queued(WorkKind::ChefOrder)
+            != usize::from(p.chef_phase == OrderPhase::Queued)
+            || chef_job(self.life.active_job) != (p.chef_phase == OrderPhase::Working)
             || queued(WorkKind::DaggerStudy)
                 + usize::from(self.life.active_job == Some(WorkKind::DaggerStudy))
                 != usize::from(p.study_pending)
@@ -377,6 +388,7 @@ mod tests {
     }
     fn knife(s: &mut State) {
         cmd(s, Command::AcceptChef);
+        crate::crafting::make_chef_parts(s).unwrap();
         cmd(s, Command::QueueChef);
         s.advance(20).unwrap();
         assert_eq!(s.progression.chef_phase, OrderPhase::Ready);
@@ -472,6 +484,7 @@ mod tests {
         assert_eq!(s, before);
         let mut s = game(3);
         cmd(&mut s, Command::AcceptChef);
+        crate::crafting::make_chef_parts(&mut s).unwrap();
         cmd(&mut s, Command::QueueChef);
         s.progression.general_xp = u64::MAX;
         let before = s.clone();
@@ -485,6 +498,18 @@ mod tests {
         for (command, seconds) in [
             (Command::ChooseSmith(Smith::Female), 0),
             (Command::AcceptChef, 0),
+            (
+                Command::QueueRecipe(crate::items::Id::new("smelt_iron_ingot")),
+                0,
+            ),
+            (
+                Command::QueueRecipe(crate::items::Id::new("make_wooden_handle")),
+                40,
+            ),
+            (
+                Command::QueueRecipe(crate::items::Id::new("forge_straight_blade")),
+                20,
+            ),
             (Command::QueueChef, 1),
             (Command::Rest, 100),
             (Command::DeliverChef, 0),
@@ -543,7 +568,7 @@ mod tests {
         let loaded = save::load(&dir).unwrap().unwrap();
         assert!(loaded.state.progression.legacy_dagger);
         assert!(loaded.state.progression.codex.is_empty());
-        assert_eq!(loaded.state.ore, original.state.ore);
+        assert_eq!(loaded.state.ore(), original.state.ore());
         assert_eq!(loaded.schema_version, save::SCHEMA_VERSION);
         std::fs::remove_dir_all(dir).unwrap();
     }
@@ -551,7 +576,7 @@ mod tests {
     fn entrusted_knife_bypasses_full_showroom_and_sleep_resumes_work() {
         let mut s = game(2);
         s.progression.legacy_dagger = true;
-        s.ore = 20;
+        s.set_stock(crate::items::IRON_ORE, 20);
         s.next_visitor = 10000;
         for _ in 0..4 {
             cmd(&mut s, Command::QueueCraft);
@@ -560,6 +585,7 @@ mod tests {
         assert_eq!(s.showroom.free(), 0);
         cmd(&mut s, Command::QueueCraft);
         cmd(&mut s, Command::AcceptChef);
+        crate::crafting::make_chef_parts(&mut s).unwrap();
         cmd(&mut s, Command::QueueChef);
         cmd(&mut s, Command::Rest);
         s.advance(100).unwrap();
