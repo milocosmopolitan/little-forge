@@ -173,6 +173,15 @@ fn crafting_chain_makes_goods_from_bought_materials() {
         "wooden_pole",
         "wooden_staff",
         "frying_pan",
+        "wooden_plank",
+        "metal_rivet",
+        "leather_strap",
+        "wooden_shield",
+        "farming_hoe",
+        "sickle",
+        "woodcutting_axe",
+        "cleaver",
+        "hand_saw",
     ] {
         assert!(
             r.produced.get(item).copied().unwrap_or(0) > 0,
@@ -186,20 +195,19 @@ fn crafting_chain_makes_goods_from_bought_materials() {
 }
 
 #[test]
-fn vendor_stock_runs_out_without_breaking_invariants() {
-    let sc = Scenario::from_json(include_str!("../scenarios/chain-stock-out.json")).unwrap();
+fn running_out_of_gold_stops_production_cleanly() {
+    // Vendor stock is unlimited (owner, 2026-10-20), so gold is the brake: each knife needs
+    // 2 ore (4g) + charcoal (1g) + ash log (3g) + pine resin (2g) = 10g of inputs.
+    let sc = Scenario::from_json(include_str!("../scenarios/chain-gold-out.json")).unwrap();
     let r = run(&sc).unwrap();
     assert!(r.failures.is_empty(), "{:?}", r.failures);
-    // Pine resin (farm, 30) or ash logs (carpenter, 40) run out; production then stops cleanly.
-    let out = ["farm/pine_resin", "carpenter/ash_log"]
-        .iter()
-        .any(|k| r.end_vendor_stock.get(*k) == Some(&0));
-    assert!(out, "{:?}", r.end_vendor_stock);
+    assert!(r.produced.get("kitchen_knife").copied().unwrap_or(0) > 1);
     assert!(
-        r.commands
-            .get("Buy")
-            .is_some_and(|t| t.refused > 0 || t.ok > 0)
+        r.end.gold < 10,
+        "spent down to below one knife's inputs: {}",
+        r.end.gold
     );
+    assert!(r.commands.get("Buy").is_some_and(|t| t.ok > 0));
 }
 
 #[test]
@@ -227,7 +235,7 @@ fn bundled_scenarios_load() {
         include_str!("../scenarios/offline-8h.json"),
         include_str!("../scenarios/baseline-ore-dagger-runaway.json"),
         include_str!("../scenarios/chain-day.json"),
-        include_str!("../scenarios/chain-stock-out.json"),
+        include_str!("../scenarios/chain-gold-out.json"),
     ] {
         Scenario::from_json(text).unwrap();
     }

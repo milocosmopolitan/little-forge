@@ -4,14 +4,57 @@
     "seed": 0,
     "duration_secs": 86400,
     "sample_every_secs": 3600,
-    "start": { "preset": "fresh" },
-    "driver": { "kind": "player", "craft": false, "act_every_secs": 5 }
+    "start": {
+      "preset": "fresh"
+    },
+    "driver": {
+      "kind": "player",
+      "craft": false,
+      "act_every_secs": 5
+    }
   },
-  "seeds": { "from": 1, "count": 5 },
+  "seeds": {
+    "from": 1,
+    "count": 5
+  },
   "vary": {
-    "/start/gold": [0, 40, 500],
-    "/driver/buy_materials": [true, false],
-    "/driver/make": [[], ["kitchen_knife"], ["kitchen_knife", "wooden_club", "wooden_staff", "frying_pan"]],
-    "/offline": [[], [{ "at": 7200, "secs": 28800 }]]
+    "/start/gold": [
+      0,
+      40,
+      500
+    ],
+    "/driver/buy_materials": [
+      true,
+      false
+    ],
+    "/driver/make": [
+      [],
+      [
+        "kitchen_knife"
+      ],
+      [
+        "kitchen_knife",
+        "wooden_club",
+        "wooden_staff",
+        "frying_pan"
+      ],
+      [
+        "wooden_shield",
+        "farming_hoe",
+        "sickle",
+        "woodcutting_axe",
+        "cleaver",
+        "hand_saw"
+      ]
+    ],
+    "/offline": [
+      [],
+      [
+        {
+          "at": 7200,
+          "secs": 28800
+        }
+      ]
+    ]
   }
 }

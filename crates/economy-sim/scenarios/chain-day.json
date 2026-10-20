@@ -3,12 +3,26 @@
   "seed": 42,
   "duration_secs": 86400,
   "sample_every_secs": 3600,
-  "start": { "preset": "fresh" },
+  "start": {
+    "preset": "fresh",
+    "gold": 300
+  },
   "driver": {
     "kind": "player",
     "craft": false,
     "buy_ore": true,
-    "make": ["kitchen_knife", "wooden_club", "wooden_staff", "frying_pan"],
+    "make": [
+      "kitchen_knife",
+      "wooden_club",
+      "wooden_staff",
+      "frying_pan",
+      "wooden_shield",
+      "farming_hoe",
+      "sickle",
+      "woodcutting_axe",
+      "cleaver",
+      "hand_saw"
+    ],
     "act_every_secs": 5
   }
 }
