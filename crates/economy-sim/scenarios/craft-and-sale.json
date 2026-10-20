@@ -1,0 +1,7 @@
+{
+  "name": "craft-and-sale",
+  "seed": 42,
+  "duration_secs": 3600,
+  "start": { "preset": "legacy-dagger" },
+  "driver": { "kind": "script", "commands": [{ "at": 0, "command": "Craft" }] }
+}

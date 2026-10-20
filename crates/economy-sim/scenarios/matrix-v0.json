@@ -1,0 +1,18 @@
+{
+  "base": {
+    "name": "v0",
+    "seed": 0,
+    "duration_secs": 86400,
+    "step_secs": 1,
+    "sample_every_secs": 3600,
+    "driver": { "kind": "player", "act_every_secs": 10 }
+  },
+  "seeds": { "from": 1, "count": 10 },
+  "vary": {
+    "/start/gold": [0, 40, 200],
+    "/driver/buy_ore": [true, false],
+    "/driver/craft": [true, false],
+    "/driver/orders": [true, false],
+    "/offline": [[], [{ "at": 7200, "secs": 28800 }]]
+  }
+}

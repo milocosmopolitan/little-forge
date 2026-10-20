@@ -1,0 +1,12 @@
+[package]
+name = "economy-sim"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+description = "Headless economy simulator over forge-core (#131). No Bevy, no window."
+
+[dependencies]
+forge-core.workspace = true
+forge-content.workspace = true
+serde.workspace = true
+serde_json.workspace = true
