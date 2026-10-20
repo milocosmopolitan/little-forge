@@ -1,0 +1,1096 @@
+{
+ "version": "0.3",
+ "doc": "docs/design/MATERIAL_ATLAS_V1.md",
+ "cell": [
+  32,
+  32
+ ],
+ "grid": "B 2x2 cells per icon",
+ "atlas_cells": [
+  8,
+  6
+ ],
+ "atlas_size": [
+  256,
+  192
+ ],
+ "content_box": [
+  1,
+  1,
+  30,
+  30
+ ],
+ "ground_row": 30,
+ "light": "top-left",
+ "max_colors_per_icon": 16,
+ "ramps": {
+  "outline": [
+   "#0b0806"
+  ],
+  "rock": [
+   "#3b3632",
+   "#57504a",
+   "#7a7168",
+   "#a0968a"
+  ],
+  "rock-dark": [
+   "#1f1d21",
+   "#2b2a2e",
+   "#423f45",
+   "#5e5a60"
+  ],
+  "quartz": [
+   "#9a968e",
+   "#c4c0b6",
+   "#e2ded4",
+   "#f6f3ea"
+  ],
+  "iron": [
+   "#2e3236",
+   "#4a5056",
+   "#6c737a",
+   "#9aa2a8"
+  ],
+  "steel": [
+   "#3a4552",
+   "#5f6f80",
+   "#93a5b6",
+   "#dbe7f0"
+  ],
+  "copper": [
+   "#5c2a17",
+   "#9a4a26",
+   "#cf7740",
+   "#f2b07a"
+  ],
+  "tin": [
+   "#77746a",
+   "#a8a596",
+   "#cfccbc",
+   "#eeeadc"
+  ],
+  "lead": [
+   "#30343e",
+   "#4a505c",
+   "#666c78",
+   "#8a909c"
+  ],
+  "silver": [
+   "#6e7682",
+   "#a9b2bd",
+   "#d8dfe6",
+   "#ffffff"
+  ],
+  "gold": [
+   "#7a5208",
+   "#b8860f",
+   "#e8bf2c",
+   "#fff1a0"
+  ],
+  "zinc": [
+   "#5a6066",
+   "#868e94",
+   "#aeb6bc",
+   "#d2d8dc"
+  ],
+  "bronze": [
+   "#4a2c14",
+   "#8a5a2c",
+   "#b8844a",
+   "#e0b878"
+  ],
+  "brass": [
+   "#6a5a20",
+   "#a8963c",
+   "#d8c460",
+   "#f6eaa8"
+  ],
+  "hematite": [
+   "#5a2418",
+   "#8e3b22",
+   "#b8613a"
+  ],
+  "malachite": [
+   "#0e4a32",
+   "#1f6e4a",
+   "#3fa06a",
+   "#7cc890"
+  ],
+  "cassiterite": [
+   "#140e0c",
+   "#2e1e16",
+   "#4e3426"
+  ],
+  "sphalerite": [
+   "#3a2208",
+   "#6e4212",
+   "#a86a22",
+   "#d8a050",
+   "#f0d090"
+  ],
+  "scale": [
+   "#5a3a2a"
+  ],
+  "pine-bark": [
+   "#3a2a20",
+   "#5c4232",
+   "#7a5a44",
+   "#9a7658"
+  ],
+  "pine-end": [
+   "#c8a060",
+   "#e2c27e",
+   "#f0dca4"
+  ],
+  "oak-bark": [
+   "#3e3328",
+   "#5c4c3c",
+   "#7a6852"
+  ],
+  "oak-end": [
+   "#9a6c46",
+   "#b88a5e",
+   "#d0a878"
+  ],
+  "ash-bark": [
+   "#4a4038",
+   "#6e645a",
+   "#8f877c",
+   "#aaa296"
+  ],
+  "ash-end": [
+   "#b08a5a",
+   "#d2b080",
+   "#e6cc9c"
+  ],
+  "walnut-bark": [
+   "#1e1612",
+   "#2a1f18",
+   "#3f2f24",
+   "#5a4434"
+  ],
+  "walnut-end": [
+   "#3e2618",
+   "#5e3e26",
+   "#7a5434",
+   "#d8cca8"
+  ],
+  "cherry-bark": [
+   "#2a1614",
+   "#4a2420",
+   "#6e3a30",
+   "#a0705c"
+  ],
+  "cherry-end": [
+   "#7e3a28",
+   "#9a4e36",
+   "#b8684a",
+   "#e2c890"
+  ],
+  "mahogany-bark": [
+   "#3a2e2a",
+   "#4a3c36",
+   "#6a5248",
+   "#8a6a5c"
+  ],
+  "mahogany-end": [
+   "#8a3e2a",
+   "#a8563a",
+   "#c47a5a"
+  ],
+  "yew-bark": [
+   "#3a1a12",
+   "#4a2418",
+   "#6e3a26",
+   "#9a5a3e"
+  ],
+  "yew-end": [
+   "#a85a2a",
+   "#c87a3e",
+   "#d8955a",
+   "#e8d098"
+  ],
+  "flesh": [
+   "#b8907a",
+   "#d8b8a0"
+  ],
+  "deer-fur": [
+   "#5a3218",
+   "#8a4e28",
+   "#b46a38",
+   "#f0e6d6"
+  ],
+  "boar-fur": [
+   "#1e1a18",
+   "#3a302a",
+   "#5a4a3e",
+   "#8a7a66"
+  ],
+  "wolf-fur": [
+   "#2a2a30",
+   "#3a3a40",
+   "#6a6a72",
+   "#9a9aa2",
+   "#c8c8cc"
+  ],
+  "bear-fur": [
+   "#24160e",
+   "#3e2818",
+   "#5e4030",
+   "#b8aca0"
+  ],
+  "tiger-fur": [
+   "#161210",
+   "#b85a14",
+   "#e07a20",
+   "#f0a040",
+   "#f4ead8"
+  ],
+  "deer-leather": [
+   "#7a5a36",
+   "#a07c50",
+   "#c4a070",
+   "#e0c494"
+  ],
+  "boar-leather": [
+   "#3a2214",
+   "#4a2a18",
+   "#6e4026",
+   "#93582f"
+  ],
+  "wolf-leather": [
+   "#3a3029",
+   "#4e4038",
+   "#6e5c50",
+   "#91806e"
+  ],
+  "bear-leather": [
+   "#24160e",
+   "#3a2416",
+   "#5a3a24",
+   "#7a5434"
+  ],
+  "tiger-leather": [
+   "#6e3a18",
+   "#8a4a1e",
+   "#b8692c",
+   "#dc8e44"
+  ],
+  "cord": [
+   "#4a3a28",
+   "#8a7454"
+  ],
+  "charcoal": [
+   "#121010",
+   "#262322",
+   "#3e3936",
+   "#5e5550"
+  ],
+  "coal": [
+   "#0e0f14",
+   "#20222c",
+   "#383c4a",
+   "#8a9ab8",
+   "#e0e8ff"
+  ],
+  "wood-ash": [
+   "#3a3634",
+   "#5e5a56",
+   "#8a8580",
+   "#b6b0a8",
+   "#dcd6cc"
+  ],
+  "resin": [
+   "#6a3008",
+   "#a8560e",
+   "#d68a1c",
+   "#f2c050",
+   "#fff0b0"
+  ],
+  "branch-bark": [
+   "#3e2a1c",
+   "#6a4a32",
+   "#8e6a4a",
+   "#d8b88a"
+  ],
+  "chalcopyrite": [
+   "#d4b44a"
+  ],
+  "galena": [
+   "#3a3e48",
+   "#6a707c",
+   "#a0a8b4",
+   "#d8dee6"
+  ],
+  "mineral-glint": [
+   "#ece6da"
+  ],
+  "birch-bark": [
+   "#9a968e",
+   "#c8c4bc",
+   "#e6e2da",
+   "#f6f4ee"
+  ],
+  "birch-mark": [
+   "#1e1a18",
+   "#8a847a"
+  ],
+  "birch-end": [
+   "#c8a878",
+   "#dcc092",
+   "#efe4cc"
+  ]
+ },
+ "items": [
+  {
+   "id": "iron_ore",
+   "name_en": "Iron Ore",
+   "name_ko": "철 광석",
+   "family": "ore",
+   "template": "ore-A",
+   "tier": "P0",
+   "cell": [
+    0,
+    0
+   ],
+   "palette": [
+    "outline",
+    "rock",
+    "hematite",
+    "scale"
+   ],
+   "cue": "rust-red hematite patches across grey host rock",
+   "source": "mine expedition (tiered)"
+  },
+  {
+   "id": "copper_ore",
+   "name_en": "Copper Ore",
+   "name_ko": "구리 광석",
+   "family": "ore",
+   "template": "ore-A",
+   "tier": "P1",
+   "cell": [
+    1,
+    0
+   ],
+   "palette": [
+    "outline",
+    "rock",
+    "copper",
+    "malachite"
+   ],
+   "cue": "grey rock with a green banded malachite vein and a few brassy chalcopyrite grains",
+   "source": "mine expedition (tiered)"
+  },
+  {
+   "id": "tin_ore",
+   "name_en": "Tin Ore",
+   "name_ko": "주석 광석",
+   "family": "ore",
+   "template": "ore-A",
+   "tier": "P1",
+   "cell": [
+    2,
+    0
+   ],
+   "palette": [
+    "outline",
+    "rock",
+    "cassiterite"
+   ],
+   "cue": "grey rock with black-brown cassiterite and 1px adamantine glints",
+   "source": "mine expedition (tiered)"
+  },
+  {
+   "id": "lead_ore",
+   "name_en": "Lead Ore",
+   "name_ko": "납 광석",
+   "family": "ore",
+   "template": "ore-A",
+   "tier": "P1",
+   "cell": [
+    3,
+    0
+   ],
+   "palette": [
+    "outline",
+    "rock",
+    "lead"
+   ],
+   "cue": "grey rock with metallic lead-grey galena",
+   "source": "mine expedition (tiered)"
+  },
+  {
+   "id": "silver_ore",
+   "name_en": "Silver Ore",
+   "name_ko": "은 광석",
+   "family": "ore",
+   "template": "ore-A",
+   "tier": "P2",
+   "cell": [
+    4,
+    0
+   ],
+   "palette": [
+    "outline",
+    "rock-dark",
+    "silver"
+   ],
+   "cue": "near-black rock with a bright silvery native-silver vein",
+   "source": "mine expedition (tiered)"
+  },
+  {
+   "id": "gold_ore",
+   "name_en": "Gold Ore",
+   "name_ko": "금 광석",
+   "family": "ore",
+   "template": "ore-A",
+   "tier": "P2",
+   "cell": [
+    5,
+    0
+   ],
+   "palette": [
+    "outline",
+    "quartz",
+    "gold"
+   ],
+   "cue": "white quartz host with a native gold vein",
+   "source": "mine expedition (tiered)"
+  },
+  {
+   "id": "zinc_ore",
+   "name_en": "Zinc Ore",
+   "name_ko": "아연 광석",
+   "family": "ore",
+   "template": "ore-A",
+   "tier": "P2",
+   "cell": [
+    6,
+    0
+   ],
+   "palette": [
+    "outline",
+    "rock",
+    "sphalerite"
+   ],
+   "cue": "grey rock with resinous yellow-brown sphalerite and a pale highlight",
+   "source": "mine expedition (tiered)"
+  },
+  {
+   "id": "iron_ingot",
+   "name_en": "Iron Ingot",
+   "name_ko": "철 주괴",
+   "family": "ingot",
+   "template": "ingot",
+   "tier": "P0",
+   "cell": [
+    0,
+    1
+   ],
+   "palette": [
+    "outline",
+    "iron"
+   ],
+   "cue": "neutral dark grey; two 1px forge-scale specks on the front face; matte, single short highlight",
+   "source": "smelt iron_ore + fuel"
+  },
+  {
+   "id": "copper_ingot",
+   "name_en": "Copper Ingot",
+   "name_ko": "구리 주괴",
+   "family": "ingot",
+   "template": "ingot",
+   "tier": "P1",
+   "cell": [
+    1,
+    1
+   ],
+   "palette": [
+    "outline",
+    "copper"
+   ],
+   "cue": "reddish-orange; the only red-orange ingot",
+   "source": "smelt copper_ore + fuel"
+  },
+  {
+   "id": "tin_ingot",
+   "name_en": "Tin Ingot",
+   "name_ko": "주석 주괴",
+   "family": "ingot",
+   "template": "ingot",
+   "tier": "P1",
+   "cell": [
+    2,
+    1
+   ],
+   "palette": [
+    "outline",
+    "tin"
+   ],
+   "cue": "silvery-white with a faint warm yellow cast; light and matte",
+   "source": "smelt tin_ore + fuel"
+  },
+  {
+   "id": "lead_ingot",
+   "name_en": "Lead Ingot",
+   "name_ko": "납 주괴",
+   "family": "ingot",
+   "template": "ingot",
+   "tier": "P1",
+   "cell": [
+    3,
+    1
+   ],
+   "palette": [
+    "outline",
+    "lead"
+   ],
+   "cue": "dull grey with a blue tint (tarnished); top-right corner dented by 1px",
+   "source": "smelt lead_ore + fuel"
+  },
+  {
+   "id": "silver_ingot",
+   "name_en": "Silver Ingot",
+   "name_ko": "은 주괴",
+   "family": "ingot",
+   "template": "ingot",
+   "tier": "P2",
+   "cell": [
+    4,
+    1
+   ],
+   "palette": [
+    "outline",
+    "silver"
+   ],
+   "cue": "brightest near-white with pure white highlights",
+   "source": "smelt silver_ore + fuel"
+  },
+  {
+   "id": "gold_ingot",
+   "name_en": "Gold Ingot",
+   "name_ko": "금 주괴",
+   "family": "ingot",
+   "template": "ingot",
+   "tier": "P2",
+   "cell": [
+    5,
+    1
+   ],
+   "palette": [
+    "outline",
+    "gold"
+   ],
+   "cue": "saturated deep yellow, orange shadow",
+   "source": "smelt gold_ore + fuel"
+  },
+  {
+   "id": "zinc_ingot",
+   "name_en": "Zinc Ingot",
+   "name_ko": "아연 주괴",
+   "family": "ingot",
+   "template": "ingot",
+   "tier": "P2",
+   "cell": [
+    6,
+    1
+   ],
+   "palette": [
+    "outline",
+    "zinc"
+   ],
+   "cue": "pale silver-grey with only a faint blue tint; lighter and less blue than steel, cooler than tin",
+   "source": "smelt zinc_ore + fuel"
+  },
+  {
+   "id": "steel_ingot",
+   "name_en": "Steel Ingot",
+   "name_ko": "강철 주괴",
+   "family": "ingot",
+   "template": "ingot",
+   "tier": "P1",
+   "cell": [
+    7,
+    1
+   ],
+   "palette": [
+    "outline",
+    "steel"
+   ],
+   "cue": "cool blue-grey with the brightest bevel highlight among grey ingots",
+   "source": "iron_ingot + charcoal|coal, steelmaking"
+  },
+  {
+   "id": "bronze_ingot",
+   "name_en": "Bronze Ingot",
+   "name_ko": "청동 주괴",
+   "family": "ingot",
+   "template": "ingot",
+   "tier": "P1",
+   "cell": [
+    0,
+    2
+   ],
+   "palette": [
+    "outline",
+    "bronze"
+   ],
+   "cue": "copper-toned reddish brown, darker than copper",
+   "source": "copper_ingot + tin_ingot"
+  },
+  {
+   "id": "brass_ingot",
+   "name_en": "Brass Ingot",
+   "name_ko": "황동 주괴",
+   "family": "ingot",
+   "template": "ingot",
+   "tier": "P2",
+   "cell": [
+    1,
+    2
+   ],
+   "palette": [
+    "outline",
+    "brass"
+   ],
+   "cue": "paler, slightly greenish yellow; less saturated than gold",
+   "source": "copper_ingot + zinc_ingot"
+  },
+  {
+   "id": "charcoal",
+   "name_en": "Charcoal",
+   "name_ko": "숯",
+   "family": "fuel",
+   "template": "fuel-chunks",
+   "tier": "P0",
+   "cell": [
+    2,
+    2
+   ],
+   "palette": [
+    "outline",
+    "charcoal"
+   ],
+   "cue": "3 split chunks; matte; visible wood-grain cracks and square ends; brown-grey edge light, no glints",
+   "source": "char wood (carbonize)"
+  },
+  {
+   "id": "coal",
+   "name_en": "Coal",
+   "name_ko": "석탄",
+   "family": "fuel",
+   "template": "fuel-chunks",
+   "tier": "P0",
+   "cell": [
+    3,
+    2
+   ],
+   "palette": [
+    "outline",
+    "coal"
+   ],
+   "cue": "3 faceted angular lumps; blue-black; 2-3 white-blue specular glints",
+   "source": "mine expedition"
+  },
+  {
+   "id": "wood_ash",
+   "name_en": "Wood Ash",
+   "name_ko": "재",
+   "family": "fuel",
+   "template": "fuel-heap",
+   "tier": "P0",
+   "cell": [
+    4,
+    2
+   ],
+   "palette": [
+    "outline",
+    "wood-ash"
+   ],
+   "cue": "low conical pale grey heap with dark speckles; no flame, no ember",
+   "source": "full burn of logs/branches"
+  },
+  {
+   "id": "pine_resin",
+   "name_en": "Pine Resin",
+   "name_ko": "송진",
+   "family": "fuel",
+   "template": "fuel-drop",
+   "tier": "P0",
+   "cell": [
+    5,
+    2
+   ],
+   "palette": [
+    "outline",
+    "resin",
+    "pine-bark"
+   ],
+   "cue": "amber teardrop blob on a small pine-bark chip; inner highlight fakes translucency (binary alpha)",
+   "source": "tap pine"
+  },
+  {
+   "id": "wood_branch",
+   "name_en": "Wood Branch",
+   "name_ko": "나뭇가지",
+   "family": "branch",
+   "template": "branch",
+   "tier": "P0",
+   "cell": [
+    6,
+    2
+   ],
+   "palette": [
+    "outline",
+    "branch-bark"
+   ],
+   "cue": "one generic bare twig, neutral medium brown with a pale tan cut tip; no species, no leaves",
+   "source": "foraging / any felled tree"
+  },
+  {
+   "id": "pine_log",
+   "name_en": "Pine Log",
+   "name_ko": "소나무 원목",
+   "family": "log",
+   "template": "log",
+   "tier": "P0",
+   "cell": [
+    0,
+    3
+   ],
+   "palette": [
+    "outline",
+    "pine-bark",
+    "pine-end"
+   ],
+   "cue": "brown thick bark plates (lower trunk; orange-red only on young upper trunk); end grain pale-yellow sapwood ring around a light yellow-brown heart",
+   "source": "logging / carpenter trade"
+  },
+  {
+   "id": "oak_log",
+   "name_en": "Oak Log",
+   "name_ko": "참나무 원목",
+   "family": "log",
+   "template": "log",
+   "tier": "P0",
+   "cell": [
+    1,
+    3
+   ],
+   "palette": [
+    "outline",
+    "oak-bark",
+    "oak-end"
+   ],
+   "cue": "grey-brown bark, deep vertical furrows and ridges; end grain light-to-medium brown with a reddish cast and pale ray flecks",
+   "source": "logging / carpenter trade"
+  },
+  {
+   "id": "ash_log",
+   "name_en": "Ash Log",
+   "name_ko": "물푸레나무 원목",
+   "family": "log",
+   "template": "log",
+   "tier": "P0",
+   "cell": [
+    2,
+    3
+   ],
+   "palette": [
+    "outline",
+    "ash-bark",
+    "ash-end"
+   ],
+   "cue": "grey-brown bark netted with diamond-shaped furrows; end grain wide beige sapwood around a light-brown heart (not white)",
+   "source": "logging / carpenter trade"
+  },
+  {
+   "id": "walnut_log",
+   "name_en": "Walnut Log",
+   "name_ko": "호두나무 원목",
+   "family": "log",
+   "template": "log",
+   "tier": "P1",
+   "cell": [
+    3,
+    3
+   ],
+   "palette": [
+    "outline",
+    "walnut-bark",
+    "walnut-end"
+   ],
+   "cue": "dark brown-to-black bark with deep narrow furrows; chocolate-brown heart inside a thin pale yellow-grey sapwood ring",
+   "source": "logging / carpenter trade"
+  },
+  {
+   "id": "cherry_log",
+   "name_en": "Cherry Log",
+   "name_ko": "벚나무 원목",
+   "family": "log",
+   "template": "log",
+   "tier": "P1",
+   "cell": [
+    4,
+    3
+   ],
+   "palette": [
+    "outline",
+    "cherry-bark",
+    "cherry-end"
+   ],
+   "cue": "dark red-brown bark with horizontal lenticel stripes (old bark breaks into black curled plates); reddish-brown heart, pale yellow sapwood ring",
+   "source": "logging / carpenter trade"
+  },
+  {
+   "id": "mahogany_log",
+   "name_en": "Mahogany Log",
+   "name_ko": "마호가니 원목",
+   "family": "log",
+   "template": "log",
+   "tier": "P2",
+   "cell": [
+    5,
+    3
+   ],
+   "palette": [
+    "outline",
+    "mahogany-bark",
+    "mahogany-end"
+   ],
+   "cue": "brownish-grey to reddish-brown scaly bark with long furrows; pinkish-to-reddish-brown end grain",
+   "source": "logging / carpenter trade"
+  },
+  {
+   "id": "yew_log",
+   "name_en": "Yew Log",
+   "name_ko": "주목 원목",
+   "family": "log",
+   "template": "log",
+   "tier": "P2",
+   "cell": [
+    6,
+    3
+   ],
+   "palette": [
+    "outline",
+    "yew-bark",
+    "yew-end"
+   ],
+   "cue": "thin reddish-brown bark flaking in small strips along the stem; orange-brown heart inside a thin pale yellow sapwood band",
+   "source": "logging / carpenter trade"
+  },
+  {
+   "id": "birch_log",
+   "name_en": "Birch Log",
+   "name_ko": "자작나무 원목",
+   "family": "log",
+   "template": "log",
+   "tier": "P1",
+   "cell": [
+    7,
+    3
+   ],
+   "palette": [
+    "outline",
+    "birch-bark",
+    "birch-mark",
+    "birch-end"
+   ],
+   "cue": "white bark with black diamond marks and pale grey horizontal lenticels; pale yellow-brown end grain, near-white sapwood",
+   "source": "logging / carpenter trade"
+  },
+  {
+   "id": "deer_hide",
+   "name_en": "Deer Hide",
+   "name_ko": "사슴 생가죽",
+   "family": "raw-hide",
+   "template": "raw-hide",
+   "tier": "P1",
+   "cell": [
+    0,
+    4
+   ],
+   "palette": [
+    "outline",
+    "deer-fur",
+    "flesh"
+   ],
+   "cue": "reddish-brown summer coat, white belly edges, slender head with long upright ears",
+   "source": "TBD: no deer source yet"
+  },
+  {
+   "id": "boar_hide",
+   "name_en": "Boar Hide",
+   "name_ko": "멧돼지 생가죽",
+   "family": "raw-hide",
+   "template": "raw-hide",
+   "tier": "P0",
+   "cell": [
+    1,
+    4
+   ],
+   "palette": [
+    "outline",
+    "boar-fur",
+    "flesh"
+   ],
+   "cue": "black-brown bristle coat; outline broken by 1px bristle spikes along the spine; lower-right corner turned up showing pale flesh side",
+   "source": "expedition: Wild boar"
+  },
+  {
+   "id": "wolf_pelt",
+   "name_en": "Wolf Pelt",
+   "name_ko": "늑대 모피",
+   "family": "raw-hide",
+   "template": "raw-hide",
+   "tier": "P0",
+   "cell": [
+    2,
+    4
+   ],
+   "palette": [
+    "outline",
+    "wolf-fur",
+    "flesh"
+   ],
+   "cue": "grey coat, darker spine stripe, bushy tail flap; lower-right corner turned up showing pale flesh side",
+   "source": "expedition: Dire wolf"
+  },
+  {
+   "id": "bear_hide",
+   "name_en": "Bear Hide",
+   "name_ko": "곰 생가죽",
+   "family": "raw-hide",
+   "template": "raw-hide",
+   "tier": "P2",
+   "cell": [
+    3,
+    4
+   ],
+   "palette": [
+    "outline",
+    "bear-fur",
+    "flesh"
+   ],
+   "cue": "broad round head, wide clawed paws, dark brown shaggy fur with silvery grizzled tips",
+   "source": "TBD: no bear source yet"
+  },
+  {
+   "id": "tiger_pelt",
+   "name_en": "Tiger Pelt",
+   "name_ko": "호랑이 모피",
+   "family": "raw-hide",
+   "template": "raw-hide",
+   "tier": "P2",
+   "cell": [
+    4,
+    4
+   ],
+   "palette": [
+    "outline",
+    "tiger-fur",
+    "flesh"
+   ],
+   "cue": "orange coat with black mostly vertical stripes, white underside edges, long striped tail",
+   "source": "TBD: no tiger source yet"
+  },
+  {
+   "id": "deer_leather",
+   "name_en": "Deer Leather",
+   "name_ko": "사슴 가죽",
+   "family": "leather",
+   "template": "leather-roll",
+   "tier": "P1",
+   "cell": [
+    0,
+    5
+   ],
+   "palette": [
+    "outline",
+    "deer-leather",
+    "cord"
+   ],
+   "cue": "honey-beige buckskin roll",
+   "source": "tan deer_hide (leatherworker)"
+  },
+  {
+   "id": "boar_leather",
+   "name_en": "Boar Leather",
+   "name_ko": "멧돼지 가죽",
+   "family": "leather",
+   "template": "leather-roll",
+   "tier": "P0",
+   "cell": [
+    1,
+    5
+   ],
+   "palette": [
+    "outline",
+    "boar-leather",
+    "cord"
+   ],
+   "cue": "dark red-brown with pore dots; 2px edge; rolled, tied with cord, straight cut edge",
+   "source": "tan boar_hide (leatherworker)"
+  },
+  {
+   "id": "wolf_leather",
+   "name_en": "Wolf Leather",
+   "name_ko": "늑대 가죽",
+   "family": "leather",
+   "template": "leather-roll",
+   "tier": "P0",
+   "cell": [
+    2,
+    5
+   ],
+   "palette": [
+    "outline",
+    "wolf-leather",
+    "cord"
+   ],
+   "cue": "mid grey-brown, 2px edge; rolled, tied with cord, straight cut edge",
+   "source": "tan wolf_pelt (leatherworker)"
+  },
+  {
+   "id": "bear_leather",
+   "name_en": "Bear Leather",
+   "name_ko": "곰 가죽",
+   "family": "leather",
+   "template": "leather-roll",
+   "tier": "P2",
+   "cell": [
+    3,
+    5
+   ],
+   "palette": [
+    "outline",
+    "bear-leather",
+    "cord"
+   ],
+   "cue": "dark brown roll (edge thickness shared with the base roll)",
+   "source": "tan bear_hide (leatherworker)"
+  },
+  {
+   "id": "tiger_leather",
+   "name_en": "Tiger Leather",
+   "name_ko": "호랑이 가죽",
+   "family": "leather",
+   "template": "leather-roll",
+   "tier": "P2",
+   "cell": [
+    4,
+    5
+   ],
+   "palette": [
+    "outline",
+    "tiger-leather",
+    "cord"
+   ],
+   "cue": "golden-orange roll with faint darker stripe ghosts",
+   "source": "tan tiger_pelt (leatherworker)"
+  }
+ ],
+ "generator": "Sprite Fusion (MCP), tag little-forge"
+}
